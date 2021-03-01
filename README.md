@@ -1,11 +1,12 @@
 # @angular-package/type
 
-[![GitHub issues](https://img.shields.io/github/issues/angular-package/type?style=for-the-badge)](https://github.com/angular-package/type/issues)
-[![GitHub forks](https://img.shields.io/github/forks/angular-package/type?style=for-the-badge)](https://github.com/angular-package/type/network)
-[![GitHub stars](https://img.shields.io/github/stars/angular-package/type?style=for-the-badge)](https://github.com/angular-package/type/stargazers)
-[![GitHub license](https://img.shields.io/github/license/angular-package/type?style=for-the-badge)](https://github.com/angular-package/type/blob/main/LICENSE)
+[![npm version](https://badge.fury.io/js/%40angular-package%2Ftype.svg)](https://badge.fury.io/js/%40angular-package%2Ftype)
+[![GitHub issues](https://img.shields.io/github/issues/angular-package/type)](https://github.com/angular-package/type/issues)
+[![GitHub forks](https://img.shields.io/github/forks/angular-package/type)](https://github.com/angular-package/type/network)
+[![GitHub stars](https://img.shields.io/github/stars/angular-package/type)](https://github.com/angular-package/type/stargazers)
+[![GitHub license](https://img.shields.io/github/license/angular-package/type)](https://github.com/angular-package/type/blob/main/LICENSE)
 
-Common types, function guards and checkers for `angular-package` library.
+Common types, type guards and checkers for `angular-package` library.
 
 ```typescript
 // Guards
@@ -276,3 +277,19 @@ How do I know when to release 1.0.0?
 ## License
 
 MIT © angular-package ([license](https://github.com/angular-package/type/blob/main/LICENSE))
+
+
+# Packages
+
+| Package          | Description                                                                              | Status        | Readme      |
+|------------------|------------------------------------------------------------------------------------------|---------------|-------------|
+| change-detection | Improve application performance.                                                         | *In Progress* | [Readme][0] |
+| prism            | `Prism` highlighter module.                                                              | *In Progress* | [Readme][1] |
+| ui               | User interface based on **[Spectre.css](https://github.com/picturepan2/spectre)**.       | *In Progress* | [Readme][2] |
+| type             | Common types, type guards and checkers for `angular-package` library.                    | [![npm version](https://badge.fury.io/js/%40angular-package%2Ftype.svg)](https://badge.fury.io/js/%40angular-package%2Ftype) | [Readme][3] |
+
+[0]: https://github.com/angular-package/change-detection#readme
+[1]: https://github.com/angular-package/prism#readme
+[2]: https://github.com/angular-package/ui#readme
+[3]: https://github.com/angular-package/type#readme
+
