@@ -1,0 +1,31 @@
+{
+  "name": "@angular-package/type",
+  "version": "1.0.0",
+  "description": "Common types and guards for angular-package library",
+  "author": "Angular Package <angular-package@wvvw.dev> (http://wvvw.dev)",
+  "homepage": "https://github.com/angular-package/type#readme",
+  "peerDependencies": {},
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "keywords": [
+    "angular-package",
+    "@angular-package/type",
+    "type",
+    "types",
+    "guards",
+    "type guards"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angular-package/type.git"
+  },
+  "bugs": {
+    "url": "https://github.com/angular-package/type/issues"
+  },
+  "license": "MIT"
+}
