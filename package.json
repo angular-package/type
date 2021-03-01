@@ -1,10 +1,10 @@
 {
-  "name": "@angular-package/angular-package",
+  "name": "@angular-package/library",
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build type --prod",
     "test": "ng test",
     "lint": "ng lint"
   },
