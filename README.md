@@ -1,4 +1,16 @@
-# @angular-package/type
+# Packages
+
+Useful packages written on [angular.io](https://angular.io/) framework.
+
+
+| Package          | Description                                                                              | Status        | Readme      |
+|------------------|------------------------------------------------------------------------------------------|---------------|-------------|
+| change-detection | Improve application performance.                                                         | *In Progress* | [Readme][0] |
+| prism            | `Prism` highlighter module.                                                              | *In Progress* | [Readme][1] |
+| ui               | User interface based on **[Spectre.css](https://github.com/picturepan2/spectre)**.       | *In Progress* | [Readme][2] |
+| type             | Common types, type guards and checkers for `angular-package` library.                    | [![npm version](https://badge.fury.io/js/%40angular-package%2Ftype.svg)](https://badge.fury.io/js/%40angular-package%2Ftype) | [Readme][3] |
+
+# type
 
 [![npm version](https://badge.fury.io/js/%40angular-package%2Ftype.svg)](https://badge.fury.io/js/%40angular-package%2Ftype)
 [![GitHub issues](https://img.shields.io/github/issues/angular-package/type)](https://github.com/angular-package/type/issues)
@@ -277,16 +289,6 @@ How do I know when to release 1.0.0?
 ## License
 
 MIT © angular-package ([license](https://github.com/angular-package/type/blob/main/LICENSE))
-
-
-# Packages
-
-| Package          | Description                                                                              | Status        | Readme      |
-|------------------|------------------------------------------------------------------------------------------|---------------|-------------|
-| change-detection | Improve application performance.                                                         | *In Progress* | [Readme][0] |
-| prism            | `Prism` highlighter module.                                                              | *In Progress* | [Readme][1] |
-| ui               | User interface based on **[Spectre.css](https://github.com/picturepan2/spectre)**.       | *In Progress* | [Readme][2] |
-| type             | Common types, type guards and checkers for `angular-package` library.                    | [![npm version](https://badge.fury.io/js/%40angular-package%2Ftype.svg)](https://badge.fury.io/js/%40angular-package%2Ftype) | [Readme][3] |
 
 [0]: https://github.com/angular-package/change-detection#readme
 [1]: https://github.com/angular-package/prism#readme
