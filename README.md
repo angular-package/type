@@ -112,7 +112,7 @@ Check is **any** `value` a generic object `Obj` with possible `key` in it. The r
 ```typescript
 // Imported function code.
 const isObject = <Obj>(value: any, key?: string): value is Obj =>
-  typeof value === 'object' && value instanceof Object ? isString(key) ? key in value : false : false;
+  typeof value === 'object' && value instanceof Object ? isString(key) ? key in value : true : false;
 ```
 Parameter   | Type           | Description
 ------------|      :---:     |---------------
@@ -153,7 +153,7 @@ value       | `any`          | Any `value` to check it is a `'string'` type.
 Check is any `value` a generic `Constructor` or primitive type. The return value is a `boolean` value.
 ```typescript
 // Imported function code.
-const isType = <Type>(value: any, type: Types<Type>): value is Type => (typeof type === 'string') ? (typeof value === type) : value instanceof type;
+const isType = <Type>(value: any, type: Types<Type>): value is Type => typeof type === 'string' ? typeof value === type : value instanceof type;
 ```
 Parameter   | Type           | Description
 ------------|      :---:     |---------------
