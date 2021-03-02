@@ -1,8 +1,8 @@
-import { FunctionType } from '../../lib/function.type';
+import { Func } from '../../lib/func.type';
 /**
- * Check function `func` by finding `name` in `func`.
- * @param name Value `string` to find in argument `func`.
- * @param func Function type value to find `name` in.
+ * Check is any `value` a `'function'` type.
+ * @param value Any value to check.
  * @returns boolean.
+ * @example https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBAYgrgOwMbAJYHsEBVzQLxQAUAdKWAIYBO5AtgFxTkIgCUUeAfI8wNwBQSTAGdgUVEPjI0mdkQBu5ADZwIDJqwYLl0cbEQoM2XOy6hI6AGZQtK9ngIByC-ukIHUAGQfrS26gQiTEgQlnpShvwCwqIAQgDycQAyAKIAggByAPoAaqmJAKrJshZKQhD8ggGxAJIA4tXpWDl5hbIAnAAMHQDsAIxtbQBMAKwALN2jHQO9CBXRUOn5ALIxyQBKzQVFBL2D3XNVUADKWGsNtZutjksgUAhwNABGEJRiQg6RlSKw+ekAwlhqnEslgAJoABWSDEkBkwOEgskIAA8GPcni8WGpmCYoABvKCUCDAOCUBBQJFQADUUGGPCgAF8BIpyEIhFA-tFKHAUOhKH9may8eTZLSGVFDn9gSc1vkAXENn9EqkjkdZAgIAB3dmc7nAXn8llCQgsT7CdCKCDERToADmhAABjBfgCgSCIcl7QAaN4w1yEJ3-QHAzJgyEsE1QAD0kagwC5EHFQnNlutdvtHKqXJ5fIFQi9PpchkIGZEWb1OcN4bp0dj8cTyattsIDkl6Wlsqw8syiuVRwc3vEvqLrfbcoVSpVVajMZKijK9YtjbtDniSTSWVyW37BfCmEIq5SGUuySnNdn86+DdTzcWK3Wx+3g8Le9vqw2m8Kp5npQTQA
  */
-export const isFunction = (name: string, func: FunctionType): func is FunctionType => name in func;
+export const isFunction = (value: any): value is Func => typeof value === 'function' && value instanceof Function;
