@@ -168,13 +168,13 @@ type        | `Types<Type>`  | Constructor generic `Type` or one of the `Primiti
 Guard the `func` value to be `Func` type. The return value is a `boolean` value.
 ```typescript
 // Imported function code.
-const guardFunction = (func: Func): func is Func => typeof func === 'function' && func instanceof Function;
+const guardFunction = (func: Func): func is Func => isFunction(func);
 ```
 Parameter   | Type           | Description
 ------------|      :---:     |---------------
 func        | `Func`         | Type `Func` value to guard.
 
-[Example](20)
+[Example][20]
 
 
 ### guardNumber()
