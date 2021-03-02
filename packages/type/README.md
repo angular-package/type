@@ -84,13 +84,13 @@ npm i --save @angular-package/type
 Check is **any** `value` a `'function'` type. The return value is a `boolean` value.
 ```typescript
 // Imported function code.
-const isFunction = (value: any): value is FunctionType => typeof value === 'function' && value instanceof Function;
+const isFunction = (value: any): value is Func => typeof value === 'function' && value instanceof Function;
 ```
 Parameter   | Type           | Description
 ------------|      :---:     |---------------
 value       | `any`          | Any `value` to check it is a `'function'` type.
 
-[Example](https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBAYgrgOwMbAJYHsEBVzQLxQAUAdKWAIYBO5AtgFxTkIgCUUeAfI8wNwBQSTAGdgUVEPjI0mdkQBu5ADZwIDJqwYLl0cbEQoM2XOy6hI6AGZQtK9ngIByC-ukIHUAGQfrS26gQiTEgQlnpShvwCwqIAQgDycQAyAKIAggByAPoAaqmJAKrJshZKQhD8ggGxAJIA4tXpWDl5hbIAnAAMHQDsAIxtbQBMAKwALN2jHQO9CBXRUOn5ALIxyQBKzQVFBL2D3XNVUADKWGsNtZutjksgUAhwNABGEJRiQg6RlSKw+ekAwlhqnEslgAJoABWSDEkBkwOEgskIAA8GPcni8WGpmCYoABvKCUCDAOCUBBQJFQADUUGGPCgAF8BIpyEIhFA-tFKHAUOhKH9may8eTZLSGVFDn9gSc1vkAXENn9EqkjkdZAgIAB3dmc7nAXn8llCQgsT7CdCKCDERToADmhAABjBfgCgSCIcl7QAaN4w1yEJ3-QHAzJgyEsE1QAD0kagwC5EHFQnNlutdvtHKqXJ5fIFQi9PpchkIGZEWb1OcN4bp0dj8cTyattsIDkl6Wlsqw8syiuVRwc3vEvqLrfbcoVSpVVajMZKijK9YtjbtDniSTSWVyW37BfCmEIq5SGUuySnNdn86+DdTzcWK3Wx+3g8Le9vqw2m8Kp5npQTQA)
+[Example][10]
 
 
 ### isNumber()
@@ -104,7 +104,7 @@ Parameter   | Type           | Description
 ------------|      :---:     |---------------
 value       | `any`          | Any `value` to check it is a `'number'` type.
 
-[Example](https://www.typescriptlang.org/play?jsx=0#code/MYewdgzgLgBAlhAcgVwLYCMCmAnGBeGACgDcBDAG2UwC4ZSwBPASlrMs3ghjDS1zwB8MKAwAOmEADMYbKvjwEA5Dww5FMAGQbOAMThg4UTCQpUmAbgBQoSLADKAFQBKASUQBxAPoA1AIIAZAFUAUXwYRX8QbExUeFEINAB+RSsbaBhEQIBZACFgpx8AkLCAJgB2VPB0nIB5Gv9g30RCoNCCSQoITErbGByXdzcHFuKCAE4ABgmygEYxsZKAVgAWMuWJ+ZmwHogQckwAOnIQAHNCAANHVw8R4POAGk4UVWxCK7cvP1amCxgAej+MA65C61iqe0OxzO50yuXytweT14OEIsLyBS+IR+5n+gKg2CoYMgEKOpwutXqjWamLujwQzz4hApDSat2xuKBnUwRN2+1J0P6g0QwxpiPpyNegqGbN+AM5IO5QA)
+[Example][11]
 
 
 ### isObject()
@@ -119,7 +119,7 @@ Parameter   | Type           | Description
 value       | `any`          | Any value to check it is a `'object'` type.
 key?        | `string`       | Key to find in argument object `value`.
 
-[Example](https://www.typescriptlang.org/play?jsx=0&ssl=5&ssc=1&pln=5&pc=166#code/MYewdgzgLgBAlhAylATnMBzGBeGAKANwEMAbAVwFMAuGIsATwEobjyL4IZo1McA+GFHoAHCiABmMVpRzZcAcm7oM8gNwAodFAopxRYOwDyAIwBWFYFACSYbbv3sA3jAAeNMGQC2xnapgBfTVsdPQMYQygACx0Tc0sYZwx3Lx8UP0ChURgAMTIwSzhwABURdlw8ADoq4SIUIk8aOiZ+WgYNUEhYBFiLWFwAHli+QlJKRoYAGhgAawp6AH4aJUxmKVH2BHCzFsyxSWkyuRh5EDNe+RgAMku1tnhOugMJLbjYeY5kHgw8Web33-utxkNFQwJgehIEAo7RIRAgnAAwuBuGRLCAUAjYfCEq4cDAAKzpdQdaAwBGGAByiCKACUAKoIoqGGkAfQRABkAIKIRB4sAUADuZORoLRGKxEDwjHaIpgAClEJSWYYAEJygCijJoPUsNjsoTKOLcMAAzAFibLsnSKYyrEqigBNAAK6pouXyUEKYBKWXKxo83h0qyaLRcMs6MBVhkM7PVnIpLIAapz2XT1XjQdCLZAQCQKBUSCBvgADJGdFCoqDozFwiDFqbdM6WfpllFimvw4bkqm0hlM1kc7mIRjSmAAejHggrFGzEFz+cLJYVStVGsZ9Y4OqggyiMSbUGGy4Tq81RRHfgnU8os-nBaLeGLVptRTtCcdLo3jde-XdBWKpWGJ9bXtZ11XPcdJwhKEbzzO8S27al6UZZk2S5HkAG0XAAXU-CAtxbEUK3bCUu0pRC+xQwceSmeQXHkcDL0zGCF3vYsj2VNVT3Q+gcIbPD9x3aIUC3Q9FWPTjGRo+h6NHS8oJnElb0XB8gJfECXUw3jNwE39PX-URAOtYC31Ami6IYyDSGgxTYOU4soxjOME2TVN1Vw-CmmGBzY3jJMUzTCzwSsmcgA)
+[Example][12]
 
 
 ### isPrimitive()
@@ -133,7 +133,7 @@ Parameter   | Type           | Description
 value       | `any`          | Any `value` to check it is a generic `Type` from the `type`.
 type        | `Primitives`   | One of the `Primitives` `'boolean'`, `'bigint'`, `'number'`, `'string'` type to check `value`.
 
-[Example](https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBACgTgSwLYOAgbhAzlAvFAcgCMB7EgGwgEMA7AqAH0KIQHMEbh6mCaBXJEQhxuhLMEQ1WBANwAoAMYka4qAizxkqDNHwAeACrgIAPgAU6KuT4QAXFFogANFFCQA-Pc0o0mLAEp7S2todSgjSDwTV2MSADMoYJs8XHw3CHklFWAoACEAeXyAGQBRAEEAOQB9ADUyooBVErwoOKssDMVlVVyASQBxXoqDWvqmloBOAAYpgHYARgmJgCYAVgAWWfWppfmaTO6cioaAWVySgCVRxub8eeXZg+yoAGUDC6H+6-H8AhOQKD8QTCNRYWRdFQUCAAOnIJFYZgABgViuVqnUboiXOpvNpMHpSFDaOYUaVKt8Si5iGRKLQCP5-DIoAB6ZmuOA2CFYKGw+FIvqDYYUrGg3G+CAEtgcYAkgZDEYYppUljsTj0xkstkSTlZbmUXkIxHHM6XYXYjSIHw6PRAoRwczG85XRWUwi24Tqpms9k67o8uGGt4fCpfF0inGWvES8SSVjmIOfClUmMcaQMr1ajkQLn+vnIwpk9FjErhi1acUEmnUGjx96Jl3Kqt09Oa1rtbO63OGgXys2iyMVlXSh2nJ1J5hStUt71tcgdHP6gNIx2msPmsXW932swJkPj3gCO2e1uz+edxd53eh4uljf4lNSEcm53F5MSVPHmftuRAA)
+[Example][13]
 
 
 ### isString()
@@ -146,7 +146,7 @@ Parameter   | Type           | Description
 ------------|      :---:     |---------------
 value       | `any`          | Any `value` to check it is a `'string'` type.
 
-[Example](https://www.typescriptlang.org/play?jsx=0#code/MYewdgzgLgBAlhAylATnMBzGBeGAKANwEMAbAVwFMAuGIsATwEobjyL4IZo1McA+GFHoAHCiABmMVpRzZcAcm7oM8gNwAodaEixEAFQBKASQByAcQD6ANQCCAGQCqAURwx5dkCgoBbeMIhk3gD8alrg0DAmDgCyAEJOBtb2zq4ATADsGtoRsQDyuXZONiZJji644qQQFBphkCAkFAB0JCAYeAAG+sbmpc4dADQcyDzt3aaWtmWMjKowAPTzgiiUdRANza3tHVFxCX1Og8Ooyni78YlTzjNzizCVJNVrGy1tnXkFRSVXh0MII6cPoVigcbgslg8nkA)
+[Example][14]
 
 
 ### isType()
@@ -160,7 +160,7 @@ Parameter   | Type           | Description
 value       | `any`          | Any value to check it is a generic `Type` from one of the `type`.
 type        | `Types<Type>`  | Constructor generic `Type` or one of the `Primitives` `'boolean'`, `'bigint'`, `'number'`, `'string'` to check `value` type.
 
-[Example](https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBAwg9gOwM7AE4FcDGw6oDwAq4EAfFALxQIQDuUAFAHTMCGqA5kgFxQsIgBtALoBKCmSKQA3AChQkKAAVUASwC2K4CoBuEJBSgByAEZw4AGwh9DUAD5HjK9ioTAb9wwnRrjEVO6MUVQR2Q1l5aEk9PAB5YwArMkp4ZDQsHHw4xLslVQ0tXSRZTEQUKBUkKINCYgM+EBJ6bRZzdAgeeoAaKAieKKQayBIRHmbW6AqoKvIyegi4ADMe2vJVwLQXULEAfgZ5pbG2ijWIsVGWo5cUPkwIReXpGUxzFiR9FKD0NDgYF7eoADeUAAHgYAIxSKAAXyepWAsAAMgBBADKKIA+gA1JEIgCqAFEDNQ6B80t9fq8kPQRMU4VAAEIxGII-FIgByWJxBIMCxaSAgtNSDIAkgBxYVsgicvGEygATgADAqAOxguVygBMAFYACzKnUK9VghCCsps3EAWXp+IAStLuZQwRrlab4SiCDaJaL7bKjBaQFRvL5UOUkGFYcgLBBGOY4Ox6AADUkYcl-JAJ7oVKJ4ZNfVA-NONGDItE+7q51OUkQ0qAAelrPQwEAjSCjMbjicZzNZHOxMozoezpijfEaXZZ7LLDjMlms1ch9cbbRbbdj8YT9LFEqlfYJA6zxDwQU2Y63kqnJicLjc87rDbSzZKkcs7fX5qttvRBAAEjb8fj90qQ8vB8PxGnfa07V3fFuk8IM-EMW9FwfFcXzXRMIM-AAxGJcRtQDs2PEJGndT02W9aDYKIrYa2QpsZCAA)
+[Example][15]
 
 
 ## Guards
@@ -174,7 +174,7 @@ Parameter   | Type           | Description
 ------------|      :---:     |---------------
 func        | `Func`         | Type `Func` value to guard.
 
-[Example](https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBAYgrgOwMZQLxQBQDodgIYBOeAtgFxR4IgCUaAfBVQNwBQSA9ggM7BQDmcQgBN4yYAEtOaTADNEScqKTVyc5FHFdY8+lFCR2MqGpSozUAOQmJnC1ABk94zvHdglJBEPaxkhKzZOHigAIQB5MIAZAFEAQQA5AH0ANVjIgFVo6Rk8ABsuCFYON1CASQBxUviAFRS0zOkATgAGZoB2AEZGxoAmAFYAFjaB5u6O-0CS+PSAWRDogCU6jKz0Dp62oqDeAGVqhary5Yb0CxmQKAQ4YgAjCAINLgsA4uCYdPiAYWrSsKTqgCaAAVooodOgMAAPchXW73FSMC6oBgAbygBAgwDgBAQUEhUAA1FA+kwoABfNi5PBcLSfbYEOBIYDsAifKk0qBo-HoEnkybBT5-PYLdLfMJLT6RWI7HbSBAQADuUDpbgZTJZbOpXAw1BeQXYuQgWFy7D4GAABuEonEkqkVuaADT8QQEETyGwIDDvL4-P6JQEg6i6qAAehDegZEH5BqNJrN5pVPDVzNZ7K4judwiUHowieAyY1aaDpLDxjyBWjhuNpowFkF8WFouq4sSkulOwsToEWfdflzQv2TZbbZlxdD4Zy+Sjrxj1bNFitMQSx2inczruzfcXNpXY9Lk4rM6rcdr0zmixXa+7G97nAwZ-mSztmT3E-LUaAA)
+[Example](https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBAYgrgOwMZQLxQBQDodgIYBOeAtgFxR4IgCUaAfBVQNwBQSA9ggM7BQCWXeMmB9OaTADc8AGzgRylGuSmzoA2IhSoGoSOwBmUFXLSp0Acn2aRnc1ABk9ozJN9uwSkggGNw0QlYOdygAczhCABMhJBsEcQwrZHJo6nJElHVo+n5Ba38EzWpWNk4eKAAhAHlKgBkAUQBBADkAfQA1BpqAVTrxfRkuCEDS3nKASQBxMaaAFXbOnvEATgAGFYB2AEYlpYAmAFYAFnXDlZ3NgJLgpq6AWXK6gCV57t70Td314eCAZRnH6YTF6LCy3EBQBBwYgAIwgBBy5mKQTKMC6TQAwjMxpVWjMAJoABTqyU08QAHuRITC4alGODtFAAN5QAgQYBwAhxMlQADUUH2TCgAF82NI8FwuFB0SMCHAYuwCOixRKmVBuegBcKrmV0Ti-o8upjKs90TUGj8fuIEBAAO5SmVy4AKpXirgYIosbXsaQQLDSdghDAAA1RGKxOJa+KJQYANKFwgQonlOBhQ5jsbjCXVqEUoAB6PNQYCyiCe5He33+wNB6XuWXyxXKrix+ORaKxDC1nj1p2N105wUFoslqDQuC8PgTyUIdi8LIzcCl8s+v0BjDmXVNfWGmbGlqm80-cxxsJt5MITt6-47vcHi0D-OF-rSQZeldV9dVWqNVodV7H1tE3bfIv3qZpgWzXMh2fV9l0rNdzBue4ngggDTyA88MCQh5nj-HoH2ggZSyAA)
 
 
 ### guardNumber()
@@ -208,14 +208,14 @@ Guard the `object` to be generic `Obj` type and guard by finding `key` in the `o
 ```typescript
 // Imported function code.
 const guardObjectKey = <Obj, Key extends keyof Obj>(object: Obj, key: Key): object is Obj =>
-  guardObject<Obj>(object) ? isString(key) ? key in object : false : false;
+  guardObject<Obj>(object) ? isString(key) ? key in object : true : false;
 ```
 Parameter   | Type         | Description
 ------------|      :---:   |---------------
 object      | `Obj`        | Generic `Obj` value to guard and to find `key` value in.
 key         | `Key`        | Value to find in `object`.
 
-[Example](https://www.typescriptlang.org/play?jsx=0#code/MYewdgzgLgBAlhAylATnMBzGBeGAKANwEMAbAVwFMAuGIsATwEobjyL4IZo1McA+GFHoAHCiABmMVpRzZcAcm7oM8gNwAoUJFgYyRFABMA8gCMAVhWCxcAHlNm+hUpRr3mU5+wQx7-QSLFJaXY5BRBzSyh5GAAyGI82eG06YECfCKsNLWgYXX1jDKgAaQp6HBg7cwAaGBKyigAPKAowA04Aa1KJdIc8cIsrV2qYTvoaOvd+yI4e-nUYXL1De0jK3qmrRhgAfg5kHgw8Ua3d0aSYDdgaVBkacVIICiySIghOIzAKAGEXt5gAbxgDXKAEZVDAyrgAEzggC+MGysCMADkAKIAfS+ABkAIKIRDlT4Adx8nx+rwgeEYzwpMAAKkSQOS-oDIYIUJQ4QjwDk6QB1IyY3H4wkUEkMpm-SnU9ToZooe6pHqRD7sQENGhgMgAWxMFBQ4LGMC1uv1cPBiJ8ACEAFKor509Eo1FDAZQVXldU0ACsNSNUIA7DBYRo5frFewVlYJQCIZqdXqDcGLTykbb7Y7+UZXZEY7hWT7k5oeSASBQAHQkECHAAGAHElgZSd8pQBtegAXRgRLgUAAFj40UK8Yh2x2azU8stCnU7GSpTV5PR5I5ncP8Yvl4xqTAAPS79mUcswVEEfX0fvKGbidAV4uQUsVqu1hv5ZvMiBj7u9gdZ9ejzsJ0WfIo2KUo5xbClNxXPA-2xEdoO3cF93pAJgMMd8pW7EAUHaCBjy+PtLHabDcPww872yR9K2rPB60bTCKVbAAvLse37QcMXg-ExyAqcCjdWdVQ-RdmJgtduMQRCdxQuk0P4xi-mEFAQFEFAhFIvCCKI4ASMZMjjxuSiSzLGiXwY4S21Y78OIk4VR1YvjG1AoT5ygmB5AacSh0k0T5CQvcDzk0R0KbSzaX0rSYEI4jNPI+4SEect7wgajnzo18MNA1VWwaNif2tO0HSdNFcvHSdnJncDss+RcvNXdNiudOr-Jkg9T3PS9eG8G9PkMjljIfUz0vot8aooFj8tsxrMwFXiKpAqr6DWFVao8sSGqK2ajGk5CgvkhjlNU-UNMi8iYt0uL+qPdQgA)
+[Example](https://www.typescriptlang.org/play?jsx=0#code/MYewdgzgLgBAlhAylATnMBzGBeGAKANwEMAbAVwFMAuGIsATwEobjyL4IZo1McA+GFHoAHCiABmMVpRzZcAcm7oM8gNwAoUJFgIA8gCMAVhWCxcAHgOG+hUpRp16AGhgBrCvQD8NJZmZS7dgQYK35BETFJaXY5BRAjEyh5GAAyFIC2eG06YEiQhNMYTw5kHgw8dyYitw8sjJkaVAaYcVIICg0taBgMMiIUABMrRJwYSyMbeONTGit-KZHg0OwBPQKoces8BdNGTvBu3v6h9YBpWosrF3P6GAoADygKMAHOSol8rZ2oWaMXSpoN3m6w4n346hgPT6g2Gpk2k3WjGqCFKygqHiRxUqdW+MEaKGarRI7U6JCIEE4ujAFAAwmSKTAAN4we6jACMqhgt1wACZOQBfGBdWC6AByAFEAPo0gAyAEFEIhRtSAO4hal08kQPB7TT0zgAFRVIE1DOZ3MEBI6MEFwpgBoA6rppfLFcqKGqjSb9TqNOgnihWrlPokqexmfcaGAyABbfQUFCc+hR2PxxM2zl23QAIQAUuKaQbJWLxb9plAw6MIzQAKwuZMwHkAdgz6n9CaD7FhUC9TK5KbjCYFmYOIrzBaLjt0ZcSvdw5trra6IBIFAAdCQQOUAAYAcWhA3VtP1AG16ABdGAquBQAAWIQlLoViDP5+3LiOMLOHksGv1Lnkeh5BsEsn0VACgMYPYYAAehgy1KDXGBxQIBN6DvZRQXEdB100A4V3XTcd33Y4j1NCBXyvG97ynMCXwvd8oWObsbl-Y8tQg4C8Fo2Vn04qDOTg+0IiYwYyP1K8QBQVwICQmlbxMVxJOk2SENw5dVw3Lc8D3A9xK1E8AC9L2vO8HylXjFVfRjPxOctWLDciAMMrjQMsxB+OgoSDRE2z9IZYQUBAUQUCEZSZLkhTgCU40VKQpp1PwzSiJ0kixMc09jKosy3NdF9jJsg8WJ-DKOJgeR7lcx93Oc+QBNg+CfNEUTD1KhlYoimB5MU8LVKJdo1zwyACK04i9O7MMT3uEzqJCcdC2LCUprfD8iu-ehNlDakAMqkD5qLEsdrqrz4JQtCMN4YJsOpeKrUGjTCO03TSIm6kjJmnL9slKdrNW5j1s20ww1qvb8wWqdPMExrfL0wLgoTMKOtU7rot627EPUIA)
 
 
 ### guardPrimitive()
@@ -326,4 +326,17 @@ MIT © angular-package ([license](https://github.com/angular-package/type/blob/m
 [1]: https://github.com/angular-package/prism#readme
 [2]: https://github.com/angular-package/ui#readme
 [3]: https://github.com/angular-package/type#readme
+
+[10]: https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBAYgrgOwMZQLxQBQDodgIYBOeAtgFxR4IgCUaAfBVQNwBQSA9ggM7BQCWXeMmB9OaTADc8AGzgRylGuSmzoA2IhSoGoSOwBmUFXLSp0Acn2aRnc1ABk9ozJN9uwSkggGNw0QlY2Th4oACEAeXCAGQBRAEEAOQB9ADU4qIBVGPF9GS4IVg53MIBJAHEShIAVVPSs8QBOAAYmgHYARgaGgCYAVgAWVv6mrvaAoOKEjIBZUJiAJVrM7PR27tbC4N4AZSr5yrKl+otpkCgEOGIAIwgCfi5zQKKQmAyEgGEqkvDkqoBNAAKMXIQi0mAAHuQLtdbtQFFR6FAAN5QAgQYBwAgIKDgqAAaigvSYUAAvmxpHguFwoO8tgQ4EhgOwCO8KVTkTjxETSRMQu8frt5hlPuFFu8onFtttxAgIAB3Gl0hlMllsrgYahPYLsaQQLDSdgAcwwAANXh8vj8kv8gSaADT3UE2BAYc2fb6-QExaiaqAAej9UGA9IgvJ1eoNxpNtPc9MZzNZlK49sd1n8GBjPDjKsTVJ9xIDQZDYd1+qNGHM-ISguFVVFSXFku25gdAid6arNZFYolUvz-sDuWk+RLEfL5gi0XiyTSyxbqb8nAwk9iiSO3t9haHI+e4bLxvMU1mC3X87baaXR7mi1nWX7W7yoaAA
+
+[11]: https://www.typescriptlang.org/play?jsx=0#code/MYewdgzgLgBAlhAcgVwLYCMCmAnGBeGACgDcBDAG2UwC4ZSwBPASlrMs3ghjDS1zwB8MKAwAOmEADMYbKvjwEA5Dww5FMAGQbOAMThg4UTCQpUmAbgBQoSLADKAFQBKASUQBxAPoA1AIIAZAFUAUXwYRX8QbExUeFEINAB+RSsbaBhEQIBZACFgpx8AkLCAJgB2VPB0nIB5Gv9g30RCoNCCSQoITErbGByXdzcHFuKCAE4ABgmygEYxsZKAVgAWMuWJ+ZmwHogQckwAOnIQAHNCAANHVw8R4POAGk4UVWxCK7cvP1amCxgAej+MA65C61iqe0OxzO50yuXytweT14OEIsLyBS+IR+5n+gKg2CoYMgEKOpwutXqjWamLujwQzz4hApDSat2xuKBnUwRN2+1J0P6g0QwxpiPpyNegqGbN+AM5IO5QA
+
+[12]: https://www.typescriptlang.org/play?jsx=0&ssl=5&ssc=1&pln=5&pc=166#code/MYewdgzgLgBAlhAylATnMBzGBeGAKANwEMAbAVwFMAuGIsATwEobjyL4IZo1McA+GFHoAHCiABmMVpRzZcAcm7oM8gNwAodFAopxRYOwDyAIwBWFYFACSYbbv3sA3jAAeNMGQC2xnapgBfTVsdPQMYQygACx0Tc0sYZwx3Lx8UP0ChURgAMTIwSzhwABURdlw8ADoq4SIUIk8aOiZ+WgYNUEhYBFiLWFwAHli+QlJKRoYAGhgAawp6AH4aJUxmKVH2BHCzFsyxSWkyuRh5EDNe+RgAMku1tnhOugMJLbjYeY5kHgw8Web33-utxkNFQwJgehIEAo7RIRAgnAAwuBuGRLCAUAjYfCEq4cDAAKzpdQdaAwBGGAByiCKACUAKoIoqGGkAfQRABkAIKIRB4sAUADuZORoLRGKxEDwjHaIpgAClEJSWYYAEJygCijJoPUsNjsoTKOLcMAAzAFibLsnSKYyrEqigBNAAK6pouXyUEKYBKWXKxo83h0qyaLRcMs6MBVhkM7PVnIpLIAapz2XT1XjQdCLZAQCQKBUSCBvgADJGdFCoqDozFwiDFqbdM6WfpllFimvw4bkqm0hlM1kc7mIRjSmAAejHggrFGzEFz+cLJYVStVGsZ9Y4OqggyiMSbUGGy4Tq81RRHfgnU8os-nBaLeGLVptRTtCcdLo3jde-XdBWKpWGJ9bXtZ11XPcdJwhKEbzzO8S27al6UZZk2S5HkAG0XAAXU-CAtxbEUK3bCUu0pRC+xQwceSmeQXHkcDL0zGCF3vYsj2VNVT3Q+gcIbPD9x3aIUC3Q9FWPTjGRo+h6NHS8oJnElb0XB8gJfECXUw3jNwE39PX-URAOtYC31Ami6IYyDSGgxTYOU4soxjOME2TVN1Vw-CmmGBzY3jJMUzTCzwSsmcgA
+
+[13]: https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBACgTgSwLYOAgbhAzlAvFAcgCMB7EgGwgEMA7AqAH0KIQHMEbh6mCaBXJEQhxuhLMEQ1WBANwAoAMYka4qAizxkqDNHwAeACrgIAPgAU6KuT4QAXFFogANFFCQA-Pc0o0mLAEp7S2todSgjSDwTV2MSADMoYJs8XHw3CHklFWAoACEAeXyAGQBRAEEAOQB9ADUyooBVErwoOKssDMVlVVyASQBxXoqDWvqmloBOAAYpgHYARgmJgCYAVgAWWfWppfmaTO6cioaAWVySgCVRxub8eeXZg+yoAGUDC6H+6-H8AhOQKD8QTCNRYWRdFQUCAAOnIJFYZgABgViuVqnUboiXOpvNpMHpSFDaOYUaVKt8Si5iGRKLQCP5-DIoAB6ZmuOA2CFYKGw+FIvqDYYUrGg3G+CAEtgcYAkgZDEYYppUljsTj0xkstkSTlZbmUXkIxHHM6XYXYjSIHw6PRAoRwczG85XRWUwi24Tqpms9k67o8uGGt4fCpfF0inGWvES8SSVjmIOfClUmMcaQMr1ajkQLn+vnIwpk9FjErhi1acUEmnUGjx96Jl3Kqt09Oa1rtbO63OGgXys2iyMVlXSh2nJ1J5hStUt71tcgdHP6gNIx2msPmsXW932swJkPj3gCO2e1uz+edxd53eh4uljf4lNSEcm53F5MSVPHmftuRAA
+
+[14]: https://www.typescriptlang.org/play?jsx=0#code/MYewdgzgLgBAlhAylATnMBzGBeGAKANwEMAbAVwFMAuGIsATwEobjyL4IZo1McA+GFHoAHCiABmMVpRzZcAcm7oM8gNwAodaEixEAFQBKASQByAcQD6ANQCCAGQCqAURwx5dkCgoBbeMIhk3gD8alrg0DAmDgCyAEJOBtb2zq4ATADsGtoRsQDyuXZONiZJji644qQQFBphkCAkFAB0JCAYeAAG+sbmpc4dADQcyDzt3aaWtmWMjKowAPTzgiiUdRANza3tHVFxCX1Og8Ooyni78YlTzjNzizCVJNVrGy1tnXkFRSVXh0MII6cPoVigcbgslg8nkA
+
+[15]: https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBAwg9gOwM7AE4FcDGw6oDwAq4EAfFALxQIQDuUAFAHTMCGqA5kgFxQsIgBtALoBKCmSKQA3AChQkKAAVUASwC2K4CoBuEJBSgByAEZw4AGwh9DUAD5HjK9ioTAb9wwnRrjEVO6MUVQR2Q1l5aEk9PAB5YwArMkp4ZDQsHHw4xLslVQ0tXSRZTEQUKBUkAGU0F3YDem0Wc3QIHj4QER5G5ugKqCDa8SgIuAAzKG6WinJKQwGQsJkS1PKkKINCYhIGppa2-gAaYeIeKKRNyBJOid3e-XXyMgrq4PZ6CLEAfmPIMZue6aUCJQLq3cqpPiYCB-CLFcwsJD6FJBdBoOAweGIqAAbygAA8DABGKRQAC+S1KwFgABkAIKVSoAfQAarTqQBVACiBmodGRaTRGIRSHoImKlKgACEYjFqZzaQA5FlsrkGUZNJAQcUrSUASQA4rqFQRlRzuZQAJwABitAHZCRaLQAmACsABZbW6rY7CQhtWUFeyALKSzkAJVNqsohKdtv9VMqBDDRv1kfNRiDICo3l8qFWi2WSAsEEY5jgbwABvyMILMUgK0cKlE8NXUah0XXtjA6Qy00dW7XhSIxVAAPSj4YYCAU5DF0vl+gV6Wy+VK1lmhurZumYt8bbLuWKvsOMyWazDknjyctGdFyzzyt6w3GtObpvEPDzdj7g1Gk3rrkjhMJwXDcC8xwnNJp0LOcy0rQMQ3DRkCAACTDTlOTfNYPy8Hw-G2BDQwjADOSA3Dc0McCryg29YIXCtCKQgAxGJ2TDLDmy-bZE2TBVUxIoCv0okdqKnGQgA
+
 
