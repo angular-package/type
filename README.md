@@ -153,7 +153,7 @@ value       | `any`          | Any `value` to check it is a `'string'` type.
 Check is any `value` a generic `Constructor` or primitive type. The return value is a `boolean` value.
 ```typescript
 // Imported function code.
-const isType = <Type>(value: any, type: Types<Type>): value is Type => typeof type === 'string' ? typeof value === type : value instanceof type;
+const isType = <Type>(value: any, type: Types<Type>): value is Type => isString(type) ? typeof value === type : value instanceof type;
 ```
 Parameter   | Type           | Description
 ------------|      :---:     |---------------
