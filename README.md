@@ -86,9 +86,9 @@ Check is **any** `value` a `'function'` type. The return value is a `boolean` va
 // Imported function code.
 const isFunction = (value: any): value is Func => typeof value === 'function' && value instanceof Function;
 ```
-Parameter   | Type           | Description
-------------|      :---:     |---------------
-value       | `any`          | Any `value` to check it is a `'function'` type.
+| Parameter | Type  | Description |
+|-----------| :---: |-------------|
+| value     | `any` | Any `value` to check it is a `'function'` type. |
 
 [Example][10]
 
@@ -100,9 +100,9 @@ Check is **any** `value` a '`number`' type. The return value is a `boolean` valu
 // Imported function code.
 const isNumber = (value: any): value is number => typeof value === 'number' && isFinite(value);
 ```
-Parameter   | Type           | Description
-------------|      :---:     |---------------
-value       | `any`          | Any `value` to check it is a `'number'` type.
+| Parameter | Type  | Description |
+|-----------| :---: |-------------|
+| value     | `any` | Any `value` to check it is a `'number'` type. |
 
 [Example][11]
 
@@ -114,10 +114,10 @@ Check is **any** `value` a generic object `Obj` with possible `key` in it. The r
 const isObject = <Obj>(value: any, key?: string): value is Obj =>
   typeof value === 'object' && value instanceof Object ? isString(key) ? key in value : true : false;
 ```
-Parameter   | Type           | Description
-------------|      :---:     |---------------
-value       | `any`          | Any value to check it is a `'object'` type.
-key?        | `string`       | Key to find in argument object `value`.
+| Parameter | Type     | Description |
+|-----------| :------: |-------------|
+| value     | `any`    | Any value to check it is a `'object'` type. |
+| key?      | `string` | Key to find in argument object `value`. |
 
 [Example][12]
 
@@ -128,10 +128,10 @@ Check is any `value` a generic `Type` one of the primitive `'boolean'`, `'bigint
 // Imported function code.
 const isPrimitive = <Type>(value: any, type: Primitives): value is Type => typeof value === type;
 ```
-Parameter   | Type           | Description
-------------|      :---:     |---------------
-value       | `any`          | Any `value` to check it is a generic `Type` from the `type`.
-type        | `Primitives`   | One of the `Primitives` `'boolean'`, `'bigint'`, `'number'`, `'string'` type to check `value`.
+| Parameter | Type         | Description  |
+|-----------| :----------: |--------------|
+| value     | `any`        | Any `value` to check it is a generic `Type` from the `type`. |
+| type      | `Primitives` | One of the `Primitives` `'boolean'`, `'bigint'`, `'number'`, `'string'` type to check `value`. | 
 
 [Example][13]
 
@@ -142,9 +142,9 @@ Check is any `value` a `'string'` type. The return value is a `boolean` value.
 // Imported function code.
 const isString = (value: any): value is string => typeof value === 'string';
 ```
-Parameter   | Type           | Description
-------------|      :---:     |---------------
-value       | `any`          | Any `value` to check it is a `'string'` type.
+| Parameter | Type  | Description |
+|-----------| :---: |-------------|
+| value     | `any` | Any `value` to check it is a `'string'` type. |
 
 [Example][14]
 
@@ -155,10 +155,10 @@ Check is any `value` a generic `Constructor` or primitive type. The return value
 // Imported function code.
 const isType = <Type>(value: any, type: Types<Type>): value is Type => isString(type) ? typeof value === type : value instanceof type;
 ```
-Parameter   | Type           | Description
-------------|      :---:     |---------------
-value       | `any`          | Any value to check it is a generic `Type` from one of the `type`.
-type        | `Types<Type>`  | Constructor generic `Type` or one of the `Primitives` `'boolean'`, `'bigint'`, `'number'`, `'string'` to check `value` type.
+| Parameter | Type          | Description |
+|-----------| :-----------: |-------------|
+| value     | `any`         | Any value to check it is a generic `Type` from one of the `type`. |
+| type      | `Types<Type>` | Constructor generic `Type` or one of the `Primitives` `'boolean'`, `'bigint'`, `'number'`, `'string'` to check `value` type. |
 
 [Example][15]
 
@@ -170,9 +170,9 @@ Guard the `func` value to be `Func` type. The return value is a `boolean` value.
 // Imported function code.
 const guardFunction = (func: Func): func is Func => isFunction(func);
 ```
-Parameter   | Type           | Description
-------------|      :---:     |---------------
-func        | `Func`         | Type `Func` value to guard.
+| Parameter | Type   | Description  |
+|-----------| :----: |--------------|
+| func      | `Func` | Type `Func` value to guard. |
 
 [Example][20]
 
@@ -183,9 +183,9 @@ Guard the `value` to be `number` type. The return value is a `boolean` value.
 // Imported function code.
 const guardNumber = (value: number): value is number => isNumber(value);
 ```
-Parameter   | Type           | Description
-------------|      :---:     |---------------
-value       | `number`       | Type `number` value to guard.
+| Parameter | Type     | Description  |
+|-----------| :------: |--------------|
+| value     | `number` | Type `number` value to guard. |
 
 [Example][21]
 
@@ -196,9 +196,9 @@ Guard the `object` value to be a generic `Obj` type. The return value is a `bool
 // Imported function code.
 const guardObject = <Obj>(object: Obj): object is Obj => isObject<Obj>(object);
 ```
-Parameter   | Type         | Description
-------------|      :---:   |---------------
-object      | `Obj`        | Generic `Obj` type value to guard.
+| Parameter | Type  | Description |
+|-----------| :---: |-------------|
+| object    | `Obj` | Generic `Obj` type value to guard. |
 
 [Example][22]
 
@@ -210,10 +210,10 @@ Guard the `object` to be generic `Obj` type and guard by finding `key` in the `o
 const guardObjectKey = <Obj, Key extends keyof Obj>(object: Obj, key: Key): object is Obj =>
   guardObject<Obj>(object) ? isString(key) ? key in object : true : false;
 ```
-Parameter   | Type         | Description
-------------|      :---:   |---------------
-object      | `Obj`        | Generic `Obj` value to guard and to find `key` value in.
-key         | `Key`        | Value to find in `object`.
+| Parameter   | Type  | Description   |
+|-------------| :---: |---------------|
+| object      | `Obj` | Generic `Obj` value to guard and to find `key` value in.  |
+| key         | `Key` | Value to find in `object`. |
 
 [Example][23]
 
@@ -224,10 +224,10 @@ Guard the `value` to be a generic `Type` from one of the `Primitives`. The retur
 // Imported function code.
 const guardPrimitive = <Type>(value: Type, type: Primitives): value is Type => isPrimitive(value, type);
 ```
-Parameter   | Type         | Description
-------------|      :---:   |---------------
-value       | `Type`       | A generic `Type` type value to guard.
-type        | `Primitives` | One of the `Primitives` `'boolean'`, `'bigint'`, `'number'`, `'string'` to check `value`.
+| Parameter   | Type         | Description  |
+|-------------| :----------: |--------------|
+| value       | `Type`       | A generic `Type` type value to guard. |
+| type        | `Primitives` | One of the `Primitives` `'boolean'`, `'bigint'`, `'number'`, `'string'` to check `value`. |
 
 [Example][24]
 
@@ -238,9 +238,9 @@ Guard the `value` to be a `string` type. The return value is a `boolean` value.
 // Imported function code.
 const guardString = (value: string): value is string => isString(value);
 ```
-Parameter   | Type           | Description
-------------|      :---:     |---------------
-value       | `string`       | String type value to guard.
+| Parameter   | Type           | Description   |
+|-------------|      :---:     |---------------|
+| value       | `string`       | String type value to guard. |
 
 [Example][25]
 
@@ -251,10 +251,10 @@ Guard the `value` to be a generic `Type` from one of the `Types` type. The retur
 // Imported function code.
 const guardType = <Type>(value: Type, type: Types<Type>): value is Type => isType<Type>(value, type);
 ```
-Parameter   | Type           | Description
-------------|      :---:     |---------------
-value       | `Type`         | A generic `Type` value to guard.
-type        | `Types<Type>`  | Constructor generic `Type` or one of the `Primitives` `'boolean'`, `'bigint'`, `'number'`, `'string'` to check `value`.
+| Parameter   | Type           | Description   |
+|-------------|      :---:     |---------------|
+| value       | `Type`         | A generic `Type ` value to guard. |
+| type        | `Types<Type>`  | Constructor generic `Type` or one of the `Primitives` `'boolean'`, `'bigint'`, `'number'`, `'string'` to check `value`. |
 
 [Example][26]
 
