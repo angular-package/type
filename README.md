@@ -2,13 +2,12 @@
 
 Useful packages written on [angular.io](https://angular.io/) framework.
 
-
 | Package          | Description                                                                              | Status        | Readme      |
 |------------------|------------------------------------------------------------------------------------------|---------------|-------------|
 | change-detection | Improve application performance.                                                         | *In Progress* | [Readme][0] |
 | prism            | `Prism` highlighter module.                                                              | *In Progress* | [Readme][1] |
 | ui               | User interface based on **[Spectre.css](https://github.com/picturepan2/spectre)**.       | *In Progress* | [Readme][2] |
-| type             | Common types, type guards and checkers for `angular-package` library.                    | [![npm version](https://badge.fury.io/js/%40angular-package%2Ftype.svg)](https://badge.fury.io/js/%40angular-package%2Ftype) | [Readme][3] |
+| type             | Common types, type guards and checkers.                                                  | [![npm version](https://badge.fury.io/js/%40angular-package%2Ftype.svg)](https://badge.fury.io/js/%40angular-package%2Ftype) | [Readme][3] |
 
 # type
 
@@ -18,7 +17,7 @@ Useful packages written on [angular.io](https://angular.io/) framework.
 [![GitHub stars](https://img.shields.io/github/stars/angular-package/type)](https://github.com/angular-package/type/stargazers)
 [![GitHub license](https://img.shields.io/github/license/angular-package/type)](https://github.com/angular-package/type/blob/main/LICENSE)
 
-Common types, type guards and checkers for `angular-package` library.
+Common types, type guards and checkers for `@angular-package` library.
 
 ```typescript
 // Guards
@@ -178,7 +177,7 @@ value       | `number`       | Type `number` value to guard.
 Guard the `object` to be generic `Type` type and check by finding `property` in the `object`. The return value is a `boolean` value.
 ```typescript
 // Imported function code.
-const guardObject = <Type>(object: Type, property: string): object is Type => property in object;
+const guardObject = <Type>(object: Type, property?: string): object is Type => isString(property) ? property in object : object !== undefined;
 ```
 
 **Parameter description**
@@ -186,6 +185,24 @@ Parameter   | Type         | Description
 ------------|      :---:   |---------------
 object      | `Type`       | Generic `Type` type object to find `property` name in it 
 property    | `string`     | Property name to find in argument `object`
+
+[Typescript guardObject() playground](https://www.typescriptlang.org/play?jsx=0#code/MYewdgzgLgBAlhAylATnMBzGBeGAKANwEMAbAVwFMAuGIsATwEobjyL4IZo1McA+GFHoAHCiABmMVpRzZcAcm7oM8gNwAoUJFgYyRFABMA8gCMAVhWCxcAHgAqIinzwhzlqDQeiANDGEoQURQhAH4aJUxmGFcLKw4YL3ZsAQRkHgw8f0CKYKYYEL8AoKF4MGi3OJoY9xgAQjkYMjADCnF0CgMNTRIiCE4jMAoAYR6+mABvdRgYAA8cGABGDQBfdW7ezjsAdxARjYmpmHp51EoVteBRzYALFAphq4PpgC8TlDP1Vc1waBgjADkAKIAfSGABkAIKIRDzQZbP6DPZ9PCMDRaX52ADqRlBkOhsIo8O2uyuKLRP1gdgAEgAlQEg8FQmG4OEJW73JEQMlrAD0PIRDw230gIBIFAAdCQQBldPpjBUoDYBoK+s4AQy8YhfPIwIEijkhPJGKiYHyYOJSBB2EQiIVsrkYAYQBROLrYBQZggoBBhRBRRKpTK9IZTLFFcrOWqgbimdqZkaTWbThRefziZzff7JdK8LKQwr7DtI3gsTjGdDjapTfzk5mxdmg3LQ+5CySNs5SzHodr6Amq0n3in1Ga7OyVT70VnA7ng-Kw-Yx8XqXSNUzK9XBIP1EA)
+
+
+### guardObjectProperty()
+Guard the `object` to be generic `Type` type and guard by finding `property` in the `object`. The return value is a `boolean` value.
+```typescript
+// Imported function code.
+const guardObjectProperty = <Obj, Property extends keyof Obj>(object: Obj, property?: Property): object is Obj => isString(property) ? property in object : object !== undefined;
+```
+
+**Parameter description**
+Parameter   | Type         | Description
+------------|      :---:   |---------------
+object      | `Type`       | Generic `Type` type object to find `property` name in it 
+property    | `string`     | Property name to find in argument `object`
+
+[Typescript guardObjectProperty() playground](https://www.typescriptlang.org/play?jsx=0&ssl=2&ssc=1&pln=2&pc=178#code/MYewdgzgLgBAlhAylATnMBzGBeGAKANwEMAbAVwFMAuGIsATwEobjyL4IZo1McA+GFHoAHCiABmMVpRzZcAcm7oM8gNwAoUJFgYyRFABMA8gCMAVhWBQACihCiUQnDAA8pswBoYt+xUf0YCgAPKAowA04Aawp6CRh3PjwQc0soGncvYTsHIQB+Gh8cphpkiysOePN+DmQeDDws339GGFyYRqL4MBhS1JgSlPKAQjkYMnCKcXQKAw1NEiIITiMwCgBhBaWYAG91GBgg5wBGDQBfdXnFzgAVAHcQDaudvZgA3FRKM4vgTZuACxQFHWv2e+wAXs4PhQvppwNB4gA5ACiAH01gAZACCiEQzlWt3iq0eSzwjA0Wnh1wA6kY0VicXiKAS7g9fqTyXDYNcABIAJSRqIx2NxuHxMGuAKBxIg7IuAHo5YTgVdYZAQCQKAA6Eggeq6fTGQY2bJ+IRuIm-LzyMD2E3+eSJIzIunCxhkmAKwQidj6wwwe4oSIQVUQdVanV6vSGdypQqm+jm5VLK1BB14J2C+mIFPyN2qD2KqHyxUs6UhsPa3V4X2GsrGppm0uWmDyehp6m0oU4vMFwQoSjljWVyMGmNWOP+FxNq5WtuJDsunGz3Puz1F9SeiWApPBikViPVqO12N2xuSndWsHtvkCxeIHtr-sUdRAA)
 
 
 ### guardPrimitive()
