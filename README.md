@@ -31,21 +31,23 @@ import { Constructor, CycleHook, FunctionType, Partial, Types } from '@angular-p
 ```
 
 **Features**
-* Check 
-  * is **any** value a `function` type with [isFunction()](#isFunction) function.
-  * is **any** value a `number` type with [isNumber()](#isNumber) function.
-  * is **any** value a generic type also with check key in it with [isObject()](#isObject) function.
-  * is **any** value a generic type one of the primitive `boolean`, `bigint`, `number`, `string` type with [isPrimitive()](#isPrimitive) function.
-  * is **any** value a `string` type with [isString()](#isString) function.
-  * is **any** value a generic constructor or primitive type with [isType()](#isType) function.
-* Guard
-  * the value to be `function` type with [guardFunction()](#guardFunction) function.
-  * the value to be `number` type with [guardNumber()](#guardNumber) function.
-  * the value to be a generic type and also by finding `key` in the `object` with [guardObjectKey()](#guardObjectKey) function.
-  * the value to be a generic type with [guardObject()](#guardObject) function.
-  * the value to be a generic type from one of the `Primitives` with [guardPrimitive()](#guardPrimitive) function. 
-  * the value to be a `string` type with [guardString()](#guardString) function.
-  * the value to be a generic type from one of the `Types` type with [guardType()](#guardType) function.
+* Check is **any** value
+  * an `Array` of any type with [isArray()](#isArray) function.
+  * a `function` type with [isFunction()](#isFunction) function.
+  * a `number` type with [isNumber()](#isNumber) function.
+  * a generic type also with check key in it with [isObject()](#isObject) function.
+  * a generic type one of the primitive `boolean`, `bigint`, `number`, `string` type with [isPrimitive()](#isPrimitive) function.
+  * a `string` type with [isString()](#isString) function.
+  * a generic constructor or primitive type with [isType()](#isType) function.
+* Guard the value to be 
+  * an `Array` of generic type with [guardArray()](#guardArray) function.
+  * a `function` type with [guardFunction()](#guardFunction) function.
+  * a `number` type with [guardNumber()](#guardNumber) function.
+  * a generic type and also by finding `key` in the `object` with [guardObjectKey()](#guardObjectKey) function.
+  * a generic type with [guardObject()](#guardObject) function.
+  * a generic type from one of the `Primitives` with [guardPrimitive()](#guardPrimitive) function. 
+  * a `string` type with [guardString()](#guardString) function.
+  * a generic type from one of the `Types` type with [guardType()](#guardType) function.
 
 **How angular-package understands**
 
@@ -80,6 +82,19 @@ npm i --save @angular-package/type
 ```
 
 ## Checkers
+### isArray()
+Check is **any** `value` an `Array` of any type. The return value is a `boolean` value.
+```typescript
+// Imported function code.
+const isArray = (value: any): value is Array<any> => Array.isArray(value) && value instanceof Array;
+```
+| Parameter | Type  | Description |
+|-----------| :---: |-------------|
+| value     | `any` | Any `value` to check it is an `Array` of any type. |
+
+[Example][is-array]
+
+
 ### isFunction()
 Check is **any** `value` a `'function'` type. The return value is a `boolean` value.
 ```typescript
@@ -164,6 +179,19 @@ const isType = <Type>(value: any, type: Types<Type>): value is Type => isString(
 
 
 ## Guards
+### guardArray()
+Guard the `value` to be generic `Array` `Type`. The return value is a `boolean` value.
+```typescript
+// Imported function code.
+const guardArray = <Type>(value: Array<Type>): value is Array<Type> => isArray(value);
+```
+| Parameter | Type          | Description |
+|-----------| :-----------: |-------------|
+| value     | `Array<Type>` | Generic `Type` `value` to guard. |
+
+[Example][guard-array]
+
+
 ### guardFunction()
 Guard the `func` value to be `Func` type. The return value is a `boolean` value.
 ```typescript
@@ -335,6 +363,8 @@ MIT © angular-package ([license](https://github.com/angular-package/type/blob/m
 [type-readme-npm]: https://www.npmjs.com/package/@angular-package/type#readme
 
 
+[is-array]: https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBACgTgSwLYOAgbtAvFARge3wBsIBDAOygB88EBzBc4aqcgVyKJfaVwjhYBnYInJ0hIXsRZtyAEwgAzRhDkBuAFABjfOWFQEggIJw4pEFBwAKdKSJsIALigUQASme370Q1BNmQAB5XAD5LMP9zADpDSJAbOwc3KAAyFKgvBwM9YAotCHxFP1NzTW1dfQBlABUAJQBJADkAcQB9ADUjABkAVQBRSygAci78OAgkAzBBNiQAfiHNHRyoRp6AWQAhPtqO7v7BgCYAdiWK5k2AeUuuvqNGvd6BnEU7QQgzlZ7GgBE+gDEmn0fo8DjhZAplORVJ99EZarUjABNVo1BotUF9ZxxQLCUR0MI4ADaQ1IQwANMNcBThlohgBdWHMeGIlFrLY7THYkpBHh8OCEqBEk6UgDMxzFosZ5RWLORrRgDXW9Wq9XafS5xQCgXgyFQGAggqJwzxjDoNJFUBEWWly30AClKpcHp0noMAN6KQjOACMh1FAF8ynbiBAokR8HQrAADOUoxX1ZWq9WY6OU2I8qxxhVKlVqjWu-puNxqKAAejLVrgDhlglD4cjMez7O2u0LfTTBmMmebG1bmOLpYrVZrtfrEaj0bRTTa7c7GYCVmnGPbg-LldeRHeY5IDcnLc5c-T3cXB7b+z6a+Hm+3Id3E5jVxudxdF-nJ-MVift3uA5L66gG8IB3MMH2jb4-kBRpgVTY84isCCASBEFV3-a83mAu9QMbaNHWdWCu3gvDXyeK8NwwjQgA
+
 [is-function]: https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBAYgrgOwMZQLxQBQDodgIYBOeAtgFxR4IgCUaAfBVQNwBQSA9ggM7BQCWXeMmB9OaTADc8AGzgRylGuSmzoA2IhSoGoSOwBmUFXLSp0Acn2aRnc1ABk9ozJN9uwSkggGNw0QlY2Th4oACEAeXCAGQBRAEEAOQB9ADU4qIBVGPF9GS4IVg53MIBJAHEShIAVVPSs8QBOAAYmgHYARgaGgCYAVgAWVv6mrvaAoOKEjIBZUJiAJVrM7PR27tbC4N4AZSr5yrKl+otpkCgEOGIAIwgCfi5zQKKQmAyEgGEqkvDkqoBNAAKMXIQi0mAAHuQLtdbtQFFR6FAAN5QAgQYBwAgIKDgqAAaigvSYUAAvmxpHguFwoO8tgQ4EhgOwCO8KVTkTjxETSRMQu8frt5hlPuFFu8onFtttxAgIAB3Gl0hlMllsrgYahPYLsaQQLDSdgAcwwAANXh8vj8kv8gSaADT3UE2BAYc2fb6-QExaiaqAAej9UGA9IgvJ1eoNxpNtPc9MZzNZlK49sd1n8GBjPDjKsTVJ9xIDQZDYd1+qNGHM-ISguFVVFSXFku25gdAid6arNZFYolUvz-sDuWk+RLEfL5gi0XiyTSyxbqb8nAwk9iiSO3t9haHI+e4bLxvMU1mC3X87baaXR7mi1nWX7W7yoaAA
 
 [is-number]: https://www.typescriptlang.org/play?jsx=0#code/MYewdgzgLgBAlhAcgVwLYCMCmAnGBeGACgDcBDAG2UwC4ZSwBPASlrMs3ghjDS1zwB8MKAwAOmEADMYbKvjwEA5Dww5FMAGQbOAMThg4UTCQpUmAbgBQoSLADKAFQBKASUQBxAPoA1AIIAZAFUAUXwYRX8QbExUeFEINAB+RSsbaBhEQIBZACFgpx8AkLCAJgB2VPB0nIB5Gv9g30RCoNCCSQoITErbGByXdzcHFuKCAE4ABgmygEYxsZKAVgAWMuWJ+ZmwHogQckwAOnIQAHNCAANHVw8R4POAGk4UVWxCK7cvP1amCxgAej+MA65C61iqe0OxzO50yuXytweT14OEIsLyBS+IR+5n+gKg2CoYMgEKOpwutXqjWamLujwQzz4hApDSat2xuKBnUwRN2+1J0P6g0QwxpiPpyNegqGbN+AM5IO5QA
@@ -346,6 +376,8 @@ MIT © angular-package ([license](https://github.com/angular-package/type/blob/m
 [is-string]: https://www.typescriptlang.org/play?jsx=0#code/MYewdgzgLgBAlhAylATnMBzGBeGAKANwEMAbAVwFMAuGIsATwEobjyL4IZo1McA+GFHoAHCiABmMVpRzZcAcm7oM8gNwAodaEixEAFQBKASQByAcQD6ANQCCAGQCqAURwx5dkCgoBbeMIhk3gD8alrg0DAmDgCyAEJOBtb2zq4ATADsGtoRsQDyuXZONiZJji644qQQFBphkCAkFAB0JCAYeAAG+sbmpc4dADQcyDzt3aaWtmWMjKowAPTzgiiUdRANza3tHVFxCX1Og8Ooyni78YlTzjNzizCVJNVrGy1tnXkFRSVXh0MII6cPoVigcbgslg8nkA
 
 [is-type]: https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBAwg9gOwM7AE4FcDGw6oDwAq4EAfFALxQIQDuUAFAHTMCGqA5kgFxQsIgBtALoBKCmSKQA3AChQkKAAVUASwC2K4CoBuEJBSgByAEZw4AGwh9DUAD5HjK9ioTAb9wwnRrjEVO6MUVQR2Q1l5aEk9PAB5YwArMkp4ZDQsHHw4xLslVQ0tXSRZTEQUKBUkAGU0F3YDem0Wc3QIHj4QER5G5ugKqCDa8SgIuAAzKG6WinJKQwGQsJkS1PKkKINCYhIGppa2-gAaYeIeKKRNyBJOid3e-XXyMgrq4PZ6CLEAfmPIMZue6aUCJQLq3cqpPiYCB-CLFcwsJD6FJBdBoOAweGIqAAbygAA8DABGKRQAC+S1KwFgABkAIKVSoAfQAarTqQBVACiBmodGRaTRGIRSHoImKlKgACEYjFqZzaQA5FlsrkGUZNJAQcUrSUASQA4rqFQRlRzuZQAJwABitAHZCRaLQAmACsABZbW6rY7CQhtWUFeyALKSzkAJVNqsohKdtv9VMqBDDRv1kfNRiDICo3l8qFWi2WSAsEEY5jgbwABvyMILMUgK0cKlE8NXUah0XXtjA6Qy00dW7XhSIxVAAPSj4YYCAU5DF0vl+gV6Wy+VK1lmhurZumYt8bbLuWKvsOMyWazDknjyctGdFyzzyt6w3GtObpvEPDzdj7g1Gk3rrkjhMJwXDcC8xwnNJp0LOcy0rQMQ3DRkCAACTDTlOTfNYPy8Hw-G2BDQwjADOSA3Dc0McCryg29YIXCtCKQgAxGJ2TDLDmy-bZE2TBVUxIoCv0okdqKnGQgA
+
+[guard-array]: https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBACgTgSwLYOAgbtAvFARge3wBsIBDAOygB88EBzBc4aqcgVyKJfaVwjhYBnYInJ0hIXsRZtyAEwgAzRhDkBuAFABjfOWFQEggIJw4pEFBwAKdKSJsIALigUQASme370Q1BNmQAB5XAD5LMP9zADpDSJAbOwc3KAAyFKgvBwM9YAotCHxFP1NzTR0cqDo2Ujg5OMsoQIAVcAgQhO9nOObWkI8MxJ9BYoCeyDCsMNiS+MyIN01tXX0AZSaAJQBJADkAcQB9ADUjABkAVQBRBoByE-w4CCQDMEE2JAB+a7Ll5m2zgFkAEIXdZHU6XBoAJgA7N8KoCAPIIk4XIzbMHnK44RR2QQQOH6M7bAAiFwAYjsLsSMRCcLIFMpyKoCcwjOt1kYAJr7NZbPY0i5dGaBYSiOgTKAAbWupGuABooNdcPLFVprgBdFl+dlc-Z-IEggVC0Y8PhwCWSmEKgDM0Jt1s1SwqbI53JgW3+myam0OFyNI3MgXgyFQGDaDUlitFjDoKqtUBEWUd5X0Lt1RNJFO2VP93XpShUcgt+cZqgVJcL5fkBaZcmTPygACkVgj0cdMQ0AN6KQjOACMkOtAF9FiniBAokR8HQrAADNNuj1en1+9uXWcKqo1OrC4MoNCYdoL-buzae72+gVuBZQAD0t4TcAcTsE48n07nx-1wNBa4uG8qapam6U1+CPHVuW-Q0-2vNQ7wfRMIBfN8pxnecIJ5DYdgOP8AK3YDhWjMRwNdTC+Rw8ELlg+DH2fMcSHfNDjwzclKWpXDNyAndRgrWsSPTElWOzdjKOo+9aKQ5CGNQudeWwgU8K47oiPFKw5P5GCb3EnEiDxKSJxk2coN-SjFO3EC3jNdpjKvLSHx0vT6IMj9Z0RZFUTbUzOPM4UCHHCh2jclE0VsuDtNxJCnMYucWKzHMOMAnyeOrUsiysWK2NCmiHMi5YUJc5tWwU7yCNGfBcAAKwgLRgHaQrPMxMT7IijQgA
 
 [guard-function]: https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBAYgrgOwMZQLxQBQDodgIYBOeAtgFxR4IgCUaAfBVQNwBQSA9ggM7BQCWXeMmB9OaTADc8AGzgRylGuSmzoA2IhSoGoSOwBmUFXLSp0Acn2aRnc1ABk9ozJN9uwSkggGNw0QlYOdygAczhCABMhJBsEcQwrZHJo6nJElHVo+n5Ba38EzWpWNk4eKAAhAHlKgBkAUQBBADkAfQA1BpqAVTrxfRkuCEDS3nKASQBxMaaAFXbOnvEATgAGFYB2AEYlpYAmAFYAFnXDlZ3NgJLgpq6AWXK6gCV57t70Td314eCAZRnH6YTF6LCy3EBQBBwYgAIwgBBy5mKQTKMC6TQAwjMxpVWjMAJoABTqyU08QAHuRITC4alGODtFAAN5QAgQYBwAhxMlQADUUH2TCgAF82NI8FwuFB0SMCHAYuwCOixRKmVBuegBcKrmV0Ti-o8upjKs90TUGj8fuIEBAAO5SmVy4AKpXirgYIosbXsaQQLDSdghDAAA1RGKxOJa+KJQYANKFwgQonlOBhQ5jsbjCXVqEUoAB6PNQYCyiCe5He33+wNB6XuWXyxXKrix+ORaKxDC1nj1p2N105wUFoslqDQuC8PgTyUIdi8LIzcCl8s+v0BjDmXVNfWGmbGlqm80-cxxsJt5MITt6-47vcHi0D-OF-rSQZeldV9dVWqNVodV7H1tE3bfIv3qZpgWzXMh2fV9l0rNdzBue4ngggDTyA88MCQh5nj-HoH2ggZSyAA
 
