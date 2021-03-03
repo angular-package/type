@@ -9,7 +9,7 @@ Useful packages written on [angular.io](https://angular.io/) framework.
 | ui               | User interface based on **[Spectre.css](https://github.com/picturepan2/spectre)**.       | *In Progress* | [Github][ui-readme-github] |
 | type             | Common types, type guards and checkers.                                                  | [![npm version][type-npm-svg]][type-npm-badge] | [Github][type-readme-github] \| [npm][type-readme-npm] |
 
-# type
+# angular-package/type
 Common types, type guards and checkers.
 
 [![npm version](https://badge.fury.io/js/%40angular-package%2Ftype.svg)](https://badge.fury.io/js/%40angular-package%2Ftype)
@@ -44,7 +44,7 @@ import { Constructor, CycleHook, Func, Partial, Primitive, Primitives, Types } f
   * a generic type also with check key in it with [Object](#object) functions.
   * a generic type one of the primitive `boolean`, `bigint`, `number`, `string` type with [Primitive](#primitive) functions.
   * a `string` type with [String](#string) functions.
-  * a generic constructor or primitive type with [Type](#type) functions.
+  * a generic constructor or primitive type with [Type](#generic-type) functions.
 * Guard the value to be 
   * an `Array` of generic type with [Array guard](#array-guard) functions.
   * a `function` type with [Function guard](#function-guard) functions.
@@ -90,7 +90,7 @@ npm i --save @angular-package/type
 ```
 
 ## Is
-Partial object `is` with all **checker** functions.
+Partial object `is` with all **check** functions.
 
 ```typescript
 const is: Partial<Is> = {
@@ -120,7 +120,7 @@ const guard: Partial<Guard> = {
 };
 ```
 
-## Checkers
+## Check
 ### Array
 Use `isArray()` or `is.array()` to check is **any** `value` an `Array` of any type. The return value is a `boolean` value.
 
@@ -212,7 +212,7 @@ const isString: IsString = (value: any): value is string => typeof value === 'st
 [Example][is-string]
 
 
-### Type
+### Generic type
 Use `isType()` or `is.type()` Check is any `value` a generic `Constructor` or primitive type. The return value is a `boolean` value.
 
 ```typescript
