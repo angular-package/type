@@ -1,6 +1,6 @@
 {
   "name": "@angular-package/type",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "Common types, type guards and checkers for @angular-package library.",
   "author": "Angular Package <angular-package@wvvw.dev> (http://wvvw.dev)",
   "homepage": "https://github.com/angular-package/type#readme",
