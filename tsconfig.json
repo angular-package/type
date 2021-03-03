@@ -16,25 +16,9 @@
       "dom"
     ],
     "paths": {
-      "core": [
-        "dist/core/core",
-        "dist/core"
-      ],
-      "component-loader": [
-        "dist/component-loader/component-loader",
-        "dist/component-loader"
-      ],
-      "change-detection": [
-        "dist/change-detection/change-detection",
-        "dist/change-detection"
-      ],
       "type": [
         "dist/type/type",
         "dist/type"
-      ],
-      "property": [
-        "dist/property/property",
-        "dist/property"
       ]
     }
   }
