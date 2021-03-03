@@ -1,3 +1,5 @@
+export { is } from './lib/is.object';
+
 export { isArray } from './lib/is-array.func';
 export { isFunction } from './lib/is-function.func';
 export { isNumber } from './lib/is-number.func';
