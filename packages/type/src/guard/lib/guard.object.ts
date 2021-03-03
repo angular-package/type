@@ -7,7 +7,7 @@ import { guardPrimitive } from './guard-primitive.func';
 import { guardString } from './guard-string.func';
 import { guardType } from './guard-type.func';
 
-export const guard: Guard = {
+export const guard: Partial<Guard> = {
   array: guardArray,
   function: guardFunction,
   number: guardNumber,

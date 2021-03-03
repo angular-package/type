@@ -7,7 +7,7 @@ import { isString } from './is-string.func';
 import { isType } from './is-type.func';
 import { Is } from '../interface/is-interface';
 
-export const is: Is = {
+export const is: Partial<Is> = {
   array: isArray,
   function: isFunction,
   number: isNumber,
