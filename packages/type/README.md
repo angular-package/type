@@ -20,13 +20,13 @@ Common types, type guards and checkers.
 
 ```typescript
 // Guards
-import { guardFunction, guardNumber, guardObjectKey, guardObject, guardPrimitive, guardString, guardType } from '@angular-package/type'; 
+import { guardArray, guardFunction, guardNumber, guardObjectKey, guardObject, guardPrimitive, guardString, guardType } from '@angular-package/type'; 
 
 // Checkers
-import { isFunction, isNumber, isObject, isPrimitive, isString, isType } from '@angular-package/type';
+import { isArray, isFunction, isNumber, isObject, isPrimitive, isString, isType } from '@angular-package/type';
 
 // Types
-import { Constructor, CycleHook, FunctionType, Partial, Types } from '@angular-package/type';
+import { Constructor, CycleHook, Func, Partial, Primitive, Primitives, Types } from '@angular-package/type';
 ```
 
 **Features**
