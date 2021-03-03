@@ -306,10 +306,13 @@ export type Partial<T> = {
   [P in keyof T]?: T[P];
 };
 ```
-### Primitives
-There are 7 primitive data types: `string`, `number`, `bigint`, `boolean`, `undefined`, `symbol`, and `null`.
+### Primitive
 ```typescript
-type Primitives = 'boolean' | 'bigint' | 'number' | 'string';
+type Primitive = boolean | bigint | null | number | string | symbol | undefined;
+```
+### Primitives
+```typescript
+type Primitives = 'bigint' | 'boolean' | 'number' | 'symbol' | 'string' | 'undefined';
 ```
 ### Types
 Types is generic `Constructor` object and `Primitives`.
