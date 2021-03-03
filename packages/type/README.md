@@ -187,7 +187,7 @@ const guardArray = <Type>(value: Array<Type>): value is Array<Type> => isArray(v
 ```
 | Parameter | Type          | Description |
 |-----------| :-----------: |-------------|
-| value     | `Array<Type>` | Generic `Type` `value` to guard. |
+| value     | `Array<Type>` | Array Generic `Type` `value` to guard. |
 
 [Example][guard-array]
 
