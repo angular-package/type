@@ -10,14 +10,13 @@ Useful packages written on [angular.io](https://angular.io/) framework.
 | type             | Common types, type guards and checkers.                                                  | [![npm version][type-npm-svg]][type-npm-badge] | [Github][type-readme-github] \| [npm][type-readme-npm] |
 
 # type
+Common types, type guards and checkers.
 
 [![npm version](https://badge.fury.io/js/%40angular-package%2Ftype.svg)](https://badge.fury.io/js/%40angular-package%2Ftype)
 [![GitHub issues](https://img.shields.io/github/issues/angular-package/type)](https://github.com/angular-package/type/issues)
 [![GitHub forks](https://img.shields.io/github/forks/angular-package/type)](https://github.com/angular-package/type/network)
 [![GitHub stars](https://img.shields.io/github/stars/angular-package/type)](https://github.com/angular-package/type/stargazers)
 [![GitHub license](https://img.shields.io/github/license/angular-package/type)](https://github.com/angular-package/type/blob/main/LICENSE)
-
-Common types, type guards and checkers for `@angular-package` library.
 
 ```typescript
 // Guards
@@ -187,7 +186,7 @@ const guardArray = <Type>(value: Array<Type>): value is Array<Type> => isArray(v
 ```
 | Parameter | Type          | Description |
 |-----------| :-----------: |-------------|
-| value     | `Array<Type>` | Array Generic `Type` `value` to guard. |
+| value     | `Array<Type>` | Array generic `Type` type `value` to guard. |
 
 [Example][guard-array]
 
