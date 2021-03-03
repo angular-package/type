@@ -1,6 +1,6 @@
 # Packages
 
-Useful packages written on [angular.io](https://angular.io/) framework.
+Useful packages based on the [angular.io](https://angular.io/).
 
 | Package          | Description                                                                              | Status        | Readme      |
 |------------------|------------------------------------------------------------------------------------------|---------------|-------------|
