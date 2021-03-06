@@ -1,4 +1,4 @@
-import { IsUndefined } from '../type/is-undefined.type';
+import { IsUndefined } from '../../type/is-undefined.type';
 /**
  * Checks if any `value` is an `'undefined'` type.
  * @param value Any `value` to check if it's an `'undefined'` type.

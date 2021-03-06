@@ -1,5 +1,5 @@
 import { isString } from './is-string.func';
-import { IsObject } from '../type/is-object.type';
+import { IsObject } from '../../type/is-object.type';
 /**
  * Checks if any `value` is a `Obj` generic `'object'` type and `Object` instance with a possible existing `key` in it.
  * Use the `guardObject()` function to type-guard generic object type also.

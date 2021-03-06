@@ -1,4 +1,4 @@
-import { IsArray } from '../type/is-array.type';
+import { IsArray } from '../../type/is-array.type';
 /**
  * Checks if any `value` is an `Array` of a generic type and `Array` instance.
  * Use the `guardArray()` function to type-guard `array` also.

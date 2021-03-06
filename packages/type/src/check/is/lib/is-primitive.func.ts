@@ -1,5 +1,5 @@
-import { Primitives } from '../../lib/primitives.type';
-import { IsPrimitive } from '../type/is-primitive.type';
+import { Primitives } from '../../../lib/primitives.type';
+import { IsPrimitive } from '../../type/is-primitive.type';
 /**
  * Checks if any `value` is a generic type from one of the `Primitives`.
  * Use the `guardPrimitive()` function to type-guard generic type also.

@@ -1,4 +1,4 @@
-import { IsSymbol } from '../type/is-symbol.type';
+import { IsSymbol } from '../../type/is-symbol.type';
 /**
  * Checks if any `value` is a `'symbol'` type.
  * Use the`guardSymbol()` function to type-guard `symbol`  also.
