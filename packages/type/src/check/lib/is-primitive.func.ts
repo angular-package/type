@@ -1,10 +1,10 @@
 import { Primitives } from '../../lib/primitives.type';
 import { IsPrimitive } from '../type/is-primitive.type';
 /**
- * Check is any `value` a generic `Type` type from one of the `Primitives`.
- * Use `guardPrimitive()` function to type guard generic `Type` `value` also.
- * @param value Any value to check it is a generic `Type` from the `type`.
+ * Checks if any `value` is a generic type from one of the `Primitives`.
+ * Use the `guardPrimitive()` function to type-guard generic type also.
+ * @param value Any `value` to check if it's a generic type from the argument `type`.
  * @param type One of the `Primitives` `'boolean'`, `'bigint'`, `'number'`, `'string'` type to check `value`.
- * @example https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBACgTgSwLYOAgbhAzlAvFAcgCMB7EgGwgEMA7AqAH0KIQHMEbh6mCaBXJEQhxuhLMEQ1WBANwAoAMYka4qAizxkqDNHwAeACrgIAPgAU6KuT4QAXFFogANFFCQA-Pc0o0mLAEp7S2todSgjSDwTV2MSADMoYJs8XHw3CHklFWAoACEAeXyAGQBRAEEAOQB9ADUyooBVErwoOKssDMVlVVyASQBxXoqDWvqmloBOAAYpgHYARgmJgCYAVgAWWfWppfmaTO6cioaAWVySgCVRxub8eeXZg+yoAGUDC6H+6-H8AhOQKD8QTCNRYWRdFQUCAAOnIJFYZgABgViuVqnUboiXOpvNpMHpSFDaOYUaVKt8Si5iGRKLQCP5-DIoAB6ZmuOA2CFYKGw+FIvqDYYUrGg3G+CAEtgcYAkgZDEYYppUljsTj0xkstkSTlZbmUXkIxHHM6XYXYjSIHw6PRAoRwczG85XRWUwi24Tqpms9k67o8uGGt4fCpfF0inGWvES8SSVjmIOfClUmMcaQMr1ajkQLn+vnIwpk9FjErhi1acUEmnUGjx96Jl3Kqt09Oa1rtbO63OGgXys2iyMVlXSh2nJ1J5hStUt71tcgdHP6gNIx2msPmsXW932swJkPj3gCO2e1uz+edxd53eh4uljf4lNSEcm53F5MSVPHmftuRAA
+ * @example https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBACgTgSwLYOAgbhAzlAvFAcgCMB7EgGwgEMA7AqAH0KIQHMEbh6mCaBXJEQhxuhLMEQ1WBANwAoUJCgBJLPGSoM0fAB4AKuAgA+ABToq5PhABcUWiAA0URTdiIUaTFgCUeI1HNLaAQcA0h5AGMSGnEoEPUPLVtVBM1MPCh9Q1NAq1t7JxdbVM9sb1tc4NDDP2dDEgAzAIsrPFx8F0jo2IAhAHk+gBkAUQBBADkMhossCC6Y4Cge5QBxZXG9DIBOAAYdgHYARi2tgCYAVgAWfcudk8OaedjxgFUAWR7hgCUMw9P9p6LADKei+6xWGQIbxAUH4gmEcSwsjkURiFAgADpyCRWCYAAb9IZjcZ4pzxdxpCA6cSSVimQkjCZOYhkSi0AjebwyKAAeh5zjgVhR3XRWJx+OWaw2pMRJS0OhY7E49NW6z0zMVHC4nO5fIFQtRWFF2NxeNeH2+MvJGlKOjhQjgpnNny+zPtwg5XN5-IkBpFlDFppBYPGKytagptppHDpJmD4OZ0aknt1PsFEGFaIDJvx8dD4blmAVrOoNFMeZWGpL7J13qg03Is0zRuz4rN7xdBcj8s1ypMzu+GrYWpTdYbTcNxrbFa7Nvl7sdcdBCcIC9HevHGcnrdNA6+s8SRaTsb3iYkMfX-M3ciAA
  */
 export const isPrimitive: IsPrimitive = <Type>(value: any, type: Primitives): value is Type => typeof value === type;

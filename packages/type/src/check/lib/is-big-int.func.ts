@@ -1,6 +1,6 @@
 import { IsBigInt } from '../type/is-big-int.type';
 /**
- * Check if any `value` is a `'bigint'` type.
+ * Checks if any `value` is a `'bigint'` type.
  * Use the `guardBigInt()` function to type-guard `bigint` also.
  * @param value Any value to check if it's a `'bigint'` type.
  * @returns boolean

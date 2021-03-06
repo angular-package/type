@@ -1,6 +1,6 @@
 import { IsBoolean } from '../type/is-boolean.type';
 /**
- * Check if any `value` is a `'boolean'` type or `Boolean` instance.
+ * Checks if any `value` is a `'boolean'` type or `Boolean` instance.
  * Use the `guardString()` function to type-guard `boolean` also.
  * @param value Any `value` to check if it's a `'boolean'` type or `Boolean` instance.
  * @returns boolean.
