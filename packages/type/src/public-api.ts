@@ -2,15 +2,15 @@
  * Public API Surface of type
  */
 
-// Guard types
+// `guard` object and functions.
 export { guard, guardArray, guardFunction, guardNumber, guardObject, guardObjectKey, guardPrimitive, guardString, guardType }
     from './guard';
 
-// `are` functions.
-export { are } from './are';
+// `are` object and functions.
+export { are, areString } from './are';
 
-// `is` functions.
-export { isArray, isFunction, isNumber, isObject, isPrimitive, isString, isType } from './is';
+// `is` object and functions.
+export { is, isArray, isFunction, isNumber, isObject, isPrimitive, isString, isType } from './is';
 
-// Types
-export { Constructor, CycleHook, Func, Partial, Primitive, Primitives, Types } from './lib';
+// Types.
+export { Constructor, CycleHook, Func, Primitive, Primitives, Types } from './type';

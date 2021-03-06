@@ -1,6 +1,6 @@
-import { Primitives } from '../../lib/primitives.type';
 import { isString } from '../../is/lib/is-string.func';
 import { IsString } from '../../is/type/is-string.type';
+import { Primitives } from '../../type/primitives.type';
 export const check = (type: Primitives, ...args: any): boolean => {
   let result = true;
   let method: IsString;
