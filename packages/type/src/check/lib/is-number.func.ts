@@ -1,9 +1,10 @@
 import { IsNumber } from '../type/is-number.type';
 /**
- * Check is any `value` a `'number'` type.
- * Use `guardNumber()` function to type guard `number` also.
- * @param value Any value to check it is a `'number'` type.
+ * Checks if any `value` is a `'number'` type or `Number` instance.
+ * Use the `guardNumber()` function to type-guard `number` also.
+ * @param value Any value to check if it's a `'number'` type.
  * @returns boolean
- * @example https://www.typescriptlang.org/play?jsx=0#code/MYewdgzgLgBAlhAcgVwLYCMCmAnGBeGACgDcBDAG2UwC4ZSwBPASlrMs3ghjDS1zwB8MKAwAOmEADMYbKvjwEA5Dww5FMAGQbOAMThg4UTCQpUmAbgBQoSLADKAFQBKASUQBxAPoA1AIIAZAFUAUXwYRX8QbExUeFEINAB+RSsbaBhEQIBZACFgpx8AkLCAJgB2VPB0nIB5Gv9g30RCoNCCSQoITErbGByXdzcHFuKCAE4ABgmygEYxsZKAVgAWMuWJ+ZmwHogQckwAOnIQAHNCAANHVw8R4POAGk4UVWxCK7cvP1amCxgAej+MA65C61iqe0OxzO50yuXytweT14OEIsLyBS+IR+5n+gKg2CoYMgEKOpwutXqjWamLujwQzz4hApDSat2xuKBnUwRN2+1J0P6g0QwxpiPpyNegqGbN+AM5IO5QA
+ * @example https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBAkgzgOQK4FsBGEBOUC8UAUAbgIYA2SEAXFMQHYgCUuAfFCedAJZxS2oaYA3ACgAxgHtacYFG7J0WavHkDcBdhWp1G1DVx58F2HM2FQooSOIBmbMhVw48AckMDnUAPyy4AMU60nMAQRPYQTLphslLAdKIQNlAqWCISMVAAygAqAEowCADiAPoAagCCADIAqgCias4V4pgQKLJgcKiezqmS0klVALIAQjU5pZW1agBMAOw96UMA8osVNWUI49V1eNZkcBDzfUMwBflZm5N4AJwADDczAIxXV1MArAAsM+83zw+0h+JSBAAHSkcQAc3wAANsnlChcalCADQ+ZKYfCw-LFcpbBgMQRQAD0hKgu1I+zEvUBILBkKhCEGIzGONqyNR-Cw+AZw1GCLxBOJFkwFEpUmpoIh0KWKzWGxZiJRcg56Olq3WfPxRJJZIpaTg4tpUpOZwRbKVRnwx1OCHO8v5WtJewgwiAA
  */
-export const isNumber: IsNumber = (value: any): value is number => typeof value === 'number' && isFinite(value);
+export const isNumber: IsNumber = (value: any): value is number =>
+  typeof value === 'number' ? isFinite(value) : value instanceof Number;
