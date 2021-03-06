@@ -9,7 +9,6 @@ import { IsUndefined } from '../type/is-undefined.type';
 import { IsBoolean } from '../type/is-boolean.type';
 import { IsBigInt } from '../type/is-big-int.type';
 import { IsSymbol } from '../type/is-symbol.type';
-
 export interface Is {
   array: IsArray;
   bigInt: IsBigInt;
