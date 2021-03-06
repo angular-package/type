@@ -1,5 +1,5 @@
-import { isObject } from '../../are/lib/is-object.func';
 import { GuardObject } from '../type/guard-object.type';
+import { isObject } from '../../is/lib/is-object.func';
 /**
  * Guard the `obj` value to be generic object `Obj`.
  * Use `isObject()` function for check ONLY.

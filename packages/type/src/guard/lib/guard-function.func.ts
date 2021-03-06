@@ -1,6 +1,6 @@
-import { Func } from '../../lib/func.type';
-import { isFunction } from '../../are/lib/is-function.func';
 import { GuardFunction } from '../type/guard-function.type';
+import { isFunction } from '../../is/lib/is-function.func';
+import { Func } from '../../type/func.type';
 /**
  * Guard the `func` value to be `Func` type.
  * @param func `Func` type value to guard.

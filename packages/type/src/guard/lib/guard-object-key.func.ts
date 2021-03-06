@@ -1,6 +1,6 @@
-import { isString } from '../../are/lib/is-string.func';
 import { guardObject } from './guard-object.func';
 import { GuardObjectKey } from '../type/guard-object-key.type';
+import { isString } from '../../is/lib/is-string.func';
 /**
  * Guard the `object` to be generic `Obj` type and guard by finding `property` in the `object`.
  * Use `isObject()` function for check ONLY.

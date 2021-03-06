@@ -1,5 +1,5 @@
-import { isString } from '../../are/lib/is-string.func';
 import { GuardString } from '../type/guard-string.type';
+import { isString } from '../../is/lib/is-string.func';
 /**
  * Guard the `value` to be a `string` type.
  * Use `isString()` function for check ONLY.
