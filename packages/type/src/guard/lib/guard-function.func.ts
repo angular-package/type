@@ -1,5 +1,5 @@
 import { Func } from '../../lib/func.type';
-import { isFunction } from '../../check/lib/is-function.func';
+import { isFunction } from '../../are/lib/is-function.func';
 import { GuardFunction } from '../type/guard-function.type';
 /**
  * Guard the `func` value to be `Func` type.

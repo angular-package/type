@@ -1,4 +1,4 @@
-import { isObject } from '../../check/lib/is-object.func';
+import { isObject } from '../../are/lib/is-object.func';
 import { GuardObject } from '../type/guard-object.type';
 /**
  * Guard the `obj` value to be generic object `Obj`.

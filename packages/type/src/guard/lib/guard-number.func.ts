@@ -1,4 +1,4 @@
-import { isNumber } from '../../check/lib/is-number.func';
+import { isNumber } from '../../are/lib/is-number.func';
 /**
  * Guard the `value` to be `number` type.
  * Use `isNumber()` function for check ONLY.

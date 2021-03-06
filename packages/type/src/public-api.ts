@@ -6,8 +6,11 @@
 export { guard, guardArray, guardFunction, guardNumber, guardObject, guardObjectKey, guardPrimitive, guardString, guardType }
     from './guard';
 
-// Check types
-export { are, is, isArray, isFunction, isNumber, isObject, isPrimitive, isString, isType } from './check';
+// `are` functions.
+export { are } from './are';
+
+// `is` functions.
+export { isArray, isFunction, isNumber, isObject, isPrimitive, isString, isType } from './is';
 
 // Types
 export { Constructor, CycleHook, Func, Partial, Primitive, Primitives, Types } from './lib';

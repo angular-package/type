@@ -1,4 +1,4 @@
-import { IsBigInt } from '../../type/is-big-int.type';
+import { IsBigInt } from '../type/is-big-int.type';
 /**
  * Checks if any `value` is a `'bigint'` type.
  * Use the `guardBigInt()` function to type-guard `bigint` also.

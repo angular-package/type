@@ -1,5 +1,5 @@
 import { Types } from '../../lib/types.type';
-import { isType } from '../../check/lib/is-type.func';
+import { isType } from '../../is/lib/is-type.func';
 import { GuardType } from '../type/guard-type.type';
 /**
  * Guard the `value` to be a generic `Type` from one of the `Types` type.

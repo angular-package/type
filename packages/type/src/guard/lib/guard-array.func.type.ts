@@ -1,4 +1,4 @@
-import { isArray } from '../../check/is/lib/is-array.func';
+import { isArray } from '../../is/lib/is-array.func';
 import { GuardArray } from '../type/guard-array.type';
 /**
  * Guard the `value` to be generic `Array` `Type`.

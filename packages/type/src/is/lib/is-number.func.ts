@@ -1,4 +1,4 @@
-import { IsNumber } from '../../type/is-number.type';
+import { IsNumber } from '../type/is-number.type';
 /**
  * Checks if any `value` is a `'number'` type or `Number` instance.
  * Use the `guardNumber()` function to type-guard `number` also.

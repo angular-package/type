@@ -1,5 +1,5 @@
-import { Func } from '../../../lib/func.type';
-import { IsFunction } from '../../type/is-function.type';
+import { Func } from '../../lib/func.type';
+import { IsFunction } from '../type/is-function.type';
 /**
  * Checks if any `value` is a `'function'` type and `Function` instance.
  * @param value Any `value` to check if it's a `'function'` type and `Function` instance.

@@ -1,5 +1,5 @@
-import { Types } from '../../../lib/types.type';
-import { IsType } from '../../type/is-type.type';
+import { Types } from '../../lib/types.type';
+import { IsType } from '../type/is-type.type';
 import { is } from './is.object';
 /**
  * Checks if any `value` is a generic constructor type or primitive type.

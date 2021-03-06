@@ -1,5 +1,5 @@
 import { Primitives } from '../../lib/primitives.type';
-import { isPrimitive } from '../../check/lib/is-primitive.func';
+import { isPrimitive } from '../../are/lib/is-primitive.func';
 import { GuardPrimitive } from '../type/guard-primitive.type';
 /**
  * Guard the `value` to be a generic `Type` from one of the `Primitives`.

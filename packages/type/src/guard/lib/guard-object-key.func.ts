@@ -1,4 +1,4 @@
-import { isString } from '../../check/lib/is-string.func';
+import { isString } from '../../are/lib/is-string.func';
 import { guardObject } from './guard-object.func';
 import { GuardObjectKey } from '../type/guard-object-key.type';
 /**

@@ -1,4 +1,4 @@
-import { IsString } from '../../type/is-string.type';
+import { IsString } from '../type/is-string.type';
 /**
  * Checks if any `value` is a `'string'` type or `String` instance.
  * Use the`guardString()` function to type-guard `string`  also.
