@@ -1,6 +1,6 @@
-import { Types } from '../../lib/types.type';
 import { IsType } from '../type/is-type.type';
 import { is } from './is.object';
+import { Types } from '../../type/types.type';
 /**
  * Checks if any `value` is a generic constructor type or primitive type.
  * Use the `guardType()` to type-guard generic type `Type` also.
