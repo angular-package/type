@@ -111,10 +111,10 @@ const are: Partial<Are> = {
 
 ## guard Object 
 
-Partial object `guard` with all **guard** functions.
+![][new] Partial object `guard` with all **guard** functions.
 
 ```typescript
-![][new] const guardIs: GuardIs = {
+const guardIs: GuardIs = {
   array: guardArray,
   function: guardFunction,
   number: guardNumber,
@@ -124,7 +124,7 @@ Partial object `guard` with all **guard** functions.
   string: guardString,
   type: guardType
 };
-![][new] const guard: Partial<Guard> = {
+const guard: Partial<Guard> = {
   is: guardIs
 };
 
