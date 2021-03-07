@@ -382,7 +382,7 @@ const guardArray: GuardArray = <Type>(value: Array<Type>): value is Array<Type> 
 
 
 ### Function guard
-Use `guardFunction()` or ![][new] `guard.is.function()` to guard the `func` value to be `Func` type. The return value is a `boolean` value.
+Use `guardFunction()` or ![][new] `guard.is.function()` to guard the `func` value to be a `Func` type. The return value is a `boolean` value.
 
 ```typescript
 // Imported function code.
