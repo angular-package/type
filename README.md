@@ -171,16 +171,16 @@ const areString = (...args: any): boolean => check('string', ...args);
 
 ## Check is
 ### Array
-Use `isArray()` or ![][new] `is.array()` to check if **any** `value` is an `Array` of a generic type and `Array` instance. The return value is a `boolean` value.
+Use `isArray()` or ![][new] `is.array()` to check if **any** `value` is an `Array` of a generic `Type` type and `Array` instance. The return value is a `boolean` value.
 
 ```typescript
 // Imported function code.
-const isArray: IsArray = <Type = any>(value: any): value is Array<Type> => Array.isArray(value) && value instanceof Array;
+const isArray: IsArray = <Type>(value: any): value is Array<Type> => Array.isArray(value) && value instanceof Array;
 ```
 
 | Parameter | Type  | Description |
 |-----------| :---: |-------------|
-| value     | `any` | Any `value` to check if it's an `Array` of a generic type `Type` and `Array` instance. |
+| value     | `any` | Any `value` to check if it's an `Array` of a generic `Type` type  and `Array` instance. |
 
 [Example][is-array]
 
@@ -217,7 +217,7 @@ const isBoolean: IsBoolean = (value: any): value is boolean =>
 
 
 ### Function
-Use `isFunction()` or ![][new] `is.function()` to check is **any** `value` a `'function'` type. The return value is a `boolean` value.
+Use `isFunction()` or ![][new] `is.function()` to check is **any** `value` a `'function'` type and `Function` instance. The return value is a `boolean` value.
 ```typescript
 // Imported function code.
 const isFunction: IsFunction = (value: any): value is Func => typeof value === 'function' && value instanceof Function;
@@ -294,7 +294,7 @@ const isString: IsString = (value: any): value is string => value instanceof Str
 
 
 ### Symbol
-Use `isSymbol()` or ![][new] `is.symbol()` to check if **any** `value` is a `'symbol'` type.
+![][new] Use `isSymbol()` or `is.symbol()` to check if **any** `value` is a `'symbol'` type.
 
 ```typescript
 // Imported function code.
@@ -336,6 +336,22 @@ const isType: IsType = <Type>(value: any, type: Types<Type>): value is Type => {
 | type      | `Types<Type>` | Generic constructor `Type`, `'function'`, `'object'` or one of the `Primitives` `'bigint'`, `'boolean'`, `'number'`, `'symbol'`, `'string'`, `'undefined'` to check `value` type. |
 
 [Example][is-type]
+
+
+### Undefined
+![][new] Use `isUndefined()` or `is.undefined()` to check if **any** `value` is a `'undefined'` type.
+
+```typescript
+// Imported function code.
+const isUndefined: IsUndefined = (value: any): value is undefined => value === undefined && typeof value === 'undefined';
+```
+
+| Parameter | Type  | Description |
+|-----------| :---: |-------------|
+| value     | `any` | Any `value` to check if it's an `'undefined'` type. |
+
+[Example][is-undefined]
+
 
 
 ## Guards
