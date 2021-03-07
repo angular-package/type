@@ -1,6 +1,6 @@
 import { isNumber } from '../../is/lib/is-number.func';
 /**
- * Guard the `value` to be `number` type.
+ * Guard the `value` to be a `number` type.
  * Use `isNumber()` function for check ONLY.
  * @param value `Type `number` value to guard.
  * @returns boolean
