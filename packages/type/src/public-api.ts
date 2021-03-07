@@ -9,8 +9,11 @@ export { guard, guardArray, guardFunction, guardNumber, guardObject, guardObject
 // `are` object and functions.
 export { are, areString } from './are';
 
-// `is` object and functions.
-export { is, isArray, isFunction, isNumber, isObject, isPrimitive, isString, isType } from './is';
+// `is` functions.
+export { isArray, isBigInt, isBoolean, isClass, isFunction, isNumber, isObject, isPrimitive, isString, isSymbol, isType, isUndefined } from './is';
+
+// `is` object.
+export { is } from './is';
 
 // Types.
 export { Constructor, CycleHook, Func, Primitive, Primitives, Types } from './type';
