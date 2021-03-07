@@ -185,8 +185,8 @@ const isArray: IsArray = <Type>(value: any): value is Array<Type> => Array.isArr
 [Example][is-array]
 
 
-### Bigint
-![][new] Use `isBigInt()` or `is.bigInt()` to check if **any** `value` is a `'bigint'` type. The return value is a `boolean` value.
+### ![][new] Bigint
+Use `isBigInt()` or `is.bigInt()` to check if **any** `value` is a `'bigint'` type. The return value is a `boolean` value.
 
 ```typescript
 // Imported function code.
