@@ -73,11 +73,10 @@ Guard
 ----
 
 * [Installation](#installation)
-* [Object]()
+* [Object](#object)
   * [`are`](#are-object)
-  * [`is`](#is-object)
   * [`guard`](#guard-object)
-* [Guard](#guard)
+  * [`is`](#is-object)
 * [Check]()
   * [are](#check-are)
   * [is](#check-is)
