@@ -40,8 +40,8 @@ import { Constructor, CycleHook, Func, Partial, Primitive, Primitives, Types } f
 
 
 **Features**
-* Check 
-  * is **any** value
+* Checks if 
+  * **any** value is 
     * an `Array` of any type with [Array](#array) functions.
     * a `function` type with [Function](#function) functions.
     * a `number` type with [Number](#number) functions.
@@ -73,8 +73,10 @@ Guard
 ----
 
 * [Installation](#installation)
-* [`are` Object](#are-object)
-* [`is` Object](#is-object)
+* [Object]()
+  * [`are`](#are-object)
+  * [`is`](#is-object)
+  * [`guard`](#guard-object)
 * [Guard](#guard)
 * [Check]()
   * [are](#check-are)
@@ -128,7 +130,7 @@ const is: Partial<Is> = {
 
 ```
 
-## Guard 
+## guard Object 
 
 ![][new] Partial object `guard` with all **guard** functions.
 
@@ -151,7 +153,7 @@ const guard: Partial<Guard> = {
 
 ## Check are
 ### String
-Use `areString()` or ![][new] `are.string()` to check are arguments of a string type. If all arguments are `string` type then the return value is a `true` value.
+Use `areString()` or ![][new] `are.string()` to check if all of **any** arguments are a `'string'` type. The return value is a `boolean` value.
 
 ```typescript
 // Imported function code.
@@ -160,7 +162,7 @@ const areString = (...args: any): boolean => check('string', ...args);
 
 | Parameter | Type  | Description |
 |-----------| :---: |-------------|
-| ...args   | `any` | Any arguments to check they are a `'string'` type. |
+| ...args   | `any` | Any arguments to check they're all a `'string'` type. |
 
 [Example][are-string]
 
