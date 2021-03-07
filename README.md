@@ -25,7 +25,7 @@ import { guardArray, guardFunction, guardNumber, guardObject, guardObjectKey, gu
 ```
 ```typescript
 // Check is functions.
-import { isArray, isBigInt, isBoolean, isFunction, isNumber, isObject, isPrimitive, isString, isType, isUndefined } from '@angular-package/type';
+import { isArray, isBigInt, isBoolean, isClass, isFunction, isNumber, isObject, isPrimitive, isString, isSymbol, isType, isUndefined } from '@angular-package/type';
 // Check are functions.
 import { areString } from '@angular-package/type';
 ```
