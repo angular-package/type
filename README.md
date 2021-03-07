@@ -133,7 +133,7 @@ const guard: Partial<Guard> = {
 
 ##  is Object
 
-![][new] Partial object `is` with all **check is** functions.
+Partial object `is` with all **check is** functions.
 
 ```typescript
 const is: Partial<Is> = {
@@ -247,7 +247,7 @@ const isNumber: IsNumber = (value: any): value is number =>
 
 
 ### Object
-Use `isObject()` or ![][new] `is.object()` to check if **any** `value` is a generic `'object'` type with possible existing `key` in it. The return value is a `boolean` value.
+Use `isObject()` or `is.object()` to check if **any** `value` is a generic `'object'` type with possible existing `key` in it. The return value is a `boolean` value.
 
 ```typescript
 // Imported function code.
@@ -263,17 +263,28 @@ const isObject: IsObject = <Obj = any>(value: any, key?: string): value is Obj =
 
 
 ### Primitive
-Use `isPrimitive()` or ![][new] `is.primitive()` to check if **any** `value` is a generic type one of the primitive `'boolean'`, `'bigint'`, `'number'`, `'string'` type. The return value is a `boolean` value.
+Use `isPrimitive()` or `is.primitive()` to check if **any** `value` is a generic `Type` type one of the primitive `'boolean'`, `'bigint'`, `'number'`, `'string'`, `'symbol'`, `'undefined'` type. The return value is a `boolean` value.
 
 ```typescript
 // Imported function code.
-const isPrimitive: IsPrimitive = <Type>(value: any, type: Primitives): value is Type => typeof value === type;
+const isPrimitive: IsPrimitive = <Type>(value: any, type: Primitives): value is Type => {
+  if (isString(type)) {
+    switch (type) {
+      case 'bigint': return isBigInt(value);
+      case 'boolean': return isBoolean(value);
+      case 'number': return isNumber(value);
+      case 'string': return isString(value);
+      case 'symbol': return isSymbol(value);
+      case 'undefined': return isUndefined(value);
+    }
+  }
+};
 ```
 
 | Parameter | Type         | Description  |
 |-----------| :----------: |--------------|
-| value     | `any`        | Any `value` to check if it's a generic type from the `type`. |
-| type      | `Primitives` | One of the `Primitives` `'boolean'`, `'bigint'`, `'number'`, `'string'` type to check `value`. | 
+| value     | `any`        | Any `value` to check if it's a generic `Type` type from on of the `type`. |
+| type      | `Primitives` | One of the `Primitives` `'boolean'`, `'bigint'`, `'number'`, `'string'`, `'symbol'`, `'undefined'` type to check `value`. | 
 
 [Example][is-primitive]
 
