@@ -154,8 +154,8 @@ const is: Partial<Is> = {
 
 
 ## Check are
-### String
-![][new] Use `areString()` or `are.string()` to check if all of **any** arguments are a `'string'` type. The return value is a `boolean` value.
+### ![][new] String
+ Use `areString()` or `are.string()` to check if all of **any** arguments are a `'string'` type. The return value is a `boolean` value.
 
 ```typescript
 // Imported function code.
@@ -200,8 +200,8 @@ const isBigInt: IsBigInt = (value: any): value is bigint => typeof value === 'bi
 [Example][is-bigint]
 
 
-### Boolean
-![][new] Use `isBoolean()` or `is.boolean()` to check if **any** `value` is a `'boolean'` type or `Boolean` instance. The return value is a `boolean` value.
+### ![][new] Boolean
+Use `isBoolean()` or `is.boolean()` to check if **any** `value` is a `'boolean'` type or `Boolean` instance. The return value is a `boolean` value.
 
 ```typescript
 // Imported function code.
@@ -279,7 +279,7 @@ const isPrimitive: IsPrimitive = <Type>(value: any, type: Primitives): value is 
 
 
 ### String
-Use `isString()` or ![][new] `is.string()` to check if **any** `value` is a `'string'` type or `String` instance.
+Use `isString()` or `is.string()` to check if **any** `value` is a `'string'` type or `String` instance.
 
 ```typescript
 // Imported function code.
@@ -293,8 +293,8 @@ const isString: IsString = (value: any): value is string => value instanceof Str
 [Example][is-string]
 
 
-### Symbol
-![][new] Use `isSymbol()` or `is.symbol()` to check if **any** `value` is a `'symbol'` type.
+### ![][new] Symbol
+Use `isSymbol()` or `is.symbol()` to check if **any** `value` is a `'symbol'` type.
 
 ```typescript
 // Imported function code.
@@ -338,8 +338,8 @@ const isType: IsType = <Type>(value: any, type: Types<Type>): value is Type => {
 [Example][is-type]
 
 
-### Undefined
-![][new] Use `isUndefined()` or `is.undefined()` to check if **any** `value` is a `'undefined'` type.
+### ![][new] Undefined
+Use `isUndefined()` or `is.undefined()` to check if **any** `value` is a `'undefined'` type.
 
 ```typescript
 // Imported function code.
