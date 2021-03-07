@@ -73,7 +73,7 @@ Guard
 ----
 
 * [Installation](#installation)
-* [Object](#object)
+* [Object]()
   * [`are`](#are-object)
   * [`guard`](#guard-object)
   * [`is`](#is-object)
@@ -108,26 +108,6 @@ const are: Partial<Are> = {
 };
 ```
 
-##  is Object
-
-![][new] Partial object `is` with all **check is** functions.
-
-```typescript
-const is: Partial<Is> = {
-  array: isArray,
-  bigint: isBigInt,
-  boolean: isBoolean,
-  function: isFunction,
-  number: isNumber,
-  object: isObject,
-  primitive: isPrimitive,
-  symbol: isSymbol,
-  string: isString,
-  type: isType,
-  undefined: isUndefined
-};
-
-```
 
 ## guard Object 
 
@@ -149,6 +129,29 @@ const guard: Partial<Guard> = {
 };
 
 ```
+
+
+##  is Object
+
+![][new] Partial object `is` with all **check is** functions.
+
+```typescript
+const is: Partial<Is> = {
+  array: isArray,
+  bigint: isBigInt,
+  boolean: isBoolean,
+  function: isFunction,
+  number: isNumber,
+  object: isObject,
+  primitive: isPrimitive,
+  symbol: isSymbol,
+  string: isString,
+  type: isType,
+  undefined: isUndefined
+};
+
+```
+
 
 ## Check are
 ### String
@@ -285,23 +288,52 @@ const isString: IsString = (value: any): value is string => value instanceof Str
 
 | Parameter | Type  | Description |
 |-----------| :---: |-------------|
-| value     | `any` | Any `value` to check. |
+| value     | `any` | Any `value` to check if it's a `'string'` type or `String` instance. |
 
 [Example][is-string]
 
 
-### Generic type
-Use `isType()` or ![][new] `is.type()` Check is any `value` a generic `Constructor` or primitive type. The return value is a `boolean` value.
+### Symbol
+Use `isSymbol()` or ![][new] `is.symbol()` to check if **any** `value` is a `'symbol'` type.
 
 ```typescript
 // Imported function code.
-const isType: IsType = <Type>(value: any, type: Types<Type>): value is Type => isString(type) ? typeof value === type : value instanceof type;
+const isSymbol: IsSymbol = (value: any): value is symbol => typeof value === 'symbol';
+```
+
+| Parameter | Type  | Description |
+|-----------| :---: |-------------|
+| value     | `any` | Any `value` to check if it's a `'symbol'` type. |
+
+[Example][is-symbol]
+
+
+### Type
+Use `isType()` or ![][new] `is.type()` Check if **any** `value` is a generic `Type` type constructor, `'function'`, `'object'` or primitive type. The return value is a `boolean` value.
+
+```typescript
+// Imported function code.
+const isType: IsType = <Type>(value: any, type: Types<Type>): value is Type => {
+  if (isString(type)) {
+    switch (type) {
+      case 'bigint': return isBigInt(value);
+      case 'boolean': return isBoolean(value);
+      case 'function': return isFunction(value);
+      case 'number': return isNumber(value);
+      case 'object': return isObject<Type>(value);
+      case 'string': return isString(value);
+      case 'symbol': return isSymbol(value);
+      case 'undefined': return isUndefined(value);
+    }
+  }
+  return type ? isClass<Type>(value, type) : false;
+};
 ```
 
 | Parameter | Type          | Description |
 |-----------| :-----------: |-------------|
-| value     | `any`         | Any value to check it is a generic `Type` from one of the `type`. |
-| type      | `Types<Type>` | Constructor generic `Type` or one of the `Primitives` `'boolean'`, `'bigint'`, `'number'`, `'string'` to check `value` type. |
+| value     | `any`         | Any value to check it is a generic `Type` type from one of the `type`. |
+| type      | `Types<Type>` | Generic constructor `Type`, `'function'`, `'object'` or one of the `Primitives` `'bigint'`, `'boolean'`, `'number'`, `'symbol'`, `'string'`, `'undefined'` to check `value` type. |
 
 [Example][is-type]
 
@@ -445,12 +477,6 @@ type CycleHook = 'ngAfterContentInit' | 'ngAfterContentChecked' | 'ngAfterViewIn
 ```typescript
 type Func = (...param: any) => any;
 ```
-### PartialType
-```typescript
-export type Partial<T> = {
-  [P in keyof T]?: T[P];
-};
-```
 ### Primitive
 ```typescript
 type Primitive = boolean | bigint | null | number | string | symbol | undefined;
@@ -514,11 +540,13 @@ MIT © angular-package ([license](https://github.com/angular-package/type/blob/m
 
 [are-string]: https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBAkgzgZWAJwJYDsDmUC8UAUAbgIYA2ArhAFxTHogCUuAfFCRdKnFHChpgG4AUKEhQACmgC2qYKkIRueAOQAjVJgzBlUAD5Q1Ae0OkIdHfuXpyU1RGQWDcELZOPlvNFnfl0AEwgAMwwIP2VhAGNDdF4oLiQvTBp4BP5cAnZKGjpGGkzObk80nFZ8uJjgOgiIQ0CoVKw9fVEaurKcDqc+b0jo2IiACwgIgGt0-BaaSVQZOQU4ABooADpV4mRMOGz6BhpVY1M6FigAbyEoKFNgKGRFclJrvBRKYQurqCkIYAHDP2TEbqCc48ADuskGBBaTDOFwuEWIcGgHkByhon2+v3S8UBAigqluxBGr1hAUCxHuwDRXx+fixAMSuPxZiJwIAvsDAoZkAQohVaBsoLV+ZtocCLrc4BT0uiafh1pgGMSLqg6vgJVKOngyaREaLYbCmYSlVB2RdTTcvuRkOgLZKHsJWb0+esIA1sHh8KtlvKtrQdnsDmYbSUoINhiN8MjEsoll6fYqhEIAPRJqAANXWqGIqlMcCEvNiCAAKgAlGAAOQA4gB9NMAQQAMgBVACi6WUDa5ECkcTAkqkAH5wvm+tdy02ALIAIRbJdrjdb6QATAB2J2xKcAeU3DZbdfL8+bba1ZER6+uTfLABEWwAxCstq+H1vVosAdU36V8pJCfmE70vG973LR9nxbYQRxiEwIGWUhDEwOVbjdfBALvB8n3rI8lmLMsqzApZx2nWd8KgLcdz3A9MNbBhFSgFMoG1RFILgaDYPgxDXUBfAcIrGsqJbbDS14sCaNxejnggZjWLghCXWQni8P4wTcL4hcBNI7dd33ETaPoxjJILaT2LkriFNUrCNPI7SlPqITFLU0S6NTfSgA
 
-[is-array]: https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBACgTgSwLYOAgbtAvFARge3wBsIBDAOygB88EBzBc4aqcgVyKJfaVwjhYBnYInJ0hIXsRZtyAEwgAzRhDkBuAFChIUAJKCAgnDikQUHAAp0pImwgAuKBRABKcwD4o129ASCoRiYgADzO7poAxvjkwlB+gaaO+glmOMEAKuDYTuQg7lY2do7OLo7ednH+KRlZnlieKQB08camBT5uAGSdXoW+McAUERD4igGtIJHRsQDK6QBKugByAOLmUADkADL4cBBIcWCCbEgA-BtTA1BLAKoAsgBCAKLz6wBMAOyXsQ8A8r9bJ4GJbrRQ2QQQb7MG5LAAiTwAYssnrD1rIFMpyKooQF5vMDABNOaLVaOarCUR0OpQADaG1IGwANJtcEzNhENgBdHEGPGE26PF5kibBHh8ODUmkARmZb2ZAGZuRooldefiCTBFnddOldAA1J7CoLBeDIVAYCCSzYUxh0NmfZkiCpKlWxABSM1+SwA+nqDFsbk91gBvRSERxSt7ygC+32IEEaRHwdAsAANicsVqnmS0ghYM6sXC41FAAPSlqBgogQ5XTeOJ5NpgXPebZyopCzNl5Fkvlyvg6C1mL1pMp1N-AFApZt3NtCeA4E9ssVqs110jxupmHwpFLFEzwwTCzbxHI2FLvuriBDwQbsdqwkFrM5w95h9EhaZi8Vp3X9ckBt7z5Aku1bF8O3fUDvygX8bzvNN301XRtV1A0Dwg4CkJQ-Unmg2D-wTUc0w9L1fX9QN0KPEifT9ANcOLZd+2ra8gA
+[is-array]: https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBACgTgSwLYOAgbtAvFARge3wBsIBDAOygB88EBzBc4aqcgVyKJfaVwjhYBnYInJ0hIXsRZtyAEwgAzRhDkBuAFChIUAJKCAgnDikQUHAAp0pImwgAuKBRABKcwD4o129ASCoRiYgADzO7poAxvjkwlB+gaaO+glmOMEAKuAQ7lY2do7OLo7ednH+KRlZnlieKQB08camuT5uAGRtXnm+McAUERD4igFNIJHRsQDK6QBKugByAOLmUADkADL4cBBIcWCCbEgA-KvjvVDzAKoAsgBCAKIzKwBMAOxnsbcA8l-r9wbzFaKGyCCAfZiXeYAEXuADEFvcoStZAplORVOCAjMZgYAJrTOZLRwVYSiOjVKAAbVWpFWABo1rh6WsIqsALqYgzYvFXO6PYmjYI8PhwCmUgCMDOeDIAzByNFFzlycbiYHNrrp0roAGr3AVBYLwZCoDDZFaUtakxh0ZlvBkiUryxWxABSky+8wA+tqDOtLvcVgBvRSERzi54ygC+H2IEDqRHwdAsAAMCQtFsmGY0ghY00sXC41FAAPTFqDAoighUTWPxxMp3kPGaZsopCyNx4Foul8sg6DVmK1hNJ5PfX7-eYt7PNMd-AFdktlitV51D+vJyEw+HzRFTwyjCybuEIqELnvLiADwRrkfKvF5jNZ-c5u-42bps9lh2X1ckOu37lcQ7ZsnzbV9gM-KBvyvG8U1fNVdA1LVdT3MDAIQpCdXuSDoN-ONhxTN0PW9X1-VQg8iK9H0-WwwtF17StLyAA
 
 [is-bigint]: https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBAkgzgIQJYHMYDthQLxQBQBuAhgDYCuEAXFEeiAJQ4B8Ux50ScUARqkpgG4AUAGMA9ujhZOyNJmrxZGLLkKkK1Wg2psKUTjz6ZmUUJDEAzVuujY7UAOS8U-YA+HjJWAMoAVAEowAHIA4gD6AGoAggAyAKoAojiOMWIAThAAtvpgcGSZAPzuohJSUEFxALIICf6RsYnJAEwA7B6lWAgA8l0xCVFB9fFJuBakcBDtXlAIMCHBvkONuACcAAxrLQCMKytNAKwALC2Ha7tb6FNwYiQQAHQkYih4AAZ+gaFLCS8ANPqIqGUeHewXC0WG9HoAigAHoYVAxiQJiVJDd7o9ni8KtVal9fv8lJg8NianVwYlIdC4QjxhAUddbg8nq9ur1+oNyd8-jJAUTWX0Bl9KbD4YjkZ4GejmS9ZvMgotOfieXJgHhZQshVCRaY0hQhEA
 
 [is-boolean]: https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBAkgzgIQPZIDYQIYDsoF4oAUAbhqgK4QBcU2IAlHgHxQnnQCWcUARiutgG4AUAGMkWOMCidkaTFmrxZ-HPmKkK1WnWqsK0rrznYmQqCw0cJwbCIhIAZlGXyoAHzeF1bPLnzAAJ30PCx8-fAdSOAgGADJYqFBIR1D9cKgAciMVDLphUXFJKABlABUAJRgAOQBxPEyAGSQAiABbaTA4MlaAfgzhMWsoKoBVAFkEAFFy+oAmAHYBwqkEAHlVhsmAQSr6yNRopaG1je2qgH0Kkcn6wIojopPNnfPqsp2AYRv8LAgAd2cfHkBH20TyQgKEjkADpUEgAOYEAAGZUqtSRABoDC5sARUdUanQ8lAAPQkqCgiCQuAwuGIpGjCbTTHYoG4xlTcpEgSk8mU6m0hHIp5nFkyNlYAginbc3mJIJUwY09CwoVI6UXK6TMWICVS9bPTXla6ysnyigClV04UGs6vKrvKpfHU4yUa+2Or6m8l3KlAA
+
+[is-class]: https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBAwg9gOwM7AE4FcDGw6oDwAq4EAfFALxQIQDuUAFAHTMCGqA5kgFxQsIgBtALoBKCmSKQA3AChQkKAEkkMADYskSClDwB5AEYArEvQBuLVegg8+IADRR512IhQZsuPUZJjyZc5bQAJZaBoaymK7AUCEAymhBCOzaZhZWNvwiPAFWMVpuicl+UDnByMB8mBBwAGZQ8aiFUAA+zY7EtSVp0OS9UADkBUn9EVF5ahrcSirqmtpexqmBGfbtkDzw5e44+GE+2d15UGHiXYEx5ZXVdU5QAGR3eQ2F9E6MYKhwOG+RW1g7jAQLAAthARLIZJhZlpYnBQRM5gBvKAAD20AEYAEwAdikUAAvpDoVACDQ4AitMiQNp+gAZXAQYExMBIdDAkYEmQyAD03KgADU2EEWPpVBAkJCxrECAAlRQAOQA4gB9fkAQVpAFUAKI0+moRnM1nAgD8I0l5Sg8s1AFkAELamWqjU67Q40aWu26XS07Vq+XOrW6yg1CxICAelBQTXygAi2oAYgrtbHAzrlQQAOq6bToBAAEwgNUSEHzsjF0Rj8aT8pTae1keisV0Nu1MFpatisW01DosPh0Po4ItUazunbne7lF7JLJFKHEN+SDgYsYqjg7HoIQpeH7EApJjHE67Dj3FJE4KgvKgodU4ZHK4ga43W5mk13cP30JMzdbx9ip6fuel7XmgVgPqu66btu0IfgOkyHtm-4OKS5LQheeKgRgEBckAA
 
 [is-function]: https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBAYgrgOwMZQLxQBQDodgIYBOeAtgFxR4IgCUaAfBVQNwBQokUAkgM7zLABLAPYI0mAG54ANnAjlKNelEkzoA7rERJWSEd2BR1fJIJHkex06PQYVs+VWrk7ajcaXsIQgGbLpstFR0AHJvLStgqAAyKL9VQwR9SiQvX0thBB0pPG4NAGE9YAI4EyECPOzcqABvKAAPMQBWJigAXxZdRIMAIQB5XoAZAFEAQQA5MSLZHUKobs4AcU4xgBUxAE4ABk2AdgBGdfWAJkaAFh3TzcO9zI7ZsYBVAFluoYAlMT2jnZmuqABlFZvZYLMTBJ4gKAIODEABGEAIhm4wV++lgDzGeXI7hsdXI0LhCKcjEhqAYtQIEGAcAIogaAGooM02nc-stAeM8kMxAgIAB3KAFLrFUrlSrcDDUVFCKQQLBSIQAcwwAAMhfoRcAyhUctwVQAaJHpEQYdVTUU63LUKVQAD0tqgUwgrO4MrlCuVwXmS1WwUNRnCGQw3uWK2tLXtUG80m4zs6rtl8qVGC9-WG4z9RsDJr6g1GY3Ddod0aksZdbqTnseL3emYD-CD1deb0LkZLZfjFY9KcBwLGCzrvGzCAwvZBreLMbjei7yZVMAxeQNWYbJoXmInjuK08Ss897JWnKGg+NI4PR837YgQA
 
@@ -526,13 +554,13 @@ MIT © angular-package ([license](https://github.com/angular-package/type/blob/m
 
 [is-object]: https://www.typescriptlang.org/play?jsx=0#code/JYOwLgpgTgZghgYwgAgPICMBWEFgJLjTxLIDeyAHgFzIgCuAtutANzIC+AUKJLIiqjAALaBmy4yyAOY16TVh05gAngAcUAMTogEyALzIAFADpTquFDgMacEMoCU+gHzJbylkrUo8AZzE4wfWQAHjEnQwA3OAAbOggbOwAaZABrCGUAfhofMChQKUc9FyjYlGAfNCwPTgQAexAc5HKAZVz8oMiYuISHGhK4poqcvJApZ2QVdVqYZH6UPQXkAHJh-KWPOobA8v9cGl9dwINQrCC3cLme5LTM7LbR+z6usoqxZ05kCa9p2ef9RaWtSwASWyAAZGDfqUmltbEgfodkBlBq0RlJDDdHMibjCoQMaLl8ch4NEfBAPJ8atE4D4KgBherDOi4WpQOnU2mSChBACsbC4m0adNQADlmgAVABKAFU6eLUJKAPp0gAyAEFms0giAIAB3ZAMrZQZlgVnsmk+Qz2DaMwIAKWaosVqAAQnaAKJymiHAi8YjzLk0ADMikFgQ00pFdJoWh0HWotEYzCgj1cdnGFBtW2QLtQqBV7rVIqChPJnBqjNq0QgxmitXRAANDUyWWyOT4G8kdsDcMFm4TW+baeFhWKpbL5UrVRrmvZrcgAPQLibGiAVhpVmt1xsOp2uj1yzuDQ6hYSiHtgcK7kXOt2e8VzthLldxdc+Te1+uGBsRqNH7viGAwSxgg4S-nSj6LsuJJkm+H7bt+o4SjKcoKsq6qagA2hQAC6-5+Befa2sag7tiOorIROaHTpqyRLBQSyQc+pZwdWn47o6N77vemHKHhXYEYBp4iFAhxXpxt4HuKdHKIx87PjBa6CvBX4-pGdLYfxx6ESBYHqXRDFMdBMSwcpbEIQ2ub5oWIr4Se5yGFZBZFkZxImWuQA
 
-[is-primitive]: https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBACgTgSwLYOAgbhAzlAvFAcgCMB7EgGwgEMA7AqAH0KIQHMEbh6mCaBXJEQhxuhLMEQ1WBANwAoUJCgBJLPGSoM0fAB4AKuAgA+ABToq5PhABcUWiAA0URTdiIUaTFgCUeI1HNLaAQcA0h5AGMSGnEoEPUPLVtVBM1MPCh9Q1NAq1t7JxdbVM9sb1tc4NDDP2dDEgAzAIsrPFx8F0jo2IAhAHk+gBkAUQBBADkMhossCC6Y4Cge5QBxZXG9DIBOAAYdgHYARi2tgCYAVgAWfcudk8OaedjxgFUAWR7hgCUMw9P9p6LADKei+6xWGQIbxAUH4gmEcSwsjkURiFAgADpyCRWCYAAb9IZjcZ4pzxdxpCA6cSSVimQkjCZOYhkSi0AjebwyKAAeh5zjgVhR3XRWJx+OWaw2pMRJS0OhY7E49NW6z0zMVHC4nO5fIFQtRWFF2NxeNeH2+MvJGlKOjhQjgpnNny+zPtwg5XN5-IkBpFlDFppBYPGKytagptppHDpJmD4OZ0aknt1PsFEGFaIDJvx8dD4blmAVrOoNFMeZWGpL7J13qg03Is0zRuz4rN7xdBcj8s1ypMzu+GrYWpTdYbTcNxrbFa7Nvl7sdcdBCcIC9HevHGcnrdNA6+s8SRaTsb3iYkMfX-M3ciAA
-
-[is-symbol]: https://www.typescriptlang.org/play?jsx=0#code/MYewdgzgLgBAlhAygTwLYCMQBsYF4YAUAbgIZYCuApgFwwljICUtpFl8EMEamOuAfDCjIADpRAAzGKyp5c+AOTcM2BQG4AUBtCRYiACoAlAJIA5AOJ4YCgDIgATpVTwREcqgD867eGgxTAKoAsgBCAKKGVgBMAOyaOn4hAPJJNmEAgqZWEmQQlPG+sKZhAOoGJhZWYJQA7jCIUPZwYADmBLYOTi5uzuhYJAMAFgqMBbr1AJqhqVYoKljtAApNpFCUI5o+kNiUAHRYIG0ABuVm5kcANBxzvASnFoyjMAD0z0L2VFsQO-uHBEeBUIRS7XHjYAiA8KGR5qF5vHJYPJfH4HY7JVIZUwghA3cHotKZGFwmAIpEJFF-AGle7nK44sELYplIxnImvEm5SjIrB7VH-RBTZI2bFIBl3QWpNlvRpUIA
+[is-primitive]: https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBACgTgSwLYOAgbhAzlAvFAcgCMEBzBAO2AKgB9CiB7RgGwgEMKb6CKBXJEQhxuhLCEGtRBLMEQVS0vhQAmEAGaUIKggG4AUKEhQAklnjJUGaPgA8AFXAQAfAAp07FnwgAuKJxAAGigjX1hEFDRMLABKPGcoDy9oBBxHSAMAY0YKWShUgGU5SlI8KHdPbz8AmL8k73ycWXlS3AT6lNzgTkyIRnUoIpa6elD+xMqbXHwZYoU9fWyuxoAhMhMqMork6ooQWonkxqgSck22kKdxjrxphjJKaiycvNSV5jZOLY7d-brJ45MVgcCjxQ4NSiyHp9AbvYFfWj0VzbBrTfByBqI8FTfDqTxYCBxABkRMukGuALRDA+IIIMWey1SADkBEI4N9Jr8DjdUlB+IJhGCxgMblTeKzhDQAPyNABilFQEBRhKg-yOkO6FF64xZArgDNeWAKEiYLA5O38e25AN54kkZouwuxtxmdtNCyWhoAqqoNFoVOaqpa-s7eco1JoKNowaK7uG-VGAySyTDnWL45HtAtFi9gI0LJFrH4zAWrJgyg4nG4fsHgqE-KWothreq0k4wQBvfRQfIDVyFOakVyhGJxLs9ntYADuqEyAAtyiOoOOJz3MuwCfcztQ-HAIMA+HBQW91lRlfTu6uoOvN8QaZwCLv94fj1g4Z8KOeDFfrxvoOK9UfKA9wPI9Gl1Nkv0vVcb3-ZoSiAkCX0aIYSign9YLEE0pCfUDX2Ne10KvTCCAzf1EOfMDUh9CN-SInsAF9LyYnskLAgBCMjEwMBiDTzFYAHkBIAGQAUQAQSZMo8RYAk+KgFYTAAcRMJl7DKABOAAGLSAHYAEYNI0gAmABWAAWXTzK0oz9IoeSmS9ABZFZRIAJTKfTjN0+SCnsNzVKUsoCCckA+QldlUg9XMoC9JkABFRNlVTRPisouO0XyAE0XJEsoCNNVxSN9TMdAvT1gQAOhYRghwAA0UlS1Lq4JUkbaxbFOR43Ea1T7GCYgHioOl6SgAB6MaQjgbwc1yKqavqwSRIkpkWvzCIywgWx4IUHqhLEySBqBD8Rt0cbJoxCBZqwebatcOrHJc9y1rajam1sfk2TcR7XLcgbPslUczomqaZoqthqruuq-ICpklJe8w3o6nbSDcGHAoGlHTvO0GrvBiBIfqgocsE4SEfazBtuwlg0ZJkTMep7GQcu67bvquLEuSplUvJpHKYylQ3A5pKUvigaBaZi7pqu1mIYW+6fue1rEcsd6uqob7nN+o6huoIGcZkglZYJ+WHq1pX1tV5HB01p6-rEQdJagQ28ZeNn7vRuHeatynjpBNH-Ix6l4S4fWQZd43CY9wOveVimtoBuAA9hpT-oip2I6AA
 
 [is-string]: https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBAkgzgZWAJwJYDsDmUC8UAUAbgIYA2ArhAFxTHogCUuAfFCRdKnFHChpgG4AUAGMA9ul5QuSNFhrxZ-XAXaUadRjTWduvOdhysd0ycDoiIYgGZQlWKAB9HUUJBtsylXDjwByfX4-YVEJKQQAFQAlGAA5AHEVPwAZMWQIAFtpMDhyDIB+YNCzKFiAVQBZACEAUSiVACYAdmFxEqqAeQ7kmoBBWJVrMjgIVrDgUpqAdUiYhJV0CAB3Oz4sfBS0zOzcrIAjUmIjgAs-BhC2uDFSCAA6UjFMfAADWbj454AaaUQ1p7eEgxzlAAPQg1zISjFK43e6PF7lap1L4-exPRG1KJAgSg8FDUgjaHXO4PJ7PTrdPqxFEyP74Ck9frY3FQfGEy7EuFk2LTAEfb60gz4HkzaLvZlgqAAEQgwAgIgmS1QwGOpl4Fis1iEQA
 
-[is-type]: https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBAwg9gOwM7AE4FcDGw6oDwAq4EAfFALxQIQDuUAFAHTMCGqA5kgFxQsIgBtALoBKCmSKQA3AChQkKAAVUASwC2K4CoBuEJBSgByAEZw4AGwh9DUAD5HjK9ioTAb9wwnRrjEVO6MUVQR2Q1l5aEk9PAB5YwArMkp4ZDQsHHw4xLslVQ0tXSRZTEQUKBUkAGU0F3YDem0Wc3QIHj4QER5G5ugKqCDa8SgIuAAzKG6WinJKQwGQsJkS1PKkKINCYhIGppa2-gAaYeIeKKRNyBJOid3e-XXyMgrq4PZ6CLEAfmPIMZue6aUCJQLq3cqpPiYCB-CLFcwsJD6FJBdBoOAweGIqAAbygAA8DABGKRQAC+S1KwFgABkAIKVSoAfQAarTqQBVACiBmodGRaTRGIRSHoImKlKgACEYjFqZzaQA5FlsrkGUZNJAQcUrSUASQA4rqFQRlRzuZQAJwABitAHZCRaLQAmACsABZbW6rY7CQhtWUFeyALKSzkAJVNqsohKdtv9VMqBDDRv1kfNRiDICo3l8qFWi2WSAsEEY5jgbwABvyMILMUgK0cKlE8NXUah0XXtjA6Qy00dW7XhSIxVAAPSj4YYCAU5DF0vl+gV6Wy+VK1lmhurZumYt8bbLuWKvsOMyWazDknjyctGdFyzzyt6w3GtObpvEPDzdj7g1Gk3rrkjhMJwXDcC8xwnNJp0LOcy0rQMQ3DRkCAACTDTlOTfNYPy8Hw-G2BDQwjADOSA3Dc0McCryg29YIXCtCKQgAxGJ2TDLDmy-bZE2TBVUxIoCv0okdqKnGQgA
+[is-symbol]: https://www.typescriptlang.org/play?jsx=0#code/MYewdgzgLgBAlhAygTwLYCMQBsYF4YAUAbgIZYCuApgFwwljICUtpFl8EMEamOuAfDCjIADpRAAzGKyp5c+AOTcM2BQG4AUBtCRYiACoAlAJIA5AOJ4YCgDIgATpVTwREcqgD867eGgxTAKoAsgBCAKKGVgBMAOyaOn4hAPJJNmEAgqZWEmQQlPG+sKZhAOoGJhZWYJQA7jCIUPZwYADmBLYOTi5uzuhYJAMAFgqMBbr1AJqhqVYoKljtAApNpFCUI5o+kNiUAHRYIG0ABuVm5kcANBxzvASnFoyjMAD0z0L2VFsQO-uHBEeBUIRS7XHjYAiA8KGR5qF5vHJYPJfH4HY7JVIZUwghA3cHotKZGFwmAIpEJFF-AGle7nK44sELYplIxnImvEm5SjIrB7VH-RBTZI2bFIBl3QWpNlvRpUIA
+
+[is-type]: https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBAwg9gOwM7AE4FcDGw6oDwAq4EAfFALxQIQDuUAFAHTMCGqA5kgFxQsIgBtALoBKCmSKQA3AChQkKAAVUASwC2K4CoBuEJBSgByAEYr2KhMENQAPkeNw4AGwh9rdwwnRrjEVO6MkEB9nAMMUVQR2MPQEABMIADMLCDjDWXloADFYzAMmZjA2FjUePhAxcjJyjOIoST08AHljACsySnhkNCwcfBb22yNE3K1EMLg2iGwA5XVNHT1ahQBJJAaDQmISem0WJ3QIMv4AGihMngakLcgSSrI9g+gVfQbZC2A-RJZMaCaVqAAbygAA8eF4fH4oABfd6WL4-P7-IFQEA8CIWdgw2QyTCIFBQF4AITMK0s+Ueh2OFR4lOe+lM5nJVXOxDgiSgdIo5EoJjMH3SuPxwEJSCJjhcfAp+ypvH4IlpMvpUAczlcCHEnKVhO6fF+7Kg4rVUpsdnou21PMoPWgpq1T25lG+TiQEDEADJ3azIAauVb7BL1YYRLI8d1RTAnCwkPpKM02jtJq1psBqWcLrBhRhsLh4+0FVAkynRVABpqi9gdSg9RADZlQ8LRQA5by+VDSp7Ugtcl5UVtQlmZX2WnlGCFt6wAflFWQsmggFqeYkVDos1YQ+o5LchqAb4ZeAGU0JiO7Lyt3tb2MVFNUOOX7R+Fj1FBWGCS8AKrxJIpOKno5yjS9qHCWsQJMk1B-iyD6UGBP6QVAnrerW94jrycEQakr6Ni8AzFnGZaUOUOx0mmUAANYQCAk7os+7AXqu+iEWQd7AdA-qGBWViIV6Pa6huKGllMlbToedH0JRFRQNOkk6mxUA8DaClQM6rp7u+SA5BuYwapQi5nvKK4gb2Wl5IObKoQ6HEjNpKjjDx8lrsANYGqZOnqSKh7BA4Tj-l2RnKkEIS+eZPqWSBHFBT5gpCvu6zEDwawbHGDQkUqZEZlcNykAxxmvHULKAjIUCEhy9BiZE7D0JkIhiEVJUlUgNCaJgAAWDA1UCxUNSVmDRtAfJMlYPCoBAwDoKgGrEqSlj6W6sg9b1-UBsaCCGCNY0TVNYqBnwc0ht1PV9a6wyjHZa0beNk0zmdiD7Qti3HQN45+OtUCjVd23bm292HQ1T1GFxb0fVtop4dg2VpUuD1HctT6VcDm3XRVmK-YtUAA+E3mhJdoNecFaOPXDGG-ojn2il+4G-oTJXQt1dMlSD12ZNJEZRjGkNzemxDLip+xqTIsIyLi7P6AecBqBAkbRvowIggYACMUgwhjotQOLksEDQcDSzGKIgAYABMyt02+IowE0TYHgQABKH4wAQTQ2wY1B0BrUui-QB1m7AlvW3bDtOwQADqTQu7Q6sSxAWs6573uNkSTRNAAMgAogAgk2BiqRAHmGisADiKxNgQBgAJwAAwVwA7ArZdl4bACsAAs1fNxX9cKwgedZB+TYwDwpn5GCfY7vcoJQAA1FASuxQSTYfgAskSqfO5QCuG9XedNESABSqcOzwyKUHLPAK9ic8ijv++BwQAASq9H8f+s8Jx1DWELPv+8XBcGIYi8Gxeu2F42FwwHgAJrLxTgYA82MnD0EMGoEAwY859wACKpyyMXVOaCDAk0gjiN8apGBODgFVAABhbK2tt7aOxtuQs4LwGh4HdrrJAOwqH+1oUHUOZxWGi1qsrAA9EIvmLoIBz2IaQihicU4ZybAw0UzDVSSgQDsWRadM5nBMLtNagioAiPOBgCRRCXAkLIfQchRJC7FwIIophxA8DXnYOomxJdtGMgFPowxNpJFmOkZYhey9V72PipAPAQCdhBJXjbbRQDgwhgMaI3xpiIDmIob3fuoTmGmR2JkmA2ibLYHOgk4RyTjF+LSQE8h38mwF2yY45xOxakF20c40pSSjGHEqekyx18D52MYWEiAzR-g7H6Q7bRQNvHlO6ak3pNTIGJ2Tg08JTT6AQKgcnNpcCOk+IqfM6p6DMHYLQashcxysFNhwdo-BWEZldIkUAA
 
 [is-undefined]: https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBAkgzgVQHYBMIDMCWSIqgXigAoA3AQwBsBXCALijKRAEoCA+Kc66TOKK1Bmy4A3ACgAxgHskcYFF7I0WHCnrwlQ1QWJca9Ri3p6efAcuF58HEwXyFzW3FABkLqKEhT0nSjTuEAOSOKriB4pIyclAAygAqAEowAHIA4jqBADJSAE4QALYKYHBU+QD84ZGy8skIALIAQgCiCToATADs4tLVUA0A8v2ZTQCCyTrolHAQ4hQQ8nPAIZbdUfIIyQAiTQBiKU2bOsuqET1wUnMAdBRSAOZEAAbxSWkPADQKiIKhKETPKalmMwRFAAPSgqCTCjTKrnK43e4PWqNFrvT6aH5EZHNBJAkHgyFTCCwi4Qa53R4DIajZJoxTfSxEKnDMZ4sEQqEws6k8mIxbHXB0r4WVREfkM1RsgnAHI0EnwikPDbbPbJA5CjGM5W7fabKUcoliIA
 
