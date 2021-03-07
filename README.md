@@ -367,7 +367,7 @@ const isUndefined: IsUndefined = (value: any): value is undefined => value === u
 
 ## Guards
 ### Array guard
-Use `guardArray()` or ![][new] `guard.is.array()` to guard the `value` to be generic `Array` `Type`. The return value is a `boolean` value.
+Use `guardArray()` or ![][new] `guard.is.array()` to guard the `value` to be a generic `Array` `Type`. The return value is a `boolean` value.
 
 ```typescript
 // Imported function code.
@@ -397,7 +397,7 @@ const guardFunction: GuardFunction = (func: Func): func is Func => isFunction(fu
 
 
 ### Number guard
-Use `guardNumber()` or ![][new] `guard.is.number()` to guard the `value` to be `number` type. The return value is a `boolean` value.
+Use `guardNumber()` or ![][new] `guard.is.number()` to guard the `value` to be a `number` type. The return value is a `boolean` value.
 
 ```typescript
 // Imported function code.
@@ -427,7 +427,7 @@ const guardObject: GuardObject = <Obj>(object: Obj): object is Obj => isObject<O
 
 
 ### Object key guard
-Use `guardObjectKey()` or ![][new] `guard.is.objectKey()` to guard the `object` to be generic `Obj` type and guard by finding `key` in the `object`. The return value is a `boolean` value.
+Use `guardObjectKey()` or ![][new] `guard.is.objectKey()` to guard the `object` to be a generic `Obj` type and guard by finding `key` in the `object`. The return value is a `boolean` value.
 
 ```typescript
 // Imported function code.
@@ -437,7 +437,7 @@ const guardObjectKey: GuardObjectKey = <Obj, Key extends keyof Obj>(object: Obj,
 
 | Parameter   | Type  | Description   |
 |-------------| :---: |---------------|
-| object      | `Obj` | Generic `Obj` value to guard and to find `key` value in.  |
+| object      | `Obj` | Generic `Obj` type value to guard and to find `key` value in.  |
 | key         | `Key` | Value to find in `object`. |
 
 [Example][guard-object-key]
@@ -453,8 +453,8 @@ const guardPrimitive: GuardPrimitive = <Type>(value: Type, type: Primitives): va
 
 | Parameter   | Type         | Description  |
 |-------------| :----------: |--------------|
-| value       | `Type`       | A generic `Type` type value to guard. |
-| type        | `Primitives` | One of the `Primitives` `'boolean'`, `'bigint'`, `'number'`, `'string'` to check `value`. |
+| value       | `Type`       | A generic `Type` type `value` to guard. |
+| type        | `Primitives` | One of the `Primitives` `'boolean'`, `'bigint'`, `'number'`, `'string'`, `'symbol'`, `'undefined'`  to check `value`. |
 
 [Example][guard-primitive]
 
@@ -475,7 +475,7 @@ const guardString: GuardString = (value: string): value is string => isString(va
 
 
 ### Generic type guard
-Use `guardType()` or ![][new] `guard.is.type()` to guard the `value` to be a generic `Type` from one of the `Types` type. The return value is a `boolean` value.
+Use `guardType()` or ![][new] `guard.is.type()` to guard the `value` to be a generic `Type` type from one of the `Types` type. The return value is a `boolean` value.
 
 ```typescript
 // Imported function code.
@@ -484,8 +484,8 @@ const guardType: GuardType = <Type>(value: Type, type: Types<Type>): value is Ty
 
 | Parameter   | Type           | Description   |
 |-------------|      :---:     |---------------|
-| value       | `Type`         | A generic `Type ` value to guard. |
-| type        | `Types<Type>`  | Constructor generic `Type` or one of the `Primitives` `'boolean'`, `'bigint'`, `'number'`, `'string'` to check `value`. |
+| value       | `Type`         | A generic `Type ` `value` to guard. |
+| type        | `Types<Type>`  | Constructor generic `Type`, `'function'`, `'object'` or one of the `Primitives` `'boolean'`, `'bigint'`, `'number'`, `'string'`, `'symbol'`, `'undefined'` to check `value`. |
 
 [Example][guard-type]
 
