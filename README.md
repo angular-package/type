@@ -111,10 +111,10 @@ const are: Partial<Are> = {
 
 ## guard Object 
 
-![][new] Partial object `guard` with all **guard** functions.
+Partial object `guard` with all **guard** functions.
 
 ```typescript
-const guardIs: GuardIs = {
+![][new] const guardIs: GuardIs = {
   array: guardArray,
   function: guardFunction,
   number: guardNumber,
@@ -124,7 +124,7 @@ const guardIs: GuardIs = {
   string: guardString,
   type: guardType
 };
-const guard: Partial<Guard> = {
+![][new] const guard: Partial<Guard> = {
   is: guardIs
 };
 
@@ -155,7 +155,7 @@ const is: Partial<Is> = {
 
 ## Check are
 ### String
-Use `areString()` or ![][new] `are.string()` to check if all of **any** arguments are a `'string'` type. The return value is a `boolean` value.
+![][new] Use `areString()` or `are.string()` to check if all of **any** arguments are a `'string'` type. The return value is a `boolean` value.
 
 ```typescript
 // Imported function code.
@@ -171,7 +171,7 @@ const areString = (...args: any): boolean => check('string', ...args);
 
 ## Check is
 ### Array
-Use `isArray()` or ![][new] `is.array()` to check if **any** `value` is an `Array` of a generic `Type` type and `Array` instance. The return value is a `boolean` value.
+Use `isArray()` or `is.array()` to check if **any** `value` is an `Array` of a generic `Type` type and `Array` instance. The return value is a `boolean` value.
 
 ```typescript
 // Imported function code.
@@ -186,7 +186,7 @@ const isArray: IsArray = <Type>(value: any): value is Array<Type> => Array.isArr
 
 
 ### Bigint
-Use `isBigInt()` or ![][new] `is.bigInt()` to check if **any** `value` is a `'bigint'` type. The return value is a `boolean` value.
+![][new] Use `isBigInt()` or `is.bigInt()` to check if **any** `value` is a `'bigint'` type. The return value is a `boolean` value.
 
 ```typescript
 // Imported function code.
@@ -201,7 +201,7 @@ const isBigInt: IsBigInt = (value: any): value is bigint => typeof value === 'bi
 
 
 ### Boolean
-Use `isBoolean()` or ![][new] `is.boolean()` to check if **any** `value` is a `'boolean'` type or `Boolean` instance. The return value is a `boolean` value.
+![][new] Use `isBoolean()` or `is.boolean()` to check if **any** `value` is a `'boolean'` type or `Boolean` instance. The return value is a `boolean` value.
 
 ```typescript
 // Imported function code.
@@ -217,7 +217,7 @@ const isBoolean: IsBoolean = (value: any): value is boolean =>
 
 
 ### Function
-Use `isFunction()` or ![][new] `is.function()` to check is **any** `value` a `'function'` type and `Function` instance. The return value is a `boolean` value.
+Use `isFunction()` or `is.function()` to check is **any** `value` a `'function'` type and `Function` instance. The return value is a `boolean` value.
 ```typescript
 // Imported function code.
 const isFunction: IsFunction = (value: any): value is Func => typeof value === 'function' && value instanceof Function;
@@ -231,7 +231,7 @@ const isFunction: IsFunction = (value: any): value is Func => typeof value === '
 
 
 ### Number
-Use `isNumber()` or ![][new] `is.number()` to check if **any** `value` is a '`number`' type or `Number` instance. The return value is a `boolean` value.
+Use `isNumber()` or `is.number()` to check if **any** `value` is a '`number`' type or `Number` instance. The return value is a `boolean` value.
 
 ```typescript
 // Imported function code.
