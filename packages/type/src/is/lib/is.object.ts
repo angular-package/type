@@ -12,17 +12,19 @@ import { isBigInt } from './is-big-int.func';
 import { isSymbol } from './is-symbol.func';
 // Interface.
 import { Is } from '../interface/is.interface';
+import { isNull } from './is-null.func';
 
 export const is: Partial<Is> = {
   array: isArray,
   bigInt: isBigInt,
   boolean: isBoolean,
   function: isFunction,
+  null: isNull,
   number: isNumber,
   object: isObject,
   primitive: isPrimitive,
-  symbol: isSymbol,
   string: isString,
+  symbol: isSymbol,
   type: isType,
   undefined: isUndefined
 };
