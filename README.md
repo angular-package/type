@@ -202,19 +202,19 @@ const isBigInt: IsBigInt = (value: any): value is bigint => typeof value === 'bi
 
 
 ### ![][new] Boolean
-Use `isBoolean()` or `is.boolean()` to check if **any** `value` is a `'boolean'` type or `Boolean` instance. The return value is a `boolean` value.
+Use `isBoolean()` or `is.boolean()` to check if **any** `value` is a `'boolean'` type or instance of `Boolean` and `Object`. The return value is a `boolean` value.
 
 ```typescript
 // Imported function code.
 const isBoolean: IsBoolean = (value: any): value is boolean =>
-  value instanceof Boolean || ((value === true || value === false) && typeof value === 'boolean');
+  (value instanceof Object && value instanceof Boolean) || ((value === true || value === false) && typeof value === 'boolean');
 ```
 
 | Parameter | Type  | Description |
 |-----------| :---: |-------------|
-| value     | `any` | Any `value` to check if it's a `'boolean'` type or `Boolean` instance. |
+| value     | `any` | Any `value` to check if it's a `'boolean'` type or instance of `Boolean` and `Object`. |
 
-[Example][is-boolean] | [How to detect 'boolean' type][detect-boolean]
+[Example usage][is-boolean] | [How to detect 'boolean' type][detect-boolean]
 
 
 ### Function
@@ -615,7 +615,7 @@ MIT © angular-package ([license](https://github.com/angular-package/type/blob/m
 
 [is-array]: https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBACgTgSwLYOAgbtAvFARge3wBsIBDAOygB88EBzBc4aqcgVyKJfaVwjhYBnYInJ0hIXsRZtyAEwgAzRhDkBuAFChIUAJKCAgnDikQUHAAp0pImwgAuKBRABKcwD4o129ASCoRiYgADzO7poAxvjkwlB+gaaO+glmOMEAKuAQ7lY2do7OLo7ednH+KRlZnlieKQB08camuT5uAGRtXnm+McAUERD4igFNIJHRsQDK6QBKugByAOLmUADkADL4cBBIcWCCbEgA-KvjvVDzAKoAsgBCAKIzKwBMAOxnsbcA8l-r9wbzFaKGyCCAfZiXeYAEXuADEFvcoStZAplORVOCAjMZgYAJrTOZLRwVYSiOjVKAAbVWpFWABo1rh6WsIqsALqYgzYvFXO6PYmjYI8PhwCmUgCMDOeDIAzByNFFzlycbiYHNrrp0roAGr3AVBYLwZCoDDZFaUtakxh0ZlvBkiUryxWxABSky+8wA+tqDOtLvcVgBvRSERzi54ygC+H2IEDqRHwdAsAAMCQtFsmGY0ghY00sXC41FAAPTFqDAoighUTWPxxMp3kPGaZsopCyNx4Foul8sg6DVmK1hNJ5PfX7-eYt7PNMd-AFdktlitV51D+vJyEw+HzRFTwyjCybuEIqELnvLiADwRrkfKvF5jNZ-c5u-42bps9lh2X1ckOu37lcQ7ZsnzbV9gM-KBvyvG8U1fNVdA1LVdT3MDAIQpCdXuSDoN-ONhxTN0PW9X1-VQg8iK9H0-WwwtF17StLyAA
 [is-bigint]: https://www.typescriptlang.org/play?target=7&jsx=0#code/C4TwDgpgBAkgzgIQJYHMYDthQLxQBQBuAhgDYCuEAXFEeiAJQ4B8Ux50ScUARqkpgG4AUAGMA9ujhZOyNJmrxZGLLkKkK1Wg2psKUTjz6ZmUUJDEAzVuujY7UAOS8U-YA+HjJWAMoAVAEowAHIA4jiOADJiAE4QALb6YHBkcQD87qISUlBBAKoAsggAov7hAEwA7B5ZWAgA8nURRQCCQeEWpHAQ1V5QCDAhwb7hAJwADGMVAIwjI2UArAAsFYtjs1PoPXBiJBAAdCRiKHgABn6BoScANPqIqMp458Eh9PQCUAD0H1AdJF2Zkh2+0OxxOeUKJWutyUmDw4OK-le7y+P06EAB212ByOp3qjRaQShMnusLxTVaSM+31+-08mOBOJO-UGQV8RLucmAeGZQ0pKOA0QoQiAA
-[is-boolean]: https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBAkgzgIQPZIDYQIYDsoF4oAUAbhqgK4QBcU2IAlHgHxQnnQCWcUARiutgG4AUAGMkWOMCidkaTFmrxZ-HPmKkK1WnWqsK0rrznYmQqCw0cJwbCIhIAZlGXyoAHzeF1bPLnzAAJ30PCx8-fAdSOAgGADJYqFBIR1D9cKgAciMVDLphUXFJKABlABUAJRgAOQBxPEyAGSQAiABbaTA4MlaAfgzhMWsoKoBVAFkEAFFy+oAmAHYBwqkEAHlVhsmAQSr6yNRopaG1je2qgH0Kkcn6wIojopPNnfPqsp2AYRv8LAgAd2cfHkBH20TyQgKEjkADpUEgAOYEAAGZUqtSRABoDC5sARUdUanQ8lAAPQkqCgiCQuAwuGIpGjCbTTHYoG4xlTcpEgSk8mU6m0hHIp5nFkyNlYAginbc3mJIJUwY09CwoVI6UXK6TMWICVS9bPTXla6ysnyigClV04UGs6vKrvKpfHU4yUa+2Or6m8l3KlAA
+[is-boolean]: https://www.typescriptlang.org/play?target=7&jsx=0#code/C4TwDgpgBAkgzgIQPZIDYQIYDsoF4oAUAbhqgK4QBcU2IAlHgHxQnnQCWcUARiutgG4AUAGMkWOMCidkaTFmrxZ-HPmKkK1WnWqsK0rrznYmhPRwnBsIiEgBmUAPLcAVhBFSAZJ5YaLk61sHZXkGAB8wwnU2PFx8YAAnfQjfGLj8O1I4CAZvKFBIe1T9dKgAciMVMrphMUsoAGUAFQAlGAA5AHE8coAZJASIAFtpMDgyIYB+MtrxSSh2gFUAWQQAURaegCYAdln6hEdHXrWAQXaezNRs-fnD47P2gH1WxbWexIpbqXuT86eOs1zgBhd74LAQADuUBC2AIV2yNVEczkADpUEgAOYEAAGzTaXRxABoDLCsAR8R1OnQalAAPR0qAIiDIiRojHYnFLVYbYmkvjyAjc9YtGkCemM5msuDsrG436PPkyAVwhXnMUS-JJFl1GXodFynFq56vNZKxAq8nGl4tN4ahlaijS2Wc62Apogs0k5XGK1HP7Pd2e+2Mz4soA
 [is-function]: https://www.typescriptlang.org/play?target=7&jsx=0#code/C4TwDgpgBAYgrgOwMZQLxQBQDodgIYBOeAtgFxR4IgCUaAfBVQNwBQokUAkgM7zLABLAPYI0mAG54ANnAjlKNelEkzoA7rERJWSKXm4aAwnoNQA3lAAeYgKxMoAXxZIR3YFHV8kgkeR5efUXQMFVl5KmpyULUNLyV2CCEAM2VpWTRUdAByJK1ArKgAMkLU1Q8EN0okRJSA4VFi0vSBCuAqmqgAeQAjACsIbx1XdwAhTs6AGQBRAEEAOTFgAlkh1qgRzgBxTjmAFTEATgAGI4B2AEYDg4AmGwAWU7ujq-OEVbcoOYBVAFkRqYASmJztdTu93ABlXYAnabMRZH4gKAIODEboQAgebhZcGwL5zQzkOLBSzkFFojGRRhI1AMCwECDAOAEUTWADUUDsjmcwy4cyh80MUzECAgAHcoMZ9NwMNR3kIpBAsFIhABzDAAAylBg1ABosXURBhtdxqHKoAB6C1QJayHkVBVKlXqrIbbZ7LL6zx5eoYN07XZm+xWqBJaTcCD27iO5VqjCu8bTeaeg0+o1jSazOZBy3WsNSCNRmPO+PfP6AlPe-i+sv-AE5kP5wsuB2K2MuqEwuabSu8NMIDCd2ENvPhyMt6NtksamD4wx61PVo2zgkjm3LceuYtxrI7AUEqa9w0Dve7QVTNdNiBAA
 [is-instance]: https://www.typescriptlang.org/play?target=7&jsx=0#code/C4TwDgpgBAwg9gOwM7AE4FcDGw6oDwAq4EAfFALxQIQDuUAFAHTMCGqA5kgFxQsIgBtALoBKCmSKQA3AChQkKAEkki5MD6ZolPAHkARgCsS9AG4sANugg8+IADRQAlmo3XYiFBmy5dhkmPIyM0toRyQofQNZeWhlAGU0Z3YKBmCrG34AoIsrJ3DPJOjiJSRIiGwU3yNTHLdbBwBrCBAAfh4ChHYsqDTQ8MjZTA9gPITUJJ54xM6UmpCMkBEeXryoDuTAhhi4ADMe2opySgByOENy4GOoADJr-ZCnFwRNXYjzitv73OcUV1expJiAA+QKg2z2KyOJ3Wx0GwzyZWwk1K7xG2kixl6C0azTaa2mXWWBzCbwM4jBxFekKOUFOqKunxWP3Uzwgr0RI0ZBwAhDSEOhzOYoC1RgT6E1FsKoBLHl9oDw0LkeDsLEgIHC1HlVL9WcjtSzNJUMXN0rx+A5ma4ePA1F4cPgMUs5atIuSTaEni89pbWTc7mEAZ16D7NIwwKg4DgYowhrasPbGAgWABbCBiT5hDlVTG1EQiWQyTDmFhIcJxOCpmDF0tQADeUAAHikAIwAJgA7FIoABfQvV8IEGhwKsl8L1kApY4AGVwEGTTjASHQydhPZkMgA9BuoAA1NiOFh6cwQJCF+FxAgAJUUADkAOIAfR3AEEpwBVACik5nqDnC6XyYtLCZ6ajeb4ALIAEIfpeT6vp+KQdhqKBQJBOg6FOH7PjecHvl+lAquYarISMb43gAIh+ABit4fuRuGfg+BAAOo6Ck6AIAAJhAOzOBAnGyMepEUdRtH0S+eEkVAcQ6OBH4wFOz5xHEKTUHQ5aVv29D5iBKEsToClKSplBqVAg7DlpOm6XAx6MOYcDsMGKiehAeAaRAI6lsY+mGcpDjuZ5SB5l2W5QIRarWbZ9mOWE+quG5FYef2xgyXJvlxP5iWBcFUChYqECRRAdkOU5cWsglmmjt5rHpQ45nZfmuXbvlMhAA
 [is-null]: https://
