@@ -1,10 +1,9 @@
 import { IsBoolean } from '../type/is-boolean.type';
 /**
- * Checks if any `value` is a `'boolean'` type or `Boolean` instance.
- * Use the `guardString()` function to type-guard `boolean` also.
- * @param value Any `value` to check if it's a `'boolean'` type or `Boolean` instance.
+ * Checks if any `value` is a `'boolean'` type  or instance of `Boolean` and `Object`.
+ * @param value Any `value` to check if it's a `'boolean'` type or instance of `Boolean` and `Object`.
  * @returns boolean.
- * @example https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBAkgzgIQPZIDYQIYDsoF4oAUAbhqgK4QBcU2IAlHgHxQnnQCWcUARiutgG4AUAGMkWOMCidkaTFmrxZ-HPmKkK1WnWqsK0rrznYmQqCw0cJwbCIhIAZlGXyoAHzeF1bPLnzAAJ30PCx8-fAdSOAgGADJYqFBIR1D9cKgAciMVDLphUXFJKABlABUAJRgAOQBxPEyAGSQAiABbaTA4MlaAfgzhMWsoKoBVAFkEAFFy+oAmAHYBwqkEAHlVhsmAQSr6yNRopaG1je2qgH0Kkcn6wIojopPNnfPqsp2AYRv8LAgAd2cfHkBH20TyQgKEjkADpUEgAOYEAAGZUqtSRABoDC5sARUdUanQ8lAAPQkqCgiCQuAwuGIpGjCbTTHYoG4xlTcpEgSk8mU6m0hHIp5nFkyNlYAginbc3mJIJUwY09CwoVI6UXK6TMWICVS9bPTXla6ysnyigClV04UGs6vKrvKpfHU4yUa+2Or6m8l3KlAA
+ * @example https://www.typescriptlang.org/play?target=7&jsx=0#code/C4TwDgpgBAkgzgIQPZIDYQIYDsoF4oAUAbhqgK4QBcU2IAlHgHxQnnQCWcUARiutgG4AUAGMkWOMCidkaTFmrxZ-HPmKkK1WnWqsK0rrznYmhPRwnBsIiEgBmUAPLcAVhBFSAZJ5YaLk61sHZXkGAB8wwnU2PFx8YAAnfQjfGLj8O1I4CAZvKFBIe1T9dKgAciMVMrphMUsoAGUAFQAlGAA5AHE8coAZJASIAFtpMDgyIYB+MtrxSSh2gFUAWQQAURaegCYAdln6hEdHXrWAQXaezNRs-fnD47P2gH1WxbWexIpbqXuT86eOs1zgBhd74LAQADuUBC2AIV2yNVEczkADpUEgAOYEAAGzTaXRxABoDLCsAR8R1OnQalAAPR0qAIiDIiRojHYnFLVYbYmkvjyAjc9YtGkCemM5msuDsrG436PPkyAVwhXnMUS-JJFl1GXodFynFq56vNZKxAq8nGl4tN4ahlaijS2Wc62Apogs0k5XGK1HP7Pd2e+2Mz4soA
  */
 export const isBoolean: IsBoolean = (value: any): value is boolean =>
   (value instanceof Object && value instanceof Boolean) || ((value === true || value === false) && typeof value === 'boolean');
