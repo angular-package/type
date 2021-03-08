@@ -2,7 +2,7 @@
 export { isArray } from './lib/is-array.func';
 export { isBigInt } from './lib/is-big-int.func';
 export { isBoolean } from './lib/is-boolean.func';
-export { isClass } from './lib/is-class.func';
+export { isInstance } from './lib/is-instance.func';
 export { isFunction } from './lib/is-function.func';
 export { isNumber } from './lib/is-number.func';
 export { isObject } from './lib/is-object.func';
