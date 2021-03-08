@@ -9,17 +9,19 @@ import { IsString } from '../type/is-string.type';
 import { IsSymbol } from '../type/is-symbol.type';
 import { IsType } from '../type/is-type.type';
 import { IsUndefined } from '../type/is-undefined.type';
+import { IsNull } from '../type/is-null.type';
 
 export interface Is {
   array: IsArray;
   bigInt: IsBigInt;
   boolean: IsBoolean;
   function: IsFunction;
+  null: IsNull;
   number: IsNumber;
   object: IsObject;
   primitive: IsPrimitive;
-  symbol: IsSymbol;
   string: IsString;
+  symbol: IsSymbol;
   type: IsType;
   undefined: IsUndefined;
 }
