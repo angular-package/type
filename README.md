@@ -252,7 +252,7 @@ const isInstance: IsInstance = <Obj>(value: any, instance: Constructor<Obj>): va
 [Example usage][is-instance] | [How to detect `constructor` instance][detect-instance]
 
 
-### Null
+### ![][new] Null
 
 Use `isNull()` or `is.null()` to check if **any** `value` is a `'object'` type and equal `null`.
 
@@ -281,7 +281,7 @@ const isNumber: IsNumber = (value: any): value is number =>
 |-----------| :---: |-------------|
 | value     | `any` | Any ``value`` to check if it's a `'number'` type or instance of `Number` and `Object`. |
 
-[Example usage][is-number] | [How to detect 'number' type][detect-number]
+[Example usage][is-number] | [How to detect `'number'` type][detect-number]
 
 
 ### Object
@@ -297,7 +297,7 @@ const isObject: IsObject = <Obj = any>(value: any, key?: string): value is Obj =
 | value     | `any`    | Any `value` to check if it's a generic `'object'` type and `Object` instance. |
 | key?      | `string` | Property name to find in argument `value`. |
 
-[Example usage][is-object] | [How to detect 'object' type][detect-object]
+[Example usage][is-object] | [How to detect `'object'` type][detect-object]
 
 
 ### Primitive
@@ -340,7 +340,7 @@ const isString: IsString = (value: any): value is string =>
 |-----------| :---: |-------------|
 | value     | `any` | Any `value` to check if it's a `'string'` type or `'object'` type and instance of `String` and `Object`. |
 
-[Example usage][is-string] | [How to detect 'string' type][detect-string]
+[Example usage][is-string] | [How to detect `'string'` type][detect-string]
 
 
 ### ![][new] Symbol
@@ -355,7 +355,7 @@ const isSymbol: IsSymbol = (value: any): value is symbol => typeof value === 'sy
 |-----------| :---: |-------------|
 | value     | `any` | Any `value` to check if it's a `'symbol'` type. |
 
-[Example usage][is-symbol] | [How to detect 'symbol' type][detect-symbol]
+[Example usage][is-symbol] | [How to detect `'symbol'` type][detect-symbol]
 
 
 ### Type
@@ -376,7 +376,7 @@ const isType: IsType = <Type>(value: any, type: Types<Type>): value is Type => {
       case 'undefined': return isUndefined(value);
     }
   }
-  return type ? isClass<Type>(value, type) : false;
+  return type ? isInstance<Type>(value, type) : false;
 };
 ```
 
@@ -400,7 +400,7 @@ const isUndefined: IsUndefined = (value: any): value is undefined => value === u
 |-----------| :---: |-------------|
 | value     | `any` | Any `value` to check if it's an `'undefined'` type. |
 
-[Example usage][is-undefined] | [How to detect 'undefined' type][detect-undefined]
+[Example usage][is-undefined] | [How to detect `'undefined'` type][detect-undefined]
 
 
 
@@ -589,7 +589,6 @@ How do I know when to release 1.0.0?
 MIT © angular-package ([license](https://github.com/angular-package/type/blob/main/LICENSE))
 
 [new]: https://img.shields.io/badge/-new-red
-
 
 [type-npm-svg]: https://badge.fury.io/js/%40angular-package%2Ftype.svg
 [type-npm-badge]: https://badge.fury.io/js/%40angular-package%2Ftype
