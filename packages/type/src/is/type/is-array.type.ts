@@ -1,1 +1,1 @@
-export type IsArray = (value: any) => value is Array<any>;
+export type IsArray = <Type>(value: any) => value is Array<Type>;
