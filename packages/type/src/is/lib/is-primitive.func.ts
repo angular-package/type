@@ -23,4 +23,5 @@ export const isPrimitive: IsPrimitive = <Type>(value: any, type: Primitives): va
       case 'undefined': return isUndefined(value);
     }
   }
+  return false;
 };
