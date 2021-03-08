@@ -8,7 +8,7 @@ import { isSymbol } from './is-symbol.func';
 import { isUndefined } from './is-undefined.func';
 import { isObject } from './is-object.func';
 import { isFunction } from './is-function.func';
-import { isClass } from './is-class.func';
+import { isInstance } from './is-instance.func';
 /**
  * Checks if any `value` is a generic `Type` type constructor, `'function'`, `'object'` or primitive type.
  * Use the `guardType()` to type-guard generic `Type` type also.
@@ -29,5 +29,5 @@ export const isType: IsType = <Type>(value: any, type: Types<Type>): value is Ty
       case 'undefined': return isUndefined(value);
     }
   }
-  return type ? isClass<Type>(value, type) : false;
+  return type ? isInstance<Type>(value, type) : false;
 };
