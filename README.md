@@ -236,7 +236,7 @@ const isFunction: IsFunction = (value: any): value is Func =>
 
 ### ![][new] Instance
 
-Use `isInstance()` or `is.instance()` to check if **any** value is a `constructor` instance and is `Object`.
+Use `isInstance()` or `is.instance()` to check if **any** value is a generic `Obj` type `constructor` instance and is an `Object`.
 
 ```typescript
 // Imported function code.
@@ -247,7 +247,7 @@ const isInstance: IsInstance = <Obj>(value: any, instance: Constructor<Obj>): va
 | Parameter | Type  | Description |
 |-----------| :---: |-------------|
 | value     | `any` | Any generic `Obj` type `value` instance to compare with `type` instance. |
-| type      | `Constructor<Obj>` | Creates generic `Obj` instance to compare with argument `value`. |
+| type      | `Constructor<Obj>` | Creates generic `Obj` type instance to compare with argument `value`. |
 
 [Example usage][is-instance] | [How to detect `constructor` instance][detect-instance]
 
