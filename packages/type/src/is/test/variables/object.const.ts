@@ -1,5 +1,5 @@
-interface ObjectOne { x: number; }
-interface ObjectTwo { x: string; y: number; }
+export interface ObjectOne { x: number; }
+export interface ObjectTwo { x: string; y: number; }
 /**
  * @example https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
  */
