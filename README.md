@@ -64,17 +64,19 @@ import { Constructor, CycleHook, Func, Partial, Primitive, Primitives, Types } f
 **Features**
 * Checks if 
   * **any** value is 
-    * an `Array` of any type with [Array](#array).
-    * a `'bigint'` type of with [Bigint](#bigint).
-    * a `'boolean'` type of with [Boolean](#boolean).
-    * a `function` type with [Function](#function).
-    * a `number` type with [Number](#number).
-    * a `null` type with [Null](#null).
-    * a generic type also with check key in it with [Object](#object).
-    * a generic type one of the primitive `boolean`, `bigint`, `number`, `string` type with [Primitive](#primitive).
-    * a `string` type with [String](#string).
-    * a generic constructor or primitive type with [Type](#type).
-    * a `'undefined'` type with [Undefined](#undefined).
+    * an `Array` of any type with [isArray](#array).
+    * a `'bigint'` type of with [isBigInt](#bigint).
+    * a `'boolean'` type of with [isBoolean](#boolean).
+    * a `function` type with [isFunction](#function).
+    * a generic type `instance` with [isInstance](#instance).
+    * a `number` type with [isNumber](#number).
+    * a `null` type with [isNull](#null).
+    * a generic type also with check key in it with [isObject](#object).
+    * a generic type one of the primitive `boolean`, `bigint`, `number`, `string` type with [isPrimitive](#primitive).
+    * a `string` type with [isString](#string).
+    * a `symbol` type with [isSymbol](#symbol).
+    * a generic constructor or primitive type with [isType](#type).
+    * a `'undefined'` type with [isUndefined](#undefined).
 * Guard the value to be 
   * an `Array` of generic type with [Array guard](#array-guard).
   * a `function` type with [Function guard](#function-guard).
@@ -211,9 +213,9 @@ const isArray: IsArray = <Type>(value: any): value is Array<Type> => Array.isArr
 [Example usage][is-array]
 
 
-### ![][new] Bigint
+### Bigint
 
-Use `isBigInt()` or `is.bigInt()` to check if **any** `value` is a `'bigint'` type. The return value is a `boolean` value.
+![][new] Use `isBigInt()` or `is.bigInt()` to check if **any** `value` is a `'bigint'` type. The return value is a `boolean` value.
 
 ```typescript
 // Imported function code.
@@ -227,8 +229,9 @@ const isBigInt: IsBigInt = (value: any): value is bigint => typeof value === 'bi
 [Example usage][is-bigint] | [How to detect 'bigint' type][detect-bigint]
 
 
-### ![][new] Boolean
-Use `isBoolean()` or `is.boolean()` to check if **any** `value` is a `'boolean'` type or instance of `Boolean` and `Object`. The return value is a `boolean` value.
+### Boolean
+
+![][new] Use `isBoolean()` or `is.boolean()` to check if **any** `value` is a `'boolean'` type or instance of `Boolean` and `Object`. The return value is a `boolean` value.
 
 ```typescript
 // Imported function code.
@@ -260,9 +263,9 @@ const isFunction: IsFunction = (value: any): value is Func =>
 [Example usage][is-function] | [How to detect 'function' type][detect-function]
 
 
-### ![][new] Instance
+### Instance
 
-Use `isInstance()` or `is.instance()` to check if **any** value is a generic `Obj` type `constructor` instance and is an `Object`.
+![][new] Use `isInstance()` or `is.instance()` to check if **any** value is a generic `Obj` type `constructor` instance and is an `Object`.
 
 ```typescript
 // Imported function code.
@@ -278,9 +281,9 @@ const isInstance: IsInstance = <Obj>(value: any, instance: Constructor<Obj>): va
 [Example usage][is-instance] | [How to detect `constructor` instance][detect-instance]
 
 
-### ![][new] Null
+### Null
 
-Use `isNull()` or `is.null()` to check if **any** `value` is a `'object'` type and equal `null`.
+![][new] Use `isNull()` or `is.null()` to check if **any** `value` is a `'object'` type and equal `null`.
 
 ```typescript
 // Imported function code.
@@ -295,6 +298,7 @@ const isNull = (value: any): value is null => value === null && typeof value ===
 
 
 ### Number
+
 Use `isNumber()` or `is.number()` to check if **any** `value` is a '`number`' type or instance of `Number` and `Object`. The return value is a `boolean` value.
 
 ```typescript
@@ -311,6 +315,7 @@ const isNumber: IsNumber = (value: any): value is number =>
 
 
 ### Object
+
 Use `isObject()` or `is.object()` to check if **any** `value` is a generic `'object'` type with possible existing `key` in it. The return value is a `boolean` value.
 
 ```typescript
@@ -327,6 +332,7 @@ const isObject: IsObject = <Obj = any>(value: any, key?: string): value is Obj =
 
 
 ### Primitive
+
 Use `isPrimitive()` or `is.primitive()` to check if **any** `value` is a generic `Type` type one of the primitive `'boolean'`, `'bigint'`, `'number'`, `'string'`, `'symbol'`, `'undefined'` type. The return value is a `boolean` value.
 
 ```typescript
@@ -354,6 +360,7 @@ const isPrimitive: IsPrimitive = <Type>(value: any, type: Primitives): value is 
 
 
 ### String
+
 Use `isString()` or `is.string()` to check if **any** `value` is a `'string'` type or `'object'` type and instance of `String` and `Object`.
 
 ```typescript
@@ -369,8 +376,9 @@ const isString: IsString = (value: any): value is string =>
 [Example usage][is-string] | [How to detect `'string'` type][detect-string]
 
 
-### ![][new] Symbol
-Use `isSymbol()` or `is.symbol()` to check if **any** `value` is a `'symbol'` type.
+### Symbol
+
+![][new] Use `isSymbol()` or `is.symbol()` to check if **any** `value` is a `'symbol'` type.
 
 ```typescript
 // Imported function code.
@@ -414,8 +422,9 @@ const isType: IsType = <Type>(value: any, type: Types<Type>): value is Type => {
 [Example usage][is-type]
 
 
-### ![][new] Undefined
-Use `isUndefined()` or `is.undefined()` to check if **any** `value` is a `'undefined'` type.
+###  Undefined
+
+![][new] Use `isUndefined()` or `is.undefined()` to check if **any** `value` is a `'undefined'` type.
 
 ```typescript
 // Imported function code.
