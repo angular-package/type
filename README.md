@@ -21,11 +21,34 @@ Common types, type guards and checkers.
 
 ```typescript
 // Guard functions.
-import { guardArray, guardFunction, guardNumber, guardObject, guardObjectKey, guardPrimitive, guardString, guardType } from '@angular-package/type'; 
+import { 
+  guardArray,
+  guardFunction,
+  guardNumber,
+  guardObject,
+  guardObjectKey,
+  guardPrimitive,
+  guardString,
+  guardType
+} from '@angular-package/type'; 
 ```
 ```typescript
 // Check is functions.
-import { isArray, isBigInt, isBoolean, isClass, isFunction, isNumber, isObject, isPrimitive, isString, isSymbol, isType, isUndefined } from '@angular-package/type';
+import {
+  isArray,
+  isBigInt,
+  isBoolean,
+  isInstance,
+  isFunction,
+  isNumber,
+  isNull,
+  isObject,
+  isPrimitive,
+  isString,
+  isSymbol,
+  isType,
+  isUndefined
+} from '@angular-package/type';
 // Check are functions.
 import { areString } from '@angular-package/type';
 ```
