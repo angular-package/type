@@ -61,26 +61,29 @@ import { are, guard, is } from '@angular-package/type';
 import { Constructor, CycleHook, Func, Partial, Primitive, Primitives, Types } from '@angular-package/type';
 ```
 
-
 **Features**
 * Checks if 
   * **any** value is 
-    * an `Array` of any type with [Array](#array) functions.
-    * a `function` type with [Function](#function) functions.
-    * a `number` type with [Number](#number) functions.
-    * a generic type also with check key in it with [Object](#object) functions.
-    * a generic type one of the primitive `boolean`, `bigint`, `number`, `string` type with [Primitive](#primitive) functions.
-    * a `string` type with [String](#string) functions.
-    * a generic constructor or primitive type with [Type](#type) functions.
+    * an `Array` of any type with [Array](#array).
+    * a `'bigint'` type of with [Bigint](#bigint).
+    * a `'boolean'` type of with [Boolean](#boolean).
+    * a `function` type with [Function](#function).
+    * a `number` type with [Number](#number).
+    * a `null` type with [Null](#null).
+    * a generic type also with check key in it with [Object](#object).
+    * a generic type one of the primitive `boolean`, `bigint`, `number`, `string` type with [Primitive](#primitive).
+    * a `string` type with [String](#string).
+    * a generic constructor or primitive type with [Type](#type).
+    * a `'undefined'` type with [Undefined](#undefined).
 * Guard the value to be 
-  * an `Array` of generic type with [Array guard](#array-guard) functions.
-  * a `function` type with [Function guard](#function-guard) functions.
-  * a `number` type with [Number guard](#number-guard) functions.
-  * a generic type and also by finding `key` in the `object` with [Object key guard](#Object-key-guard) functions.
-  * a generic type with [Object guard](#object-guard) functions.
-  * a generic type from one of the `Primitives` with [Primitive guard](#primitive-guard) functions. 
-  * a `string` type with [String guard](#string-guard) functions.
-  * a generic type from one of the `Types` type with [Type guard](#generic-type-guard) functions.
+  * an `Array` of generic type with [Array guard](#array-guard).
+  * a `function` type with [Function guard](#function-guard).
+  * a `number` type with [Number guard](#number-guard).
+  * a generic type and also by finding `key` in the `object` with [Object key guard](#Object-key-guard).
+  * a generic type with [Object guard](#object-guard).
+  * a generic type from one of the `Primitives` with [Primitive guard](#primitive-guard). 
+  * a `string` type with [String guard](#string-guard).
+  * a generic type from one of the `Types` type with [Type guard](#generic-type-guard).
 
 **How angular-package understands**
 
