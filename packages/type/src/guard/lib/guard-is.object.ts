@@ -2,6 +2,7 @@ import { GuardIs } from '../interface/guard-is.interface';
 import { guardArray } from './guard-array.func.type';
 import { guardFunction } from './guard-function.func';
 import { guardNumber } from './guard-number.func';
+import { guardObject } from './guard-object.func';
 import { guardObjectKey } from './guard-object-key.func';
 import { guardPrimitive } from './guard-primitive.func';
 import { guardString } from './guard-string.func';
@@ -12,7 +13,7 @@ export const guardIs: GuardIs = {
   function: guardFunction,
   number: guardNumber,
   objectKey: guardObjectKey,
-  object: guardObjectKey,
+  object: guardObject,
   primitive: guardPrimitive,
   string: guardString,
   type: guardType
