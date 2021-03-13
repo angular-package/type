@@ -11,6 +11,7 @@ Useful packages based on the [angular.io](https://angular.io/).
 | type             | Common types, type guards and checkers.                                                  | [![npm version][type-npm-svg]][type-npm-badge] | [Github][type-readme-github] \| [npm][type-readme-npm] |
 
 # angular-package/type
+
 Common types, type guards and checkers.
 
 [![npm version](https://badge.fury.io/js/%40angular-package%2Ftype.svg)](https://badge.fury.io/js/%40angular-package%2Ftype)
@@ -166,17 +167,19 @@ Partial object `is` with all **check is** functions.
 ```typescript
 const is: Partial<Is> = {
   array: isArray,
-  bigint: isBigInt,
+  bigInt: isBigInt,
   boolean: isBoolean,
   function: isFunction,
+  null: isNull,
   number: isNumber,
   object: isObject,
   primitive: isPrimitive,
-  symbol: isSymbol,
   string: isString,
+  symbol: isSymbol,
   type: isType,
   undefined: isUndefined
 };
+
 
 ```
 
