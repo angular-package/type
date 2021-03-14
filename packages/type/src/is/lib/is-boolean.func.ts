@@ -5,4 +5,5 @@ import { IsBoolean } from '../type/is-boolean.type';
  * @returns boolean.
  */
 export const isBoolean: IsBoolean = (value: any): value is boolean =>
-  (value instanceof Boolean && value instanceof Object) || ((value === true || value === false) && typeof value === 'boolean');
+  (value instanceof Boolean && value instanceof Object) ||
+  ((value === true || value === false) && typeof value === 'boolean');
