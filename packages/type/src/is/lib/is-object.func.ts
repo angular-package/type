@@ -1,5 +1,6 @@
 import { isString } from './is-string.func';
 import { IsObject } from '../type/is-object.type';
+import { isNotNull } from '../not/lib/is-not-null.func';
 /**
  * Checks if any `value` is a `Obj` generic `'object'` type and `Object` instance with a possible existing `key` in it.
  * Use the `guardObject()` function to type-guard generic object type also.
@@ -8,4 +9,8 @@ import { IsObject } from '../type/is-object.type';
  * @returns boolean
  */
 export const isObject: IsObject = <Obj>(value: any, key?: string): value is Obj =>
-  typeof value === 'object' && value instanceof Object && value !== null ? isString(key) ? key in value : true : false;
+  isNotNull(value) && typeof value === 'object' && value instanceof Object ?
+    isString(key) ?
+      key in value && (value as Obj).hasOwnProperty(key) :
+    true :
+  false;
