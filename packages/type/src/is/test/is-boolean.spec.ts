@@ -27,6 +27,8 @@ describe('isBoolean', () => {
     expect(isBoolean(TRUE)).toBeTruthy();
     expect(isBoolean(FALSE_INSTANCE)).toBeTruthy();
     expect(isBoolean(TRUE_INSTANCE)).toBeTruthy();
+    expect(isBoolean(Boolean(false))).toBeTruthy();
+    expect(isBoolean(Boolean(true))).toBeTruthy();
   });
 
   // FALSE
