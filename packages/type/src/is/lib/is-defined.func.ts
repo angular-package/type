@@ -1,9 +1,11 @@
 import { IsDefined } from '../type/is-defined.type';
-import { isNotUndefined } from '../not/lib/is-not-undefined.func';
-import { isNotNull } from '../not/lib/is-not-null.func';
+import { typeOf } from '../../lib/type-of.func';
 /**
- * Checks if any `value` is NOT a `'undefined'` type and NOT a `null` type.
- * @param value Any `value` to check if it's NOT an `'undefined'` type and NOT a `null` type.
+ * Checks if unknown `value` is NOT a `'undefined'` type.
+ * @param value Any `value` to check if it's NOT an `'undefined'` type.
  * @returns boolean.
  */
-export const isDefined: IsDefined = (value: any): value is undefined => isNotUndefined(value) && isNotNull(value);
+export const isDefined: IsDefined = (value: unknown): boolean =>
+  value !== undefined &&
+  typeof value !== 'undefined' &&
+  typeOf(value) !== 'undefined';
