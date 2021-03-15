@@ -8,4 +8,6 @@ import { isObject } from './is-object.func';
  * @param instance Creates generic `Obj` type instance to compare with argument `value`.
  */
 export const isInstance: IsInstance = <Obj>(value: any, instance: Constructor<Obj>): value is Obj =>
-  (value instanceof instance && isString(instance.prototype.constructor.name) && isObject<Obj>(value));
+  isObject<Obj>(value) &&
+  value instanceof instance === true &&
+  isString(instance.prototype.constructor.name) === true;
