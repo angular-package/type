@@ -5,4 +5,6 @@ import { typeOf } from '../../lib/type-of.func';
  * @param value Any `value` to check if it's a `'bigint'` type.
  * @returns boolean
  */
-export const isBigInt: IsBigInt = (value: any): value is bigint => typeof value === 'bigint' && typeOf(value) === 'bigint';
+export const isBigInt: IsBigInt = (value: any): value is bigint =>
+  typeOf(value) === 'bigint' &&
+  typeof value === 'bigint';
