@@ -12,6 +12,7 @@ import { IsString } from '../type/is-string.type';
 import { IsSymbol } from '../type/is-symbol.type';
 import { IsType } from '../type/is-type.type';
 import { IsUndefined } from '../type/is-undefined.type';
+import { IsInstance } from '../type/is-instance.type';
 
 export interface Is {
   array: IsArray;
@@ -19,6 +20,7 @@ export interface Is {
   boolean: IsBoolean;
   defined: IsDefined;
   function: IsFunction;
+  instance: IsInstance;
   not: Partial<IsNot>;
   null: IsNull;
   number: IsNumber;
