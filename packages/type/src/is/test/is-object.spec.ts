@@ -24,9 +24,6 @@ describe('isObject', () => {
   it(`Class | CLASS`, () => {
     expect(isObject(CLASS)).toBeTruthy();
   });
-  it(`'number' | Number`, () => {
-    expect(isObject(NUMBER_NEW_INSTANCE)).toBeTruthy();
-  });
   it(`'object' | Object`, () => {
     expect(isObject<ObjectOne>(OBJECT_ONE)).toBeTruthy();
     expect(isObject<ObjectTwo>(OBJECT_TWO)).toBeTruthy();
@@ -40,8 +37,8 @@ describe('isObject', () => {
   it(`'boolean' | Boolean`, () => {
     expect(isObject(FALSE)).toBeFalsy();
     expect(isObject(TRUE)).toBeFalsy();
-    expect(isObject(FALSE_INSTANCE)).toBeTruthy();
-    expect(isObject(TRUE_INSTANCE)).toBeTruthy();
+    expect(isObject(FALSE_INSTANCE)).toBeFalsy();
+    expect(isObject(TRUE_INSTANCE)).toBeFalsy();
   });
   it(`Class | CLASS`, () => {
     expect(isObject(Class)).toBeFalsy();
@@ -56,11 +53,12 @@ describe('isObject', () => {
   it(`'number' | Number`, () => {
     expect(isObject(NUMBER)).toBeFalsy();
     expect(isObject(NUMBER_INSTANCE)).toBeFalsy();
+    expect(isObject(NUMBER_NEW_INSTANCE)).toBeFalsy();
   });
   it(`'string' | String`, () => {
     expect(isObject(STRING)).toBeFalsy();
     expect(isObject(STRING_INSTANCE)).toBeFalsy();
-    expect(isObject(STRING_NEW_INSTANCE)).toBeTruthy();
+    expect(isObject(STRING_NEW_INSTANCE)).toBeFalsy();
   });
   it(`'symbol'`, () => {
     expect(isObject(SYMBOL_NUMBER)).toBeFalsy();

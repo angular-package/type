@@ -10,6 +10,8 @@ import { GuardType } from '../type/guard-type.type';
 export interface GuardIs {
   array: GuardArray;
   function: GuardFunction;
+  // TODO: Guard not
+  // not: Partial<GuardNotIs>;
   number: GuardNumber;
   objectKey: GuardObjectKey;
   object: GuardObjectKey;

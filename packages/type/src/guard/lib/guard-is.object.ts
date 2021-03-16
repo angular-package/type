@@ -9,6 +9,7 @@ import { guardString } from './guard-string.func';
 import { guardType } from './guard-type.func';
 
 export const guardIs: GuardIs = {
+  // TODO: add other guards etc. boolean, null, undefined
   array: guardArray,
   function: guardFunction,
   number: guardNumber,
