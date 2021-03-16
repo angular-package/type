@@ -64,29 +64,32 @@ import { Constructor, CycleHook, Func, Partial, Primitive, Primitives, Types } f
 
 **Features**
 * Checks if 
+  * **unknown** value is
+    * defined with [isDefined](#defined).
+    * not 
   * **any** value is 
-    * an `Array` of any type with [isArray](#array).
-    * a `'bigint'` type of with [isBigInt](#bigint).
-    * a `'boolean'` type of with [isBoolean](#boolean).
-    * a `function` type with [isFunction](#function).
-    * a generic type `instance` with [isInstance](#instance).
-    * a `number` type with [isNumber](#number).
-    * a `null` type with [isNull](#null).
-    * a generic type also with check key in it with [isObject](#object).
-    * a generic type one of the primitive `boolean`, `bigint`, `number`, `string` type with [isPrimitive](#primitive).
-    * a `string` type with [isString](#string).
-    * a `symbol` type with [isSymbol](#symbol).
-    * a generic constructor or primitive type with [isType](#type).
-    * a `'undefined'` type with [isUndefined](#undefined).
+    * an `Array` of any type with [isArray](#isArray).
+    * a `'bigint'` type with [isBigInt](#isBigInt).
+    * a `'boolean'` type with [isBoolean](#isBoolean).
+    * a `function` type with [isFunction](#isFunction).
+    * a generic type `instance` with [isInstance](#isInstance).
+    * a `null` type with [isNull](#isNull).
+    * a `number` type with [isNumber](#isNumber).
+    * a generic type `'object'` with [isObject](#isObject).
+    * a one of the primitive `boolean`, `bigint`, `number`, `string` type with [isPrimitive](#isPrimitive).
+    * a `string` type with [isString](#isString).
+    * a `symbol` type with [isSymbol](#isSymbol).
+    * a generic type instance, `'function'`, `'object'` or primitive type with [isType](#isType).
+    * a `'undefined'` type with [isUndefined](#isUndefined).
 * Guard the value to be 
-  * an `Array` of generic type with [Array guard](#array-guard).
-  * a `function` type with [Function guard](#function-guard).
-  * a `number` type with [Number guard](#number-guard).
-  * a generic type and also by finding `key` in the `object` with [Object key guard](#Object-key-guard).
-  * a generic type with [Object guard](#object-guard).
-  * a generic type from one of the `Primitives` with [Primitive guard](#primitive-guard). 
-  * a `string` type with [String guard](#string-guard).
-  * a generic type from one of the `Types` type with [Type guard](#generic-type-guard).
+  * an `Array` of generic type with [guardArray](#guardArray).
+  * a `function` type with [guardFunction](#guardFunction).
+  * a `number` type with [guardNumber](#guardNumber).
+  * a generic `'object'` type that contains `key` with [guardObjectKey](#guardObjectKey).
+  * a generic `'object'` type with [guardObject](#guardObject).
+  * a one of the `Primitives` with [guardPrimitive](#guardPrimitive).
+  * a `string` type with [guardString](#guardString).
+  * a generic type from one of the [`Types`](#types) type with [Type guard](#guardType).
 
 **How angular-package understands**
 
@@ -106,9 +109,9 @@ Guard
   * [`are`](#are-object)
   * [`guard`](#guard-object)
   * [`is`](#is-object)
-* [Check](#check-are)
-  * [are](#check-are)
-  * [is](#check-is)
+* [Checks](#checks)
+  * [are](#areString)
+  * [is](#isArray)
 * [Guards](#guards)
 * [Types](#types)
 * [Git](#git)
@@ -200,8 +203,8 @@ const isNot: Partial<IsNot> = {
 ```
 
 
-## Check are
-### Strings
+## Checks
+### areString
 
  Use `areString()` or `are.string()` to check if all of **any** arguments are a `'string'` type. The return value is a `boolean` value.
 
@@ -216,8 +219,8 @@ const areString = (...args: any): boolean => check('string', ...args);
 [Example usage][are-string]
 
 
-## Check is
-### Array
+
+### isArray
 
 Use `isArray()` or `is.array()` to check if **any** `value` is an `Array` of an `'object'` generic `Type` type and `Array` instance. The return value is a `boolean` value.
 
@@ -236,7 +239,7 @@ const isArray: IsArray = <Type>(value: any): value is Array<Type> =>
 [Example usage][is-array]
 
 
-### Bigint
+### isBigInt
 
 Use `isBigInt()` or `is.bigInt()` to check if **any** `value` is a `'bigint'` type. The return value is a `boolean` value.
 
@@ -253,7 +256,7 @@ const isBigInt: IsBigInt = (value: any): value is bigint =>
 [Example usage][is-bigint] | [How to detect 'bigint' type][detect-bigint]
 
 
-### Boolean
+### isBoolean
 
 Use `isBoolean()` or `is.boolean()` to check if **any** `value` is a `'boolean'` type not instance of `Boolean` and `Object` or `'object'` type instance of `Boolean` and `Object`. The return value is a `boolean` value.
 
@@ -283,7 +286,7 @@ const isBoolean: IsBoolean = (value: any): value is boolean =>
 [Example usage][is-boolean] | [How to detect 'boolean' type][detect-boolean]
 
 
-### Defined
+### isDefined
 
 ![][new] Use `isDefined()` or `is.defined()` to check if **unknown** `value` is NOT a `'undefined'` type and is not `undefined`. The return value is a `boolean` value.
 
@@ -299,7 +302,7 @@ const isDefined: IsDefined = (value: unknown): boolean =>
 | value     | `unknown` | Unknown `value` to check if it's NOT an `'undefined'` type and is not `undefined`. |
 
 
-### Function
+### isFunction
 
 Use `isFunction()` or `is.function()` to check if **any** `value` is a `'function'` type, instance of `Function` and `Object`. The return value is a `boolean` value.
 
@@ -318,7 +321,7 @@ const isFunction: IsFunction = (value: any): value is Func =>
 [Example usage][is-function] | [How to detect 'function' type][detect-function]
 
 
-### Instance
+### isInstance
 
 Use `isInstance()` or `is.instance()` to check if **any** value is a generic `Obj` type `constructor` instance and is an `Object`.
 
@@ -337,7 +340,7 @@ const isInstance: IsInstance = <Obj>(value: any, instance: Constructor<Obj>): va
 [Example usage][is-instance] | [How to detect `constructor` instance][detect-instance]
 
 
-### Null
+### isNull
 
 Use `isNull()` or `is.null()` to check if **any** `value` is a `'object'` type and equal `null`.
 
@@ -355,7 +358,7 @@ const isNull: IsNull = (value: any): value is null =>
 [Example usage][is-null] | [How to detect `null` type][detect-null]
 
 
-### Number
+### isNumber
 
 Use `isNumber()` or `is.number()` to check if **any** `value` is a '`number`' type not instance of `Number` and `Object` or `'object'` type instance of `Number` and `Object`. The return value is a `boolean` value.
 
@@ -385,7 +388,7 @@ const isNumber: IsNumber = (value: any): value is number =>
 [Example usage][is-number] | [How to detect `'number'` type][detect-number]
 
 
-### Object
+### isObject
 
 Use `isObject()` or `is.object()` to check if **any** `value` is a generic `Obj` `'object'` type and `Object` instance with the possibility of containing `key`. The return value is a `boolean` value.
 
@@ -407,7 +410,7 @@ const isObject: IsObject = <Obj>(value: any, key?: string): value is Obj =>
 [Example usage][is-object] | [How to detect `'object'` type][detect-object]
 
 
-### Primitive
+### isPrimitive
 
 Use `isPrimitive()` or `is.primitive()` to check if **any** `value` is a generic `Type` type one of the primitive `'boolean'`, `'bigint'`, `'number'`, `'string'`, `'symbol'`, `'undefined'` type. The return value is a `boolean` value.
 
@@ -434,7 +437,7 @@ const isPrimitive: IsPrimitive = <Type>(value: any, type: Primitives): value is 
 [Example usage][is-primitive]
 
 
-### String
+### isString
 
 Use `isString()` or `is.string()` to check if **any** `value` is a `'string'` type or `'object'` type instance of `String` and `Object`.
 
@@ -461,7 +464,7 @@ const isString: IsString = (value: any): value is string =>
 [Example usage][is-string] | [How to detect `'string'` type][detect-string]
 
 
-### Symbol
+### isSymbol
 
 Use `isSymbol()` or `is.symbol()` to check if **any** `value` is a `'symbol'` type.
 
@@ -478,7 +481,7 @@ const isSymbol: IsSymbol = (value: any): value is symbol =>
 [Example usage][is-symbol] | [How to detect `'symbol'` type][detect-symbol]
 
 
-### Type
+### isType
 Use `isType()` or `is.type()` Check if **any** `value` is a generic `Type` type constructor, `'function'`, `'object'` or primitive type. The return value is a `boolean` value.
 
 ```typescript
@@ -507,7 +510,7 @@ const isType: IsType = <Type>(value: any, type: Types<Type>): value is Type => {
 [Example usage][is-type]
 
 
-###  Undefined
+### isUndefined
 
 Use `isUndefined()` or `is.undefined()` to check if **any** `value` is a `'undefined'` type.
 
@@ -527,7 +530,7 @@ const isUndefined: IsUndefined = (value: any): value is undefined =>
 
 
 ## Guards
-### Array guard
+### guardArray
 
 Use `guardArray()` or `guard.is.array()` to guard the `value` to be a generic `Array` `Type`. The return value is a `boolean` value.
 
@@ -542,7 +545,7 @@ const guardArray: GuardArray = <Type>(value: Array<Type>): value is Array<Type> 
 [Example usage][guard-array]
 
 
-### Function guard
+### guardFunction
 
 Use `guardFunction()` or `guard.is.function()` to guard the `func` value to be a `Func` type. The return value is a `boolean` value.
 
@@ -557,7 +560,7 @@ const guardFunction: GuardFunction = (func: Func): func is Func => isFunction(fu
 [Example usage][guard-function]
 
 
-### Number guard
+### guardNumber
 
 Use `guardNumber()` or `guard.is.number()` to guard the `value` to be a `number` type. The return value is a `boolean` value.
 
@@ -572,7 +575,7 @@ const guardNumber: GuardNumber = (value: number): value is number => isNumber(va
 [Example usage][guard-number]
 
 
-### Object guard
+### guardObject
 
 Use `guardObject()` or `guard.is.object()` to guard the `object` value to be a generic `Obj` type. The return value is a `boolean` value.
 
@@ -587,7 +590,7 @@ const guardObject: GuardObject = <Obj>(object: Obj): object is Obj => isObject<O
 [Example usage][guard-object]
 
 
-### Object key guard
+### guardObjectKey
 
 Use `guardObjectKey()` or `guard.is.objectKey()` to guard the `object` to be a generic `Obj` type and to contains the `key` property. The return value is a `boolean` value.
 
@@ -604,7 +607,7 @@ const guardObjectKey: GuardObjectKey = <Obj, Key extends keyof Obj>(object: Obj,
 [Example usage][guard-object-key]
 
 
-### Primitive guard
+### guardPrimitive
 
 Use `guardPrimitive()` or `guard.is.primitive()` to guard the `value` to be a generic `Type` from one of the `Primitives`. The return value is a `boolean` value.
 
@@ -620,7 +623,7 @@ const guardPrimitive: GuardPrimitive = <Type>(value: Type, type: Primitives): va
 [Example usage][guard-primitive]
 
 
-### String guard
+### guardString
 
 Use `guardString()` or `guard.is.string()` to guard the `value` to be a `string` type. The return value is a `boolean` value.
 
@@ -635,7 +638,7 @@ const guardString: GuardString = (value: string): value is string => isString(va
 [Example usage][guard-string]
 
 
-### Generic type guard
+### guardType
 
 Use `guardType()` or `guard.is.type()` to guard the `value` to be a generic `Type` type from one of the `Types` type. The return value is a `boolean` value.
 
