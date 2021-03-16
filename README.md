@@ -206,7 +206,6 @@ const isNot: Partial<IsNot> = {
  Use `areString()` or `are.string()` to check if all of **any** arguments are a `'string'` type. The return value is a `boolean` value.
 
 ```typescript
-// Imported function code.
 const areString = (...args: any): boolean => check('string', ...args);
 ```
 
@@ -223,7 +222,6 @@ const areString = (...args: any): boolean => check('string', ...args);
 Use `isArray()` or `is.array()` to check if **any** `value` is an `Array` of an `'object'` generic `Type` type and `Array` instance. The return value is a `boolean` value.
 
 ```typescript
-// Imported function code.
 const isArray: IsArray = <Type>(value: any): value is Array<Type> =>
   typeOf(value) === 'array' &&
   Array.isArray(value) === true &&
@@ -243,7 +241,6 @@ const isArray: IsArray = <Type>(value: any): value is Array<Type> =>
 Use `isBigInt()` or `is.bigInt()` to check if **any** `value` is a `'bigint'` type. The return value is a `boolean` value.
 
 ```typescript
-// Imported function code.
 const isBigInt: IsBigInt = (value: any): value is bigint =>
   typeOf(value) === 'bigint' &&
   typeof value === 'bigint';
@@ -261,8 +258,7 @@ const isBigInt: IsBigInt = (value: any): value is bigint =>
 Use `isBoolean()` or `is.boolean()` to check if **any** `value` is a `'boolean'` type not instance of `Boolean` and `Object` or `'object'` type instance of `Boolean` and `Object`. The return value is a `boolean` value.
 
 ```typescript
-// Imported function code.
-export const isBoolean: IsBoolean = (value: any): value is boolean =>
+const isBoolean: IsBoolean = (value: any): value is boolean =>
   typeOf(value) === 'boolean' &&
   (
     (
@@ -292,8 +288,7 @@ export const isBoolean: IsBoolean = (value: any): value is boolean =>
 ![][new] Use `isDefined()` or `is.defined()` to check if **unknown** `value` is NOT a `'undefined'` type and is not `undefined`. The return value is a `boolean` value.
 
 ```typescript
-// Imported function code.
-export const isDefined: IsDefined = (value: unknown): boolean =>
+const isDefined: IsDefined = (value: unknown): boolean =>
   typeOf(value) !== 'undefined' &&
   typeof value !== 'undefined' &&
   value !== undefined;
@@ -309,7 +304,6 @@ export const isDefined: IsDefined = (value: unknown): boolean =>
 Use `isFunction()` or `is.function()` to check if **any** `value` is a `'function'` type, instance of `Function` and `Object`. The return value is a `boolean` value.
 
 ```typescript
-// Imported function code.
 const isFunction: IsFunction = (value: any): value is Func =>
   typeOf(value) === 'function' &&
   typeof value === 'function' &&
@@ -418,7 +412,6 @@ const isObject: IsObject = <Obj>(value: any, key?: string): value is Obj =>
 Use `isPrimitive()` or `is.primitive()` to check if **any** `value` is a generic `Type` type one of the primitive `'boolean'`, `'bigint'`, `'number'`, `'string'`, `'symbol'`, `'undefined'` type. The return value is a `boolean` value.
 
 ```typescript
-// Imported function code.
 const isPrimitive: IsPrimitive = <Type>(value: any, type: Primitives): value is Type => {
   if (isString(type)) {
     switch (type) {
@@ -489,7 +482,6 @@ const isSymbol: IsSymbol = (value: any): value is symbol =>
 Use `isType()` or `is.type()` Check if **any** `value` is a generic `Type` type constructor, `'function'`, `'object'` or primitive type. The return value is a `boolean` value.
 
 ```typescript
-// Imported function code.
 const isType: IsType = <Type>(value: any, type: Types<Type>): value is Type => {
   if (isString(type)) {
     switch (type) {
@@ -540,7 +532,6 @@ const isUndefined: IsUndefined = (value: any): value is undefined =>
 Use `guardArray()` or `guard.is.array()` to guard the `value` to be a generic `Array` `Type`. The return value is a `boolean` value.
 
 ```typescript
-// Imported function code.
 const guardArray: GuardArray = <Type>(value: Array<Type>): value is Array<Type> => isArray<Type>(value);
 ```
 
@@ -556,7 +547,6 @@ const guardArray: GuardArray = <Type>(value: Array<Type>): value is Array<Type> 
 Use `guardFunction()` or ![][new] `guard.is.function()` to guard the `func` value to be a `Func` type. The return value is a `boolean` value.
 
 ```typescript
-// Imported function code.
 const guardFunction: GuardFunction = (func: Func): func is Func => isFunction(func);
 ```
 
@@ -572,7 +562,6 @@ const guardFunction: GuardFunction = (func: Func): func is Func => isFunction(fu
 Use `guardNumber()` or ![][new] `guard.is.number()` to guard the `value` to be a `number` type. The return value is a `boolean` value.
 
 ```typescript
-// Imported function code.
 const guardNumber: GuardNumber = (value: number): value is number => isNumber(value);
 ```
 
@@ -588,7 +577,6 @@ const guardNumber: GuardNumber = (value: number): value is number => isNumber(va
 Use `guardObject()` or ![][new] `guard.is.object()` to guard the `object` value to be a generic `Obj` type. The return value is a `boolean` value.
 
 ```typescript
-// Imported function code.
 const guardObject: GuardObject = <Obj>(object: Obj): object is Obj => isObject<Obj>(object);
 ```
 
@@ -604,7 +592,6 @@ const guardObject: GuardObject = <Obj>(object: Obj): object is Obj => isObject<O
 Use `guardObjectKey()` or ![][new] `guard.is.objectKey()` to guard the `object` to be a generic `Obj` type and to contains the `key` property. The return value is a `boolean` value.
 
 ```typescript
-// Imported function code.
 const guardObjectKey: GuardObjectKey = <Obj, Key extends keyof Obj>(object: Obj, key: Key): object is Obj =>
   guardObject<Obj>(object) ? isString(key) ? key in object : true : false;
 ```
@@ -622,7 +609,6 @@ const guardObjectKey: GuardObjectKey = <Obj, Key extends keyof Obj>(object: Obj,
 Use `guardPrimitive()` or ![][new] `guard.is.primitive()` to guard the `value` to be a generic `Type` from one of the `Primitives`. The return value is a `boolean` value.
 
 ```typescript
-// Imported function code.
 const guardPrimitive: GuardPrimitive = <Type>(value: Type, type: Primitives): value is Type => isPrimitive(value, type);
 ```
 
@@ -639,7 +625,6 @@ const guardPrimitive: GuardPrimitive = <Type>(value: Type, type: Primitives): va
 Use `guardString()` or ![][new] `guard.is.string()` to guard the `value` to be a `string` type. The return value is a `boolean` value.
 
 ```typescript
-// Imported function code.
 const guardString: GuardString = (value: string): value is string => isString(value);
 ```
 
@@ -655,7 +640,6 @@ const guardString: GuardString = (value: string): value is string => isString(va
 Use `guardType()` or ![][new] `guard.is.type()` to guard the `value` to be a generic `Type` type from one of the `Types` type. The return value is a `boolean` value.
 
 ```typescript
-// Imported function code.
 const guardType: GuardType = <Type>(value: Type, type: Types<Type>): value is Type => isType<Type>(value, type);
 ```
 
