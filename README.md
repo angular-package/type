@@ -39,10 +39,11 @@ import {
   isArray,
   isBigInt,
   isBoolean,
-  isInstance,
+  isDefined,
   isFunction,
-  isNumber,
+  isInstance,
   isNull,
+  isNumber,
   isObject,
   isPrimitive,
   isString,
@@ -52,6 +53,18 @@ import {
 } from '@angular-package/type';
 // Check are functions.
 import { areString } from '@angular-package/type';
+```
+```typescript
+// Check is NOT functions.
+import {
+  isNotBoolean,
+  isNotDefined,
+  isNotFunction,
+  isNotNull,
+  isNotNumber,
+  isNotString,
+  isNotUndefined
+} from '@angular-package/type';
 ```
 ```typescript
 // Guard and is object.
