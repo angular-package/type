@@ -148,7 +148,7 @@ const guardIs: GuardIs = {
   function: guardFunction,
   number: guardNumber,
   objectKey: guardObjectKey,
-  object: guardObjectKey,
+  object: guardObject,
   primitive: guardPrimitive,
   string: guardString,
   type: guardType
@@ -508,7 +508,8 @@ const guardObject: GuardObject = <Obj>(object: Obj): object is Obj => isObject<O
 
 
 ### Object key guard
-Use `guardObjectKey()` or ![][new] `guard.is.objectKey()` to guard the `object` to be a generic `Obj` type and guard by finding `key` in the `object`. The return value is a `boolean` value.
+
+Use `guardObjectKey()` or ![][new] `guard.is.objectKey()` to guard the `object` to be a generic `Obj` type and to contains the `key` property. The return value is a `boolean` value.
 
 ```typescript
 // Imported function code.
@@ -518,8 +519,8 @@ const guardObjectKey: GuardObjectKey = <Obj, Key extends keyof Obj>(object: Obj,
 
 | Parameter   | Type  | Description   |
 |-------------| :---: |---------------|
-| object      | `Obj` | Generic `Obj` type value to guard and to find `key` value in.  |
-| key         | `Key` | Value to find in `object`. |
+| object      | `Obj` | Generic `Obj` type `value` that contains the `key` property to guard.  |
+| key         | `Key` | Name of the property that the `object` contains. |
 
 [Example usage][guard-object-key]
 
