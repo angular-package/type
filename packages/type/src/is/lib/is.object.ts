@@ -6,6 +6,7 @@ import { isBigInt } from './is-big-int.func';
 import { isBoolean } from './is-boolean.func';
 import { isDefined } from './is-defined.func';
 import { isFunction } from './is-function.func';
+import { isInstance } from './is-instance.func';
 import { isNull } from './is-null.func';
 import { isNumber } from './is-number.func';
 import { isObject } from './is-object.func';
@@ -23,6 +24,7 @@ export const is: Partial<Is> = {
   boolean: isBoolean,
   defined: isDefined,
   function: isFunction,
+  instance: isInstance,
   not: isNot,
   null: isNull,
   number: isNumber,
