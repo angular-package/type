@@ -228,7 +228,7 @@ const areString = (...args: any): boolean => check('string', ...args);
 
 ### isArray
 
-Use `isArray()` or `is.array()` to check if **any** `value` is an `Array` of an `'object'` generic `Type` type and `Array` instance. The return value is a `boolean` value.
+Use `isArray()` or `is.array()` to check if **any** `value` is an `Array` of `'object'` generic `Type` type and `Array` instance. The return value is a `boolean` value.
 
 ```typescript
 const isArray: IsArray = <Type>(value: any): value is Array<Type> =>
@@ -240,7 +240,7 @@ const isArray: IsArray = <Type>(value: any): value is Array<Type> =>
 
 | Parameter | Type  | Description |
 |-----------| :---: |-------------|
-| value     | `any` | Any `value` to check if it's an `Array` of an `'object'` generic `Type` type  and `Array` instance. |
+| value     | `any` | Any `value` to check if it's an `Array` of `'object'` generic `Type` type  and `Array` instance. |
 
 [Example usage][is-array]
 
@@ -294,7 +294,7 @@ const isBoolean: IsBoolean = (value: any): value is boolean =>
 
 ### isDefined
 
-![][new] Use `isDefined()` or `is.defined()` to check if **unknown** `value` is NOT a `'undefined'` type and is not `undefined`. The return value is a `boolean` value.
+![][new] Use `isDefined()` or `is.defined()` to check if an **unknown** `value` is NOT an `'undefined'` type and is not equal to `undefined`. The return value is a `boolean` value.
 
 ```typescript
 const isDefined: IsDefined = (value: unknown): boolean =>
@@ -305,7 +305,7 @@ const isDefined: IsDefined = (value: unknown): boolean =>
 
 | Parameter | Type      | Description |
 |-----------| :-------: |-------------|
-| value     | `unknown` | Unknown `value` to check if it's NOT an `'undefined'` type and is not `undefined`. |
+| value     | `unknown` | An unknown `value` to check if it's NOT an `'undefined'` type and is not equal to `undefined`. |
 
 
 ### isFunction
@@ -536,7 +536,7 @@ const isUndefined: IsUndefined = (value: any): value is undefined =>
 
 ### isNotBoolean
 
-![][new] Use `isNotBoolean()` or `is.not.boolean()` to check if an **unknown** `value` is NOT a `'boolean'` type, NOT equal to `true` or `false` and NOT an instance of a `Boolean` and an `Object`. The return value is a `boolean` value.
+![][new] Use `isNotBoolean()` or `is.not.boolean()` to check if an **unknown** `value` is NOT a `'boolean'` type, NOT equal to `true` or `false` and NOT an instance of a `Boolean`. The return value is a `boolean` value.
 
 ```typescript
 const isNotBoolean: IsNotBoolean = (value: unknown): boolean =>
@@ -549,12 +549,12 @@ const isNotBoolean: IsNotBoolean = (value: unknown): boolean =>
 
 | Parameter | Type      | Description |
 |-----------| :-------: |-------------|
-| value     | `unknown` | Unknown `value` to check if it's NOT a `'boolean'` type, NOT equal to `true` or `false` and NOT an instance of a `Boolean` and an `Object`. |
+| value     | `unknown` | An unknown `value` to check if it's NOT a `'boolean'` type, NOT equal to `true` or `false` and NOT an instance of `Boolean`. |
 
 
 ### isNotDefined
 
-![][new] Use `isNotDefined()` or `is.not.defined()` to check if an **unknown** `value` is a `'undefined'` type and is equal to `undefined`. The return value is a `boolean` value.
+![][new] Use `isNotDefined()` or `is.not.defined()` to check if an **unknown** `value` is an `'undefined'` type and is equal to `undefined`. The return value is a `boolean` value.
 
 ```typescript
 const isNotDefined: IsNotDefined = (value: unknown): boolean =>
@@ -565,48 +565,60 @@ const isNotDefined: IsNotDefined = (value: unknown): boolean =>
 
 | Parameter | Type      | Description |
 |-----------| :-------: |-------------|
-| value     | `unknown` | Unknown `value` to check if it's a `'undefined'` type and is `undefined`. |
+| value     | `unknown` | An unknown `value` to check if it's an `'undefined'` type and is equal to `undefined`. |
 
 
 ### isNotFunction
 
-![][new] Use `isNotFunction()` or `is.not.function()` to check if an **unknown** `value` . The return value is a `boolean` value.
+![][new] Use `isNotFunction()` or `is.not.function()` to check if an **unknown** `value` is NOT a `'function'` type and NOT an instance of `Function`. The return value is a `boolean` value.
 
 ```typescript
+const isNotFunction: IsNotFunction = (value: unknown): boolean =>
+  typeOf(value) !== 'function' &&
+  typeof value !== 'function' &&
+  value instanceof Function === false;
 ```
 
 | Parameter | Type      | Description |
 |-----------| :-------: |-------------|
-| value     | `unknown` |  |
+| value     | `unknown` | An unknown `value` to check if it's NOT a `'function'` type and NOT an instance of `Function`. |
 
 
 ### isNotNull
 
-![][new] Use `isNotFunction()` or `is.not.function()` to check if an **unknown** `value` . The return value is a `boolean` value.
+![][new] Use `isNotNull()` or `is.not.null()` to check if an **unknown** `value` is NOT a `'null'` type and NOT equal to `null`. The return value is a `boolean` value.
 
 ```typescript
+const isNotNull: IsNotNull = (value: unknown): boolean =>
+  typeOf(value) !== 'null' &&
+  value !== null;
 ```
 
 | Parameter | Type      | Description |
 |-----------| :-------: |-------------|
-| value     | `unknown` |  |
+| value     | `unknown` | An unknown `value` to check if it's NOT a `'null'` type and NOT equal to `null`. |
 
 
 ### isNotNumber
 
-![][new] Use `isNotNumber()` or `is.not.number()` to check if an **unknown** `value` is NOT a `'number'` type and NOT an instance of a `Number`. The return value is a `boolean` value.
+![][new] Use `isNotNumber()` or `is.not.number()` to check if an **unknown** `value` is NOT a `'number'` type and NOT an instance of `Number`. The return value is a `boolean` value.
 
 ```typescript
+const isNotNumber: IsNotNumber = (value: any): boolean =>
+  typeOf(value) !== 'number' &&
+  typeof value !== 'number' &&
+  isFinite(value) === false &&
+  value instanceof Number === false;
 ```
 
 | Parameter | Type      | Description |
 |-----------| :-------: |-------------|
-| value     | `unknown` |  |
+| value     | `unknown` | An unknown value to check if it's NOT a `'number'` type and NOT an instance of `Number`. |
 
 
 ### isNotString
 
-![][new] Use `isNotString()` or `is.not.string()` to check if an **unknown** `value` is NOT a `'string'` type, NOT an `'object'` type, and NOT an instance of a `String`. The return value is a `boolean` value.
+![][new] Use `isNotString()` or `is.not.string()` to check if an **unknown** `value` is NOT a `'string'` type and NOT an instance of `String`. The return value is a `boolean` value.
 
 ```typescript
 const isNotString: IsNotString = (value: unknown): boolean =>
@@ -617,7 +629,7 @@ const isNotString: IsNotString = (value: unknown): boolean =>
 
 | Parameter | Type      | Description |
 |-----------| :-------: |-------------|
-| value     | `unknown` | An unknown `value` to check if it's NOT a `'string'` type or NOT an `'object'` type and NOT an instance of a `String`. |
+| value     | `unknown` | An unknown `value` to check if it's NOT a `'string'` type or NOT an `'object'` type and NOT an instance of `String`. |
 
 
 ### isNotUndefined
@@ -634,7 +646,6 @@ const isNotUndefined: IsNotUndefined = (value: unknown): boolean =>
 | Parameter | Type      | Description |
 |-----------| :-------: |-------------|
 | value     | `unknown` | An Unknown `value` to check if it's NOT an `'undefined'` type and NOT equal to `undefined`. |
-
 
 
 
