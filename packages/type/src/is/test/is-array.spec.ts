@@ -9,7 +9,20 @@ import { STRING, STRING_INSTANCE } from './variables/string.const';
 import { SYMBOL_NUMBER, SYMBOL_STRING } from './variables/symbol.const';
 import { notDefined } from './variables.const';
 import { UNDEFINED } from './variables/undefined.const';
-import { ARRAY_BIGINT, ARRAY_BOOLEAN, ARRAY_CLASS, ARRAY_FUNCTION, ARRAY_NULL, ARRAY_NUMBER, ARRAY_OBJECT_ONE, ARRAY_OBJECT_TWO, ARRAY_STRING, ARRAY_SYMBOL_STRING, ARRAY_SYMBOL_NUMBER, ARRAY_UNDEFINED } from './variables/array.const';
+import {
+  ARRAY_BIGINT,
+  ARRAY_BOOLEAN,
+  ARRAY_CLASS,
+  ARRAY_FUNCTION,
+  ARRAY_NULL,
+  ARRAY_NUMBER,
+  ARRAY_OBJECT_ONE,
+  ARRAY_OBJECT_TWO,
+  ARRAY_STRING,
+  ARRAY_SYMBOL_STRING,
+  ARRAY_SYMBOL_NUMBER,
+  ARRAY_UNDEFINED
+} from './variables/array.const';
 import { Class } from './variables/class.const';
 import { Func } from '../../type/func.type';
 
