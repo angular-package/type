@@ -6,6 +6,6 @@ import { typeOf } from '../../lib/type-of.func';
  * @returns boolean.
  */
 export const isUndefined: IsUndefined = (value: any): value is undefined =>
-  value === undefined &&
+  typeOf(value) === 'undefined' &&
   typeof value === 'undefined' &&
-  typeOf(value) === 'undefined';
+  value === undefined;
