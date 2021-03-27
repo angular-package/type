@@ -1,6 +1,8 @@
 /*
  * Public API Surface of type
  */
+export { typeOf } from './lib/type-of.func';
+
 // `guard` object.
 export { guard } from './guard';
 // `guard` functions.

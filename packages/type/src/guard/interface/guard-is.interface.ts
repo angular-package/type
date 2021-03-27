@@ -6,6 +6,7 @@ import { GuardObjectKey } from '../type/guard-object-key.type';
 import { GuardPrimitive } from '../type/guard-primitive.type';
 import { GuardString } from '../type/guard-string.type';
 import { GuardType } from '../type/guard-type.type';
+import { GuardObject } from '../type/guard-object.type';
 
 export interface GuardIs {
   array: GuardArray;
@@ -13,8 +14,8 @@ export interface GuardIs {
   // TODO: Guard not
   // not: Partial<GuardNotIs>;
   number: GuardNumber;
+  object: GuardObject;
   objectKey: GuardObjectKey;
-  object: GuardObjectKey;
   primitive: GuardPrimitive;
   string: GuardString;
   type: GuardType;
