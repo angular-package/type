@@ -7,7 +7,7 @@ import { isNotString } from './is-not-string.func';
 import { isNotFunction } from './is-not-function.func';
 import { isNotDefined } from './is-not-defined.func';
 
-export const isNot: Partial<IsNot> = {
+export const isNot: IsNot = {
   // TODO array: isArray,
   // TODO bigInt: isBigInt,
   boolean: isNotBoolean,

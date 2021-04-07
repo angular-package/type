@@ -12,7 +12,7 @@ export interface GuardIs {
   array: GuardArray;
   function: GuardFunction;
   // TODO: Guard not
-  // not: Partial<GuardNotIs>;
+  // not: GuardNotIs;
   number: GuardNumber;
   object: GuardObject;
   objectKey: GuardObjectKey;
