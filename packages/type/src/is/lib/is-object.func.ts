@@ -12,7 +12,7 @@ export const isObject: IsObject = <Obj>(value: any, key?: string): value is Obj 
   typeOf(value) === 'object' &&
   typeof value === 'object' &&
   value instanceof Object === true
-    ? isString(key) === true
-      ? value.hasOwnProperty(key) === true
+    ? isString(key)
+      ? key in value
     : true
   : false;
