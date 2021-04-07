@@ -21,7 +21,7 @@ export interface Is {
   defined: IsDefined;
   function: IsFunction;
   instance: IsInstance;
-  not: Partial<IsNot>;
+  not: IsNot;
   null: IsNull;
   number: IsNumber;
   object: IsObject;

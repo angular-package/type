@@ -2,17 +2,17 @@
 
 Useful packages based on the [angular.io](https://angular.io/).
 
-| Package          | Description                                                                              | Status        | Readme      |
-|------------------|------------------------------------------------------------------------------------------|---------------|-------------|
-| change-detection | Improve application performance.                                                         | *In Progress* | [Readme][cd-readme-github] |
-| prism            | `Prism` highlighter module.                                                              | *In Progress* | [Readme][prism-readme-github] |
-| property         | Features to handle properties.                                                           | *In Progress* | [Readme][property-readme-github] |
-| ui               | User interface based on **[Spectre.css](https://github.com/picturepan2/spectre)**.       | *In Progress* | [Github][ui-readme-github] |
-| type             | Common types, type guards and checkers.                                                  | [![npm version][type-npm-svg]][type-npm-badge] | [Github][type-readme-github] \| [npm][type-readme-npm] |
+| Package          | Description                                                                             | Status        | Readme      |
+|------------------|-----------------------------------------------------------------------------------------|---------------|-------------|
+| change-detection | Improve application performance.                                                        | *In Progress* | [Readme][cd-readme-github] |
+| prism            | `Prism` highlighter module.                                                             | *In Progress* | [Readme][prism-readme-github] |
+| property         | Features to handle properties.                                                          | *In Progress* | [Readme][property-readme-github] |
+| ui               | User interface based on **[Spectre.css](https://github.com/picturepan2/spectre)**.      | *In Progress* | [Github][ui-readme-github] |
+| type             | Common types, type guards and checkers.                                                 | [![npm version][type-npm-svg]][type-npm-badge] | [Github][type-readme-github] \| [npm][type-readme-npm] |
 
-# angular-package/type
+## angular-package/type
 
-Common types, type guards and checkers.
+Common types, type guards and type checkers.
 
 [![npm version](https://badge.fury.io/js/%40angular-package%2Ftype.svg)](https://badge.fury.io/js/%40angular-package%2Ftype)
 [![GitHub issues](https://img.shields.io/github/issues/angular-package/type)](https://github.com/angular-package/type/issues)
@@ -33,6 +33,7 @@ import {
   guardType
 } from '@angular-package/type'; 
 ```
+
 ```typescript
 // Check is functions.
 import {
@@ -54,6 +55,7 @@ import {
 // Check are functions.
 import { areString } from '@angular-package/type';
 ```
+
 ```typescript
 // Check is NOT functions.
 import {
@@ -66,18 +68,21 @@ import {
   isNotUndefined
 } from '@angular-package/type';
 ```
+
 ```typescript
 // Guard and is object.
 import { are, guard, is } from '@angular-package/type';
 ```
+
 ```typescript
 // Types.
-import { Constructor, CycleHook, Func, Partial, Primitive, Primitives, Types } from '@angular-package/type';
+import { Constructor, CycleHook, Func, Primitive, Primitives, Types } from '@angular-package/type';
 ```
 
-**Features**
-* Checks if 
-  * **any** value is 
+## Features
+
+* Checks if
+  * **any** value is
     * an `Array` of any type with [isArray](#isArray).
     * a `'bigint'` type with [isBigInt](#isBigInt).
     * a `'boolean'` type with [isBoolean](#isBoolean).
@@ -100,7 +105,7 @@ import { Constructor, CycleHook, Func, Partial, Primitive, Primitives, Types } f
     * a `'number'` type with [isNotNumber](#isNotNumber)
     * a `'string'` type with [isNotString](#isNotString)
     * a `'undefined'` type with [isNotUndefined](#isNotUndefined)
-* Guard the value to be 
+* Guard the value to be
   * an `Array` of generic type with [guardArray](#guardArray).
   * a `function` type with [guardFunction](#guardFunction).
   * a `number` type with [guardNumber](#guardNumber).
@@ -110,7 +115,7 @@ import { Constructor, CycleHook, Func, Partial, Primitive, Primitives, Types } f
   * a `string` type with [guardString](#guardString).
   * a generic type from one of the [`Types`](#types) type with [Type guard](#guardType).
 
-**How angular-package understands**
+## How angular-package understands
 
 Check
 > Is to check the return value to be the same as expected.
@@ -148,21 +153,19 @@ Install `@angular-package/type` package with command:
 npm i --save @angular-package/type
 ```
 
-
 ## are Object
 
-Partial object `are` with some of  **check are** functions.
+Object `are` with some of  **check are** functions.
 
 ```typescript
-const are: Partial<Are> = {
+const are: Are = {
   string: areString
 };
 ```
 
+## guard Object
 
-## guard Object 
-
-Partial object `guard` with all **guard** functions.
+Object `guard` with all **guard** functions.
 
 ```typescript
 const guardIs: GuardIs = {
@@ -175,19 +178,18 @@ const guardIs: GuardIs = {
   string: guardString,
   type: guardType
 };
-const guard: Partial<Guard> = {
+const guard: Guard = {
   is: guardIs
 };
 
 ```
 
+## is Object
 
-##  is Object
-
-Partial object `is` with all **check is** functions and **check is not** in `not` property.
+Object `is` with all **check is** functions and **check is not** in `not` property.
 
 ```typescript
-const is: Partial<Is> = {
+const is: Is = {
   array: isArray,
   bigInt: isBigInt,
   boolean: isBoolean,
@@ -205,12 +207,12 @@ const is: Partial<Is> = {
 };
 ```
 
-##  isNot Object
+## isNot Object
 
-Partial object `isNot` with all **check is not** functions.
+Object `isNot` with all **check is not** functions.
 
 ```typescript
-const isNot: Partial<IsNot> = {
+const isNot: IsNot = {
   boolean: isNotBoolean,
   defined: isNotDefined,
   function: isNotFunction,
@@ -221,8 +223,8 @@ const isNot: Partial<IsNot> = {
 };
 ```
 
-
 ## Checks
+
 ### areString
 
  Use `areString()` or `are.string()` to check if all of **any** arguments are a `'string'` type. The return value is a `boolean` value.
@@ -236,8 +238,6 @@ const areString = (...args: any): boolean => check('string', ...args);
 | ...args   | `any` | Any arguments to check they're all a `'string'` type. |
 
 [Example usage][are-string]
-
-
 
 ### isArray
 
@@ -257,7 +257,6 @@ const isArray: IsArray = <Type>(value: any): value is Array<Type> =>
 
 [Example usage][is-array]
 
-
 ### isBigInt
 
 Use `isBigInt()` or `is.bigInt()` to check if **any** `value` is a `'bigint'` type. The return value is a `boolean` value.
@@ -273,7 +272,6 @@ const isBigInt: IsBigInt = (value: any): value is bigint =>
 | value     | `any` | Any `value` to check if it's a `'bigint'` type. |
 
 [Example usage][is-bigint] | [How to detect 'bigint' type][detect-bigint]
-
 
 ### isBoolean
 
@@ -304,10 +302,9 @@ const isBoolean: IsBoolean = (value: any): value is boolean =>
 
 [Example usage][is-boolean] | [How to detect 'boolean' type][detect-boolean]
 
-
 ### isDefined
 
-![][new] Use `isDefined()` or `is.defined()` to check if an **unknown** `value` is NOT an `'undefined'` type and is not equal to `undefined`. The return value is a `boolean` value.
+Use `isDefined()` or `is.defined()` to check if an **unknown** `value` is NOT an `'undefined'` type and is not equal to `undefined`. The return value is a `boolean` value.
 
 ```typescript
 const isDefined: IsDefined = (value: unknown): boolean =>
@@ -319,7 +316,6 @@ const isDefined: IsDefined = (value: unknown): boolean =>
 | Parameter | Type      | Description |
 |-----------| :-------: |-------------|
 | value     | `unknown` | An unknown `value` to check if it's NOT an `'undefined'` type and is not equal to `undefined`. |
-
 
 ### isFunction
 
@@ -339,7 +335,6 @@ const isFunction: IsFunction = (value: any): value is Func =>
 
 [Example usage][is-function] | [How to detect 'function' type][detect-function]
 
-
 ### isInstance
 
 Use `isInstance()` or `is.instance()` to check if **any** value is a generic `Obj` type `constructor` instance and is an `Object`.
@@ -358,7 +353,6 @@ const isInstance: IsInstance = <Obj>(value: any, instance: Constructor<Obj>): va
 
 [Example usage][is-instance] | [How to detect `constructor` instance][detect-instance]
 
-
 ### isNull
 
 Use `isNull()` or `is.null()` to check if **any** `value` is an `'object'` type and equal to `null`.
@@ -375,7 +369,6 @@ const isNull: IsNull = (value: any): value is null =>
 | value     | `any` | Any `value` to check if it's a `null` value and an `'object'` type. |
 
 [Example usage][is-null] | [How to detect `null` type][detect-null]
-
 
 ### isNumber
 
@@ -406,7 +399,6 @@ const isNumber: IsNumber = (value: any): value is number =>
 
 [Example usage][is-number] | [How to detect `'number'` type][detect-number]
 
-
 ### isObject
 
 Use `isObject()` or `is.object()` to check if **any** `value` is a generic `Obj` `'object'` type and `Object` instance with the possibility of containing `key`. The return value is a `boolean` value.
@@ -417,17 +409,17 @@ const isObject: IsObject = <Obj>(value: any, key?: string): value is Obj =>
   typeof value === 'object' &&
   value instanceof Object === true
     ? isString(key) === true
-      ? key in value === true && (value as Obj).hasOwnProperty(key) === true
+      ? value.hasOwnProperty(key) === true
     : true
   : false;
 ```
+
 | Parameter | Type     | Description |
 |-----------| :------: |-------------|
 | value     | `any`    | Any `value` to check if it's a generic `'object'` type and `Object` instance. |
 | key?      | `string` | Property name to find in argument `value`. |
 
 [Example usage][is-object] | [How to detect `'object'` type][detect-object]
-
 
 ### isPrimitive
 
@@ -455,7 +447,6 @@ const isPrimitive: IsPrimitive = <Type>(value: any, type: Primitives): value is 
 
 [Example usage][is-primitive]
 
-
 ### isString
 
 Use `isString()` or `is.string()` to check if **any** `value` is a `'string'` type, not instance of `Object` and `String` or `'object'` type and instance of `String` and `Object`. The return value is a `boolean` value.
@@ -482,7 +473,6 @@ const isString: IsString = (value: any): value is string =>
 
 [Example usage][is-string] | [How to detect `'string'` type][detect-string]
 
-
 ### isSymbol
 
 Use `isSymbol()` or `is.symbol()` to check if **any** `value` is a `'symbol'` type. The return value is a `boolean` value.
@@ -499,8 +489,8 @@ const isSymbol: IsSymbol = (value: any): value is symbol =>
 
 [Example usage][is-symbol] | [How to detect `'symbol'` type][detect-symbol]
 
-
 ### isType
+
 Use `isType()` or `is.type()` Check if **any** `value` is a generic `Type` type constructor, `'function'`, `'object'` or primitive type. The return value is a `boolean` value.
 
 ```typescript
@@ -528,7 +518,6 @@ const isType: IsType = <Type>(value: any, type: Types<Type>): value is Type => {
 
 [Example usage][is-type]
 
-
 ### isUndefined
 
 Use `isUndefined()` or `is.undefined()` to check if **any** `value` is an `'undefined'` type and equal to `undefined`. The return value is a `boolean` value.
@@ -546,10 +535,9 @@ const isUndefined: IsUndefined = (value: any): value is undefined =>
 
 [Example usage][is-undefined] | [How to detect `'undefined'` type][detect-undefined]
 
-
 ### isNotBoolean
 
-![][new] Use `isNotBoolean()` or `is.not.boolean()` to check if an **unknown** `value` is NOT a `'boolean'` type, NOT equal to `true` or `false` and NOT an instance of a `Boolean`. The return value is a `boolean` value.
+Use `isNotBoolean()` or `is.not.boolean()` to check if an **unknown** `value` is NOT a `'boolean'` type, NOT equal to `true` or `false` and NOT an instance of a `Boolean`. The return value is a `boolean` value.
 
 ```typescript
 const isNotBoolean: IsNotBoolean = (value: unknown): boolean =>
@@ -564,10 +552,9 @@ const isNotBoolean: IsNotBoolean = (value: unknown): boolean =>
 |-----------| :-------: |-------------|
 | value     | `unknown` | An unknown `value` to check if it's NOT a `'boolean'` type, NOT equal to `true` or `false` and NOT an instance of `Boolean`. |
 
-
 ### isNotDefined
 
-![][new] Use `isNotDefined()` or `is.not.defined()` to check if an **unknown** `value` is an `'undefined'` type and is equal to `undefined`. The return value is a `boolean` value.
+Use `isNotDefined()` or `is.not.defined()` to check if an **unknown** `value` is an `'undefined'` type and is equal to `undefined`. The return value is a `boolean` value.
 
 ```typescript
 const isNotDefined: IsNotDefined = (value: unknown): boolean =>
@@ -580,10 +567,9 @@ const isNotDefined: IsNotDefined = (value: unknown): boolean =>
 |-----------| :-------: |-------------|
 | value     | `unknown` | An unknown `value` to check if it's an `'undefined'` type and is equal to `undefined`. |
 
-
 ### isNotFunction
 
-![][new] Use `isNotFunction()` or `is.not.function()` to check if an **unknown** `value` is NOT a `'function'` type and NOT an instance of `Function`. The return value is a `boolean` value.
+Use `isNotFunction()` or `is.not.function()` to check if an **unknown** `value` is NOT a `'function'` type and NOT an instance of `Function`. The return value is a `boolean` value.
 
 ```typescript
 const isNotFunction: IsNotFunction = (value: unknown): boolean =>
@@ -596,10 +582,9 @@ const isNotFunction: IsNotFunction = (value: unknown): boolean =>
 |-----------| :-------: |-------------|
 | value     | `unknown` | An unknown `value` to check if it's NOT a `'function'` type and NOT an instance of `Function`. |
 
-
 ### isNotNull
 
-![][new] Use `isNotNull()` or `is.not.null()` to check if an **unknown** `value` is NOT a `'null'` type and NOT equal to `null`. The return value is a `boolean` value.
+Use `isNotNull()` or `is.not.null()` to check if an **unknown** `value` is NOT a `'null'` type and NOT equal to `null`. The return value is a `boolean` value.
 
 ```typescript
 const isNotNull: IsNotNull = (value: unknown): boolean =>
@@ -611,10 +596,9 @@ const isNotNull: IsNotNull = (value: unknown): boolean =>
 |-----------| :-------: |-------------|
 | value     | `unknown` | An unknown `value` to check if it's NOT a `'null'` type and NOT equal to `null`. |
 
-
 ### isNotNumber
 
-![][new] Use `isNotNumber()` or `is.not.number()` to check if an **unknown** `value` is NOT a `'number'` type and NOT an instance of `Number`. The return value is a `boolean` value.
+Use `isNotNumber()` or `is.not.number()` to check if an **unknown** `value` is NOT a `'number'` type and NOT an instance of `Number`. The return value is a `boolean` value.
 
 ```typescript
 const isNotNumber: IsNotNumber = (value: any): boolean =>
@@ -628,10 +612,9 @@ const isNotNumber: IsNotNumber = (value: any): boolean =>
 |-----------| :-------: |-------------|
 | value     | `unknown` | An unknown value to check if it's NOT a `'number'` type and NOT an instance of `Number`. |
 
-
 ### isNotString
 
-![][new] Use `isNotString()` or `is.not.string()` to check if an **unknown** `value` is NOT a `'string'` type and NOT an instance of `String`. The return value is a `boolean` value.
+Use `isNotString()` or `is.not.string()` to check if an **unknown** `value` is NOT a `'string'` type and NOT an instance of `String`. The return value is a `boolean` value.
 
 ```typescript
 const isNotString: IsNotString = (value: unknown): boolean =>
@@ -644,10 +627,9 @@ const isNotString: IsNotString = (value: unknown): boolean =>
 |-----------| :-------: |-------------|
 | value     | `unknown` | An unknown `value` to check if it's NOT a `'string'` type or NOT an `'object'` type and NOT an instance of `String`. |
 
-
 ### isNotUndefined
 
-![][new] Use `isNotUndefined()` or `is.not.undefined()` to check if an **unknown** `value` is NOT an `'undefined'` type and NOT equal to `undefined`. The return value is a `boolean` value.
+Use `isNotUndefined()` or `is.not.undefined()` to check if an **unknown** `value` is NOT an `'undefined'` type and NOT equal to `undefined`. The return value is a `boolean` value.
 
 ```typescript
 const isNotUndefined: IsNotUndefined = (value: unknown): boolean =>
@@ -660,9 +642,8 @@ const isNotUndefined: IsNotUndefined = (value: unknown): boolean =>
 |-----------| :-------: |-------------|
 | value     | `unknown` | An Unknown `value` to check if it's NOT an `'undefined'` type and NOT equal to `undefined`. |
 
-
-
 ## Guards
+
 ### guardArray
 
 Use `guardArray()` or `guard.is.array()` to guard the `value` to be a generic `Array` `Type`. The return value is a `boolean` value.
@@ -676,7 +657,6 @@ const guardArray: GuardArray = <Type>(value: Array<Type>): value is Array<Type> 
 | value     | `Array<Type>` | Array generic `Type` type `value` to guard. |
 
 [Example usage][guard-array]
-
 
 ### guardFunction
 
@@ -692,7 +672,6 @@ const guardFunction: GuardFunction = (func: Func): func is Func => isFunction(fu
 
 [Example usage][guard-function]
 
-
 ### guardNumber
 
 Use `guardNumber()` or `guard.is.number()` to guard the `value` to be a `number` type. The return value is a `boolean` value.
@@ -707,7 +686,6 @@ const guardNumber: GuardNumber = (value: number): value is number => isNumber(va
 
 [Example usage][guard-number]
 
-
 ### guardObject
 
 Use `guardObject()` or `guard.is.object()` to guard the `object` value to be a generic `Obj` type. The return value is a `boolean` value.
@@ -721,7 +699,6 @@ const guardObject: GuardObject = <Obj>(object: Obj): object is Obj => isObject<O
 | object    | `Obj` | Generic `Obj` type value to guard. |
 
 [Example usage][guard-object]
-
 
 ### guardObjectKey
 
@@ -739,7 +716,6 @@ const guardObjectKey: GuardObjectKey = <Obj, Key extends keyof Obj>(object: Obj,
 
 [Example usage][guard-object-key]
 
-
 ### guardPrimitive
 
 Use `guardPrimitive()` or `guard.is.primitive()` to guard the `value` to be a generic `Type` from one of the `Primitives`. The return value is a `boolean` value.
@@ -755,7 +731,6 @@ const guardPrimitive: GuardPrimitive = <Type>(value: Type, type: Primitives): va
 
 [Example usage][guard-primitive]
 
-
 ### guardString
 
 Use `guardString()` or `guard.is.string()` to guard the `value` to be a `string` type. The return value is a `boolean` value.
@@ -769,7 +744,6 @@ const guardString: GuardString = (value: string): value is string => isString(va
 | value       | `string`       | String type value to guard. |
 
 [Example usage][guard-string]
-
 
 ### guardType
 
@@ -786,36 +760,47 @@ const guardType: GuardType = <Type>(value: Type, type: Types<Type>): value is Ty
 
 [Example usage][guard-type]
 
+## Common Types
 
-## Types
 ### Constructor
+
 ```typescript
 type Constructor<Type> = new (...args: any[]) => Type;
 ```
+
 ### CycleHook
+
 ```typescript
 type CycleHook = 'ngAfterContentInit' | 'ngAfterContentChecked' | 'ngAfterViewInit' | 'ngAfterViewChecked'
   | 'ngAfterViewChecked' | 'ngOnInit' | 'ngOnDestroy' | 'ngOnChanges';
-``` 
+```
+
 ### Func
+
 ```typescript
 type Func = (...param: any) => any;
 ```
+
 ### Primitive
+
 ```typescript
 type Primitive = boolean | bigint | null | number | string | symbol | undefined;
 ```
+
 ### Primitives
+
 ```typescript
 type Primitives = 'bigint' | 'boolean' | 'number' | 'symbol' | 'string' | 'undefined';
 ```
+
 ### Types
+
 ```typescript
 type Types<Obj> = Constructor<Obj> | 'function' | 'object' | Primitives;
 ```
 
-
 ## GIT
+
 ### Commit
 
 * [AngularJS Git Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153)

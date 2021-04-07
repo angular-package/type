@@ -1,5 +1,13 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "fullTemplateTypeCheck": true, 
+    "preserveWhitespaces": false,
+    "strictTemplates": true,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true
+  },
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
@@ -12,6 +20,11 @@
     "importHelpers": true,
     "target": "es2020",
     "module": "es2020",
+    /* Strict. */
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch":true,
     "lib": [
       "es2020",
       "dom"

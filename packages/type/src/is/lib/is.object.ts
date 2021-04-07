@@ -18,7 +18,7 @@ import { isUndefined } from './is-undefined.func';
 // Objects.
 import { isNot } from '../not/lib/is-not.object';
 
-export const is: Partial<Is> = {
+export const is: Is = {
   array: isArray,
   bigInt: isBigInt,
   boolean: isBoolean,
