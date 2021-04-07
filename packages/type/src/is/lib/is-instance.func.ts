@@ -10,4 +10,4 @@ import { isObject } from './is-object.func';
 export const isInstance: IsInstance = <Obj>(value: any, instance: Constructor<Obj>): value is Obj =>
   isObject<Obj>(value) &&
   value instanceof instance === true &&
-  isString(instance.prototype.constructor.name) === true;
+  isString(instance.prototype.constructor.name);
