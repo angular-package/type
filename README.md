@@ -2,17 +2,17 @@
 
 Useful packages based on the [angular.io](https://angular.io/).
 
-| Package          | Description                                                                              | Status        | Readme      |
-|------------------|------------------------------------------------------------------------------------------|---------------|-------------|
-| change-detection | Improve application performance.                                                         | *In Progress* | [Readme][cd-readme-github] |
-| prism            | `Prism` highlighter module.                                                              | *In Progress* | [Readme][prism-readme-github] |
-| property         | Features to handle properties.                                                           | *In Progress* | [Readme][property-readme-github] |
-| ui               | User interface based on **[Spectre.css](https://github.com/picturepan2/spectre)**.       | *In Progress* | [Github][ui-readme-github] |
-| type             | Common types, type guards and checkers.                                                  | [![npm version][type-npm-svg]][type-npm-badge] | [Github][type-readme-github] \| [npm][type-readme-npm] |
+| Package          | Description                                                                             | Status        | Readme      |
+|------------------|-----------------------------------------------------------------------------------------|---------------|-------------|
+| change-detection | Improve application performance.                                                        | *In Progress* | [Readme][cd-readme-github] |
+| prism            | `Prism` highlighter module.                                                             | *In Progress* | [Readme][prism-readme-github] |
+| property         | Features to handle properties.                                                          | *In Progress* | [Readme][property-readme-github] |
+| ui               | User interface based on **[Spectre.css](https://github.com/picturepan2/spectre)**.      | *In Progress* | [Github][ui-readme-github] |
+| type             | Common types, type guards and checkers.                                                 | [![npm version][type-npm-svg]][type-npm-badge] | [Github][type-readme-github] \| [npm][type-readme-npm] |
 
 ## angular-package/type
 
-Common types, type guards and checkers.
+Common types, type guards and type checkers.
 
 [![npm version](https://badge.fury.io/js/%40angular-package%2Ftype.svg)](https://badge.fury.io/js/%40angular-package%2Ftype)
 [![GitHub issues](https://img.shields.io/github/issues/angular-package/type)](https://github.com/angular-package/type/issues)
@@ -76,7 +76,7 @@ import { are, guard, is } from '@angular-package/type';
 
 ```typescript
 // Types.
-import { Constructor, CycleHook, Func, Partial, Primitive, Primitives, Types } from '@angular-package/type';
+import { Constructor, CycleHook, Func, Primitive, Primitives, Types } from '@angular-package/type';
 ```
 
 ## Features
@@ -105,7 +105,7 @@ import { Constructor, CycleHook, Func, Partial, Primitive, Primitives, Types } f
     * a `'number'` type with [isNotNumber](#isNotNumber)
     * a `'string'` type with [isNotString](#isNotString)
     * a `'undefined'` type with [isNotUndefined](#isNotUndefined)
-* Guard the value to be 
+* Guard the value to be
   * an `Array` of generic type with [guardArray](#guardArray).
   * a `function` type with [guardFunction](#guardFunction).
   * a `number` type with [guardNumber](#guardNumber).
@@ -155,17 +155,17 @@ npm i --save @angular-package/type
 
 ## are Object
 
-Partial object `are` with some of  **check are** functions.
+Object `are` with some of  **check are** functions.
 
 ```typescript
-const are: Partial<Are> = {
+const are: Are = {
   string: areString
 };
 ```
 
 ## guard Object
 
-Partial object `guard` with all **guard** functions.
+Object `guard` with all **guard** functions.
 
 ```typescript
 const guardIs: GuardIs = {
@@ -178,7 +178,7 @@ const guardIs: GuardIs = {
   string: guardString,
   type: guardType
 };
-const guard: Partial<Guard> = {
+const guard: Guard = {
   is: guardIs
 };
 
@@ -186,10 +186,10 @@ const guard: Partial<Guard> = {
 
 ## is Object
 
-Partial object `is` with all **check is** functions and **check is not** in `not` property.
+Object `is` with all **check is** functions and **check is not** in `not` property.
 
 ```typescript
-const is: Partial<Is> = {
+const is: Is = {
   array: isArray,
   bigInt: isBigInt,
   boolean: isBoolean,
@@ -209,10 +209,10 @@ const is: Partial<Is> = {
 
 ## isNot Object
 
-Partial object `isNot` with all **check is not** functions.
+Object `isNot` with all **check is not** functions.
 
 ```typescript
-const isNot: Partial<IsNot> = {
+const isNot: IsNot = {
   boolean: isNotBoolean,
   defined: isNotDefined,
   function: isNotFunction,
@@ -409,7 +409,7 @@ const isObject: IsObject = <Obj>(value: any, key?: string): value is Obj =>
   typeof value === 'object' &&
   value instanceof Object === true
     ? isString(key) === true
-      ? key in value === true && (value as Obj).hasOwnProperty(key) === true
+      ? value.hasOwnProperty(key) === true
     : true
   : false;
 ```
