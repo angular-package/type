@@ -7,8 +7,8 @@ import { GuardKey } from '../type/guard-key.type';
 import { Key } from '../../type/key.type';
 
 /**
- * Guard the value to be one of the string, number, or symbol type.
- * @param value Generic `Key` type value to guard.
- * @returns A boolean indicating whether or not the value is one of the string, number or symbol type.
+ * Guard the `value` of `Key type to be one of the `string`, `number`, or `symbol` type.
+ * @param value A generic `Key` type `value` to guard.
+ * @returns A `boolean` indicating whether or not the `value` is one of the `string`, `number` or `symbol` type.
  */
 export const guardKey: GuardKey = (value: Key): boolean => isString(value) || isNumber(value) || isSymbol(value);
