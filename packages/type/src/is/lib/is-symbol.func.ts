@@ -1,10 +1,11 @@
-import { IsSymbol } from '../type/is-symbol.type';
+// Function.
 import { typeOf } from '../../lib/type-of.func';
+// Type.
+import { IsSymbol } from '../type/is-symbol.type';
 /**
  * Checks if any `value` is a `'symbol'` type.
- * Use the`guardSymbol()` function to type-guard `symbol`  also.
- * @param value Any `value` to check if it's a `'symbol'` type.
- * @returns boolean.
+ * @param value Any `value` to check.
+ * @returns A `boolean` indicating whether or not the `value` is a `symbol`.
  */
 export const isSymbol: IsSymbol = (value: any): value is symbol =>
   typeOf(value) === 'symbol' &&
