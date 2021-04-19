@@ -1,5 +1,5 @@
 import { GuardIs } from '../interface/guard-is.interface';
-import { guardArray } from './guard-array.func.type';
+import { guardArray } from './guard-array.func';
 import { guardFunction } from './guard-function.func';
 import { guardNumber } from './guard-number.func';
 import { guardObject } from './guard-object.func';
