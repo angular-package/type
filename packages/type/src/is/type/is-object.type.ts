@@ -1,1 +1,1 @@
-export type IsObject = <Obj>(value: any, key?: string) => value is Obj;
+export type IsObject = <Obj = object>(value: any, key?: string) => value is Obj;
