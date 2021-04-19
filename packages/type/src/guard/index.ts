@@ -1,6 +1,6 @@
 export { guard } from './lib/guard.object';
 
-export { guardArray } from './lib/guard-array.func.type';
+export { guardArray } from './lib/guard-array.func';
 export { guardFunction } from './lib/guard-function.func';
 export { guardNumber } from './lib/guard-number.func';
 export { guardObjectKey } from './lib/guard-object-key.func';

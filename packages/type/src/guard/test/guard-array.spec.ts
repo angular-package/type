@@ -1,5 +1,5 @@
 // Function.
-import { guardArray } from '../lib/guard-array.func.type';
+import { guardArray } from '../lib/guard-array.func';
 
 // Variables.
 import { Class } from '../../is/test/variables/class.const';
