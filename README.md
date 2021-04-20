@@ -241,7 +241,7 @@ const areString = (...args: any): boolean => check('string', ...args);
 
 ### isArray
 
-Use `isArray()` or `is.array()` to check if **any** `value` is an `Array` of `'object'` generic `Type` type and `Array` instance. The return value is a `boolean` value.
+Use `isArray()` or `is.array()` to check if **any** `value` is an `Array`, `Array` instance and `object` type. The return value is a `boolean` value indicating whether or not the `value` is an `Array`.
 
 ```typescript
 const isArray: IsArray = <Type>(value: any): value is Array<Type> =>
@@ -253,13 +253,13 @@ const isArray: IsArray = <Type>(value: any): value is Array<Type> =>
 
 | Parameter | Type  | Description |
 |-----------| :---: |-------------|
-| value     | `any` | Any `value` to check if it's an `Array` of `'object'` generic `Type` type  and `Array` instance. |
+| value     | `any` | Any `value` to check. |
 
 [Example usage][is-array]
 
 ### isBigInt
 
-Use `isBigInt()` or `is.bigInt()` to check if **any** `value` is a `'bigint'` type. The return value is a `boolean` value.
+Use `isBigInt()` or `is.bigInt()` to check if **any** `value` is a `bigint` type. The return value is a `boolean` value indicating whether or not the `value` is a `bigint`.
 
 ```typescript
 const isBigInt: IsBigInt = (value: any): value is bigint =>
@@ -269,42 +269,29 @@ const isBigInt: IsBigInt = (value: any): value is bigint =>
 
 | Parameter | Type  | Description |
 |-----------| :---: |-------------|
-| value     | `any` | Any `value` to check if it's a `'bigint'` type. |
+| value     | `any` | Any `value` to check. |
 
 [Example usage][is-bigint] | [How to detect 'bigint' type][detect-bigint]
 
 ### isBoolean
 
-Use `isBoolean()` or `is.boolean()` to check if **any** `value` is a `'boolean'` type not instance of `Boolean` and `Object` or `'object'` type instance of `Boolean` and `Object`. The return value is a `boolean` value.
+Use `isBoolean()` or `is.boolean()` to check if **any** `value` is a `boolean` type not instance of `Boolean` and `Object` or `object` type instance of `Boolean` and `Object`. The return value is a `boolean` indicating whether or not the `value` is a `boolean`.
 
 ```typescript
 const isBoolean: IsBoolean = (value: any): value is boolean =>
   typeOf(value) === 'boolean' &&
-  (
-    (
-      typeof value === 'object' &&
-      value instanceof Boolean === true &&
-      value instanceof Object === true
-    )
-    ||
-    (
-      value instanceof Boolean === false &&
-      value instanceof Object === false &&
-      typeof value === 'boolean' &&
-      (value === true || value === false)
-    )
-  );
+  (isBooleanObject(value) || isBooleanType(value));
 ```
 
 | Parameter | Type  | Description |
 |-----------| :---: |-------------|
-| value     | `any` | Any `value` to check if it's a `'boolean'` type not instance of `Boolean` and `Object` or `'object'` type instance of `Boolean` and `Object`. |
+| value     | `any` | Any `value` to check. |
 
 [Example usage][is-boolean] | [How to detect 'boolean' type][detect-boolean]
 
 ### isDefined
 
-Use `isDefined()` or `is.defined()` to check if an **unknown** `value` is NOT an `'undefined'` type and is not equal to `undefined`. The return value is a `boolean` value.
+Use `isDefined()` or `is.defined()` to check if an **unknown** `value` is NOT an `'undefined'` type and is NOT equal to `undefined`. The return value is a `boolean` indicating whether or not the `value` is defined.
 
 ```typescript
 const isDefined: IsDefined = (value: unknown): boolean =>
@@ -315,11 +302,13 @@ const isDefined: IsDefined = (value: unknown): boolean =>
 
 | Parameter | Type      | Description |
 |-----------| :-------: |-------------|
-| value     | `unknown` | An unknown `value` to check if it's NOT an `'undefined'` type and is not equal to `undefined`. |
+| value     | `unknown` | An unknown `value` to check. |
 
 ### isFunction
 
-Use `isFunction()` or `is.function()` to check if **any** `value` is a `'function'` type, instance of `Function`, and `Object`. The return value is a `boolean` value.
+Use `isFunction()` or `is.function()` to check if **any** `value` is a `'function'` type, instance of `Function`, and `Object`. 
+
+#### Syntax
 
 ```typescript
 const isFunction: IsFunction = (value: any): value is Func =>
@@ -329,9 +318,17 @@ const isFunction: IsFunction = (value: any): value is Func =>
   value instanceof Object === true;
 ```
 
+#### Parameters
+
 | Parameter | Type  | Description |
 |-----------| :---: |-------------|
-| value     | `any` | Any `value` to check it's a `'function'` type, instance of `Function` and `Object`. |
+| value     | `any` | Any `value` to check. |
+
+#### Return value
+
+The return value is a `boolean` indicating whether or not the `value` is a `function`.
+
+#### Examples
 
 [Example usage][is-function] | [How to detect 'function' type][detect-function]
 
