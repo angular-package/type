@@ -223,8 +223,6 @@ const isNot: IsNot = {
 };
 ```
 
-----
-
 ## Checks
 
 ### areString
@@ -261,7 +259,16 @@ const isArray: IsArray = <Type>(value: any): value is Array<Type> =>
 
 The **return value** is a `boolean` value indicating whether or not the `value` is an `Array`.
 
-[Example usage][is-array]
+```typescript
+// Example usage
+const ARRAY_NUMBER = [1, 2, 3];
+const ARRAY_STRING = ['a', 'b', 'c'];
+
+isArray(ARRAY_NUMBER); // true
+isArray<string>(ARRAY_STRING); // true
+```
+
+[Example usage playground][is-array]
 
 ----
 
@@ -281,7 +288,9 @@ const isBigInt: IsBigInt = (value: any): value is bigint =>
 
 The **return value** is a `boolean` value indicating whether or not the `value` is a `bigint`.
 
-[Example usage][is-bigint] | [How to detect 'bigint' type][detect-bigint]
+[Example usage][is-bigint] | [How to detect `bigint` type][detect-bigint]
+
+----
 
 ### isBoolean
 
@@ -299,9 +308,11 @@ const isBoolean: IsBoolean = (value: any): value is boolean =>
 
 [Example usage][is-boolean] | [How to detect 'boolean' type][detect-boolean]
 
+----
+
 ### isDefined
 
-Use `isDefined()` or `is.defined()` to check if an **unknown** `value` is NOT an `'undefined'` type and is NOT equal to `undefined`. The return value is a `boolean` indicating whether or not the `value` is defined.
+Use `isDefined()` or `is.defined()` to check if an **unknown** `value` is NOT an `'undefined'` type and is NOT equal to `undefined`.
 
 ```typescript
 const isDefined: IsDefined = (value: unknown): boolean =>
@@ -314,13 +325,13 @@ const isDefined: IsDefined = (value: unknown): boolean =>
 |-----------| :-------: |-------------|
 | value     | `unknown` | An unknown `value` to check. |
 
+The **return value** is a `boolean` indicating whether or not the `value` is defined.
+
 ----
 
 ### isFunction
 
-Use `isFunction()` or `is.function()` to check if **any** `value` is a `'function'` type, instance of `Function`, and `Object`.
-
-#### Syntax
+Use `isFunction()` or `is.function()` to check if **any** `value` is a `function` type, instance of `Function`, and `Object`.
 
 ```typescript
 const isFunction: IsFunction = (value: any): value is Func =>
@@ -336,7 +347,7 @@ const isFunction: IsFunction = (value: any): value is Func =>
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `function`.
 
-[Example usage][is-function] | [How to detect 'function' type][detect-function]
+[Example usage][is-function] | [How to detect `function` type][detect-function]
 
 ----
 
@@ -379,6 +390,8 @@ const isNull: IsNull = (value: any): value is null =>
 
 [Example usage][is-null] | [How to detect `null` type][detect-null]
 
+----
+
 ### isNumber
 
 Use `isNumber()` or `is.number()` to check if **any** `value` is a '`number`' type not instance of `Number` and `Object` or `'object'` type instance of `Number` and `Object`. The return value is a `boolean` value.
@@ -408,6 +421,8 @@ const isNumber: IsNumber = (value: any): value is number =>
 
 [Example usage][is-number] | [How to detect `'number'` type][detect-number]
 
+----
+
 ### isObject
 
 Use `isObject()` or `is.object()` to check if **any** `value` is a generic `Obj` `'object'` type and `Object` instance with the possibility of containing `key`. The return value is a `boolean` value.
@@ -429,6 +444,8 @@ const isObject: IsObject = <Obj>(value: any, key?: string): value is Obj =>
 | key?      | `string` | Property name to find in argument `value`. |
 
 [Example usage][is-object] | [How to detect `'object'` type][detect-object]
+
+----
 
 ### isPrimitive
 
@@ -456,6 +473,8 @@ const isPrimitive: IsPrimitive = <Type>(value: any, type: Primitives): value is 
 
 [Example usage][is-primitive]
 
+----
+
 ### isString
 
 Use `isString()` or `is.string()` to check if **any** `value` is a `'string'` type, not instance of `Object` and `String` or `'object'` type and instance of `String` and `Object`. The return value is a `boolean` value.
@@ -482,6 +501,8 @@ const isString: IsString = (value: any): value is string =>
 
 [Example usage][is-string] | [How to detect `'string'` type][detect-string]
 
+----
+
 ### isSymbol
 
 Use `isSymbol()` or `is.symbol()` to check if **any** `value` is a `'symbol'` type. The return value is a `boolean` value.
@@ -497,6 +518,8 @@ const isSymbol: IsSymbol = (value: any): value is symbol =>
 | value     | `any` | Any `value` to check if it's a `'symbol'` type. |
 
 [Example usage][is-symbol] | [How to detect `'symbol'` type][detect-symbol]
+
+----
 
 ### isType
 
@@ -527,6 +550,8 @@ const isType: IsType = <Type>(value: any, type: Types<Type>): value is Type => {
 
 [Example usage][is-type]
 
+----
+
 ### isUndefined
 
 Use `isUndefined()` or `is.undefined()` to check if **any** `value` is an `'undefined'` type and equal to `undefined`. The return value is a `boolean` value.
@@ -543,6 +568,8 @@ const isUndefined: IsUndefined = (value: any): value is undefined =>
 | value     | `any` | Any `value` to check if it's an `'undefined'` type, and equal to `undefined`. |
 
 [Example usage][is-undefined] | [How to detect `'undefined'` type][detect-undefined]
+
+----
 
 ### isNotBoolean
 
@@ -561,6 +588,8 @@ const isNotBoolean: IsNotBoolean = (value: unknown): boolean =>
 |-----------| :-------: |-------------|
 | value     | `unknown` | An unknown `value` to check if it's NOT a `'boolean'` type, NOT equal to `true` or `false` and NOT an instance of `Boolean`. |
 
+----
+
 ### isNotDefined
 
 Use `isNotDefined()` or `is.not.defined()` to check if an **unknown** `value` is an `'undefined'` type and is equal to `undefined`. The return value is a `boolean` value.
@@ -575,6 +604,9 @@ const isNotDefined: IsNotDefined = (value: unknown): boolean =>
 | Parameter | Type      | Description |
 |-----------| :-------: |-------------|
 | value     | `unknown` | An unknown `value` to check if it's an `'undefined'` type and is equal to `undefined`. |
+
+
+----
 
 ### isNotFunction
 
@@ -591,6 +623,8 @@ const isNotFunction: IsNotFunction = (value: unknown): boolean =>
 |-----------| :-------: |-------------|
 | value     | `unknown` | An unknown `value` to check if it's NOT a `'function'` type and NOT an instance of `Function`. |
 
+----
+
 ### isNotNull
 
 Use `isNotNull()` or `is.not.null()` to check if an **unknown** `value` is NOT a `'null'` type and NOT equal to `null`. The return value is a `boolean` value.
@@ -604,6 +638,8 @@ const isNotNull: IsNotNull = (value: unknown): boolean =>
 | Parameter | Type      | Description |
 |-----------| :-------: |-------------|
 | value     | `unknown` | An unknown `value` to check if it's NOT a `'null'` type and NOT equal to `null`. |
+
+----
 
 ### isNotNumber
 
@@ -621,6 +657,8 @@ const isNotNumber: IsNotNumber = (value: any): boolean =>
 |-----------| :-------: |-------------|
 | value     | `unknown` | An unknown value to check if it's NOT a `'number'` type and NOT an instance of `Number`. |
 
+----
+
 ### isNotString
 
 Use `isNotString()` or `is.not.string()` to check if an **unknown** `value` is NOT a `'string'` type and NOT an instance of `String`. The return value is a `boolean` value.
@@ -635,6 +673,8 @@ const isNotString: IsNotString = (value: unknown): boolean =>
 | Parameter | Type      | Description |
 |-----------| :-------: |-------------|
 | value     | `unknown` | An unknown `value` to check if it's NOT a `'string'` type or NOT an `'object'` type and NOT an instance of `String`. |
+
+----
 
 ### isNotUndefined
 
@@ -667,6 +707,8 @@ const guardArray: GuardArray = <Type>(value: Array<Type>): value is Array<Type> 
 
 [Example usage][guard-array]
 
+----
+
 ### guardFunction
 
 Use `guardFunction()` or `guard.is.function()` to guard the `func` value to be a `Func` type. The return value is a `boolean` value.
@@ -680,6 +722,8 @@ const guardFunction: GuardFunction = (func: Func): func is Func => isFunction(fu
 | func      | `Func` | Type `Func` value to guard. |
 
 [Example usage][guard-function]
+
+----
 
 ### guardNumber
 
@@ -695,6 +739,8 @@ const guardNumber: GuardNumber = (value: number): value is number => isNumber(va
 
 [Example usage][guard-number]
 
+----
+
 ### guardObject
 
 Use `guardObject()` or `guard.is.object()` to guard the `object` value to be a generic `Obj` type. The return value is a `boolean` value.
@@ -708,6 +754,8 @@ const guardObject: GuardObject = <Obj>(object: Obj): object is Obj => isObject<O
 | object    | `Obj` | Generic `Obj` type value to guard. |
 
 [Example usage][guard-object]
+
+----
 
 ### guardObjectKey
 
@@ -725,6 +773,8 @@ const guardObjectKey: GuardObjectKey = <Obj, Key extends keyof Obj>(object: Obj,
 
 [Example usage][guard-object-key]
 
+----
+
 ### guardPrimitive
 
 Use `guardPrimitive()` or `guard.is.primitive()` to guard the `value` to be a generic `Type` from one of the `Primitives`. The return value is a `boolean` value.
@@ -740,6 +790,8 @@ const guardPrimitive: GuardPrimitive = <Type>(value: Type, type: Primitives): va
 
 [Example usage][guard-primitive]
 
+----
+
 ### guardString
 
 Use `guardString()` or `guard.is.string()` to guard the `value` to be a `string` type. The return value is a `boolean` value.
@@ -753,6 +805,8 @@ const guardString: GuardString = (value: string): value is string => isString(va
 | value       | `string`       | String type value to guard. |
 
 [Example usage][guard-string]
+
+----
 
 ### guardType
 
