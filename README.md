@@ -304,6 +304,8 @@ const isDefined: IsDefined = (value: unknown): boolean =>
 |-----------| :-------: |-------------|
 | value     | `unknown` | An unknown `value` to check. |
 
+----
+
 ### isFunction
 
 Use `isFunction()` or `is.function()` to check if **any** `value` is a `'function'` type, instance of `Function`, and `Object`. 
