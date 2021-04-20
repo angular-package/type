@@ -1,25 +1,15 @@
-import { IsNumber } from '../type/is-number.type';
+// Function.
+import { isNumberObject } from './is-number-object.func';
+import { isNumberType } from './is-number-type.func';
 import { typeOf } from '../../lib/type-of.func';
+// Type.
+import { IsNumber } from '../type/is-number.type';
 /**
- * Checks if any `value` is a `'number'` type not instance of `Number` and `Object` or `'object'` type instance of `Number` and `Object`.
- * Use the `guardNumber()` function to type-guard `number` also.
- * @param value Any value to check if it's a `'number'` type not instance of `Number` and `Object`
- * or `'object'` type instance of `Number` and `Object`.
- * @returns boolean
+ * Checks if any `value` is a `number` type not an instance of `Number` and `Object` or `object` type instance of `Number` and `Object`.
+ * @param value Any value to check.
+ * @returns A `boolean` indicating whether or not the `value` is a `number`.
  */
 export const isNumber: IsNumber = (value: any): value is number =>
   typeOf(value) === 'number' &&
-  (
-    isFinite(value) === true &&
-    (
-      value instanceof Number === false &&
-      value instanceof Object === false &&
-      typeof value === 'number'
-    )
-    ||
-    (
-      typeof value === 'object' &&
-      value instanceof Number === true &&
-      value instanceof Object === true
-    )
-  );
+  isFinite(value) === true &&
+  (isNumberObject(value) || isNumberType(value));
