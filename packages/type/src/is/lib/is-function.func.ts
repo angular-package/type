@@ -1,8 +1,8 @@
 // Function.
-import { IsFunction } from '../type/is-function.type';
 import { typeOf } from '../../lib/type-of.func';
 // Type.
 import { Func } from '../../type/func.type';
+import { IsFunction } from '../type/is-function.type';
 /**
  * Checks if any `value` is a `function` type, an instance `Function` and `Object`.
  * @param value Any `value` to check.
