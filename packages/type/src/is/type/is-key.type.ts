@@ -1,2 +1,2 @@
 import { Key } from '../../type/key.type';
-export type IsKey = (name: Key) => boolean;
+export type IsKey = (value: any) => value is Key;
