@@ -8,7 +8,7 @@ Useful packages based on the [angular.io](https://angular.io/).
 | prism            | `Prism` highlighter module.                                                             | *In Progress* | [Readme][prism-readme-github] |
 | property         | Features to handle properties.                                                          | *In Progress* | [Readme][property-readme-github] |
 | ui               | User interface based on **[Spectre.css](https://github.com/picturepan2/spectre)**.      | *In Progress* | [Github][ui-readme-github] |
-| type             | Common types, type guards and checkers.                                                 | [![npm version][type-npm-svg]][type-npm-badge] | [Github][type-readme-github] \| [npm][type-readme-npm] |
+| type             | Common types, type guards and type checkers.                                            | [![npm version][type-npm-svg]][type-npm-badge] | [Github][type-readme-github] \| [npm][type-readme-npm] |
 
 ## angular-package/type
 
@@ -223,6 +223,8 @@ const isNot: IsNot = {
 };
 ```
 
+----
+
 ## Checks
 
 ### areString
@@ -239,9 +241,11 @@ const areString = (...args: any): boolean => check('string', ...args);
 
 [Example usage][are-string]
 
+----
+
 ### isArray
 
-Use `isArray()` or `is.array()` to check if **any** `value` is an `Array`, `Array` instance and `object` type. The return value is a `boolean` value indicating whether or not the `value` is an `Array`.
+Use `isArray()` or `is.array()` to check if **any** `value` is an `Array`, `Array` instance and `object` type.
 
 ```typescript
 const isArray: IsArray = <Type>(value: any): value is Array<Type> =>
@@ -255,11 +259,15 @@ const isArray: IsArray = <Type>(value: any): value is Array<Type> =>
 |-----------| :---: |-------------|
 | value     | `any` | Any `value` to check. |
 
+The **return value** is a `boolean` value indicating whether or not the `value` is an `Array`.
+
 [Example usage][is-array]
+
+----
 
 ### isBigInt
 
-Use `isBigInt()` or `is.bigInt()` to check if **any** `value` is a `bigint` type. The return value is a `boolean` value indicating whether or not the `value` is a `bigint`.
+Use `isBigInt()` or `is.bigInt()` to check if **any** `value` is a `bigint` type.
 
 ```typescript
 const isBigInt: IsBigInt = (value: any): value is bigint =>
@@ -270,6 +278,8 @@ const isBigInt: IsBigInt = (value: any): value is bigint =>
 | Parameter | Type  | Description |
 |-----------| :---: |-------------|
 | value     | `any` | Any `value` to check. |
+
+The **return value** is a `boolean` value indicating whether or not the `value` is a `bigint`.
 
 [Example usage][is-bigint] | [How to detect 'bigint' type][detect-bigint]
 
@@ -308,7 +318,7 @@ const isDefined: IsDefined = (value: unknown): boolean =>
 
 ### isFunction
 
-Use `isFunction()` or `is.function()` to check if **any** `value` is a `'function'` type, instance of `Function`, and `Object`. 
+Use `isFunction()` or `is.function()` to check if **any** `value` is a `'function'` type, instance of `Function`, and `Object`.
 
 #### Syntax
 
@@ -320,19 +330,15 @@ const isFunction: IsFunction = (value: any): value is Func =>
   value instanceof Object === true;
 ```
 
-#### Parameters
-
 | Parameter | Type  | Description |
 |-----------| :---: |-------------|
 | value     | `any` | Any `value` to check. |
 
-#### Return value
-
-The return value is a `boolean` indicating whether or not the `value` is a `function`.
-
-#### Examples
+The **return value** is a `boolean` indicating whether or not the `value` is a `function`.
 
 [Example usage][is-function] | [How to detect 'function' type][detect-function]
+
+----
 
 ### isInstance
 
@@ -350,7 +356,11 @@ const isInstance: IsInstance = <Obj>(value: any, instance: Constructor<Obj>): va
 | value     | `any`              | Any generic `Obj` type `value` instance to compare with `type` instance. |
 | type      | `Constructor<Obj>` | Creates generic `Obj` type instance to compare with argument `value`. |
 
+The **return value** is a `boolean` indicating whether or not the `value` is a `function`.
+
 [Example usage][is-instance] | [How to detect `constructor` instance][detect-instance]
+
+----
 
 ### isNull
 
