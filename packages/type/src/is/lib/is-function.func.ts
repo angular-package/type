@@ -1,10 +1,12 @@
+// Function.
 import { IsFunction } from '../type/is-function.type';
-import { Func } from '../../type/func.type';
 import { typeOf } from '../../lib/type-of.func';
+// Type.
+import { Func } from '../../type/func.type';
 /**
- * Checks if any `value` is a `'function'` type, instance of `Function` and `Object`.
- * @param value Any `value` to check if it's a `'function'` type, instance of `Function` and `Object`.
- * @returns boolean.
+ * Checks if any `value` is a `function` type, instance of `Function` and `Object`.
+ * @param value Any `value` to check.
+ * @returns A `boolean` indicating whether or not the `value` is a `function`.
  */
 export const isFunction: IsFunction = (value: any): value is Func =>
   typeOf(value) === 'function' &&
