@@ -1,9 +1,11 @@
-import { IsDefined } from '../type/is-defined.type';
+// Function.
 import { typeOf } from '../../lib/type-of.func';
+// Type.
+import { IsDefined } from '../type/is-defined.type';
 /**
- * Checks if an unknown `value` is NOT an `'undefined'` type and is not equal to `undefined`.
- * @param value An unknown `value` to check if it's NOT an `'undefined'` type and is not equal to `undefined`.
- * @returns boolean.
+ * Checks if an unknown `value` is NOT an `undefined` type and is NOT equal to `undefined`.
+ * @param value An unknown `value` to check.
+ * @returns A `boolean` indicating whether or not the `value` is defined.
  */
 export const isDefined: IsDefined = (value: unknown): boolean =>
   typeOf(value) !== 'undefined' &&
