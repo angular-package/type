@@ -254,7 +254,7 @@ const isArray: IsArray = <Type>(value: any): value is Array<Type> =>
 ```
 
 | Parameter | Type  | Description |
-|-----------| :---: |-------------|
+| :-------- | :---: | :---------- |
 | value     | `any` | Any `value` to check. |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an `Array`.
@@ -283,7 +283,7 @@ const isBigInt: IsBigInt = (value: any): value is bigint =>
 ```
 
 | Parameter | Type  | Description |
-|-----------| :---: |-------------|
+| :-------- | :---: | :---------- |
 | value     | `any` | Any `value` to check. |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `bigint`.
@@ -312,18 +312,18 @@ const isBoolean: IsBoolean = (value: any): value is boolean =>
 ```
 
 | Parameter | Type  | Description |
-|-----------| :---: |-------------|
+| :---------| :---: | :---------- |
 | value     | `any` | Any `value` to check. |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `boolean`.
 
 ```typescript
 // Example usage
-const BIGINT = 9007199254740991n;
-const NUMBER = 27;
+const BOOLEAN = false;
+const BOOLEAN_INSTANCE = new Boolean(false);
 
-isBigInt(NUMBER); // false
-isBigInt(BIGINT); // true
+isBoolean(BOOLEAN); // true
+isBoolean(BOOLEAN_INSTANCE); // true
 ```
 
 [Example usage on playground][is-boolean] | [How to detect `boolean` type][detect-boolean]
@@ -332,7 +332,7 @@ isBigInt(BIGINT); // true
 
 ### isDefined
 
-Use `isDefined()` or `is.defined()` to check if an **unknown** `value` is NOT an `'undefined'` type and is NOT equal to `undefined`.
+Use `isDefined()` or `is.defined()` to check if an **unknown** `value` is NOT an `undefined` type and is NOT equal to `undefined`.
 
 ```typescript
 const isDefined: IsDefined = (value: unknown): boolean =>
@@ -342,7 +342,7 @@ const isDefined: IsDefined = (value: unknown): boolean =>
 ```
 
 | Parameter | Type      | Description |
-|-----------| :-------: |-------------|
+| :-------- | :-------: | :---------- |
 | value     | `unknown` | An unknown `value` to check. |
 
 The **return value** is a `boolean` indicating whether or not the `value` is defined.
@@ -371,7 +371,7 @@ const isFunction: IsFunction = (value: any): value is Func =>
 ```
 
 | Parameter | Type  | Description |
-|-----------| :---: |-------------|
+| :-------- | :---: | :---------- |
 | value     | `any` | Any `value` to check. |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `function`.
@@ -404,7 +404,7 @@ const isInstance: IsInstance = <Obj>(value: any, instance: Constructor<Obj>): va
 ```
 
 | Parameter | Type               | Description |
-|-----------| :----------------: |-------------|
+| :-------- | :----------------: | :---------- |
 | value     | `any`              | Any `value` to compare with the `instance`. |
 | instance  | `Constructor<Obj>` | The name of the generic `Obj` type to create an `instance` to compare with the `value`. |
 
@@ -436,7 +436,7 @@ const isKey: IsKey = (value: any): value is Key => isString(value) || isNumber(v
 ```
 
 | Parameter | Type  | Description |
-|-----------| :---: |-------------|
+| :-------- | :---: |:----------- |
 | value     | `any` | Any `value` to check. |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `Key` type.
@@ -455,7 +455,7 @@ const isNull: IsNull = (value: any): value is null =>
 ```
 
 | Parameter | Type  | Description |
-|-----------| :---: |-------------|
+| :-------- | :---: |------------ |
 | value     | `any` | Any `value` to check. |
 
 The **return value** is a `boolean` indicating whether or not the `value` is `null`.
@@ -485,7 +485,7 @@ const isNumber: IsNumber = (value: any): value is number =>
 ```
 
 | Parameter | Type  | Description |
-|-----------| :---: |-------------|
+| :-------- | :---: | :---------- |
 | value     | `any` | Any ``value`` to check. |
 
 The return value is a `boolean` indicating whether or not the `value` is a `number`.
@@ -510,7 +510,7 @@ const isObject: IsObject = <Obj>(value: any, key?: string): value is Obj =>
 ```
 
 | Parameter | Type     | Description |
-|-----------| :------: |-------------|
+| :-------- | :------: | :---------- |
 | value     | `any`    | Any `value` to check if it's a generic `'object'` type and `Object` instance. |
 | key?      | `string` | Property name to find in argument `value`. |
 
@@ -537,8 +537,8 @@ const isPrimitive: IsPrimitive = <Type>(value: any, type: Primitives): value is 
 };
 ```
 
-| Parameter | Type         | Description  |
-|-----------| :----------: |--------------|
+| Parameter | Type         | Description |
+| :-------- | :----------: | :---------- |
 | value     | `any`        | Any `value` to check if it's a generic `Type` type from on of the `type`. |
 | type      | `Primitives` | One of the `Primitives` `'boolean'`, `'bigint'`, `'number'`, `'string'`, `'symbol'`, `'undefined'` type to check `value`. | 
 
@@ -567,7 +567,7 @@ const isString: IsString = (value: any): value is string =>
 ```
 
 | Parameter | Type  | Description |
-|-----------| :---: |-------------|
+| :-------- | :---: | :---------- |
 | value     | `any` | Any value to check if it's a `'string'` type, not an instance of `Object` and `String` or `'object'` type and instance of `String` and `Object`. |
 
 [Example usage][is-string] | [How to detect `'string'` type][detect-string]
@@ -585,7 +585,7 @@ const isSymbol: IsSymbol = (value: any): value is symbol =>
 ```
 
 | Parameter | Type  | Description |
-|-----------| :---: |-------------|
+| :-------- | :---: | :---------- |
 | value     | `any` | Any `value` to check if it's a `'symbol'` type. |
 
 [Example usage][is-symbol] | [How to detect `'symbol'` type][detect-symbol]
@@ -615,7 +615,7 @@ const isType: IsType = <Type>(value: any, type: Types<Type>): value is Type => {
 ```
 
 | Parameter | Type          | Description |
-|-----------| :-----------: |-------------|
+| :-------- | :-----------: | :---------- |
 | value     | `any`         | Any value to check it is a generic `Type` type from one of the `type`. |
 | type      | `Types<Type>` | Generic constructor `Type`, `'function'`, `'object'` or one of the `Primitives` `'bigint'`, `'boolean'`, `'number'`, `'symbol'`, `'string'`, `'undefined'` to check `value` type. |
 
@@ -635,7 +635,7 @@ const isUndefined: IsUndefined = (value: any): value is undefined =>
 ```
 
 | Parameter | Type  | Description |
-|-----------| :---: |-------------|
+| :-------- | :---: | :---------- |
 | value     | `any` | Any `value` to check if it's an `'undefined'` type, and equal to `undefined`. |
 
 [Example usage][is-undefined] | [How to detect `'undefined'` type][detect-undefined]
@@ -656,7 +656,7 @@ const isNotBoolean: IsNotBoolean = (value: unknown): boolean =>
 ```
 
 | Parameter | Type      | Description |
-|-----------| :-------: |-------------|
+| :-------- | :-------: | :---------- |
 | value     | `unknown` | An unknown `value` to check if it's NOT a `'boolean'` type, NOT equal to `true` or `false` and NOT an instance of `Boolean`. |
 
 ----
@@ -675,7 +675,6 @@ const isNotDefined: IsNotDefined = (value: unknown): boolean =>
 | Parameter | Type      | Description |
 |-----------| :-------: |-------------|
 | value     | `unknown` | An unknown `value` to check if it's an `'undefined'` type and is equal to `undefined`. |
-
 
 ----
 
