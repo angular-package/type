@@ -237,7 +237,7 @@ const areString = (...args: any): boolean => check('string', ...args);
 |-----------| :---: |-------------|
 | ...args   | `any` | Any arguments to check they're all a `'string'` type. |
 
-[Example usage][are-string]
+[Example usage on playground][are-string]
 
 ----
 
@@ -257,7 +257,7 @@ const isArray: IsArray = <Type>(value: any): value is Array<Type> =>
 |-----------| :---: |-------------|
 | value     | `any` | Any `value` to check. |
 
-The **return value** is a `boolean` value indicating whether or not the `value` is an `Array`.
+The **return value** is a `boolean` indicating whether or not the `value` is an `Array`.
 
 ```typescript
 // Example usage
@@ -268,7 +268,7 @@ isArray(ARRAY_NUMBER); // true
 isArray<string>(ARRAY_STRING); // true
 ```
 
-[Example usage playground][is-array]
+[Example usage on playground][is-array]
 
 ----
 
@@ -286,15 +286,24 @@ const isBigInt: IsBigInt = (value: any): value is bigint =>
 |-----------| :---: |-------------|
 | value     | `any` | Any `value` to check. |
 
-The **return value** is a `boolean` value indicating whether or not the `value` is a `bigint`.
+The **return value** is a `boolean` indicating whether or not the `value` is a `bigint`.
 
-[Example usage][is-bigint] | [How to detect `bigint` type][detect-bigint]
+```typescript
+// Example usage
+const BIGINT = 9007199254740991n;
+const NUMBER = 27;
+
+isBigInt(NUMBER); // false
+isBigInt(BIGINT); // true
+```
+
+[Example usage on playground][is-bigint] | [How to detect `bigint` type][detect-bigint]
 
 ----
 
 ### isBoolean
 
-Use `isBoolean()` or `is.boolean()` to check if **any** `value` is a `boolean` type not instance of `Boolean` and `Object` or `object` type instance of `Boolean` and `Object`. The return value is a `boolean` indicating whether or not the `value` is a `boolean`.
+Use `isBoolean()` or `is.boolean()` to check if **any** `value` is a `boolean` type not instance of `Boolean` and `Object` or `object` type instance of `Boolean` and `Object`.
 
 ```typescript
 const isBoolean: IsBoolean = (value: any): value is boolean =>
@@ -306,7 +315,18 @@ const isBoolean: IsBoolean = (value: any): value is boolean =>
 |-----------| :---: |-------------|
 | value     | `any` | Any `value` to check. |
 
-[Example usage][is-boolean] | [How to detect 'boolean' type][detect-boolean]
+The **return value** is a `boolean` indicating whether or not the `value` is a `boolean`.
+
+```typescript
+// Example usage
+const BIGINT = 9007199254740991n;
+const NUMBER = 27;
+
+isBigInt(NUMBER); // false
+isBigInt(BIGINT); // true
+```
+
+[Example usage on playground][is-boolean] | [How to detect `boolean` type][detect-boolean]
 
 ----
 
@@ -327,11 +347,20 @@ const isDefined: IsDefined = (value: unknown): boolean =>
 
 The **return value** is a `boolean` indicating whether or not the `value` is defined.
 
+```typescript
+// Example usage
+const UNDEFINED = undefined;
+let defined;
+
+isDefined(UNDEFINED); // false
+isDefined(defined); // false
+```
+
 ----
 
 ### isFunction
 
-Use `isFunction()` or `is.function()` to check if **any** `value` is a `function` type, instance of `Function`, and `Object`.
+Use `isFunction()` or `is.function()` to check if **any** `value` is a `function` type, an instance `Function` and `Object`.
 
 ```typescript
 const isFunction: IsFunction = (value: any): value is Func =>
@@ -347,35 +376,76 @@ const isFunction: IsFunction = (value: any): value is Func =>
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `function`.
 
-[Example usage][is-function] | [How to detect `function` type][detect-function]
+```typescript
+// Example usage
+class Class { x = 5; }
+const FUNC: Func = (x: number): any => { return x + 5; }
+
+isFunction(Class); // true
+isFunction(FUNC); // true
+isFunction(() => 5); // true
+```
+
+[Example usage on playground][is-function] | [How to detect `function` type][detect-function]
 
 ----
 
 ### isInstance
 
-Use `isInstance()` or `is.instance()` to check if **any** value is a generic `Obj` type `constructor` instance and is an `Object`.
+Use `isInstance()` or `is.instance()` to check if **any** value is an `object` of a generic `Obj` type equal to an `instance` of `Constructor` type.
 
 ```typescript
 const isInstance: IsInstance = <Obj>(value: any, instance: Constructor<Obj>): value is Obj =>
-  isObject<Obj>(value) &&
-  value instanceof instance === true &&
-  isString(instance.prototype.constructor.name) === true;
+  isObject<Obj>(value) ?
+    isFunction(instance) ?
+      value instanceof instance === true && isString(instance.prototype.constructor.name)
+    : false
+  : false;
 ```
 
 | Parameter | Type               | Description |
 |-----------| :----------------: |-------------|
-| value     | `any`              | Any generic `Obj` type `value` instance to compare with `type` instance. |
-| type      | `Constructor<Obj>` | Creates generic `Obj` type instance to compare with argument `value`. |
+| value     | `any`              | Any `value` to compare with the `instance`. |
+| instance  | `Constructor<Obj>` | The name of the generic `Obj` type to create an `instance` to compare with the `value`. |
 
-The **return value** is a `boolean` indicating whether or not the `value` is a `function`.
+The **return value** is a `boolean` indicating whether or not the `value` is an `instance`.
 
-[Example usage][is-instance] | [How to detect `constructor` instance][detect-instance]
+```typescript
+// Example usage
+class Some { x = 127; }
+class Two { y = 'Lorem ipsum'; }
+
+const SOME = new Some();
+const TWO = new Two();
+
+isInstance<Some>(TWO, SOME); // false
+isInstance<Some>(SOME, SOME); // true
+isInstance<Some>(TWO, TWO); // true and type error
+```
+
+[Example usage on playground][is-instance] | [How to detect `constructor` instance][detect-instance]
+
+----
+
+### isKey
+
+Use `isKey()` or `is.key()` to determine if **any** `value` is one of the `string`, `number`, or `symbol`.
+
+```typescript
+const isKey: IsKey = (value: any): value is Key => isString(value) || isNumber(value) || isSymbol(value);
+```
+
+| Parameter | Type  | Description |
+|-----------| :---: |-------------|
+| value     | `any` | Any `value` to check. |
+
+The **return value** is a `boolean` indicating whether or not the `value` is a `Key` type.
 
 ----
 
 ### isNull
 
-Use `isNull()` or `is.null()` to check if **any** `value` is an `'object'` type and equal to `null`.
+Use `isNull()` or `is.null()` to check if **any** `value` is an `object` type and equal to `null`.
 
 ```typescript
 const isNull: IsNull = (value: any): value is null =>
@@ -386,40 +456,41 @@ const isNull: IsNull = (value: any): value is null =>
 
 | Parameter | Type  | Description |
 |-----------| :---: |-------------|
-| value     | `any` | Any `value` to check if it's a `null` value and an `'object'` type. |
+| value     | `any` | Any `value` to check. |
 
-[Example usage][is-null] | [How to detect `null` type][detect-null]
+The **return value** is a `boolean` indicating whether or not the `value` is `null`.
+
+```typescript
+// Example usage
+const NULL = null;
+const NUMBER = 27;
+
+isNull(NULL); // true
+isNull(NUMBER); // false
+```
+
+[Example usage on playground][is-null] | [How to detect `null` type][detect-null]
 
 ----
 
 ### isNumber
 
-Use `isNumber()` or `is.number()` to check if **any** `value` is a '`number`' type not instance of `Number` and `Object` or `'object'` type instance of `Number` and `Object`. The return value is a `boolean` value.
+Use `isNumber()` or `is.number()` to check if **any** `value` is a '`number`' type not an instance of `Number` and `Object` or `'object'` type instance of `Number` and `Object`.
 
 ```typescript
 const isNumber: IsNumber = (value: any): value is number =>
   typeOf(value) === 'number' &&
-  (
-    isFinite(value) === true &&
-    (
-      value instanceof Number === false &&
-      value instanceof Object === false &&
-      typeof value === 'number'
-    )
-    ||
-    (
-      typeof value === 'object' &&
-      value instanceof Number === true &&
-      value instanceof Object === true
-    )
-  );
+  isFinite(value) === true &&
+  (isNumberObject(value) || isNumberType(value));
 ```
 
 | Parameter | Type  | Description |
 |-----------| :---: |-------------|
-| value     | `any` | Any ``value`` to check if it's a `'number'` type not instance of `Number` and `Object` or `'object'` type instance of `Number` and `Object`. |
+| value     | `any` | Any ``value`` to check. |
 
-[Example usage][is-number] | [How to detect `'number'` type][detect-number]
+The return value is a `boolean` indicating whether or not the `value` is a `number`.
+
+[Example usage on playground][is-number] | [How to detect `number` type][detect-number]
 
 ----
 
@@ -922,9 +993,9 @@ MIT © angular-package ([license](https://github.com/angular-package/type/blob/m
 [is-array]: https://www.typescriptlang.org/play?jsx=0#code/MYewdgzgLgBFCeAHApgeQGYwLwwBQDcBDAGwFdkAuGQseASiugCcBLMAc2wD4ZUAjAFbJgUAHSImIKFKTJR0gMpRWHUcBLECJcnVERiLYMlwAOADQwAtAEZd0gDIgA7siYBhQhGN0A3ACgEFBgABVYAWxYoFnxkbBg+EBBiZBoYAB94lnY2WAywUmJidJh8sL5XYuY2TgyIeDKk4tIwABNkdDZkFv9A2IBJCABBJiZCeDitMkpqWjpuGCIpmBYIGGHR+AAeGnguf1BIWBX1saoBk-GcTYAVWS5J8iodhgXtWJW1kbGbu+4-GDgsgwD2Qcyw4JgAHJCF94JCYAAyBH-T4bUTHWEgsEQ5TkRHIgGLPFsaA0IwgTAXbA4ph4pEo3oU15LcE4SEgQTCKCQ-bgaAwBTXABKfQAcgBxOKQxxMZBhZaICCkMIAfh5fgO-NFAFUALIAIQAokK4gAmADsvMOMH1qFQ9kNg1FcXQJC8Vv52tFABFDQAxMWG71xZptDpgLoe2CDIVCwYATUFIolVAumyqHB4OAA2tDIRZIXx81DgJCALpRtaxhM6g3G1OwzalcpMLMwbPWCymiwAZgrGr50er8eCIt1fWufQAaoaGxtNqEWBEojE29moRn2MWLRZcbF+5rYAApBSoUUAfSng3s2sNcQA3uhElRrKaewBfD1JOTEEDsXAAAZJmK4oARYGIbLgwESnQvgwAA9PBMCusQXgDpA36iL+-4AbWRpCmByxDJieHGrBPgIUhKFeDA6EQJh2GAba9qOqKhEQWMuDMQ6TrkZRyFusgdEMX+gFer6AaikG7HEZB4n+oG3p8YhAmoUJmoiThMZxomwogTJFy4NpCbQeKylIXuwnJFhokAcZ8akQR4GyZx9mOeZcC0upfKaYB9mjn046TjOBmYv5Y4TtOhoeZZGnWYxAEnmel7XreoWQUlF5Xje0VwSp1FCUAA
 [is-bigint]: https://www.typescriptlang.org/play?target=7&jsx=0#code/MYewdgzgLgBFCeAHApgeQGYwLwwBQDcBDAGwFdkAuGQseASiugCcBLMAc2wD4ZUAjAFbJgUAHSImIKFKTJR0gMpRWHUcBLECJcnVERiLYMlwAOADQwAtAEZd0gDIgA7siYBhQhGN0A3ACgEFBgASQgAIRZ2YLBYHC0ySmpaOm4YIgSYFggYPki2KH9QSFgsiKiYqlCy6Ni8dPIqGnoqeuRM7Nz2fO4-GDhZDHidbCwcAHJO-LGYADIZ3v6UEExWkfHJmLHC8GgYBQAVACVggDkAcWwYMccmZABbTMQIUjuAfi2-It2TgFUAWTCAFFDpcAEwAdm2xRgYVQqHsgIAgidLugSF4obswsEzqd9pcAJwABiJ4OsBIJoIArAAWcE0okU6xgTEgYhyYggdi4AAGB2O5x5FlKkRquH5pzOdF8MAA9LKYGjiF5Pjs2RyubzfgDgUL2tUYrhtUDDtKfHKFUqVV91aJOdyebD4UiTnqReUoLgnQjkWaLYr0chVZBbfbedjcSd9m7wqLDRG8X75XAmOQ-EA
 [is-boolean]: https://www.typescriptlang.org/play?target=7&jsx=0#code/MYewdgzgLgBFCeAHApgeQGYwLwwBQDcBDAGwFdkAuGQseASiugCcBLMAc2wD4ZUAjAFbJgUAHSImIKFKTJR0gMpRWHUcBLECJcnVERiLYMlwAOADQwAtAEZd0gDIgA7siYBhQhGN0A3ACgEFBgASQgAIRAQYmQabDwiMkpqWjpuGATyGBYIGD5I6Jp-UEhYbIiomLAqUPKCsDitRKoaeioM5CycvIrYrC4-GDhZDEadbCwcAHJuusmYADJ5gbxlwdxVwaGUEEx28amQQWEoOcWNwb22aBojHZhayv24Jkyzzc3LkpvkO-4hESeynIGzoGwAPmCNut3hdtB0rlBvncHr0JjB0CQvAsljD0nCsl8wLdMH9jk8McQsW8YYEfrt8RMpjNKqccTDRh1Gc9MhC8YlyZjkKD3sKYL4-MVoDAFAAVABKwQAcgBxOKTRxMZAAWyyiAgpC1AH5JkVwFLFQBVACyYQAonK4gAmADsppK91QqHstoAgoq4hSvG6pWFPd6-QB9eUW21xIHIYOwUNe32KiNK2V+tyxnBgZBOe75Sq4QNC4MVUTEEDsXAAA1lCpVtYsZSLNFwDaVyrovhgAHo++jBRKzRWqzXa5abfbm50UWBcFO7XKez5+4PSyPIGPq3Xk+HFbPWz0F-vU6v19zkFuIDuJ2fI9HbUfwm3T2HU1G5TGLwOrze7z3D9IwzGUs2fFtXxPXAHzTUDwN-Qd4z8IA
-[is-function]: https://www.typescriptlang.org/play?target=7&jsx=0#code/MYewdgzgLgBFCeAHApgeQGYwLwwBQDcBDAGwFdkAuGQseASiugCcBLMAc2wD4ZUAjAFbJgUAHSImIKFKTJR0gMpRWHUcBLECJcnVERiLYMlwAOADQwAtAEZd0gDIgA7siYBhQhGN0A3ACgEFBgAMVIwYGw8UWjEQiZCAFsqGnpualp-QOQYAEkIUPCoFnBIrTJKdNSsHiJymBYIELDgf2BiT0a3dohGgG8YAA9IgFYfGABfP1BIWAaCkWKwKjz5opKcMvJk2gYYWvJ6xvnuPxg4WQxN5DpsLBwAcnRmtbB7mAAyd9PzlBBMfeydweT0Kizen2+APqMxoRj+TVB6zucCYBwhZyhbGgsOQ8P4QhEtxwynIrXA0BgACFUKh7ABRACCADlIiTkGSZlScgBxHJMgAqkQAnAAGEUAdmsQqFACZhgAWcXykXS6xgDkUpkAVQAspS6QAlSLWGXijWwBT8g187mRe46+AwMCkBJ8VyHe7mkJapluKjHDYDKjO12uXYpNL9JjIKCkJhgQYwADUMFGEym5NgfMtzLcdMiYGQThgXQ6uF8GcgIGIcmIIHYuAABqWeo2LHNnotcC2IHRfDAAPQDlHkSsQau1+u4e6Unl8-n3dv5TvgXCz3kCvtjIcwdAkLxjieiOsNmc0+nMxeHVZd6m0xlMreD4d74gH6bjmvHqf3bV6w1Xh2iJgLgf76gaT47q+77kkeJ7Tpa1pMtygHLsBuCITakEvvuyCHl+8GNsEPpuG214riBxG+thI54R+cE-tm-K5nSqE3quTEsTR0HIEAA
-[is-instance]: https://www.typescriptlang.org/play?target=7&jsx=0#code/C4TwDgpgBAwg9gOwM7AE4FcDGw6oDwAq4EAfFALxQIQDuUAFAHTMCGqA5kgFxQsIgBtALoBKCmSKQA3AChQkKAEkki5MD6ZolPAHkARgCsS9AG4sANugg8+IADRQAlmo3XYiFBmy5dhkmPIyM0toRyQofQNZeWhlAGU0Z3YKBmCrG34AoIsrJ3DPJOjiJSRIiGwU3yNTHLdbBwBrCBAAfh4ChHYsqDTQ8MjZTA9gKBidADMUmpCMkBF2xM7xCMNy4EYwVDgcGMYcBNQkxkwLc2mrEUYkc0dNegAOBwBaAEZLnAAZOBoIVBgWJAQegiQbDPIHJI8eKLZKUc51TI8Xp5KAdWFkegxOCTZHkPFQADkcFW2AJUAAZOSerUnC4EJpsSsDGsKVTkc4UK5GRDOmIAD580bERm4-EEtEE0FqPJlbBQ0okkbaSLGXqzRrNNqomHzakhFGRcQyKBCyATeEBMXE5mk1nG00QEU0vGUImKsmU+3sukMyaypX4tBWe0mlrgmH0JpzCiBjAQEMmqBhqO0vW5F2jOOs1I0gFMy4ACwBOhoCAACltIKhQJHmpbKEH44moDxG-aeOMLICpSg8qpOfS3Mp++pB5UVfD1bSB5oePA1F4cPgVbr2f1DEaTWF-VVVbUxJ6Td6Z47JhzR5oYw2s4fw4dOvRz64NlsdsRjsNF7hGAgWABbCB60zKxZBkTBzABcI4jgACYAgpBwgAbygAAPFIXgAJgAdikKAAF8wPg8ICBoOA4MgqBkJAFICS+VAID-JwwCQdA-0lfCZBkAB6LioAANTYRwWD0cwICQMCwTiAgACVFAAOQAcQAfT4gBBD4AFUAFEaLohimJYv8WklCTpTkjSAFkACEtOklT1O0lJsJ7EYrJ0HQPi01S5PszSdMoTtzG7Uzew0uSABEtIAMXkrTwt87SlIIAB1HQUnQBAABMIHGZwIEy2RRJGMLIpiuS4oSrSXKgOIdAsrSYA+VS4jiFJqDoaDYKI4FqpSnRGua1rKHaqASLI7qQU4oZkDgUTGHMOB2EfFQfQgPBOogciEOMPqBpahwNq2pARBBKAeKgQLARC2aIHmxblpHVx1pgzaiOMWr6r2uIDpeo6Ttw8622mpAbrupawkewdnq6yCdtSr6HDGv7TsBuMZCAA
-[is-null]: https://www.typescriptlang.org/play?target=7&jsx=0#code/C4TwDgpgBAkgzgOQK4BsVQLxQBQDcCGKSEAXFPgHYgCUmAfFAUdAJZxQWooDcAUAMYB7CnGBRQkAPIAzTDibEylGmVEAnFhQDm9KJIBGAKwj9gAOjBrBwa+AhmbAZWAbtZ-oRR5CxambgoLPwQ2AAcADRQALQAjH42ADKCAO4QagDC+HAh1HxCImJsyGhk8MXoWN7MSlTUZAqs7Jxo9LxQ4nYyVb6YGFgA5M0o-VAAZKNtHZCCsg29A4JGJsAj45NzfVhDecKiUI4AKgBKMAgA4nL9SWoQALZQLGBwSLcA-P07BVAIAKoJCXJtgJdmJfgBZABCAFEjnIAEwAdk+ewhkkkCShAEEEHJpIRssixKj0ViEAB9Y4-KFyFzEQlQYkY7Fk06HbHpalbCDJBmCQQoCCUbB4lDZXLAkT8+woQRabAAA0OJ3O8siRS42CVpzO1FyUAA9PqoCLshK4FKzDK5fLfv9VQ9EBrbQlddwDUbaRAzRarQrwdCjvb1WhsP6Ya73cb8V78uaBZbZQrGaSg46Q8nsRHDVHRTHdj7E-KM+TKVDU+VsMWKUcqVmjSa85L476i2imeTWQd2WW1WmvFXO926znTUA
+[is-function]: https://www.typescriptlang.org/play?target=7&jsx=0#code/MYewdgzgLgBFCeAHApgeQGYwLwwBQDcBDAGwFdkAuGQseASiugCcBLMAc2wD4ZUAjAFbJgUAHSImIKFKTJR0gMpRWHUcBLECJcnVERiLYMlwAOADQwAtAEZd0gDIgA7siYBhQhGN0A3ACgEFBgAMVIwYGw8UWjEQiZCAFsqGnpualp-QOQYAEkIUPCoFnBIrTJKdNSsHiJymBYIELDgf2BiT0a3dohGgG8YAA9IgFYfGABfP1BIWAaCkWKwKjz5opKcMvJk2gYYWvJ6xvm0rIxN5DpsLBwAcnRmtbAbmAAyF7hZEEx97Ovb+8Ki2ebz22mybGgNCMXyagPW1zgTAOIJ+9RmUOQMP4QhEVxwynIrXA0BgACFUKh7ABRACCADlIgTkESZmScgBxHJ0gAqkQAnAAGAUAdmsfL5ACZhgAWYXSgXi6xgFkkukAVQAsqSqQAlSLWCXClWwBTcnVc9mRG4a+AwMCkBJ8VyHG7GkJquluKjHDYDKj2x2uXYpNL9JjIKCkJhgQYwADUMFGEymxNgXNN9LcVMiYGQThgXQ6uF8KcgIGIcmIIHYuAABoWerWLHMHotcA2IHRfDAAPQ9xHkUsQcuV6u4G6kjlc7k3Zv5VvgXCTzk8rtjPswdAkLxDkeiKs1icU6n02eHVZt8mU2l0te9-tb4g76bDiv7sc3dVa3VnltwsC4F+2o6neG6Ps+xJ7ge46muadLsr+87-rgsEWqBD7bsgu5vtBtbBB6bhNueC4AfhnroQOWEvlBH7ptymZUohF6LnRDEUeBVGQThY61sWaTDERf4LIufHVImFFMkAA
+[is-instance]: https://www.typescriptlang.org/play?target=7&jsx=0&module=6#code/PTAEBUE8AcFMDoBQAXGtQGED2A7AzsgE4CuAxsloQDxRwB8oAvKDrAO6gAU8PAhoQHM8ALlC8ckANoBdAJRMGtWAG4UaUAEk8AMWI5yAS1xMuAN14AbYrFHjI8xg3NX0BvFx7xo-XgFtbEg4MdqqocJp4GvjI4qTozFQA8gBGAFZ0nM7WAZAANKAG0bE2mLgEJOSUSWl0QaBZru4pqaHqWgDKRIUCJpmW2WKBCvX9jaDl3a3hWs2w5CbV6X0uOfkA1rCQAPyiEzgCdQ0FTWmqIKC6+shGOEikZcigYbCJAGa9DTmyu137w7PkLyELAUZ7wCidQjdeCkSwWZbWWTwPAWAxxTgADnyAFoAIxIigAGSwbFghAwvDwsE4slU92ix0uhlwoi0TOuxmYCJKdm+Ixcxw8PG8hD8X2GdmGzze3IcjGYAHJXnpmTgFaAAGQap5oLDvI7yxXKq43dVa-nWApFfSwPUXFUcnBMeVPEjoc1HQoEYp2gGPQ2u6x0h7HSHdVl4MN-LmfQb2USe9x7HqOLjPO0Gl0KrBpObIM3az3WuK+3PzD2jK3em12qMHUAAHwbOrgGcrAYVyYVwYZbj9Eb9C2aJhzqTzGVjdnWmx241+BwTlbcoGHjkQoDTaBlDTlitHeYLLdt+vbWf35EPRerJfeg4DRER643oC2ofnnA29ifz5foE-VotWBv1AUQHyAjdRFeSwqR7Ahjiia8Si0BCYhtIcam5VYq1QuJRGwaIKgoahmlqRcBWXVc6CfPsy2QRYJ1GeQtmAtx2RuTgvRw2AmOAjcry4u1OOKZ1mDAzVtTcOsOOLBBoGBUE0BhB5CMoeAcD8bjgMg6DwJA0AoIsGDEEQUgLEpdx2iwXxYAwMy8HcABvUAAA8TFxAAmAB2ZRQAAX1AUzzIgNgsFsoKnMgEwFWJQhYF8ApoDwYhfG7PzjPOAA1fgDF4ZILFgPATJDdpwAAJQ0AA5ABxAB9DKAEFCQAVQAUSimK4oSpLfC2VL6TgiqmoAWQAIRa0q6sa1qTC8nz+seEbEkSQkWvqirJuatrmAMmCApDJqKoAERa7RKpaw6NtamrwAAdUSEw9AAE1gV5ClgR7VHyx4DuO06KvOy6Wtgx52kSIaWowQl6vadoTFYDhLOssL7JpOaQ1uxJIeh2HmHh4LQrsvBUeM-qsHy+ALCwAQOMiGSqERmzCYyDGsZh-IGeRvBZFpUBzh2oDSfJynqbcFDinpqzGfMjJQfB1n2nZyXOe5nzzjAor8DJhBhZpsWbQlpGmc4FmobZ-HlZ5tW3UQIA
+[is-null]: https://www.typescriptlang.org/play?target=7&jsx=0&ssl=11&ssc=21&pln=11&pc=33#code/C4TwDgpgBAkgzgOQK4BsVQLxQBQDcCGKSEAXFPgHYgCUmAfFAUdAJZxQWooDcAUAMYB7CnGBRQkAPIAzTDibEylGmVEAnFhQDm9KJIBGAKwj9gAOjBrBwa+AhmbAZWAbtZ-oRR5CxambgoLPwQ2AAcADRQALQAjH42ADKCAO4QagDC+HAh1HxCImJsyGhk8MXoWN7MSlTUZAqs7JxouhIQMlW+mBhYAOTNKL1QAGTD4naCsg3dfYJGJsBDo4w+0D1YA3nColCOACoASjAIAOJyvUlqEAC2UCxgcEjXAPy9WwVQCACqCQlymwJtmJvgBZABCAFEDnIAEwAdneOzBkkkCQhAEEEHJpIRsoixMjURiEAB9Q5fCFyFzEfFQQlozEk477THpSkbCDJOmCQQoCCUbA4lDZXKAkS8+woQRabAAA32R1OssiRS42AVxxO1FyUAA9LqoELsmK4BKzFKZbLvr9lXdEGrrQltdw9QbqRATWaLXLQZCDrbVWhsL6oc7XYbcR78qa+ebpXL6cSA-ag4nMWH9RHhVHtl747K06TyRDk+VsIWyQcKRmDUac+LY96CyiGaTmXtWSWVSmvBX252a1njUA
 [is-number]: https://www.typescriptlang.org/play?target=7&jsx=0#code/C4TwDgpgBAkgzgOQK4FsBGEBOUC8UAUAbgIYA2SEAXFMQHYgCUuAfFCedAJZxS2oaYA3ACgAxgHtacYFFCQA8gDNcBdhWp1G1aZk60A5iyjy0AKwijgAOjCZxwe+AhWHAZWC6DV0WVJEyFAxWcKScohD4ABwANFAAtACMQQ4AMuIA7lgAwsRwEQwiElIy3MjoWNTwZQIq-hwa9AzUalw8fOXYOMzCULJOSnWBuDh4AOTtAqNQAGTTPQTzvdwAYnqcwBEtTCN4HhQzc729+ItHLVB60nTh4srVWMN4imR5B6e955fA1xC3xmYWGQ7KDPUivWbvPqQP7nYHjfhYUanBinAA+qNOJyORzkv2UsJGUFG4gBlimEOxHwCXGKPz+906hL20AplM+tNoN2UJnMlkeskwFGR8wKYkk0igACEYABxGAIAAqKgAnAAGVUAdgSyuVACYAKwAFg1htVOoStEK4pkkvk8hSAFEAIIIFSgvJW4pQBAAVQAspKHQAlFS6jWeiW+gPBgD68tcCpdWQdKloEHS3oRmHw+tFRQlCaD8plKlGaUwEBQFzAcFQAH5RhHxKRnKRxPp8AADaVyxWd2KlLP4HvyhUMApQAD0k5BLwgYqkzdb7a7tvtzoQ-YuiCHa8dLvHginM-d8-zS6sbY7najgaDW8HHXwt+Dh+PAqF55bl5XN-9d7jBAEyTB0Hx3J8XyDQDgIQZM32nD8z3FC8ry7QtizAhl8HQhAZXgk852EYQgA
 [is-object]: https://www.typescriptlang.org/play?noUncheckedIndexedAccess=true&target=7&jsx=0#code/JYOwLgpgTgZghgYwgAgPICMBWEFgJLjTxLIDeyAHgFzIgCuAtutANzIC+AUKJLIiqjAALaBmy4yyAOY16TVh05gAngAcUAMTogEyALzIAFADpTquFDgMacEMoCU+gHzJbylkrUo8AZzE4wfWQAHjEnQwA3OAAbOggbOwAaZABrCGUAfhofMChQKUc9FyjYlGAfNCwPFXVkXwA5AHswerpo6KDImLiabRSQRoB3EEKXdEbG6IhbDwRGkBzkcqaWtuiaBubW9s6SnuQ+geH7GnHJ6ZBnTmRkGohUGC7SxwBCPQMAcnp2j+QAMj+12QexQbwM32is3mizuD123XirjsJ2QOTyICkzkq4jAxlUUGazS8xjAjQAyrl8sYEDFok84vZjD5osAkIYABzJAC0AEZGaSADJDaAAYTgPgghnsUIWgXKFPRmIM9MRbhRIKWFTR+Sxd0aMGBCP072QH21GI+MsW5X8uA2fiwASCoSw4RBCWUyTSmWylIx6qN5WxVxusMeIMKJo+jUduF+AKBeoNGvenxjOPjgJuGtAOVsSH12KdqduUDiQJuGU1Cvyhm9kYMuXLNxbyCr3qWlxTJqbKABRg14uxjKE4tQwwACgT1FAVHX0g3S82WzRe0CaPBohKPEDOAhouKKiLoU3cI0oCKDz4KuQKEEAKxsLhzWXIEWoepkgAqACUAKoil+qA-gA+iKAoAIJkmSQQgBAgxvieZZnheV4+FKVqBAAUmSH4gagABCWEAKKATQtr4IQfAkAYt40AAzIoL6LBof71CKNBaDonTULQjDMFAKJuFiFCYcgBGoKgArERB9RBL2O7MecxjRI0UiGAABsesrIaSqGHhpyQ2rGYDBNpaJ0Chl6HuE76fr+AFAaB4FQWS9jSsgAD0nlLhAe7QspqnqRpOF4YRJGAYZmoUaEwiiCZ4ShfU+FEaRX7uWw3m+f5CyBWpmmsexUXGTiwRcQg4SFSKGVeT5m4SjlPh5cFdnfv+gHAWBkHQQA2hQAC6xUOqV5mnnp1nXrZH5tY5nUudByQfBQHw1Vla5KVMKn5SFuHJeFaU9cog1GcNASxSIUAUYlu0pRFX6LcoK0eVl9V+RtEBbcFVV9cd0UmWV2gVYYVWLctq11TEDXvZ9mkSVJMn1ENMVuOEcPSbJ4PIK9nBAA
 [is-primitive]: https://www.typescriptlang.org/play?target=7&jsx=0#code/C4TwDgpgBACgTgSwLYOAgbhAzlAvFAcgCMEBzBAO2AKgB9CiB7RgGwgEMKb6CKBXJEQhxuhLCEGtRBLMEQVS0vhQAmEAGaUIKggG4AUPtCQoASSwAhZm054oACnTsWfCAC4onEAEo8APignF2gEHCZWDgoDY2hzADkBITg7R2dXDy9fXACg1yhQqH5BYWjwWKx4ZFQMaHwAHgAVMr9U4IyKEAAaKBiPSpQ0TCwsnLSQnCbIUpNzAGU5SlIU3PdPDpHAsfycWXlSafLZiSYWZbH2n39N4O2ocUkWA7MsAFVVDS0VM7a1y+zrvIFZRqTQUbQGfQAY0YFFk2wsZFMVG+6V+3g8K1uJHIyP+MUY6gBtVw+GIZEo1AM0NhwHh1kiHnMVgitnwrVRmQxWwK4RsFCu7JCNM4kIgBKgzL5UAAZNKiflhRRReKAPJEABWEEhwF8tHo9kFeBJPTgeT18pJ+HUziwEF8sp6ZXFmMtDHpnAI3ipMLhoQSxTgjKw-qSKNWnPlBSKobxTsJLuNvESwhoAH5tgAxSioCCC3xcm6UWQisWEkPCGVyzFF4Al1UarXAb007bzPZBtuLMMXdGRnYLBQC-HxraugiMBvamgO6uK5WEtWa7WVyNz0tQTsKXX0YcWxO7RZ6KE+2mhI4PDvHVjdtEFwE7K+nWOQZ2j-ePo-U32vd6g7RBt4QU+G8I2rHBgQ+MEvn+BN8Agv8vgdXdYMIeDPiPY8W1CfpqkwIMcMGWooEaZpBQubpelgRABhqYY73GKBJlqAIAG99CgfJCXsM8B1IewYm8Xw2I4jisAAd1QSEAAsHAEqBhJEjjIXYW0GHJKgCA8OAIGAPg4H5UIEVIJFgDzAxFKUlToGId0uC0nS9IMyxbLM9iLOU1SkwDTSoG03T9O2cs4FciyoA86yDwUHy-Mc1teJC9yrLED97P8pzzxOBLFPC1Df3Q1LYtCQDIO0LKoAAXzcyqOJigLrRYW0DHKiEv1pCwVRVAAZABRABBOI7HqxrMLhCxTAAcVMOIGjsABOAAGeaAHYAEZZtmgAmABWAAWJadvm9aVqiEbaTiF4AFkLG6gAlOwVo2pbmzhWYGhuqbxrsAgLpAQpk2SUJPxPKAXjiAARbqMym7qwbsNCoOe2lZgATSurq7Ay1h7AIeHtE9Z6IgAOhYRg+IAAzGybprJ7psOo3CIDqbEKRaSmpoaboyRxahBN0KAAHp+ZNVwRqJknyfarq+riGntgImo6ki0hWY6nr+s53lIk9L0BaFuQRa-MXSfsMnzqu27ZbpqpCLqaNhBaM3rpuzm7ZEXndeFiBRbYYnjbJ173ricbLYqembaVloA4+zmle1vnBc972IF98mUbRzqQ-lzBFcfSPUfazqY4-d2E-1r3DZ98WTdBiGobiGHM7DhXcZUFoa8h6Gwc5lu449svDAr5Oq9Ny6ncb62FeZqgHdH26NfUnmdYToby59I3ycdi3adDifs4j+xN+dsReN75ebVX2F15NqOg-Hmjs81zhI7e6O3RZLgS6Flek5T6+X9v7eWdGau2foHcaLt-qny-uffQQA
