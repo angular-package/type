@@ -227,7 +227,7 @@ const isNot: IsNot = {
 
 ### areString
 
- Use `areString()` or `are.string()` to check if all of **any** arguments are a `'string'` type. The return value is a `boolean` value.
+ Use `areString()` or `are.string()` to check if all of **any** arguments are a `string` type.
 
 ```typescript
 const areString = (...args: any): boolean => check('string', ...args);
@@ -235,7 +235,9 @@ const areString = (...args: any): boolean => check('string', ...args);
 
 | Parameter | Type  | Description |
 |-----------| :---: |-------------|
-| ...args   | `any` | Any arguments to check they're all a `'string'` type. |
+| ...args   | `any` | Any arguments to check they're all a `string` type |
+
+The **return value** is a `boolean` value.
 
 [Example usage on playground][are-string]
 
@@ -244,7 +246,6 @@ const areString = (...args: any): boolean => check('string', ...args);
 ### isArray
 
 Use `isArray()` or `is.array()` to check if **any** `value` is an `Array`, `Array` instance and `object` type.
-The **return value** is a `boolean` indicating whether or not the `value` is an `Array`.
 
 ```typescript
 const isArray: IsArray = <Type>(value: any): value is Array<Type> =>
@@ -256,7 +257,9 @@ const isArray: IsArray = <Type>(value: any): value is Array<Type> =>
 
 | Parameter | Type  | Description |
 | :-------- | :---: | :---------- |
-| value     | `any` | Any `value` to check. |
+| value     | `any` | Any `value` to check |
+
+The **return value** is a `boolean` indicating whether or not the `value` is an `Array`.
 
 ```typescript
 // Example usage
@@ -274,7 +277,6 @@ isArray<string>(ARRAY_STRING); // true
 ### isBigInt
 
 Use `isBigInt()` or `is.bigInt()` to check if **any** `value` is a `bigint` type.
-The **return value** is a `boolean` indicating whether or not the `value` is a `bigint`.
 
 ```typescript
 const isBigInt: IsBigInt = (value: any): value is bigint =>
@@ -284,7 +286,9 @@ const isBigInt: IsBigInt = (value: any): value is bigint =>
 
 | Parameter | Type  | Description |
 | :-------- | :---: | :---------- |
-| value     | `any` | Any `value` to check. |
+| value     | `any` | Any `value` to check |
+
+The **return value** is a `boolean` indicating whether or not the `value` is a `bigint`.
 
 ```typescript
 // Example usage
@@ -302,7 +306,6 @@ isBigInt(BIGINT); // true
 ### isBoolean
 
 Use `isBoolean()` or `is.boolean()` to check if **any** `value` is a `boolean` type not instance of `Boolean` and `Object` or `object` type instance of `Boolean` and `Object`.
-The **return value** is a `boolean` indicating whether or not the `value` is a `boolean`.
 
 ```typescript
 const isBoolean: IsBoolean = (value: any): value is boolean =>
@@ -312,7 +315,9 @@ const isBoolean: IsBoolean = (value: any): value is boolean =>
 
 | Parameter | Type  | Description |
 | :---------| :---: | :---------- |
-| value     | `any` | Any `value` to check. |
+| value     | `any` | Any `value` to check |
+
+The **return value** is a `boolean` indicating whether or not the `value` is a `boolean`.
 
 ```typescript
 // Example usage
@@ -323,14 +328,13 @@ isBoolean(BOOLEAN); // true
 isBoolean(BOOLEAN_INSTANCE); // true
 ```
 
-[Example usage on playground][is-boolean] | [How to detect `boolean` type][detect-boolean]
+[Example usage on playground][is-boolean] | [How to detect the `boolean` type][detect-boolean]
 
 ----
 
 ### isDefined
 
 Use `isDefined()` or `is.defined()` to check if an **unknown** `value` is NOT an `undefined` type and is NOT equal to `undefined`.
-The **return value** is a `boolean` indicating whether or not the `value` is defined.
 
 ```typescript
 const isDefined: IsDefined = (value: unknown): boolean =>
@@ -341,7 +345,9 @@ const isDefined: IsDefined = (value: unknown): boolean =>
 
 | Parameter | Type      | Description |
 | :-------- | :-------: | :---------- |
-| value     | `unknown` | An unknown `value` to check. |
+| value     | `unknown` | An unknown `value` to check |
+
+The **return value** is a `boolean` indicating whether or not the `value` is defined.
 
 ```typescript
 // Example usage
@@ -357,7 +363,6 @@ isDefined(defined); // false
 ### isFunction
 
 Use `isFunction()` or `is.function()` to check if **any** `value` is a `function` type, an instance `Function` and `Object`.
-The **return value** is a `boolean` indicating whether or not the `value` is a `function`.
 
 ```typescript
 const isFunction: IsFunction = (value: any): value is Func =>
@@ -369,7 +374,9 @@ const isFunction: IsFunction = (value: any): value is Func =>
 
 | Parameter | Type  | Description |
 | :-------- | :---: | :---------- |
-| value     | `any` | Any `value` to check. |
+| value     | `any` | Any `value` to check |
+
+The **return value** is a `boolean` indicating whether or not the `value` is a `function`.
 
 ```typescript
 // Example usage
@@ -387,8 +394,7 @@ isFunction(() => 5); // true
 
 ### isInstance
 
-Use `isInstance()` or `is.instance()` to check if **any** value is an `object` of a generic `Obj` type equal to an `instance` of `Constructor` type.
-The **return value** is a `boolean` indicating whether or not the `value` is an `instance`.
+Use `isInstance()` or `is.instance()` to check if **any** value is an `object` of a generic `Obj` type equal to an `instance` of [`Constructor`](#Constructor) type.
 
 ```typescript
 const isInstance: IsInstance = <Obj>(value: any, instance: Constructor<Obj>): value is Obj =>
@@ -399,10 +405,12 @@ const isInstance: IsInstance = <Obj>(value: any, instance: Constructor<Obj>): va
   : false;
 ```
 
-| Parameter | Type               | Description |
-| :-------- | :----------------: | :---------- |
-| value     | `any`              | Any `value` to compare with the `instance`. |
-| instance  | `Constructor<Obj>` | The name of the generic `Obj` type to create an `instance` to compare with the `value`. |
+| Parameter | Type                               | Description |
+| :-------- | :--------------------------------: | :---------- |
+| value     | `any`                              | Any `value` to compare with the `instance` |
+| instance  | [`Constructor<Obj>`](#Constructor) | The name of the generic `Obj` type to create an `instance` to compare with the `value` |
+
+The **return value** is a `boolean` indicating whether or not the `value` is an `instance`.
 
 ```typescript
 // Example usage
@@ -424,7 +432,6 @@ isInstance<Some>(TWO, TWO); // true and type error
 ### isKey
 
 Use `isKey()` or `is.key()` to determine if **any** `value` is one of the `string`, `number`, or `symbol`.
-The **return value** is a `boolean` indicating whether or not the `value` is a `Key` type.
 
 ```typescript
 const isKey: IsKey = (value: any): value is Key => isString(value) || isNumber(value) || isSymbol(value);
@@ -432,14 +439,15 @@ const isKey: IsKey = (value: any): value is Key => isString(value) || isNumber(v
 
 | Parameter | Type  | Description |
 | :-------- | :---: |:----------- |
-| value     | `any` | Any `value` to check. |
+| value     | `any` | Any `value` to check |
+
+The **return value** is a `boolean` indicating whether or not the `value` is a [`Key`](#Key).
 
 ----
 
 ### isNull
 
 Use `isNull()` or `is.null()` to check if **any** `value` is an `object` type and equal to `null`.
-The **return value** is a `boolean` indicating whether or not the `value` is `null`.
 
 ```typescript
 const isNull: IsNull = (value: any): value is null =>
@@ -450,7 +458,9 @@ const isNull: IsNull = (value: any): value is null =>
 
 | Parameter | Type  | Description |
 | :-------- | :---: |------------ |
-| value     | `any` | Any `value` to check. |
+| value     | `any` | Any `value` to check |
+
+The **return value** is a `boolean` indicating whether or not the `value` is `null`.
 
 ```typescript
 // Example usage
@@ -467,8 +477,7 @@ isNull(NUMBER); // false
 
 ### isNumber
 
-Use `isNumber()` or `is.number()` to check if **any** `value` is a '`number`' type not an instance of `Number` and `Object` or `'object'` type instance of `Number` and `Object`.
-The **return value** is a `boolean` indicating whether or not the `value` is a `number`.
+Use `isNumber()` or `is.number()` to check if **any** `value` is a `number` type not an instance of `Number` and `Object` or `object` type instance of `Number` and `Object`.
 
 ```typescript
 const isNumber: IsNumber = (value: any): value is number =>
@@ -479,16 +488,17 @@ const isNumber: IsNumber = (value: any): value is number =>
 
 | Parameter | Type  | Description |
 | :-------- | :---: | :---------- |
-| value     | `any` | Any ``value`` to check. |
+| value     | `any` | Any `value` to check |
 
-[Example usage on playground][is-number] | [How to detect `number` type][detect-number]
+The **return value** is a `boolean` indicating whether or not the `value` is a `number`.
+
+[Example usage on playground][is-number] | [How to detect a `number` type][detect-number]
 
 ----
 
 ### isObject
 
 Use `isObject()` or `is.object()` to check if **any** `value` is a generic `Obj` `object` type and `Object` instance with the possibility of containing `key`.
-The **return value** is a `boolean` indicating whether or not the `value` is an `object`.
 
 ```typescript
 const isObject: IsObject = <Obj = object>(value: any, key?: Key): value is Obj =>
@@ -501,16 +511,40 @@ const isObject: IsObject = <Obj = object>(value: any, key?: Key): value is Obj =
 
 | Parameter | Type     | Description |
 | :-------- | :------: | :---------- |
-| value     | `any`    | Any `value` to check. |
-| key?      | `Key`    | Property name to find in `value`. |
+| value     | `any`    | Any `value` to check |
+| key?      | `Key`    | Property name to find in `value` |
 
-[Example usage on playground][is-object] | [How to detect `object` type][detect-object]
+The **return value** is a `boolean` indicating whether or not the `value` is an `object`.
+
+[Example usage on playground][is-object] | [How to detect an `object` type][detect-object]
+
+----
+
+### isObjectKey
+
+Use `isObject()` or `is.object()` to check if **any** `value` is a generic `Obj` `object` type and `Object` instance with the possibility of containing the `key`.
+
+```typescript
+const isObject: IsObject = <Obj = object>(value: any, key?: Key): value is Obj =>
+  (typeOf(value) === 'object' && typeof value === 'object' && value instanceof Object === true)
+    ? isKey(key)
+      ? key in value
+    : true
+  : false;
+```
+
+| Parameter | Type          | Description |
+| :-------- | :-----------: | :---------- |
+| value     | `any`         | Any `value` to check |
+| key?      | [`Key`](#key) | Property name to find in `value` |
+
+The **return value** is a `boolean` indicating whether or not the `value` is an `object`.
 
 ----
 
 ### isPrimitive
 
-Use `isPrimitive()` or `is.primitive()` to check if **any** `value` is a generic `Type` type one of the primitive `'boolean'`, `'bigint'`, `'number'`, `'string'`, `'symbol'`, `'undefined'` type. The return value is a `boolean` value.
+Use `isPrimitive()` or `is.primitive()` to check if **any** `value` is a generic `Type` from the [`Primitives`](#Primitives).
 
 ```typescript
 const isPrimitive: IsPrimitive = <Type>(value: any, type: Primitives): value is Type => {
@@ -524,32 +558,36 @@ const isPrimitive: IsPrimitive = <Type>(value: any, type: Primitives): value is 
       case 'undefined': return isUndefined(value);
     }
   }
+  return false;
 };
 ```
 
-| Parameter | Type         | Description |
-| :-------- | :----------: | :---------- |
-| value     | `any`        | Any `value` to check if it's a generic `Type` type from on of the `type`. |
-| type      | `Primitives` | One of the `Primitives` `'boolean'`, `'bigint'`, `'number'`, `'string'`, `'symbol'`, `'undefined'` type to check `value`. |
+| Parameter | Type                        | Description |
+| :-------- | :-------------------------: | :---------- |
+| value     | `any`                       | Any `value` to check if it's a generic `Type` from the `type` |
+| type      | [`Primitives`](#Primitives) | Type from the [`Primitives`](#Primitives) to check the `value` |
 
-[Example usage][is-primitive]
+The **return value** is a `boolean` indicating whether or not the `value` is a type from the [`Primitives`](#Primitives).
+
+[Example usage on playground][is-primitive]
 
 ----
 
 ### isString
 
 Use `isString()` or `is.string()` to check if **any** `value` is a `string` type, not instance of `Object` and `String` or `object` type and instance of `String` and `Object`.
-The **return value** is a `boolean` indicating whether or not the `value` is a `string`.
 
 ```typescript
 const isString: IsString = (value: any, callback: ResultCallback = errorCallback): value is string =>
   callback(typeOf(value) === 'string' && (isStringObject(value) || isStringType(value)));
 ```
 
-| Parameter |       Type       | Description |
-| :-------- | :--------------: | :---------- |
-| value     | `any`            | Any value to check. |
-| callback  | `ResultCallback` | `ResultCallback` function to handle result before return eg. to throw an `Error`.  |
+| Parameter |       Type                          | Description |
+| :-------- | :---------------------------------: | :---------- |
+| value     | `any`                               | Any value to check |
+| callback  | [`ResultCallback`](#ResultCallback) | [`ResultCallback`](#ResultCallback) function to handle result before return eg. to throw an `Error` |
+
+The **return value** is a `boolean` indicating whether or not the `value` is a `string`.
 
 [Example usage on playground][is-string] | [How to detect `string` type][detect-string]
 
@@ -558,7 +596,6 @@ const isString: IsString = (value: any, callback: ResultCallback = errorCallback
 ### isSymbol
 
 Use `isSymbol()` or `is.symbol()` to check if **any** `value` is a `symbol` type.
-The **return value** is a `boolean` indicating whether or not the `value` is a `symbol`.
 
 ```typescript
 const isSymbol: IsSymbol = (value: any): value is symbol =>
@@ -568,7 +605,9 @@ const isSymbol: IsSymbol = (value: any): value is symbol =>
 
 | Parameter | Type  | Description |
 | :-------- | :---: | :---------- |
-| value     | `any` | Any `value` to check if it's a `symbol` type. |
+| value     | `any` | Any `value` to check |
+
+The **return value** is a `boolean` indicating whether or not the `value` is a `symbol`.
 
 [Example usage on playground][is-symbol] | [How to detect `symbol` type][detect-symbol]
 
@@ -576,7 +615,7 @@ const isSymbol: IsSymbol = (value: any): value is symbol =>
 
 ### isType
 
-Use `isType()` or `is.type()` Check if **any** `value` is a generic `Type` type constructor, `'function'`, `'object'` or primitive type. The return value is a `boolean` value.
+Use `isType()` or `is.type()` to check if **any** `value` is a generic `Type` from the [`Types`](#Types).
 
 ```typescript
 const isType: IsType = <Type>(value: any, type: Types<Type>): value is Type => {
@@ -598,8 +637,10 @@ const isType: IsType = <Type>(value: any, type: Types<Type>): value is Type => {
 
 | Parameter | Type          | Description |
 | :-------- | :-----------: | :---------- |
-| value     | `any`         | Any value to check it is a generic `Type` type from one of the `type`. |
-| type      | `Types<Type>` | Generic constructor `Type`, `'function'`, `'object'` or one of the `Primitives` `'bigint'`, `'boolean'`, `'number'`, `'symbol'`, `'string'`, `'undefined'` to check `value` type. |
+| value     | `any`         | Any `value` to check if its type is from the `type` |
+| type      | `Types<Type>` | One from the `Types` to check the `value` |
+
+The **return value** is a `boolean` indicating whether or not the `value` is a type from the [`Types`](#Types).
 
 [Example usage on playground][is-type]
 
@@ -608,7 +649,6 @@ const isType: IsType = <Type>(value: any, type: Types<Type>): value is Type => {
 ### isUndefined
 
 Use `isUndefined()` or `is.undefined()` to check if **any** `value` is an `undefined` type and equal to `undefined`.
-The **return value** is a `boolean` indicating whether or not the `value` is undefined.
 
 ```typescript
 const isUndefined: IsUndefined = (value: any): value is undefined =>
@@ -619,16 +659,17 @@ const isUndefined: IsUndefined = (value: any): value is undefined =>
 
 | Parameter | Type  | Description |
 | :-------- | :---: | :---------- |
-| value     | `any` | Any `value` to check. |
+| value     | `any` | Any `value` to check |
 
-[Example usage on playground][is-undefined] | [How to detect `'undefined'` type][detect-undefined]
+The **return value** is a `boolean` indicating whether or not the `value` is `undefined`.
+
+[Example usage on playground][is-undefined] | [How to detect `undefined` type][detect-undefined]
 
 ----
 
 ### isNotBoolean
 
 Use `isNotBoolean()` or `is.not.boolean()` to check if an **unknown** `value` is NOT a `'boolean'` type, NOT equal to `true` or `false` and NOT an instance of a `Boolean`.
-The return value is a `boolean` value.
 
 ```typescript
 const isNotBoolean: IsNotBoolean = (value: unknown): boolean =>
@@ -642,6 +683,8 @@ const isNotBoolean: IsNotBoolean = (value: unknown): boolean =>
 | Parameter | Type      | Description |
 | :-------- | :-------: | :---------- |
 | value     | `unknown` | An unknown `value` to check if it's NOT a `'boolean'` type, NOT equal to `true` or `false` and NOT an instance of `Boolean`. |
+
+The **return value** is a `boolean` indicating whether or not the `value` is `undefined`.
 
 ----
 
@@ -872,7 +915,7 @@ const guardType: GuardType = <Type>(value: Type, type: Types<Type>): value is Ty
 
 | Parameter   | Type           | Description   |
 |-------------|      :---:     |---------------|
-| value       | `Type`         | A generic `Type ` `value` to guard. |
+| value       | `Type`         | A generic `Type` `value` to guard. |
 | type        | `Types<Type>`  | Constructor generic `Type`, `'function'`, `'object'` or one of the `Primitives` `'boolean'`, `'bigint'`, `'number'`, `'string'`, `'symbol'`, `'undefined'` to check `value`. |
 
 [Example usage][guard-type]
