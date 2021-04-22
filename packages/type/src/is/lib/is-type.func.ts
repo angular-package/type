@@ -1,32 +1,42 @@
-import { IsType } from '../type/is-type.type';
-import { Types } from '../../type/types.type';
-import { isString } from './is-string.func';
+// Function.
 import { isBigInt } from './is-big-int.func';
 import { isBoolean } from './is-boolean.func';
-import { isNumber } from './is-number.func';
-import { isSymbol } from './is-symbol.func';
-import { isUndefined } from './is-undefined.func';
-import { isObject } from './is-object.func';
 import { isFunction } from './is-function.func';
 import { isInstance } from './is-instance.func';
+import { isNumber } from './is-number.func';
+import { isObject } from './is-object.func';
+import { isPrimitive } from './is-primitive.func';
+import { isString } from './is-string.func';
+import { isSymbol } from './is-symbol.func';
+import { isUndefined } from './is-undefined.func';
+// Type.
+import { IsType } from '../type/is-type.type';
+import { Types } from '../../type/types.type';
+import { isNotNull } from '../not/lib/is-not-null.func';
 /**
- * Checks if any `value` is a generic `Type` type constructor, `'function'`, `'object'` or primitive type.
- * Use the `guardType()` to type-guard generic `Type` type also.
- * @param value Any value to check if it's a generic `Type` type from one of the `type`.
- * @param type Generic constructor `Type`, `'function'`, `'object'` or one of the `Primitives` `'bigint'`, `'boolean'`, `'number'`, `'string'`, `'symbol'`, `'undefined'` to check `value` type.
+ * Checks if any `value` is a generic `Type` from the `Types`.
+ * @param value Any `value` to check if its type is from the `type`.
+ * @param type One type from the `Types` to check the `value`.
+ * @returns A `boolean` indicating whether or not the `value` is a type from the `Types`.
  */
 export const isType: IsType = <Type>(value: any, type: Types<Type>): value is Type => {
   if (isString(type)) {
     switch (type) {
-      case 'bigint': return isBigInt(value);
-      case 'boolean': return isBoolean(value);
+      // Primitives.
+      case 'bigint':
+      case 'boolean':
+      case 'number':
+      case 'null' :
+      case 'string':
+      case 'symbol':
+      case 'undefined': return isPrimitive(value, type);
+      // Function.
       case 'function': return isFunction(value);
-      case 'number': return isNumber(value);
+      // Object.
       case 'object': return isObject<Type>(value);
-      case 'string': return isString(value);
-      case 'symbol': return isSymbol(value);
-      case 'undefined': return isUndefined(value);
     }
+  } else if (isNotNull(type)) {
+    return isInstance<Type>(value, type);
   }
-  return type ? isInstance<Type>(value, type) : false;
+  return false;
 };
