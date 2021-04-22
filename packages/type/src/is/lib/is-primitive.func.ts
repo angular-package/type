@@ -11,7 +11,7 @@ import { IsPrimitive } from '../type/is-primitive.type';
 import { Primitives } from '../../type/primitives.type';
 /**
  * Checks if any `value` is a generic `Type` from the `Primitives`.
- * @param value Any `value` to check if it's a type from the `type`.
+ * @param value Any `value` to check if it's a generic `Type` from the `type`.
  * @param type Name of the type from the `Primitives` to check the `value`.
  * @returns A `boolean` indicating whether or not the `value` is a type from the `Primitives`.
  */
