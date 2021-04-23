@@ -21,7 +21,7 @@ describe('isObject', () => {
   it('is DEFINED', () => {
     expect(isObject).toBeDefined();
   });
-  it(`Class | CLASS`, () => {
+  it(`CLASS instance of class`, () => {
     expect(isObject(CLASS)).toBeTruthy();
   });
   it(`'object' | Object`, () => {
@@ -40,7 +40,7 @@ describe('isObject', () => {
     expect(isObject(FALSE_INSTANCE)).toBeFalsy();
     expect(isObject(TRUE_INSTANCE)).toBeFalsy();
   });
-  it(`Class | CLASS`, () => {
+  it(`Class`, () => {
     expect(isObject(Class)).toBeFalsy();
   });
   it(`'function' | Function`, () => {
@@ -50,12 +50,12 @@ describe('isObject', () => {
     expect(isObject(null)).toBeFalsy();
     expect(isObject(NULL)).toBeFalsy();
   });
-  it(`'number' | Number`, () => {
+  it(`number and instance of Number`, () => {
     expect(isObject(NUMBER)).toBeFalsy();
     expect(isObject(NUMBER_INSTANCE)).toBeFalsy();
     expect(isObject(NUMBER_NEW_INSTANCE)).toBeFalsy();
   });
-  it(`'string' | String`, () => {
+  it(`string | String`, () => {
     expect(isObject(STRING)).toBeFalsy();
     expect(isObject(STRING_INSTANCE)).toBeFalsy();
     expect(isObject(STRING_NEW_INSTANCE)).toBeFalsy();
