@@ -1,2 +1,2 @@
 import { Key } from '../../type/key.type';
-export type IsObjectKey = (object: any, key: Key | Key[]) => object is object;
+export type IsObjectKey = <Type extends object>(object: any, key: Key | Key[]) => object is Type;
