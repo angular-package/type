@@ -30,16 +30,16 @@ describe(`isString`, () => {
     });
     // ... function.
     describe(`function`, () => {
-      it(`${FUNCTION}`, () => expect(isString(FUNCTION)).toBe(FALSE));
-      it(`${Class}`, () => expect(isString(Class)).toBe(FALSE));
+      it(`FUNCTION`, () => expect(isString(FUNCTION)).toBe(FALSE));
+      it(`Class`, () => expect(isString(Class)).toBe(FALSE));
     });
     // ... objects.
     describe('object', () => {
-      it(`${JSON.stringify(CLASS)}`, () => expect(isString(CLASS)).toBe(FALSE));
-      it(`${JSON.stringify(OBJECT_ONE)}`, () => expect(isString(OBJECT_ONE)).toBe(FALSE));
-      it(`${JSON.stringify(OBJECT_TWO)}`, () => expect(isString(OBJECT_TWO)).toBe(FALSE));
-      it(`new Object(${JSON.stringify(OBJECT_ONE_NEW)})`, () => expect(isString(OBJECT_ONE_NEW)).toBe(FALSE));
-      it(`new Object(${JSON.stringify(OBJECT_TWO_NEW)})`, () => expect(isString(OBJECT_TWO_NEW)).toBe(FALSE));
+      it(`CLASS`, () => expect(isString(CLASS)).toBe(FALSE));
+      it(`OBJECT_ONE`, () => expect(isString(OBJECT_ONE)).toBe(FALSE));
+      it(`OBJECT_TWO`, () => expect(isString(OBJECT_TWO)).toBe(FALSE));
+      it(`new Object(OBJECT_ONE_NEW})`, () => expect(isString(OBJECT_ONE_NEW)).toBe(FALSE));
+      it(`new Object(OBJECT_TWO_NEW})`, () => expect(isString(OBJECT_TWO_NEW)).toBe(FALSE));
     });
     // ... primitives.
     describe(`primitive`, () => {
