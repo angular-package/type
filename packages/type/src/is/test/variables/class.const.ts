@@ -1,4 +1,6 @@
 import { STRING } from './string.const';
+import { NUMBER } from './number.const';
+import { SYMBOL_STRING, SYMBOL_NUMBER } from './symbol.const';
 
 /**
  * typeof === 'function'
@@ -7,8 +9,30 @@ import { STRING } from './string.const';
  * instanceof Object === true
  */
 export class Class {
-  x = 5;
+
+  1030405027 = 'my new number';
+  5 = 'my number';
+
+  firstName = 'My name';
+  surname = 'Surname';
+
+  x = NUMBER;
   y = STRING;
+
+  get [NUMBER](): number {
+    return this.x;
+  }
+  get [STRING](): string {
+    return this.y;
+  }
+
+  get [SYMBOL_NUMBER](): number {
+    return this.x;
+  }
+
+  get [SYMBOL_STRING](): string {
+    return this.y;
+  }
 }
 
 /**
