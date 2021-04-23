@@ -17,7 +17,7 @@ export const NUMBER: any = 10304050;
  * instanceof Number === false
  * instanceof Object === false
  */
-export const NUMBER_INSTANCE: any = Number(10304050);
+export const NUMBER_INSTANCE: any = Number(NUMBER);
 
 /**
  * typeof === 'number'
@@ -25,4 +25,4 @@ export const NUMBER_INSTANCE: any = Number(10304050);
  * instanceof Number === true
  * instanceof Object === true
  */
-export const NUMBER_NEW_INSTANCE: any = new Number(10304050);
+export const NUMBER_NEW_INSTANCE: any = new Number(NUMBER);
