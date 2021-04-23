@@ -19,7 +19,7 @@ describe(`isType`, () => {
   // Checks ...
   describe(`checks`, () => {
     // ... instance.
-    describe(`instance`, () => it(`${Class}`, () => expect(isType<Class>(CLASS, Class)).toBe(TRUE)));
+    describe(`instance`, () => it(`Class`, () => expect(isType<Class>(CLASS, Class)).toBe(TRUE)));
 
     // ... function.
     describe(`function`, () => {
@@ -29,11 +29,11 @@ describe(`isType`, () => {
 
     // ... objects.
     describe('object', () => {
-      it(`${JSON.stringify(CLASS)}`, () => expect(isType(CLASS, 'object')).toBe(TRUE));
-      it(`${JSON.stringify(OBJECT_ONE)}`, () => expect(isType<ObjectOne>(OBJECT_ONE, 'object')).toBe(TRUE));
-      it(`${JSON.stringify(OBJECT_TWO)}`, () => expect(isType<ObjectTwo>(OBJECT_TWO, 'object')).toBe(TRUE));
-      it(`new Object(${JSON.stringify(OBJECT_ONE_NEW)})`, () => expect(isType<ObjectOne>(OBJECT_ONE_NEW, 'object')).toBe(TRUE));
-      it(`new Object(${JSON.stringify(OBJECT_TWO_NEW)})`, () => expect(isType<ObjectTwo>(OBJECT_TWO_NEW, 'object')).toBe(TRUE));
+      it(`CLASS`, () => expect(isType(CLASS, 'object')).toBe(TRUE));
+      it(`OBJECT_ONE`, () => expect(isType<ObjectOne>(OBJECT_ONE, 'object')).toBe(TRUE));
+      it(`OBJECT_ONE_NEW`, () => expect(isType<ObjectTwo>(OBJECT_TWO, 'object')).toBe(TRUE));
+      it(`new Object(OBJECT_ONE_NEW)`, () => expect(isType<ObjectOne>(OBJECT_ONE_NEW, 'object')).toBe(TRUE));
+      it(`new Object(OBJECT_TWO_NEW)`, () => expect(isType<ObjectTwo>(OBJECT_TWO_NEW, 'object')).toBe(TRUE));
     });
 
     // ... primitives.
