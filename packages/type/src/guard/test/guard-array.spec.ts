@@ -1,11 +1,10 @@
 // Function.
 import { guardArray } from '../lib/guard-array.func';
-
 // Variables.
+import { BIGINT, BIGINT_INSTANCE } from '../../is/test/variables/big-int.const';
 import { Class } from '../../is/test/variables/class.const';
 import { Func } from '../../type/func.type';
 import { ObjectOne, ObjectTwo, OBJECT_ONE, OBJECT_TWO } from '../../is/test/variables/object.const';
-import { BIGINT, BIGINT_INSTANCE } from '../../is/test/variables/big-int.const';
 import {
   ARRAY_BIGINT,
   ARRAY_BOOLEAN,
@@ -16,8 +15,8 @@ import {
   ARRAY_OBJECT_ONE,
   ARRAY_OBJECT_TWO,
   ARRAY_STRING,
-  ARRAY_SYMBOL_STRING,
   ARRAY_SYMBOL_NUMBER,
+  ARRAY_SYMBOL_STRING,
   ARRAY_UNDEFINED
 } from '../../is/test/variables/array.const';
 import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE } from '../../is/test/variables/boolean.const';
@@ -25,8 +24,8 @@ import { FUNCTION } from '../../is/test/variables/function.const';
 import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../is/test/variables/number.const';
 import { STRING, STRING_INSTANCE } from '../../is/test/variables/string.const';
 import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../is/test/variables/symbol.const';
-import { notDefined } from '../../is/test/variables.const';
 import { UNDEFINED } from '../../is/test/variables/undefined.const';
+import { notDefined } from '../../is/test/variables/not-defined.const';
 
 describe('guardArray', () => {
   // TRUE
@@ -62,25 +61,14 @@ describe('guardArray', () => {
     expect(guardArray(FALSE_INSTANCE)).toBeFalsy();
     expect(guardArray(TRUE_INSTANCE)).toBeFalsy();
   });
-  // it(`'function' | Function`, () => {
-  //   expect(guardArray<Func>([FUNCTION])).toBeTrue();
-  // });
   it(`'number' | Number`, () => {
     expect(guardArray(NUMBER)).toBeFalsy();
     expect(guardArray(NUMBER_INSTANCE)).toBeFalsy();
     expect(guardArray(NUMBER_NEW_INSTANCE)).toBeFalsy();
   });
-  // it(`'object' | Object`, () => {
-  //   expect(guardArray<ObjectOne>([OBJECT_ONE])).toBeTruthy();
-  //   expect(guardArray<ObjectTwo>([OBJECT_TWO])).toBeTruthy();
-  // });
   it(`'string' | String`, () => {
     expect(guardArray<string>(STRING)).toBeFalsy();
     expect(guardArray<string>(STRING_INSTANCE)).toBeFalsy();
-  });
-  it(`'symbol'`, () => {
-    expect(guardArray<symbol>(SYMBOL_NUMBER)).toBeFalsy();
-    expect(guardArray<symbol>(SYMBOL_STRING)).toBeFalsy();
   });
   it(`'undefined'`, () => {
     expect(guardArray<undefined>(notDefined)).toBeFalse();

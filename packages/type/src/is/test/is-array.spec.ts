@@ -7,7 +7,6 @@ import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE } from './variables/boolean.
 import { OBJECT_ONE, OBJECT_TWO, ObjectOne, ObjectTwo } from './variables/object.const';
 import { STRING, STRING_INSTANCE } from './variables/string.const';
 import { SYMBOL_NUMBER, SYMBOL_STRING } from './variables/symbol.const';
-import { notDefined } from './variables.const';
 import { UNDEFINED } from './variables/undefined.const';
 import {
   ARRAY_BIGINT,
@@ -25,6 +24,7 @@ import {
 } from './variables/array.const';
 import { Class } from './variables/class.const';
 import { Func } from '../../type/func.type';
+import { notDefined } from './variables/not-defined.const';
 
 describe('isArray', () => {
 
