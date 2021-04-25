@@ -223,6 +223,14 @@ const isNot: IsNot = {
 };
 ```
 
+## errorCallback
+
+Default function to handle `callback` parameter.
+
+```typescript
+const errorCallback: ResultCallback = (result: boolean): boolean => result;
+```
+
 ## Checks
 
 ### areString
@@ -245,7 +253,7 @@ The **return value** is a `boolean` value.
 
 ### isArray
 
-Use `isArray()` or `is.array()` to check if **any** `value` is an `Array`, `Array` instance and `object` type.
+Use `isArray()` or `is.array()` to check if **any** `value` is an [`Array`][Array], [`Array`][Array] instance and `object` type.
 
 ```typescript
 const isArray: IsArray = <Type>(value: any): value is Array<Type> =>
@@ -259,7 +267,7 @@ const isArray: IsArray = <Type>(value: any): value is Array<Type> =>
 | :-------- | :---: | :---------- |
 | value     | `any` | Any `value` to check |
 
-The **return value** is a `boolean` indicating whether or not the `value` is an `Array`.
+The **return value** is a `boolean` indicating whether or not the `value` is an [`Array`][Array].
 
 ```typescript
 // Example usage
@@ -305,17 +313,17 @@ isBigInt(BIGINT); // true
 
 ### isBoolean
 
-Use `isBoolean()` or `is.boolean()` to check if **any** `value` is a `boolean` type not instance of `Boolean` and `Object` or `object` type instance of `Boolean` and `Object`.
+Use `isBoolean()` or `is.boolean()` to check if **any** `value` is a `boolean` type not instance of [`Boolean`][Boolean] and [`Object`][Object] or `object` type instance of [`Boolean`][Boolean] and [`Object`][Object].
 
 ```typescript
-const isBoolean: IsBoolean = (value: any): value is boolean =>
-  typeOf(value) === 'boolean' &&
-  (isBooleanObject(value) || isBooleanType(value));
+const isBoolean: IsBoolean = (value: any, callback: ResultCallback = errorCallback): value is boolean =>
+  callback(typeOf(value) === 'boolean' && (isBooleanType(value) || isBooleanObject(value)));
 ```
 
 | Parameter | Type  | Description |
 | :---------| :---: | :---------- |
 | value     | `any` | Any `value` to check |
+| callback  | [`ResultCallback`](#ResultCallback) = [`errorCallback`](#errorCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `boolean`.
 
@@ -329,6 +337,65 @@ isBoolean(BOOLEAN_INSTANCE); // true
 ```
 
 [Example usage on playground][is-boolean] | [How to detect the `boolean` type][detect-boolean]
+
+----
+
+### isBooleanObject
+
+Use `isBooleanObject()` or `is.booleanObject()` to check if **any** `value` is an `object` type and instance of [`Boolean`][Boolean] and [`Object`][Object].
+
+```typescript
+const isBooleanObject: IsBooleanObject = (value: any, callback: ResultCallback = errorCallback): value is boolean =>
+  callback(typeof value === 'object' && value instanceof Boolean === true && value instanceof Object === true);
+```
+
+| Parameter | Type  | Description |
+| :---------| :---: | :---------- |
+| value     | `any` | Any `value` to check |
+| callback  | [`ResultCallback`](#ResultCallback) = [`errorCallback`](#errorCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
+
+The **return value** is a `boolean` indicating whether or not the `value` is a [`Boolean`][Boolean] instance.
+
+```typescript
+// Example usage
+const BOOLEAN = false;
+const BOOLEAN_INSTANCE = new Boolean(false);
+
+isBooleanObject(BOOLEAN); // false
+isBooleanObject(BOOLEAN_INSTANCE); // true
+```
+
+----
+
+### isBooleanType
+
+Use `isBooleanType()` or `is.booleanType()` to check if **any** `value` is a `boolean` type not an instance of [`Boolean`][Boolean] and [`Object`][Object], and equal to `true` or `false`.
+
+```typescript
+const isBooleanType: IsBooleanType = (value: any, callback: ResultCallback = errorCallback): value is boolean =>
+  callback(
+    value instanceof Boolean === false &&
+    value instanceof Object === false &&
+    typeof value === 'boolean' &&
+    (value === true || value === false)
+  );
+```
+
+| Parameter | Type  | Description |
+| :---------| :---: | :---------- |
+| value     | `any` | Any `value` to check |
+| callback  | [`ResultCallback`](#ResultCallback) = [`errorCallback`](#errorCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
+
+The **return value** is a `boolean` indicating whether or not the `value` is a `boolean` type.
+
+```typescript
+// Example usage
+const BOOLEAN = false;
+const BOOLEAN_INSTANCE = new Boolean(false);
+
+isBooleanType(BOOLEAN); // true
+isBooleanType(BOOLEAN_INSTANCE); // false
+```
 
 ----
 
@@ -362,7 +429,7 @@ isDefined(defined); // false
 
 ### isFunction
 
-Use `isFunction()` or `is.function()` to check if **any** `value` is a `function` type, an instance `Function` and `Object`.
+Use `isFunction()` or `is.function()` to check if **any** `value` is a `function` type, an instance  [`Function`][Function] and [`Object`][Object].
 
 ```typescript
 const isFunction: IsFunction = (value: any): value is Func =>
@@ -431,7 +498,7 @@ isInstance<Some>(TWO, TWO); // true and type error
 
 ### isKey
 
-Use `isKey()` or `is.key()` to determine if **any** `value` is one of the `string`, `number`, or `symbol`.
+Use `isKey()` or `is.key()` to check if **any** `value` is one of the `string`, `number`, or `symbol`.
 
 ```typescript
 const isKey: IsKey = (value: any): value is Key => isString(value) || isNumber(value) || isSymbol(value);
@@ -441,7 +508,7 @@ const isKey: IsKey = (value: any): value is Key => isString(value) || isNumber(v
 | :-------- | :---: |:----------- |
 | value     | `any` | Any `value` to check |
 
-The **return value** is a `boolean` indicating whether or not the `value` is a [`Key`](#Key).
+The **return value** is a `boolean` indicating whether or not the `value` is a [`Key`](#Key) type.
 
 ----
 
@@ -522,23 +589,25 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 
 ### isObjectKey
 
-Use `isObject()` or `is.object()` to check if **any** `value` is a generic `Obj` `object` type and `Object` instance with the possibility of containing the `key`.
+Use `isObject()` or `is.object()` to check if **any** `object` has its own specified keys of the [`Key`](#Key).
 
 ```typescript
-const isObject: IsObject = <Obj = object>(value: any, key?: Key): value is Obj =>
-  (typeOf(value) === 'object' && typeof value === 'object' && value instanceof Object === true)
-    ? isKey(key)
-      ? key in value
-    : true
+const isObjectKey: IsObjectKey = <Type = object>(object: any, key: Key | Key[]): object is Type =>
+  isObject<Type>(object) ?
+    isArray(key) ?
+      key.every(k => isKey(k) ? ({}).hasOwnProperty.call(object, k) === true : false)
+    : isKey(key) ?
+        ({}).hasOwnProperty.call(object, key)
+      : false
   : false;
 ```
 
-| Parameter | Type          | Description |
-| :-------- | :-----------: | :---------- |
-| value     | `any`         | Any `value` to check |
-| key?      | [`Key`](#key) | Property name to find in `value` |
+| Parameter | Type                             | Description |
+| :-------- | :------------------------------: | :---------- |
+| object    | `any`                            | Any `object` to check |
+| key       | [`Key`](#key) \| [`Key`](#Key)[] | Property name to find in `object` |
 
-The **return value** is a `boolean` indicating whether or not the `value` is an `object`.
+The **return value** is a `boolean` indicating whether or not the `object` has its own specified keys.
 
 ----
 
@@ -586,9 +655,29 @@ const isString: IsString = (value: any, callback: ResultCallback = errorCallback
 | Parameter |       Type                          | Description |
 | :-------- | :---------------------------------: | :---------- |
 | value     | `any`                               | Any `value` to check |
-| callback  | [`ResultCallback`](#ResultCallback) | [`ResultCallback`](#ResultCallback) function to handle result before return eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#ResultCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `string`.
+
+[Example usage on playground][is-string] | [How to detect `string` type][detect-string]
+
+----
+
+### isStringObject
+
+Use `isStringObject()` or `is.stringObject()` to check if **any** `value` is a `string` type, not instance of [`Object`][Object] and [`String`][String] or `object` type and instance of [`String`][String] and [`Object`][Object].
+
+```typescript
+const isString: IsString = (value: any, callback: ResultCallback = errorCallback): value is string =>
+  callback(typeOf(value) === 'string' && (isStringObject(value) || isStringType(value)));
+```
+
+| Parameter |       Type                          | Description |
+| :-------- | :---------------------------------: | :---------- |
+| value     | `any`                               | Any `value` to check |
+| callback  | [`ResultCallback`](#ResultCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
+
+The **return value** is a `boolean` indicating whether or not the `value` is an instance of a [`String`][String].
 
 [Example usage on playground][is-string] | [How to detect `string` type][detect-string]
 
@@ -611,6 +700,15 @@ const isSymbol: IsSymbol = (value: any): value is symbol =>
 The **return value** is a `boolean` indicating whether or not the `value` is a `symbol`.
 
 [Example usage on playground][is-symbol] | [How to detect `symbol` type][detect-symbol]
+
+----
+
+### isStringType
+
+```typescript
+const isStringType: IsStringType = (value: any, callback: ResultCallback = errorCallback): value is string =>
+  callback(value instanceof Object === false && value instanceof String === false && typeof value === 'string');
+```
 
 ----
 
@@ -1011,6 +1109,12 @@ How do I know when to release 1.0.0?
 ## License
 
 MIT © angular-package ([license](https://github.com/angular-package/type/blob/main/LICENSE))
+
+[Array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+[Boolean]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+[Function]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions
+[Object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+[String]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
 
 [new]: https://img.shields.io/badge/-new-red
 
