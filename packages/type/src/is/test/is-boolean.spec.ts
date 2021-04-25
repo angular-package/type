@@ -23,50 +23,48 @@ describe('isBoolean', () => {
     expect(isBoolean).toBeDefined();
   });
   it(`'boolean' | Boolean`, () => {
-    expect(isBoolean(FALSE)).toBeTruthy();
-    expect(isBoolean(TRUE)).toBeTruthy();
-    expect(isBoolean(FALSE_INSTANCE)).toBeTruthy();
-    expect(isBoolean(TRUE_INSTANCE)).toBeTruthy();
-    expect(isBoolean(Boolean(false))).toBeTruthy();
-    expect(isBoolean(Boolean(true))).toBeTruthy();
+    expect(isBoolean(FALSE)).toBe(TRUE);
+    expect(isBoolean(TRUE)).toBe(TRUE);
+    expect(isBoolean(FALSE_INSTANCE)).toBe(TRUE);
+    expect(isBoolean(TRUE_INSTANCE)).toBe(TRUE);
+    expect(isBoolean(Boolean(false))).toBe(TRUE);
+    expect(isBoolean(Boolean(true))).toBe(TRUE);
   });
 
   // FALSE
   it(`'bigint'`, () => {
-    expect(isBoolean(BIGINT)).toBeFalsy();
-    expect(isBoolean(BIGINT_INSTANCE)).toBeFalsy();
+    expect(isBoolean(BIGINT)).toBe(FALSE);
+    expect(isBoolean(BIGINT_INSTANCE)).toBe(FALSE);
   });
   it(`Class | CLASS`, () => {
-    expect(isBoolean(Class)).toBeFalsy();
-    expect(isBoolean(CLASS)).toBeFalsy();
+    expect(isBoolean(Class)).toBe(FALSE);
+    expect(isBoolean(CLASS)).toBe(FALSE);
   });
-  it(`'function' | Function`, () => {
-    expect(isBoolean(FUNCTION)).toBeFalsy();
-  });
+  it(`'function' | Function`, () => expect(isBoolean(FUNCTION)).toBe(FALSE));
   it(`null | NULL`, () => {
-    expect(isBoolean(null)).toBeFalsy();
-    expect(isBoolean(NULL)).toBeFalsy();
+    expect(isBoolean(null)).toBe(FALSE);
+    expect(isBoolean(NULL)).toBe(FALSE);
   });
   it(`'number' | Number`, () => {
-    expect(isBoolean(NUMBER)).toBeFalsy();
-    expect(isBoolean(NUMBER_INSTANCE)).toBeFalsy();
-    expect(isBoolean(NUMBER_NEW_INSTANCE)).toBeFalsy();
+    expect(isBoolean(NUMBER)).toBe(FALSE);
+    expect(isBoolean(NUMBER_INSTANCE)).toBe(FALSE);
+    expect(isBoolean(NUMBER_NEW_INSTANCE)).toBe(FALSE);
   });
   it(`'object' | Object`, () => {
-    expect(isBoolean(OBJECT_ONE)).toBeFalsy();
-    expect(isBoolean(OBJECT_TWO)).toBeFalsy();
+    expect(isBoolean(OBJECT_ONE)).toBe(FALSE);
+    expect(isBoolean(OBJECT_TWO)).toBe(FALSE);
   });
   it(`'string' | String`, () => {
-    expect(isBoolean(STRING)).toBeFalsy();
-    expect(isBoolean(STRING_INSTANCE)).toBeFalsy();
-    expect(isBoolean(STRING_NEW_INSTANCE)).toBeFalsy();
+    expect(isBoolean(STRING)).toBe(FALSE);
+    expect(isBoolean(STRING_INSTANCE)).toBe(FALSE);
+    expect(isBoolean(STRING_NEW_INSTANCE)).toBe(FALSE);
   });
   it(`'symbol'`, () => {
-    expect(isBoolean(SYMBOL_NUMBER)).toBeFalsy();
-    expect(isBoolean(SYMBOL_STRING)).toBeFalsy();
+    expect(isBoolean(SYMBOL_NUMBER)).toBe(FALSE);
+    expect(isBoolean(SYMBOL_STRING)).toBe(FALSE);
   });
   it(`'undefined'`, () => {
-    expect(isBoolean(notDefined)).toBeFalse();
-    expect(isBoolean(UNDEFINED)).toBeFalse();
+    expect(isBoolean(notDefined)).toBe(FALSE);
+    expect(isBoolean(UNDEFINED)).toBe(FALSE);
   });
 });
