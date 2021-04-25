@@ -6,7 +6,7 @@ import { isSymbol } from './is-symbol.func';
 import { IsKey } from '../type/is-key.type';
 import { Key } from '../../type/key.type';
 /**
- * Determines if any `value` is one of the `string`, `number`, or `symbol`.
+ * Checks if any `value` is one of the `string`, `number`, or `symbol`.
  * @param value Any `value` to check.
  * @returns A `boolean` indicating whether or not the `value` is a `Key` type.
  */
