@@ -129,14 +129,14 @@ Guard
 ----
 
 * [Installation](#installation)
-* [Object](#are-object)
-  * [`are`](#are-object)
-  * [`guard`](#guard-object)
-  * [`is`](#is-object)
-* [Checks](#checks)
+* [Object](#objects)
+  * [`are`](#are)
+  * [`guard`](#guard)
+  * [`is`](#is)
+* [Check](#check)
   * [are](#areString)
   * [is](#isArray)
-* [Guards](#guards)
+* [Guard](#guard)
 * [Types](#types)
 * [Git](#git)
   * [Commit](#commit)
@@ -153,7 +153,9 @@ Install `@angular-package/type` package with command:
 npm i --save @angular-package/type
 ```
 
-## are Object
+## Object
+
+### are
 
 Object `are` with some of  **check are** functions.
 
@@ -163,7 +165,7 @@ const are: Are = {
 };
 ```
 
-## guard Object
+### guard
 
 Object `guard` with all **guard** functions.
 
@@ -184,30 +186,40 @@ const guard: Guard = {
 
 ```
 
-## is Object
+### is
 
 Object `is` with all **check is** functions and **check is not** in `not` property.
 
 ```typescript
 const is: Is = {
   array: isArray,
-  bigInt: isBigInt,
+  bigInt: isBigInt, // deprecated
+  bigint: isBigInt,
   boolean: isBoolean,
+  booleanObject: isBooleanObject,
+  booleanType: isBooleanType,
   defined: isDefined,
   function: isFunction,
+  instance: isInstance,
+  key: isKey,
   not: isNot,
   null: isNull,
   number: isNumber,
+  numberObject: isNumberObject,
+  numberType: isNumberType,
   object: isObject,
+  objectKey: isObjectKey,
   primitive: isPrimitive,
   string: isString,
+  stringObject: isStringObject,
+  stringType: isStringType,
   symbol: isSymbol,
   type: isType,
   undefined: isUndefined
 };
 ```
 
-## isNot Object
+## isNot
 
 Object `isNot` with all **check is not** functions.
 
@@ -231,7 +243,7 @@ Default function to handle `callback` parameter.
 const errorCallback: ResultCallback = (result: boolean): boolean => result;
 ```
 
-## Checks
+## Check
 
 ### areString
 
@@ -352,7 +364,7 @@ const isBooleanObject: IsBooleanObject = (value: any, callback: ResultCallback =
 | Parameter | Type  | Description |
 | :---------| :---: | :---------- |
 | value     | `any` | Any `value` to check |
-| callback  | [`ResultCallback`](#ResultCallback) = [`errorCallback`](#errorCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#ResultCallback)=[`errorCallback`](#errorCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a [`Boolean`][Boolean] instance.
 
@@ -384,7 +396,7 @@ const isBooleanType: IsBooleanType = (value: any, callback: ResultCallback = err
 | Parameter | Type  | Description |
 | :---------| :---: | :---------- |
 | value     | `any` | Any `value` to check |
-| callback  | [`ResultCallback`](#ResultCallback) = [`errorCallback`](#errorCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#ResultCallback)=[`errorCallback`](#errorCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `boolean` type.
 
@@ -508,7 +520,7 @@ const isKey: IsKey = (value: any): value is Key => isString(value) || isNumber(v
 | :-------- | :---: |:----------- |
 | value     | `any` | Any `value` to check |
 
-The **return value** is a `boolean` indicating whether or not the `value` is a [`Key`](#Key) type.
+The **return value** is a `boolean` indicating whether or not the `value` is a [`Key`](#Key).
 
 ----
 
@@ -563,6 +575,42 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 ----
 
+### isNumberObject
+
+Use `isNumberObject()` or `is.numberObject()` to check if **any** `value` is an `object` type an instance of [`Number`][Number] and [`Object`][Object].
+
+```typescript
+const isNumberObject: IsNumberObject = (value: any, callback: ResultCallback = errorCallback): value is number =>
+  callback(typeof value === 'object' && value instanceof Number === true && value instanceof Object === true);
+```
+
+| Parameter | Type  | Description |
+| :-------- | :---: | :---------- |
+| value     | `any` | Any `value` to check |
+
+The **return value** is a `boolean` indicating whether or not the `value` is a [`Number`][Number] instance.
+
+----
+
+### isNumberType
+
+Use `isNumber()` or `is.number()` to check if **any** `value` is a `number` type not an instance of `Number` and `Object` or `object` type instance of `Number` and `Object`.
+
+```typescript
+const isNumber: IsNumber = (value: any): value is number =>
+  typeOf(value) === 'number' &&
+  isFinite(value) === true &&
+  (isNumberObject(value) || isNumberType(value));
+```
+
+| Parameter | Type  | Description |
+| :-------- | :---: | :---------- |
+| value     | `any` | Any `value` to check |
+
+The **return value** is a `boolean` indicating whether or not the `value` is a `number`.
+
+----
+
 ### isObject
 
 Use `isObject()` or `is.object()` to check if **any** `value` is a generic `Obj` `object` type and `Object` instance with the possibility of containing the `key`.
@@ -613,10 +661,10 @@ The **return value** is a `boolean` indicating whether or not the `object` has i
 
 ### isPrimitive
 
-Use `isPrimitive()` or `is.primitive()` to check if **any** `value` is a generic `Type` from the [`Primitives`](#Primitives).
+Use `isPrimitive()` or `is.primitive()` to check if **any** `value` is a [`Primitive`](#Primitive) type from the `type` of the [`Primitives`](#Primitives) type.
 
 ```typescript
-const isPrimitive: IsPrimitive = <Type>(value: any, type: Primitives): value is Type => {
+const isPrimitive: IsPrimitive = <T extends Primitive>(value: any, type: Primitives): value is T => {
   if (isString(type)) {
     switch (type) {
       case 'bigint': return isBigInt(value);
@@ -634,10 +682,10 @@ const isPrimitive: IsPrimitive = <Type>(value: any, type: Primitives): value is 
 
 | Parameter | Type                        | Description |
 | :-------- | :-------------------------: | :---------- |
-| value     | `any`                       | Any `value` to check if it's a generic `Type` from the `type` |
-| type      | [`Primitives`](#Primitives) | Name of the type from the [`Primitives`](#Primitives) to check the `value` |
+| value     | `any`                       | Any `value` to check if it's a `Primitive` from the `type` |
+| type      | [`Primitives`](#Primitives) | A `string` name of the type from the [`Primitives`](#Primitives) to check the `value` |
 
-The **return value** is a `boolean` indicating whether or not the `value` is a type from the [`Primitives`](#Primitives).
+The **return value** is a `boolean` indicating whether or not the `value` is a `type` from the [`Primitives`](#Primitives).
 
 [Example usage on playground][is-primitive]
 
@@ -659,27 +707,41 @@ const isString: IsString = (value: any, callback: ResultCallback = errorCallback
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `string`.
 
-[Example usage on playground][is-string] | [How to detect `string` type][detect-string]
-
 ----
 
 ### isStringObject
 
-Use `isStringObject()` or `is.stringObject()` to check if **any** `value` is a `string` type, not instance of [`Object`][Object] and [`String`][String] or `object` type and instance of [`String`][String] and [`Object`][Object].
+Use `isStringObject()` or `is.stringObject()` to check if **any** `value` is an `object` type and instance of [`String`][String] and [`Object`][Object].
 
 ```typescript
-const isString: IsString = (value: any, callback: ResultCallback = errorCallback): value is string =>
-  callback(typeOf(value) === 'string' && (isStringObject(value) || isStringType(value)));
+const isStringObject: IsStringObject = (value: any, callback: ResultCallback = errorCallback): value is string =>
+  callback(value instanceof Object === true && value instanceof String === true && typeof value === 'object');
 ```
 
 | Parameter |       Type                          | Description |
 | :-------- | :---------------------------------: | :---------- |
 | value     | `any`                               | Any `value` to check |
-| callback  | [`ResultCallback`](#ResultCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#ResultCallback)=[`errorCallback`](#errorCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
 
-The **return value** is a `boolean` indicating whether or not the `value` is an instance of a [`String`][String].
+The **return value** is a `boolean` indicating whether or not the `value` is a [`String`][String] instance.
 
-[Example usage on playground][is-string] | [How to detect `string` type][detect-string]
+----
+
+### isStringType
+
+Use `isStringObject()` or `is.stringObject()` to check if **any** `value` is a `string` type and **not** instance of [`String`][String] and [`Object`][Object].
+
+```typescript
+const isStringType: IsStringType = (value: any, callback: ResultCallback = errorCallback): value is string =>
+  callback(value instanceof Object === false && value instanceof String === false && typeof value === 'string');
+```
+
+| Parameter |       Type                          | Description |
+| :-------- | :---------------------------------: | :---------- |
+| value     | `any`                               | Any `value` to check |
+| callback  | [`ResultCallback`](#ResultCallback)=[`errorCallback`](#errorCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
+
+The **return value** is a `boolean` indicating whether or not the `value` is a `string`.
 
 ----
 
@@ -703,21 +765,12 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 ----
 
-### isStringType
-
-```typescript
-const isStringType: IsStringType = (value: any, callback: ResultCallback = errorCallback): value is string =>
-  callback(value instanceof Object === false && value instanceof String === false && typeof value === 'string');
-```
-
-----
-
 ### isType
 
-Use `isType()` or `is.type()` to check if **any** `value` is a generic `Type` from the [`Types`](#Types).
+Use `isType()` or `is.type()` to check if **any** `value` is a [`Type`](#Type) from the `type` of the [`Types`](#Types) type.
 
 ```typescript
-const isType: IsType = <Type>(value: any, type: Types<Type>): value is Type => {
+const isType: IsType = <T extends Type>(value: any, type: Types<T>): value is T => {
   if (isString(type)) {
     switch (type) {
       // Primitives.
@@ -731,10 +784,10 @@ const isType: IsType = <Type>(value: any, type: Types<Type>): value is Type => {
       // Function.
       case 'function': return isFunction(value);
       // Object.
-      case 'object': return isObject<Type>(value);
+      case 'object': return isObject<T>(value);
     }
   } else if (isNotNull(type)) {
-    return isInstance<Type>(value, type);
+    return isInstance<T>(value, type);
   }
   return false;
 };
@@ -743,9 +796,9 @@ const isType: IsType = <Type>(value: any, type: Types<Type>): value is Type => {
 | Parameter | Type                    | Description |
 | :-------- | :---------------------: | :---------- |
 | value     | `any`                   | Any `value` to check if its type is from the `type` |
-| type      | [`Types<Type>`](#Types) | One type from the `Types` to check the `value` |
+| type      | [`Types<Type>`](#Types) | A `string` or generic `Constructor` type from the [`Types`](#Types) to check the `value` |
 
-The **return value** is a `boolean` indicating whether or not the `value` is a type from the [`Types`](#Types).
+The **return value** is a `boolean` indicating whether or not the `value` is a [`Type`](#Type) from the `type` of the [`Types`](#Types).
 
 [Example usage on playground][is-type]
 
@@ -893,11 +946,11 @@ const isNotUndefined: IsNotUndefined = (value: unknown): boolean =>
 |-----------| :-------: |-------------|
 | value     | `unknown` | An Unknown `value` to check. |
 
-## Guards
+## Guard
 
 ### guardArray
 
-Use `guardArray()` or `guard.is.array()` to guard the `value` to be a generic `Array` `Type`. The return value is a `boolean` value.
+Use `guardArray()` or `guard.is.array()` to guard the `value` to be an [`Array`][Array] of a generic `Type`.
 
 ```typescript
 const guardArray: GuardArray = <Type>(value: Array<Type>): value is Array<Type> => isArray<Type>(value);
@@ -905,31 +958,51 @@ const guardArray: GuardArray = <Type>(value: Array<Type>): value is Array<Type> 
 
 | Parameter | Type          | Description |
 |-----------| :-----------: |-------------|
-| value     | `Array<Type>` | Array generic `Type` type `value` to guard. |
+| value     | `Array<Type>` | A generic `Type` `Array` `value` to guard  |
 
-[Example usage][guard-array]
+The return value is a `boolean` indicating whether or not the `value` is an [`Array`][Array] of a generic `Type`.
+
+[Example usage on playground][guard-array]
 
 ----
 
 ### guardFunction
 
-Use `guardFunction()` or `guard.is.function()` to guard the `func` value to be a `Func` type. The return value is a `boolean` value.
+Use `guardFunction()` or `guard.is.function()` to guard the `value` to be a [`Func`](#Func) type.
 
 ```typescript
-const guardFunction: GuardFunction = (func: Func): func is Func => isFunction(func);
+const guardFunction: GuardFunction = (value: Func): value is Func => isFunction(value);
 ```
 
-| Parameter | Type   | Description  |
-|-----------| :----: |--------------|
-| func      | `Func` | Type `Func` value to guard. |
+| Parameter | Type            | Description  |
+| :-------- | :-------------: | :---------------------------------- |
+| value     | [`Func`](#Func) | A [`Func`](#Func) type `value` to guard |
 
-[Example usage][guard-function]
+The return value is a `boolean` indicating whether or not the `value` is a [`Func`](#Func).
+
+[Example usage on playground][guard-function]
+
+----
+
+### guardKey
+
+Use `guardKey()` or `guard.is.key()` to guard the `value` to be one of the `string`, `number`, or `symbol`.
+
+```typescript
+const guardKey: GuardKey = (value: Key): value is Key => isKey(value);
+```
+
+| Parameter | Type          | Description |
+| :-------- | :-----------: | :---------- |
+| value     | [`Key`](#Key) | A [`Key`](#Key) type `value` to guard |
+
+The **return value** is a `boolean` indicating whether or not the `value` is a [`Key`](#Key).
 
 ----
 
 ### guardNumber
 
-Use `guardNumber()` or `guard.is.number()` to guard the `value` to be a `number` type. The return value is a `boolean` value.
+Use `guardNumber()` or `guard.is.number()` to guard the `value` to be a `number`.
 
 ```typescript
 const guardNumber: GuardNumber = (value: number): value is number => isNumber(value);
@@ -937,93 +1010,103 @@ const guardNumber: GuardNumber = (value: number): value is number => isNumber(va
 
 | Parameter | Type     | Description  |
 |-----------| :------: |--------------|
-| value     | `number` | Type `number` value to guard. |
+| value     | `number` | A `number` type `value` to guard. |
 
-[Example usage][guard-number]
+The **return value** is a `boolean` indicating whether or not the `value` is a `number`.
+
+[Example usage on playground][guard-number]
 
 ----
 
 ### guardObject
 
-Use `guardObject()` or `guard.is.object()` to guard the `object` value to be a generic `Obj` type. The return value is a `boolean` value.
+Use `guardObject()` or `guard.is.object()` to guard the `value` to be an `object` of a generic `Obj` type.
 
 ```typescript
-const guardObject: GuardObject = <Obj>(object: Obj): object is Obj => isObject<Obj>(object);
+const guardObject: GuardObject = <Obj extends object>(value: Obj): value is Obj => isObject<Obj>(value);
 ```
 
-| Parameter | Type  | Description |
-|-----------| :---: |-------------|
-| object    | `Obj` | Generic `Obj` type value to guard. |
+| Parameter | Type                   | Description |
+| :-------- | :--------------------: | :---------- |
+| value     | `Obj` extends `object` | A generic `Obj` type `value` to guard |
 
-[Example usage][guard-object]
+The **return value** is a `boolean` indicating whether or not the `value` is an `object` of a generic `Obj`.
+
+[Example usage on playground][guard-object]
 
 ----
 
 ### guardObjectKey
 
-Use `guardObjectKey()` or `guard.is.objectKey()` to guard the `object` to be a generic `Obj` type and to contains the `key` property. The return value is a `boolean` value.
+Use `guardObjectKey()` or `guard.is.objectKey()` to guard the `value` to be an `object` of a generic `Obj` type that contains the `key` property of the [`Key`](#Key) type.
 
 ```typescript
-const guardObjectKey: GuardObjectKey = <Obj, Key extends keyof Obj>(object: Obj, key: Key): object is Obj =>
-  guardObject<Obj>(object) ? isString(key) ? key in object : true : false;
+const guardObjectKey: GuardObjectKey = <Obj extends object, Key extends keyof Obj>(value: Obj, key: Key): value is Obj =>
+  guardObject<Obj>(value) ? isKey(key) ? key in value : true : false;
 ```
 
-| Parameter   | Type  | Description   |
-|-------------| :---: |---------------|
-| object      | `Obj` | Generic `Obj` type `value` that contains the `key` property to guard.  |
-| key         | `Key` | Name of the property that the `object` contains. |
+| Parameter   | Type          | Description   |
+| :-----------| :-----------: | :------------ |
+| value       | `Obj`         | A generic `Obj` type `value` that contains the `key` to guard  |
+| key         | `Key`         | A `Key` type name of the property that the `object` contains |
 
-[Example usage][guard-object-key]
+The **return value** is a `boolean` indicating whether or not the `value` is an `object` of a generic `Obj` containing the `Key`.
+
+[Example usage on playground][guard-object-key]
 
 ----
 
 ### guardPrimitive
 
-Use `guardPrimitive()` or `guard.is.primitive()` to guard the `value` to be a generic `Type` from one of the `Primitives`. The return value is a `boolean` value.
+Use `guardPrimitive()` or `guard.is.primitive()` to guard the `value` to be the [`Primitive`](#Primitive) from a `type` of the [`Primitives`](#Primitives).
 
 ```typescript
-const guardPrimitive: GuardPrimitive = <Type>(value: Type, type: Primitives): value is Type => isPrimitive(value, type);
+const guardPrimitive: GuardPrimitive = <Type extends Primitive>(value: Type, type: Primitives): value is Type => isPrimitive<Type>(value, type);
 ```
 
-| Parameter   | Type         | Description  |
-|-------------| :----------: |--------------|
-| value       | `Type`       | A generic `Type` type `value` to guard. |
-| type        | `Primitives` | One of the `Primitives` `'boolean'`, `'bigint'`, `'number'`, `'string'`, `'symbol'`, `'undefined'`  to check `value`. |
+| Parameter   | Type                                     | Description |
+| :---------- | :--------------------------------------: | :---------- |
+| value       | `Type` extends [`Primitive`](#Primitive) | A `Primitive` type `value` to guard |
+| type        | [`Primitives`](#Primitives)              | A `string` type from the [`Primitives`](#Primitives) to check the `value` |
 
-[Example usage][guard-primitive]
+The return value is a `boolean` indicating whether or not the `value` is the [`Primitive`](#Primitive) from the `type`.
+
+[Example usage on playground][guard-primitive]
 
 ----
 
 ### guardString
 
-Use `guardString()` or `guard.is.string()` to guard the `value` to be a `string` type. The return value is a `boolean` value.
+Use `guardString()` or `guard.is.string()` to guard the `value` to be a `string`.
 
 ```typescript
 const guardString: GuardString = (value: string): value is string => isString(value);
 ```
 
-| Parameter   | Type           | Description   |
-|-------------|      :---:     |---------------|
-| value       | `string`       | String type value to guard. |
+| Parameter   | Type     | Description   |
+|-------------| :------: |---------------|
+| value       | `string` | A `string` type `value` to guard |
 
-[Example usage][guard-string]
+The return value is a `boolean` indicating whether or not the `value` is a `string`.
+
+[Example usage on playground][guard-string]
 
 ----
 
 ### guardType
 
-Use `guardType()` or `guard.is.type()` to guard the `value` to be a generic `Type` type from the `Types` type.
+Use `guardType()` or `guard.is.type()` to guard the `value` to be the [`Type`](#Type) from a `type` of the [`Types`](#Types).
 
 ```typescript
-const guardType: GuardType = <Type>(value: Type, type: Types<Type>): value is Type => isType<Type>(value, type);
+const guardType: GuardType = <T extends Type>(value: T, type: Types<T>): value is T  => isType<T>(value, type);
 ```
 
-| Parameter   | Type           | Description   |
-|-------------|      :---:     |---------------|
-| value       | `Type`         | A generic `Type` `value` to guard. |
-| type        | `Types<Type>`  | Constructor generic `Type`, `'function'`, `'object'` or one of the `Primitives` `'boolean'`, `'bigint'`, `'number'`, `'string'`, `'symbol'`, `'undefined'` to check `value`. |
+| Parameter | Type                        | Description |
+| :-------- | :-------------------------: | :---------- |
+| value     | `T` extends [`Type`](#Type) | A [`Type`](#Type) `value` to guard with the `type` |
+| type      | [`Types<Type>`](#Types)     | A type from the [`Types`](#Types) to check the `value` |
 
-The return value is a `boolean` value.
+The return value is a `boolean` indicating whether or not the `value` is a `type` from the [`Types`](#Types).
 
 [Example usage on playground][guard-type]
 
@@ -1044,11 +1127,15 @@ type CycleHook = 'ngAfterContentInit' | 'ngAfterContentChecked' | 'ngAfterViewIn
 
 ### Func
 
+Function type.
+
 ```typescript
 type Func = (...param: any) => any;
 ```
 
 ### Key
+
+Name of the `object` property.
 
 ```typescript
 type Key =  number | string | symbol;
@@ -1056,11 +1143,15 @@ type Key =  number | string | symbol;
 
 ### Primitive
 
+All [`Primitive`][Primitive] types.
+
 ```typescript
 type Primitive = bigint | boolean | null | number | string | symbol | undefined;
 ```
 
 ### Primitives
+
+All [`Primitive`](#Primitive) types as `string`.
 
 ```typescript
 type Primitives = 'bigint' | 'boolean' | 'null' | 'number' | 'symbol' | 'string' | 'undefined';
@@ -1072,7 +1163,17 @@ type Primitives = 'bigint' | 'boolean' | 'null' | 'number' | 'symbol' | 'string'
 type ResultCallback = (result: boolean) => boolean;
 ```
 
+### Type
+
+Main types.
+
+```typescript
+type Type = Func | object | Primitive;
+```
+
 ### Types
+
+Main types as `string`.
 
 ```typescript
 type Types<Obj> = Constructor<Obj> | 'function' | 'object' | Primitives;
@@ -1114,6 +1215,7 @@ MIT © angular-package ([license](https://github.com/angular-package/type/blob/m
 [Boolean]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 [Function]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions
 [Object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+[Primitive]: https://developer.mozilla.org/en-US/docs/Glossary/Primitive
 [String]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
 
 [new]: https://img.shields.io/badge/-new-red
