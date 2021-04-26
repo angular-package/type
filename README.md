@@ -594,7 +594,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is a [
 
 ### isNumberType
 
-Use `isNumber()` or `is.number()` to check if **any** `value` is a `number` type not an instance of `Number` and `Object` or `object` type instance of `Number` and `Object`.
+Use `isNumber()` or `is.number()` to check if **any** `value` is a `number` type not an instance of [`Number`][Number] and [`Object`][Object] or `object` type instance of [`Number`][Number] and [`Object`][Object].
 
 ```typescript
 const isNumber: IsNumber = (value: any): value is number =>
@@ -613,7 +613,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 ### isObject
 
-Use `isObject()` or `is.object()` to check if **any** `value` is a generic `Obj` `object` type and `Object` instance with the possibility of containing the `key`.
+Use `isObject()` or `is.object()` to check if **any** `value` is a generic `Obj` `object` type and [`Object`][Object] instance with the possibility of containing the `key`.
 
 ```typescript
 const isObject: IsObject = <Obj = object>(value: any, key?: Key): value is Obj =>
@@ -637,25 +637,25 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 
 ### isObjectKey
 
-Use `isObject()` or `is.object()` to check if **any** `object` has its own specified keys of the [`Key`](#Key).
+Use `isObject()` or `is.object()` to check if **any** `value` is an `object` with its own specified keys of the [`Key`](#Key).
 
 ```typescript
-const isObjectKey: IsObjectKey = <Type = object>(object: any, key: Key | Key[]): object is Type =>
-  isObject<Type>(object) ?
+const isObjectKey: IsObjectKey = <Type extends object>(value: any, key: Key | Key[]): value is Type =>
+  isObject<Type>(value) ?
     isArray(key) ?
-      key.every(k => isKey(k) ? ({}).hasOwnProperty.call(object, k) === true : false)
+      key.every(k => isKey(k) ? ({}).hasOwnProperty.call(value, k) === true : false)
     : isKey(key) ?
-        ({}).hasOwnProperty.call(object, key)
+        ({}).hasOwnProperty.call(value, key)
       : false
   : false;
 ```
 
 | Parameter | Type                             | Description |
 | :-------- | :------------------------------: | :---------- |
-| object    | `any`                            | Any `object` to check |
-| key       | [`Key`](#key) \| [`Key`](#Key)[] | Property name to find in `object` |
+| value     | `any`                            | Any `value` to check if it contains a specified `key` |
+| key       | [`Key`](#key) \| [`Key`](#Key)[] | A [`Key`](#Key) type or an array of [`Key`](#Key) type to check the `value` |
 
-The **return value** is a `boolean` indicating whether or not the `object` has its own specified keys.
+The **return value** is a `boolean` indicating whether or not the `value` has its own specified keys.
 
 ----
 
@@ -1214,6 +1214,7 @@ MIT © angular-package ([license](https://github.com/angular-package/type/blob/m
 [Array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 [Boolean]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 [Function]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions
+[Number]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
 [Object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
 [Primitive]: https://developer.mozilla.org/en-US/docs/Glossary/Primitive
 [String]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
