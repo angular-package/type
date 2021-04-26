@@ -1,11 +1,11 @@
 import { IsNot } from '../interface/is-not.interface';
 import { isNotBoolean } from './is-not-boolean.func';
-import { isNotNumber } from './is-not-number.func';
-import { isNotUndefined } from './is-not-undefined.func';
-import { isNotNull } from './is-not-null.func';
-import { isNotString } from './is-not-string.func';
-import { isNotFunction } from './is-not-function.func';
 import { isNotDefined } from './is-not-defined.func';
+import { isNotFunction } from './is-not-function.func';
+import { isNotNull } from './is-not-null.func';
+import { isNotNumber } from './is-not-number.func';
+import { isNotString } from './is-not-string.func';
+import { isNotUndefined } from './is-not-undefined.func';
 
 export const isNot: IsNot = {
   // TODO array: isArray,
