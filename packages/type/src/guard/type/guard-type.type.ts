@@ -1,2 +1,3 @@
 import { Types } from '../../type/types.type';
-export type GuardType = <Type>(value: Type, type: Types<Type>) => value is Type;
+import { Type } from '../../type/type.type';
+export type GuardType = <T extends Type>(value: T, type: Types<T>) => value is T;
