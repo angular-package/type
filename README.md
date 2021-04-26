@@ -335,7 +335,7 @@ const isBoolean: IsBoolean = (value: any, callback: ResultCallback = errorCallba
 | Parameter | Type  | Description |
 | :---------| :---: | :---------- |
 | value     | `any` | Any `value` to check |
-| callback  | [`ResultCallback`](#ResultCallback) = [`errorCallback`](#errorCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#ResultCallback)=[`errorCallback`](#errorCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `boolean`.
 
@@ -661,7 +661,7 @@ The **return value** is a `boolean` indicating whether or not the `object` has i
 
 ### isPrimitive
 
-Use `isPrimitive()` or `is.primitive()` to check if **any** `value` is a [`Primitive`](#Primitive) type from the `type` of the [`Primitives`](#Primitives) type.
+Use `isPrimitive()` or `is.primitive()` to check if **any** `value` is the [`Primitive`](#Primitive) type from a `type` of the [`Primitives`](#Primitives) type.
 
 ```typescript
 const isPrimitive: IsPrimitive = <T extends Primitive>(value: any, type: Primitives): value is T => {
@@ -736,7 +736,7 @@ const isStringType: IsStringType = (value: any, callback: ResultCallback = error
   callback(value instanceof Object === false && value instanceof String === false && typeof value === 'string');
 ```
 
-| Parameter |       Type                          | Description |
+| Parameter | Type                                | Description |
 | :-------- | :---------------------------------: | :---------- |
 | value     | `any`                               | Any `value` to check |
 | callback  | [`ResultCallback`](#ResultCallback)=[`errorCallback`](#errorCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
@@ -767,7 +767,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 ### isType
 
-Use `isType()` or `is.type()` to check if **any** `value` is a [`Type`](#Type) from the `type` of the [`Types`](#Types) type.
+Use `isType()` or `is.type()` to check if **any** `value` is the [`Type`](#Type) from a `type` of the [`Types`](#Types) type.
 
 ```typescript
 const isType: IsType = <T extends Type>(value: any, type: Types<T>): value is T => {
@@ -793,12 +793,12 @@ const isType: IsType = <T extends Type>(value: any, type: Types<T>): value is T 
 };
 ```
 
-| Parameter | Type                    | Description |
-| :-------- | :---------------------: | :---------- |
-| value     | `any`                   | Any `value` to check if its type is from the `type` |
-| type      | [`Types<Type>`](#Types) | A `string` or generic `Constructor` type from the [`Types`](#Types) to check the `value` |
+| Parameter | Type                 | Description |
+| :-------- | :------------------: | :---------- |
+| value     | `any`                | Any `value` to check if its type is from the `type` |
+| type      | [`Types<T>`](#Types) | A `string` or generic `Constructor` type from the [`Types`](#Types) to check the `value` |
 
-The **return value** is a `boolean` indicating whether or not the `value` is a [`Type`](#Type) from the `type` of the [`Types`](#Types).
+The **return value** is a `boolean` indicating whether or not the `value` is the [`Type`](#Type) from a `type` of the [`Types`](#Types).
 
 [Example usage on playground][is-type]
 
@@ -1104,13 +1104,13 @@ const guardType: GuardType = <T extends Type>(value: T, type: Types<T>): value i
 | Parameter | Type                        | Description |
 | :-------- | :-------------------------: | :---------- |
 | value     | `T` extends [`Type`](#Type) | A [`Type`](#Type) `value` to guard with the `type` |
-| type      | [`Types<Type>`](#Types)     | A type from the [`Types`](#Types) to check the `value` |
+| type      | [`Types<T>`](#Types)        | A `string` or generic [`Constructor`](#Constructor) type from the [`Types`](#Types) to check the `value` |
 
 The return value is a `boolean` indicating whether or not the `value` is a `type` from the [`Types`](#Types).
 
 [Example usage on playground][guard-type]
 
-## Common Types
+## Common types
 
 ### Constructor
 

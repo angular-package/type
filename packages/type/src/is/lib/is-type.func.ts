@@ -10,10 +10,10 @@ import { Type } from '../../type/type.type';
 import { Types } from '../../type/types.type';
 import { isNotNull } from '../not/lib/is-not-null.func';
 /**
- * Checks if any `value` is a `Type` from the `type` of the `Types` type.
+ * Checks if any `value` is the `Type` from a `type` of the `Types` type.
  * @param value Any `value` to check if its type is from the `type`.
  * @param type A `string` or generic `Constructor` type from the `Types` to check the `value`.
- * @returns A `boolean` indicating whether or not the `value` is a `Type` from the `type` of the `Types`.
+ * @returns A `boolean` indicating whether or not the `value` is the `Type` from a `type` of the `Types`.
  */
 export const isType: IsType = <T extends Type>(value: any, type: Types<T>): value is T => {
   if (isString(type)) {

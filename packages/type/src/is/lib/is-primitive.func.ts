@@ -11,7 +11,7 @@ import { IsPrimitive } from '../type/is-primitive.type';
 import { Primitive } from '../../type/primitive.type';
 import { Primitives } from '../../type/primitives.type';
 /**
- * Checks if any `value` is a `Primitive` type from the `type` of the `Primitives` type.
+ * Checks if any `value` is the `Primitive` type from a `type` of the `Primitives` type.
  * @param value Any `value` to check if it's a `Primitive` from the `type`.
  * @param type A `string` name of the `type` from the `Primitives` to check the `value`.
  * @returns A `boolean` indicating whether or not the `value` is a `type` from the `Primitives`.
