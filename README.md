@@ -129,7 +129,7 @@ Guard
 ----
 
 * [Installation](#installation)
-* [Object](#objects)
+* [Object](#object)
   * [`are`](#are)
   * [`guard`](#guard)
   * [`is`](#is)
@@ -137,7 +137,7 @@ Guard
   * [are](#areString)
   * [is](#isArray)
 * [Guard](#guard)
-* [Types](#types)
+* [Common types](#common-types)
 * [Git](#git)
   * [Commit](#commit)
   * [Versioning](#versioning)
