@@ -1,2 +1,3 @@
+import { Type } from '../../type/type.type';
 import { Types } from '../../type/types.type';
-export type IsType = <Type>(value: any, type: Types<Type>) => value is Type;
+export type IsType = <T extends Type>(value: any, type: Types<T>) => value is T;
