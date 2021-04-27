@@ -15,56 +15,48 @@ import { notDefined } from './variables/not-defined.const';
 
 describe('isFunction', () => {
   // TRUE
-  it('is DEFINED', () => {
-    expect(isFunction).toBeDefined();
-  });
-  it(`'function' | Function`, () => {
-    expect(isFunction(FUNCTION)).toBeTruthy();
-  });
-  it(`Class`, () => {
-    expect(isFunction(Class)).toBeTruthy();
-  });
+  it('is DEFINED', () => expect(isFunction).toBeDefined());
+  it(`'function' | Function`, () => expect(isFunction(FUNCTION)).toBe(TRUE));
+  it(`Class`, () => expect(isFunction(Class)).toBe(TRUE));
 
   // FALSE.
   it(`'boolean' | Boolean`, () => {
-    expect(isFunction(FALSE)).toBeFalsy();
-    expect(isFunction(TRUE)).toBeFalsy();
-    expect(isFunction(FALSE_INSTANCE)).toBeFalsy();
-    expect(isFunction(TRUE_INSTANCE)).toBeFalsy();
-    expect(isFunction(Boolean(false))).toBeFalsy();
-    expect(isFunction(Boolean(true))).toBeFalsy();
+    expect(isFunction(FALSE)).toBe(FALSE);
+    expect(isFunction(TRUE)).toBe(FALSE);
+    expect(isFunction(FALSE_INSTANCE)).toBe(FALSE);
+    expect(isFunction(TRUE_INSTANCE)).toBe(FALSE);
+    expect(isFunction(Boolean(false))).toBe(FALSE);
+    expect(isFunction(Boolean(true))).toBe(FALSE);
   });
   it(`'bigint'`, () => {
-    expect(isFunction(BIGINT)).toBeFalsy();
-    expect(isFunction(BIGINT_INSTANCE)).toBeFalsy();
+    expect(isFunction(BIGINT)).toBe(FALSE);
+    expect(isFunction(BIGINT_INSTANCE)).toBe(FALSE);
   });
-  it(`CLASS`, () => {
-    expect(isFunction(CLASS)).toBeFalsy();
-  });
+  it(`CLASS`, () => expect(isFunction(CLASS)).toBe(FALSE));
   it(`null | NULL`, () => {
-    expect(isFunction(null)).toBeFalsy();
-    expect(isFunction(NULL)).toBeFalsy();
+    expect(isFunction(null)).toBe(FALSE);
+    expect(isFunction(NULL)).toBe(FALSE);
   });
   it(`'number' | Number`, () => {
-    expect(isFunction(NUMBER)).toBeFalsy();
-    expect(isFunction(NUMBER_INSTANCE)).toBeFalsy();
-    expect(isFunction(NUMBER_NEW_INSTANCE)).toBeFalsy();
+    expect(isFunction(NUMBER)).toBe(FALSE);
+    expect(isFunction(NUMBER_INSTANCE)).toBe(FALSE);
+    expect(isFunction(NUMBER_NEW_INSTANCE)).toBe(FALSE);
   });
   it(`'object' | Object`, () => {
-    expect(isFunction(OBJECT_ONE)).toBeFalsy();
-    expect(isFunction(OBJECT_TWO)).toBeFalsy();
+    expect(isFunction(OBJECT_ONE)).toBe(FALSE);
+    expect(isFunction(OBJECT_TWO)).toBe(FALSE);
   });
   it(`'string' | String`, () => {
-    expect(isFunction(STRING)).toBeFalsy();
-    expect(isFunction(STRING_INSTANCE)).toBeFalsy();
-    expect(isFunction(STRING_NEW_INSTANCE)).toBeFalsy();
+    expect(isFunction(STRING)).toBe(FALSE);
+    expect(isFunction(STRING_INSTANCE)).toBe(FALSE);
+    expect(isFunction(STRING_NEW_INSTANCE)).toBe(FALSE);
   });
   it(`'symbol'`, () => {
-    expect(isFunction(SYMBOL_NUMBER)).toBeFalsy();
-    expect(isFunction(SYMBOL_STRING)).toBeFalsy();
+    expect(isFunction(SYMBOL_NUMBER)).toBe(FALSE);
+    expect(isFunction(SYMBOL_STRING)).toBe(FALSE);
   });
   it(`'undefined'`, () => {
-    expect(isFunction(notDefined)).toBeFalsy();
-    expect(isFunction(UNDEFINED)).toBeFalsy();
+    expect(isFunction(notDefined)).toBe(FALSE);
+    expect(isFunction(UNDEFINED)).toBe(FALSE);
   });
 });
