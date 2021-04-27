@@ -14,7 +14,6 @@ import { UNDEFINED } from './variables/undefined.const';
 
 /**
  * Checks
- * ✓ typeof === 'number' && instanceof Number === false && instanceof Object === false
  * ✓ typeof === 'object' && instanceof Number === true && instanceof Object === true
  */
 describe(`isNumberObject`, () => {
