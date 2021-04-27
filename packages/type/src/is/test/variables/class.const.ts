@@ -42,3 +42,19 @@ export class Class {
  * instanceof Object === true
  */
 export const CLASS = new Class();
+
+
+export class Person {
+  firstName = '';
+  surname = '';
+  age = 15;
+}
+
+export class PersonCopy {
+  firstName = '';
+  surname = '';
+  age = 15;
+}
+
+export const PERSON: Person = new Person();
+export const PERSON_COPY: PersonCopy = new PersonCopy();
