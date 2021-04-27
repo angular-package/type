@@ -1,2 +1,3 @@
 import { Key } from '../../type/key.type';
-export type IsKey = (value: any) => value is Key;
+import { ResultCallback } from '../../type/result-callback.type';
+export type IsKey = (value: any, callback?: ResultCallback) => value is Key;
