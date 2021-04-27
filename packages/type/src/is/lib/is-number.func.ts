@@ -8,7 +8,9 @@ import { IsNumber } from '../type/is-number.type';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
  * Checks if any `value` is a `number` type not an instance of `Number` and `Object` or `object` type instance of `Number` and `Object`.
- * @param value Any value to check.
+ * @param value Any `value` to check.
+ * @param callback `ResultCallback` function to handle result before returns.
+ * @callback `errorCallback`.
  * @returns A `boolean` indicating whether or not the `value` is a `number`.
  */
 export const isNumber: IsNumber = (value: any, callback: ResultCallback = errorCallback): value is number =>
