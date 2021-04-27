@@ -19,9 +19,7 @@ import { notDefined } from './variables/not-defined.const';
  */
 describe('isBoolean', () => {
   // TRUE
-  it('is DEFINED', () => {
-    expect(isBoolean).toBeDefined();
-  });
+  it('is DEFINED', () => expect(isBoolean).toBeDefined());
   it(`'boolean' | Boolean`, () => {
     expect(isBoolean(FALSE)).toBe(TRUE);
     expect(isBoolean(TRUE)).toBe(TRUE);
