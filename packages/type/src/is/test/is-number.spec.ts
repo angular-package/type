@@ -14,6 +14,9 @@ import { notDefined } from './variables/not-defined.const';
  * Checks
  * ✓ typeof === 'number'
  * ✓ instanceof Number
+ *
+ * ✓ typeof === 'object'
+ * ✓ instanceof Object
  */
 describe('isNumber', () => {
   // TRUE
