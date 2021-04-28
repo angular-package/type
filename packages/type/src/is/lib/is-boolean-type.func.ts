@@ -1,5 +1,5 @@
 // Function.
-import { errorCallback } from '../../lib/error-callback.func';
+import { resultCallback } from '../../lib/result-callback.func';
 // Type.
 import { IsBooleanType } from '../type/is-boolean-type.type';
 import { ResultCallback } from '../../type/result-callback.type';
@@ -8,10 +8,10 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @function `isBooleanType`
  * @param value Any `value` to check.
  * @param callback `ResultCallback` function to handle result before returns.
- * @callback `errorCallback`.
+ * @callback `resultCallback`.
  * @returns A `boolean` indicating whether or not the `value` is a `boolean` type.
  */
-export const isBooleanType: IsBooleanType = (value: any, callback: ResultCallback = errorCallback): value is boolean =>
+export const isBooleanType: IsBooleanType = (value: any, callback: ResultCallback = resultCallback): value is boolean =>
   callback(
     value instanceof Boolean === false &&
     value instanceof Object === false &&
