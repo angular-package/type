@@ -18,12 +18,16 @@ describe(`isType`, () => {
 
   // Checks ...
   describe(`checks`, () => {
-    // it('callback', () => {
-      // isType('test', (result: boolean) => {
-      //   expect(result).toBe(TRUE);
-      //   return result;
-      // });
-    // });
+    it('callback', () => {
+      isType(STRING, 'string', (result: boolean) => {
+        expect(result).toBe(TRUE);
+        return result;
+      });
+      isType(NUMBER, 'number', (result: boolean) => {
+        expect(result).toBe(TRUE);
+        return result;
+      });
+    });
 
     // ... instance.
     describe(`instance`, () => it(`Class`, () => expect(isType<Class>(CLASS, Class)).toBe(TRUE)));
