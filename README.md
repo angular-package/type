@@ -21,7 +21,7 @@ Common types, type guards and type checkers.
 [![GitHub license](https://img.shields.io/github/license/angular-package/type)](https://github.com/angular-package/type/blob/main/LICENSE)
 
 ```typescript
-// Guard functions.
+// Guard prefix functions.
 import { 
   guardArray,
   guardFunction,
@@ -35,29 +35,37 @@ import {
 ```
 
 ```typescript
-// Check is functions.
+// Check is prefix functions.
 import {
   isArray,
   isBigInt,
   isBoolean,
+  isBooleanObject,
+  isBooleanType,
   isDefined,
   isFunction,
   isInstance,
+  isKey,
   isNull,
   isNumber,
+  isNumberObject,
+  isNumberType,
   isObject,
+  isObjectKey,
   isPrimitive,
   isString,
+  isStringObject,
+  isStringType,
   isSymbol,
   isType,
   isUndefined
 } from '@angular-package/type';
-// Check are functions.
+// Check are prefix functions.
 import { areString } from '@angular-package/type';
 ```
 
 ```typescript
-// Check is NOT functions.
+// Check isNot prefix functions.
 import {
   isNotBoolean,
   isNotDefined,
@@ -70,8 +78,8 @@ import {
 ```
 
 ```typescript
-// Guard and is object.
-import { are, guard, is } from '@angular-package/type';
+// Object.
+import { are, guard, is, isNot } from '@angular-package/type';
 ```
 
 ```typescript
@@ -129,13 +137,11 @@ Guard
 ----
 
 * [Installation](#installation)
-* [Object](#object)
-  * [`are`](#are)
-  * [`guard`](#guard)
-  * [`is`](#is)
+* [resultCallback](#resultCallback)
 * [Check](#check)
-  * [are](#areString)
-  * [is](#isArray)
+  * [are](#are)
+  * [is](#is)
+  * [isNot](#isNot)
 * [Guard](#guard)
 * [Common types](#common-types)
 * [Git](#git)
@@ -153,7 +159,29 @@ Install `@angular-package/type` package with command:
 npm i --save @angular-package/type
 ```
 
-## Object
+## resultCallback
+
+Default function to handle `callback` parameter.
+
+```typescript
+const resultCallback: ResultCallback = (result: boolean): boolean => result;
+```
+
+Custom function to handle `callback` parameter.
+
+```typescript
+const customCallback: ResultCallback = (result: boolean): boolean => {
+  if (result === false) {
+    throw new Error('error');
+  }
+  return result;
+};
+
+const stringResult = isString('Lorem ipsum', customCallback);
+
+```
+
+## Check
 
 ### are
 
@@ -165,26 +193,23 @@ const are: Are = {
 };
 ```
 
-### guard
+### areString
 
-Object `guard` with all **guard** functions.
+ Use `areString()` or `are.string()` to check if all of **any** arguments are a `string` type.
 
 ```typescript
-const guardIs: GuardIs = {
-  array: guardArray,
-  function: guardFunction,
-  number: guardNumber,
-  objectKey: guardObjectKey,
-  object: guardObject,
-  primitive: guardPrimitive,
-  string: guardString,
-  type: guardType
-};
-const guard: Guard = {
-  is: guardIs
-};
-
+const areString = (...args: any): boolean => check('string', ...args);
 ```
+
+| Parameter | Type  | Description |
+|-----------| :---: |-------------|
+| ...args   | `any` | Any arguments to check they're all a `string` type |
+
+The **return value** is a `boolean` value.
+
+[Example usage on playground][are-string]
+
+----
 
 ### is
 
@@ -218,64 +243,6 @@ const is: Is = {
   undefined: isUndefined
 };
 ```
-
-## isNot
-
-Object `isNot` with all **check is not** functions.
-
-```typescript
-const isNot: IsNot = {
-  boolean: isNotBoolean,
-  defined: isNotDefined,
-  function: isNotFunction,
-  null: isNotNull,
-  number: isNotNumber,
-  string: isNotString,
-  undefined: isNotUndefined
-};
-```
-
-## errorCallback
-
-Default function to handle `callback` parameter.
-
-```typescript
-const errorCallback: ResultCallback = (result: boolean): boolean => result;
-```
-
-Custom function to handle `callback` parameter.
-
-```typescript
-const customCallback: ResultCallback = (result: boolean): boolean => {
-  if (result === false) {
-    throw new Error('error');
-  }
-  return result;
-};
-
-const stringResult = isString('Lorem ipsum', customCallback);
-
-```
-
-## Check
-
-### areString
-
- Use `areString()` or `are.string()` to check if all of **any** arguments are a `string` type.
-
-```typescript
-const areString = (...args: any): boolean => check('string', ...args);
-```
-
-| Parameter | Type  | Description |
-|-----------| :---: |-------------|
-| ...args   | `any` | Any arguments to check they're all a `string` type |
-
-The **return value** is a `boolean` value.
-
-[Example usage on playground][are-string]
-
-----
 
 ### isArray
 
@@ -313,14 +280,14 @@ isArray<string>(ARRAY_STRING); // true
 Use `isBigInt()` or `is.bigint()` to check if **any** `value` is a `bigint` type.
 
 ```typescript
-const isBigInt: IsBigInt = (value: any): value is bigint =>
-  typeOf(value) === 'bigint' &&
-  typeof value === 'bigint';
+const isBigInt: IsBigInt = (value: any, callback: ResultCallback = resultCallback): value is bigint =>
+  callback(typeOf(value) === 'bigint' && typeof value === 'bigint');
 ```
 
 | Parameter | Type  | Description |
 | :-------- | :---: | :---------- |
 | value     | `any` | Any `value` to check |
+| callback  | [`ResultCallback`](#ResultCallback)=[`resultCallback`](#resultCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `bigint`.
 
@@ -342,14 +309,14 @@ isBigInt(BIGINT); // true
 Use `isBoolean()` or `is.boolean()` to check if **any** `value` is a `boolean` type not instance of [`Boolean`][Boolean] and [`Object`][Object] or `object` type instance of [`Boolean`][Boolean] and [`Object`][Object].
 
 ```typescript
-const isBoolean: IsBoolean = (value: any, callback: ResultCallback = errorCallback): value is boolean =>
+const isBoolean: IsBoolean = (value: any, callback: ResultCallback = resultCallback): value is boolean =>
   callback(typeOf(value) === 'boolean' && (isBooleanType(value) || isBooleanObject(value)));
 ```
 
 | Parameter | Type  | Description |
 | :---------| :---: | :---------- |
 | value     | `any` | Any `value` to check |
-| callback  | [`ResultCallback`](#ResultCallback)=[`errorCallback`](#errorCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#ResultCallback)=[`resultCallback`](#resultCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `boolean`.
 
@@ -371,14 +338,14 @@ isBoolean(BOOLEAN_INSTANCE); // true
 Use `isBooleanObject()` or `is.booleanObject()` to check if **any** `value` is an `object` type and instance of [`Boolean`][Boolean] and [`Object`][Object].
 
 ```typescript
-const isBooleanObject: IsBooleanObject = (value: any, callback: ResultCallback = errorCallback): value is boolean =>
+const isBooleanObject: IsBooleanObject = (value: any, callback: ResultCallback = resultCallback): value is boolean =>
   callback(typeof value === 'object' && value instanceof Boolean === true && value instanceof Object === true);
 ```
 
 | Parameter | Type  | Description |
 | :---------| :---: | :---------- |
 | value     | `any` | Any `value` to check |
-| callback  | [`ResultCallback`](#ResultCallback)=[`errorCallback`](#errorCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#ResultCallback)=[`resultCallback`](#resultCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a [`Boolean`][Boolean] instance.
 
@@ -398,7 +365,7 @@ isBooleanObject(BOOLEAN_INSTANCE); // true
 Use `isBooleanType()` or `is.booleanType()` to check if **any** `value` is a `boolean` type not an instance of [`Boolean`][Boolean] and [`Object`][Object], and equal to `true` or `false`.
 
 ```typescript
-const isBooleanType: IsBooleanType = (value: any, callback: ResultCallback = errorCallback): value is boolean =>
+const isBooleanType: IsBooleanType = (value: any, callback: ResultCallback = resultCallback): value is boolean =>
   callback(
     value instanceof Boolean === false &&
     value instanceof Object === false &&
@@ -410,7 +377,7 @@ const isBooleanType: IsBooleanType = (value: any, callback: ResultCallback = err
 | Parameter | Type  | Description |
 | :---------| :---: | :---------- |
 | value     | `any` | Any `value` to check |
-| callback  | [`ResultCallback`](#ResultCallback)=[`errorCallback`](#errorCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#ResultCallback)=[`resultCallback`](#resultCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `boolean` type.
 
@@ -430,14 +397,14 @@ isBooleanType(BOOLEAN_INSTANCE); // false
 Use `isDefined()` or `is.defined()` to check if an **unknown** `value` is NOT an `undefined` type and is NOT equal to `undefined`.
 
 ```typescript
-const isDefined: IsDefined = (value: unknown, callback: ResultCallback = errorCallback): boolean =>
+const isDefined: IsDefined = (value: unknown, callback: ResultCallback = resultCallback): boolean =>
   callback(typeOf(value) !== 'undefined' && typeof value !== 'undefined' && value !== undefined);
 ```
 
 | Parameter | Type      | Description |
 | :-------- | :-------: | :---------- |
 | value     | `unknown` | An `unknown` `value` to check |
-| callback  | [`ResultCallback`](#ResultCallback)=[`errorCallback`](#errorCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#ResultCallback)=[`resultCallback`](#resultCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is defined, not `undefined`.
 
@@ -457,7 +424,7 @@ isDefined(defined); // false
 Use `isFunction()` or `is.function()` to check if **any** `value` is a `function` type, an instance of [`Function`][Function] and [`Object`][Object].
 
 ```typescript
-const isFunction: IsFunction = (value: any, callback: ResultCallback = errorCallback): value is Func =>
+const isFunction: IsFunction = (value: any, callback: ResultCallback = resultCallback): value is Func =>
   callback(
     typeOf(value) === 'function' &&
     typeof value === 'function' &&
@@ -469,7 +436,7 @@ const isFunction: IsFunction = (value: any, callback: ResultCallback = errorCall
 | Parameter | Type  | Description |
 | :-------- | :---: | :---------- |
 | value     | `any` | Any `value` to check |
-| callback  | [`ResultCallback`](#ResultCallback)=[`errorCallback`](#errorCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#ResultCallback)=[`resultCallback`](#resultCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `function`.
 
@@ -495,7 +462,7 @@ Use `isInstance()` or `is.instance()` to check if **any** value is an `object` o
 const isInstance: IsInstance = <Obj>(
     value: any,
     instance: Constructor<Obj>,
-    callback: ResultCallback = errorCallback
+    callback: ResultCallback = resultCallback
   ): value is Obj =>
     callback(
       isObject<Obj>(value) ?
@@ -510,7 +477,7 @@ const isInstance: IsInstance = <Obj>(
 | :-------- | :--------------------------------: | :---------- |
 | value     | `any`                              | Any `value` to compare with the `instance` |
 | instance  | [`Constructor<Obj>`](#Constructor) | A generic `Obj` [`Constructor`](#Constructor) type to create an `instance` to compare with the `value` |
-| callback  | [`ResultCallback`](#ResultCallback)=[`errorCallback`](#errorCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#ResultCallback)=[`resultCallback`](#resultCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an `instance` of a generic `Obj`.
 
@@ -536,14 +503,14 @@ isInstance<Some>(TWO, Two); // true and type error
 Use `isKey()` or `is.key()` to check if **any** `value` is one of the `string`, `number`, or `symbol`.
 
 ```typescript
-const isKey: IsKey = (value: any, callback: ResultCallback = errorCallback): value is Key =>
+const isKey: IsKey = (value: any, callback: ResultCallback = resultCallback): value is Key =>
   callback(isString(value) || isNumber(value) || isSymbol(value));
 ```
 
 | Parameter | Type  | Description |
 | :-------- | :---: |:----------- |
 | value     | `any` | Any `value` to check |
-| callback  | [`ResultCallback`](#ResultCallback)=[`errorCallback`](#errorCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#ResultCallback)=[`resultCallback`](#resultCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a [`Key`](#Key).
 
@@ -572,14 +539,14 @@ isKey(SYMBOL_STRING); // true
 Use `isNull()` or `is.null()` to check if **any** `value` is an `object` type and equal to `null`.
 
 ```typescript
-const isNull: IsNull = (value: any, callback: ResultCallback = errorCallback): value is null =>
+const isNull: IsNull = (value: any, callback: ResultCallback = resultCallback): value is null =>
   callback(typeOf(value) === 'null' && typeof value === 'object' && value === null);
 ```
 
 | Parameter | Type  | Description |
 | :-------- | :---: |------------ |
 | value     | `any` | Any `value` to check |
-| callback  | [`ResultCallback`](#ResultCallback)=[`errorCallback`](#errorCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#ResultCallback)=[`resultCallback`](#resultCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is `null`.
 
@@ -607,14 +574,14 @@ isNull(NUMBER); // false
 Use `isNumber()` or `is.number()` to check if **any** `value` is a `number` type not an instance of [`Number`][Number] and [`Object`][Object] or `object` type instance of [`Number`][Number] and [`Object`][Object].
 
 ```typescript
-const isNumber: IsNumber = (value: any, callback: ResultCallback = errorCallback): value is number =>
+const isNumber: IsNumber = (value: any, callback: ResultCallback = resultCallback): value is number =>
   callback(typeOf(value) === 'number' && isFinite(value) === true && (isNumberType(value) || isNumberObject(value)));
 ```
 
 | Parameter | Type  | Description |
 | :-------- | :---: | :---------- |
 | value     | `any` | Any `value` to check |
-| callback  | [`ResultCallback`](#ResultCallback)=[`errorCallback`](#errorCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#ResultCallback)=[`resultCallback`](#resultCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `number`.
 
@@ -627,14 +594,14 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 Use `isNumberObject()` or `is.numberObject()` to check if **any** `value` is an `object` type and instance of [`Number`][Number] and [`Object`][Object].
 
 ```typescript
-const isNumberObject: IsNumberObject = (value: any, callback: ResultCallback = errorCallback): value is number =>
+const isNumberObject: IsNumberObject = (value: any, callback: ResultCallback = resultCallback): value is number =>
   callback(typeof value === 'object' && value instanceof Number === true && value instanceof Object === true);
 ```
 
 | Parameter | Type  | Description |
 | :-------- | :---: | :---------- |
 | value     | `any` | Any `value` to check |
-| callback  | [`ResultCallback`](#ResultCallback)=[`errorCallback`](#errorCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#ResultCallback)=[`resultCallback`](#resultCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a [`Number`][Number] instance.
 
@@ -676,14 +643,14 @@ isNumberObject(NUMBER_NEW_INSTANCE); // true
 Use `isNumberType()` or `is.numberType()` to check if **any** `value` is a `number` type not an instance of [`Number`][Number] and [`Object`][Object] or `object` type instance of [`Number`][Number] and [`Object`][Object].
 
 ```typescript
-const isNumberType: IsNumberType = (value: any, callback: ResultCallback = errorCallback): value is number =>
+const isNumberType: IsNumberType = (value: any, callback: ResultCallback = resultCallback): value is number =>
   callback(value instanceof Number === false && value instanceof Object === false && typeof value === 'number');
 ```
 
 | Parameter | Type  | Description |
 | :-------- | :---: | :---------- |
 | value     | `any` | Any `value` to check |
-| callback  | [`ResultCallback`](#ResultCallback)=[`errorCallback`](#errorCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#ResultCallback)=[`resultCallback`](#resultCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `number`.
 
@@ -722,7 +689,7 @@ isNumberType(NUMBER_NEW_INSTANCE); // false
 
 ### isObject
 
-Use `isObject()` or `is.object()` to check if **any** `value` is a generic `Obj` `object` type and [`Object`][Object] instance with the possibility of containing the `key`.
+Use `isObject()` or `is.object()` to check if **any** `value` is an `object` of a generic `Obj` type and [`Object`][Object] instance with the possibility of containing the `key`.
 
 ```typescript
 const isObject: IsObject = <Obj = object>(value: any, key?: Key): value is Obj =>
@@ -736,11 +703,87 @@ const isObject: IsObject = <Obj = object>(value: any, key?: Key): value is Obj =
 | Parameter | Type          | Description |
 | :-------- | :-----------: | :---------- |
 | value     | `any`         | Any `value` to check |
-| key?      | [`Key`](#Key) | Property name to find in `value` |
+| key?      | [`Key`](#Key) | Property name to find in the `value` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an `object`.
 
 [Example usage on playground][is-object] | [How to detect an `object` type][detect-object]
+
+```typescript
+// Example usage
+const SYMBOL_NUMBER: unique symbol = Symbol(NUMBER);
+const SYMBOL_STRING: unique symbol = Symbol(STRING);
+
+/**
+ * typeof === 'number'
+ * instanceof Function === false
+ * instanceof Number === false
+ * instanceof Object === false
+ */
+const NUMBER: any = 10304050;
+
+/**
+ * typeof === 'number'
+ * instanceof Function === false
+ * instanceof Number === false
+ * instanceof Object === false
+ */
+const NUMBER_INSTANCE: any = Number(NUMBER);
+
+/**
+ * typeof === 'number'
+ * instanceof Function === false
+ * instanceof Number === true
+ * instanceof Object === true
+ */
+const NUMBER_NEW_INSTANCE: any = new Number(NUMBER);
+
+/**
+ * typeof === 'string'
+ * instanceof Function === false
+ * instanceof Object === false
+ * instanceof String === false
+ */
+const STRING: any = '!@#$%^&*()abcdefghijklmnoprstuwyz';
+
+/**
+ * typeof === 'string'
+ * instanceof Function === false
+ * instanceof Object === false
+ * instanceof String === false
+ */
+const STRING_INSTANCE: any = String(STRING);
+
+/**
+ * typeof === 'string'
+ * instanceof Function === false
+ * instanceof Object === true
+ * instanceof String === true
+ */
+const STRING_NEW_INSTANCE: any = new String(STRING);
+
+const OBJECT_ONE: ObjectOne = {
+  'key as string': true,
+  1030405027: 'key is number',
+  5: 'key is also number',
+  [NUMBER]: 'key is number',
+  [STRING]: 'key is string',
+  [SYMBOL_NUMBER]: 'key is symbol number',
+  [SYMBOL_STRING]: 6,
+  x: 3000
+};
+
+isObject(OBJECT_ONE); // true
+isObject(OBJECT_ONE, 'key as string'); // true
+isObject(OBJECT_ONE, STRING); // true
+isObject(OBJECT_ONE, STRING_NEW_INSTANCE); // true
+isObject(OBJECT_ONE, 1030405027); // true
+isObject(OBJECT_ONE, NUMBER); // true
+isObject(OBJECT_ONE, NUMBER_NEW_INSTANCE); // true
+isObject(OBJECT_ONE, SYMBOL_NUMBER); // true
+isObject(OBJECT_ONE, SYMBOL_STRING); // true
+
+```
 
 ----
 
@@ -749,22 +792,29 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 Use `isObject()` or `is.object()` to check if **any** `value` is an `object` with its own specified keys of the [`Key`](#Key).
 
 ```typescript
-const isObjectKey: IsObjectKey = <Type extends object>(value: any, key: Key | Key[]): value is Type =>
-  isObject<Type>(value) ?
-    isArray(key) ?
-      key.every(k => isKey(k) ? ({}).hasOwnProperty.call(value, k) === true : false)
-    : isKey(key) ?
-        ({}).hasOwnProperty.call(value, key)
-      : false
-  : false;
+const isObjectKey: IsObjectKey = <Type extends object>(
+  value: any,
+  key: Key | Key[],
+  callback: ResultCallback = resultCallback
+): value is Type =>
+  callback(
+    isObject<Type>(value) ?
+      isArray(key) ?
+        key.every(k => isKey(k) ? ({}).hasOwnProperty.call(value, k) === true : false)
+      : isKey(key) ?
+          ({}).hasOwnProperty.call(value, key)
+        : false
+    : false
+  );
 ```
 
 | Parameter | Type                             | Description |
 | :-------- | :------------------------------: | :---------- |
 | value     | `any`                            | Any `value` to check if it contains a specified `key` |
-| key       | [`Key`](#key) \| [`Key`](#Key)[] | A [`Key`](#Key) type or an array of [`Key`](#Key) type to check the `value` |
+| key       | [`Key`](#key) \| [`Key`](#Key)[] | A [`Key`](#Key) type or an array of [`Key`](#Key) type to check in the `value` |
+| callback  | [`ResultCallback`](#ResultCallback)=[`resultCallback`](#resultCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
 
-The **return value** is a `boolean` indicating whether or not the `value` has its own specified keys.
+The **return value** is a `boolean` indicating whether or not the `value` is an `object` with its own specified keys.
 
 ----
 
@@ -773,16 +823,20 @@ The **return value** is a `boolean` indicating whether or not the `value` has it
 Use `isPrimitive()` or `is.primitive()` to check if **any** `value` is the [`Primitive`](#Primitive) type from a `type` of the [`Primitives`](#Primitives) type.
 
 ```typescript
-const isPrimitive: IsPrimitive = <T extends Primitive>(value: any, type: Primitives): value is T => {
+const isPrimitive: IsPrimitive = <T extends Primitive>(
+  value: any,
+  type: Primitives,
+  callback: ResultCallback = resultCallback
+): value is T => {
   if (isString(type)) {
     switch (type) {
-      case 'bigint': return isBigInt(value);
-      case 'boolean': return isBoolean(value);
-      case 'number': return isNumber(value);
-      case 'null': return isNull(value);
-      case 'string': return isString(value);
-      case 'symbol': return isSymbol(value);
-      case 'undefined': return isUndefined(value);
+      case 'bigint': return isBigInt(value, callback);
+      case 'boolean': return isBoolean(value, callback);
+      case 'number': return isNumber(value, callback);
+      case 'null': return isNull(value, callback);
+      case 'string': return isString(value, callback);
+      case 'symbol': return isSymbol(value, callback);
+      case 'undefined': return isUndefined(value, callback);
     }
   }
   return false;
@@ -792,7 +846,8 @@ const isPrimitive: IsPrimitive = <T extends Primitive>(value: any, type: Primiti
 | Parameter | Type                        | Description |
 | :-------- | :-------------------------: | :---------- |
 | value     | `any`                       | Any `value` to check if it's a `Primitive` from the `type` |
-| type      | [`Primitives`](#Primitives) | A `string` name of the type from the [`Primitives`](#Primitives) to check the `value` |
+| type      | [`Primitives`](#Primitives) | A `string` type from the [`Primitives`](#Primitives) to check the `value` |
+| callback  | [`ResultCallback`](#ResultCallback)=[`resultCallback`](#resultCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `type` from the [`Primitives`](#Primitives).
 
@@ -802,10 +857,10 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 ### isString
 
-Use `isString()` or `is.string()` to check if **any** `value` is a `string` type, not instance of `Object` and `String` or `object` type and instance of `String` and `Object`.
+Use `isString()` or `is.string()` to check if **any** `value` is a `string` type, not instance of [`Object`][Object] and [`String`][String] or `object` type and instance of [`String`][String] and [`Object`][Object].
 
 ```typescript
-const isString: IsString = (value: any, callback: ResultCallback = errorCallback): value is string =>
+const isString: IsString = (value: any, callback: ResultCallback = resultCallback): value is string =>
   callback(typeOf(value) === 'string' && (isStringObject(value) || isStringType(value)));
 ```
 
@@ -823,14 +878,14 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 Use `isStringObject()` or `is.stringObject()` to check if **any** `value` is an `object` type and instance of [`String`][String] and [`Object`][Object].
 
 ```typescript
-const isStringObject: IsStringObject = (value: any, callback: ResultCallback = errorCallback): value is string =>
+const isStringObject: IsStringObject = (value: any, callback: ResultCallback = resultCallback): value is string =>
   callback(value instanceof Object === true && value instanceof String === true && typeof value === 'object');
 ```
 
 | Parameter |       Type                          | Description |
 | :-------- | :---------------------------------: | :---------- |
 | value     | `any`                               | Any `value` to check |
-| callback  | [`ResultCallback`](#ResultCallback)=[`errorCallback`](#errorCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#ResultCallback)=[`resultCallback`](#resultCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a [`String`][String] instance.
 
@@ -841,14 +896,14 @@ The **return value** is a `boolean` indicating whether or not the `value` is a [
 Use `isStringObject()` or `is.stringObject()` to check if **any** `value` is a `string` type and **not** instance of [`String`][String] and [`Object`][Object].
 
 ```typescript
-const isStringType: IsStringType = (value: any, callback: ResultCallback = errorCallback): value is string =>
+const isStringType: IsStringType = (value: any, callback: ResultCallback = resultCallback): value is string =>
   callback(value instanceof Object === false && value instanceof String === false && typeof value === 'string');
 ```
 
 | Parameter | Type                                | Description |
 | :-------- | :---------------------------------: | :---------- |
 | value     | `any`                               | Any `value` to check |
-| callback  | [`ResultCallback`](#ResultCallback)=[`errorCallback`](#errorCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#ResultCallback)=[`resultCallback`](#resultCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `string`.
 
@@ -859,14 +914,14 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 Use `isSymbol()` or `is.symbol()` to check if **any** `value` is a `symbol` type.
 
 ```typescript
-const isSymbol: IsSymbol = (value: any): value is symbol =>
-  typeOf(value) === 'symbol' &&
-  typeof value === 'symbol';
+const isSymbol: IsSymbol = (value: any, callback: ResultCallback = resultCallback): value is symbol =>
+  callback(typeOf(value) === 'symbol' && typeof value === 'symbol');
 ```
 
 | Parameter | Type  | Description |
 | :-------- | :---: | :---------- |
 | value     | `any` | Any `value` to check |
+| callback  | [`ResultCallback`](#ResultCallback)=[`resultCallback`](#resultCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `symbol`.
 
@@ -918,21 +973,36 @@ The **return value** is a `boolean` indicating whether or not the `value` is the
 Use `isUndefined()` or `is.undefined()` to check if **any** `value` is an `undefined` type and equal to `undefined`.
 
 ```typescript
-const isUndefined: IsUndefined = (value: any): value is undefined =>
-  typeOf(value) === 'undefined' &&
-  typeof value === 'undefined' &&
-  value === undefined;
+const isUndefined: IsUndefined = (value: any, callback: ResultCallback = resultCallback): value is undefined =>
+  callback(typeOf(value) === 'undefined' && typeof value === 'undefined' && value === undefined);
 ```
 
 | Parameter | Type  | Description |
 | :-------- | :---: | :---------- |
 | value     | `any` | Any `value` to check |
+| callback  | [`ResultCallback`](#ResultCallback)=[`resultCallback`](#resultCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is `undefined`.
 
 [Example usage on playground][is-undefined] | [How to detect `undefined` type][detect-undefined]
 
 ----
+
+### isNot
+
+Object `isNot` with all **check is not** functions.
+
+```typescript
+const isNot: IsNot = {
+  boolean: isNotBoolean,
+  defined: isNotDefined,
+  function: isNotFunction,
+  null: isNotNull,
+  number: isNotNumber,
+  string: isNotString,
+  undefined: isNotUndefined
+};
+```
 
 ### isNotBoolean
 
@@ -1056,6 +1126,27 @@ const isNotUndefined: IsNotUndefined = (value: unknown): boolean =>
 | value     | `unknown` | An Unknown `value` to check. |
 
 ## Guard
+
+### guard
+
+Object `guard` with all **guard** functions.
+
+```typescript
+const guardIs: GuardIs = {
+  array: guardArray,
+  function: guardFunction,
+  number: guardNumber,
+  objectKey: guardObjectKey,
+  object: guardObject,
+  primitive: guardPrimitive,
+  string: guardString,
+  type: guardType
+};
+const guard: Guard = {
+  is: guardIs
+};
+
+```
 
 ### guardArray
 
