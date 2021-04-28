@@ -22,6 +22,12 @@ describe(`isNumberObject`, () => {
 
   // Checks ...
   describe(`checks`, () => {
+    it('callback', () => {
+      isNumberObject(NUMBER_NEW_INSTANCE, (result: boolean) => {
+        expect(result).toBe(TRUE);
+        return result;
+      });
+    });
     // ... arrays.
     describe(`array`, () => {
       // it(`${FUNCTION}`, () => expect(isNumberObject(FUNCTION, 'function')).toBe(FALSE));

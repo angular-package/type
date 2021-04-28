@@ -27,12 +27,20 @@ describe('isBoolean', () => {
     expect(isBoolean(TRUE_INSTANCE)).toBe(TRUE);
     expect(isBoolean(Boolean(false))).toBe(TRUE);
     expect(isBoolean(Boolean(true))).toBe(TRUE);
+    isBoolean(FALSE, (result: boolean) => {
+      expect(result).toBe(TRUE);
+      return result;
+    });
   });
 
   // FALSE
   it(`'bigint'`, () => {
     expect(isBoolean(BIGINT)).toBe(FALSE);
     expect(isBoolean(BIGINT_INSTANCE)).toBe(FALSE);
+    isBoolean(BIGINT, (result: boolean) => {
+      expect(result).toBe(FALSE);
+      return result;
+    });
   });
   it(`Class | CLASS`, () => {
     expect(isBoolean(Class)).toBe(FALSE);

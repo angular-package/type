@@ -18,6 +18,12 @@ describe(`isKey`, () => {
 
   // Checks ...
   describe(`checks`, () => {
+    it('callback', () => {
+      isKey('test', (result: boolean) => {
+        expect(result).toBe(TRUE);
+        return result;
+      });
+    });
     // ... arrays.
     describe(`array`, () => {
       // it(`${FUNCTION}`, () => expect(isKey(FUNCTION, 'function')).toBe(FALSE));

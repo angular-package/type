@@ -22,6 +22,13 @@ describe(`isObject`, () => {
 
   // Checks ...
   describe(`checks`, () => {
+    it('callback', () => {
+      // isObject(OBJECT_ONE, (result: boolean) => {
+      //   expect(result).toBe(TRUE);
+      //   return result;
+      // });
+    });
+
     // ... arrays.
     describe(`array`, () => {
       // it(`${FUNCTION}`, () => expect(isObject(FUNCTION, 'function')).toBe(FALSE));

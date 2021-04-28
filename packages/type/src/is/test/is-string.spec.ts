@@ -23,6 +23,13 @@ describe(`isString`, () => {
 
   // Checks ...
   describe(`checks`, () => {
+    it('callback', () => {
+      isString(STRING, (result: boolean) => {
+        expect(result).toBe(TRUE);
+        return result;
+      });
+    });
+
     // ... arrays.
     describe(`array`, () => {
       // it(`${FUNCTION}`, () => expect(isString(FUNCTION, 'function')).toBe(FALSE));

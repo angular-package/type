@@ -18,6 +18,12 @@ describe(`isObjectKey`, () => {
 
   // Checks ...
   describe(`checks`, () => {
+    it('callback', () => {
+      isObjectKey(CLASS, ['firstName', 'surname'], (result: boolean) => {
+        expect(result).toBe(TRUE);
+        return result;
+      });
+    });
     // ... instance.
     describe(`instance`, () => {
       describe(`CLASS`, () => {

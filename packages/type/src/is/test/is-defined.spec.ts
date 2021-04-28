@@ -28,6 +28,10 @@ describe('isDefined', () => {
     expect(isDefined(TRUE_INSTANCE)).toBe(TRUE);
     expect(isDefined(Boolean(false))).toBe(TRUE);
     expect(isDefined(Boolean(true))).toBe(TRUE);
+    isDefined(FALSE, (result: boolean) => {
+      expect(result).toBe(TRUE);
+      return result;
+    });
   });
   it(`'bigint'`, () => {
     expect(isDefined(BIGINT)).toBe(TRUE);
@@ -65,5 +69,9 @@ describe('isDefined', () => {
   it(`'undefined'`, () => {
     expect(isDefined(notDefined)).toBe(FALSE);
     expect(isDefined(UNDEFINED)).toBe(FALSE);
+    isDefined(UNDEFINED, (result: boolean) => {
+      expect(result).toBe(FALSE);
+      return result;
+    });
   });
 });

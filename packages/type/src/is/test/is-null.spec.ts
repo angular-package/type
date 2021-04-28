@@ -20,6 +20,10 @@ describe('isNull', () => {
   it(`null | NULL`, () => {
     expect(isNull(null)).toBe(TRUE);
     expect(isNull(NULL)).toBe(TRUE);
+    isNull(NULL, (result: boolean) => {
+      expect(result).toBe(TRUE);
+      return result;
+    });
   });
 
   // FALSE

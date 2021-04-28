@@ -27,6 +27,10 @@ describe('isFunction', () => {
     expect(isFunction(TRUE_INSTANCE)).toBe(FALSE);
     expect(isFunction(Boolean(false))).toBe(FALSE);
     expect(isFunction(Boolean(true))).toBe(FALSE);
+    isFunction(TRUE, (result: boolean) => {
+      expect(result).toBe(FALSE);
+      return result;
+    });
   });
   it(`'bigint'`, () => {
     expect(isFunction(BIGINT)).toBe(FALSE);

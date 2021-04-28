@@ -22,6 +22,10 @@ describe('isBigInt', () => {
   it(`'bigint'`, () => {
     expect(isBigInt(BIGINT)).toBe(TRUE);
     expect(isBigInt(BIGINT_INSTANCE)).toBe(TRUE);
+    isBigInt(BIGINT_INSTANCE, (result: boolean) => {
+      expect(result).toBe(TRUE);
+      return result;
+    });
   });
 
   // FALSE
@@ -30,6 +34,10 @@ describe('isBigInt', () => {
     expect(isBigInt(TRUE)).toBe(FALSE);
     expect(isBigInt(FALSE_INSTANCE)).toBe(FALSE);
     expect(isBigInt(TRUE_INSTANCE)).toBe(FALSE);
+    isBigInt(FALSE, (result: boolean) => {
+      expect(result).toBe(FALSE);
+      return result;
+    });
   });
   it(`Class | CLASS`, () => {
     expect(isBigInt(Class)).toBe(FALSE);

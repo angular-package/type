@@ -24,6 +24,12 @@ describe(`isNumberType`, () => {
 
   // Checks ...
   describe(`checks`, () => {
+    it('callback', () => {
+      isNumberType(NUMBER, (result: boolean) => {
+        expect(result).toBe(TRUE);
+        return result;
+      });
+    });
     // ... arrays.
     describe(`array`, () => {
       // it(`${FUNCTION}`, () => expect(isNumberType(FUNCTION, 'function')).toBe(FALSE));
