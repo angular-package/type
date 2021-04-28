@@ -1,3 +1,6 @@
+// Function.
+import { isNumber } from '../lib/is-number.func';
+// Type.
 import { BIGINT, BIGINT_INSTANCE } from './variables/big-int.const';
 import { CLASS, Class } from './variables/class.const';
 import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE } from './variables/boolean.const';
@@ -8,7 +11,6 @@ import { OBJECT_ONE, OBJECT_TWO } from './variables/object.const';
 import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from './variables/string.const';
 import { SYMBOL_NUMBER, SYMBOL_STRING } from './variables/symbol.const';
 import { UNDEFINED } from './variables/undefined.const';
-import { isNumber } from '../lib/is-number.func';
 import { notDefined } from './variables/not-defined.const';
 /**
  * Checks

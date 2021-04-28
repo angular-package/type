@@ -59,7 +59,7 @@ describe(`isNumberType`, () => {
       });
 
       // null
-      it(`${NULL}`, () => expect(isNumberType(NULL)).toBe(FALSE))
+      it(`${NULL}`, () => expect(isNumberType(NULL)).toBe(FALSE));
 
       // number
       describe(`number`, () => {

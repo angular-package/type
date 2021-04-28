@@ -57,7 +57,7 @@ describe(`isNumberObject`, () => {
       });
 
       // null
-      it(`${NULL}`, () => expect(isNumberObject(NULL)).toBe(FALSE))
+      it(`${NULL}`, () => expect(isNumberObject(NULL)).toBe(FALSE));
 
       // number
       describe(`number`, () => {
