@@ -64,4 +64,4 @@ export {
 } from './is/not';
 
 // Types.
-export { Constructor, CycleHook, Func, Primitive, Primitives, Types } from './type';
+export { Constructor, CycleHook, Func, Key, Primitive, Primitives, ResultCallback, Type, Types } from './type';
