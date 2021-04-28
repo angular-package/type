@@ -74,9 +74,9 @@ describe(`isSymbol`, () => {
       });
       // string
       describe(`string`, () => {
-        it(`${STRING}`, () => expect(isSymbol(STRING)).toBe(TRUE));
-        it(`String(${STRING})`, () => expect(isSymbol(STRING_INSTANCE)).toBe(TRUE));
-        it(`new String(${STRING})`, () => expect(isSymbol(STRING_NEW_INSTANCE)).toBe(TRUE));
+        it(`${STRING}`, () => expect(isSymbol(STRING)).toBe(FALSE));
+        it(`String(${STRING})`, () => expect(isSymbol(STRING_INSTANCE)).toBe(FALSE));
+        it(`new String(${STRING})`, () => expect(isSymbol(STRING_NEW_INSTANCE)).toBe(FALSE));
       });
       // symbol
       describe(`symbol`, () => {
