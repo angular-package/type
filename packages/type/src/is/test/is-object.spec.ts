@@ -22,12 +22,12 @@ describe(`isObject`, () => {
 
   // Checks ...
   describe(`checks`, () => {
-    it('callback', () => {
+    // it('callback', () => {
       // isObject(OBJECT_ONE, (result: boolean) => {
       //   expect(result).toBe(TRUE);
       //   return result;
       // });
-    });
+    // });
 
     // ... arrays.
     describe(`array`, () => {
