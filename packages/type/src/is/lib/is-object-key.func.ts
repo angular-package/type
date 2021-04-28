@@ -2,11 +2,11 @@
 import { isArray } from './is-array.func';
 import { isKey } from './is-key.func';
 import { isObject } from './is-object.func';
+import { resultCallback } from '../../lib/result-callback.func';
 // Type.
 import { IsObjectKey } from '../type/is-object-key.type';
 import { Key } from '../../type/key.type';
 import { ResultCallback } from '../../type/result-callback.type';
-import { resultCallback } from '../../lib/result-callback.func';
 /**
  * Checks if any `value` is an `object` with its own specified `key` of the `Key` type.
  * @param value Any `value` to check if it contains a specified `key`.
