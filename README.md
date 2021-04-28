@@ -21,7 +21,7 @@ Common types, type guards and type checkers.
 [![GitHub license](https://img.shields.io/github/license/angular-package/type)](https://github.com/angular-package/type/blob/main/LICENSE)
 
 ```typescript
-// Guard prefix functions.
+// `guard` prefix functions.
 import { 
   guardArray,
   guardFunction,
@@ -35,7 +35,7 @@ import {
 ```
 
 ```typescript
-// Check is prefix functions.
+// Check `is` prefix functions.
 import {
   isArray,
   isBigInt,
@@ -60,12 +60,12 @@ import {
   isType,
   isUndefined
 } from '@angular-package/type';
-// Check are prefix functions.
+// Check `are` prefix functions.
 import { areString } from '@angular-package/type';
 ```
 
 ```typescript
-// Check isNot prefix functions.
+// Check `isNot` prefix functions.
 import {
   isNotBoolean,
   isNotDefined,
@@ -84,7 +84,7 @@ import { are, guard, is, isNot } from '@angular-package/type';
 
 ```typescript
 // Types.
-import { Constructor, CycleHook, Func, Primitive, Primitives, Types } from '@angular-package/type';
+import { Constructor, CycleHook, Func, Key, Primitive, Primitives, ResultCallback, Type, Types } from '@angular-package/type';
 ```
 
 ## Features
