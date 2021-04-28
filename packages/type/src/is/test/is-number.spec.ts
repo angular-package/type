@@ -27,6 +27,10 @@ describe('isNumber', () => {
     expect(isNumber(NUMBER)).toBe(TRUE);
     expect(isNumber(NUMBER_INSTANCE)).toBe(TRUE);
     expect(isNumber(NUMBER_NEW_INSTANCE)).toBe(TRUE);
+    isNumber(NUMBER_NEW_INSTANCE, (result: boolean) => {
+      expect(result).toBe(TRUE);
+      return result;
+    });
   });
 
   // FALSE
