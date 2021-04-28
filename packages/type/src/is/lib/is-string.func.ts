@@ -1,6 +1,7 @@
-import { resultCallback } from '../../lib/result-callback.func';
+// Function.
 import { isStringObject } from './is-string-object.func';
 import { isStringType } from './is-string-type.func';
+import { resultCallback } from '../../lib/result-callback.func';
 import { typeOf } from '../../lib/type-of.func';
 // Type.
 import { IsString } from '../type/is-string.type';
