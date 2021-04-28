@@ -58,7 +58,7 @@ describe(`isString`, () => {
       });
 
       // null
-      it(`${NULL}`, () => expect(isString(NULL)).toBe(FALSE))
+      it(`${NULL}`, () => expect(isString(NULL)).toBe(FALSE));
 
       // number
       describe(`number`, () => {
