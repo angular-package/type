@@ -161,13 +161,13 @@ npm i --save @angular-package/type
 
 ## resultCallback
 
-Default function to handle `callback` parameter.
+Default function to handle `callback`.
 
 ```typescript
 const resultCallback: ResultCallback = (result: boolean): boolean => result;
 ```
 
-Custom function to handle `callback` parameter.
+Custom function to handle `callback`.
 
 ```typescript
 const customCallback: ResultCallback = (result: boolean): boolean => {
@@ -1154,13 +1154,20 @@ Object `guard` with all **guard** functions.
 ```typescript
 const guardIs: GuardIs = {
   array: guardArray,
+  bigint: guardBigInt,
+  boolean: guardBoolean,
   function: guardFunction,
+  instance: guardInstance,
+  key: guardKey,
   number: guardNumber,
-  objectKey: guardObjectKey,
+  null: guardNull,
   object: guardObject,
+  objectKey: guardObjectKey,
   primitive: guardPrimitive,
   string: guardString,
-  type: guardType
+  symbol: guardSymbol,
+  type: guardType,
+  undefined: guardUndefined
 };
 const guard: Guard = {
   is: guardIs
