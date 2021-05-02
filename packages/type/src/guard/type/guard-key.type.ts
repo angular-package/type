@@ -1,2 +1,3 @@
 import { Key } from '../../type/key.type';
-export type GuardKey = (value: Key) => boolean;
+import { ResultCallback } from '../../type/result-callback.type';
+export type GuardKey = (value: Key, callback?: ResultCallback) => boolean;
