@@ -14,4 +14,4 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @returns A `boolean` indicating whether or not the `value` is a `string`.
  */
 export const isString: IsString = (value: any, callback: ResultCallback = resultCallback): value is string =>
-  callback(typeOf(value) === 'string' && (isStringObject(value) || isStringType(value)));
+  callback(typeOf(value) === 'string' && (isStringType(value) || isStringObject(value)));
