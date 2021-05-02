@@ -8,13 +8,20 @@ export { guard } from './guard';
 // `guard` functions.
 export {
   guardArray,
+  guardBigInt,
+  guardBoolean,
   guardFunction,
+  guardInstance,
+  guardKey,
+  guardNull,
   guardNumber,
   guardObject,
   guardObjectKey,
   guardPrimitive,
   guardString,
-  guardType
+  guardSymbol,
+  guardType,
+  guardUndefined
 } from './guard';
 
 // `are` object and functions.
