@@ -930,16 +930,16 @@ The **return value** is a `boolean` indicating whether or not the `value` is a [
 
 ### isStringType
 
-Use `isStringObject()` or `is.stringObject()` to check if **any** `value` is a `string` type and **not** instance of [`String`][String] and [`Object`][Object].
+Use `isStringType()` or `is.stringType()` to check if **any** `value` is a `string` type and **not** instance of [`String`][String] and [`Object`][Object].
 
 ```typescript
 const isStringType: IsStringType = (value: any, callback: ResultCallback = resultCallback): value is string =>
   callback(value instanceof Object === false && value instanceof String === false && typeof value === 'string');
 ```
 
-| Parameter | Type                                | Description          |
-| :-------- | :---------------------------------: | :------------------- |
-| value     | `any`                               | Any `value` to check |
+| Parameter | Type                                                                    | Description          |
+| :-------- | :---------------------------------------------------------------------: | :------------------- |
+| value     | `any`                                                                   | Any `value` to check |
 | callback  | [`ResultCallback`](#ResultCallback)=[`resultCallback`](#resultCallback) | [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `string`.
@@ -1451,7 +1451,7 @@ const guardSymbol: GuardSymbol = (value: symbol, callback?: ResultCallback): val
 
 | Parameter | Type                                | Description                    |
 | :-------- | :---------------------------------: | :----------------------------- |
-| value     | `null`                              | A `null` type `value` to guard |
+| value     | `symbol`                            | A `symbol` type `value` to guard |
 | callback? | [`ResultCallback`](#ResultCallback) | Optional [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `symbol`.
