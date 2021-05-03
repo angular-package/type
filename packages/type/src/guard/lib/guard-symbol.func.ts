@@ -1,6 +1,5 @@
 // Function.
 import { isSymbol } from '../../is/lib/is-symbol.func';
-import { resultCallback } from '../../lib/result-callback.func';
 // Type.
 import { GuardSymbol } from '../type/guard-symbol.type';
 import { ResultCallback } from '../../type/result-callback.type';
