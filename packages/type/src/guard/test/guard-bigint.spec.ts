@@ -2,13 +2,13 @@
 import { guardBigInt } from '../lib/guard-big-int.func';
 // Variables.
 import { BIGINT, BIGINT_EXPECTATION, BIGINT_INSTANCE } from '../../is/test/variables/big-int.const';
-import { Class, CLASS } from '../../is/test/variables/class.const';
-import { FUNCTION } from '../../is/test/variables/function.const';
+// import { Class, CLASS } from '../../is/test/variables/class.const';
+// import { FUNCTION } from '../../is/test/variables/function.const';
 import { NULL } from '../../is/test/variables/null.const';
 import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../is/test/variables/number.const';
-import { OBJECT_ONE, OBJECT_TWO, OBJECT_ONE_NEW, OBJECT_TWO_NEW } from '../../is/test/variables/object.const';
+// import { OBJECT_ONE, OBJECT_TWO, OBJECT_ONE_NEW, OBJECT_TWO_NEW } from '../../is/test/variables/object.const';
 import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../is/test/variables/string.const';
-import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../is/test/variables/symbol.const';
+// import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../is/test/variables/symbol.const';
 import { TRUE, FALSE, FALSE_EXPECTATION, TRUE_EXPECTATION, TRUE_INSTANCE, FALSE_INSTANCE } from '../../is/test/variables/boolean.const';
 import { UNDEFINED } from '../../is/test/variables/undefined.const';
 
@@ -20,7 +20,7 @@ describe(`guardBigInt`, () => {
   describe(`checks`, () => {
     it('callback', () => {
       guardBigInt(STRING, (result: boolean) => {
-        expect(result).toBe(TRUE);
+        expect(result).toBe(FALSE);
         return result;
       });
     });
@@ -32,23 +32,23 @@ describe(`guardBigInt`, () => {
     });
     // ... function.
     describe(`function`, () => {
-      it(`FUNCTION`, () => expect(guardBigInt(FUNCTION)).toBe(FALSE));
-      it(`Class`, () => expect(guardBigInt(Class)).toBe(FALSE));
+      // it(`FUNCTION`, () => expect(guardBigInt(FUNCTION)).toBe(FALSE));
+      // it(`Class`, () => expect(guardBigInt(Class)).toBe(FALSE));
     });
     // ... objects.
     describe('object', () => {
-      it(`CLASS`, () => expect(guardBigInt(CLASS)).toBe(FALSE));
-      it(`OBJECT_ONE`, () => expect(guardBigInt(OBJECT_ONE)).toBe(FALSE));
-      it(`OBJECT_TWO`, () => expect(guardBigInt(OBJECT_TWO)).toBe(FALSE));
-      it(`new Object(OBJECT_ONE_NEW})`, () => expect(guardBigInt(OBJECT_ONE_NEW)).toBe(FALSE));
-      it(`new Object(OBJECT_TWO_NEW})`, () => expect(guardBigInt(OBJECT_TWO_NEW)).toBe(FALSE));
+      // it(`CLASS`, () => expect(guardBigInt(CLASS)).toBe(FALSE));
+      // it(`OBJECT_ONE`, () => expect(guardBigInt(OBJECT_ONE)).toBe(FALSE));
+      // it(`OBJECT_TWO`, () => expect(guardBigInt(OBJECT_TWO)).toBe(FALSE));
+      // it(`new Object(OBJECT_ONE_NEW})`, () => expect(guardBigInt(OBJECT_ONE_NEW)).toBe(FALSE));
+      // it(`new Object(OBJECT_TWO_NEW})`, () => expect(guardBigInt(OBJECT_TWO_NEW)).toBe(FALSE));
     });
     // ... primitives.
     describe(`primitive`, () => {
       // bigint
       describe(`bigint`, () => {
-        it(`${BIGINT}`, () => expect(guardBigInt(BIGINT)).toBe(FALSE));
-        it(`${BIGINT_EXPECTATION}`, () => expect(guardBigInt(BIGINT_INSTANCE)).toBe(FALSE));
+        it(`${BIGINT}`, () => expect(guardBigInt(BIGINT)).toBe(TRUE));
+        it(`${BIGINT_EXPECTATION}`, () => expect(guardBigInt(BIGINT_INSTANCE)).toBe(TRUE));
       });
 
       // boolean
@@ -70,14 +70,14 @@ describe(`guardBigInt`, () => {
       });
       // string
       describe(`string`, () => {
-        it(`${STRING}`, () => expect(guardBigInt(STRING)).toBe(TRUE));
-        it(`String(${STRING})`, () => expect(guardBigInt(STRING_INSTANCE)).toBe(TRUE));
-        it(`new String(${STRING})`, () => expect(guardBigInt(STRING_NEW_INSTANCE)).toBe(TRUE));
+        it(`${STRING}`, () => expect(guardBigInt(STRING)).toBe(FALSE));
+        it(`String(${STRING})`, () => expect(guardBigInt(STRING_INSTANCE)).toBe(FALSE));
+        it(`new String(${STRING})`, () => expect(guardBigInt(STRING_NEW_INSTANCE)).toBe(FALSE));
       });
       // symbol
       describe(`symbol`, () => {
-        it(`Symbol(${NUMBER})`, () => expect(guardBigInt(SYMBOL_NUMBER)).toBe(FALSE));
-        it(`Symbol(${STRING})`, () => expect(guardBigInt(SYMBOL_STRING)).toBe(FALSE));
+        // it(`Symbol(${NUMBER})`, () => expect(guardBigInt(SYMBOL_NUMBER)).toBe(FALSE));
+        // it(`Symbol(${STRING})`, () => expect(guardBigInt(SYMBOL_STRING)).toBe(FALSE));
       });
       // undefined
       it(`${UNDEFINED}`, () => expect(guardBigInt(UNDEFINED)).toBe(FALSE));
