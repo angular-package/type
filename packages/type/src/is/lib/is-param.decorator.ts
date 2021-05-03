@@ -1,7 +1,7 @@
 import { Func } from '../../type/func.type';
 import { is } from './is.object';
 
-export function isParam<Type>(...param: Array<string>): MethodDecorator {
+export function isParam(...param: Array<string>): MethodDecorator {
   return (target: Func | object, key: string | symbol, descriptor: any): any => {
     const originalMethod = descriptor.value;
 
