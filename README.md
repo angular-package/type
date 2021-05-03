@@ -24,13 +24,20 @@ Common types, type guards and type checkers.
 // `guard` prefix functions.
 import { 
   guardArray,
+  guardBigInt,
+  guardBoolean,
   guardFunction,
+  guardInstance,
+  guardKey,
+  guardNull,
   guardNumber,
   guardObject,
   guardObjectKey,
   guardPrimitive,
   guardString,
-  guardType
+  guardSymbol,
+  guardType,
+  guardUndefined
 } from '@angular-package/type'; 
 ```
 
@@ -91,48 +98,62 @@ import { Constructor, CycleHook, Func, Key, Primitive, Primitives, ResultCallbac
 
 * Checks if
   * **any** value is
-    * an `Array` of any type with [isArray](#isArray).
-    * a `'bigint'` type with [isBigInt](#isBigInt).
-    * a `'boolean'` type with [isBoolean](#isBoolean).
-    * a `function` type with [isFunction](#isFunction).
-    * a generic type `instance` with [isInstance](#isInstance).
-    * a `null` type with [isNull](#isNull).
-    * a `number` type with [isNumber](#isNumber).
-    * a generic type `'object'` with [isObject](#isObject).
-    * a one of the primitive `boolean`, `bigint`, `number`, `string` type with [isPrimitive](#isPrimitive).
-    * a `string` type with [isString](#isString).
-    * a `symbol` type with [isSymbol](#isSymbol).
-    * a generic type instance, `'function'`, `'object'` or primitive type with [isType](#isType).
-    * a `'undefined'` type with [isUndefined](#isUndefined).
+    * an `Array` of any type with [`isArray`](#isArray).
+    * a `bigint` type with [`isBigInt`](#isBigInt).
+    * a `boolean` with [`isBoolean`](#isBoolean).
+    * an `object`type and instance of [`Boolean`][Boolean] and [`Object`][Object] with [`isBooleanObject`](#isBooleanObject).
+    * a `boolean` type not an instance of [`Boolean`][Boolean] and [`Object`][Object], and equal to `true` or `false` with [`isBooleanType`](#isBooleanType).
+    * a `function` with [`isFunction`](#isFunction).
+    * a generic type `instance` with [`isInstance`](#isInstance).
+    * a [`Key`](#Key) type with [`isKey()`](#isKey).
+    * a `null` with [isNull](#isNull).
+    * a `number` with [isNumber](#isNumber).
+    * an `object` type and instance of [`Number`][Number] and [`Object`][Object] with [`isNumberObject`](#isNumberObject).
+    * a `number` type and **not** instance of [`Number`][Number] and [`Object`][Object] with [`isNumberType`](#isNumberType).
+    * a generic type `object` with [isObject](#isObject).
+    * an `object` with its own specified [`Key`](#Key) with [`isObjectKey`](#isObjectKey).
+    * a one of the primitive `boolean`, `bigint`, `number`, `string` with [`isPrimitive`](#isPrimitive).
+    * a `string` with [isString](#isString).
+    * an `object` type and instance of [`String`][String] and [`Object`][Object].
+    * a `symbol` with [`isSymbol`](#isSymbol).
+    * a generic type instance, `function`, `object` or primitive type with [`isType`](#isType).
+    * a `undefined` type with [`isUndefined`](#isUndxefined).
   * an **unknown** value is
-    * defined with [isDefined](#isDefined).
-  * an **unknown** value is NOT
-    * a `'boolean'` type with [isNotBoolean](#isNotBoolean)
-    * a `'function'` type with [isNotFunction](#isNotFunction)
-    * a `'null'` type with [isNotNull](#isNotNull)
-    * a `'number'` type with [isNotNumber](#isNotNumber)
-    * a `'string'` type with [isNotString](#isNotString)
-    * a `'undefined'` type with [isNotUndefined](#isNotUndefined)
+    * defined with [`isDefined`](#isDefined).
+  * an **unknown** value is **not** a
+    * `boolean` type with [`isNotBoolean`](#isNotBoolean)
+    * `function` type with [`isNotFunction`](#isNotFunction)
+    * `null` type with [`isNotNull`](#isNotNull)
+    * `number` type with [`isNotNumber`](#isNotNumber)
+    * `string` type with [`isNotString`](#isNotString)
+    * `undefined` type with [`isNotUndefined`](#isNotUndefined)
 * Guard the value to be
-  * an `Array` of generic type with [guardArray](#guardArray).
-  * a `function` type with [guardFunction](#guardFunction).
-  * a `number` type with [guardNumber](#guardNumber).
-  * a generic `'object'` type that contains `key` with [guardObjectKey](#guardObjectKey).
-  * a generic `'object'` type with [guardObject](#guardObject).
-  * a one of the `Primitives` with [guardPrimitive](#guardPrimitive).
-  * a `string` type with [guardString](#guardString).
-  * a generic type from one of the [`Types`](#types) type with [Type guard](#guardType).
+  * an [`Array`][Array] of a generic type with [`guardArray`](#guardArray).
+  * a `bigint` with [`guardBigInt()`](#guardBigInt).
+  * a `boolean` with [`guardBoolean()`](#guardBoolean).
+  * a `function` type with [`guardFunction`](#guardFunction).
+  * an instance with [`guardInstance()`](#guardInstance).
+  * a `null` with [`guardNull`](#guardNull).
+  * a [`Key`](#Key) with [`guardKey`](#guardKey).
+  * a `number` with [`guardNumber()`](#guardNumber).
+  * an `object` of a generic type with [`guardObject`](#guardObject).
+  * an `object` of a generic type that contains `key` with [`guardObjectKey`](#guardObjectKey).
+  * a one of the [`Primitives`](#Primitives) with [`guardPrimitive`](#guardPrimitive).
+  * a `string` with [`guardString`](#guardString).
+  * a `symbol` with [`guardSymbol`](#guardSymbol).
+  * a generic type from one of the [`Types`](#types) type with [`Type guard`](#guardType).
+  * `undefined` with [`guardUndefined`](#guardUndefined).
 
 ## How angular-package understands
 
 Check
-> Is to check the return value to be **the same** as **expected**.
+> Is to check the inputted value to be **the same** as **expected**.
 
 Type guard
-> Is to guard type from parameter to **not let** input **unexpected** value in the **code editor**.
+> Is to guard the parameter type to **not let** input **unexpected** value in the **code editor**.
 
 Guard
-> Is a **combination** of both above to **guard type** inputted value in the **code editor** and to check it.
+> Is a **combination** of both above to **guard type** in the **code editor** and to check inputted value.
 
 ----
 
@@ -143,6 +164,14 @@ Guard
   * [is](#is)
   * [isNot](#isNot)
 * [Guard](#guard)
+* [Experimental](#Experimental)
+  * [BigIntObject](#BigIntObject)
+  * [BooleanObject](#BooleanObject)
+  * [NumberObject](#NumberObject)
+  * [PrimitiveObject](#PrimitiveObject)
+  * [StringObject](#StringObject)
+  * [SymbolObject](#SymbolObject)
+  * [isParam](#isParam)
 * [Common types](#common-types)
 * [Git](#git)
   * [Commit](#commit)
@@ -185,13 +214,15 @@ const stringResult = isString('Lorem ipsum', customCallback);
 
 ### are
 
-Object `are` with some of  **check are** functions.
+Tne object contains prefixed with `are` functions.
 
 ```typescript
 const are: Are = {
   string: areString
 };
 ```
+
+----
 
 ### areString
 
@@ -213,7 +244,7 @@ The **return value** is a `boolean` value.
 
 ### is
 
-Object `is` with all **check is** functions and **check is not** in `not` property.
+The object contains prefixed with `is` functions and prefixed with `isNot` functions in property `not`.
 
 ```typescript
 const is: Is = {
@@ -243,6 +274,8 @@ const is: Is = {
   undefined: isUndefined
 };
 ```
+
+----
 
 ### isArray
 
@@ -643,7 +676,7 @@ isNumberObject(NUMBER_NEW_INSTANCE); // true
 
 ### isNumberType
 
-Use `isNumberType()` or `is.numberType()` to check if **any** `value` is a `number` type not an instance of [`Number`][Number] and [`Object`][Object] or `object` type instance of [`Number`][Number] and [`Object`][Object].
+Use `isNumberType()` or `is.numberType()` to check if **any** `value` is a `number` type not an instance of [`Number`][Number] and [`Object`][Object].
 
 ```typescript
 const isNumberType: IsNumberType = (value: any, callback: ResultCallback = resultCallback): value is number =>
@@ -864,7 +897,7 @@ Use `isString()` or `is.string()` to check if **any** `value` is a `string` type
 
 ```typescript
 const isString: IsString = (value: any, callback: ResultCallback = resultCallback): value is string =>
-  callback(typeOf(value) === 'string' && (isStringObject(value) || isStringType(value)));
+  callback(typeOf(value) === 'string' && (isStringType(value) || isStringObject(value)));
 ```
 
 | Parameter |       Type                          | Description          |
@@ -1149,7 +1182,7 @@ The return value is a `boolean` indicating whether or not the `value` is not `un
 
 ### guard
 
-Object `guard` with all **guard** functions.
+The object contains prefixed with `guard` functions in `is` property.
 
 ```typescript
 const guardIs: GuardIs = {
@@ -1460,6 +1493,177 @@ const guardUndefined: GuardUndefined = (value: undefined, callback?: ResultCallb
 | callback  | [`ResultCallback`](#ResultCallback) | Optional [`ResultCallback`](#ResultCallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is `undefined`.
+
+----
+
+## Experimental
+
+### BigIntObject
+
+```typescript
+class BigIntObject {
+  static set set(value: any) {
+    PrimitiveObject.bigint = BigInt(value);
+  }
+  static get get(): BigInt {
+    return PrimitiveObject.bigint;
+  }
+}
+```
+
+----
+
+### BooleanObject
+
+```typescript
+class BooleanObject {
+  /**
+   * `false` when empty, 0, null, '', false
+   * `true` when 'true', 'false', 'Su Lin whatever', [], {}, true
+   */
+  static set set(value: any) {
+    PrimitiveObject.boolean = new Boolean(value);
+  }
+  static get get(): Boolean {
+    return PrimitiveObject.boolean;
+  }
+}
+```
+
+----
+
+### NumberObject
+
+```typescript
+class NumberObject {
+  static set set(value: any) {
+    PrimitiveObject.number = new Number(value);
+  }
+  static get get(): Number {
+    return PrimitiveObject.number;
+  }
+}
+```
+
+----
+
+### PrimitiveObject
+
+```typescript
+class PrimitiveObject  {
+  static bigint: BigInt;
+  static boolean: Boolean;
+  static number: Number;
+  static string: String;
+  static symbol: Symbol;
+}
+```
+
+----
+
+### StringObject
+
+```typescript
+class StringObject {
+  static set set(value: any) {
+    PrimitiveObject.string = new String(value);
+  }
+  static get get(): String {
+    return PrimitiveObject.string;
+  }
+}
+```
+
+----
+
+### SymbolObject
+
+```typescript
+class SymbolObject {
+  static set set(value: string | number | undefined) {
+    PrimitiveObject.symbol = Symbol(value);
+  }
+  static get get(): Symbol {
+    return PrimitiveObject.symbol;
+  }
+}
+```
+
+----
+
+### isParam
+
+Method decorator to check the type and return `undefined` if it's not the same as expected.
+
+```typescript
+function isParam(...param: Array<string>): MethodDecorator {
+  return (target: Func | object, key: string | symbol, descriptor: any): any => {
+    const originalMethod = descriptor.value;
+
+    descriptor.value =  function(): void {
+      if (is.array(param) && is.defined(arguments)) {
+        param.forEach((name: string, index: number) => {
+          if (is.number(index) && index < arguments.length) {
+            if (is.defined(arguments[index])) {
+              switch (name) {
+                case 'number':
+                  if (is.number(arguments[index]) === false) {
+                    arguments[index] = undefined;
+                  }
+                  break;
+                case 'object':
+                  if (is.object(arguments[index]) === false) {
+                    arguments[index] = undefined;
+                  }
+                  break;
+                case 'string':
+                  if (is.string(arguments[index]) === false) {
+                    arguments[index] = undefined;
+                  }
+                  break;
+              }
+            }
+          }
+        });
+      }
+      const result = originalMethod.apply(this, arguments);
+      return result;
+    };
+
+    return descriptor;
+  };
+}
+```
+
+Example usage.
+
+```typescript
+// Example  usage
+const STRING: any = '!@#$%^&*()abcdefghijklmnoprstuwyz';
+const NUMBER: any = 10304050;
+// TestClass
+class TestClass {
+  @isParam('object', 'string', 'number')
+  public testMethod(object?: any, firstName?: any, age?: any): { object: any, firstName: any, age: any } {
+    return {object, firstName, age};
+  }
+}
+const resultTRUE = new TestClass().testMethod({firstName: 'NoName'}, STRING, NUMBER);
+const resultFALSE = new TestClass().testMethod(NUMBER, {firstName: 'NoName'}, STRING);
+
+resultTRUE === {
+  object: {firstName: 'NoName'},
+  string: '!@#$%^&*()abcdefghijklmnoprstuwyz',
+  number: 10304050
+};
+
+resultTRUE === {
+  object: undefined,
+  string: undefined,
+  number: undefined
+};
+
+```
 
 ----
 
