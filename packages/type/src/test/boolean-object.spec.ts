@@ -1,4 +1,4 @@
-import { TRUE, TRUE_EXPECTATION, TRUE_INSTANCE } from '../is/test/variables/boolean.const';
+import { TRUE, TRUE_EXPECTATION, TRUE_INSTANCE, FALSE, FALSE_INSTANCE, FALSE_EXPECTATION } from '../is/test/variables/boolean.const';
 import { BooleanObject } from '../lib/boolean-object.class';
 
 
@@ -14,11 +14,37 @@ describe(`BooleanObject`, () => {
       // bigint
       describe(`boolean`, () => {
 
-        BooleanObject.set = TRUE;
-        it(`${TRUE}`, () => expect(BooleanObject.get).toEqual(TRUE));
+        it(`${TRUE}`, () => {
+          BooleanObject.set = TRUE;
+          expect(BooleanObject.get).not.toEqual(FALSE_INSTANCE);
+          expect(BooleanObject.get.valueOf()).toBeInstanceOf(Boolean);
+          expect(BooleanObject.get.valueOf()).toBeTruthy();
+          expect(BooleanObject.get.valueOf()).toBe(TRUE);
+        });
 
-        BooleanObject.set = TRUE_INSTANCE;
-        it(`${TRUE_EXPECTATION}`, () => expect(BooleanObject.get).toEqual(TRUE_INSTANCE));
+        it(`${TRUE_EXPECTATION}`, () => {
+          BooleanObject.set = TRUE_INSTANCE;
+          expect(BooleanObject.get.valueOf()).toBeInstanceOf(Boolean);
+          expect(BooleanObject.get.valueOf()).toBeTrue();
+          expect(BooleanObject.get.valueOf()).toBeTruthy();
+          expect(BooleanObject.get.valueOf()).toBe(TRUE);
+        });
+
+        it(`${FALSE}`, () => {
+          BooleanObject.set = FALSE;
+          expect(BooleanObject.get).not.toEqual(TRUE_INSTANCE);
+          expect(BooleanObject.get.valueOf()).toBeInstanceOf(Boolean);
+          expect(BooleanObject.get.valueOf()).toBeFalse();
+          expect(BooleanObject.get.valueOf()).toBe(FALSE);
+        });
+
+        it(`${FALSE_EXPECTATION}`, () => {
+          BooleanObject.set = FALSE_INSTANCE;
+          expect(BooleanObject.get.valueOf().valueOf()).toBeInstanceOf(Boolean);
+          expect(BooleanObject.get.valueOf().valueOf()).toBeTrue();
+          expect(BooleanObject.get.valueOf().valueOf()).toBeTruthy();
+          expect(BooleanObject.get.valueOf().valueOf()).toBe(TRUE);
+        });
       });
     });
   });
