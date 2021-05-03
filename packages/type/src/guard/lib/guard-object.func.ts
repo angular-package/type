@@ -1,9 +1,13 @@
-import { GuardObject } from '../type/guard-object.type';
+// Function.
 import { isObject } from '../../is/lib/is-object.func';
+// Type.
+import { GuardObject } from '../type/guard-object.type';
+import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Guard the `obj` value to be a generic object `Obj`.
- * Use `isObject()` function for check ONLY.
- * @param object Generic `Obj` type value to guard.
- * @returns boolean
+ * Guard the `value` to be an `object` of a generic `Obj` type.
+ * @param value A generic `Obj` type `value` to guard.
+ * @param callback Optional `ResultCallback` function to handle result before returns.
+ * @returns A `boolean` indicating whether or not the `value` is an `object` of a generic `Obj`.
  */
-export const guardObject: GuardObject = <Obj>(object: Obj): object is Obj => isObject<Obj>(object);
+export const guardObject: GuardObject = <Obj extends object>(value: Obj, callback?: ResultCallback): value is Obj =>
+  isObject<Obj>(value);

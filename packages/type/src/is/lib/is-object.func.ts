@@ -1,18 +1,18 @@
-import { isString } from './is-string.func';
-import { IsObject } from '../type/is-object.type';
+// Function.
+import { isKey } from './is-key.func';
 import { typeOf } from '../../lib/type-of.func';
+// Type.
+import { IsObject } from '../type/is-object.type';
+import { Key } from '../../type/key.type';
 /**
- * Checks if any `value` is a generic `Obj` `'object'` type and `Object` instance with the possibility of containing `key`.
- * Use the `guardObject()` function to type-guard generic object type also.
- * @param value Any `value` to check if it's a generic `'object'` type and `Object` instance.
- * @param [key] Property name to find in argument `value`.
- * @returns boolean
+ * Checks if any `value` is an `object` of a generic `Obj` type and `Object` instance with the possibility of containing the `key`.
+ * @param value Any `value` to check.
+ * @param key Property name to find in the `value`.
+ * @returns A `boolean` indicating whether or not the `value` is an `object`.
  */
-export const isObject: IsObject = <Obj>(value: any, key?: string): value is Obj =>
-  typeOf(value) === 'object' &&
-  typeof value === 'object' &&
-  value instanceof Object === true
-    ? isString(key)
+export const isObject: IsObject = <Obj = object>(value: any, key?: Key): value is Obj =>
+  (typeOf(value) === 'object' && typeof value === 'object' && value instanceof Object === true)
+    ? isKey(key)
       ? key in value
     : true
   : false;

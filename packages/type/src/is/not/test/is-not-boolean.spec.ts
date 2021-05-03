@@ -1,17 +1,17 @@
 // Function.
 import { isNotBoolean } from '../lib/is-not-boolean.func';
 // Variables.
-import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE } from '../../test/variables/boolean.const';
 import { BIGINT, BIGINT_INSTANCE } from '../../test/variables/big-int.const';
 import { Class, CLASS } from '../../test/variables/class.const';
-import { notDefined } from '../../test/variables.const';
-import { UNDEFINED } from '../../test/variables/undefined.const';
-import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../test/variables/symbol.const';
-import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../test/variables/string.const';
-import { OBJECT_ONE, OBJECT_TWO } from '../../test/variables/object.const';
-import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../test/variables/number.const';
-import { NULL } from '../../test/variables/null.const';
+import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE } from '../../test/variables/boolean.const';
 import { FUNCTION } from '../../test/variables/function.const';
+import { NULL } from '../../test/variables/null.const';
+import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../test/variables/number.const';
+import { OBJECT_ONE, OBJECT_TWO } from '../../test/variables/object.const';
+import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../test/variables/string.const';
+import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../test/variables/symbol.const';
+import { UNDEFINED } from '../../test/variables/undefined.const';
+import { notDefined } from '../../test/variables/not-defined.const';
 
 describe('isNotBoolean', () => {
   // TRUE

@@ -1,1 +1,2 @@
-export type IsArray = <Type>(value: any) => value is Array<Type>;
+import { ResultCallback } from '../../type/result-callback.type';
+export type IsArray = <Type>(value: any, callback?: ResultCallback) => value is Array<Type>;

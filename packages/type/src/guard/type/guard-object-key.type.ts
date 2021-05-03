@@ -1,1 +1,1 @@
-export type GuardObjectKey = <Obj, Key extends keyof Obj>(object: Obj, key: Key) => object is Obj;
+export type GuardObjectKey = <Obj extends object, Key extends keyof Obj>(value: Obj, key: Key) => value is Obj;

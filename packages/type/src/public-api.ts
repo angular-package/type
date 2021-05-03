@@ -8,13 +8,20 @@ export { guard } from './guard';
 // `guard` functions.
 export {
   guardArray,
+  guardBigInt,
+  guardBoolean,
   guardFunction,
+  guardInstance,
+  guardKey,
+  guardNull,
   guardNumber,
   guardObject,
   guardObjectKey,
   guardPrimitive,
   guardString,
-  guardType
+  guardSymbol,
+  guardType,
+  guardUndefined
 } from './guard';
 
 // `are` object and functions.
@@ -31,14 +38,22 @@ export {
   isArray,
   isBigInt,
   isBoolean,
+  isBooleanObject,
+  isBooleanType,
   isDefined,
   isFunction,
   isInstance,
+  isKey,
   isNull,
   isNumber,
+  isNumberObject,
+  isNumberType,
   isObject,
+  isObjectKey,
   isPrimitive,
   isString,
+  isStringObject,
+  isStringType,
   isSymbol,
   isType,
   isUndefined
@@ -56,4 +71,4 @@ export {
 } from './is/not';
 
 // Types.
-export { Constructor, CycleHook, Func, Primitive, Primitives, Types } from './type';
+export { Constructor, CycleHook, Func, Key, Primitive, Primitives, ResultCallback, Type, Types } from './type';

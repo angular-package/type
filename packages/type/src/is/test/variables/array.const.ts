@@ -1,13 +1,17 @@
-import { FALSE, TRUE, TRUE_INSTANCE, FALSE_INSTANCE } from './boolean.const';
-import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from './number.const';
-import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from './string.const';
+// Variables.
 import { BIGINT, BIGINT_INSTANCE } from './big-int.const';
-import { NULL } from './null.const';
 import { Class } from './class.const';
+import { FALSE, TRUE, TRUE_INSTANCE, FALSE_INSTANCE } from './boolean.const';
+import { NULL } from './null.const';
+import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from './number.const';
 import { ObjectOne, ObjectTwo } from './object.const';
-import { Func } from '../../../type/func.type';
+import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from './string.const';
 import { UNDEFINED } from './undefined.const';
-import { notDefined } from '../variables.const';
+
+// Type.
+import { Func } from '../../../type/func.type';
+import { notDefined } from './not-defined.const';
+
 // Arrays.
 // Array with `bigint`.
 export const ARRAY_BIGINT: Array<bigint> = [BIGINT, BIGINT_INSTANCE, 9007199254740991n];

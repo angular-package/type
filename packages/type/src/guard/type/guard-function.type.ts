@@ -1,2 +1,3 @@
 import { Func } from '../../type/func.type';
-export type GuardFunction = (func: Func) => func is Func;
+import { ResultCallback } from '../../type/result-callback.type';
+export type GuardFunction = (value: Func, callback?: ResultCallback) => value is Func;

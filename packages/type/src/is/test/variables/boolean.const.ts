@@ -18,5 +18,8 @@ export const TRUE: any = true; // typeof === 'boolean'
  * instanceof Boolean === true
  * instanceof Object === true
  */
-export const FALSE_INSTANCE: any = new Boolean(false); // instanceof Boolean
-export const TRUE_INSTANCE: any = new Boolean(true);  // instanceof Boolean
+export const FALSE_INSTANCE: any = new Boolean(FALSE); // instanceof Boolean
+export const TRUE_INSTANCE: any = new Boolean(TRUE);  // instanceof Boolean
+
+export const FALSE_EXPECTATION = `new Boolean(${FALSE})`;
+export const TRUE_EXPECTATION = `new Boolean(${TRUE})`;

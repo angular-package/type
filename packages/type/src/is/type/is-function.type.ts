@@ -1,2 +1,3 @@
 import { Func } from '../../type/func.type';
-export type IsFunction = (value: any) => value is Func;
+import { ResultCallback } from '../../type/result-callback.type';
+export type IsFunction = (value: any, callback?: ResultCallback) => value is Func;

@@ -1,10 +1,17 @@
-import { GuardPrimitive } from '../type/guard-primitive.type';
-import { Primitives } from '../../type/primitives.type';
+// Function.
 import { isPrimitive } from '../../is/lib/is-primitive.func';
+// Type.
+import { GuardPrimitive } from '../type/guard-primitive.type';
+import { Primitive } from '../../type/primitive.type';
+import { Primitives } from '../../type/primitives.type';
+import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Guard the `value` to be a generic `Type` from one of the `Primitives`.
- * Use `isPrimitive()` function for check ONLY.
- * @param value A generic `Type` type value to guard.
- * @param type One of the `Primitives` `'boolean'`, `'bigint'`, `'number'`, `'string'`, `'symbol'`, `'undefined'` to check `value`.
+ * Guard the `value` to be the `Primitive` from a `type` of the `Primitives`.
+ * @param value A `Primitive` type `value` to guard.
+ * @param type A `string` type from the `Primitives` to check the `value`.
+ * @param callback Optional `ResultCallback` function to handle result before returns.
+ * @returns A `boolean` indicating whether or not the `value` is the `Primitive` from the `type`.
  */
-export const guardPrimitive: GuardPrimitive = <Type>(value: Type, type: Primitives): value is Type => isPrimitive(value, type);
+export const guardPrimitive: GuardPrimitive =
+  <Type extends Primitive>(value: Type, type: Primitives, callback?: ResultCallback): value is Type => 
+    isPrimitive<Type>(value, type, callback);

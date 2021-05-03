@@ -1,10 +1,16 @@
+// Function.
 import { isType } from '../../is/lib/is-type.func';
+// Type.
 import { GuardType } from '../type/guard-type.type';
+import { ResultCallback } from '../../type/result-callback.type';
+import { Type } from '../../type/type.type';
 import { Types } from '../../type/types.type';
 /**
- * Guard the `value` to be a generic `Type` type from one of the `Types` type.
- * Use `isType()` function for check ONLY.
- * @param value A generic `Type` value to guard.
- * @param type Constructor generic `Type`, `'function'`, `'object'` or one of the `Primitives` `'boolean'`, `'bigint'`, `'number'`, `'string'`, `'symbol'`, `'undefined'` to check `value`.
+ * Guard the `value` to be the `Type` from a `type` of the `Types`.
+ * @param value A `Type` `value` to guard with the `type`.
+ * @param type A `string` or generic `Constructor` type from the `Types` to check the `value`.
+ * @param callback Optional `ResultCallback` function to handle result before returns.
+ * @returns A `boolean` indicating whether or not the `value` is a type from the `Types`.
  */
-export const guardType: GuardType = <Type>(value: Type, type: Types<Type>): value is Type => isType<Type>(value, type);
+export const guardType: GuardType = <T extends Type>(value: T, type: Types<T>, callback?: ResultCallback): value is T  =>
+  isType<T>(value, type, callback);

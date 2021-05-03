@@ -1,11 +1,15 @@
-import { IsSymbol } from '../type/is-symbol.type';
+// Function.
+import { resultCallback } from '../../lib/result-callback.func';
 import { typeOf } from '../../lib/type-of.func';
+// Type.
+import { IsSymbol } from '../type/is-symbol.type';
+import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Checks if any `value` is a `'symbol'` type.
- * Use the`guardSymbol()` function to type-guard `symbol`  also.
- * @param value Any `value` to check if it's a `'symbol'` type.
- * @returns boolean.
+ * Checks if any `value` is a `symbol` type.
+ * @param value Any `value` to check.
+ * @param callback `ResultCallback` function to handle result before returns.
+ * @callback `resultCallback`.
+ * @returns A `boolean` indicating whether or not the `value` is a `symbol`.
  */
-export const isSymbol: IsSymbol = (value: any): value is symbol =>
-  typeOf(value) === 'symbol' &&
-  typeof value === 'symbol';
+export const isSymbol: IsSymbol = (value: any, callback: ResultCallback = resultCallback): value is symbol =>
+  callback(typeOf(value) === 'symbol' && typeof value === 'symbol');

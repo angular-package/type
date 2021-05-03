@@ -1,2 +1,3 @@
 import { Constructor } from '../../type/constructor.type';
-export type IsInstance = <Obj>(value: any, instance: Constructor<Obj>) => value is Obj;
+import { ResultCallback } from '../../type/result-callback.type';
+export type IsInstance = <Obj>(value: any, instance: Constructor<Obj>, callback?: ResultCallback) => value is Obj;

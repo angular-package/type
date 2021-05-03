@@ -1,1 +1,2 @@
-export type IsObject = <Obj>(value: any, key?: string) => value is Obj;
+import { Key } from '../../type/key.type';
+export type IsObject = <Obj = object>(value: any, key?: Key) => value is Obj;
