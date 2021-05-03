@@ -1,10 +1,10 @@
-import { BIGINT, BIGINT_EXPECTATION, BIGINT_INSTANCE } from '../is/test/variables/big-int.const';
-import { BigIntObject } from '../lib/bigint-object.class';
+import { TRUE, TRUE_EXPECTATION, TRUE_INSTANCE } from '../is/test/variables/boolean.const';
+import { BooleanObject } from '../lib/boolean-object.class';
 
 
-describe(`BigIntObject`, () => {
+describe(`BooleanObject`, () => {
   // Defined.
-  it('is DEFINED', () => expect(BigIntObject).toBeDefined());
+  it('is DEFINED', () => expect(BooleanObject).toBeDefined());
 
   // Checks ...
   describe(`checks`, () => {
@@ -12,13 +12,13 @@ describe(`BigIntObject`, () => {
     // ... primitives.
     describe(`primitive`, () => {
       // bigint
-      describe(`bigint`, () => {
+      describe(`boolean`, () => {
 
-        BigIntObject.set = BIGINT;
-        it(`${BIGINT}`, () => expect(BigIntObject.get).toEqual(BIGINT));
+        BooleanObject.set = TRUE;
+        it(`${TRUE}`, () => expect(BooleanObject.get).toEqual(TRUE));
 
-        BigIntObject.set = BIGINT_INSTANCE;
-        it(`${BIGINT_EXPECTATION}`, () => expect(BigIntObject.get).toEqual(BIGINT_INSTANCE));
+        BooleanObject.set = TRUE_INSTANCE;
+        it(`${TRUE_EXPECTATION}`, () => expect(BooleanObject.get).toEqual(TRUE_INSTANCE));
       });
     });
   });
