@@ -98,51 +98,52 @@ import { Constructor, CycleHook, Func, Key, Primitive, Primitives, ResultCallbac
 
 * Checks if
   * **any** value is
-    * an `Array` of any type with [`isArray`](#isArray).
-    * a `bigint` type with [`isBigInt`](#isBigInt).
-    * a `boolean` with [`isBoolean`](#isBoolean).
-    * an `object`type and instance of [`Boolean`][Boolean] and [`Object`][Object] with [`isBooleanObject`](#isBooleanObject).
-    * a `boolean` type not an instance of [`Boolean`][Boolean] and [`Object`][Object], and equal to `true` or `false` with [`isBooleanType`](#isBooleanType).
-    * a `function` with [`isFunction`](#isFunction).
-    * a generic type `instance` with [`isInstance`](#isInstance).
+    * an `Array` of any type with [`isArray()`](#isArray).
+    * a `bigint` type with [`isBigInt()`](#isBigInt).
+    * a `boolean` with [`isBoolean()`](#isBoolean).
+    * an `object`type and instance of [`Boolean`][Boolean] and [`Object`][Object] with [`isBooleanObject()`](#isBooleanObject).
+    * a `boolean` type not an instance of [`Boolean`][Boolean] and [`Object`][Object], and equal to `true` or `false` with [`isBooleanType()`](#isBooleanType).
+    * a `function` with [`isFunction()`](#isFunction).
+    * a generic type `instance` with [`isInstance()`](#isInstance).
     * a [`Key`](#Key) type with [`isKey()`](#isKey).
-    * a `null` with [isNull](#isNull).
-    * a `number` with [isNumber](#isNumber).
-    * an `object` type and instance of [`Number`][Number] and [`Object`][Object] with [`isNumberObject`](#isNumberObject).
-    * a `number` type and **not** instance of [`Number`][Number] and [`Object`][Object] with [`isNumberType`](#isNumberType).
-    * a generic type `object` with [isObject](#isObject).
-    * an `object` with its own specified [`Key`](#Key) with [`isObjectKey`](#isObjectKey).
-    * a one of the primitive `boolean`, `bigint`, `number`, `string` with [`isPrimitive`](#isPrimitive).
-    * a `string` with [isString](#isString).
-    * an `object` type and instance of [`String`][String] and [`Object`][Object].
-    * a `symbol` with [`isSymbol`](#isSymbol).
-    * a generic type instance, `function`, `object` or primitive type with [`isType`](#isType).
-    * a `undefined` type with [`isUndefined`](#isUndxefined).
+    * a `null` with [`isNull()`](#isNull).
+    * a `number` with [`isNumber()`](#isNumber).
+    * an `object` type and instance of [`Number`][Number] and [`Object`][Object] with [`isNumberObject()`](#isNumberObject).
+    * a `number` type and **not** instance of [`Number`][Number] and [`Object`][Object] with [`isNumberType()`](#isNumberType).
+    * a generic type `object` with [`isObject()`](#isObject).
+    * an `object` with its own specified [`Key`](#Key) with [`isObjectKey()`](#isObjectKey).
+    * a one of the primitive `boolean`, `bigint`, `number`, `string` with [`isPrimitive()`](#isPrimitive).
+    * a `string` with [`isString()`](#isString).
+    * an `object` type and instance of [`String`][String] and [`Object`][Object] with [`isStringObject()`](#isStringObject).
+    * a `string` type and **not** instance of [`String`][String] and [`Object`][Object] with [`isStringType()`](#isStringType).
+    * a `symbol` with [`isSymbol()`](#isSymbol).
+    * a generic type instance, `function`, `object` or primitive type with [`isType()`](#isType).
+    * a `undefined` type with [`isUndefined()`](#isUndefined).
   * an **unknown** value is
-    * defined with [`isDefined`](#isDefined).
+    * defined with [`isDefined()`](#isDefined).
   * an **unknown** value is **not** a
-    * `boolean` type with [`isNotBoolean`](#isNotBoolean)
-    * `function` type with [`isNotFunction`](#isNotFunction)
-    * `null` type with [`isNotNull`](#isNotNull)
-    * `number` type with [`isNotNumber`](#isNotNumber)
-    * `string` type with [`isNotString`](#isNotString)
-    * `undefined` type with [`isNotUndefined`](#isNotUndefined)
+    * `boolean` type with [`isNotBoolean()`](#isNotBoolean)
+    * `function` type with [`isNotFunction()`](#isNotFunction)
+    * `null` type with [`isNotNull()`](#isNotNull)
+    * `number` type with [`isNotNumber()`](#isNotNumber)
+    * `string` type with [`isNotString()`](#isNotString)
+    * `undefined` type with [`isNotUndefined()`](#isNotUndefined)
 * Guard the value to be
-  * an [`Array`][Array] of a generic type with [`guardArray`](#guardArray).
+  * an [`Array`][Array] of a generic type with [`guardArray()`](#guardArray).
   * a `bigint` with [`guardBigInt()`](#guardBigInt).
   * a `boolean` with [`guardBoolean()`](#guardBoolean).
-  * a `function` type with [`guardFunction`](#guardFunction).
+  * a `function` type with [`guardFunction()`](#guardFunction).
   * an instance with [`guardInstance()`](#guardInstance).
-  * a `null` with [`guardNull`](#guardNull).
-  * a [`Key`](#Key) with [`guardKey`](#guardKey).
+  * a `null` with [`guardNull()`](#guardNull).
+  * a [`Key`](#Key) with [`guardKey()`](#guardKey).
   * a `number` with [`guardNumber()`](#guardNumber).
-  * an `object` of a generic type with [`guardObject`](#guardObject).
-  * an `object` of a generic type that contains `key` with [`guardObjectKey`](#guardObjectKey).
-  * a one of the [`Primitives`](#Primitives) with [`guardPrimitive`](#guardPrimitive).
-  * a `string` with [`guardString`](#guardString).
-  * a `symbol` with [`guardSymbol`](#guardSymbol).
-  * a generic type from one of the [`Types`](#types) type with [`Type guard`](#guardType).
-  * `undefined` with [`guardUndefined`](#guardUndefined).
+  * an `object` of a generic type with [`guardObject()`](#guardObject).
+  * an `object` of a generic type that contains `key` with [`guardObjectKey()`](#guardObjectKey).
+  * a one of the [`Primitives`](#Primitives) with [`guardPrimitive()`](#guardPrimitive).
+  * a `string` with [`guardString()`](#guardString).
+  * a `symbol` with [`guardSymbol()`](#guardSymbol).
+  * a generic type from one of the [`Types`](#types) type with [`guardType()`](#guardType).
+  * `undefined` with [`guardUndefined()`](#guardUndefined).
 
 ## How angular-package understands
 
@@ -171,7 +172,7 @@ Guard
   * [PrimitiveObject](#PrimitiveObject)
   * [StringObject](#StringObject)
   * [SymbolObject](#SymbolObject)
-  * [isParam](#isParam)
+  * [isParam()](#isParam)
 * [Common types](#common-types)
 * [Git](#git)
   * [Commit](#commit)
