@@ -20,7 +20,7 @@ import { notDefined } from './variables/not-defined.const';
  * ✓ typeof === 'object'
  * ✓ instanceof Object
  */
-describe('isNumber', () => {
+describe(isNumber.name, () => {
   // TRUE
   it('is DEFINED', () => expect(isNumber).toBeDefined());
   it(`'number' | Number`, () => {

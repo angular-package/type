@@ -16,7 +16,7 @@ import { UNDEFINED } from './variables/undefined.const';
  * Checks
  * ✓ typeof === 'symbol'
  */
-describe(`isSymbol`, () => {
+describe(isSymbol.name, () => {
   // Defined.
   it('is DEFINED', () => expect(isSymbol).toBeDefined());
 

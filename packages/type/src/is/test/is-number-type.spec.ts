@@ -18,7 +18,7 @@ import { UNDEFINED } from './variables/undefined.const';
  * ✓ value === true
  * ✓ value === false
  */
-describe(`isNumberType`, () => {
+describe(isNumberType.name, () => {
   // Defined.
   it('is DEFINED', () => expect(isNumberType).toBeDefined());
 

@@ -13,7 +13,7 @@ import { SYMBOL_NUMBER, SYMBOL_STRING } from './variables/symbol.const';
 import { UNDEFINED } from './variables/undefined.const';
 import { notDefined } from './variables/not-defined.const';
 
-describe('isInstance', () => {
+describe(isInstance.name, () => {
   // TRUE.
   it('is DEFINED', () => expect(isInstance).toBeDefined());
   it(`CLASS instance of Class`, () => expect(isInstance<Class>(CLASS, Class)).toBe(TRUE));

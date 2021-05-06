@@ -14,12 +14,12 @@ import { notDefined } from './variables/not-defined.const';
  * Checks
  * ✓ typeof === 'bigint'
  */
-describe('isBigInt', () => {
+describe(isBigInt.name, () => {
   // TRUE
   it('is DEFINED', () => {
     expect(isBigInt).toBeDefined();
   });
-  it(`'bigint'`, () => {
+  it(`bigint`, () => {
     expect(isBigInt(BIGINT)).toBe(TRUE);
     expect(isBigInt(BIGINT_INSTANCE)).toBe(TRUE);
     isBigInt(BIGINT_INSTANCE, (result: boolean) => {
@@ -29,7 +29,7 @@ describe('isBigInt', () => {
   });
 
   // FALSE
-  it(`'boolean' | Boolean`, () => {
+  it(`boolean | Boolean`, () => {
     expect(isBigInt(FALSE)).toBe(FALSE);
     expect(isBigInt(TRUE)).toBe(FALSE);
     expect(isBigInt(FALSE_INSTANCE)).toBe(FALSE);
@@ -43,7 +43,7 @@ describe('isBigInt', () => {
     expect(isBigInt(Class)).toBe(FALSE);
     expect(isBigInt(CLASS)).toBe(FALSE);
   });
-  it(`'function' | Function`, () => expect(isBigInt(FUNCTION)).toBe(FALSE));
+  it(`function | Function`, () => expect(isBigInt(FUNCTION)).toBe(FALSE));
   it(`null | NULL`, () => {
     expect(isBigInt(null)).toBe(FALSE);
     expect(isBigInt(NULL)).toBe(FALSE);
