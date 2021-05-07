@@ -1769,8 +1769,8 @@ How do I know when to release 1.0.0?
 
 MIT © angular-package ([license](https://github.com/angular-package/type/blob/main/LICENSE))
 
-[callback]: #callback;
-[resultcallback]: #resultcallback;
+[callback]: #callback
+[resultcallback]: #resultcallback
 
 [array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 [boolean]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
