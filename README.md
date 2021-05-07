@@ -159,7 +159,7 @@ Guard
 ----
 
 * [Installation](#installation)
-* [resultCallback](#resultcallback)
+* [resultCallback](#resultcallback())
 * [Check](#check)
   * [are](#are)
   * [is](#is)
@@ -189,7 +189,7 @@ Install `@angular-package/type` package with command:
 npm i --save @angular-package/type
 ```
 
-## resultCallback
+## resultCallback()
 
 Default function to handle `callback`.
 
@@ -295,7 +295,7 @@ const isArray: IsArray = <Type>(value: any, callback: ResultCallback = resultCal
 | Parameter | Type  | Description          |
 | :-------- | :---: | :------------------- |
 | value     | `any` | Any `value` to check |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback()) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an [`Array`][array].
 
