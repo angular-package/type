@@ -159,7 +159,7 @@ Guard
 ----
 
 * [Installation](#installation)
-* [resultCallback](#resultcallback%28%29)
+* [Callback](#callback)
 * [Check](#check)
   * [are](#are)
   * [is](#is)
@@ -189,7 +189,7 @@ Install `@angular-package/type` package with command:
 npm i --save @angular-package/type
 ```
 
-## resultCallback()
+## Callback
 
 Default function to handle `callback`.
 
@@ -295,7 +295,7 @@ const isArray: IsArray = <Type>(value: any, callback: ResultCallback = resultCal
 | Parameter | Type  | Description          |
 | :-------- | :---: | :------------------- |
 | value     | `any` | Any `value` to check |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback\(\)) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`][callback] | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an [`Array`][array].
 
@@ -1769,6 +1769,7 @@ How do I know when to release 1.0.0?
 
 MIT © angular-package ([license](https://github.com/angular-package/type/blob/main/LICENSE))
 
+[callback]: #callback;
 [array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 [boolean]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 [function]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions
