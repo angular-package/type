@@ -189,7 +189,7 @@ Install `@angular-package/type` package with command:
 npm i --save @angular-package/type
 ```
 
-## resultcallback\(\)
+## resultCallback()
 
 Default function to handle `callback`.
 
