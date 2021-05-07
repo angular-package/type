@@ -159,7 +159,7 @@ Guard
 ----
 
 * [Installation](#installation)
-* [resultCallback](#resultcallback\(\))
+* [resultCallback](#resultcallback%28%29)
 * [Check](#check)
   * [are](#are)
   * [is](#is)
