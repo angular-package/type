@@ -159,7 +159,7 @@ Guard
 ----
 
 * [Installation](#installation)
-* [resultCallback](#resultcallback())
+* [resultCallback](#resultcallback\(\))
 * [Check](#check)
   * [are](#are)
   * [is](#is)
@@ -189,7 +189,7 @@ Install `@angular-package/type` package with command:
 npm i --save @angular-package/type
 ```
 
-## resultCallback()
+## resultcallback\(\)
 
 Default function to handle `callback`.
 
@@ -295,7 +295,7 @@ const isArray: IsArray = <Type>(value: any, callback: ResultCallback = resultCal
 | Parameter | Type  | Description          |
 | :-------- | :---: | :------------------- |
 | value     | `any` | Any `value` to check |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback()) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback\(\)) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an [`Array`][array].
 
@@ -324,7 +324,7 @@ const isBigInt: IsBigInt = (value: any, callback: ResultCallback = resultCallbac
 | Parameter | Type  | Description |
 | :-------- | :---: | :---------- |
 | value     | `any` | Any `value` to check |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback\(\)) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `bigint`.
 
@@ -353,7 +353,7 @@ const isBoolean: IsBoolean = (value: any, callback: ResultCallback = resultCallb
 | Parameter | Type  | Description          |
 | :---------| :---: | :------------------- |
 | value     | `any` | Any `value` to check |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback\(\)) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `boolean`.
 
@@ -382,7 +382,7 @@ const isBooleanObject: IsBooleanObject = (value: any, callback: ResultCallback =
 | Parameter | Type  | Description          |
 | :---------| :---: | :------------------- |
 | value     | `any` | Any `value` to check |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback\(\)) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a [`Boolean`][boolean] instance.
 
@@ -414,7 +414,7 @@ const isBooleanType: IsBooleanType = (value: any, callback: ResultCallback = res
 | Parameter | Type  | Description          |
 | :---------| :---: | :------------------- |
 | value     | `any` | Any `value` to check |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback\(\)) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `boolean` type.
 
@@ -441,7 +441,7 @@ const isDefined: IsDefined = (value: unknown, callback: ResultCallback = resultC
 | Parameter | Type      | Description                   |
 | :-------- | :-------: | :---------------------------- |
 | value     | `unknown` | An `unknown` `value` to check |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback\(\)) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is defined, not `undefined`.
 
@@ -473,7 +473,7 @@ const isFunction: IsFunction = (value: any, callback: ResultCallback = resultCal
 | Parameter | Type  | Description          |
 | :-------- | :---: | :------------------- |
 | value     | `any` | Any `value` to check |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback\(\)) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `function`.
 
@@ -514,7 +514,7 @@ const isInstance: IsInstance = <Obj>(
 | :-------- | :--------------------------------: | :---------- |
 | value     | `any`                              | Any `value` to compare with the `instance` |
 | instance  | [`Constructor<Obj>`](#Constructor) | A generic `Obj` [`Constructor`](#Constructor) type to create an `instance` to compare with the `value` |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback\(\)) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an `instance` of a generic `Obj`.
 
@@ -547,7 +547,7 @@ const isKey: IsKey = (value: any, callback: ResultCallback = resultCallback): va
 | Parameter | Type  | Description          |
 | :-------- | :---: |:-------------------- |
 | value     | `any` | Any `value` to check |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback\(\)) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a [`Key`](#Key).
 
@@ -583,7 +583,7 @@ const isNull: IsNull = (value: any, callback: ResultCallback = resultCallback): 
 | Parameter | Type  | Description          |
 | :-------- | :---: |--------------------- |
 | value     | `any` | Any `value` to check |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback\(\)) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is `null`.
 
@@ -618,7 +618,7 @@ const isNumber: IsNumber = (value: any, callback: ResultCallback = resultCallbac
 | Parameter | Type  | Description          |
 | :-------- | :---: | :------------------- |
 | value     | `any` | Any `value` to check |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback\(\)) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `number`.
 
@@ -638,7 +638,7 @@ const isNumberObject: IsNumberObject = (value: any, callback: ResultCallback = r
 | Parameter | Type  | Description          |
 | :-------- | :---: | :------------------- |
 | value     | `any` | Any `value` to check |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback\(\)) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a [`Number`][Number] instance.
 
@@ -687,7 +687,7 @@ const isNumberType: IsNumberType = (value: any, callback: ResultCallback = resul
 | Parameter | Type  | Description          |
 | :-------- | :---: | :------------------- |
 | value     | `any` | Any `value` to check |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback\(\)) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `number`.
 
@@ -849,7 +849,7 @@ const isObjectKey: IsObjectKey = <Type extends object>(
 | :-------- | :------------------------------: | :---------------------------------------------------- |
 | value     | `any`                            | Any `value` to check if it contains a specified `key` |
 | key       | [`Key`](#key) \| [`Key`](#Key)[] | A [`Key`](#Key) type or an array of [`Key`](#Key) type to check in the `value` |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback\(\)) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an `object` with its own specified keys.
 
@@ -884,7 +884,7 @@ const isPrimitive: IsPrimitive = <T extends Primitive>(
 | :-------- | :-------------------------: | :------------------------------------------------------------------------ |
 | value     | `any`                       | Any `value` to check if it's a `Primitive` from the `type`                |
 | type      | [`Primitives`](#primitives) | A `string` type from the [`Primitives`](#primitives) to check the `value` |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback\(\)) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `type` from the [`Primitives`](#primitives).
 
@@ -922,7 +922,7 @@ const isStringObject: IsStringObject = (value: any, callback: ResultCallback = r
 | Parameter |       Type                          | Description          |
 | :-------- | :---------------------------------: | :------------------- |
 | value     | `any`                               | Any `value` to check |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback\(\)) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a [`String`][string] instance.
 
@@ -940,7 +940,7 @@ const isStringType: IsStringType = (value: any, callback: ResultCallback = resul
 | Parameter | Type                                                                    | Description          |
 | :-------- | :---------------------------------------------------------------------: | :------------------- |
 | value     | `any`                                                                   | Any `value` to check |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback\(\)) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `string`.
 
@@ -958,7 +958,7 @@ const isSymbol: IsSymbol = (value: any, callback: ResultCallback = resultCallbac
 | Parameter | Type  | Description          |
 | :-------- | :---: | :------------------- |
 | value     | `any` | Any `value` to check |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback\(\)) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `symbol`.
 
@@ -999,7 +999,7 @@ const isType: IsType = <T extends Type>(value: any, type: Types<T>, callback: Re
 | :-------- | :------------------: | :-------------------------------------------------- |
 | value     | `any`                | Any `value` to check if its type is from the `type` |
 | type      | [`Types<T>`](#types) | A `string` or generic `Constructor` type from the [`Types`](#types) to check the `value` |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback\(\)) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is the [`Type`](#type) from a `type` of the [`Types`](#types).
 
@@ -1019,7 +1019,7 @@ const isUndefined: IsUndefined = (value: any, callback: ResultCallback = resultC
 | Parameter | Type  | Description          |
 | :-------- | :---: | :------------------- |
 | value     | `any` | Any `value` to check |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback\(\)) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is `undefined`.
 
@@ -1061,7 +1061,7 @@ const isNotBoolean: IsNotBoolean = (value: unknown, callback: ResultCallback = r
 | Parameter | Type      | Description                 |
 | :-------- | :-------: | :-------------------------- |
 | value     | `unknown` | An unknown `value` to check |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback\(\)) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is not a `boolean`.
 
@@ -1079,7 +1079,7 @@ const isNotDefined: IsNotDefined = (value: unknown, callback: ResultCallback = r
 | Parameter | Type      | Description                 |
 | :-------- | :-------: | :-------------------------- |
 | value     | `unknown` | An unknown `value` to check |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback\(\)) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The return value is a `boolean` indicating whether or not the `value` is not defined, is `undefined`.
 
@@ -1097,7 +1097,7 @@ const isNotFunction: IsNotFunction = (value: unknown, callback: ResultCallback =
 | Parameter | Type      | Description                 |
 | :-------- | :-------: | :-------------------------- |
 | value     | `unknown` | An unknown `value` to check |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback\(\)) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The return value is a `boolean` indicating whether or not the `value` is not a `function`.
 
@@ -1115,7 +1115,7 @@ const isNotNull: IsNotNull = (value: unknown, callback: ResultCallback = resultC
 | Parameter | Type      | Description                 |
 | :-------- | :-------: | :-------------------------- |
 | value     | `unknown` | An unknown `value` to check |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback\(\)) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The return value is a `boolean` indicating whether or not the `value` is not `null`.
 
@@ -1137,7 +1137,7 @@ const isNotNumber: IsNotNumber = (value: any, callback: ResultCallback = resultC
 | Parameter | Type      | Description                 |
 | :-------- | :-------: | :-------------------------- |
 | value     | `unknown` | An unknown `value` to check |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback\(\)) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The return value is a `boolean` indicating whether or not the `value` is not a `number`.
 
@@ -1155,7 +1155,7 @@ const isNotString: IsNotString = (value: unknown, callback: ResultCallback = res
 | Parameter | Type      | Description                 |
 | :-------- | :-------: | :-------------------------- |
 | value     | `unknown` | An unknown `value` to check |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback\(\)) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The return value is a `boolean` indicating whether or not the `value` is not a `string`.
 
@@ -1173,7 +1173,7 @@ const isNotUndefined: IsNotUndefined = (value: unknown, callback: ResultCallback
 | Parameter | Type      | Description                 |
 | :-------- | :-------: | :-------------------------- |
 | value     | `unknown` | An unknown `value` to check |
-| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`](#resultcallback)=[`resultCallback`](#resultcallback\(\)) | [`ResultCallback`](#resultcallback) function to handle result before returns eg. to throw an `Error` |
 
 The return value is a `boolean` indicating whether or not the `value` is not `undefined`.
 
