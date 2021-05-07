@@ -1501,6 +1501,8 @@ The **return value** is a `boolean` indicating whether or not the `value` is `un
 
 ### BigIntObject
 
+The object to create [`BigInt`][bigint] object by assign value to `set` property.
+
 ```typescript
 class BigIntObject {
   static set set(value: any) {
@@ -1515,6 +1517,8 @@ class BigIntObject {
 ----
 
 ### BooleanObject
+
+The object to create [`Boolean`][boolean] object by assign value to `set` property.
 
 ```typescript
 class BooleanObject {
@@ -1535,6 +1539,8 @@ class BooleanObject {
 
 ### NumberObject
 
+The object to create [`Number`][number] object by assign value to `set` property.
+
 ```typescript
 class NumberObject {
   static set set(value: any) {
@@ -1550,6 +1556,8 @@ class NumberObject {
 
 ### PrimitiveObject
 
+The object to store static primitive objects.
+
 ```typescript
 class PrimitiveObject  {
   static bigint: BigInt;
@@ -1563,6 +1571,8 @@ class PrimitiveObject  {
 ----
 
 ### StringObject
+
+The object to create [`String`][string] object by assign value to `set` property.
 
 ```typescript
 class StringObject {
@@ -1578,6 +1588,8 @@ class StringObject {
 ----
 
 ### SymbolObject
+
+The object to create [`Symbol`][symbol] object by assign value to `set` property.
 
 ```typescript
 class SymbolObject {
