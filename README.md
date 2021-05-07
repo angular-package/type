@@ -138,7 +138,7 @@ import { Constructor, CycleHook, Func, Key, Primitive, Primitives, ResultCallbac
   * a [`Key`](#Key) with [`guardKey()`](#guardkey).
   * a `number` with [`guardNumber()`](#guardnumber).
   * an `object` of a generic type with [`guardObject()`](#guardobject).
-  * an `object` of a generic type that contains `key` with [`guardObjectKey()`](#guardiobjectkey).
+  * an `object` of a generic type that contains `key` with [`guardObjectKey()`](#guardobjectkey).
   * a one of the [`Primitives`](#primitives) with [`guardPrimitive()`](#guardprimitive).
   * a `string` with [`guardString()`](#guardstring).
   * a `symbol` with [`guardSymbol()`](#guardsymbol).
