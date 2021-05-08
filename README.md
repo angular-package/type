@@ -98,8 +98,8 @@ import { Constructor, CycleHook, Func, Key, Primitive, Primitives, ResultCallbac
 
 * Checks if
   * **any** value is
-    * an `Array` of any type with [`isArray()`](#isarray).
-    * a `bigint` type with [`isBigInt()`](#isbigint).
+    * an [`Array`][array] of any type with [`isArray()`](#isarray).
+    * a `bigint` with [`isBigInt()`](#isbigint).
     * a `boolean` with [`isBoolean()`](#isboolean).
     * an `object`type and instance of [`Boolean`][boolean] and [`Object`][object] with [`isBooleanObject()`](#isbooleanobject).
     * a `boolean` type not an instance of [`Boolean`][boolean] and [`Object`][object], and equal to `true` or `false` with [`isBooleanType()`](#isbooleantype).
@@ -118,21 +118,21 @@ import { Constructor, CycleHook, Func, Key, Primitive, Primitives, ResultCallbac
     * a `string` type and **not** instance of [`String`][string] and [`Object`][object] with [`isStringType()`](#isstringtype).
     * a `symbol` with [`isSymbol()`](#isSymbol).
     * a generic type instance, `function`, `object` or primitive type with [`isType()`](#istype).
-    * a `undefined` type with [`isUndefined()`](#isundefined).
+    * a `undefined` with [`isUndefined()`](#isundefined).
   * an **unknown** value is
     * defined with [`isDefined()`](#isdefined).
   * an **unknown** value is **not** a
-    * `boolean` type with [`isNotBoolean()`](#isnotboolean)
-    * `function` type with [`isNotFunction()`](#isnotfunction)
-    * `null` type with [`isNotNull()`](#isnotnull)
-    * `number` type with [`isNotNumber()`](#isnotnumber)
-    * `string` type with [`isNotString()`](#isnotstring)
-    * `undefined` type with [`isNotUndefined()`](#isnotundefined)
+    * `boolean` with [`isNotBoolean()`](#isnotboolean)
+    * `function` with [`isNotFunction()`](#isnotfunction)
+    * `null` with [`isNotNull()`](#isnotnull)
+    * `number` with [`isNotNumber()`](#isnotnumber)
+    * `string` with [`isNotString()`](#isnotstring)
+    * `undefined` with [`isNotUndefined()`](#isnotundefined)
 * Guard the value to be
   * an [`Array`][array] of a generic type with [`guardArray()`](#guardarray).
   * a `bigint` with [`guardBigInt()`](#guardbigint).
   * a `boolean` with [`guardBoolean()`](#guardboolean).
-  * a `function` type with [`guardFunction()`](#guardfunction).
+  * a [`Func`](#func) type with [`guardFunction()`](#guardfunction).
   * an instance with [`guardInstance()`](#guardinstance).
   * a `null` with [`guardNull()`](#guardnull).
   * a [`Key`](#Key) with [`guardKey()`](#guardkey).
@@ -1501,7 +1501,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is `un
 
 ### BigIntObject
 
-The object to create [`BigInt`][bigint] object by assign value to `set` property.
+The object handles creating and getting the [`BigInt`][bigint] with `BigInt()`.
 
 ```typescript
 class BigIntObject {
@@ -1518,7 +1518,7 @@ class BigIntObject {
 
 ### BooleanObject
 
-The object to create [`Boolean`][boolean] object by assign value to `set` property.
+The object handles creating and getting the [`Boolean`][boolean] object instance with `Boolean()`.
 
 ```typescript
 class BooleanObject {
@@ -1535,11 +1535,23 @@ class BooleanObject {
 }
 ```
 
+Create a new [`Boolean`][boolean] instance by assign value to the `set` property.
+
+```typescript
+BooleanObject.set = false;
+```
+
+Get created [`Boolean`][boolean] instance with the `get` property.
+
+```typescript
+const instance: Boolean = BooleanObject.get;
+```
+
 ----
 
 ### NumberObject
 
-The object to create [`Number`][number] object by assign value to `set` property.
+The object handles creating and getting the [`Number`][number] object instance with `Number()`.
 
 ```typescript
 class NumberObject {
@@ -1550,6 +1562,18 @@ class NumberObject {
     return PrimitiveObject.number;
   }
 }
+```
+
+Create a new [`Number`][number] instance by assign value to the `set` property.
+
+```typescript
+NumberObject.set = 'my number instance';
+```
+
+Get created [`Number`][number] instance with the `get` property.
+
+```typescript
+const instance: Number = NumberObject.get;
 ```
 
 ----
@@ -1572,7 +1596,7 @@ class PrimitiveObject  {
 
 ### StringObject
 
-The object to create [`String`][string] object by assign value to `set` property.
+The object handles creating and getting the [`String`][string] object instance with `String()`.
 
 ```typescript
 class StringObject {
@@ -1585,11 +1609,23 @@ class StringObject {
 }
 ```
 
+Create a new [`String`][string] instance by assign value to the `set` property.
+
+```typescript
+StringObject.set = 'my string instance';
+```
+
+Get created [`String`][string] instance with the `get` property.
+
+```typescript
+const instance: String = StringObject.get;
+```
+
 ----
 
 ### SymbolObject
 
-The object to create [`Symbol`][symbol] object by assign value to `set` property.
+The object handles creating and getting the `symbol` object instance with `Symbol()`.
 
 ```typescript
 class SymbolObject {
@@ -1600,6 +1636,18 @@ class SymbolObject {
     return PrimitiveObject.symbol;
   }
 }
+```
+
+Create a new `symbol` by assigning value to the `set` property.
+
+```typescript
+SymbolObject.set = 'my symbol';
+```
+
+Get created `symbol` with the `get` property.
+
+```typescript
+const symbol: Symbol = SymbolObject.get;
 ```
 
 ----
