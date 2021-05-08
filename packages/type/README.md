@@ -105,13 +105,13 @@ import { Constructor, CycleHook, Func, Key, Primitive, Primitives, ResultCallbac
     * a `boolean` type not an instance of [`Boolean`][boolean] and [`Object`][object], and equal to `true` or `false` with [`isBooleanType()`](#isbooleantype).
     * a `function` with [`isFunction()`](#isfunction).
     * a generic type `instance` with [`isInstance()`](#isinstance).
-    * a [`Key`](#Key) type with [`isKey()`](#iskey).
+    * a [`Key`][key] type with [`isKey()`](#iskey).
     * a `null` with [`isNull()`](#isnull).
     * a `number` with [`isNumber()`](#isnumber).
     * an `object` type and instance of [`Number`][Number] and [`Object`][object] with [`isNumberObject()`](#isnumberobject).
     * a `number` type and **not** instance of [`Number`][Number] and [`Object`][object] with [`isNumberType()`](#isnumbertype).
     * a generic type `object` with [`isObject()`](#isobject).
-    * an `object` with its own specified [`Key`](#Key) with [`isObjectKey()`](#isobjectkey).
+    * an `object` with its own specified [`Key`][key] with [`isObjectKey()`](#isobjectkey).
     * a one of the primitive `boolean`, `bigint`, `number`, `string` with [`isPrimitive()`](#isPrimitive).
     * a `string` with [`isString()`](#isstring).
     * an `object` type and instance of [`String`][string] and [`Object`][object] with [`isStringObject()`](#isstringobject).
@@ -135,7 +135,7 @@ import { Constructor, CycleHook, Func, Key, Primitive, Primitives, ResultCallbac
   * a [`Func`](#func) type with [`guardFunction()`](#guardfunction).
   * an instance with [`guardInstance()`](#guardinstance).
   * a `null` with [`guardNull()`](#guardnull).
-  * a [`Key`](#Key) with [`guardKey()`](#guardkey).
+  * a [`Key`][key] with [`guardKey()`](#guardkey).
   * a `number` with [`guardNumber()`](#guardnumber).
   * an `object` of a generic type with [`guardObject()`](#guardobject).
   * an `object` of a generic type that contains `key` with [`guardObjectKey()`](#guardobjectkey).
@@ -258,7 +258,7 @@ const is: Is = {
   defined: isDefined,
   function: isFunction,
   instance: isInstance,
-  key: isKey,
+  key: iskey,
   not: isNot,
   null: isNull,
   number: isNumber,
@@ -493,7 +493,7 @@ isFunction(() => 5); // true
 
 ### isInstance
 
-Use `isInstance()` or `is.instance()` to check if **any** value is an `object` of a generic `Obj` type equal to an `instance` of [`Constructor`](#Constructor) type.
+Use `isInstance()` or `is.instance()` to check if **any** value is an `object` of a generic `Obj` type equal to an `instance` of [`Constructor`](#constructor) type.
 
 ```typescript
 const isInstance: IsInstance = <Obj>(
@@ -513,7 +513,7 @@ const isInstance: IsInstance = <Obj>(
 | Parameter | Type                               | Description |
 | :-------- | :--------------------------------: | :---------- |
 | value     | `any`                              | Any `value` to compare with the `instance` |
-| instance  | [`Constructor<Obj>`](#Constructor) | A generic `Obj` [`Constructor`](#Constructor) type to create an `instance` to compare with the `value` |
+| instance  | [`Constructor<Obj>`](#constructor) | A generic `Obj` [`Constructor`](#constructor) type to create an `instance` to compare with the `value` |
 | callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an `instance` of a generic `Obj`.
@@ -549,7 +549,7 @@ const isKey: IsKey = (value: any, callback: ResultCallback = resultCallback): va
 | value     | `any` | Any `value` to check |
 | callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
-The **return value** is a `boolean` indicating whether or not the `value` is a [`Key`](#Key).
+The **return value** is a `boolean` indicating whether or not the `value` is a [`Key`][key].
 
 ```typescript
 // Example usage
@@ -740,7 +740,7 @@ const isObject: IsObject = <Obj = object>(value: any, key?: Key): value is Obj =
 | Parameter | Type          | Description |
 | :-------- | :-----------: | :---------- |
 | value     | `any`         | Any `value` to check |
-| key?      | [`Key`](#Key) | Property name to find in the `value` |
+| key?      | [`Key`][key] | Property name to find in the `value` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an `object`.
 
@@ -826,7 +826,7 @@ isObject(OBJECT_ONE, SYMBOL_STRING); // true
 
 ### isObjectKey
 
-Use `isObject()` or `is.object()` to check if **any** `value` is an `object` with its own specified keys of the [`Key`](#Key).
+Use `isObject()` or `is.object()` to check if **any** `value` is an `object` with its own specified keys of the [`Key`][key].
 
 ```typescript
 const isObjectKey: IsObjectKey = <Type extends object>(
@@ -848,7 +848,7 @@ const isObjectKey: IsObjectKey = <Type extends object>(
 | Parameter | Type                             | Description                                           |
 | :-------- | :------------------------------: | :---------------------------------------------------- |
 | value     | `any`                            | Any `value` to check if it contains a specified `key` |
-| key       | [`Key`](#key) \| [`Key`](#Key)[] | A [`Key`](#Key) type or an array of [`Key`](#Key) type to check in the `value` |
+| key       | [`Key`][key] \| [`Key`][key][] | A [`Key`][key] type or an array of [`Key`][key] type to check in the `value` |
 | callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an `object` with its own specified keys.
@@ -1267,7 +1267,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 ### guardFunction
 
-Use `guardFunction()` or `guard.is.function()` to guard the `value` to be a [`Func`](#Func) type.
+Use `guardFunction()` or `guard.is.function()` to guard the `value` to be a [`Func`](#func) type.
 
 ```typescript
 const guardFunction: GuardFunction = (value: Func, callback?: ResultCallback): value is Func =>
@@ -1276,10 +1276,10 @@ const guardFunction: GuardFunction = (value: Func, callback?: ResultCallback): v
 
 | Parameter | Type                                | Description                             |
 | :-------- | :---------------------------------: | :-------------------------------------- |
-| value     | [`Func`](#Func)                     | A [`Func`](#Func) type `value` to guard |
+| value     | [`Func`](#func)                     | A [`Func`](#func) type `value` to guard |
 | callback? | [`ResultCallback`][resultcallback] | Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
-The return value is a `boolean` indicating whether or not the `value` is a [`Func`](#Func).
+The return value is a `boolean` indicating whether or not the `value` is a [`Func`](#func).
 
 [Example usage on playground][guard-function]
 
@@ -1287,7 +1287,7 @@ The return value is a `boolean` indicating whether or not the `value` is a [`Fun
 
 ### guardInstance
 
-Use `guardInstance()` or `guard.is.instance()` to guard the `value` to be an `object` of a generic `Obj` type equal to an `instance` of [`Constructor`](#Constructor) type.
+Use `guardInstance()` or `guard.is.instance()` to guard the `value` to be an `object` of a generic `Obj` type equal to an `instance` of [`Constructor`](#constructor) type.
 
 ```typescript
 const guardInstance: GuardInstance = <Obj>(value: Obj, instance: Constructor<Obj>, callback?: ResultCallback): value is Obj =>
@@ -1297,7 +1297,7 @@ const guardInstance: GuardInstance = <Obj>(value: Obj, instance: Constructor<Obj
 | Parameter | Type                                | Description                                          |
 | :-------- | :---------------------------------: | :--------------------------------------------------- |
 | value     | `Obj`                               | An `Obj` type `value` to compare with the `instance` |
-| instance  | [`Constructor<Obj>`](#Constructor)  | A generic `Obj` [`Constructor`](#Constructor) type to create an `instance` to compare with the `value` |
+| instance  | [`Constructor<Obj>`](#constructor)  | A generic `Obj` [`Constructor`](#constructor) type to create an `instance` to compare with the `value` |
 | callback? | [`ResultCallback`][resultcallback] | Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an `instance` of a generic `Obj`.
@@ -1315,10 +1315,10 @@ const guardKey: GuardKey = (value: Key, callback?: ResultCallback): value is Key
 
 | Parameter | Type                                | Description                           |
 | :-------- | :---------------------------------: | :------------------------------------ |
-| value     | [`Key`](#Key)                       | A [`Key`](#Key) type `value` to guard |
+| value     | [`Key`][key]                       | A [`Key`][key] type `value` to guard |
 | callback? | [`ResultCallback`][resultcallback] | Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
-The **return value** is a `boolean` indicating whether or not the `value` is a [`Key`](#Key).
+The **return value** is a `boolean` indicating whether or not the `value` is a [`Key`][key].
 
 ----
 
@@ -1380,7 +1380,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 
 ### guardObjectKey
 
-Use `guardObjectKey()` or `guard.is.objectKey()` to guard the `value` to be an `object` of a generic `Obj` type that contains the `key` property of the [`Key`](#Key) type.
+Use `guardObjectKey()` or `guard.is.objectKey()` to guard the `value` to be an `object` of a generic `Obj` type that contains the `key` property of the [`Key`][key] type.
 
 ```typescript
 const guardObjectKey: GuardObjectKey = <Obj extends object, Key extends keyof Obj>(value: Obj, key: Key): value is Obj =>
@@ -1843,6 +1843,7 @@ MIT © angular-package ([license](https://github.com/angular-package/type/blob/m
 
 [callback]: #callback
 [resultcallback]: #resultcallback
+[key]: #key
 
 [array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 
