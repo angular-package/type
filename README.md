@@ -1501,7 +1501,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is `un
 
 ### BigIntObject
 
-The object handles creating and getting the [`BigInt`][bigint] with `BigInt()`.
+The object handles creating and getting the [`BigInt`][bigint] with [`BigInt()`][bigintconstructor].
 
 ```typescript
 class BigIntObject {
@@ -1514,11 +1514,23 @@ class BigIntObject {
 }
 ```
 
+Create a new [`BigInt`][bigint] by assign value to the `set` property.
+
+```typescript
+BigIntObject.set = 1n;
+```
+
+Get created [`BigInt`][bigint] with the `get` property.
+
+```typescript
+const bigint: BigIntObject = BigIntObject.get;
+```
+
 ----
 
 ### BooleanObject
 
-The object handles creating and getting the [`Boolean`][boolean] object instance with `Boolean()`.
+The object handles creating and getting the [`Boolean`][boolean] object instance with [`Boolean()`][booleanconstructor].
 
 ```typescript
 class BooleanObject {
@@ -1544,14 +1556,14 @@ BooleanObject.set = false;
 Get created [`Boolean`][boolean] instance with the `get` property.
 
 ```typescript
-const instance: Boolean = BooleanObject.get;
+const booleanInstance: Boolean = BooleanObject.get;
 ```
 
 ----
 
 ### NumberObject
 
-The object handles creating and getting the [`Number`][number] object instance with `Number()`.
+The object handles creating and getting the [`Number`][number] object instance with [`Number()`][numberconstructor].
 
 ```typescript
 class NumberObject {
@@ -1573,7 +1585,7 @@ NumberObject.set = 'my number instance';
 Get created [`Number`][number] instance with the `get` property.
 
 ```typescript
-const instance: Number = NumberObject.get;
+const numberInstance: Number = NumberObject.get;
 ```
 
 ----
@@ -1596,7 +1608,7 @@ class PrimitiveObject  {
 
 ### StringObject
 
-The object handles creating and getting the [`String`][string] object instance with `String()`.
+The object handles creating and getting the [`String`][string] object instance with [`String()`][stringconstructor].
 
 ```typescript
 class StringObject {
@@ -1618,7 +1630,7 @@ StringObject.set = 'my string instance';
 Get created [`String`][string] instance with the `get` property.
 
 ```typescript
-const instance: String = StringObject.get;
+const stringInstance: String = StringObject.get;
 ```
 
 ----
@@ -1833,12 +1845,24 @@ MIT © angular-package ([license](https://github.com/angular-package/type/blob/m
 [resultcallback]: #resultcallback
 
 [array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+[bigint]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt
+[bigintconstructor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt
+
 [boolean]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+[booleanconstructor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean/Boolean
+
 [function]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions
 [number]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
+[numberconstructor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/Number
+
 [object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
 [primitive]: https://developer.mozilla.org/en-US/docs/Glossary/Primitive
+
 [string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+[stringconstructor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/String
+
+[symbol]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol
 
 [new]: https://img.shields.io/badge/-new-red
 
