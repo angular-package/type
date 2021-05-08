@@ -16,7 +16,7 @@ import { UNDEFINED } from './variables/undefined.const';
  * ✓ typeof === 'object'
  * ✓ instanceof Object
  */
-describe(`isObject`, () => {
+describe(isObject.name, () => {
   // Defined.
   it('is DEFINED', () => expect(isObject).toBeDefined());
 

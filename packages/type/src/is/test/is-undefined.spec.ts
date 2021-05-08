@@ -18,7 +18,7 @@ import { UNDEFINED } from './variables/undefined.const';
  * ✓ typeof === 'undefined'
  * ✓ value === undefined
  */
-describe(`isUndefined`, () => {
+describe(isUndefined.name, () => {
   // Defined.
   it('is DEFINED', () => expect(isUndefined).toBeDefined());
 

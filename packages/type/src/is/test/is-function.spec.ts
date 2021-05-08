@@ -13,7 +13,7 @@ import { SYMBOL_NUMBER, SYMBOL_STRING } from './variables/symbol.const';
 import { UNDEFINED } from './variables/undefined.const';
 import { notDefined } from './variables/not-defined.const';
 
-describe('isFunction', () => {
+describe(isFunction.name, () => {
   // TRUE
   it('is DEFINED', () => expect(isFunction).toBeDefined());
   it(`'function' | Function`, () => expect(isFunction(FUNCTION)).toBe(TRUE));

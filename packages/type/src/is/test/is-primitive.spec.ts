@@ -12,7 +12,7 @@ import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from './variables/string
 import { SYMBOL_NUMBER, SYMBOL_STRING } from './variables/symbol.const';
 import { UNDEFINED } from './variables/undefined.const';
 
-describe(`isPrimitive`, () => {
+describe(isPrimitive.name, () => {
   // Defined.
   it('is DEFINED', () => expect(isPrimitive).toBeDefined());
 

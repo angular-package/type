@@ -9,7 +9,7 @@ class TestClass {
   }
 }
 
-describe(`isParam`, () => {
+describe(isParam.name, () => {
   const resultTRUE = new TestClass().testMethod({firstName: 'NoName'}, STRING, NUMBER);
   const resultFALSE = new TestClass().testMethod(NUMBER, {firstName: 'NoName'}, STRING);
 

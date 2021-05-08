@@ -17,7 +17,7 @@ import { notDefined } from './variables/not-defined.const';
  * ✓ typeof === 'boolean'
  * ✓ instanceof Boolean
  */
-describe('isBoolean', () => {
+describe(isBoolean.name, () => {
   // TRUE
   it('is DEFINED', () => expect(isBoolean).toBeDefined());
   it(`'boolean' | Boolean`, () => {

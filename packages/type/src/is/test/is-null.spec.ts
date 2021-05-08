@@ -14,7 +14,7 @@ import { SYMBOL_NUMBER, SYMBOL_STRING } from './variables/symbol.const';
 import { UNDEFINED } from './variables/undefined.const';
 import { notDefined } from './variables/not-defined.const';
 
-describe('isNull', () => {
+describe(isNull.name, () => {
   // TRUE
   it('is DEFINED', () => expect(isNull).toBeDefined());
   it(`null | NULL`, () => {
