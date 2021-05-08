@@ -1637,7 +1637,7 @@ const stringInstance: String = StringObject.get;
 
 ### SymbolObject
 
-The object handles creating and getting the `symbol` object instance with `Symbol()`.
+The object handles creating and getting the [`Symbol`][symbol] object instance with [`Symbol()`][symbolconstructor].
 
 ```typescript
 class SymbolObject {
@@ -1863,6 +1863,7 @@ MIT © angular-package ([license](https://github.com/angular-package/type/blob/m
 [stringconstructor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/String
 
 [symbol]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol
+[symbolconstructor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/Symbol
 
 [new]: https://img.shields.io/badge/-new-red
 
