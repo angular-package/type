@@ -194,8 +194,15 @@ npm i --save @angular-package/type
 Default function to handle `callback`.
 
 ```typescript
-const resultCallback: ResultCallback = (result: boolean): boolean => result;
+const resultCallback: ResultCallback = (result: boolean, value?: any): boolean => result;
 ```
+
+| Parameter | Type      | Description                             |
+| :-------- | :-------: | :-------------------------------------- |
+| result    | `boolean` | A `boolean` type value from the result of the check   |
+| value     | `any`     | Any type value from the check |
+
+The **return value** is a `boolean` type result from the check.
 
 Custom function to handle `callback`.
 
@@ -258,7 +265,7 @@ const is: Is = {
   defined: isDefined,
   function: isFunction,
   instance: isInstance,
-  key: iskey,
+  key: isKey,
   not: isNot,
   null: isNull,
   number: isNumber,
@@ -288,7 +295,8 @@ const isArray: IsArray = <Type>(value: any, callback: ResultCallback = resultCal
     typeOf(value) === 'array' &&
     Array.isArray(value) === true &&
     value instanceof Array === true &&
-    typeof value === 'object'
+    typeof value === 'object',
+    value
   );
 ```
 
@@ -318,7 +326,7 @@ Use `isBigInt()` or `is.bigint()` to check if **any** `value` is a `bigint` type
 
 ```typescript
 const isBigInt: IsBigInt = (value: any, callback: ResultCallback = resultCallback): value is bigint =>
-  callback(typeOf(value) === 'bigint' && typeof value === 'bigint');
+  callback(typeOf(value) === 'bigint' && typeof value === 'bigint', value);
 ```
 
 | Parameter | Type  | Description |
@@ -347,7 +355,7 @@ Use `isBoolean()` or `is.boolean()` to check if **any** `value` is a `boolean` t
 
 ```typescript
 const isBoolean: IsBoolean = (value: any, callback: ResultCallback = resultCallback): value is boolean =>
-  callback(typeOf(value) === 'boolean' && (isBooleanType(value) || isBooleanObject(value)));
+  callback(typeOf(value) === 'boolean' && (isBooleanType(value) || isBooleanObject(value)), value);
 ```
 
 | Parameter | Type  | Description          |
@@ -376,7 +384,7 @@ Use `isBooleanObject()` or `is.booleanObject()` to check if **any** `value` is a
 
 ```typescript
 const isBooleanObject: IsBooleanObject = (value: any, callback: ResultCallback = resultCallback): value is boolean =>
-  callback(typeof value === 'object' && value instanceof Boolean === true && value instanceof Object === true);
+  callback(typeof value === 'object' && value instanceof Boolean === true && value instanceof Object === true, value);
 ```
 
 | Parameter | Type  | Description          |
@@ -407,7 +415,8 @@ const isBooleanType: IsBooleanType = (value: any, callback: ResultCallback = res
     value instanceof Boolean === false &&
     value instanceof Object === false &&
     typeof value === 'boolean' &&
-    (value === true || value === false)
+    (value === true || value === false),
+    value
   );
 ```
 
@@ -435,7 +444,7 @@ Use `isDefined()` or `is.defined()` to check if an **unknown** `value` is NOT an
 
 ```typescript
 const isDefined: IsDefined = (value: unknown, callback: ResultCallback = resultCallback): boolean =>
-  callback(typeOf(value) !== 'undefined' && typeof value !== 'undefined' && value !== undefined);
+  callback(typeOf(value) !== 'undefined' && typeof value !== 'undefined' && value !== undefined, value);
 ```
 
 | Parameter | Type      | Description                   |
@@ -466,7 +475,8 @@ const isFunction: IsFunction = (value: any, callback: ResultCallback = resultCal
     typeOf(value) === 'function' &&
     typeof value === 'function' &&
     value instanceof Function === true &&
-    value instanceof Object === true
+    value instanceof Object === true,
+    value
   );
 ```
 
@@ -506,7 +516,8 @@ const isInstance: IsInstance = <Obj>(
         isFunction(instance) ?
           value instanceof instance === true
         : false
-      : false
+      : false,
+      value
     );
 ```
 
@@ -541,7 +552,7 @@ Use `isKey()` or `is.key()` to check if **any** `value` is one of the `string`, 
 
 ```typescript
 const isKey: IsKey = (value: any, callback: ResultCallback = resultCallback): value is Key =>
-  callback(isString(value) || isNumber(value) || isSymbol(value));
+  callback(isString(value) || isNumber(value) || isSymbol(value), value);
 ```
 
 | Parameter | Type  | Description          |
@@ -577,7 +588,7 @@ Use `isNull()` or `is.null()` to check if **any** `value` is an `object` type an
 
 ```typescript
 const isNull: IsNull = (value: any, callback: ResultCallback = resultCallback): value is null =>
-  callback(typeOf(value) === 'null' && typeof value === 'object' && value === null);
+  callback(typeOf(value) === 'null' && typeof value === 'object' && value === null, value);
 ```
 
 | Parameter | Type  | Description          |
@@ -612,7 +623,7 @@ Use `isNumber()` or `is.number()` to check if **any** `value` is a `number` type
 
 ```typescript
 const isNumber: IsNumber = (value: any, callback: ResultCallback = resultCallback): value is number =>
-  callback(typeOf(value) === 'number' && isFinite(value) === true && (isNumberType(value) || isNumberObject(value)));
+  callback(typeOf(value) === 'number' && isFinite(value) === true && (isNumberType(value) || isNumberObject(value)), value);
 ```
 
 | Parameter | Type  | Description          |
@@ -632,7 +643,7 @@ Use `isNumberObject()` or `is.numberObject()` to check if **any** `value` is an 
 
 ```typescript
 const isNumberObject: IsNumberObject = (value: any, callback: ResultCallback = resultCallback): value is number =>
-  callback(typeof value === 'object' && value instanceof Number === true && value instanceof Object === true);
+  callback(typeof value === 'object' && value instanceof Number === true && value instanceof Object === true, value);
 ```
 
 | Parameter | Type  | Description          |
@@ -681,7 +692,7 @@ Use `isNumberType()` or `is.numberType()` to check if **any** `value` is a `numb
 
 ```typescript
 const isNumberType: IsNumberType = (value: any, callback: ResultCallback = resultCallback): value is number =>
-  callback(value instanceof Number === false && value instanceof Object === false && typeof value === 'number');
+  callback(value instanceof Number === false && value instanceof Object === false && typeof value === 'number', value);
 ```
 
 | Parameter | Type  | Description          |
@@ -726,21 +737,17 @@ isNumberType(NUMBER_NEW_INSTANCE); // false
 
 ### isObject
 
-Use `isObject()` or `is.object()` to check if **any** `value` is an `object` of a generic `Obj` type and [`Object`][object] instance with the possibility of containing the `key`.
+Use `isObject()` or `is.object()` to check if **any** `value` is an `object` of a generic `Obj` type and [`Object`][object] instance.
 
 ```typescript
-const isObject: IsObject = <Obj = object>(value: any, key?: Key): value is Obj =>
-  (typeOf(value) === 'object' && typeof value === 'object' && value instanceof Object === true)
-    ? isKey(key)
-      ? key in value
-    : true
-  : false;
+const isObject: IsObject = <Obj = object>(value: any, callback: ResultCallback = resultCallback): value is Obj =>
+  callback(typeOf(value) === 'object' && typeof value === 'object' && value instanceof Object === true, value);
 ```
 
 | Parameter | Type          | Description |
 | :-------- | :-----------: | :---------- |
 | value     | `any`         | Any `value` to check |
-| key?      | [`Key`][key] | Property name to find in the `value` |
+| callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an `object`.
 
@@ -841,7 +848,8 @@ const isObjectKey: IsObjectKey = <Type extends object>(
       : isKey(key) ?
           ({}).hasOwnProperty.call(value, key)
         : false
-    : false
+    : false,
+    value
   );
 ```
 
@@ -898,7 +906,7 @@ Use `isString()` or `is.string()` to check if **any** `value` is a `string` type
 
 ```typescript
 const isString: IsString = (value: any, callback: ResultCallback = resultCallback): value is string =>
-  callback(typeOf(value) === 'string' && (isStringType(value) || isStringObject(value)));
+  callback(typeOf(value) === 'string' && (isStringType(value) || isStringObject(value)), value);
 ```
 
 | Parameter |       Type                          | Description          |
@@ -916,7 +924,7 @@ Use `isStringObject()` or `is.stringObject()` to check if **any** `value` is an 
 
 ```typescript
 const isStringObject: IsStringObject = (value: any, callback: ResultCallback = resultCallback): value is string =>
-  callback(value instanceof Object === true && value instanceof String === true && typeof value === 'object');
+  callback(value instanceof Object === true && value instanceof String === true && typeof value === 'object', value);
 ```
 
 | Parameter |       Type                          | Description          |
@@ -934,7 +942,7 @@ Use `isStringType()` or `is.stringType()` to check if **any** `value` is a `stri
 
 ```typescript
 const isStringType: IsStringType = (value: any, callback: ResultCallback = resultCallback): value is string =>
-  callback(value instanceof Object === false && value instanceof String === false && typeof value === 'string');
+  callback(value instanceof Object === false && value instanceof String === false && typeof value === 'string', value);
 ```
 
 | Parameter | Type                                                                    | Description          |
@@ -952,7 +960,7 @@ Use `isSymbol()` or `is.symbol()` to check if **any** `value` is a `symbol` type
 
 ```typescript
 const isSymbol: IsSymbol = (value: any, callback: ResultCallback = resultCallback): value is symbol =>
-  callback(typeOf(value) === 'symbol' && typeof value === 'symbol');
+  callback(typeOf(value) === 'symbol' && typeof value === 'symbol', value);
 ```
 
 | Parameter | Type  | Description          |
@@ -1013,7 +1021,7 @@ Use `isUndefined()` or `is.undefined()` to check if **any** `value` is an `undef
 
 ```typescript
 const isUndefined: IsUndefined = (value: any, callback: ResultCallback = resultCallback): value is undefined =>
-  callback(typeOf(value) === 'undefined' && typeof value === 'undefined' && value === undefined);
+  callback(typeOf(value) === 'undefined' && typeof value === 'undefined' && value === undefined, value);
 ```
 
 | Parameter | Type  | Description          |
@@ -1054,7 +1062,8 @@ const isNotBoolean: IsNotBoolean = (value: unknown, callback: ResultCallback = r
     typeof value !== 'boolean' &&
     value instanceof Boolean === false &&
     value !== true &&
-    value !== false
+    value !== false,
+    value
   );
 ```
 
@@ -1073,7 +1082,7 @@ Use `isNotDefined()` or `is.not.defined()` to check if an **unknown** `value` is
 
 ```typescript
 const isNotDefined: IsNotDefined = (value: unknown, callback: ResultCallback = resultCallback): boolean =>
-  callback(typeOf(value) === 'undefined' && typeof value === 'undefined' && value === undefined);
+  callback(typeOf(value) === 'undefined' && typeof value === 'undefined' && value === undefined, value);
 ```
 
 | Parameter | Type      | Description                 |
@@ -1091,7 +1100,7 @@ Use `isNotFunction()` or `is.not.function()` to check if an **unknown** `value` 
 
 ```typescript
 const isNotFunction: IsNotFunction = (value: unknown, callback: ResultCallback = resultCallback): boolean =>
-  callback(typeOf(value) !== 'function' && typeof value !== 'function' && value instanceof Function === false);
+  callback(typeOf(value) !== 'function' && typeof value !== 'function' && value instanceof Function === false, value);
 ```
 
 | Parameter | Type      | Description                 |
@@ -1109,7 +1118,7 @@ Use `isNotNull()` or `is.not.null()` to check if an **unknown** `value` is **not
 
 ```typescript
 const isNotNull: IsNotNull = (value: unknown, callback: ResultCallback = resultCallback): boolean =>
-  callback(typeOf(value) !== 'null' && value !== null);
+  callback(typeOf(value) !== 'null' && value !== null, value);
 ```
 
 | Parameter | Type      | Description                 |
@@ -1130,7 +1139,8 @@ const isNotNumber: IsNotNumber = (value: any, callback: ResultCallback = resultC
   callback(
     typeOf(value) !== 'number' &&
     typeof value !== 'number' &&
-    value instanceof Number === false
+    value instanceof Number === false,
+    value
   );
 ```
 
@@ -1149,7 +1159,7 @@ Use `isNotString()` or `is.not.string()` to check if an **unknown** `value` is *
 
 ```typescript
 const isNotString: IsNotString = (value: unknown, callback: ResultCallback = resultCallback): boolean =>
-  callback(typeOf(value) !== 'string' && typeof value !== 'string' && value instanceof String === false);
+  callback(typeOf(value) !== 'string' && typeof value !== 'string' && value instanceof String === false, value);
 ```
 
 | Parameter | Type      | Description                 |
@@ -1167,7 +1177,7 @@ Use `isNotUndefined()` or `is.not.undefined()` to check if an **unknown** `value
 
 ```typescript
 const isNotUndefined: IsNotUndefined = (value: unknown, callback: ResultCallback = resultCallback): boolean =>
-  callback(typeOf(value) !== 'undefined' && typeof value !== 'undefined' && value !== undefined);
+  callback(typeOf(value) !== 'undefined' && typeof value !== 'undefined' && value !== undefined, value);
 ```
 
 | Parameter | Type      | Description                 |
