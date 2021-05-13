@@ -193,6 +193,8 @@ npm i --save @angular-package/type
 
 ## Callback
 
+![update][update]
+
 Default function to handle `callback`.
 
 ```typescript
@@ -209,9 +211,9 @@ The **return value** is a `boolean` type result from the check.
 Custom function to handle `callback`.
 
 ```typescript
-const customCallback: ResultCallback = (result: boolean): boolean => {
+const customCallback: ResultCallback = (result: boolean, value: any): boolean => {
   if (result === false) {
-    throw new Error('error');
+    throw new Error(`${value} must be a string`);
   }
   return result;
 };
@@ -1708,7 +1710,7 @@ const guardUndefined: GuardUndefined = (value: undefined, callback?: ResultCallb
 | Parameter | Type                                | Description                         |
 | :-------- | :---------------------------------: | :---------------------------------- |
 | value     | `undefined`                         | A `undefined` type `value` to guard |
-| callback  | [`ResultCallback`][resultcallback] | Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`][resultcallback]  | Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is `undefined`.
 
@@ -2007,7 +2009,7 @@ type Primitives = 'bigint' | 'boolean' | 'null' | 'number' | 'symbol' | 'string'
 ### ResultCallback
 
 ```typescript
-type ResultCallback = (result: boolean) => boolean;
+type ResultCallback = <Obj>(result: boolean, value?: any) => boolean;
 ```
 
 ### Type
