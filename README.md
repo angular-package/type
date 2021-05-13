@@ -706,20 +706,20 @@ import { isNumberObject } from '@angular-package/type';
  */
 const NUMBER: any = 10304050;
 
- /**
-  * typeof === 'number'
-  * instanceof Function === false
-  * instanceof Number === false
-  * instanceof Object === false
-  */
+/**
+ * typeof === 'number'
+ * instanceof Function === false
+ * instanceof Number === false
+ * instanceof Object === false
+ */
 const NUMBER_INSTANCE: any = Number(NUMBER);
 
- /**
-  * typeof === 'number'
-  * instanceof Function === false
-  * instanceof Number === true
-  * instanceof Object === true
-  */
+/**
+ * typeof === 'number'
+ * instanceof Function === false
+ * instanceof Number === true
+ * instanceof Object === true
+ */
 const NUMBER_NEW_INSTANCE: any = new Number(NUMBER);
 
 isNumberObject(NUMBER); // false
@@ -758,20 +758,20 @@ import { isNumberType } from '@angular-package/type';
  */
 const NUMBER: any = 10304050;
 
- /**
-  * typeof === 'number'
-  * instanceof Function === false
-  * instanceof Number === false
-  * instanceof Object === false
-  */
+/**
+ * typeof === 'number'
+ * instanceof Function === false
+ * instanceof Number === false
+ * instanceof Object === false
+ */
 const NUMBER_INSTANCE: any = Number(NUMBER);
 
- /**
-  * typeof === 'number'
-  * instanceof Function === false
-  * instanceof Number === true
-  * instanceof Object === true
-  */
+/**
+ * typeof === 'number'
+ * instanceof Function === false
+ * instanceof Number === true
+ * instanceof Object === true
+ */
 const NUMBER_NEW_INSTANCE: any = new Number(NUMBER);
 
 isNumberType(NUMBER); // true
@@ -895,7 +895,7 @@ isObject(OBJECT_ONE, SYMBOL_STRING); // true
 
 ### isObjectKey
 
-Use `isObjectKey()` or `is.objectKey()` to check if **any** `value` is an `object` with its own specified keys of the [`Key`][key]. The Function uses [`hasOwnProperty`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty) method to find the key.
+Use `isObjectKey()` or `is.objectKey()` to check if **any** `value` is an `object` with its own specified keys of the [`Key`][key]. The function uses [`hasOwnProperty`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty) method to find the key.
 
 ```typescript
 const isObjectKey: IsObjectKey = <Type extends object>(
@@ -1406,7 +1406,7 @@ const isNotDefined: IsNotDefined = (value: unknown, callback: ResultCallback = r
 | value     | `unknown` | An unknown `value` to check |
 | callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
-The return value is a `boolean` indicating whether or not the `value` is not defined, is `undefined`.
+The **return value** is a `boolean` indicating whether or not the `value` is not defined, is `undefined`.
 
 ----
 
@@ -1424,7 +1424,7 @@ const isNotFunction: IsNotFunction = (value: unknown, callback: ResultCallback =
 | value     | `unknown` | An unknown `value` to check |
 | callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
-The return value is a `boolean` indicating whether or not the `value` is not a `function`.
+The **return value** is a `boolean` indicating whether or not the `value` is not a `function`.
 
 ----
 
@@ -1442,7 +1442,7 @@ const isNotNull: IsNotNull = (value: unknown, callback: ResultCallback = resultC
 | value     | `unknown` | An unknown `value` to check |
 | callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
-The return value is a `boolean` indicating whether or not the `value` is not `null`.
+The **return value** is a `boolean` indicating whether or not the `value` is not `null`.
 
 ----
 
@@ -1465,7 +1465,7 @@ const isNotNumber: IsNotNumber = (value: any, callback: ResultCallback = resultC
 | value     | `unknown` | An unknown `value` to check |
 | callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
-The return value is a `boolean` indicating whether or not the `value` is not a `number`.
+The **return value** is a `boolean` indicating whether or not the `value` is not a `number`.
 
 ----
 
@@ -1483,7 +1483,7 @@ const isNotString: IsNotString = (value: unknown, callback: ResultCallback = res
 | value     | `unknown` | An unknown `value` to check |
 | callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
-The return value is a `boolean` indicating whether or not the `value` is not a `string`.
+The **return value** is a `boolean` indicating whether or not the `value` is not a `string`.
 
 ----
 
@@ -1501,7 +1501,7 @@ const isNotUndefined: IsNotUndefined = (value: unknown, callback: ResultCallback
 | value     | `unknown` | An unknown `value` to check |
 | callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
-The return value is a `boolean` indicating whether or not the `value` is not `undefined`.
+The **return value** is a `boolean` indicating whether or not the `value` is not `undefined`.
 
 ```typescript
 // Example usage with the problem
@@ -1634,7 +1634,7 @@ const guardFunction: GuardFunction = (value: Func, callback?: ResultCallback): v
 | value     | [`Func`](#func)                     | A [`Func`](#func) type `value` to guard |
 | callback? | [`ResultCallback`][resultcallback] | Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
-The return value is a `boolean` indicating whether or not the `value` is a [`Func`](#func).
+The **return value** is a `boolean` indicating whether or not the `value` is a [`Func`](#func).
 
 [Example usage on playground][guard-function]
 
@@ -1769,7 +1769,7 @@ const guardPrimitive: GuardPrimitive =
 | type        | [`Primitives`](#primitives)              | A `string` type from the [`Primitives`](#primitives) to check the `value` |
 | callback?   | [`ResultCallback`][resultcallback]      | Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
-The return value is a `boolean` indicating whether or not the `value` is the [`Primitive`](#primitive) from the `type`.
+The **return value** is a `boolean` indicating whether or not the `value` is the [`Primitive`](#primitive) from the `type`.
 
 [Example usage on playground][guard-primitive]
 
@@ -1789,7 +1789,7 @@ const guardString: GuardString = (value: string, callback?: ResultCallback): val
 | value       | `string`                            | A `string` type `value` to guard |
 | callback?   | [`ResultCallback`][resultcallback] | Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
-The return value is a `boolean` indicating whether or not the `value` is a `string`.
+The **return value** is a `boolean` indicating whether or not the `value` is a `string`.
 
 [Example usage on playground][guard-string]
 
@@ -1828,7 +1828,7 @@ const guardType: GuardType = <T extends Type>(value: T, type: Types<T>, callback
 | type      | [`Types<T>`](#types)                | A `string` or generic [`Constructor`](#constructor) type from the [`Types`](#types) to check the `value` |
 | callback? | [`ResultCallback`][resultcallback] | Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
-The return value is a `boolean` indicating whether or not the `value` is a `type` from the [`Types`](#types).
+The **return value** is a `boolean` indicating whether or not the `value` is a `type` from the [`Types`](#types).
 
 [Example usage on playground][guard-type]
 
