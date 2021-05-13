@@ -14,6 +14,7 @@ import { isNumberObject } from './is-number-object.func';
 import { isNumberType } from './is-number-type.func';
 import { isObject } from './is-object.func';
 import { isObjectKey } from './is-object-key.func';
+import { isObjectKeyIn } from './is-object-key-in.func';
 import { isPrimitive } from './is-primitive.func';
 import { isString } from './is-string.func';
 import { isStringObject } from './is-string-object.func';
@@ -44,6 +45,7 @@ export const is: Is = {
   numberType: isNumberType,
   object: isObject,
   objectKey: isObjectKey,
+  objectKeyIn: isObjectKeyIn,
   primitive: isPrimitive,
   string: isString,
   stringObject: isStringObject,
