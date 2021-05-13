@@ -764,57 +764,6 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 
 ```typescript
 // Example usage
-const SYMBOL_NUMBER: unique symbol = Symbol(NUMBER);
-const SYMBOL_STRING: unique symbol = Symbol(STRING);
-
-/**
- * typeof === 'number'
- * instanceof Function === false
- * instanceof Number === false
- * instanceof Object === false
- */
-const NUMBER: any = 10304050;
-
-/**
- * typeof === 'number'
- * instanceof Function === false
- * instanceof Number === false
- * instanceof Object === false
- */
-const NUMBER_INSTANCE: any = Number(NUMBER);
-
-/**
- * typeof === 'number'
- * instanceof Function === false
- * instanceof Number === true
- * instanceof Object === true
- */
-const NUMBER_NEW_INSTANCE: any = new Number(NUMBER);
-
-/**
- * typeof === 'string'
- * instanceof Function === false
- * instanceof Object === false
- * instanceof String === false
- */
-const STRING: any = '!@#$%^&*()abcdefghijklmnoprstuwyz';
-
-/**
- * typeof === 'string'
- * instanceof Function === false
- * instanceof Object === false
- * instanceof String === false
- */
-const STRING_INSTANCE: any = String(STRING);
-
-/**
- * typeof === 'string'
- * instanceof Function === false
- * instanceof Object === true
- * instanceof String === true
- */
-const STRING_NEW_INSTANCE: any = new String(STRING);
-
 const OBJECT_ONE: ObjectOne = {
   'key as string': true,
   1030405027: 'key is number',
@@ -827,13 +776,6 @@ const OBJECT_ONE: ObjectOne = {
 };
 
 isObject(OBJECT_ONE); // true
-isObject(OBJECT_ONE, STRING); // true
-isObject(OBJECT_ONE, STRING_NEW_INSTANCE); // true
-isObject(OBJECT_ONE, 1030405027); // true
-isObject(OBJECT_ONE, NUMBER); // true
-isObject(OBJECT_ONE, NUMBER_NEW_INSTANCE); // true
-isObject(OBJECT_ONE, SYMBOL_NUMBER); // true
-isObject(OBJECT_ONE, SYMBOL_STRING); // true
 
 ```
 
@@ -982,7 +924,7 @@ export class Class {
  */
 export const CLASS = new Class();
 
-// One of the differences between `in` operator and the `hasOwnProperty()` method is that it doesn't find a getter key
+// One of the differences between the `in` operator and the `hasOwnProperty()` method is that it doesn't find a getter key
 isObjectKey(CLASS, SYMBOL_NUMBER); // false
 isObjectKey(CLASS, SYMBOL_STRING); // false
 isObjectKey(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING]); // false
@@ -993,7 +935,7 @@ isObjectKey(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING]); // false
 
 ### isObjectKeyIn
 
-![https://img.shields.io/badge/-New-green](https://img.shields.io/badge/-New-green)
+![new][new]
 
 Use `isObjectKeyIn()` or `is.objectKeyIn()` to check if **any** `value` is an [`Object`][object] with the `key` of the [`Key`][key] type by using the `in` operator. The function uses operator [`in`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in) to find the key.
 
@@ -1123,7 +1065,7 @@ const isString: IsString = (value: any, callback: ResultCallback = resultCallbac
 | Parameter |       Type                          | Description          |
 | :-------- | :---------------------------------: | :------------------- |
 | value     | `any`                               | Any `value` to check |
-| callback  | [`ResultCallback`][resultcallback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
+| callback  | [`ResultCallback`][resultcallback]  | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `string`.
 
@@ -1156,9 +1098,9 @@ const isStringType: IsStringType = (value: any, callback: ResultCallback = resul
   callback(value instanceof Object === false && value instanceof String === false && typeof value === 'string', value);
 ```
 
-| Parameter | Type                                                                    | Description          |
-| :-------- | :---------------------------------------------------------------------: | :------------------- |
-| value     | `any`                                                                   | Any `value` to check |
+| Parameter | Type                                                            | Description          |
+| :-------- | :-------------------------------------------------------------: | :------------------- |
+| value     | `any`                                                           | Any `value` to check |
 | callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `string`.
@@ -1397,6 +1339,33 @@ const isNotUndefined: IsNotUndefined = (value: unknown, callback: ResultCallback
 | callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
 The return value is a `boolean` indicating whether or not the `value` is not `undefined`.
+
+```typescript
+// Example usage with the problem
+interface Config {
+  a?: string;
+  b?: string;
+}
+let config: Config = {
+  a: 'x',
+  b: 'y'
+};
+
+function configFunction(value: string): string {
+  return '';
+}
+
+// Cause typescript return `boolean` this will generate an type error
+if (is.not.undefined(config.a)) {
+  configFunction(config.a);
+}
+
+// Cause typescript return `value is boolean` this will not generate an error
+if (!is.undefined(config.a)) {
+  configFunction(config.a);
+}
+
+```
 
 ----
 
