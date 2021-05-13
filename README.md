@@ -68,7 +68,9 @@ import {
   isType,
   isUndefined
 } from '@angular-package/type';
+```
 
+```typescript
 // `are` prefix functions.
 import {
   areString
