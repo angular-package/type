@@ -740,6 +740,8 @@ isNumberType(NUMBER_NEW_INSTANCE); // false
 
 ### isObject
 
+![update][update]
+
 Use `isObject()` or `is.object()` to check if **any** `value` is an `object` of a generic `Obj` type and [`Object`][object] instance.
 
 ```typescript
@@ -987,6 +989,8 @@ isObjectKey(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING]); // false
 ----
 
 ### isObjectKeyIn
+
+![https://img.shields.io/badge/-New-green](https://img.shields.io/badge/-New-green)
 
 Use `isObjectKeyIn()` or `is.objectKeyIn()` to check if **any** `value` is an [`Object`][object] with the `key` of the [`Key`][key] type by using the `in` operator.
 More about operator [`in`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in) used in the function.
@@ -2081,7 +2085,8 @@ MIT © angular-package ([license](https://github.com/angular-package/type/blob/m
 [symbol]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol
 [symbolconstructor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/Symbol
 
-[new]: https://img.shields.io/badge/-new-red
+[new]: https://img.shields.io/badge/-new-green
+[update]: https://img.shields.io/badge/-update-red
 
 [type-npm-svg]: https://badge.fury.io/js/%40angular-package%2Ftype.svg
 [type-npm-badge]: https://badge.fury.io/js/%40angular-package%2Ftype
