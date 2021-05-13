@@ -60,9 +60,6 @@ export {
   isUndefined
 } from './is';
 
-// `is` interface.
-export { Is } from './is/interface/is.interface';
-
 // `isNot` functions.
 export {
   isNotBoolean,
