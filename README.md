@@ -1355,12 +1355,12 @@ function configFunction(value: string): string {
   return '';
 }
 
-// Cause typescript return `boolean` this will generate an type error
+// Cause typescript returns `boolean` this will generate a type error
 if (is.not.undefined(config.a)) {
   configFunction(config.a);
 }
 
-// Cause typescript return `value is boolean` this will not generate an error
+// Cause typescript return `value is boolean` will not generate an error.
 if (!is.undefined(config.a)) {
   configFunction(config.a);
 }
