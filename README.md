@@ -275,6 +275,7 @@ const is: Is = {
   numberType: isNumberType,
   object: isObject,
   objectKey: isObjectKey,
+  objectKeyIn: isObjectKeyIn,
   primitive: isPrimitive,
   string: isString,
   stringObject: isStringObject,
@@ -834,7 +835,8 @@ isObject(OBJECT_ONE, SYMBOL_STRING); // true
 
 ### isObjectKey
 
-Use `isObject()` or `is.object()` to check if **any** `value` is an `object` with its own specified keys of the [`Key`][key].
+Use `isObjectKey()` or `is.objectKey()` to check if **any** `value` is an `object` with its own specified keys of the [`Key`][key].
+More about [`hasOwnProperty`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty) method used in the function.
 
 ```typescript
 const isObjectKey: IsObjectKey = <Type extends object>(
@@ -862,11 +864,132 @@ const isObjectKey: IsObjectKey = <Type extends object>(
 
 The **return value** is a `boolean` indicating whether or not the `value` is an `object` with its own specified keys.
 
+```typescript
+// Example usage
+const SYMBOL_NUMBER: unique symbol = Symbol(NUMBER);
+const SYMBOL_STRING: unique symbol = Symbol(STRING);
+
+/**
+ * typeof === 'number'
+ * instanceof Function === false
+ * instanceof Number === false
+ * instanceof Object === false
+ */
+const NUMBER: any = 10304050;
+
+/**
+ * typeof === 'number'
+ * instanceof Function === false
+ * instanceof Number === false
+ * instanceof Object === false
+ */
+const NUMBER_INSTANCE: any = Number(NUMBER);
+
+/**
+ * typeof === 'number'
+ * instanceof Function === false
+ * instanceof Number === true
+ * instanceof Object === true
+ */
+const NUMBER_NEW_INSTANCE: any = new Number(NUMBER);
+
+/**
+ * typeof === 'string'
+ * instanceof Function === false
+ * instanceof Object === false
+ * instanceof String === false
+ */
+const STRING: any = '!@#$%^&*()abcdefghijklmnoprstuwyz';
+
+/**
+ * typeof === 'string'
+ * instanceof Function === false
+ * instanceof Object === false
+ * instanceof String === false
+ */
+const STRING_INSTANCE: any = String(STRING);
+
+/**
+ * typeof === 'string'
+ * instanceof Function === false
+ * instanceof Object === true
+ * instanceof String === true
+ */
+const STRING_NEW_INSTANCE: any = new String(STRING);
+
+const OBJECT_ONE: ObjectOne = {
+  'key as string': true,
+  1030405027: 'key is number',
+  5: 'key is also number',
+  [NUMBER]: 'key is number',
+  [string]: 'key is string',
+  [SYMBOL_NUMBER]: 'key is symbol number',
+  [SYMBOL_STRING]: 6,
+  x: 3000
+};
+
+isObjectKey(OBJECT_ONE, STRING); // true
+isObjectKey(OBJECT_ONE, STRING_NEW_INSTANCE); // true
+isObjectKey(OBJECT_ONE, 1030405027); // true
+isObjectKey(OBJECT_ONE, NUMBER); // true
+isObjectKey(OBJECT_ONE, NUMBER_NEW_INSTANCE); // true
+isObjectKey(OBJECT_ONE, SYMBOL_NUMBER); // true
+isObjectKey(OBJECT_ONE, SYMBOL_STRING); // true
+
+/**
+ * typeof === 'function'
+ * instanceof Class === false
+ * instanceof Function === true
+ * instanceof Object === true
+ */
+export class Class {
+
+  1030405027 = 'my new number';
+  5 = 'my number';
+
+  firstName = 'My name';
+  surname = 'Surname';
+
+  x = NUMBER;
+  y = STRING;
+
+  get [NUMBER](): number {
+    return this.x;
+  }
+  get [STRING](): string {
+    return this.y;
+  }
+
+  get [SYMBOL_NUMBER](): number {
+    return this.x;
+  }
+
+  get [SYMBOL_STRING](): string {
+    return this.y;
+  }
+}
+
+/**
+ * typeof === 'object'
+ * instanceof Class === true
+ * instanceof Function === false
+ * instanceof Object === true
+ */
+export const CLASS = new Class();
+
+// One of the differences between `in` operator and the `hasOwnProperty()` method is that it doesn't find a getter key
+isObjectKey(CLASS, SYMBOL_NUMBER); // false
+isObjectKey(CLASS, SYMBOL_STRING); // false
+isObjectKey(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING]); // false
+ 
+```
+
 ----
 
 ### isObjectKeyIn
 
 Use `isObjectKeyIn()` or `is.objectKeyIn()` to check if **any** `value` is an [`Object`][object] with the `key` of the [`Key`][key] type by using the `in` operator.
+More about operator [`in`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in) used in the function.
 
 ```typescript
 const isObjectKeyIn: IsObjectKeyIn = <Type extends object>(
@@ -893,6 +1016,55 @@ const isObjectKeyIn: IsObjectKeyIn = <Type extends object>(
 | callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an `object` with the keys.
+
+```typescript
+/**
+ * typeof === 'function'
+ * instanceof Class === false
+ * instanceof Function === true
+ * instanceof Object === true
+ */
+export class Class {
+
+  1030405027 = 'my new number';
+  5 = 'my number';
+
+  firstName = 'My name';
+  surname = 'Surname';
+
+  x = NUMBER;
+  y = STRING;
+
+  get [NUMBER](): number {
+    return this.x;
+  }
+  get [STRING](): string {
+    return this.y;
+  }
+
+  get [SYMBOL_NUMBER](): number {
+    return this.x;
+  }
+
+  get [SYMBOL_STRING](): string {
+    return this.y;
+  }
+}
+
+/**
+ * typeof === 'object'
+ * instanceof Class === true
+ * instanceof Function === false
+ * instanceof Object === true
+ */
+export const CLASS = new Class();
+
+// One of the differences between `in` operator and the `hasOwnProperty()` method is that it finds a getter key
+isObjectKeyIn(OBJECT_ONE, SYMBOL_NUMBER); // true
+isObjectKeyIn(OBJECT_ONE, SYMBOL_STRING); // true
+isObjectKeyIn(OBJECT_ONE, [SYMBOL_NUMBER, SYMBOL_STRING]); // true
+
+```
 
 ----
 
