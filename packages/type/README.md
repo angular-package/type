@@ -42,7 +42,7 @@ import {
 ```
 
 ```typescript
-// Check `is` prefix functions.
+// `is` prefix functions.
 import {
   isArray,
   isBigInt,
@@ -68,12 +68,15 @@ import {
   isType,
   isUndefined
 } from '@angular-package/type';
-// Check `are` prefix functions.
-import { areString } from '@angular-package/type';
+
+// `are` prefix functions.
+import {
+  areString
+} from '@angular-package/type';
 ```
 
 ```typescript
-// Check `isNot` prefix functions.
+// `isNot` prefix functions.
 import {
   isNotBoolean,
   isNotDefined,
