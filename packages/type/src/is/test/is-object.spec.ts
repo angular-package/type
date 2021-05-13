@@ -48,14 +48,14 @@ describe(isObject.name, () => {
       it(`new Object(OBJECT_TWO_NEW})`, () => expect(isObject(OBJECT_TWO_NEW)).toBe(TRUE));
 
       describe('OBJECT_ONE has the', () => {
-        it(`'key as string'`, () => expect(isObject(OBJECT_ONE, 'key as string')).toBe(TRUE));
-        it(`key as string ${STRING}`, () => expect(isObject(OBJECT_ONE, STRING)).toBe(TRUE));
-        it(`key as string instance ${STRING_NEW_INSTANCE}`, () => expect(isObject(OBJECT_ONE, STRING_NEW_INSTANCE)).toBe(TRUE));
-        it(`key as number ${1030405027}`, () => expect(isObject(OBJECT_ONE, 1030405027)).toBe(TRUE));
-        it(`key as number ${NUMBER}`, () => expect(isObject(OBJECT_ONE, NUMBER)).toBe(TRUE));
-        it(`key as number instance ${NUMBER_NEW_INSTANCE}`, () => expect(isObject(OBJECT_ONE, NUMBER_NEW_INSTANCE)).toBe(TRUE));
-        it(`key as SYMBOL_NUMBER`, () => expect(isObject(OBJECT_ONE, SYMBOL_NUMBER)).toBe(TRUE));
-        it(`key as SYMBOL_STRING`, () => expect(isObject(OBJECT_ONE, SYMBOL_STRING)).toBe(TRUE));
+        // it(`'key as string'`, () => expect(isObject(OBJECT_ONE, 'key as string')).toBe(TRUE));
+        // it(`key as string ${STRING}`, () => expect(isObject(OBJECT_ONE, STRING)).toBe(TRUE));
+        // it(`key as string instance ${STRING_NEW_INSTANCE}`, () => expect(isObject(OBJECT_ONE, STRING_NEW_INSTANCE)).toBe(TRUE));
+        // it(`key as number ${1030405027}`, () => expect(isObject(OBJECT_ONE, 1030405027)).toBe(TRUE));
+        // it(`key as number ${NUMBER}`, () => expect(isObject(OBJECT_ONE, NUMBER)).toBe(TRUE));
+        // it(`key as number instance ${NUMBER_NEW_INSTANCE}`, () => expect(isObject(OBJECT_ONE, NUMBER_NEW_INSTANCE)).toBe(TRUE));
+        // it(`key as SYMBOL_NUMBER`, () => expect(isObject(OBJECT_ONE, SYMBOL_NUMBER)).toBe(TRUE));
+        // it(`key as SYMBOL_STRING`, () => expect(isObject(OBJECT_ONE, SYMBOL_STRING)).toBe(TRUE));
       });
     });
     // ... primitives.
