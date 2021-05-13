@@ -19,8 +19,9 @@ describe(isObjectKey.name , () => {
   // Checks ...
   describe(`checks`, () => {
     it('callback', () => {
-      isObjectKey(CLASS, ['firstName', 'surname'], (result: boolean) => {
+      isObjectKey(CLASS, ['firstName', 'surname'], (result: boolean, value: Class) => {
         expect(result).toBe(TRUE);
+        expect(value).toEqual(CLASS);
         return result;
       });
     });
@@ -31,9 +32,11 @@ describe(isObjectKey.name , () => {
         it('has number key', () => {
           expect(isObjectKey(CLASS, 1030405027)).toBe(TRUE);
           expect(isObjectKey(CLASS, 5)).toBe(TRUE);
-          expect(isObjectKey(CLASS, NUMBER)).toBe(FALSE); // It doesn't find getter
           expect(isObjectKey(CLASS, [5, 1030405027])).toBe(TRUE);
         });
+
+        // It doesn't find getter number
+        it('has not find getter number', () => expect(isObjectKey(CLASS, NUMBER)).toBe(FALSE));
 
         // string.
         it('has string key', () => {
@@ -42,7 +45,8 @@ describe(isObjectKey.name , () => {
         });
 
         // symbol.
-        it('has symbol key', () => {
+        it('has not find getter symbol key', () => {
+          // It does not find getter symbol key in class
           expect(isObjectKey(CLASS, SYMBOL_NUMBER)).toBe(FALSE);
           expect(isObjectKey(CLASS, SYMBOL_STRING)).toBe(FALSE);
           expect(isObjectKey(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING])).toBe(FALSE);
