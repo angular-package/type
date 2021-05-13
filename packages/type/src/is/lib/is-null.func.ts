@@ -12,4 +12,4 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @returns A `boolean` indicating whether or not the `value` is `null`.
  */
 export const isNull: IsNull = (value: any, callback: ResultCallback = resultCallback): value is null =>
-  callback(typeOf(value) === 'null' && typeof value === 'object' && value === null);
+  callback(typeOf(value) === 'null' && typeof value === 'object' && value === null, value);

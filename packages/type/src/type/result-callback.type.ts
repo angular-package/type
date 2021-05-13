@@ -1,1 +1,1 @@
-export type ResultCallback = (result: boolean) => boolean;
+export type ResultCallback = <Obj>(result: boolean, value?: any) => boolean;

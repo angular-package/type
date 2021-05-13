@@ -18,6 +18,7 @@ describe('`is`', () => {
       it('is.numberType()', () => expect(is.numberType).toBeDefined());
       it('is.object()', () => expect(is.object).toBeDefined());
       it('is.objectKey()', () => expect(is.objectKey).toBeDefined());
+      it('is.objectKeyIn()', () => expect(is.objectKeyIn).toBeDefined());
       it('is.primitive()', () => expect(is.primitive).toBeDefined());
       it('is.string()', () => expect(is.string).toBeDefined());
       it('is.stringObject()', () => expect(is.stringObject).toBeDefined());

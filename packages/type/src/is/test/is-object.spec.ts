@@ -23,17 +23,15 @@ describe(isObject.name, () => {
   // Checks ...
   describe(`checks`, () => {
     // it('callback', () => {
-      // isObject(OBJECT_ONE, (result: boolean) => {
-      //   expect(result).toBe(TRUE);
-      //   return result;
-      // });
+    //   isObject(OBJECT_ONE, (result: boolean, value: ObjectOne) => {
+    //     expect(result).toBe(TRUE);
+    //     expect(value).toEqual(OBJECT_ONE);
+    //     return result;
+    //   });
     // });
 
     // ... arrays.
-    describe(`array`, () => {
-      // it(`${FUNCTION}`, () => expect(isObject(FUNCTION, 'function')).toBe(FALSE));
-      // it(`${Class}`, () => expect(isObject(Class, 'function')).toBe(FALSE));
-    });
+    describe(`array`, () => {});
     // ... function.
     describe(`function`, () => {
       it(`FUNCTION`, () => expect(isObject(FUNCTION)).toBe(FALSE));
@@ -46,17 +44,6 @@ describe(isObject.name, () => {
       it(`OBJECT_TWO`, () => expect(isObject(OBJECT_TWO)).toBe(TRUE));
       it(`new Object(OBJECT_ONE_NEW})`, () => expect(isObject(OBJECT_ONE_NEW)).toBe(TRUE));
       it(`new Object(OBJECT_TWO_NEW})`, () => expect(isObject(OBJECT_TWO_NEW)).toBe(TRUE));
-
-      describe('OBJECT_ONE has the', () => {
-        it(`'key as string'`, () => expect(isObject(OBJECT_ONE, 'key as string')).toBe(TRUE));
-        it(`key as string ${STRING}`, () => expect(isObject(OBJECT_ONE, STRING)).toBe(TRUE));
-        it(`key as string instance ${STRING_NEW_INSTANCE}`, () => expect(isObject(OBJECT_ONE, STRING_NEW_INSTANCE)).toBe(TRUE));
-        it(`key as number ${1030405027}`, () => expect(isObject(OBJECT_ONE, 1030405027)).toBe(TRUE));
-        it(`key as number ${NUMBER}`, () => expect(isObject(OBJECT_ONE, NUMBER)).toBe(TRUE));
-        it(`key as number instance ${NUMBER_NEW_INSTANCE}`, () => expect(isObject(OBJECT_ONE, NUMBER_NEW_INSTANCE)).toBe(TRUE));
-        it(`key as SYMBOL_NUMBER`, () => expect(isObject(OBJECT_ONE, SYMBOL_NUMBER)).toBe(TRUE));
-        it(`key as SYMBOL_STRING`, () => expect(isObject(OBJECT_ONE, SYMBOL_STRING)).toBe(TRUE));
-      });
     });
     // ... primitives.
     describe(`primitive`, () => {

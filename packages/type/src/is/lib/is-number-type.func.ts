@@ -11,4 +11,4 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @returns A `boolean` indicating whether or not the `value` is a `number` type.
  */
 export const isNumberType: IsNumberType = (value: any, callback: ResultCallback = resultCallback): value is number =>
-  callback(value instanceof Number === false && value instanceof Object === false && typeof value === 'number');
+  callback(value instanceof Number === false && value instanceof Object === false && typeof value === 'number', value);

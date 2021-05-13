@@ -12,4 +12,4 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @returns A `boolean` indicating whether or not the `value` is `undefined`.
  */
 export const isUndefined: IsUndefined = (value: any, callback: ResultCallback = resultCallback): value is undefined =>
-  callback(typeOf(value) === 'undefined' && typeof value === 'undefined' && value === undefined);
+  callback(typeOf(value) === 'undefined' && typeof value === 'undefined' && value === undefined, value);

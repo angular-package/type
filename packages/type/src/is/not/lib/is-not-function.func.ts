@@ -12,4 +12,4 @@ import { ResultCallback } from '../../../type/result-callback.type';
  * @returns A `boolean` indicating whether or not the `value` is not a `function`.
  */
 export const isNotFunction: IsNotFunction = (value: unknown, callback: ResultCallback = resultCallback): boolean =>
-  callback(typeOf(value) !== 'function' && typeof value !== 'function' && value instanceof Function === false);
+  callback(typeOf(value) !== 'function' && typeof value !== 'function' && value instanceof Function === false, value);

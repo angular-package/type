@@ -50,6 +50,7 @@ export {
   isNumberType,
   isObject,
   isObjectKey,
+  isObjectKeyIn,
   isPrimitive,
   isString,
   isStringObject,
