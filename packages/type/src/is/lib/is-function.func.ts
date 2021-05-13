@@ -17,5 +17,6 @@ export const isFunction: IsFunction = (value: any, callback: ResultCallback = re
     typeOf(value) === 'function' &&
     typeof value === 'function' &&
     value instanceof Function === true &&
-    value instanceof Object === true
+    value instanceof Object === true,
+    value
   );

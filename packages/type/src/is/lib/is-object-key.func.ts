@@ -27,5 +27,6 @@ export const isObjectKey: IsObjectKey = <Type extends object>(
       : isKey(key) ?
           ({}).hasOwnProperty.call(value, key)
         : false
-    : false
+    : false,
+    value
   );

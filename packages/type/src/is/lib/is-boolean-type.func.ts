@@ -16,5 +16,6 @@ export const isBooleanType: IsBooleanType = (value: any, callback: ResultCallbac
     value instanceof Boolean === false &&
     value instanceof Object === false &&
     typeof value === 'boolean' &&
-    (value === true || value === false)
+    (value === true || value === false),
+    value
   );

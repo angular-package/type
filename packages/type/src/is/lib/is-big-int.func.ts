@@ -12,4 +12,4 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @returns A `boolean` indicating whether or not the `value` is a `bigint`.
  */
 export const isBigInt: IsBigInt = (value: any, callback: ResultCallback = resultCallback): value is bigint =>
-  callback(typeOf(value) === 'bigint' && typeof value === 'bigint');
+  callback(typeOf(value) === 'bigint' && typeof value === 'bigint', value);

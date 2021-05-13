@@ -24,5 +24,6 @@ export const isInstance: IsInstance = <Obj>(
         isFunction(instance) ?
           value instanceof instance === true
         : false
-      : false
+      : false,
+      value
     );

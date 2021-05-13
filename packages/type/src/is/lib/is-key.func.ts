@@ -15,4 +15,4 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @returns A `boolean` indicating whether or not the `value` is a `Key`.
  */
 export const isKey: IsKey = (value: any, callback: ResultCallback = resultCallback): value is Key =>
-  callback(isString(value) || isNumber(value) || isSymbol(value));
+  callback(isString(value) || isNumber(value) || isSymbol(value), value);

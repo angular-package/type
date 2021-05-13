@@ -14,4 +14,4 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @returns A `boolean` indicating whether or not the `value` is a `boolean`.
  */
 export const isBoolean: IsBoolean = (value: any, callback: ResultCallback = resultCallback): value is boolean =>
-  callback(typeOf(value) === 'boolean' && (isBooleanType(value) || isBooleanObject(value)));
+  callback(typeOf(value) === 'boolean' && (isBooleanType(value) || isBooleanObject(value)), value);

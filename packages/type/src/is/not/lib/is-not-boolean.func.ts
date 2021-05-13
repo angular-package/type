@@ -17,5 +17,6 @@ export const isNotBoolean: IsNotBoolean = (value: unknown, callback: ResultCallb
     typeof value !== 'boolean' &&
     value instanceof Boolean === false &&
     value !== true &&
-    value !== false
+    value !== false,
+    value
   );

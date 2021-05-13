@@ -16,5 +16,6 @@ export const isArray: IsArray = <Type>(value: any, callback: ResultCallback = re
     typeOf(value) === 'array' &&
     Array.isArray(value) === true &&
     value instanceof Array === true &&
-    typeof value === 'object'
+    typeof value === 'object',
+    value
   );

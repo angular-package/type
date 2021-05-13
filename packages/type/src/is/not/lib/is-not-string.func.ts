@@ -12,4 +12,4 @@ import { ResultCallback } from '../../../type/result-callback.type';
  * @returns A `boolean` indicating whether or not the `value` is not a `string`.
  */
 export const isNotString: IsNotString = (value: unknown, callback: ResultCallback = resultCallback): boolean =>
-  callback(typeOf(value) !== 'string' && typeof value !== 'string' && value instanceof String === false);
+  callback(typeOf(value) !== 'string' && typeof value !== 'string' && value instanceof String === false, value);

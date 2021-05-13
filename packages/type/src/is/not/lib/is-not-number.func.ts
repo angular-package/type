@@ -16,5 +16,6 @@ export const isNotNumber: IsNotNumber = (value: any, callback: ResultCallback = 
   callback(
     typeOf(value) !== 'number' &&
     typeof value !== 'number' &&
-    value instanceof Number === false
+    value instanceof Number === false,
+    value
   );
