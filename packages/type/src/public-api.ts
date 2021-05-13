@@ -50,6 +50,7 @@ export {
   isNumberType,
   isObject,
   isObjectKey,
+  isObjectKeyIn,
   isPrimitive,
   isString,
   isStringObject,
@@ -58,6 +59,9 @@ export {
   isType,
   isUndefined
 } from './is';
+
+// `is` interface.
+export { Is } from './is/interface/is.interface';
 
 // `isNot` functions.
 export {
