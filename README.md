@@ -111,9 +111,9 @@ import { Constructor, CycleHook, Func, Key, Primitive, Primitives, ResultCallbac
     * a `number` with [`isNumber()`](#isnumber).
     * an `object` type and instance of [`Number`][Number] and [`Object`][object] with [`isNumberObject()`](#isnumberobject).
     * a `number` type and **not** instance of [`Number`][Number] and [`Object`][object] with [`isNumberType()`](#isnumbertype).
-    * ![update][update] a generic type `object` with [`isObject()`](#isobject).
+    * a generic type `object` with [`isObject()`](#isobject).
     * an `object` with its own specified [`Key`][key] with [`isObjectKey()`](#isobjectkey).
-    * ![new][new] an `object` with the [`Key`][key] by using the `in` operator with [`isObjectKeyIn()`](#isobjectkeyin).
+    * an `object` with the [`Key`][key] by using the `in` operator with [`isObjectKeyIn()`](#isobjectkeyin).
     * a one of the primitive `boolean`, `bigint`, `number`, `string` with [`isPrimitive()`](#isPrimitive).
     * a `string` with [`isString()`](#isstring).
     * an `object` type and instance of [`String`][string] and [`Object`][object] with [`isStringObject()`](#isstringobject).
