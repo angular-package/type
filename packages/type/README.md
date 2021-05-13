@@ -319,11 +319,14 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 
 ```typescript
 // Example usage
+import { isArray } from '@angular-package/type';
+
 const ARRAY_NUMBER = [1, 2, 3];
 const ARRAY_STRING = ['a', 'b', 'c'];
 
 isArray(ARRAY_NUMBER); // true
 isArray<string>(ARRAY_STRING); // true
+
 ```
 
 [Example usage on playground][is-array]
@@ -348,11 +351,14 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 ```typescript
 // Example usage
+import { isBigInt } from '@angular-package/type';
+
 const BIGINT = 9007199254740991n;
 const NUMBER = 27;
 
 isBigInt(NUMBER); // false
 isBigInt(BIGINT); // true
+
 ```
 
 [Example usage on playground][is-bigint] | [How to detect `bigint` type][detect-bigint]
@@ -377,11 +383,14 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 ```typescript
 // Example usage
+import { isBoolean } from '@angular-package/type';
+
 const BOOLEAN = false;
 const BOOLEAN_INSTANCE = new Boolean(false);
 
 isBoolean(BOOLEAN); // true
 isBoolean(BOOLEAN_INSTANCE); // true
+
 ```
 
 [Example usage on playground][is-boolean] | [How to detect the `boolean` type][detect-boolean]
@@ -406,11 +415,14 @@ The **return value** is a `boolean` indicating whether or not the `value` is a [
 
 ```typescript
 // Example usage
+import { isBooleanObject } from '@angular-package/type';
+
 const BOOLEAN = false;
 const BOOLEAN_INSTANCE = new Boolean(false);
 
 isBooleanObject(BOOLEAN); // false
 isBooleanObject(BOOLEAN_INSTANCE); // true
+
 ```
 
 ----
@@ -439,11 +451,14 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 ```typescript
 // Example usage
+import { isBooleanType } from '@angular-package/type';
+
 const BOOLEAN = false;
 const BOOLEAN_INSTANCE = new Boolean(false);
 
 isBooleanType(BOOLEAN); // true
 isBooleanType(BOOLEAN_INSTANCE); // false
+
 ```
 
 ----
@@ -466,11 +481,14 @@ The **return value** is a `boolean` indicating whether or not the `value` is def
 
 ```typescript
 // Example usage
+import { isDefined } from '@angular-package/type';
+
 const UNDEFINED = undefined;
 let defined;
 
 isDefined(UNDEFINED); // false
 isDefined(defined); // false
+
 ```
 
 ----
@@ -499,12 +517,16 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 ```typescript
 // Example usage
+import { isFunction } from '@angular-package/type';
+
+type Func = (...param: any) => any;
 class Class { x = 5; }
-const FUNC: Func = (x: number): any => { return x + 5; }
+const FUNC: Func = (x: number): any => x + 5;
 
 isFunction(Class); // true
 isFunction(FUNC); // true
 isFunction(() => 5); // true
+
 ```
 
 [Example usage on playground][is-function] | [How to detect `function` type][detect-function]
@@ -541,6 +563,8 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 
 ```typescript
 // Example usage
+import { isInstance } from '@angular-package/type';
+
 class Some { x = 127; }
 class Two { y = 'Lorem ipsum'; }
 
@@ -550,6 +574,7 @@ const TWO = new Two();
 isInstance<Some>(TWO, Some); // false
 isInstance<Some>(SOME, Some); // true
 isInstance<Some>(TWO, Two); // true and type error
+
 ```
 
 [Example usage on playground][is-instance] | [How to detect `constructor` instance][detect-instance]
@@ -574,6 +599,8 @@ The **return value** is a `boolean` indicating whether or not the `value` is a [
 
 ```typescript
 // Example usage
+import { isKey } from '@angular-package/type';
+
 const STRING = 'surname';
 const STRING_INSTANCE = new String(STRING);
 isKey(STRING); // true
@@ -588,6 +615,7 @@ const SYMBOL_NUMBER: unique symbol = Symbol(NUMBER);
 const SYMBOL_STRING: unique symbol = Symbol(STRING);
 isKey(SYMBOL_NUMBER); // true
 isKey(SYMBOL_STRING); // true
+
 ```
 
 ----
@@ -610,6 +638,8 @@ The **return value** is a `boolean` indicating whether or not the `value` is `nu
 
 ```typescript
 // Example usage
+import { isNull } from '@angular-package/type';
+
 /**
  * typeof === 'object'
  * instanceof Function === false
@@ -621,6 +651,7 @@ const NUMBER = 27;
 
 isNull(NULL); // true
 isNull(NUMBER); // false
+
 ```
 
 [Example usage on playground][is-null] | [How to detect `null` type][detect-null]
@@ -665,6 +696,8 @@ The **return value** is a `boolean` indicating whether or not the `value` is a [
 
 ```typescript
 // Example usage
+import { isNumberObject } from '@angular-package/type';
+
 /**
  * typeof === 'number'
  * instanceof Function === false
@@ -692,6 +725,7 @@ const NUMBER_NEW_INSTANCE: any = new Number(NUMBER);
 isNumberObject(NUMBER); // false
 isNumberObject(NUMBER_INSTANCE); // false
 isNumberObject(NUMBER_NEW_INSTANCE); // true
+
 ```
 
 ----
@@ -714,6 +748,8 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 ```typescript
 // Example usage
+import { isNumberType } from '@angular-package/type';
+
 /**
  * typeof === 'number'
  * instanceof Function === false
@@ -741,6 +777,7 @@ const NUMBER_NEW_INSTANCE: any = new Number(NUMBER);
 isNumberType(NUMBER); // true
 isNumberType(NUMBER_INSTANCE); // true
 isNumberType(NUMBER_NEW_INSTANCE); // false
+
 ```
 
 ----
@@ -769,8 +806,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 
 ```typescript
 // Example usage
-const SYMBOL_NUMBER: unique symbol = Symbol(NUMBER);
-const SYMBOL_STRING: unique symbol = Symbol(STRING);
+import { isObject } from '@angular-package/type';
 
 /**
  * typeof === 'number'
@@ -820,12 +856,24 @@ const STRING_INSTANCE: any = String(STRING);
  */
 const STRING_NEW_INSTANCE: any = new String(STRING);
 
+const SYMBOL_NUMBER: unique symbol = Symbol(NUMBER);
+const SYMBOL_STRING: unique symbol = Symbol(STRING);
+
+interface ObjectOne {
+  'key as string'?: boolean;
+  1030405027?: string;
+  5?: string;
+  [SYMBOL_NUMBER]?: string;
+  [SYMBOL_STRING]?: number;
+  x: number;
+}
+
 const OBJECT_ONE: ObjectOne = {
   'key as string': true,
   1030405027: 'key is number',
   5: 'key is also number',
   [NUMBER]: 'key is number',
-  [string]: 'key is string',
+  [STRING]: 'key is string',
   [SYMBOL_NUMBER]: 'key is symbol number',
   [SYMBOL_STRING]: 6,
   x: 3000
@@ -847,7 +895,7 @@ isObject(OBJECT_ONE, SYMBOL_STRING); // true
 
 ### isObjectKey
 
-Use `isObjectKey()` or `is.objectKey()` to check if **any** `value` is an `object` with its own specified keys of the [`Key`][key]. The Function uses [`hasOwnProperty`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty) method to find the key.
+Use `isObjectKey()` or `is.objectKey()` to check if **any** `value` is an `object` with its own specified keys of the [`Key`][key]. The function uses [`hasOwnProperty`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty) method to find the key.
 
 ```typescript
 const isObjectKey: IsObjectKey = <Type extends object>(
@@ -877,8 +925,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 
 ```typescript
 // Example usage
-const SYMBOL_NUMBER: unique symbol = Symbol(NUMBER);
-const SYMBOL_STRING: unique symbol = Symbol(STRING);
+import { isObjectKey } from '@angular-package/type';
 
 /**
  * typeof === 'number'
@@ -887,6 +934,14 @@ const SYMBOL_STRING: unique symbol = Symbol(STRING);
  * instanceof Object === false
  */
 const NUMBER: any = 10304050;
+
+/**
+ * typeof === 'string'
+ * instanceof Function === false
+ * instanceof Object === false
+ * instanceof String === false
+ */
+const STRING: any = '!@#$%^&*()abcdefghijklmnoprstuwyz';
 
 /**
  * typeof === 'number'
@@ -904,13 +959,6 @@ const NUMBER_INSTANCE: any = Number(NUMBER);
  */
 const NUMBER_NEW_INSTANCE: any = new Number(NUMBER);
 
-/**
- * typeof === 'string'
- * instanceof Function === false
- * instanceof Object === false
- * instanceof String === false
- */
-const STRING: any = '!@#$%^&*()abcdefghijklmnoprstuwyz';
 
 /**
  * typeof === 'string'
@@ -928,12 +976,33 @@ const STRING_INSTANCE: any = String(STRING);
  */
 const STRING_NEW_INSTANCE: any = new String(STRING);
 
+const SYMBOL_NUMBER: unique symbol = Symbol(NUMBER);
+const SYMBOL_STRING: unique symbol = Symbol(STRING);
+
+interface ObjectOne {
+  'key as string'?: boolean;
+  1030405027?: string;
+  5?: string;
+  [SYMBOL_NUMBER]?: string;
+  [SYMBOL_STRING]?: number;
+  x: number;
+}
+
+/**
+ * typeof === 'object'
+ * instanceof Boolean === false
+ * instanceof Function === false
+ * instanceof Number === false
+ * instanceof Object === true
+ * instanceof String === false
+ * instanceof Symbol === false
+ */
 const OBJECT_ONE: ObjectOne = {
   'key as string': true,
   1030405027: 'key is number',
   5: 'key is also number',
   [NUMBER]: 'key is number',
-  [string]: 'key is string',
+  [STRING]: 'key is string',
   [SYMBOL_NUMBER]: 'key is symbol number',
   [SYMBOL_STRING]: 6,
   x: 3000
@@ -992,7 +1061,7 @@ export const CLASS = new Class();
 isObjectKey(CLASS, SYMBOL_NUMBER); // false
 isObjectKey(CLASS, SYMBOL_STRING); // false
 isObjectKey(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING]); // false
- 
+
 ```
 
 ----
@@ -1030,6 +1099,36 @@ const isObjectKeyIn: IsObjectKeyIn = <Type extends object>(
 The **return value** is a `boolean` indicating whether or not the `value` is an `object` with the keys.
 
 ```typescript
+import { isObjectKeyIn } from '@angular-package/type';
+
+/**
+ * typeof === 'number'
+ * instanceof Function === false
+ * instanceof Number === false
+ * instanceof Object === false
+ */
+export const NUMBER: any = 10304050;
+
+/**
+ * typeof === 'string'
+ * instanceof Function === false
+ * instanceof Object === false
+ * instanceof String === false
+ */
+export const STRING: any = '!@#$%^&*()abcdefghijklmnoprstuwyz';
+
+/**
+ * typeof === 'symbol'
+ * instanceof Boolean === false
+ * instanceof Function === false
+ * instanceof Number === false
+ * instanceof Object === false
+ * instanceof String === false
+ * instanceof Symbol === false
+ */
+export const SYMBOL_NUMBER: unique symbol = Symbol(NUMBER);
+export const SYMBOL_STRING: unique symbol = Symbol(STRING);
+
 /**
  * typeof === 'function'
  * instanceof Class === false
@@ -1071,10 +1170,10 @@ export class Class {
  */
 export const CLASS = new Class();
 
-// One of the differences between `in` operator and the `hasOwnProperty()` method is that it finds a getter key
-isObjectKeyIn(OBJECT_ONE, SYMBOL_NUMBER); // true
-isObjectKeyIn(OBJECT_ONE, SYMBOL_STRING); // true
-isObjectKeyIn(OBJECT_ONE, [SYMBOL_NUMBER, SYMBOL_STRING]); // true
+ // One of the differences between `in` operator and the `hasOwnProperty()` method is that it finds a getter key
+isObjectKeyIn(CLASS, SYMBOL_NUMBER); // true
+isObjectKeyIn(CLASS, SYMBOL_STRING); // true
+isObjectKeyIn(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING]); // true
 
 ```
 
@@ -1307,7 +1406,7 @@ const isNotDefined: IsNotDefined = (value: unknown, callback: ResultCallback = r
 | value     | `unknown` | An unknown `value` to check |
 | callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
-The return value is a `boolean` indicating whether or not the `value` is not defined, is `undefined`.
+The **return value** is a `boolean` indicating whether or not the `value` is not defined, is `undefined`.
 
 ----
 
@@ -1325,7 +1424,7 @@ const isNotFunction: IsNotFunction = (value: unknown, callback: ResultCallback =
 | value     | `unknown` | An unknown `value` to check |
 | callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
-The return value is a `boolean` indicating whether or not the `value` is not a `function`.
+The **return value** is a `boolean` indicating whether or not the `value` is not a `function`.
 
 ----
 
@@ -1343,7 +1442,7 @@ const isNotNull: IsNotNull = (value: unknown, callback: ResultCallback = resultC
 | value     | `unknown` | An unknown `value` to check |
 | callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
-The return value is a `boolean` indicating whether or not the `value` is not `null`.
+The **return value** is a `boolean` indicating whether or not the `value` is not `null`.
 
 ----
 
@@ -1366,7 +1465,7 @@ const isNotNumber: IsNotNumber = (value: any, callback: ResultCallback = resultC
 | value     | `unknown` | An unknown `value` to check |
 | callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
-The return value is a `boolean` indicating whether or not the `value` is not a `number`.
+The **return value** is a `boolean` indicating whether or not the `value` is not a `number`.
 
 ----
 
@@ -1384,7 +1483,7 @@ const isNotString: IsNotString = (value: unknown, callback: ResultCallback = res
 | value     | `unknown` | An unknown `value` to check |
 | callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
-The return value is a `boolean` indicating whether or not the `value` is not a `string`.
+The **return value** is a `boolean` indicating whether or not the `value` is not a `string`.
 
 ----
 
@@ -1402,15 +1501,17 @@ const isNotUndefined: IsNotUndefined = (value: unknown, callback: ResultCallback
 | value     | `unknown` | An unknown `value` to check |
 | callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
-The return value is a `boolean` indicating whether or not the `value` is not `undefined`.
+The **return value** is a `boolean` indicating whether or not the `value` is not `undefined`.
 
 ```typescript
 // Example usage with the problem
+import { is } from '@angular-package/type';
+
 interface Config {
   a?: string;
   b?: string;
 }
-let config: Config = {
+const config: Config = {
   a: 'x',
   b: 'y'
 };
@@ -1424,7 +1525,7 @@ if (is.not.undefined(config.a)) {
   configFunction(config.a);
 }
 
-// Cause typescript return `value is boolean` will not generate an error.
+// Cause typescript return `value is undefined` will not generate an error
 if (!is.undefined(config.a)) {
   configFunction(config.a);
 }
@@ -1533,7 +1634,7 @@ const guardFunction: GuardFunction = (value: Func, callback?: ResultCallback): v
 | value     | [`Func`](#func)                     | A [`Func`](#func) type `value` to guard |
 | callback? | [`ResultCallback`][resultcallback] | Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
-The return value is a `boolean` indicating whether or not the `value` is a [`Func`](#func).
+The **return value** is a `boolean` indicating whether or not the `value` is a [`Func`](#func).
 
 [Example usage on playground][guard-function]
 
@@ -1668,7 +1769,7 @@ const guardPrimitive: GuardPrimitive =
 | type        | [`Primitives`](#primitives)              | A `string` type from the [`Primitives`](#primitives) to check the `value` |
 | callback?   | [`ResultCallback`][resultcallback]      | Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
-The return value is a `boolean` indicating whether or not the `value` is the [`Primitive`](#primitive) from the `type`.
+The **return value** is a `boolean` indicating whether or not the `value` is the [`Primitive`](#primitive) from the `type`.
 
 [Example usage on playground][guard-primitive]
 
@@ -1688,7 +1789,7 @@ const guardString: GuardString = (value: string, callback?: ResultCallback): val
 | value       | `string`                            | A `string` type `value` to guard |
 | callback?   | [`ResultCallback`][resultcallback] | Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
-The return value is a `boolean` indicating whether or not the `value` is a `string`.
+The **return value** is a `boolean` indicating whether or not the `value` is a `string`.
 
 [Example usage on playground][guard-string]
 
@@ -1727,7 +1828,7 @@ const guardType: GuardType = <T extends Type>(value: T, type: Types<T>, callback
 | type      | [`Types<T>`](#types)                | A `string` or generic [`Constructor`](#constructor) type from the [`Types`](#types) to check the `value` |
 | callback? | [`ResultCallback`][resultcallback] | Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
-The return value is a `boolean` indicating whether or not the `value` is a `type` from the [`Types`](#types).
+The **return value** is a `boolean` indicating whether or not the `value` is a `type` from the [`Types`](#types).
 
 [Example usage on playground][guard-type]
 
