@@ -742,21 +742,21 @@ isNumberType(NUMBER_NEW_INSTANCE); // false
 
 ### isObject
 
-![update][update]
-
-* Removed `key` parameter. Use [`isObjectKeyIn`](#isobjectkin) instead.
-
-Use `isObject()` or `is.object()` to check if **any** `value` is an `object` of a generic `Obj` type and [`Object`][object] instance.
+Use `isObject()` or `is.object()` to check if **any** `value` is an `object` of a generic `Obj` type and [`Object`][object] instance with the possibility of containing the `key`.
 
 ```typescript
-const isObject: IsObject = <Obj = object>(value: any, callback: ResultCallback = resultCallback): value is Obj =>
-  callback(typeOf(value) === 'object' && typeof value === 'object' && value instanceof Object === true, value);
+const isObject: IsObject = <Obj = object>(value: any, key?: Key): value is Obj =>
+  (typeOf(value) === 'object' && typeof value === 'object' && value instanceof Object === true)
+    ? isKey(key)
+      ? key in value
+    : true
+  : false;
 ```
 
 | Parameter | Type          | Description |
 | :-------- | :-----------: | :---------- |
 | value     | `any`         | Any `value` to check |
-| callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
+| key?      | [`Key`][key] | Property name to find in the `value` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an `object`.
 
@@ -764,6 +764,57 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 
 ```typescript
 // Example usage
+const SYMBOL_NUMBER: unique symbol = Symbol(NUMBER);
+const SYMBOL_STRING: unique symbol = Symbol(STRING);
+
+/**
+ * typeof === 'number'
+ * instanceof Function === false
+ * instanceof Number === false
+ * instanceof Object === false
+ */
+const NUMBER: any = 10304050;
+
+/**
+ * typeof === 'number'
+ * instanceof Function === false
+ * instanceof Number === false
+ * instanceof Object === false
+ */
+const NUMBER_INSTANCE: any = Number(NUMBER);
+
+/**
+ * typeof === 'number'
+ * instanceof Function === false
+ * instanceof Number === true
+ * instanceof Object === true
+ */
+const NUMBER_NEW_INSTANCE: any = new Number(NUMBER);
+
+/**
+ * typeof === 'string'
+ * instanceof Function === false
+ * instanceof Object === false
+ * instanceof String === false
+ */
+const STRING: any = '!@#$%^&*()abcdefghijklmnoprstuwyz';
+
+/**
+ * typeof === 'string'
+ * instanceof Function === false
+ * instanceof Object === false
+ * instanceof String === false
+ */
+const STRING_INSTANCE: any = String(STRING);
+
+/**
+ * typeof === 'string'
+ * instanceof Function === false
+ * instanceof Object === true
+ * instanceof String === true
+ */
+const STRING_NEW_INSTANCE: any = new String(STRING);
+
 const OBJECT_ONE: ObjectOne = {
   'key as string': true,
   1030405027: 'key is number',
@@ -776,6 +827,14 @@ const OBJECT_ONE: ObjectOne = {
 };
 
 isObject(OBJECT_ONE); // true
+isObject(OBJECT_ONE, 'key as string'); // true
+isObject(OBJECT_ONE, STRING); // true
+isObject(OBJECT_ONE, STRING_NEW_INSTANCE); // true
+isObject(OBJECT_ONE, 1030405027); // true
+isObject(OBJECT_ONE, NUMBER); // true
+isObject(OBJECT_ONE, NUMBER_NEW_INSTANCE); // true
+isObject(OBJECT_ONE, SYMBOL_NUMBER); // true
+isObject(OBJECT_ONE, SYMBOL_STRING); // true
 
 ```
 
