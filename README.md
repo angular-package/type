@@ -59,6 +59,7 @@ import {
   isNumberType,
   isObject,
   isObjectKey,
+  isObjectKeyIn,
   isPrimitive,
   isString,
   isStringObject,
@@ -112,6 +113,7 @@ import { Constructor, CycleHook, Func, Key, Primitive, Primitives, ResultCallbac
     * a `number` type and **not** instance of [`Number`][Number] and [`Object`][object] with [`isNumberType()`](#isnumbertype).
     * a generic type `object` with [`isObject()`](#isobject).
     * an `object` with its own specified [`Key`][key] with [`isObjectKey()`](#isobjectkey).
+    * an `object` with the [`Key`][key] by using the `in` operator with [`isObjectKeyIn()`](#isobjectkeyin).
     * a one of the primitive `boolean`, `bigint`, `number`, `string` with [`isPrimitive()`](#isPrimitive).
     * a `string` with [`isString()`](#isstring).
     * an `object` type and instance of [`String`][string] and [`Object`][object] with [`isStringObject()`](#isstringobject).
@@ -818,7 +820,6 @@ const OBJECT_ONE: ObjectOne = {
 };
 
 isObject(OBJECT_ONE); // true
-isObject(OBJECT_ONE, 'key as string'); // true
 isObject(OBJECT_ONE, STRING); // true
 isObject(OBJECT_ONE, STRING_NEW_INSTANCE); // true
 isObject(OBJECT_ONE, 1030405027); // true
@@ -860,6 +861,38 @@ const isObjectKey: IsObjectKey = <Type extends object>(
 | callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an `object` with its own specified keys.
+
+----
+
+### isObjectKeyIn
+
+Use `isObjectKeyIn()` or `is.objectKeyIn()` to check if **any** `value` is an [`Object`][object] with the `key` of the [`Key`][key] type by using the `in` operator.
+
+```typescript
+const isObjectKeyIn: IsObjectKeyIn = <Type extends object>(
+  value: any,
+  key: Key | Key[],
+  callback: ResultCallback = resultCallback
+): value is Type =>
+  callback(
+    isObject<Type>(value) ?
+      isArray(key) ?
+        key.every(k => isKey(k) ? k in value : false)
+      : isKey(key) ?
+          key in value
+        : false
+    : false,
+    value
+  );
+```
+
+| Parameter | Type                             | Description                                           |
+| :-------- | :------------------------------: | :---------------------------------------------------- |
+| value     | `any`                            | Any `value` to check if it contains a specified `key` |
+| key       | [`Key`][key] \| [`Key`][key][] | A [`Key`][key] type or an array of [`Key`][key] type to check in the `value` |
+| callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
+
+The **return value** is a `boolean` indicating whether or not the `value` is an `object` with the keys.
 
 ----
 
