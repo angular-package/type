@@ -445,7 +445,7 @@ isBooleanType(BOOLEAN_INSTANCE); // false
 
 ### isDefined
 
-Use `isDefined()` or `is.defined()` to check if an **unknown** `value` is NOT an `undefined` type and is NOT equal to `undefined`.
+Use `isDefined()` or `is.defined()` to check if an **unknown** `value` is **not** an `undefined` type and is **not** equal to `undefined`.
 
 ```typescript
 const isDefined: IsDefined = (value: unknown, callback: ResultCallback = resultCallback): boolean =>
@@ -743,6 +743,8 @@ isNumberType(NUMBER_NEW_INSTANCE); // false
 ### isObject
 
 ![update][update]
+
+* Removed `key` parameter. Use [`isObjectKeyIn`](#isobjectkin) instead.
 
 Use `isObject()` or `is.object()` to check if **any** `value` is an `object` of a generic `Obj` type and [`Object`][object] instance.
 
