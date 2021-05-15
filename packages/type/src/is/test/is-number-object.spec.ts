@@ -49,33 +49,23 @@ describe(isNumberObject.name, () => {
     // ... primitives.
     describe(`primitive`, () => {
       // bigint
-      describe(`bigint`, () => {
-        it(`${BIGINT}`, () => expect(isNumberObject(BIGINT)).toBe(FALSE));
-        it(`${BIGINT_EXPECTATION}`, () => expect(isNumberObject(BIGINT_INSTANCE)).toBe(FALSE));
-      });
-
+      describe(`bigint`, () => it(`${BIGINT}`, () => expect(isNumberObject(BIGINT)).toBe(FALSE)));
       // boolean
       describe(`boolean`, () => {
         it(`${TRUE}`, () => expect(isNumberObject(TRUE)).toBe(FALSE));
         it(`${FALSE}`, () => expect(isNumberObject(FALSE)).toBe(FALSE));
-        it(`${TRUE_EXPECTATION}`, () => expect(isNumberObject(TRUE_INSTANCE)).toBe(FALSE));
-        it(`${FALSE_EXPECTATION}`, () => expect(isNumberObject(FALSE_INSTANCE)).toBe(FALSE));
       });
-
       // null
       it(`${NULL}`, () => expect(isNumberObject(NULL)).toBe(FALSE));
-
       // number
       describe(`number`, () => {
         it(`${NUMBER}`, () => expect(isNumberObject(NUMBER)).toBe(FALSE));
         it(`Number(${NUMBER})`, () => expect(isNumberObject(NUMBER_INSTANCE)).toBe(FALSE));
-        it(`new Number(${NUMBER})`, () => expect(isNumberObject(NUMBER_NEW_INSTANCE)).toBe(TRUE));
       });
       // string
       describe(`string`, () => {
         it(`${STRING}`, () => expect(isNumberObject(STRING)).toBe(FALSE));
         it(`String(${STRING})`, () => expect(isNumberObject(STRING_INSTANCE)).toBe(FALSE));
-        it(`new String(${STRING})`, () => expect(isNumberObject(STRING_NEW_INSTANCE)).toBe(FALSE));
       });
       // symbol
       describe(`symbol`, () => {
@@ -84,6 +74,20 @@ describe(isNumberObject.name, () => {
       });
       // undefined
       it(`${UNDEFINED}`, () => expect(isNumberObject(UNDEFINED)).toBe(FALSE));
+      // ... object.
+      describe(`object`, () => {
+        // BigInt
+        describe(`BigInt`, () => it(`${BIGINT_EXPECTATION}`, () => expect(isNumberObject(BIGINT_INSTANCE)).toBe(FALSE)));
+        // Boolean
+        describe(`Boolean`, () => {
+          it(`${TRUE_EXPECTATION}`, () => expect(isNumberObject(TRUE_INSTANCE)).toBe(FALSE));
+          it(`${FALSE_EXPECTATION}`, () => expect(isNumberObject(FALSE_INSTANCE)).toBe(FALSE));
+        });
+        // Number
+        describe(`Number`, () => it(`new Number(${NUMBER})`, () => expect(isNumberObject(NUMBER_NEW_INSTANCE)).toBe(TRUE)));
+        // String
+        describe(`String`, () => it(`new String(${STRING})`, () => expect(isNumberObject(STRING_NEW_INSTANCE)).toBe(FALSE)));
+      });
     });
   });
 });

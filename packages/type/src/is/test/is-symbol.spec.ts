@@ -50,17 +50,12 @@ describe(isSymbol.name, () => {
     // ... primitives.
     describe(`primitive`, () => {
       // bigint
-      describe(`bigint`, () => {
-        it(`${BIGINT}`, () => expect(isSymbol(BIGINT)).toBe(FALSE));
-        it(`${BIGINT_EXPECTATION}`, () => expect(isSymbol(BIGINT_INSTANCE)).toBe(FALSE));
-      });
+      describe(`bigint`, () => it(`${BIGINT}`, () => expect(isSymbol(BIGINT)).toBe(FALSE)));
 
       // boolean
       describe(`boolean`, () => {
         it(`${TRUE}`, () => expect(isSymbol(TRUE)).toBe(FALSE));
         it(`${FALSE}`, () => expect(isSymbol(FALSE)).toBe(FALSE));
-        it(`${TRUE_EXPECTATION}`, () => expect(isSymbol(TRUE_INSTANCE)).toBe(FALSE));
-        it(`${FALSE_EXPECTATION}`, () => expect(isSymbol(FALSE_INSTANCE)).toBe(FALSE));
       });
 
       // null
@@ -70,13 +65,11 @@ describe(isSymbol.name, () => {
       describe(`number`, () => {
         it(`${NUMBER}`, () => expect(isSymbol(NUMBER)).toBe(FALSE));
         it(`Number(${NUMBER})`, () => expect(isSymbol(NUMBER_INSTANCE)).toBe(FALSE));
-        it(`new Number(${NUMBER})`, () => expect(isSymbol(NUMBER_NEW_INSTANCE)).toBe(FALSE));
       });
       // string
       describe(`string`, () => {
         it(`${STRING}`, () => expect(isSymbol(STRING)).toBe(FALSE));
         it(`String(${STRING})`, () => expect(isSymbol(STRING_INSTANCE)).toBe(FALSE));
-        it(`new String(${STRING})`, () => expect(isSymbol(STRING_NEW_INSTANCE)).toBe(FALSE));
       });
       // symbol
       describe(`symbol`, () => {
@@ -85,6 +78,20 @@ describe(isSymbol.name, () => {
       });
       // undefined
       it(`${UNDEFINED}`, () => expect(isSymbol(UNDEFINED)).toBe(FALSE));
+      // ... object.
+      describe(`object`, () => {
+        // BigInt
+        describe(`BigInt`, () => it(`${BIGINT_EXPECTATION}`, () => expect(isSymbol(BIGINT_INSTANCE)).toBe(FALSE)));
+        // Boolean
+        describe(`Boolean`, () => {
+          it(`${TRUE_EXPECTATION}`, () => expect(isSymbol(TRUE_INSTANCE)).toBe(FALSE));
+          it(`${FALSE_EXPECTATION}`, () => expect(isSymbol(FALSE_INSTANCE)).toBe(FALSE));
+        });
+        // Number
+        describe(`Number`, () => it(`new Number(${NUMBER})`, () => expect(isSymbol(NUMBER_NEW_INSTANCE)).toBe(FALSE)));
+        // String
+        describe(`String`, () => it(`new String(${STRING})`, () => expect(isSymbol(STRING_NEW_INSTANCE)).toBe(FALSE)));
+      });
     });
   });
 });
