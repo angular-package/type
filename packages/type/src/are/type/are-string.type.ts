@@ -1,1 +1,1 @@
-export type AreString = (...params: any) => boolean;
+export type AreString = (...value: any) => boolean;

@@ -7,10 +7,11 @@ import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE, FALSE_EXPECTATION, TRUE_EXP
 import { FUNCTION } from './variables/function.const';
 import { NULL } from './variables/null.const';
 import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from './variables/number.const';
-import { OBJECT_ONE, OBJECT_TWO, ObjectOne, ObjectTwo, OBJECT_ONE_NEW, OBJECT_TWO_NEW } from './variables/object.const';
+import { OBJECT_ONE, OBJECT_TWO, OBJECT_ONE_NEW, OBJECT_TWO_NEW } from './variables/object.const';
 import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from './variables/string.const';
 import { SYMBOL_NUMBER, SYMBOL_STRING } from './variables/symbol.const';
 import { UNDEFINED } from './variables/undefined.const';
+import { UnionString } from '../../type/union-string.type';
 
 /**
  * Checks
@@ -23,17 +24,12 @@ describe(isStringObject.name, () => {
   // Checks ...
   describe(`checks`, () => {
     it('callback', () => {
-      isStringObject(STRING_NEW_INSTANCE, (result: boolean) => {
+      isStringObject(STRING_NEW_INSTANCE, (result: boolean, value: UnionString) => {
         expect(result).toBe(TRUE);
         return result;
       });
     });
 
-    // ... arrays.
-    describe(`array`, () => {
-      // it(`${FUNCTION}`, () => expect(isStringObject(FUNCTION, 'function')).toBe(FALSE));
-      // it(`${Class}`, () => expect(isStringObject(Class, 'function')).toBe(FALSE));
-    });
     // ... function.
     describe(`function`, () => {
       it(`FUNCTION`, () => expect(isStringObject(FUNCTION)).toBe(FALSE));
@@ -59,8 +55,8 @@ describe(isStringObject.name, () => {
       describe(`boolean`, () => {
         it(`${TRUE}`, () => expect(isStringObject(TRUE)).toBe(FALSE));
         it(`${FALSE}`, () => expect(isStringObject(FALSE)).toBe(FALSE));
-        it(`${FALSE_EXPECTATION}`, () => expect(isStringObject(TRUE_INSTANCE)).toBe(FALSE));
-        it(`${TRUE_EXPECTATION}`, () => expect(isStringObject(FALSE_INSTANCE)).toBe(FALSE));
+        it(`${TRUE_EXPECTATION}`, () => expect(isStringObject(TRUE_INSTANCE)).toBe(FALSE));
+        it(`${FALSE_EXPECTATION}`, () => expect(isStringObject(FALSE_INSTANCE)).toBe(FALSE));
       });
 
       // null
