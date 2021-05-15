@@ -59,8 +59,8 @@ describe(isType.name, () => {
       describe(`boolean`, () => {
         it(`${TRUE}`, () => expect(isType(TRUE, 'boolean')).toBe(TRUE));
         it(`${FALSE}`, () => expect(isType(FALSE, 'boolean')).toBe(TRUE));
-        it(`${FALSE_EXPECTATION}`, () => expect(isType(TRUE_INSTANCE, 'boolean')).toBe(TRUE));
-        it(`${TRUE_EXPECTATION}`, () => expect(isType(FALSE_INSTANCE, 'boolean')).toBe(TRUE));
+        it(`${TRUE_EXPECTATION}`, () => expect(isType(TRUE_INSTANCE, 'boolean')).toBe(TRUE));
+        it(`${FALSE_EXPECTATION}`, () => expect(isType(FALSE_INSTANCE, 'boolean')).toBe(TRUE));
       });
 
       // null

@@ -7,7 +7,7 @@ import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE, FALSE_EXPECTATION, TRUE_EXP
 import { FUNCTION } from './variables/function.const';
 import { NULL } from './variables/null.const';
 import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from './variables/number.const';
-import { OBJECT_ONE, OBJECT_TWO, ObjectOne, ObjectTwo, OBJECT_ONE_NEW, OBJECT_TWO_NEW } from './variables/object.const';
+import { OBJECT_ONE, OBJECT_TWO, OBJECT_ONE_NEW, OBJECT_TWO_NEW } from './variables/object.const';
 import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from './variables/string.const';
 import { SYMBOL_NUMBER, SYMBOL_STRING } from './variables/symbol.const';
 import { UNDEFINED } from './variables/undefined.const';
@@ -60,8 +60,8 @@ describe(isString.name, () => {
       describe(`boolean`, () => {
         it(`${TRUE}`, () => expect(isString(TRUE)).toBe(FALSE));
         it(`${FALSE}`, () => expect(isString(FALSE)).toBe(FALSE));
-        it(`${FALSE_EXPECTATION}`, () => expect(isString(TRUE_INSTANCE)).toBe(FALSE));
-        it(`${TRUE_EXPECTATION}`, () => expect(isString(FALSE_INSTANCE)).toBe(FALSE));
+        it(`${TRUE_EXPECTATION}`, () => expect(isString(TRUE_INSTANCE)).toBe(FALSE));
+        it(`${FALSE_EXPECTATION}`, () => expect(isString(FALSE_INSTANCE)).toBe(FALSE));
       });
 
       // null
