@@ -10,5 +10,5 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @callback `resultCallback`.
  * @returns A `boolean` indicating whether or not the `value` is a `String` instance.
  */
-export const isStringObject: IsStringObject = (value: any, callback: ResultCallback = resultCallback): value is string =>
+export const isStringObject: IsStringObject = (value: any, callback: ResultCallback = resultCallback): value is String =>
   callback(value instanceof Object === true && value instanceof String === true && typeof value === 'object', value);
