@@ -1,9 +1,9 @@
 // Function.
 import { isBigInt } from './is-big-int.func';
-import { isBoolean } from './is-boolean.func';
+import { isBooleanType } from './is-boolean-type.func';
 import { isNull } from './is-null.func';
-import { isNumber } from './is-number.func';
-import { isString } from './is-string.func';
+import { isNumberType } from './is-number-type.func';
+import { isStringType } from './is-string-type.func';
 import { isSymbol } from './is-symbol.func';
 import { isUndefined } from './is-undefined.func';
 import { resultCallback } from '../../lib/result-callback.func';
@@ -25,13 +25,13 @@ export const isPrimitive: IsPrimitive = <T extends Primitive>(
   type: Primitives,
   callback: ResultCallback = resultCallback
 ): value is T => {
-  if (isString(type)) {
+  if (isStringType(type)) {
     switch (type) {
       case 'bigint': return isBigInt(value, callback);
-      case 'boolean': return isBoolean(value, callback);
-      case 'number': return isNumber(value, callback);
+      case 'boolean': return isBooleanType(value, callback);
+      case 'number': return isNumberType(value, callback);
       case 'null': return isNull(value, callback);
-      case 'string': return isString(value, callback);
+      case 'string': return isStringType(value, callback);
       case 'symbol': return isSymbol(value, callback);
       case 'undefined': return isUndefined(value, callback);
     }
