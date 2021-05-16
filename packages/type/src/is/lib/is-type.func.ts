@@ -4,7 +4,7 @@ import { isInstance } from './is-instance.func';
 import { isNotNull } from '../not/lib/is-not-null.func';
 import { isObject } from './is-object.func';
 import { isPrimitive } from './is-primitive.func';
-import { isString } from './is-string.func';
+import { isStringType } from './is-string-type.func';
 import { resultCallback } from '../../lib/result-callback.func';
 // Type.
 import { IsType } from '../type/is-type.type';
@@ -20,7 +20,7 @@ import { Types } from '../../type/types.type';
  * @returns A `boolean` indicating whether or not the `value` is the `Type` from a `type` of the `Types`.
  */
 export const isType: IsType = <T extends Type>(value: any, type: Types<T>, callback: ResultCallback = resultCallback): value is T => {
-  if (isString(type)) {
+  if (isStringType(type)) {
     switch (type) {
       // Primitives.
       case 'bigint':

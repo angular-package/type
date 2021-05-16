@@ -1,7 +1,7 @@
 // Function.
 import { guardString } from '../lib/guard-string.func';
 // Variables.
-import { STRING } from './variables/string.const';
+import { STRING, STRING_NEW_INSTANCE } from './variables/string.const';
 import { TRUE } from './variables/boolean.const';
 
 describe(guardString.name, () => {
@@ -18,6 +18,11 @@ describe(guardString.name, () => {
       });
     });
     // ... primitives.
-    describe(`primitive`, () => describe(`string`, () => it(`${STRING}`, () => expect(guardString(STRING)).toBe(TRUE))));
+    describe(`primitive`, () => {
+      describe(`string`, () => it(`${STRING}`, () => expect(guardString(STRING)).toBe(TRUE)));
+      describe(`object`, () => {
+        describe(`String`, () => it(`new String(${STRING})`, () => expect(guardString(STRING_NEW_INSTANCE)).toBe(TRUE)));
+      })
+    });
   });
 });
