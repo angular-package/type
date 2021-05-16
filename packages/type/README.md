@@ -172,6 +172,7 @@ Guard
   * [is](#is)
   * [isNot](#isnot)
 * [Guard](#guard)
+* [Common types](#common-types)
 * [Experimental](#Experimental)
   * [BigIntObject](#bigintobject)
   * [BooleanObject](#booleanobject)
@@ -180,7 +181,6 @@ Guard
   * [StringObject](#stringobject)
   * [SymbolObject](#symbolobject)
   * [isParam()](#isparam)
-* [Common types](#common-types)
 * [Git](#git)
   * [Commit](#commit)
   * [Versioning](#versioning)
@@ -402,7 +402,7 @@ isBoolean(BOOLEAN_INSTANCE); // true
 Use `isBooleanObject()` or `is.booleanObject()` to check if **any** `value` is an `object` type and instance of [`Boolean`][boolean] and [`Object`][object].
 
 ```typescript
-const isBooleanObject: IsBooleanObject = (value: any, callback: ResultCallback = resultCallback): value is boolean =>
+const isBooleanObject: IsBooleanObject = (value: any, callback: ResultCallback = resultCallback): value is Boolean =>
   callback(typeof value === 'object' && value instanceof Boolean === true && value instanceof Object === true, value);
 ```
 
@@ -683,7 +683,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 Use `isNumberObject()` or `is.numberObject()` to check if **any** `value` is an `object` type and instance of [`Number`][Number] and [`Object`][object].
 
 ```typescript
-const isNumberObject: IsNumberObject = (value: any, callback: ResultCallback = resultCallback): value is number =>
+const isNumberObject: IsNumberObject = (value: any, callback: ResultCallback = resultCallback): value is Number =>
   callback(typeof value === 'object' && value instanceof Number === true && value instanceof Object === true, value);
 ```
 
@@ -1852,6 +1852,95 @@ The **return value** is a `boolean` indicating whether or not the `value` is `un
 
 ----
 
+## Common types
+
+### AnyBoolean
+
+```typescript
+type AnyBoolean = Exclude<boolean | Boolean, true | false>;
+```
+
+### AnyNumber
+
+```typescript
+type AnyNumber = number | Number;
+```
+
+### AnyString
+
+```typescript
+type AnyString = string | String;
+```
+
+### Constructor
+
+```typescript
+type Constructor<Type> = new (...args: any[]) => Type;
+```
+
+### CycleHook
+
+```typescript
+type CycleHook = 'ngAfterContentInit' | 'ngAfterContentChecked' | 'ngAfterViewInit' | 'ngAfterViewChecked'
+  | 'ngAfterViewChecked' | 'ngOnInit' | 'ngOnDestroy' | 'ngOnChanges';
+```
+
+### Func
+
+Function type.
+
+```typescript
+type Func = (...param: any) => any;
+```
+
+### Key
+
+Name of the `object` property.
+
+```typescript
+type Key =  number | string | symbol;
+```
+
+### Primitive
+
+All [`Primitive`][primitive] types.
+
+```typescript
+type Primitive = bigint | boolean | null | number | string | symbol | undefined;
+```
+
+### Primitives
+
+All [`Primitive`](#primitive) types as `string`.
+
+```typescript
+type Primitives = 'bigint' | 'boolean' | 'null' | 'number' | 'symbol' | 'string' | 'undefined';
+```
+
+### ResultCallback
+
+```typescript
+type ResultCallback = <Obj>(result: boolean, value?: any) => boolean;
+```
+
+### Type
+
+Main types.
+
+```typescript
+type Type = Func | object | Primitive;
+```
+
+### Types
+
+Main types as `string`.
+
+```typescript
+type Types<Obj> = Constructor<Obj> | 'function' | 'object' | Primitives;
+```
+
+----
+
 ## Experimental
 
 ### BigIntObject
@@ -2094,93 +2183,6 @@ resultTRUE === {
 ```
 
 ----
-
-## Common types
-
-### AnyBoolean
-
-```typescript
-type AnyBoolean = Exclude<boolean | Boolean, true | false>;
-```
-
-### AnyNumber
-
-```typescript
-type AnyNumber = number | Number;
-```
-
-### AnyString
-
-```typescript
-type AnyString = string | String;
-```
-
-### Constructor
-
-```typescript
-type Constructor<Type> = new (...args: any[]) => Type;
-```
-
-### CycleHook
-
-```typescript
-type CycleHook = 'ngAfterContentInit' | 'ngAfterContentChecked' | 'ngAfterViewInit' | 'ngAfterViewChecked'
-  | 'ngAfterViewChecked' | 'ngOnInit' | 'ngOnDestroy' | 'ngOnChanges';
-```
-
-### Func
-
-Function type.
-
-```typescript
-type Func = (...param: any) => any;
-```
-
-### Key
-
-Name of the `object` property.
-
-```typescript
-type Key =  number | string | symbol;
-```
-
-### Primitive
-
-All [`Primitive`][primitive] types.
-
-```typescript
-type Primitive = bigint | boolean | null | number | string | symbol | undefined;
-```
-
-### Primitives
-
-All [`Primitive`](#primitive) types as `string`.
-
-```typescript
-type Primitives = 'bigint' | 'boolean' | 'null' | 'number' | 'symbol' | 'string' | 'undefined';
-```
-
-### ResultCallback
-
-```typescript
-type ResultCallback = <Obj>(result: boolean, value?: any) => boolean;
-```
-
-### Type
-
-Main types.
-
-```typescript
-type Type = Func | object | Primitive;
-```
-
-### Types
-
-Main types as `string`.
-
-```typescript
-type Types<Obj> = Constructor<Obj> | 'function' | 'object' | Primitives;
-```
 
 ## GIT
 
