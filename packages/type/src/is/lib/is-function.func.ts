@@ -14,9 +14,13 @@ import { ResultCallback } from '../../type/result-callback.type';
  */
 export const isFunction: IsFunction = (value: any, callback: ResultCallback = resultCallback): value is Func =>
   callback(
-    typeOf(value) === 'function' &&
-    typeof value === 'function' &&
-    value instanceof Function === true &&
-    value instanceof Object === true,
+    (
+      typeOf(value) === 'function' &&
+      typeof value === 'function' &&
+      value instanceof Function === true &&
+      value instanceof Object === true
+    ) ?
+      /class/.test(Function.prototype.toString.call(value).slice(0, 5)) === false
+    : false,
     value
   );
