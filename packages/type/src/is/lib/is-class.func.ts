@@ -4,7 +4,13 @@ import { typeOf } from '../../lib/type-of.func';
 // Type.
 import { IsClass } from '../type/is-class.type';
 import { ResultCallback } from '../../type/result-callback.type';
-// Default export.
+/**
+ * Checks if any value is a `function` type, an instance of `Function` and `Object` as a generic `Class` type of `class`.
+ * @param value Any `value` to check.
+ * @param callback A `ResultCallback` function to handle result before returns.
+ * @callback `resultCallback`.
+ * @returns A `boolean` indicating whether or not the `value` is a `class`.
+ */
 export const isClass: IsClass = <Class>(value: any, callback: ResultCallback = resultCallback): value is Class =>
   callback(
     (
@@ -17,3 +23,4 @@ export const isClass: IsClass = <Class>(value: any, callback: ResultCallback = r
     : false,
     value
   );
+
