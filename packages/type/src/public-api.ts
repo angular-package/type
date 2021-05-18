@@ -40,6 +40,7 @@ export {
   isBoolean,
   isBooleanObject,
   isBooleanType,
+  isClass,
   isDefined,
   isFunction,
   isInstance,
