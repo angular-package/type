@@ -35,7 +35,7 @@ describe(isType.name, () => {
     // ... function.
     describe(`function`, () => {
       it(`${FUNCTION}`, () => expect(isType(FUNCTION, 'function')).toBe(TRUE));
-      it(`${CLASS}`, () => expect(isType(Class, 'function')).toBe(TRUE));
+      it(`${CLASS}`, () => expect(isType(Class, 'function')).toBe(FALSE));
     });
 
     // ... objects.
