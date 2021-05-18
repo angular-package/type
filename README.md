@@ -849,6 +849,11 @@ isObject(OBJECT_ONE, SYMBOL_STRING); // true
 
 Use `isObjectKey()` or `is.objectKey()` to check if **any** `value` is an `object` with its own specified keys of the [`Key`][key]. The Function uses [`hasOwnProperty`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty) method to find the key.
 
+Function can find the `Key` as `string`, `number`, `symbol`
+
+- [x] Enumerable key
+- [x] Non-enumerable
+
 ```typescript
 const isObjectKey: IsObjectKey = <Type extends object>(
   value: any,
