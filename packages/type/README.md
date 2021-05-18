@@ -2,13 +2,13 @@
 
 Useful packages based on the [angular.io](https://angular.io/).
 
-| Package          | Description                                                                             | Status        | Readme      |
-|------------------|-----------------------------------------------------------------------------------------|---------------|-------------|
-| change-detection | Improve application performance.                                                        | *In Progress* | [Readme][cd-readme-github] |
-| prism            | `Prism` highlighter module.                                                             | *In Progress* | [Readme][prism-readme-github] |
-| property         | Features to handle properties.                                                          | *In Progress* | [Readme][property-readme-github] |
-| ui               | User interface based on **[Spectre.css](https://github.com/picturepan2/spectre)**.      | *In Progress* | [Github][ui-readme-github] |
-| type             | Common types, type guards and type checkers.                                            | [![npm version][type-npm-svg]][type-npm-badge] | [Github][type-readme-github] \| [npm][type-readme-npm] |
+| Package          | Description                                                                        | Status        | Readme      |
+| :--------------- | :--------------------------------------------------------------------------------- | :-----------: | :---------- |
+| change-detection | Improve application performance.                                                   | *In Progress* | [Readme][cd-readme-github] |
+| prism            | `Prism` highlighter module.                                                        | *In Progress* | [Readme][prism-readme-github] |
+| property         | Features to handle properties.                                                     | *In Progress* | [Readme][property-readme-github] |
+| ui               | User interface based on **[Spectre.css](https://github.com/picturepan2/spectre)**. | *In Progress* | [Github][ui-readme-github] |
+| type             | Common types, type guards and type checkers.                                       | [![npm version][type-npm-svg]][type-npm-badge] | [Github][type-readme-github] \| [npm][type-readme-npm] |
 
 ## angular-package/type
 
@@ -172,7 +172,7 @@ Guard
   * [is](#is)
   * [isNot](#isnot)
 * [Guard](#guard)
-* [Experimental](#Experimental)
+* [Experimental](#experimental)
   * [BigIntObject](#bigintobject)
   * [BooleanObject](#booleanobject)
   * [NumberObject](#numberobject)
@@ -197,8 +197,6 @@ npm i --save @angular-package/type
 ```
 
 ## Callback
-
-![update][update]
 
 Default function to handle `callback`.
 
@@ -448,6 +446,46 @@ isBooleanType(BOOLEAN_INSTANCE); // false
 
 ----
 
+### isClass
+
+![new][new]
+
+Use `isClass()` or `is.class()` to check if **any** `value` is a `function` type, an instance of [`Function`][function] and [`Object`][object] as a generic `Class` type of [`class`][classes].
+
+```typescript
+const isClass: IsClass = <Class>(value: any, callback: ResultCallback = resultCallback): value is Class =>
+  callback(
+    (
+      typeOf(value) === 'function' &&
+      typeof value === 'function' &&
+      value instanceof Function === true &&
+      value instanceof Object === true
+    ) ?
+      /class/.test(Function.prototype.toString.call(value).slice(0, 5))
+    : false,
+    value
+  );
+```
+
+| Parameter | Type  | Description          |
+| :-------- | :---: | :------------------- |
+| value     | `any` | Any `value` to check |
+| callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
+
+The **return value** is a `boolean` indicating whether or not the `value` is a `class`.
+
+```typescript
+// Example usage
+class Class { x = 5; }
+const FUNC: Func = (x: number): any => { return x + 5; }
+
+isClass(Class); // true
+isClass(FUNC); // false
+isClass(() => 5); // false
+```
+
+----
+
 ### isDefined
 
 Use `isDefined()` or `is.defined()` to check if an **unknown** `value` is **not** an `undefined` type and is **not** equal to `undefined`.
@@ -477,15 +515,21 @@ isDefined(defined); // false
 
 ### isFunction
 
+![update][update]
+
 Use `isFunction()` or `is.function()` to check if **any** `value` is a `function` type, an instance of [`Function`][function] and [`Object`][object].
 
 ```typescript
 const isFunction: IsFunction = (value: any, callback: ResultCallback = resultCallback): value is Func =>
   callback(
-    typeOf(value) === 'function' &&
-    typeof value === 'function' &&
-    value instanceof Function === true &&
-    value instanceof Object === true,
+    (
+      typeOf(value) === 'function' &&
+      typeof value === 'function' &&
+      value instanceof Function === true &&
+      value instanceof Object === true
+    ) ?
+      /class/.test(Function.prototype.toString.call(value).slice(0, 5)) === false
+    : false,
     value
   );
 ```
@@ -513,18 +557,20 @@ isFunction(() => 5); // true
 
 ### isInstance
 
+![update][update]
+
 Use `isInstance()` or `is.instance()` to check if **any** value is an `object` of a generic `Obj` type equal to an `instance` of [`Constructor`](#constructor) type.
 
 ```typescript
 const isInstance: IsInstance = <Obj>(
     value: any,
-    instance: Constructor<Obj>,
+    className: Constructor<Obj>,
     callback: ResultCallback = resultCallback
   ): value is Obj =>
     callback(
       isObject<Obj>(value) ?
-        isFunction(instance) ?
-          value instanceof instance === true
+        isClass(className) ?
+          value instanceof className === true
         : false
       : false,
       value
@@ -566,7 +612,7 @@ const isKey: IsKey = (value: any, callback: ResultCallback = resultCallback): va
 ```
 
 | Parameter | Type  | Description          |
-| :-------- | :---: |:-------------------- |
+| :-------- | :---: | :------------------- |
 | value     | `any` | Any `value` to check |
 | callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
@@ -602,7 +648,7 @@ const isNull: IsNull = (value: any, callback: ResultCallback = resultCallback): 
 ```
 
 | Parameter | Type  | Description          |
-| :-------- | :---: |--------------------- |
+| :-------- | :---: | :------------------- |
 | value     | `any` | Any `value` to check |
 | callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
@@ -847,7 +893,8 @@ isObject(OBJECT_ONE, SYMBOL_STRING); // true
 
 ### isObjectKey
 
-Use `isObjectKey()` or `is.objectKey()` to check if **any** `value` is an `object` with its own specified keys of the [`Key`][key]. The Function uses [`hasOwnProperty`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty) method to find the key.
+Use `isObjectKey()` or `is.objectKey()` to check if **any** `value` is an `object` with its own specified keys of the [`Key`][key].
+The function uses [`hasOwnProperty`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty) [`Object`][object] method to finds enumerable and non-enumerable [`Key`][key] as `string`, `number`, `symbol` unlike `Object.keys()` but it can't find accessor descriptor property unlike `in` operator which can.
 
 ```typescript
 const isObjectKey: IsObjectKey = <Type extends object>(
@@ -2100,6 +2147,8 @@ MIT © angular-package ([license](https://github.com/angular-package/type/blob/m
 [key]: #key
 
 [array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+[classes]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
 
 [bigint]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt
 [bigintconstructor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt
