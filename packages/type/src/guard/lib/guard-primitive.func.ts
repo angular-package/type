@@ -13,5 +13,5 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @returns A `boolean` indicating whether or not the `value` is the `Primitive` from the `type`.
  */
 export const guardPrimitive: GuardPrimitive =
-  <Type extends Primitive>(value: Type, type: Primitives, callback?: ResultCallback): value is Type => 
+  <Type extends Primitive>(value: Type, type: Primitives, callback?: ResultCallback): value is Type =>
     isPrimitive<Type>(value, type, callback);
