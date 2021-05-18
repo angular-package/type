@@ -7,7 +7,7 @@ import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE, FALSE_EXPECTATION, TRUE_EXP
 import { FUNCTION } from './variables/function.const';
 import { NULL } from './variables/null.const';
 import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from './variables/number.const';
-import { OBJECT_ONE, OBJECT_TWO, ObjectOne, ObjectTwo, OBJECT_ONE_NEW, OBJECT_TWO_NEW } from './variables/object.const';
+import { OBJECT_ONE, OBJECT_TWO, OBJECT_ONE_NEW, OBJECT_TWO_NEW } from './variables/object.const';
 import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from './variables/string.const';
 import { SYMBOL_NUMBER, SYMBOL_STRING } from './variables/symbol.const';
 import { UNDEFINED } from './variables/undefined.const';
@@ -23,12 +23,12 @@ describe(isStringType.name, () => {
   // Checks ...
   describe(`checks`, () => {
     it('callback', () => {
-      isStringType(STRING, (result: boolean) => {
+      isStringType(STRING, (result: boolean, value: any) => {
         expect(result).toBe(TRUE);
+        expect(value).toEqual(STRING);
         return result;
       });
     });
-
     // ... arrays.
     describe(`array`, () => {
       // it(`${FUNCTION}`, () => expect(isStringType(FUNCTION, 'function')).toBe(FALSE));
@@ -50,33 +50,23 @@ describe(isStringType.name, () => {
     // ... primitives.
     describe(`primitive`, () => {
       // bigint
-      describe(`bigint`, () => {
-        it(`${BIGINT}`, () => expect(isStringType(BIGINT)).toBe(FALSE));
-        it(`${BIGINT_EXPECTATION}`, () => expect(isStringType(BIGINT_INSTANCE)).toBe(FALSE));
-      });
-
+      describe(`bigint`, () => it(`${BIGINT}`, () => expect(isStringType(BIGINT)).toBe(FALSE)));
       // boolean
       describe(`boolean`, () => {
         it(`${TRUE}`, () => expect(isStringType(TRUE)).toBe(FALSE));
         it(`${FALSE}`, () => expect(isStringType(FALSE)).toBe(FALSE));
-        it(`${FALSE_EXPECTATION}`, () => expect(isStringType(TRUE_INSTANCE)).toBe(FALSE));
-        it(`${TRUE_EXPECTATION}`, () => expect(isStringType(FALSE_INSTANCE)).toBe(FALSE));
       });
-
       // null
       it(`${NULL}`, () => expect(isStringType(NULL)).toBe(FALSE));
-
       // number
       describe(`number`, () => {
         it(`${NUMBER}`, () => expect(isStringType(NUMBER)).toBe(FALSE));
         it(`Number(${NUMBER})`, () => expect(isStringType(NUMBER_INSTANCE)).toBe(FALSE));
-        it(`new Number(${NUMBER})`, () => expect(isStringType(NUMBER_NEW_INSTANCE)).toBe(FALSE));
       });
       // string
       describe(`string`, () => {
         it(`${STRING}`, () => expect(isStringType(STRING)).toBe(TRUE));
         it(`String(${STRING})`, () => expect(isStringType(STRING_INSTANCE)).toBe(TRUE));
-        it(`new String(${STRING})`, () => expect(isStringType(STRING_NEW_INSTANCE)).toBe(FALSE));
       });
       // symbol
       describe(`symbol`, () => {
@@ -85,6 +75,20 @@ describe(isStringType.name, () => {
       });
       // undefined
       it(`${UNDEFINED}`, () => expect(isStringType(UNDEFINED)).toBe(FALSE));
+      // ... object.
+      describe(`object`, () => {
+        // BigInt
+        describe(`BigInt`, () => it(`${BIGINT_EXPECTATION}`, () => expect(isStringType(BIGINT_INSTANCE)).toBe(FALSE)));
+        // Boolean
+        describe(`Boolean`, () => {
+          it(`${TRUE_EXPECTATION}`, () => expect(isStringType(TRUE_INSTANCE)).toBe(FALSE));
+          it(`${FALSE_EXPECTATION}`, () => expect(isStringType(FALSE_INSTANCE)).toBe(FALSE));
+        });
+        // Number
+        describe(`Number`, () => it(`new Number(${NUMBER})`, () => expect(isStringType(NUMBER_NEW_INSTANCE)).toBe(FALSE)));
+        // String
+        describe(`String`, () => it(`new String(${STRING})`, () => expect(isStringType(STRING_NEW_INSTANCE)).toBe(FALSE)));
+      });
     });
   });
 });
