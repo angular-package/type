@@ -4,6 +4,7 @@ import { isBigInt } from './is-big-int.func';
 import { isBoolean } from './is-boolean.func';
 import { isBooleanObject } from './is-boolean-object.func';
 import { isBooleanType } from './is-boolean-type.func';
+import { isClass } from './is-class.func';
 import { isDefined } from './is-defined.func';
 import { isFunction } from './is-function.func';
 import { isInstance } from './is-instance.func';
@@ -34,6 +35,7 @@ export const is: Is = {
   boolean: isBoolean,
   booleanObject: isBooleanObject,
   booleanType: isBooleanType,
+  class: isClass,
   defined: isDefined,
   function: isFunction,
   instance: isInstance,
