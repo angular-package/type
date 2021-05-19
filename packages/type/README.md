@@ -141,6 +141,7 @@ import { Constructor, CycleHook, Func, Key, Primitive, Primitives, ResultCallbac
   * an [`Array`][array] of a generic type with [`guardArray()`](#guardarray).
   * a `bigint` with [`guardBigInt()`](#guardbigint).
   * a `boolean` with [`guardBoolean()`](#guardboolean).
+  * a generic `Class` type [`class`][classes] with [`guardClass()`](#guardclass).
   * a [`Func`](#func) type with [`guardFunction()`](#guardfunction).
   * an instance with [`guardInstance()`](#guardinstance).
   * a `null` with [`guardNull()`](#guardnull).
@@ -581,6 +582,8 @@ isFunction(() => 5); // true
 ----
 
 ### isInstance
+
+![update][update]
 
 Use `isInstance()` or `is.instance()` to check if **any** value is an `object` of a generic `Obj` type equal to an `instance` of [`Constructor`](#constructor) type.
 
@@ -1670,6 +1673,8 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 ----
 
 ### guardClass
+
+![new][new]
 
 Use `guardClass()` or `guard.is.class()` to guard the `value` to be a generic `Class` type of [`class`][classes].
 
