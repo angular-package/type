@@ -7,7 +7,7 @@ Useful packages based on the [angular.io](https://angular.io/).
 | change-detection | Improve application performance.              | *In Progress* | [Readme][cd-readme-github] |
 | prism            | `Prism` highlighter module.                   | *In Progress* | [Readme][prism-readme-github] |
 | property         | Features to handle properties.                | *In Progress* | [Readme][property-readme-github] |
-| ui               | User interface based on.                      | *In Progress* | [Github][ui-readme-github] |
+| ui               | User interface.                               | *In Progress* | [Github][ui-readme-github] |
 | type             | Common types, type guards and type checkers.  | [![npm version][type-npm-svg]][type-npm-badge] | [Github][type-readme-github] \| [npm][type-readme-npm] |
 
 ## angular-package/type
@@ -1593,11 +1593,12 @@ const guardIs: GuardIs = {
   array: guardArray,
   bigint: guardBigInt,
   boolean: guardBoolean,
+  class: guardClass,
   function: guardFunction,
   instance: guardInstance,
   key: guardKey,
-  number: guardNumber,
   null: guardNull,
+  number: guardNumber,
   object: guardObject,
   objectKey: guardObjectKey,
   primitive: guardPrimitive,
@@ -1621,8 +1622,8 @@ const guardArray: GuardArray = <Type>(value: Array<Type>, callback?: ResultCallb
   isArray<Type>(value, callback);
 ```
 
-| Parameter | Type                               | Description |
-|-----------| :--------------------------------: |-------------|
+| Parameter | Type                               | Description   |
+| :-------- | :--------------------------------: | :------------ |
 | value     | `Array<Type>`                      | A generic `Type` `Array` `value` to guard  |
 | callback? | [`ResultCallback`][resultcallback] | Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
@@ -1665,6 +1666,73 @@ const guardBoolean: GuardBoolean = <B extends AnyBoolean>(value: B, callback?: R
 | callback? | [`ResultCallback`][resultcallback]      | An Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `boolean` type or [`Boolean`][boolean] object.
+
+----
+
+### guardClass
+
+Use `guardClass()` or `guard.is.class()` to guard the `value` to be a generic `Class` type of [`class`][classes].
+
+```typescript
+const guardClass: GuardClass = <Class>(value: Class, callback?: ResultCallback): value is Class =>
+  isClass<Class>(value, callback);
+```
+
+| Parameter | Type                               | Description                             |
+| :-------- | :--------------------------------: | :-------------------------------------- |
+| value     | `Class`                            | A generic `Class` type `value` to guard |
+| callback? | [`ResultCallback`][resultcallback] | Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
+
+The **return value** is `boolean` indicating whether or not the `value` is a [`class`][classes].
+
+```typescript
+import { guardClass } from '@angular-package/type';
+
+type Func = (...param: any) => any;
+
+/**
+ * typeof === 'function'
+ * instanceof Function === true
+ * instanceof Object === true
+ */
+export const FUNCTION: Func = (x: number, y: string): any => x + y;
+
+/**
+ * typeof === 'function'
+ * instanceof Class === false
+ * instanceof Function === true
+ * instanceof Object === true
+ */
+export class Class {
+
+  1030405027 = 'my new number';
+  5 = 'my number';
+
+  firstName = 'My name';
+  surname = 'Surname';
+
+  x = NUMBER;
+  y = STRING;
+
+  get [NUMBER](): number {
+    return this.x;
+  }
+  get [STRING](): string {
+    return this.y;
+  }
+
+  get [SYMBOL_NUMBER](): number {
+    return this.x;
+  }
+
+  get [SYMBOL_STRING](): string {
+    return this.y;
+  }
+}
+
+guardClass(FUNCTION); // false
+guardClass<Class>(FUNCTION); // type error
+```
 
 ----
 
