@@ -10,6 +10,7 @@ export {
   guardArray,
   guardBigInt,
   guardBoolean,
+  guardClass,
   guardFunction,
   guardInstance,
   guardKey,
