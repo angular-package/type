@@ -1,18 +1,15 @@
 // Function.
-import { isKey } from './is-key.func';
+import { resultCallback } from '../../lib/result-callback.func';
 import { typeOf } from '../../lib/type-of.func';
 // Type.
 import { IsObject } from '../type/is-object.type';
-import { Key } from '../../type/key.type';
+import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Checks if any `value` is an `object` of a generic `Obj` type and `Object` instance with the possibility of containing the `key`.
+ * Checks if any `value` is an `object` of a generic `Obj` type and `Object` instance.
  * @param value Any `value` to check.
- * @param key Property name to find in the `value`.
+ * @param callback `ResultCallback` function to handle result before returns.
+ * @callback `resultCallback`.
  * @returns A `boolean` indicating whether or not the `value` is an `object`.
  */
-export const isObject: IsObject = <Obj = object>(value: any, key?: Key): value is Obj =>
-  (typeOf(value) === 'object' && typeof value === 'object' && value instanceof Object === true)
-    ? isKey(key)
-      ? key in value
-    : true
-  : false;
+export const isObject: IsObject = <Obj = object>(value: any, callback: ResultCallback = resultCallback): value is Obj =>
+  callback(typeOf(value) === 'object' && typeof value === 'object' && value instanceof Object === true, value);
