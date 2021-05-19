@@ -495,12 +495,15 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 ```typescript
 // Example usage
+import { isClass } from '@angular-package/type';
+
 class Class { x = 5; }
-const FUNC: Func = (x: number): any => { return x + 5; }
+const FUNC: Func = (x: number): any => x + 5;
 
 isClass(Class); // true
 isClass(FUNC); // false
 isClass(() => 5); // false
+
 ```
 
 ----
@@ -539,7 +542,7 @@ isDefined(defined); // false
 
 ![update][update]
 
-The function denies [classes][classes] in check to differ from classes.
+`4.0.0`: The function denies [classes][classes] in check to differ from classes.
 
 Use `isFunction()` or `is.function()` to check if **any** `value` is a `function` type, an instance of [`Function`][function] and [`Object`][object].
 
@@ -586,6 +589,8 @@ isFunction(() => 5); // true
 ### isInstance
 
 ![update][update]
+
+`4.0.0`: The function uses [isClass](#isclass) in check to check the `className` instead of [`isFunction`](#isfunction).
 
 Use `isInstance()` or `is.instance()` to check if **any** value is an `object` of a generic `Obj` type equal to an `instance` of [`Constructor`](#constructor) type.
 
@@ -699,6 +704,13 @@ import { isNull } from '@angular-package/type';
  * instanceof Object === false
  */
 const NULL: any = null;
+
+/**
+ * typeof === 'number'
+ * instanceof Function === false
+ * instanceof Number === false
+ * instanceof Object === false
+ */
 const NUMBER = 27;
 
 isNull(NULL); // true
@@ -756,7 +768,7 @@ import { isNumberObject } from '@angular-package/type';
  * instanceof Number === false
  * instanceof Object === false
  */
-const NUMBER: any = 10304050;
+const NUMBER = 10304050;
 
 /**
  * typeof === 'number'
@@ -764,7 +776,7 @@ const NUMBER: any = 10304050;
  * instanceof Number === false
  * instanceof Object === false
  */
-const NUMBER_INSTANCE: any = Number(NUMBER);
+const NUMBER_INSTANCE = Number(NUMBER);
 
 /**
  * typeof === 'number'
@@ -772,7 +784,7 @@ const NUMBER_INSTANCE: any = Number(NUMBER);
  * instanceof Number === true
  * instanceof Object === true
  */
-const NUMBER_NEW_INSTANCE: any = new Number(NUMBER);
+const NUMBER_NEW_INSTANCE = new Number(NUMBER);
 
 isNumberObject(NUMBER); // false
 isNumberObject(NUMBER_INSTANCE); // false
@@ -808,7 +820,7 @@ import { isNumberType } from '@angular-package/type';
  * instanceof Number === false
  * instanceof Object === false
  */
-const NUMBER: any = 10304050;
+const NUMBER = 10304050;
 
 /**
  * typeof === 'number'
@@ -816,7 +828,7 @@ const NUMBER: any = 10304050;
  * instanceof Number === false
  * instanceof Object === false
  */
-const NUMBER_INSTANCE: any = Number(NUMBER);
+const NUMBER_INSTANCE = Number(NUMBER);
 
 /**
  * typeof === 'number'
@@ -824,7 +836,7 @@ const NUMBER_INSTANCE: any = Number(NUMBER);
  * instanceof Number === true
  * instanceof Object === true
  */
-const NUMBER_NEW_INSTANCE: any = new Number(NUMBER);
+const NUMBER_NEW_INSTANCE = new Number(NUMBER);
 
 isNumberType(NUMBER); // true
 isNumberType(NUMBER_INSTANCE); // true
@@ -838,7 +850,7 @@ isNumberType(NUMBER_NEW_INSTANCE); // false
 
 ![update][update]
 
-The function no longer checks the `key` but has `callback` instead.
+`4.0.0`: The function no longer checks the `key` but has `callback` instead. Use [`isObjectKeyIn`](#isobjectkeyin) or [`isObjectKey`](#isobjectkey) to check object with the [`Key`](#key).
 
 Use `isObject()` or `is.object()` to check if **any** `value` is an `object` of a generic `Obj` type and [`Object`][object] instance.
 
@@ -865,7 +877,15 @@ import { isObject } from '@angular-package/type';
  * instanceof Number === false
  * instanceof Object === false
  */
-const NUMBER: any = 10304050;
+const x = 10304050;
+
+/**
+ * typeof === 'number'
+ * instanceof Function === false
+ * instanceof Number === false
+ * instanceof Object === false
+ */
+const NUMBER = 10304050;
 
 /**
  * typeof === 'string'
@@ -873,7 +893,7 @@ const NUMBER: any = 10304050;
  * instanceof Object === false
  * instanceof String === false
  */
-const STRING: any = '!@#$%^&*()abcdefghijklmnoprstuwyz';
+const STRING = '!@#$%^&*()abcdefghijklmnoprstuwyz';
 
 const SYMBOL_NUMBER: unique symbol = Symbol(NUMBER);
 const SYMBOL_STRING: unique symbol = Symbol(STRING);
@@ -882,6 +902,8 @@ interface ObjectOne {
   'key as string'?: boolean;
   1030405027?: string;
   5?: string;
+  [NUMBER]: number;
+  [STRING]: string;
   [SYMBOL_NUMBER]?: string;
   [SYMBOL_STRING]?: number;
   x: number;
@@ -891,7 +913,7 @@ const OBJECT_ONE: ObjectOne = {
   'key as string': true,
   1030405027: 'key is number',
   5: 'key is also number',
-  [NUMBER]: 'key is number',
+  [NUMBER]: NUMBER,
   [STRING]: 'key is string',
   [SYMBOL_NUMBER]: 'key is symbol number',
   [SYMBOL_STRING]: 6,
@@ -945,15 +967,15 @@ import { isObjectKey } from '@angular-package/type';
  * instanceof Number === false
  * instanceof Object === false
  */
-const NUMBER: any = 10304050;
+const NUMBER = 10304050;
 
-/**
- * typeof === 'string'
- * instanceof Function === false
- * instanceof Object === false
- * instanceof String === false
- */
-const STRING: any = '!@#$%^&*()abcdefghijklmnoprstuwyz';
+ /**
+  * typeof === 'string'
+  * instanceof Function === false
+  * instanceof Object === false
+  * instanceof String === false
+  */
+const STRING = '!@#$%^&*()abcdefghijklmnoprstuwyz';
 
 const SYMBOL_NUMBER: unique symbol = Symbol(NUMBER);
 const SYMBOL_STRING: unique symbol = Symbol(STRING);
@@ -962,6 +984,8 @@ interface ObjectOne {
   'key as string'?: boolean;
   1030405027?: string;
   5?: string;
+  [NUMBER]: number;
+  [STRING]: string;
   [SYMBOL_NUMBER]?: string;
   [SYMBOL_STRING]?: number;
   x: number;
@@ -980,7 +1004,7 @@ const OBJECT_ONE: ObjectOne = {
   'key as string': true,
   1030405027: 'key is number',
   5: 'key is also number',
-  [NUMBER]: 'key is number',
+  [NUMBER]: NUMBER,
   [STRING]: 'key is string',
   [SYMBOL_NUMBER]: 'key is symbol number',
   [SYMBOL_STRING]: 6,
@@ -999,7 +1023,7 @@ isObjectKey(OBJECT_ONE, SYMBOL_STRING); // true
  * instanceof Function === true
  * instanceof Object === true
  */
-export class Class {
+class Class {
 
   1030405027 = 'my new number';
   5 = 'my number';
@@ -1032,7 +1056,7 @@ export class Class {
  * instanceof Function === false
  * instanceof Object === true
  */
-export const CLASS = new Class();
+const CLASS = new Class();
 
 // One of the differences between the `in` operator and the `hasOwnProperty()` method is that it doesn't find a getter key
 isObjectKey(CLASS, SYMBOL_NUMBER); // false
@@ -1084,7 +1108,7 @@ import { isObjectKeyIn } from '@angular-package/type';
  * instanceof Number === false
  * instanceof Object === false
  */
-export const NUMBER: any = 10304050;
+const NUMBER = 10304050;
 
 /**
  * typeof === 'string'
@@ -1092,7 +1116,7 @@ export const NUMBER: any = 10304050;
  * instanceof Object === false
  * instanceof String === false
  */
-export const STRING: any = '!@#$%^&*()abcdefghijklmnoprstuwyz';
+const STRING = '!@#$%^&*()abcdefghijklmnoprstuwyz';
 
 /**
  * typeof === 'symbol'
@@ -1103,8 +1127,8 @@ export const STRING: any = '!@#$%^&*()abcdefghijklmnoprstuwyz';
  * instanceof String === false
  * instanceof Symbol === false
  */
-export const SYMBOL_NUMBER: unique symbol = Symbol(NUMBER);
-export const SYMBOL_STRING: unique symbol = Symbol(STRING);
+const SYMBOL_NUMBER: unique symbol = Symbol(NUMBER);
+const SYMBOL_STRING: unique symbol = Symbol(STRING);
 
 /**
  * typeof === 'function'
@@ -1112,31 +1136,31 @@ export const SYMBOL_STRING: unique symbol = Symbol(STRING);
  * instanceof Function === true
  * instanceof Object === true
  */
-export class Class {
+class Class {
 
-  1030405027 = 'my new number';
-  5 = 'my number';
+   1030405027 = 'my new number';
+   5 = 'my number';
 
-  firstName = 'My name';
-  surname = 'Surname';
+   firstName = 'My name';
+   surname = 'Surname';
 
-  x = NUMBER;
-  y = STRING;
+   x = NUMBER;
+   y = STRING;
 
-  get [NUMBER](): number {
-    return this.x;
-  }
-  get [STRING](): string {
-    return this.y;
-  }
+   get [NUMBER](): number {
+     return this.x;
+   }
+   get [STRING](): string {
+     return this.y;
+   }
 
-  get [SYMBOL_NUMBER](): number {
-    return this.x;
-  }
+   get [SYMBOL_NUMBER](): number {
+     return this.x;
+   }
 
-  get [SYMBOL_STRING](): string {
-    return this.y;
-  }
+   get [SYMBOL_STRING](): string {
+     return this.y;
+   }
 }
 
 /**
@@ -1145,9 +1169,9 @@ export class Class {
  * instanceof Function === false
  * instanceof Object === true
  */
-export const CLASS = new Class();
+const CLASS = new Class();
 
- // One of the differences between `in` operator and the `hasOwnProperty()` method is that it finds a getter key
+// One of the differences between `in` operator and the `hasOwnProperty()` method is that it finds a getter key
 isObjectKeyIn(CLASS, SYMBOL_NUMBER); // true
 isObjectKeyIn(CLASS, SYMBOL_STRING); // true
 isObjectKeyIn(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING]); // true
@@ -1626,7 +1650,7 @@ type Func = (...param: any) => any;
  * instanceof Function === true
  * instanceof Object === true
  */
-export const FUNCTION: Func = (x: number, y: string): any => x + y;
+const FUNCTION: Func = (x: number, y: string): any => x + y;
 
 /**
  * typeof === 'function'
@@ -1634,7 +1658,7 @@ export const FUNCTION: Func = (x: number, y: string): any => x + y;
  * instanceof Function === true
  * instanceof Object === true
  */
-export class Class {
+class Class {
 
   1030405027 = 'my new number';
   5 = 'my number';
@@ -1663,6 +1687,7 @@ export class Class {
 
 guardClass(FUNCTION); // false
 guardClass<Class>(FUNCTION); // type error
+
 ```
 
 ----
@@ -1671,7 +1696,7 @@ guardClass<Class>(FUNCTION); // type error
 
 ![update][update]
 
-The function deny [classes][classes] in check cause of updated [`isFunction`](#isfunction).
+`4.0.0`: The function deny [classes][classes] in check cause of updated [`isFunction`](#isfunction).
 
 Use `guardFunction()` or `guard.is.function()` to guard the `value` to be a [`Func`](#func) type.
 
@@ -1770,7 +1795,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 ![update][update]
 
-The function has a properly working callback cause of the updated [`isObject`](#isobject).
+`4.0.0`: The function has a properly working callback cause of the updated [`isObject`](#isobject).
 
 Use `guardObject()` or `guard.is.object()` to guard the `value` to be an `object` of a generic `Obj` type.
 
@@ -2213,8 +2238,11 @@ Example usage.
 
 ```typescript
 // Example  usage
+import { isParam } from '@angular-package/type';
+
 const STRING: any = '!@#$%^&*()abcdefghijklmnoprstuwyz';
 const NUMBER: any = 10304050;
+
 // TestClass
 class TestClass {
   @isParam('object', 'string', 'number')
