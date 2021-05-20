@@ -590,7 +590,7 @@ isFunction(() => 5); // true
 
 ![update][update]
 
-`4.0.0`: The function uses [isClass](#isclass) in check to check the `className` instead of [`isFunction`](#isfunction).
+`4.0.0`: The function uses [isClass](#isclass) in check to check the `className` instead of [`isFunction()`](#isfunction).
 
 Use `isInstance()` or `is.instance()` to check if **any** value is an `object` of a generic `Obj` type equal to an `instance` of [`Constructor`](#constructor) type.
 
@@ -1696,7 +1696,7 @@ guardClass<Class>(FUNCTION); // type error
 
 ![update][update]
 
-`4.0.0`: The function denies [classes][classes] in check cause of updated [`isFunction`](#isfunction).
+`4.0.0`: The function denies [`classes`][classes] in check cause of updated [`isFunction()`](#isfunction).
 
 Use `guardFunction()` or `guard.is.function()` to guard the `value` to be a [`Func`](#func) type.
 
