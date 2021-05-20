@@ -2,6 +2,7 @@ import { GuardArray } from '../type/guard-array.type';
 import { GuardBigInt } from '../type/guard-big-int.type';
 import { GuardBoolean } from '../type/guard-boolean.type';
 import { GuardClass } from '../type/guard-class.type';
+import { GuardDefined } from '../type/guard-defined.type';
 import { GuardFunction } from '../type/guard-function.type';
 import { GuardKey } from '../type/guard-key.type';
 import { GuardNumber } from '../type/guard-number.type';
@@ -20,6 +21,7 @@ export interface GuardIs {
   bigint: GuardBigInt;
   boolean: GuardBoolean;
   class: GuardClass;
+  defined: GuardDefined;
   function: GuardFunction;
   instance: GuardInstance;
   key: GuardKey;
