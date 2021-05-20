@@ -1,5 +1,5 @@
 // Function.
-import { guardDefined } from '../lib/guard-defined.type';
+import { guardDefined } from '../lib/guard-defined.func';
 // Variables.
 import { FALSE } from './variables/boolean.const';
 import { UNDEFINED } from './variables/undefined.const';
