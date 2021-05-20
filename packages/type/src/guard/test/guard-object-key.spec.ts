@@ -16,7 +16,7 @@ describe(guardObjectKey.name , () => {
     it('callback', () => {
       guardObjectKey<TestClass>(TEST_CLASS, ['firstName', 'surname'], (result: boolean, value: TestClass) => {
         expect(result).toBe(TRUE);
-        expect(value).toEqual(CLASS);
+        expect(value).toEqual(TEST_CLASS);
         return result;
       });
     });
