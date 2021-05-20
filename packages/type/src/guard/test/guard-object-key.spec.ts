@@ -1,11 +1,11 @@
 // Function.
 import { guardObjectKey } from '../lib/guard-object-key.func';
 // Variables.
-import { CLASS } from './variables/class.const';
+import { CLASS, TEST_CLASS, TestClass } from './variables/class.const';
 import { NUMBER } from './variables/number.const';
 import { OBJECT_ONE } from './variables/object.const';
 import { SYMBOL_NUMBER, SYMBOL_STRING } from './variables/symbol.const';
-import { TRUE } from './variables/boolean.const';
+import { TRUE, FALSE } from './variables/boolean.const';
 
 describe(guardObjectKey.name , () => {
   // Defined.
@@ -13,13 +13,13 @@ describe(guardObjectKey.name , () => {
 
   // Checks ...
   describe(`checks`, () => {
-    // it('callback', () => {
-    //   guardObjectKey(CLASS, ['firstName', 'surname'], (result: boolean, value: Class) => {
-    //     expect(result).toBe(TRUE);
-    //     expect(value).toEqual(CLASS);
-    //     return result;
-    //   });
-    // });
+    it('callback', () => {
+      guardObjectKey<TestClass>(TEST_CLASS, ['firstName', 'surname'], (result: boolean, value: TestClass) => {
+        expect(result).toBe(TRUE);
+        expect(value).toEqual(TEST_CLASS);
+        return result;
+      });
+    });
 
     // ... instance.
     describe(`instance`, () => {
@@ -30,15 +30,15 @@ describe(guardObjectKey.name , () => {
           expect(guardObjectKey(CLASS, 5)).toBe(TRUE);
         });
 
-        it('finds getter number', () => expect(guardObjectKey(CLASS, NUMBER)).toBe(TRUE));
+        it('finds getter number', () => expect(guardObjectKey(CLASS, NUMBER)).toBe(FALSE));
 
         // string.
         it('has string key', () => expect(guardObjectKey(CLASS, 'surname')).toBe(TRUE));
 
         // symbol.
         it('finds getter symbol key', () => {
-          expect(guardObjectKey(CLASS, SYMBOL_NUMBER)).toBe(TRUE);
-          expect(guardObjectKey(CLASS, SYMBOL_STRING)).toBe(TRUE);
+          expect(guardObjectKey(CLASS, SYMBOL_NUMBER)).toBe(FALSE);
+          expect(guardObjectKey(CLASS, SYMBOL_STRING)).toBe(FALSE);
         });
       });
     });

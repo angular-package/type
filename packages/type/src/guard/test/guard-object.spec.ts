@@ -11,13 +11,13 @@ describe(guardObject.name, () => {
 
   // Checks ...
   describe(`checks`, () => {
-    // it('callback', () => {
-    //   guardObject(OBJECT_ONE, (result: boolean, value: ObjectOne) => {
-    //     expect(result).toBe(TRUE);
-    //     expect(OBJECT_ONE).toEqual(value);
-    //     return result;
-    //   });
-    // });
+    it('callback', () => {
+      guardObject(OBJECT_ONE, (result: boolean, value: any) => {
+        expect(result).toBe(TRUE);
+        expect(OBJECT_ONE).toEqual(value);
+        return result;
+      });
+    });
 
     // ... objects.
     describe('object', () => {

@@ -17,7 +17,6 @@ describe(isFunction.name, () => {
   // TRUE
   it('is DEFINED', () => expect(isFunction).toBeDefined());
   it(`'function' | Function`, () => expect(isFunction(FUNCTION)).toBe(TRUE));
-  it(`Class`, () => expect(isFunction(Class)).toBe(TRUE));
 
   // FALSE.
   it(`'boolean' | Boolean`, () => {
@@ -37,6 +36,7 @@ describe(isFunction.name, () => {
     expect(isFunction(BIGINT_INSTANCE)).toBe(FALSE);
   });
   it(`CLASS`, () => expect(isFunction(CLASS)).toBe(FALSE));
+  it(`Class`, () => expect(isFunction(Class)).toBe(FALSE));
   it(`null | NULL`, () => {
     expect(isFunction(null)).toBe(FALSE);
     expect(isFunction(NULL)).toBe(FALSE);

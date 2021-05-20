@@ -10,6 +10,8 @@ export {
   guardArray,
   guardBigInt,
   guardBoolean,
+  guardClass,
+  guardDefined,
   guardFunction,
   guardInstance,
   guardKey,
@@ -40,6 +42,7 @@ export {
   isBoolean,
   isBooleanObject,
   isBooleanType,
+  isClass,
   isDefined,
   isFunction,
   isInstance,
@@ -72,4 +75,4 @@ export {
 } from './is/not';
 
 // Types.
-export { Constructor, CycleHook, Func, Key, Primitive, Primitives, ResultCallback, Type, Types } from './type';
+export { Constructor, CycleHook, Defined, Func, Key, Primitive, Primitives, ResultCallback, Type, Types } from './type';

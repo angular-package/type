@@ -69,8 +69,9 @@ describe(isDefined.name, () => {
   it(`'undefined'`, () => {
     expect(isDefined(notDefined)).toBe(FALSE);
     expect(isDefined(UNDEFINED)).toBe(FALSE);
-    isDefined(UNDEFINED, (result: boolean) => {
-      expect(result).toBe(FALSE);
+    isDefined(UNDEFINED, (result: boolean, value: any) => {
+      expect(result).toEqual(FALSE);
+      expect(value).toBeUndefined();
       return result;
     });
   });

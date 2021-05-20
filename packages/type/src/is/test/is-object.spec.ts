@@ -22,13 +22,13 @@ describe(isObject.name, () => {
 
   // Checks ...
   describe(`checks`, () => {
-    // it('callback', () => {
-    //   isObject(OBJECT_ONE, (result: boolean, value: ObjectOne) => {
-    //     expect(result).toBe(TRUE);
-    //     expect(value).toEqual(OBJECT_ONE);
-    //     return result;
-    //   });
-    // });
+    it('callback', () => {
+      isObject(OBJECT_ONE, (result: boolean, value: any) => {
+        expect(result).toBe(TRUE);
+        expect(value).toEqual(OBJECT_ONE);
+        return result;
+      });
+    });
 
     // ... arrays.
     describe(`array`, () => {});

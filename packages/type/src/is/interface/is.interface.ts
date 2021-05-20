@@ -3,6 +3,7 @@ import { IsBigInt } from '../type/is-big-int.type';
 import { IsBoolean } from '../type/is-boolean.type';
 import { IsBooleanObject } from '../type/is-boolean-object.type';
 import { IsBooleanType } from '../type/is-boolean-type.type';
+import { IsClass } from '../type/is-class.type';
 import { IsDefined } from '../type/is-defined.type';
 import { IsFunction } from '../type/is-function.type';
 import { IsInstance } from '../type/is-instance.type';
@@ -29,6 +30,7 @@ export interface Is {
   boolean: IsBoolean;
   booleanObject: IsBooleanObject;
   booleanType: IsBooleanType;
+  class: IsClass;
   defined: IsDefined;
   function: IsFunction;
   instance: IsInstance;

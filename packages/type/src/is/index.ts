@@ -4,6 +4,7 @@ export { isBigInt } from './lib/is-big-int.func';
 export { isBoolean } from './lib/is-boolean.func';
 export { isBooleanObject } from './lib/is-boolean-object.func';
 export { isBooleanType } from './lib/is-boolean-type.func';
+export { isClass } from './lib/is-class.func';
 export { isDefined } from './lib/is-defined.func';
 export { isFunction } from './lib/is-function.func';
 export { isInstance } from './lib/is-instance.func';

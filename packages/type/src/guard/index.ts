@@ -4,6 +4,8 @@ export { guard } from './lib/guard.object';
 export { guardArray } from './lib/guard-array.func';
 export { guardBigInt } from './lib/guard-big-int.func';
 export { guardBoolean } from './lib/guard-boolean.func';
+export { guardClass } from './lib/guard-class.func';
+export { guardDefined } from './lib/guard-defined.func';
 export { guardFunction } from './lib/guard-function.func';
 export { guardInstance } from './lib/guard-instance.func';
 export { guardKey } from './lib/guard-key.func';
