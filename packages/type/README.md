@@ -1858,7 +1858,7 @@ const guardObjectKey: GuardObjectKey =
 | Parameter   | Type                               | Description                                                            |
 | :---------- | :--------------------------------: | :--------------------------------------------------------------------- |
 | value       | `Obj`                              | A generic `Obj` type `value` that contains the `key` to guard          |
-| key         | keyof O`bj` \| (keyof `Obj`)\[\]   | A key of `Obj` or an array key of `Obj` type as the name of the property that the `value` contains |
+| key         | `keyof Obj` \| `(keyof Obj)[]`   | A key of `Obj` or an array key of `Obj` type as the name of the property that the `value` contains |
 | callback?   | [`ResultCallback`][resultcallback] | An Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an `object` of a generic `Obj` containing the `key`.
