@@ -1846,20 +1846,23 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 
 `4.0.0`: The function uses [`isObjectKey`](#isobjectkey) function to check the `value` and has [`callback`](#resultcallback) as optional instead of the [`guardObject`](#guardobject).
 
-Use `guardObjectKey()` or `guard.is.objectKey()` to guard the `value` to be an `object` of a generic `Obj` type that contains the `key` property of the [`Key`][key] type.
+`4.0.1`: Fix guards the `key` by changing its type to `keyof Obj` instead of just a [`Key`][key].
+
+Use `guardObjectKey()` or `guard.is.objectKey()` to guard the `value` to be an `object` of a generic `Obj` type that contains the `key`.
 
 ```typescript
-const guardObjectKey: GuardObjectKey = <Obj extends object>(value: Obj, key: Key | Key[], callback?: ResultCallback): value is Obj =>
-  isObjectKey<Obj>(value, key, callback);
+const guardObjectKey: GuardObjectKey =
+  <Obj extends object>(value: Obj, key: keyof Obj | (keyof Obj)[], callback?: ResultCallback): value is Obj =>
+    isObjectKey<Obj>(value, key, callback);
 ```
 
 | Parameter   | Type                               | Description                                                            |
 | :---------- | :--------------------------------: | :--------------------------------------------------------------------- |
 | value       | `Obj`                              | A generic `Obj` type `value` that contains the `key` to guard          |
-| key         | [`Key`][key] \| [`Key[]`][key]     | A [`Key`][key] type or an array of [`Key`][key] type name of the property that the `value` contains |
+| key         | `keyof Obj` \| `(keyof Obj)[]`   | A key of `Obj` or an array key of `Obj` type as the name of the property that the `value` contains |
 | callback?   | [`ResultCallback`][resultcallback] | An Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
-The **return value** is a `boolean` indicating whether or not the `value` is an `object` of a generic `Obj` containing the [`Key`][key] .
+The **return value** is a `boolean` indicating whether or not the `value` is an `object` of a generic `Obj` containing the `key`.
 
 [Example usage on playground][guard-object-key]
 
