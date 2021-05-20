@@ -26,6 +26,8 @@ import {
   guardArray,
   guardBigInt,
   guardBoolean,
+  guardClass,
+  guardDefined,
   guardFunction,
   guardInstance,
   guardKey,
@@ -98,7 +100,7 @@ import { are, guard, is, isNot } from '@angular-package/type';
 
 ```typescript
 // Types.
-import { Constructor, CycleHook, Func, Key, Primitive, Primitives, ResultCallback, Type, Types } from '@angular-package/type';
+import { Constructor, CycleHook, Defined, Func, Key, Primitive, Primitives, ResultCallback, Type, Types } from '@angular-package/type';
 ```
 
 ## Features
@@ -142,6 +144,7 @@ import { Constructor, CycleHook, Func, Key, Primitive, Primitives, ResultCallbac
   * a `bigint` with [`guardBigInt()`](#guardbigint).
   * a `boolean` with [`guardBoolean()`](#guardboolean).
   * a generic `Class` type [`class`][classes] with [`guardClass()`](#guardclass).
+  * defined with [`guardDefined()`](#guarddefined).
   * a [`Func`](#func) type with [`guardFunction()`](#guardfunction).
   * an instance with [`guardInstance()`](#guardinstance).
   * a `null` with [`guardNull()`](#guardnull).
@@ -1692,6 +1695,26 @@ guardClass<Class>(FUNCTION); // type error
 
 ----
 
+### guardDefined
+
+![new][new]
+
+Use `guardDefined()` or `guard.is.defined()` to guard the `value` to be defined.
+
+```typescript
+const guardDefined: GuardDefined = <Type>(value: Type, callback?: ResultCallback): value is Defined<Type> =>
+  isDefined(value, callback);
+```
+
+| Parameter | Type                                    | Description                                          |
+| :-------- | :-------------------------------------: | :--------------------------------------------------- |
+| value     | `Type`                                  | A generic type `value` to guard                      |
+| callback? | [`ResultCallback`][resultcallback]      | An Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
+
+The **return value** is A `boolean` indicating whether or not the `value` is defined, if `undefined` then returns `never`.
+
+----
+
 ### guardFunction
 
 ![update][update]
@@ -1967,6 +1990,12 @@ type AnyString = string | String;
 
 ```typescript
 type Constructor<Type> = new (...args: any[]) => Type;
+```
+
+### Defined
+
+```typescript
+type Defined<T> = T extends undefined ? never : T;
 ```
 
 ### CycleHook
@@ -2311,6 +2340,7 @@ How do I know when to release 1.0.0?
 MIT © angular-package ([license](https://github.com/angular-package/type/blob/main/LICENSE))
 
 [callback]: #callback
+[defined]: #defined
 [resultcallback]: #resultcallback
 [key]: #key
 [type]: #type
