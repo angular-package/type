@@ -3,6 +3,7 @@ import { guardArray } from './guard-array.func';
 import { guardBigInt } from './guard-big-int.func';
 import { guardBoolean } from './guard-boolean.func';
 import { guardClass } from './guard-class.func';
+import { guardDefined } from './guard-defined.func';
 import { guardFunction } from './guard-function.func';
 import { guardInstance } from './guard-instance.func';
 import { guardKey } from './guard-key.func';
@@ -23,6 +24,7 @@ export const guardIs: GuardIs = {
   bigint: guardBigInt,
   boolean: guardBoolean,
   class: guardClass,
+  defined: guardDefined,
   function: guardFunction,
   instance: guardInstance,
   key: guardKey,
