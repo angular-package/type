@@ -1845,7 +1845,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 ![update][update]
 
 `4.0.0`: The function uses [`isObjectKey`](#isobjectkey) function to check the `value` and has [`callback`](#resultcallback) as optional instead of the [`guardObject`](#guardobject).
-`4.0.1`: Fix guards the `key` by changing its type to `keyof Obj` instead just a [`Key`][key].
+`4.0.1`: Fix guards the `key` by changing its type to `keyof Obj` instead of just a [`Key`][key].
 
 Use `guardObjectKey()` or `guard.is.objectKey()` to guard the `value` to be an `object` of a generic `Obj` type that contains the `key`.
 
