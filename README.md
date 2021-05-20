@@ -1696,7 +1696,7 @@ guardClass<Class>(FUNCTION); // type error
 
 ![update][update]
 
-`4.0.0`: The function deny [classes][classes] in check cause of updated [`isFunction`](#isfunction).
+`4.0.0`: The function denies [classes][classes] in check cause of updated [`isFunction`](#isfunction).
 
 Use `guardFunction()` or `guard.is.function()` to guard the `value` to be a [`Func`](#func) type.
 
@@ -1717,6 +1717,10 @@ The **return value** is a `boolean` indicating whether or not the `value` is a [
 ----
 
 ### guardInstance
+
+![update][update]
+
+`4.0.0`: The function uses an updated [`isInstance()`](#isinstance) function that uses [`isClass()`](#isclass).
 
 Use `guardInstance()` or `guard.is.instance()` to guard the `value` to be an `object` of a generic `Obj` type equal to an `instance` of [`Constructor`](#constructor) type.
 
@@ -1819,7 +1823,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 
 ![update][update]
 
-`4.0.0`: The function uses [`isObjectKey`](#isobjectkey) function to check the `value` and has [`callback`](#resultcallback) as optional.
+`4.0.0`: The function uses [`isObjectKey`](#isobjectkey) function to check the `value` and has [`callback`](#resultcallback) as optional instead of the [`guardObject`](#guardobject).
 
 Use `guardObjectKey()` or `guard.is.objectKey()` to guard the `value` to be an `object` of a generic `Obj` type that contains the `key` property of the [`Key`][key] type.
 
