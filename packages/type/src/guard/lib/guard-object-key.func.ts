@@ -11,5 +11,5 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @returns A `boolean` indicating whether or not the `value` is an `object` of a generic `Obj` containing the `key`.
  */
 export const guardObjectKey: GuardObjectKey =
-  <Obj extends object>(value: Obj, key: keyof Obj | (keyof Obj)[], callback?: ResultCallback): value is Obj =>
+  <Obj = object>(value: Obj, key: keyof Obj | (keyof Obj)[], callback?: ResultCallback): value is Obj =>
     isObjectKey<Obj>(value, key, callback);
