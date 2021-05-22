@@ -1927,7 +1927,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 `4.0.0`: The function has a properly working callback cause of the updated [`isObject`](#isobject).
 
-`4.0.3`: Type variable `Obj` default value is not set to cause of it always being picked from the `value`.
+`4.0.3`: Fix type variable `Obj` default value is not set to cause of it always being picked from the `value`.
 
 Use `guardObject()` or `guard.is.object()` to guard the `value` to be an `object` of a generic `Obj` type.
 
