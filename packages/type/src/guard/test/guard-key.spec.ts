@@ -13,7 +13,7 @@ describe(guardKey.name, () => {
   it('is DEFINED', () => expect(guardKey).toBeDefined());
 
   // Checks ...
-  describe(`checks`, () => {
+  describe(`guards`, () => {
     it('callback', () => {
       guardKey(STRING, (result: boolean, value: Key) => {
         expect(result).toBe(TRUE);

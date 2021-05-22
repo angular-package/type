@@ -9,7 +9,7 @@ describe(guardString.name, () => {
   it('is DEFINED', () => expect(guardString).toBeDefined());
 
   // Checks ...
-  describe(`checks`, () => {
+  describe(`guards`, () => {
     it('callback', () => {
       guardString(STRING, (result: boolean, value: string) => {
         expect(result).toBe(TRUE);

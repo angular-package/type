@@ -15,7 +15,7 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @callback `resultCallback`.
  * @returns A `boolean` indicating whether or not the `value` is an `object` with the keys.
  */
-export const isObjectKeyIn: IsObjectKeyIn = <Type extends object>(
+export const isObjectKeyIn: IsObjectKeyIn = <Type = object>(
   value: any,
   key: Key | Key[],
   callback: ResultCallback = resultCallback

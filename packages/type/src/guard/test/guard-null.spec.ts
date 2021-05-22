@@ -9,7 +9,7 @@ describe(guardNull.name, () => {
   it('is DEFINED', () => expect(guardNull).toBeDefined());
 
   // Checks ...
-  describe(`checks`, () => {
+  describe(`guards`, () => {
     it('callback', () => {
       guardNull(NULL, (result: boolean, value: null) => {
         expect(result).toBe(TRUE);

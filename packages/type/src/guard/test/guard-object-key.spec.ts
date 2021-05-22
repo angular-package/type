@@ -12,7 +12,7 @@ describe(guardObjectKey.name , () => {
   it('is DEFINED', () => expect(guardObjectKey).toBeDefined());
 
   // Checks ...
-  describe(`checks`, () => {
+  describe(`guards`, () => {
     it('callback', () => {
       guardObjectKey<TestClass>(TEST_CLASS, ['firstName', 'surname'], (result: boolean, value: TestClass) => {
         expect(result).toBe(TRUE);

@@ -10,7 +10,7 @@ describe(guardObject.name, () => {
   it('is DEFINED', () => expect(guardObject).toBeDefined());
 
   // Checks ...
-  describe(`checks`, () => {
+  describe(`guards`, () => {
     it('callback', () => {
       guardObject(OBJECT_ONE, (result: boolean, value: any) => {
         expect(result).toBe(TRUE);
