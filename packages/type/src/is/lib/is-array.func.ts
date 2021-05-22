@@ -11,7 +11,7 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @callback `resultCallback`.
  * @returns A `boolean` indicating whether or not the `value` is an `Array`.
  */
-export const isArray: IsArray = <Type>(value: any, callback: ResultCallback = resultCallback): value is Array<Type> =>
+export const isArray: IsArray = <Type = any>(value: any, callback: ResultCallback = resultCallback): value is Array<Type> =>
   callback(
     typeOf(value) === 'array' &&
     Array.isArray(value) === true &&
