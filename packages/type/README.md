@@ -898,11 +898,7 @@ isNumberType(NUMBER_NEW_INSTANCE); // false
 
 ### isObject
 
-![update][update]
-
 `4.0.0`: The function no longer checks the `key` but has `callback` instead. Use [`isObjectKeyIn`](#isobjectkeyin) or [`isObjectKey`](#isobjectkey) to check object with the [`Key`][key] .
-
-`4.0.3`: Type  variable `Obj`  default value is set to `object`.
 
 Use `isObject()` or `is.object()` to check if **any** `value` is an `object` of a generic `Obj` type and [`Object`][object] instance.
 
@@ -1133,10 +1129,6 @@ isObjectKey(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING]); // false
 ----
 
 ### isObjectKeyIn
-
-![update][update]
-
-`4.0.3`: Type variable `Type` default value is set to `object`.
 
 Use `isObjectKeyIn()` or `is.objectKeyIn()` to check if **any** `value` is an [`Object`][object] with the `key` of the [`Key`][key] type by using the `in` operator. The function uses operator [`in`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in) to find the key.
 
@@ -1931,7 +1923,11 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 ### guardObject
 
+![update][update]
+
 `4.0.0`: The function has a properly working callback cause of the updated [`isObject`](#isobject).
+
+`4.0.3`: Type variable `Obj` default value is not set to cause of it always being picked from the `value`.
 
 Use `guardObject()` or `guard.is.object()` to guard the `value` to be an `object` of a generic `Obj` type.
 
@@ -1957,9 +1953,13 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 
 ### guardObjectKey
 
+![update][update]
+
 `4.0.0`: The function uses [`isObjectKey`](#isobjectkey) function to check the `value` and has [`callback`](#resultcallback) as optional instead of the [`guardObject`](#guardobject).
 
 `4.0.1`: Fix guards the `key` by changing its type to `keyof Obj` instead of just a [`Key`][key].
+
+`4.0.3`: Fix type variable `Obj` default value is not set to cause of it always being picked from the `value`.
 
 Use `guardObjectKey()` or `guard.is.objectKey()` to guard the `value` to be an `object` of a generic `Obj` type that contains the `key`.
 
