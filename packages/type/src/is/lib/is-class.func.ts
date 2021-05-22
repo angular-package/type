@@ -11,7 +11,7 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @callback `resultCallback`.
  * @returns A `boolean` indicating whether or not the `value` is a `class`.
  */
-export const isClass: IsClass = <Class>(value: any, callback: ResultCallback = resultCallback): value is Class =>
+export const isClass: IsClass = <Class = Function>(value: any, callback: ResultCallback = resultCallback): value is Class =>
   callback(
     (
       typeOf(value) === 'function' &&
@@ -20,7 +20,6 @@ export const isClass: IsClass = <Class>(value: any, callback: ResultCallback = r
       value instanceof Object === true
     ) ?
       /class/.test(Function.prototype.toString.call(value).slice(0, 5))
-    : false,
+      : false,
     value
   );
-
