@@ -21,6 +21,6 @@ export const isFunction: IsFunction = (value: any, callback: ResultCallback = re
       value instanceof Object === true
     ) ?
       /class/.test(Function.prototype.toString.call(value).slice(0, 5)) === false
-    : false,
+      : false,
     value
   );
