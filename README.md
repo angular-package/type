@@ -575,8 +575,6 @@ isDefined(defined); // false
 
 ### isFunction
 
-![update][update]
-
 `4.0.0`: The function denies [classes][classes] in check to differ from classes.
 
 Use `isFunction()` or `is.function()` to check if **any** `value` is a `function` type, an instance of [`Function`][function] and [`Object`][object].
@@ -904,6 +902,8 @@ isNumberType(NUMBER_NEW_INSTANCE); // false
 
 `4.0.0`: The function no longer checks the `key` but has `callback` instead. Use [`isObjectKeyIn`](#isobjectkeyin) or [`isObjectKey`](#isobjectkey) to check object with the [`Key`][key] .
 
+`4.0.3`: Type  variable `Obj`  default value is set to `object`.
+
 Use `isObject()` or `is.object()` to check if **any** `value` is an `object` of a generic `Obj` type and [`Object`][object] instance.
 
 ```typescript
@@ -988,7 +988,7 @@ isObject(OBJECT_ONE); // true
 
 ![update][update]
 
-`4.0.3` Type variable `Type` default value is set to `object`.
+`4.0.3`: Type variable `Type` default value is set to `object`.
 
 Use `isObjectKey()` or `is.objectKey()` to check if **any** `value` is an `object` with its own specified keys of the [`Key`][key].
 The function uses [`hasOwnProperty`][hasownproperty] [`Object`][object] method to finds enumerable and non-enumerable [`Key`][key] as `string`, `number`, `symbol` unlike `Object.keys()` but it can't find accessor descriptor property unlike `in` operator which can.
@@ -1136,7 +1136,7 @@ isObjectKey(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING]); // false
 
 ![update][update]
 
-`4.0.3` Type variable `Type` default value is set to `object`.
+`4.0.3`: Type variable `Type` default value is set to `object`.
 
 Use `isObjectKeyIn()` or `is.objectKeyIn()` to check if **any** `value` is an [`Object`][object] with the `key` of the [`Key`][key] type by using the `in` operator. The function uses operator [`in`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in) to find the key.
 
