@@ -1927,7 +1927,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 `4.0.0`: The function has a properly working callback cause of the updated [`isObject`](#isobject).
 
-`4.0.3`: Fix type variable `Obj` default value is not set to cause of it always being picked from the `value`.
+`4.0.3`: Fix type variable `Obj` default value is set to cause of it always being picked from the `value`.
 
 Use `guardObject()` or `guard.is.object()` to guard the `value` to be an `object` of a generic `Obj` type.
 
@@ -1959,7 +1959,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 
 `4.0.1`: Fix guards the `key` by changing its type to `keyof Obj` instead of just a [`Key`][key].
 
-`4.0.3`: Fix type variable `Obj` default value is not set to cause of it always being picked from the `value`.
+`4.0.3`: Fix type variable `Obj` default value is set to cause of it always being picked from the `value`.
 
 Use `guardObjectKey()` or `guard.is.objectKey()` to guard the `value` to be an `object` of a generic `Obj` type that contains the `key`.
 
@@ -1987,7 +1987,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 
 ### guardPrimitive
 
-Use `guardPrimitive()` or `guard.is.primitive()` to guard the `value` to be the [`Primitive`][primitive] from a `type` of the [`Primitives`][primitives].
+Use `guardPrimitive()` or `guard.is.primitive()` to guard the `value` to be the [`Primitive`][primitive] from a `type` of the [`Primitives`](#primitives).
 
 ```typescript
 const guardPrimitive: GuardPrimitive =
@@ -1995,14 +1995,14 @@ const guardPrimitive: GuardPrimitive =
     isPrimitive<Type>(value, type, callback);
 ```
 
-| Type variable                           | Default value    | Description |
-| :-------------------------------------- | :--------------- | :---------- |
-| `Type` extends [`Primitive`][primitive] | From the `value` | Guarded with [`Primitive`][primitive] type `Type` variable from the `value` to the return type `value` is `Type` |
+| Type variable                            | Default value    | Description |
+| :--------------------------------------- | :--------------- | :---------- |
+| `Type` extends [`Primitive`](#primitive) | From the `value` | Guarded with [`Primitive`](#primitive) type `Type` variable from the `value` to the return type `value` is `Type` |
 
 | Parameter   | Type                                     | Description                         |
 | :---------- | :--------------------------------------: | :---------------------------------- |
-| value       | `Type` extends [`Primitive`][primitive] | A `Primitive` type `value` to guard |
-| type        | [`Primitives`][primitives]              | A `string` type from the [`Primitives`][primitives] to check the `value` |
+| value       | `Type` extends [`Primitive`](#primitive) | A `Primitive` type `value` to guard |
+| type        | [`Primitives`](#primitives)              | A `string` type from the [`Primitives`](#primitives) to check the `value` |
 | callback?   | [`ResultCallback`][resultcallback]       | Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is the [`Primitive`][primitive] from the `type`.
@@ -2062,8 +2062,8 @@ const guardType: GuardType = <T extends Type>(value: T, type: Types<T>, callback
   isType<T>(value, type, callback);
 ```
 
-| Type variable                 | Default value    | Description |
-| :---------------------------- | :--------------- | :---------- |
+| Type variable              | Default value    | Description |
+| :------------------------- | :--------------- | :---------- |
 | `T` extends [`Type`][type] | From the `value` | Guarded with [`Type`][type] type `T` variable from the `value` to the return type `value` is `T` |
 
 | Parameter | Type                               | Description                                        |
