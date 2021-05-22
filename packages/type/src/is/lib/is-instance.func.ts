@@ -14,16 +14,13 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @callback `resultCallback`.
  * @returns  A `boolean` indicating whether or not the `value` is an `instance` of a generic `Obj`.
  */
-export const isInstance: IsInstance = <Obj>(
-    value: any,
-    className: Constructor<Obj>,
-    callback: ResultCallback = resultCallback
-  ): value is Obj =>
+export const isInstance: IsInstance =
+  <Class>(value: any, className: Constructor<Class>, callback: ResultCallback = resultCallback): value is Constructor<Class> =>
     callback(
-      isObject<Obj>(value) ?
+      isObject<Class>(value) ?
         isClass(className) ?
           value instanceof className === true
-        : false
-      : false,
+          : false
+        : false,
       value
     );
