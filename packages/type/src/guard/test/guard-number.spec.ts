@@ -9,7 +9,7 @@ describe(guardNumber.name, () => {
   it('is DEFINED', () => expect(guardNumber).toBeDefined());
 
   // Checks ...
-  describe(`checks`, () => {
+  describe(`guards`, () => {
     it('callback', () => {
       guardNumber(NUMBER, (result: boolean, value: number) => {
         expect(result).toBe(TRUE);

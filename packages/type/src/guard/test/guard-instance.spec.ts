@@ -14,7 +14,7 @@ describe(guardInstance.name , () => {
   it('is DEFINED', () => expect(guardInstance).toBeDefined());
 
   // Checks ...
-  describe(`checks`, () => {
+  describe(`guards`, () => {
     it('callback', () => {
       guardInstance(CLASS, Class, (result: boolean, value: Class) => {
         expect(result).toBe(TRUE);

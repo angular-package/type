@@ -14,7 +14,7 @@ describe(guardPrimitive.name, () => {
   it('is DEFINED', () => expect(guardPrimitive).toBeDefined());
 
   // Checks ...
-  describe(`checks`, () => {
+  describe(`guards`, () => {
     it('callback', () => {
       guardPrimitive<string>(STRING, 'string' , (result: boolean, value: string) => {
         expect(result).toBe(TRUE);

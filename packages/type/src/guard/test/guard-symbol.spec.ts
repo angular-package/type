@@ -11,7 +11,7 @@ describe(guardSymbol.name, () => {
   it('is DEFINED', () => expect(guardSymbol).toBeDefined());
 
   // Checks ...
-  describe(`checks`, () => {
+  describe(`guards`, () => {
     it('callback', () => {
       guardSymbol(SYMBOL_STRING, (result: boolean, value: symbol) => {
         expect(result).toBe(TRUE);

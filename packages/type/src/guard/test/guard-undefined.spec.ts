@@ -9,7 +9,7 @@ describe(guardUndefined.name, () => {
   it('is DEFINED', () => expect(guardUndefined).toBeDefined());
 
   // Checks ...
-  describe(`checks`, () => {
+  describe(`guards`, () => {
     it('callback', () => {
       guardUndefined(UNDEFINED, (result: boolean, value: undefined) => {
         expect(result).toBe(TRUE);

@@ -8,7 +8,7 @@ describe(guardBoolean.name, () => {
   it('is DEFINED', () => expect(guardBoolean).toBeDefined());
 
   // Checks ...
-  describe(`checks`, () => {
+  describe(`guards`, () => {
     it('callback', () => {
       guardBoolean(TRUE, (result: boolean, value: boolean) => {
         expect(result).toBe(TRUE);
