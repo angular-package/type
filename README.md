@@ -1701,20 +1701,22 @@ const guardBoolean: GuardBoolean = <B extends AnyBoolean>(value: B, callback?: R
   isBoolean(value, callback);
 ```
 
+Type variables:
+
 | Type variable                           | Default value    | Description |
 | :-------------------------------------- | :--------------- | :---------- |
 | `B` extends [`AnyBoolean`](#anyboolean) | From the `value` | A `B` variable from the `value` to the return type `value` is `B` |
 
-----
+Parameters:
 
 | Parameter | Type                                    | Description                                          |
 | :-------- | :-------------------------------------: | :--------------------------------------------------- |
 | value     | `B` extends [`AnyBoolean`](#anyboolean) | An [`AnyBoolean`](#anyboolean) type `value` to guard |
 | callback? | [`ResultCallback`][resultcallback]      | An Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
-----
+Return type:
 
-| Return type    | Description |
+| Type           | Description |
 | :------------- | :---------- |
 | `value` is `B` | The **return value** is a `boolean` indicating whether or not the `value` is a `boolean` type or [`Boolean`][boolean] object |
 
@@ -1729,11 +1731,13 @@ const guardClass: GuardClass = <Class>(value: Class, callback?: ResultCallback):
   isClass<Class>(value, callback);
 ```
 
+Type variables:
+
 | Type variable | Default value    | Description |
 | :------------ | :--------------- | :---------- |
 | `Class`       | From the `value` | A `Class` variable from the `value` to the return type `value` is `Class` |
 
-----
+Parameters:
 
 | Parameter | Type                               | Description                             |
 | :-------- | :--------------------------------: | :-------------------------------------- |
@@ -1803,9 +1807,13 @@ const guardDefined: GuardDefined = <Type>(value: Type, callback?: ResultCallback
   isDefined(value, callback);
 ```
 
+Type variables:
+
 | Type variable | Default value    | Description |
 | :------------ | :--------------- | :---------- |
 | `Type`        | From the `value` | A generic `Type` variable from the `value` to the return type `value` is [`Defined<Type>`][defined] |
+
+Parameters:
 
 | Parameter | Type                                    | Description                                          |
 | :-------- | :-------------------------------------: | :--------------------------------------------------- |
