@@ -15,18 +15,15 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @callback `resultCallback`.
  * @returns A `boolean` indicating whether or not the `value` is an `object` with its own specified keys.
  */
-export const isObjectKey: IsObjectKey = <Type = object>(
-  value: any,
-  key: Key | Key[],
-  callback: ResultCallback = resultCallback
-): value is Type =>
-  callback(
-    isObject<Type>(value) ?
-      isArray(key) ?
-        key.every(k => isKey(k) ? ({}).hasOwnProperty.call(value, k) === true : false)
-      : isKey(key) ?
-          ({}).hasOwnProperty.call(value, key)
-        : false
-    : false,
-    value
-  );
+export const isObjectKey: IsObjectKey =
+  <Type = object>(value: any, key: Key | Key[], callback: ResultCallback = resultCallback): value is Type =>
+    callback(
+      isObject<Type>(value) ?
+        isArray(key) ?
+          key.every(k => isKey(k) ? ({}).hasOwnProperty.call(value, k) === true : false)
+          : isKey(key) ?
+            ({}).hasOwnProperty.call(value, key)
+            : false
+        : false,
+      value
+    );

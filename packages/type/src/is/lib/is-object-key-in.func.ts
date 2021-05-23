@@ -15,18 +15,15 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @callback `resultCallback`.
  * @returns A `boolean` indicating whether or not the `value` is an `object` with the keys.
  */
-export const isObjectKeyIn: IsObjectKeyIn = <Type = object>(
-  value: any,
-  key: Key | Key[],
-  callback: ResultCallback = resultCallback
-): value is Type =>
-  callback(
-    isObject<Type>(value) ?
-      isArray(key) ?
-        key.every(k => isKey(k) ? k in value : false)
-      : isKey(key) ?
-          key in value
-        : false
-    : false,
-    value
-  );
+export const isObjectKeyIn: IsObjectKeyIn =
+  <Type = object>(value: any, key: Key | Key[], callback: ResultCallback = resultCallback): value is Type =>
+    callback(
+      isObject<Type>(value) ?
+        isArray(key) ?
+          key.every(k => isKey(k) ? k in value : false)
+          : isKey(key) ?
+            key in value
+            : false
+        : false,
+      value
+    );
