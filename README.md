@@ -1705,10 +1705,14 @@ const guardBoolean: GuardBoolean = <B extends AnyBoolean>(value: B, callback?: R
 | :-------------------------------------- | :--------------- | :---------- |
 | `B` extends [`AnyBoolean`](#anyboolean) | From the `value` | A `B` variable from the `value` to the return type `value` is `B` |
 
+----
+
 | Parameter | Type                                    | Description                                          |
 | :-------- | :-------------------------------------: | :--------------------------------------------------- |
 | value     | `B` extends [`AnyBoolean`](#anyboolean) | An [`AnyBoolean`](#anyboolean) type `value` to guard |
 | callback? | [`ResultCallback`][resultcallback]      | An Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
+
+----
 
 | Return type    | Description |
 | :------------- | :---------- |
@@ -1728,6 +1732,8 @@ const guardClass: GuardClass = <Class>(value: Class, callback?: ResultCallback):
 | Type variable | Default value    | Description |
 | :------------ | :--------------- | :---------- |
 | `Class`       | From the `value` | A `Class` variable from the `value` to the return type `value` is `Class` |
+
+----
 
 | Parameter | Type                               | Description                             |
 | :-------- | :--------------------------------: | :-------------------------------------- |
@@ -2466,13 +2472,6 @@ How do I know when to release 1.0.0?
 MIT © angular-package ([license][license])
 
 ----
-
-<style>
-  table {
-    width:100%;
-    margin-bottom: 16px;
-  }
-</style>
 
 <!-- Changes -->
 [new]: https://img.shields.io/badge/-new-green
