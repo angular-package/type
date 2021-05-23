@@ -472,6 +472,8 @@ const isBooleanObject: IsBooleanObject = (value: any, callback: ResultCallback =
 | :------------------- | :---------- |
 | `value` is `Boolean` | The **return value** is a `boolean` indicating whether or not the `value` is a [`Boolean`][boolean] instance |
 
+**Usage:**
+
 ```typescript
 // Example usage
 import { isBooleanObject } from '@angular-package/type';
@@ -513,6 +515,8 @@ const isBooleanType: IsBooleanType = (value: any, callback: ResultCallback = res
 | Type                 | Description |
 | :------------------- | :---------- |
 | `value` is `boolean` | The **return value** is a `boolean` indicating whether or not the `value` is a `boolean` type |
+
+**Usage:**
 
 ```typescript
 // Example usage
@@ -570,6 +574,8 @@ const isClass: IsClass = <Class = Function>(value: any, callback: ResultCallback
 | :----------------- | :---------- |
 | `value` is `Class` | The **return value** is a `boolean` indicating whether or not the `value` is a [`class`][classes] |
 
+**Usage:**
+
 ```typescript
 // Example usage
 import { isClass } from '@angular-package/type';
@@ -606,6 +612,8 @@ const isDefined: IsDefined = (value: unknown, callback: ResultCallback = resultC
 | Type         | Description |
 | :----------- | :---------- |
 | `boolean`    | The **return value** is a `boolean` indicating whether or not the `value` is defined, not `undefined` |
+
+**Usage:**
 
 ```typescript
 // Example usage
@@ -654,6 +662,8 @@ const isFunction: IsFunction = (value: any, callback: ResultCallback = resultCal
 | Type              | Description |
 | :---------------- | :---------- |
 | `value` is `Func` | The **return value** is a `boolean` indicating whether or not the `value` is a `function` |
+
+**Usage:**
 
 ```typescript
 // Example usage
@@ -716,6 +726,8 @@ const isInstance: IsInstance =
 | :----------------- | :---------- |
 | `value` is `Class` | The **return value** is a `boolean` indicating whether or not the `value` is an `instance` of a generic `Class` |
 
+**Usage:**
+
 ```typescript
 // Example usage
 import { isInstance } from '@angular-package/type';
@@ -757,6 +769,8 @@ const isKey: IsKey = (value: any, callback: ResultCallback = resultCallback): va
 | Type             | Description |
 | :--------------- | :---------- |
 | `value` is `Key` | The **return value** is a `boolean` indicating whether or not the `value` is a [`Key`][key] |
+
+**Usage:**
 
 ```typescript
 // Example usage
@@ -802,6 +816,8 @@ const isNull: IsNull = (value: any, callback: ResultCallback = resultCallback): 
 | Type              | Description |
 | :---------------- | :---------- |
 | `value` is `null` | The **return value** is a `boolean` indicating whether or not the `value` is `null` |
+
+**Usage:**
 
 ```typescript
 // Example usage
@@ -880,6 +896,8 @@ const isNumberObject: IsNumberObject = (value: any, callback: ResultCallback = r
 | :------------------ | :---------- |
 | `value` is `Number` | The **return value** is a `boolean` indicating whether or not the `value` is a [`Number`][Number] instance |
 
+**Usage:**
+
 ```typescript
 // Example usage
 import { isNumberObject } from '@angular-package/type';
@@ -937,6 +955,8 @@ const isNumberType: IsNumberType = (value: any, callback: ResultCallback = resul
 | Type                | Description |
 | :------------------ | :---------- |
 | `value` is `number` | The **return value** is a `boolean` indicating whether or not the `value` is a `number` |
+
+**Usage:**
 
 ```typescript
 // Example usage
@@ -1003,7 +1023,7 @@ const isObject: IsObject = <Obj = object>(value: any, callback: ResultCallback =
 | :--------------- | :---------- |
 | `value` is `Obj` | The **return value** is a `boolean` indicating whether or not the `value` is an `object` |
 
-[Example usage on playground][is-object] | [How to detect an `object` type][detect-object]
+**Usage:**
 
 ```typescript
 // Example usage
@@ -1062,6 +1082,8 @@ isObject(OBJECT_ONE); // true
 
 ```
 
+[Example usage on playground][is-object] | [How to detect an `object` type][detect-object]
+
 ----
 
 ### isObjectKey
@@ -1103,6 +1125,8 @@ const isObjectKey: IsObjectKey =
 | Type              | Description |
 | :---------------- | :---------- |
 | `value` is `Type` | The **return value** is a `boolean` indicating whether or not the `value` is an `object` with its own specified keys |
+
+**Usage:**
 
 ```typescript
 // Example usage
@@ -1733,6 +1757,8 @@ const isNotUndefined: IsNotUndefined = (value: unknown, callback: ResultCallback
 | Type          | Description |
 | :------------ | :---------- |
 | `boolean`     | The **return value** is a `boolean` indicating whether or not the `value` is not `undefined` |
+
+**Usage:**
 
 ```typescript
 // Example usage with the problem
