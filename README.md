@@ -625,11 +625,11 @@ isFunction(() => 5); // true
 
 ![update][update]
 
-`4.0.0`: The function uses [isClass](#isclass) in check to check the `className` instead of [`isFunction()`](#isfunction).
+`4.0.0`: The function uses [`isClass()`](#isclass) in check to check the `className` instead of [`isFunction()`](#isfunction).
 
 `4.0.3`: Type variable name `Obj` changes to `Class` and the type result to `value` is `Constructor<Class>`.
 
-Use `isInstance()` or `is.instance()` to check if **any** value is an `object` of a generic `Obj` type equal to an `instance` of [`Constructor`](#constructor) type.
+Use `isInstance()` or `is.instance()` to check if **any** value is an `object` of a generic `Obj` type equal to an `instance` of [`Constructor<Class>`](#constructor) type.
 
 ```typescript
 const isInstance: IsInstance =
@@ -651,7 +651,7 @@ const isInstance: IsInstance =
 | Parameter | Type                                                            | Description                                |
 | :-------- | :-------------------------------------------------------------: | :----------------------------------------- |
 | value     | `any`                                                           | Any `value` to compare with the `instance` |
-| instance  | [`Constructor<Obj>`](#constructor)                              | A generic `Obj` [`Constructor`](#constructor) type to create an `instance` to compare with the `value` |
+| instance  | [`Constructor<Obj>`](#constructor)                              | A generic `Obj` [`Constructor<Obj>`](#constructor) type to create an `instance` to compare with the `value` |
 | callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
 | Type return        | Description |
@@ -1393,7 +1393,7 @@ const isType: IsType = <T extends Type>(value: any, type: Types<T>, callback: Re
 | Parameter | Type                                                            | Description                                         |
 | :-------- | :-------------------------------------------------------------: | :-------------------------------------------------- |
 | value     | `any`                                                           | Any `value` to check if its type is from the `type` |
-| type      | [`Types<T>`](#types)                                            | A `string` or generic `Constructor` type from the [`Types`](#types) to check the `value` |
+| type      | [`Types<T>`](#types)                                            | A `string` or generic `Constructor<T>` type from the [`Types`](#types) to check the `value` |
 | callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
 | Type return    | Description |
@@ -1840,7 +1840,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is a [
 
 `4.0.0`: The function uses an updated [`isInstance()`](#isinstance) function that uses [`isClass()`](#isclass).
 
-Use `guardInstance()` or `guard.is.instance()` to guard the `value` to be an `object` of a generic `Obj` type equal to an `instance` of [`Constructor`](#constructor) type.
+Use `guardInstance()` or `guard.is.instance()` to guard the `value` to be an `object` of a generic `Obj` type equal to an `instance` of [`Constructor<Obj>`](#constructor) type.
 
 ```typescript
 const guardInstance: GuardInstance = <Obj>(value: Obj, instance: Constructor<Obj>, callback?: ResultCallback): value is Obj =>
@@ -2069,7 +2069,7 @@ const guardType: GuardType = <T extends Type>(value: T, type: Types<T>, callback
 | Parameter | Type                               | Description                                        |
 | :-------- | :--------------------------------: | :------------------------------------------------- |
 | value     | `T` extends [`Type`][type]         | A [`Type`][type] `value` to guard with the `type` |
-| type      | [`Types<T>`](#types)               | A `string` or generic [`Constructor`](#constructor) type from the [`Types`](#types) to check the `value` |
+| type      | [`Types<T>`](#types)               | A `string` or generic [`Constructor<T>`](#constructor) type from the [`Types`](#types) to check the `value` |
 | callback? | [`ResultCallback`][resultcallback] | Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `type` from the [`Types`](#types).
