@@ -999,7 +999,7 @@ const isObjectKey: IsObjectKey =
       value
     );
 ```
-
+  
 | Type variable  | Default value | Description |
 | :------------- | :------------ | :---------- |
 | `Type`         | `object`      | A generic variable to the return type `value` is `Type` |
@@ -2466,6 +2466,13 @@ How do I know when to release 1.0.0?
 MIT © angular-package ([license][license])
 
 ----
+
+<style>
+  table {
+    width:100%;
+    margin-bottom: 16px;
+  }
+</style>
 
 <!-- Changes -->
 [new]: https://img.shields.io/badge/-new-green
