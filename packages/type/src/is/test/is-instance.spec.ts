@@ -1,15 +1,15 @@
 // Function.
 import { isInstance } from '../lib/is-instance.func';
 // Variables.
-import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE } from './variables/boolean.const';
-import { BIGINT, BIGINT_INSTANCE } from './variables/big-int.const';
-import { Class, CLASS, PERSON, Person, PersonCopy, PERSON_COPY } from './variables/class.const';
-import { FUNCTION } from './variables/function.const';
-import { NULL } from './variables/null.const';
-import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from './variables/number.const';
-import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from './variables/string.const';
-import { UNDEFINED } from './variables/undefined.const';
-import { notDefined } from './variables/not-defined.const';
+import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE } from '../../testing/variables/boolean.const';
+import { BIGINT, BIGINT_INSTANCE } from '../../testing/variables/big-int.const';
+import { Class, CLASS, PERSON, Person, PersonCopy, PERSON_COPY } from '../../testing/variables/class.const';
+import { FUNCTION } from '../../testing/variables/function.const';
+import { NULL } from '../../testing/variables/null.const';
+import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../testing/variables/number.const';
+import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/variables/string.const';
+import { UNDEFINED } from '../../testing/variables/undefined.const';
+import { notDefined } from '../../testing/variables/not-defined.const';
 
 describe(isInstance.name, () => {
   // TRUE.

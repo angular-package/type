@@ -1,5 +1,5 @@
-import { NUMBER } from './variables/number.const';
-import { STRING } from './variables/string.const';
+import { NUMBER } from '../../testing/variables/number.const';
+import { STRING } from '../../testing/variables/string.const';
 import { isParam } from '../lib/is-param.decorator';
 
 class TestClass {
