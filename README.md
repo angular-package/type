@@ -1493,12 +1493,18 @@ const isSymbol: IsSymbol = (value: any, callback: ResultCallback = resultCallbac
 
 ### isType
 
+![update][update]
+
+`4.1.0`: Added `class` to switch to check if any `value` is a [`class`][classes].
+
 Use `isType()` or `is.type()` to check if **any** `value` is the [`Type`][type] from a `type` of the [`Types`](#types) type.
 
 ```typescript
 const isType: IsType = <T extends Type>(value: any, type: Types<T>, callback: ResultCallback = resultCallback): value is T => {
   if (isStringType(type)) {
     switch (type) {
+      // Class.
+      case 'class': return isClass<T>(value, callback);
       // Primitives.
       case 'bigint':
       case 'boolean':
@@ -1512,12 +1518,11 @@ const isType: IsType = <T extends Type>(value: any, type: Types<T>, callback: Re
       // Object.
       case 'object': return isObject<T>(value);
     }
-  } else if (isNotNull(type)) {
+  } else if (!isNull(type)) {
     return isInstance<T>(value, type, callback);
   }
   return false;
 };
-
 ```
 
 **Parameters:**
@@ -1533,6 +1538,8 @@ const isType: IsType = <T extends Type>(value: any, type: Types<T>, callback: Re
 | Type           | Description |
 | :------------- | :---------- |
 | `value` is `T` | The **return value** is a `boolean` indicating whether or not the `value` is the [`Type`][type] from a `type` of the [`Types`](#types) |
+
+**Usage:**
 
 [Example usage on playground][is-type]
 
@@ -1559,6 +1566,8 @@ const isUndefined: IsUndefined = (value: any, callback: ResultCallback = resultC
 | Type                   | Description |
 | :--------------------- | :---------- |
 | `value` is `undefined` | The **return value** is a `boolean` indicating whether or not the `value` is `undefined` |
+
+**Usage:**
 
 [Example usage on playground][is-undefined] | [How to detect `undefined` type][detect-undefined]
 
@@ -2411,10 +2420,14 @@ type Type = Func | object | Primitive;
 
 ### Types
 
+![update][update]
+
+`4.1.0`: Added `'class'`.
+
 Main types as `string`.
 
 ```typescript
-type Types<Obj> = Constructor<Obj> | 'function' | 'object' | Primitives;
+type Types<Obj> = Constructor<Obj> | 'class' | 'function' | 'object' | Primitives;
 ```
 
 ----
