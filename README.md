@@ -123,6 +123,7 @@ import { Constructor, CycleHook, Defined, Func, Key, Primitive, Primitives, Resu
     * a generic type `object` with [`isObject()`](#isobject).
     * an `object` with its own specified [`Key`][key] with [`isObjectKey()`](#isobjectkey).
     * an `object` with the [`Key`][key] by using the `in` operator with [`isObjectKeyIn()`](#isobjectkeyin).
+    * an `object` with some of its own specified [`Key`][key] with [`isObjectKeys()`](#isobjectkeys).
     * a one of the primitive `boolean`, `bigint`, `number`, `string` with [`isPrimitive()`](#isPrimitive).
     * a `string` with [`isString()`](#isstring).
     * an `object` type and instance of [`String`][string] and [`Object`][object] with [`isStringObject()`](#isstringobject).
@@ -152,6 +153,7 @@ import { Constructor, CycleHook, Defined, Func, Key, Primitive, Primitives, Resu
   * a `number` with [`guardNumber()`](#guardnumber).
   * an `object` of a generic type with [`guardObject()`](#guardobject).
   * an `object` of a generic type that contains `key` with [`guardObjectKey()`](#guardobjectkey).
+  * an `object` of a generic type that contains some of its own specified keys with [`guardObjectKeys()`](#guardobjectkeys).
   * a one of the [`Primitives`](#primitives) with [`guardPrimitive()`](#guardprimitive).
   * a `string` with [`guardString()`](#guardstring).
   * a `symbol` with [`guardSymbol()`](#guardsymbol).
@@ -1628,7 +1630,7 @@ const isType: IsType = <T extends Type>(value: any, type: Types<T>, callback: Re
 
 | Type                       | Default value   | Description |
 | :------------------------- | :-------------- | :---------- |
-| `T` extends [`Type`][type] | [`Type`][#type] | Guarded with [`Type`][type] type, `T` variable to the return type `value` is `T` |
+| `T` extends [`Type`][type] | [`Type`][type] | Guarded with [`Type`][type] type, `T` variable to the return type `value` is `T` |
 
 **Parameters:**
 
@@ -2415,7 +2417,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 ![new][new]
 
 Use `guardObjectKeys()` or `guard.is.objectKeys()` to guard the value to be an `object` of a generic `Type` with some of its own specified `keys`.
-The function uses [`isObjectKeys()`] to search for `keys` and it means:
+The function uses [`isObjectKeys()`](#isobjectkeys) to search for the `keys` and it means:
 
 > Cause of using `some()` on the rest parameter `...keys` each of its argument is treated as logic `or`, and cause of using `every()` on its array argument each of array argument is treated as logic `and`.
 > Simply, the function finds in the object `get` and `set` or `writable` and `value`, means the object contains `get` and `set` or `writable` and `value`.
@@ -2428,7 +2430,7 @@ const guardObjectKeys: GuardObjectKeys =
 ```
 
 **Generic type variables:**
-
+[]
 | Variable      | Default value    | Description |
 | :------------ | :--------------- | :---------- |
 | `Obj`         | From the `value` | Guarded with `object`, `Obj` variable from the `value` to the return type `value` is `Obj` |
