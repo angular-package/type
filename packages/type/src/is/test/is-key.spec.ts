@@ -80,9 +80,9 @@ describe(isKey.name, () => {
           it(`${FALSE_EXPECTATION}`, () => expect(isKey(FALSE_INSTANCE)).toBe(FALSE));
         });
         // Number
-        describe(`Number`, () => it(`new Number(${NUMBER})`, () => expect(isKey(NUMBER_NEW_INSTANCE)).toBe(TRUE)));
+        describe(`Number`, () => it(`new Number(${NUMBER})`, () => expect(isKey(NUMBER_NEW_INSTANCE)).toBe(FALSE)));
         // String
-        describe(`String`, () => it(`new String(${STRING})`, () => expect(isKey(STRING_NEW_INSTANCE)).toBe(TRUE)));
+        describe(`String`, () => it(`new String(${STRING})`, () => expect(isKey(STRING_NEW_INSTANCE)).toBe(FALSE)));
       });
     });
   });
