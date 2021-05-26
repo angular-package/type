@@ -10,5 +10,5 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @param callback An optional `ResultCallback` function to handle result before returns.
  * @returns A `boolean` indicating whether or not the `value` is defined, if `undefined` then returns `never`.
  */
-export const guardDefined: GuardDefined = <Type>(value: Type, callback?: ResultCallback): value is Defined<Type> =>
+export const guardDefined: GuardDefined = <Type>(value: Defined<Type>, callback?: ResultCallback): value is Defined<Type> =>
   isDefined(value, callback);
