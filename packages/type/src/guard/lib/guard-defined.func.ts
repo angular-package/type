@@ -6,7 +6,7 @@ import { GuardDefined } from '../type/guard-defined.type';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
  * Guard the `value` to be defined.
- * @param value A generic type `value` to guard.
+ * @param value A generic `Type` type from the `value` to guard.
  * @param callback An optional `ResultCallback` function to handle result before returns.
  * @returns A `boolean` indicating whether or not the `value` is defined, if `undefined` then returns `never`.
  */
