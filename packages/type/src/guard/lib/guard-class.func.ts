@@ -9,5 +9,5 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @param callback An Optional `ResultCallback` function to handle result before returns.
  * @returns A `boolean` indicating whether or not the `value` is a generic `class`.
  */
-export const guardClass: GuardClass = <Class>(value: Class, callback?: ResultCallback): value is Class =>
+export const guardClass: GuardClass = <Class extends Function>(value: Class, callback?: ResultCallback): value is Class =>
   isClass<Class>(value, callback);
