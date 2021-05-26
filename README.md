@@ -1382,6 +1382,58 @@ isObjectKeyIn(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING]); // true
 
 ----
 
+### isObjectKeys
+
+![new][new]
+
+Use `isObjectKeys()` or `is.objectKeys()` to check if **any** `value` is an `object` with **some** its own specified keys of the [`Key`][key].
+Cause of using `some()` on the rest parameter `...keys` each of its argument is treated as logic `or`, and cause of using `every()` on its array argument each of array argument is treated as logic `and`.
+Simply, the function finds in the object `get` and `set` or `writable` and `value`, means the object contains `get` and `set` or `writable` and `value`.
+The function uses [`hasOwnProperty`][hasownproperty] [`Object`][object] method to finds enumerable and non-enumerable [`Key`][key] as `string`, `number`, `symbol` unlike `Object.keys()` but it can't find accessor descriptor property unlike `in` operator, which can.
+
+```typescript
+const isObjectKeys: IsObjectKeys = <Type = object>(
+  value: any,
+  ...keys: (keyof Type | Array<keyof Type>)[]
+): value is Type =>
+  keys.some(key =>
+    isArray(key) ?
+      key.every(k => isKey(k) ? ({}).hasOwnProperty.call(value, k) === true : false)
+    : isKey(key) ?
+      ({}).hasOwnProperty.call(value, key) === true
+      : false
+  );
+```
+
+**Generic type variables:**
+
+| Type   | Default value | Description |
+| :----- | :------------ | :---------- |
+| `Type` | `object`      | A generic variable to the return type `value` is `Type` |
+
+**Parameters:**
+
+| Name      | Type                                                            | Description                                                        |
+| :-------- | :-------------------------------------------------------------: | :----------------------------------------------------------------- |
+| value     | `any`                                                           | Any `value` to check if it contains **some** of the specified `keys` |
+| ...keys   | [`Key`][key] \| [`Key[]`][key]                                  | A rest parameter [`Key`][key] type or an array of [`Key`][key] type to check in the `value` |
+
+**Return type:**
+
+| Returns           | Type        | Description                                                            |
+| :---------------- | :---------: | :--------------------------------------------------------------------- |
+| `value` is `Type` | `boolean`   | By default `Type` variable is equal  to `object` and the return type is a `boolean` as the result of its statement |
+
+The **return value** is a `boolean` indicating whether or not the `value` is an `object` with some its own specified keys.
+
+**Usage:**
+
+```typescript
+
+```
+
+----
+
 ### isPrimitive
 
 Use `isPrimitive()` or `is.primitive()` to check if **any** `value` is the [`Primitive`](#primitive) type from a `type` of the [`Primitives`](#primitives) type.
@@ -2355,6 +2407,51 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 **Usage:**
 
 [Example usage on playground][guard-object-key]
+
+----
+
+### guardObjectKeys
+
+![new][new]
+
+Use `guardObjectKeys()` or `guard.is.objectKeys()` to guard the value to be an `object` of a generic `Type` with some of its own specified `keys`.
+The function uses [`isObjectKeys()`] to search for `keys` and it means:
+
+> Cause of using `some()` on the rest parameter `...keys` each of its argument is treated as logic `or`, and cause of using `every()` on its array argument each of array argument is treated as logic `and`.
+> Simply, the function finds in the object `get` and `set` or `writable` and `value`, means the object contains `get` and `set` or `writable` and `value`.
+> The function uses [`hasOwnProperty`][hasownproperty] [`Object`][object] method to finds enumerable and non-enumerable [`Key`][key] as `string`, `number`, `symbol` unlike `Object.keys()` but it can't find accessor descriptor property unlike `in` operator, which can.
+
+```typescript
+const guardObjectKeys: GuardObjectKeys =
+  <Obj extends object>(value: Obj, ...keys: (keyof Obj | Array<keyof Obj>)[]): value is Obj =>
+    isObjectKeys<Obj>(value, ...keys);
+```
+
+**Generic type variables:**
+
+| Variable      | Default value    | Description |
+| :------------ | :--------------- | :---------- |
+| `Obj`         | From the `value` | Guarded with `object`, `Obj` variable from the `value` to the return type `value` is `Obj` |
+
+**Parameters:**
+
+| Name        | Type                               | Description                                                            |
+| :---------- | :--------------------------------: | :--------------------------------------------------------------------- |
+| value       | `Obj`                              | A generic `Obj` type `value` that contains the `key` to guard          |
+| ...keys     | `keyof Obj` \| `(keyof Obj)[]`     | A rest parameter single key of `Obj` or an array of key of `Obj` type as the name of the property that the `value` contains |
+
+**Return type:**
+
+| Returns          | Type        | Description                                                       |
+| :--------------- | :---------: | :---------------------------------------------------------------- |
+| `value` is `Obj` | `boolean`   | By default `Obj` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement |
+
+The **return value** is A `boolean` indicating whether or not the `value` is an `object` with some of its own specified `keys`.
+
+**Usage:**
+
+```typescript
+```
 
 ----
 
