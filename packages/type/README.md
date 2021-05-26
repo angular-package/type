@@ -1996,10 +1996,14 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 ### guardClass
 
+![update][update]
+
+`4.1.0`: Fixes the `value` is not guarded by extending generic type `Class` variable with `Function`.
+
 Use `guardClass()` or `guard.is.class()` to guard the `value` to be a generic `Class` type of [`class`][classes].
 
 ```typescript
-const guardClass: GuardClass = <Class>(value: Class, callback?: ResultCallback): value is Class =>
+const guardClass: GuardClass = <Class extends Function>(value: Class, callback?: ResultCallback): value is Class =>
   isClass<Class>(value, callback);
 ```
 
@@ -2007,7 +2011,7 @@ const guardClass: GuardClass = <Class>(value: Class, callback?: ResultCallback):
 
 | Variable      | Default value    | Description |
 | :------------ | :--------------- | :---------- |
-| `Class`       | From the `value` | A generic `Class` variable from the `value` to the return type `value` is `Class` |
+| `Class`       | From the `value` | Guarded with `Function`, generic `Class` variable from the `value` to the return type `value` is `Class` |
 
 **Parameters:**
 
@@ -2081,10 +2085,14 @@ guardClass<Class>(FUNCTION); // type error
 
 ### guardDefined
 
+![update][update]
+
+`4.1.0`: Fixes the `value` is not guarded by changing its type to  [`Defined<Type>`][defined].
+
 Use `guardDefined()` or `guard.is.defined()` to guard the `value` to be defined.
 
 ```typescript
-const guardDefined: GuardDefined = <Type>(value: Type, callback?: ResultCallback): value is Defined<Type> =>
+const guardDefined: GuardDefined = <Type>(value: Defined<Type>, callback?: ResultCallback): value is Defined<Type> =>
   isDefined(value, callback);
 ```
 
@@ -2143,10 +2151,14 @@ The **return value** is a `boolean` indicating whether or not the `value` is a [
 
 ### guardInstance
 
+![update][update]
+
+`4.1.0`: Fixes the `value` is not guarded by extending generic type `Obj` variable with `object`.
+
 Use `guardInstance()` or `guard.is.instance()` to guard the `value` to be an `object` of a generic `Obj` type equal to an `instance` of [`Constructor<Obj>`](#constructor) type.
 
 ```typescript
-const guardInstance: GuardInstance = <Obj>(value: Obj, instance: Constructor<Obj>, callback?: ResultCallback): value is Obj =>
+const guardInstance: GuardInstance = <Obj extends object>(value: Obj, instance: Constructor<Obj>, callback?: ResultCallback): value is Obj =>
   isInstance<Obj>(value, instance, callback);
 ```
 
@@ -2154,7 +2166,7 @@ const guardInstance: GuardInstance = <Obj>(value: Obj, instance: Constructor<Obj
 
 | Variable      | Default value    | Description                                                           |
 | :------------ | :--------------- | :-------------------------------------------------------------------- |
-| `Obj`         | From the `value` | A `Obj` variable from the `value` to the return type `value` is `Obj` |
+| `Obj`         | From the `value` | Guarded with `object`, `Obj` variable from the `value` to the return type `value` is `Obj` |
 
 **Parameters:**
 
@@ -2175,6 +2187,10 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 ----
 
 ### guardKey
+
+![update][update]
+
+`4.1.0`: Fixes the return type `boolean` to `value` is `Key`.
 
 Use `guardKey()` or `guard.is.key()` to guard the `value` to be one of the `string`, `number`, or `symbol`.
 
@@ -2262,10 +2278,14 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 ### guardObject
 
+![update][update]
+
+`4.1.0`: Fixes the `value` is not guarded by extending generic type `Obj` variable with `object`.
+
 Use `guardObject()` or `guard.is.object()` to guard the `value` to be an `object` of a generic `Obj` type.
 
 ```typescript
-const guardObject: GuardObject = <Obj>(value: Obj, callback?: ResultCallback): value is Obj =>
+const guardObject: GuardObject = <Obj extends object>(value: Obj, callback?: ResultCallback): value is Obj =>
   isObject<Obj>(value, callback);
 ```
 
@@ -2273,7 +2293,7 @@ const guardObject: GuardObject = <Obj>(value: Obj, callback?: ResultCallback): v
 
 | Variable      | Default value    | Description |
 | :------------ | :--------------- | :---------- |
-| `Obj`         | From the `value` | A `Obj` variable from the `value` to the return type `value` is `Obj` |
+| `Obj`         | From the `value` | Guarded with `object`, `Obj` variable from the `value` to the return type `value` is `Obj` |
 
 **Parameters:**
 
@@ -2298,6 +2318,10 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 
 ### guardObjectKey
 
+![update][update]
+
+`4.1.0`: Fixes the `value` is not guarded by extending generic type `Obj` variable with `object`.
+
 Use `guardObjectKey()` or `guard.is.objectKey()` to guard the `value` to be an `object` of a generic `Obj` type that contains the `key`.
 
 ```typescript
@@ -2310,7 +2334,7 @@ const guardObjectKey: GuardObjectKey =
 
 | Variable      | Default value    | Description |
 | :------------ | :--------------- | :---------- |
-| `Obj`         | From the `value` | A `Obj` variable from the `value` to the return type `value` is `Obj` |
+| `Obj`         | From the `value` | Guarded with `object`, `Obj` variable from the `value` to the return type `value` is `Obj` |
 
 **Parameters:**
 
