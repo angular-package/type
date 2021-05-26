@@ -752,6 +752,8 @@ isInstance<Some>(TWO, Two); // true and type error
 
 ### isKey
 
+![update][update]
+
 `4.1.0`: Check only for primitive `string` and `number`.
 
 Use `isKey()` or `is.key()` to check if **any** `value` is one of the `string`, `number`, or `symbol`.
@@ -774,7 +776,7 @@ const isKey: IsKey = (value: any, callback: ResultCallback = resultCallback): va
 | :---------------------- | :-------: | :---------------------------------------------------------------- |
 | `value` is [`Key`][key] | `boolean` | The **return type** is a `boolean` as the result of its statement |
 
-The **return value** is a `boolean` indicating whether or not the `value` is a `string`, `number`, `symbol`.
+The **return value** is a `boolean` indicating whether or not the `value` is a [`Key`][key].
 
 **Usage:**
 
@@ -1105,7 +1107,7 @@ isObject(OBJECT_ONE); // true
 ### isObjectKey
 
 Use `isObjectKey()` or `is.objectKey()` to check if **any** `value` is an `object` with its own specified keys of the [`Key`][key].
-The function uses [`hasOwnProperty`][hasownproperty] [`Object`][object] method to finds enumerable and non-enumerable [`Key`][key] as `string`, `number`, `symbol` unlike `Object.keys()` but it can't find accessor descriptor property unlike `in` operator which can.
+The function uses [`hasOwnProperty`][hasownproperty] [`Object`][object] method to finds enumerable and non-enumerable [`Key`][key] as `string`, `number`, `symbol` unlike `Object.keys()` but it can't find accessor descriptor property unlike `in` operator, which can.
 
 ```typescript
 const isObjectKey: IsObjectKey =
@@ -2127,9 +2129,9 @@ const guardFunction: GuardFunction = (value: Func, callback?: ResultCallback): v
 
 **Return type:**
 
-| Returns                   | Type        | Description                                                       |
-| :------------------------ | :---------: | :---------------------------------------------------------------- |
-| `value` is [`Func`][func] | `boolean`   | The **return type** is a `boolean` as the result of its statement |
+| Returns                    | Type        | Description                                                       |
+| :------------------------- | :---------: | :---------------------------------------------------------------- |
+| `value` is [`Func`](#func) | `boolean`   | The **return type** is a `boolean` as the result of its statement |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a [`Func`](#func).
 
