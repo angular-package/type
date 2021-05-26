@@ -11,5 +11,5 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @param callback Optional `ResultCallback` function to handle result before returns.
  * @returns A `boolean` indicating whether or not the `value` is a `symbol`.
  */
-export const guardInstance: GuardInstance = <Obj>(value: Obj, instance: Constructor<Obj>, callback?: ResultCallback): value is Obj =>
+export const guardInstance: GuardInstance = <Obj extends object>(value: Obj, instance: Constructor<Obj>, callback?: ResultCallback): value is Obj =>
   isInstance<Obj>(value, instance, callback);
