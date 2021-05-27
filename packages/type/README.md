@@ -35,6 +35,7 @@ import {
   guardNumber,
   guardObject,
   guardObjectKey,
+  guardObjectKeys,
   guardPrimitive,
   guardString,
   guardSymbol,
@@ -63,6 +64,7 @@ import {
   isObject,
   isObjectKey,
   isObjectKeyIn,
+  isObjectKeys,
   isPrimitive,
   isString,
   isStringObject,
@@ -281,6 +283,10 @@ const areString = (...value: any): boolean => check('string', ...value);
 
 ### is
 
+![update][update]
+
+`4.1.0`: added `objectKeys` as [`isObjectKeys()`](#isobjectkeys).
+
 The object contains prefixed with `is` functions and prefixed with `isNot` functions in property `not`.
 
 ```typescript
@@ -304,6 +310,7 @@ const is: Is = {
   object: isObject,
   objectKey: isObjectKey,
   objectKeyIn: isObjectKeyIn,
+  objectKeys: isObjectKeys,
   primitive: isPrimitive,
   string: isString,
   stringObject: isStringObject,
@@ -1389,7 +1396,7 @@ isObjectKeyIn(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING]); // true
 ![new][new]
 
 Use `isObjectKeys()` or `is.objectKeys()` to check if **any** `value` is an `object` with **some** its own specified keys of the [`Key`][key].
-Cause of using `some()` on the rest parameter `...keys` each of its argument is treated as logic `or`, and cause of using `every()` on its array argument each of array argument is treated as logic `and`.
+Cause of using [`some()`][array-some] on the [rest parameter][function-rest-parameter] `...keys` each of its argument is treated as logic `or`, and cause of using [`every()`][array-every] on its array argument each of array argument is treated as logic `and`.
 Simply, the function finds in the object `get` and `set` or `writable` and `value`, means the object contains `get` and `set` or `writable` and `value`.
 The function uses [`hasOwnProperty`][hasownproperty] [`Object`][object] method to finds enumerable and non-enumerable [`Key`][key] as `string`, `number`, `symbol` unlike `Object.keys()` but it can't find accessor descriptor property unlike `in` operator, which can.
 
@@ -1415,10 +1422,10 @@ const isObjectKeys: IsObjectKeys = <Type = object>(
 
 **Parameters:**
 
-| Name      | Type                                                            | Description                                                        |
-| :-------- | :-------------------------------------------------------------: | :----------------------------------------------------------------- |
-| value     | `any`                                                           | Any `value` to check if it contains **some** of the specified `keys` |
-| ...keys   | [`Key`][key] \| [`Key[]`][key]                                  | A rest parameter [`Key`][key] type or an array of [`Key`][key] type to check in the `value` |
+| Name      | Type                           | Description                                                                                 |
+| :-------- | :----------------------------: | :------------------------------------------------------------------------------------------ |
+| value     | `any`                          | Any `value` to check if it contains **some** of the specified `keys`                        |
+| ...keys   | [`Key`][key] \| [`Key[]`][key] | A rest parameter [`Key`][key] type or an array of [`Key`][key] type to check in the `value` |
 
 **Return type:**
 
@@ -1431,6 +1438,67 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 **Usage:**
 
 ```typescript
+// Real example usage from incoming @angular-package/property.
+interface CommonDescriptor extends Pick<PropertyDescriptor, 'configurable' | 'enumerable'> {}
+interface AccessorDescriptor<Value> extends CommonDescriptor {
+  get: (() => Value) | undefined;
+  set: ((value: Value) => void) | undefined;
+}
+interface DataDescriptor<Value> extends CommonDescriptor {
+  writable: boolean;
+  value: Value;
+}
+type ThisAccessorDescriptor<Value, Obj = any> = AccessorDescriptor<Value> & ThisType<Obj>;
+
+interface ObjectOne {
+  'key as string'?: boolean;
+  1030405027?: string;
+  5?: string;
+  [SYMBOL_NUMBER]?: string;
+  [SYMBOL_STRING]?: number;
+  x: number;
+}
+
+const OBJECT_ONE: ObjectOne = {
+  'key as string': true,
+  1030405027: 'key is number',
+  5: 'key is also number',
+  [NUMBER]: 'key is number',
+  [STRING]: 'key is string',
+  [SYMBOL_NUMBER]: 'key is symbol number',
+  [SYMBOL_STRING]: 6,
+  x: 3000
+};
+
+const ACCESSOR_DESCRIPTOR: ThisAccessorDescriptor<string | undefined, ObjectOne> =  {
+  configurable: true,
+  enumerable: true,
+  get(): string | undefined {
+    return this[5];
+  },
+  set(value: string | undefined) {
+    this[5] = value;
+  }
+}
+
+const DATA_DESCRIPTOR: DataDescriptor<string> = {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  value: 'my value'
+}
+
+isObjectKeys(ACCESSOR_DESCRIPTOR, ['writable', 'value'], ['get', 'set']); // true
+isObjectKeys(ACCESSOR_DESCRIPTOR, ['writable', 'value']); // false
+isObjectKeys(ACCESSOR_DESCRIPTOR, 'writable', 'value'); // false
+isObjectKeys(ACCESSOR_DESCRIPTOR, ['get', 'set']); // true
+isObjectKeys(ACCESSOR_DESCRIPTOR, 'get', 'set'); // true
+
+isObjectKeys(DATA_DESCRIPTOR, ['writable', 'value'], ['get', 'set']); // true
+isObjectKeys(DATA_DESCRIPTOR, ['writable', 'value']); // true
+isObjectKeys(DATA_DESCRIPTOR, 'writable', 'value'); // true
+isObjectKeys(DATA_DESCRIPTOR, ['get', 'set']); // false
+isObjectKeys(DATA_DESCRIPTOR, 'get', 'set'); // false
 
 ```
 
@@ -1929,6 +1997,10 @@ if (!is.undefined(config.a)) {
 
 ### guard
 
+![update][update]
+
+`4.1.0`: added `objectKeys` as [`guardObjectKeys()`](#guardobjectkeys).
+
 The object contains prefixed with `guard` functions in `is` property.
 
 ```typescript
@@ -1937,6 +2009,7 @@ const guardIs: GuardIs = {
   bigint: guardBigInt,
   boolean: guardBoolean,
   class: guardClass,
+  defined: guardDefined,
   function: guardFunction,
   instance: guardInstance,
   key: guardKey,
@@ -1944,6 +2017,7 @@ const guardIs: GuardIs = {
   number: guardNumber,
   object: guardObject,
   objectKey: guardObjectKey,
+  objectKeys: guardObjectKeys,
   primitive: guardPrimitive,
   string: guardString,
   symbol: guardSymbol,
@@ -2430,7 +2504,7 @@ const guardObjectKeys: GuardObjectKeys =
 ```
 
 **Generic type variables:**
-[]
+
 | Variable      | Default value    | Description |
 | :------------ | :--------------- | :---------- |
 | `Obj`         | From the `value` | Guarded with `object`, `Obj` variable from the `value` to the return type `value` is `Obj` |
@@ -2453,6 +2527,47 @@ The **return value** is A `boolean` indicating whether or not the `value` is an 
 **Usage:**
 
 ```typescript
+// Real example usage from incoming @angular-package/property.
+interface CommonDescriptor extends Pick<PropertyDescriptor, 'configurable' | 'enumerable'> {}
+interface AccessorDescriptor<Value> extends CommonDescriptor {
+  get: (() => Value) | undefined;
+  set: ((value: Value) => void) | undefined;
+}
+interface DataDescriptor<Value> extends CommonDescriptor {
+  writable: boolean;
+  value: Value;
+}
+type ThisAccessorDescriptor<Value, Obj = any> = AccessorDescriptor<Value> & ThisType<Obj>;
+
+const ACCESSOR_DESCRIPTOR: ThisAccessorDescriptor<string | undefined, ObjectOne> =  {
+  configurable: true,
+  enumerable: true,
+  get(): string | undefined {
+    return this[5];
+  },
+  set(value: string | undefined) {
+    this[5] = value;
+  }
+}
+
+const DATA_DESCRIPTOR: DataDescriptor<string> = {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  value: 'my value'
+}
+
+guardObjectKeys(DATA_DESCRIPTOR, ['writable', 'value'], ['get', 'set']); // type error on ['get', 'set']
+guardObjectKeys(DATA_DESCRIPTOR, ['writable', 'value']); // true
+guardObjectKeys(DATA_DESCRIPTOR, 'writable', 'value'); // true
+guardObjectKeys(DATA_DESCRIPTOR, ['get', 'set']); // type error
+guardObjectKeys(DATA_DESCRIPTOR, 'get', 'set'); // type error first on 'get' then on 'set'
+
+guardObjectKeys(ACCESSOR_DESCRIPTOR, ['writable', 'value'], ['get', 'set']); // type error on ['writable', 'value']
+guardObjectKeys(ACCESSOR_DESCRIPTOR, ['configurable', 'enumerable'], 'writable', 'value'); // type error on 'writable'
+guardObjectKeys(ACCESSOR_DESCRIPTOR, ['configurable', 'enumerable'], 'get'); // true
+guardObjectKeys(ACCESSOR_DESCRIPTOR, ['configurable', 'enumerable'], 'set'); // true
+
 ```
 
 ----
@@ -3032,6 +3147,8 @@ MIT © angular-package ([license][license])
 
 <!-- Javascript  -->
 [array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+[array-every]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every
+[array-some]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
 
 [classes]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
 
@@ -3042,6 +3159,7 @@ MIT © angular-package ([license][license])
 [booleanconstructor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean/Boolean
 
 [function]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions
+[function-rest-parameter]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
 
 [hasownproperty]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty
 
