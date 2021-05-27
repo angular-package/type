@@ -285,7 +285,7 @@ const areString = (...value: any): boolean => check('string', ...value);
 
 ![update][update]
 
-`4.1.0`: added `objectKeys` as [`isObjectKeys()`](#isobjectkeys).
+`4.1.0`: Added `objectKeys` as [`isObjectKeys()`](#isobjectkeys).
 
 The object contains prefixed with `is` functions and prefixed with `isNot` functions in property `not`.
 
@@ -699,6 +699,8 @@ isFunction(() => 5); // true
 ----
 
 ### isInstance
+
+`4.1.0`: Type variable `Class` default value is set to [`Function`][function].
 
 Use `isInstance()` or `is.instance()` to check if **any** value is an `object` of a generic `Obj` type equal to an `instance` of [`Constructor<Class>`](#constructor) type.
 
@@ -1396,22 +1398,23 @@ isObjectKeyIn(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING]); // true
 ![new][new]
 
 Use `isObjectKeys()` or `is.objectKeys()` to check if **any** `value` is an `object` with **some** its own specified keys of the [`Key`][key].
-Cause of using [`some()`][array-some] on the [rest parameter][function-rest-parameter] `...keys` each of its argument is treated as logic `or`, and cause of using [`every()`][array-every] on its array argument each of array argument is treated as logic `and`.
+Cause of using [`some()`][array-some] on the [rest parameter][function-rest-parameter] `...keys` each of its argument is treated as logic `or`, and cause of using [`every()`][array-every] on its array argument each of array item is treated as logic `and`.
 Simply, the function finds in the object `get` and `set` or `writable` and `value`, means the object contains `get` and `set` or `writable` and `value`.
 The function uses [`hasOwnProperty`][hasownproperty] [`Object`][object] method to finds enumerable and non-enumerable [`Key`][key] as `string`, `number`, `symbol` unlike `Object.keys()` but it can't find accessor descriptor property unlike `in` operator, which can.
 
 ```typescript
 const isObjectKeys: IsObjectKeys = <Type = object>(
   value: any,
-  ...keys: (keyof Type | Array<keyof Type>)[]
+  ...keys: (Key | Array<Key>)[]
 ): value is Type =>
-  keys.some(key =>
-    isArray(key) ?
-      key.every(k => isKey(k) ? ({}).hasOwnProperty.call(value, k) === true : false)
-    : isKey(key) ?
-      ({}).hasOwnProperty.call(value, key) === true
-      : false
-  );
+  isObject<Type>(value) ?
+    keys.some(key =>
+      isArray(key) ?
+        key.every(k => isKey(k) ? ({}).hasOwnProperty.call(value, k) === true : false)
+        : isKey(key) ?
+          ({}).hasOwnProperty.call(value, key) === true
+          : false)
+    : false;
 ```
 
 **Generic type variables:**
@@ -1449,26 +1452,6 @@ interface DataDescriptor<Value> extends CommonDescriptor {
   value: Value;
 }
 type ThisAccessorDescriptor<Value, Obj = any> = AccessorDescriptor<Value> & ThisType<Obj>;
-
-interface ObjectOne {
-  'key as string'?: boolean;
-  1030405027?: string;
-  5?: string;
-  [SYMBOL_NUMBER]?: string;
-  [SYMBOL_STRING]?: number;
-  x: number;
-}
-
-const OBJECT_ONE: ObjectOne = {
-  'key as string': true,
-  1030405027: 'key is number',
-  5: 'key is also number',
-  [NUMBER]: 'key is number',
-  [STRING]: 'key is string',
-  [SYMBOL_NUMBER]: 'key is symbol number',
-  [SYMBOL_STRING]: 6,
-  x: 3000
-};
 
 const ACCESSOR_DESCRIPTOR: ThisAccessorDescriptor<string | undefined, ObjectOne> =  {
   configurable: true,
@@ -1999,7 +1982,7 @@ if (!is.undefined(config.a)) {
 
 ![update][update]
 
-`4.1.0`: added `objectKeys` as [`guardObjectKeys()`](#guardobjectkeys).
+`4.1.0`: Added `objectKeys` as [`guardObjectKeys()`](#guardobjectkeys).
 
 The object contains prefixed with `guard` functions in `is` property.
 
@@ -2493,7 +2476,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 Use `guardObjectKeys()` or `guard.is.objectKeys()` to guard the value to be an `object` of a generic `Type` with some of its own specified `keys`.
 The function uses [`isObjectKeys()`](#isobjectkeys) to search for the `keys` and it means:
 
-> Cause of using `some()` on the rest parameter `...keys` each of its argument is treated as logic `or`, and cause of using `every()` on its array argument each of array argument is treated as logic `and`.
+> Cause of using `some()` on the rest parameter `...keys` each of its argument is treated as logic `or`, and cause of using `every()` on its array argument each of array item is treated as logic `and`.
 > Simply, the function finds in the object `get` and `set` or `writable` and `value`, means the object contains `get` and `set` or `writable` and `value`.
 > The function uses [`hasOwnProperty`][hasownproperty] [`Object`][object] method to finds enumerable and non-enumerable [`Key`][key] as `string`, `number`, `symbol` unlike `Object.keys()` but it can't find accessor descriptor property unlike `in` operator, which can.
 
