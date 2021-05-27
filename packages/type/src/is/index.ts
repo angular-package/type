@@ -16,6 +16,7 @@ export { isNumberType } from './lib/is-number-type.func';
 export { isObject } from './lib/is-object.func';
 export { isObjectKey } from './lib/is-object-key.func';
 export { isObjectKeyIn } from './lib/is-object-key-in.func';
+export { isObjectKeys } from './lib/is-object-keys.func';
 export { isPrimitive } from './lib/is-primitive.func';
 export { isString } from './lib/is-string.func';
 export { isStringObject } from './lib/is-string-object.func';

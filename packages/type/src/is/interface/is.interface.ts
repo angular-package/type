@@ -16,6 +16,7 @@ import { IsNumberType } from '../type/is-number-type.type';
 import { IsObject } from '../type/is-object.type';
 import { IsObjectKey } from '../type/is-object-key.type';
 import { IsObjectKeyIn } from '../type/is-object-key-in.type';
+import { IsObjectKeys } from '../type/is-object-some-key.type';
 import { IsPrimitive } from '../type/is-primitive.type';
 import { IsString } from '../type/is-string.type';
 import { IsStringObject } from '../type/is-string-object.type';
@@ -23,6 +24,9 @@ import { IsStringType } from '../type/is-string-type.type';
 import { IsSymbol } from '../type/is-symbol.type';
 import { IsType } from '../type/is-type.type';
 import { IsUndefined } from '../type/is-undefined.type';
+/**
+ * Object with prefixed `is` functions.
+ */
 export interface Is {
   array: IsArray;
   bigInt: IsBigInt;
@@ -43,6 +47,7 @@ export interface Is {
   object: IsObject;
   objectKey: IsObjectKey;
   objectKeyIn: IsObjectKeyIn;
+  objectKeys: IsObjectKeys;
   primitive: IsPrimitive;
   string: IsString;
   stringObject: IsStringObject;
