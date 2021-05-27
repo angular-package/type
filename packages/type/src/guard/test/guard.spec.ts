@@ -14,6 +14,7 @@ describe('`guard`', () => {
       it('guard,is.number()', () => expect(guard.is.number).toBeDefined());
       it('guard,is.object()', () => expect(guard.is.object).toBeDefined());
       it('guard,is.objectKey()', () => expect(guard.is.objectKey).toBeDefined());
+      it('guard,is.objectKeys()', () => expect(guard.is.objectKeys).toBeDefined());
       it('guard,is.primitive()', () => expect(guard.is.primitive).toBeDefined());
       it('guard,is.string()', () => expect(guard.is.string).toBeDefined());
       it('guard,is.symbol()', () => expect(guard.is.symbol).toBeDefined());
