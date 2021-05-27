@@ -2226,7 +2226,7 @@ const guardDefined: GuardDefined = <Type>(value: Defined<Type>, callback?: Resul
 
 | Variable | Default value    | Description                                                                                         |
 | :------- | :--------------- | :-------------------------------------------------------------------------------------------------- |
-| `Type`   | From the `value` | A generic `Type` variable from the `value` to the return type `value` is [`Defined<Type>`][defined] |
+| `Type`   | From the `value` | Guarded with [`Defined<Type>`][defined], a generic `Type` variable from the `value` to the return type `value` is [`Defined<Type>`][defined] |
 
 **Parameters:**
 
