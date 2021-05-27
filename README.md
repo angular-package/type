@@ -178,6 +178,7 @@ Guard
 * [Installation](#installation)
 * [Callback](#callback)
 * [Check](#check)
+  * [typeOf](#typeof)
   * [are](#are)
   * [is](#is)
   * [isNot](#isnot)
@@ -242,6 +243,14 @@ const stringResult = isString('Lorem ipsum', customCallback);
 ```
 
 ## Check
+
+### typeOf
+
+Check functions are using `typeOf()` function as first. More about it [here](https://javascript.plainenglish.io/the-best-way-to-type-check-in-vanilla-js-55197b4f45ec).
+
+```typescript
+const typeOf = (value: any): string => Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
+```
 
 ### are
 
@@ -323,7 +332,7 @@ const is: Is = {
 
 ----
 
-### isArray
+### `isArray`
 
 Use `isArray()` or `is.array()` to check if **any** `value` is an [`Array`][array], [`Array`][array] instance, and `object` type.
 
@@ -388,8 +397,8 @@ const isBigInt: IsBigInt = (value: any, callback: ResultCallback = resultCallbac
 
 **Parameters:**
 
-| Name      | Type                                                            | Description |
-| :-------- | :-------------------------------------------------------------: | :---------- |
+| Name      | Type                                                            | Description          |
+| :-------- | :-------------------------------------------------------------: | :------------------- |
 | value     | `any`                                                           | Any `value` to check |
 | callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
@@ -430,9 +439,9 @@ const isBoolean: IsBoolean = (value: any, callback: ResultCallback = resultCallb
 
 **Parameters:**
 
-| Name      | Type  | Description          |
-| :---------| :---: | :------------------- |
-| value     | `any` | Any `value` to check |
+| Name      | Type                                                            | Description          |
+| :-------- | :-------------------------------------------------------------: | :------------------- |
+| value     | `any`                                                           | Any `value` to check |
 | callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an `Error` |
 
 **Return type:**
@@ -479,9 +488,9 @@ const isBooleanObject: IsBooleanObject = (value: any, callback: ResultCallback =
 
 **Return type:**
 
-| Returns              | Type      | Description                                                       |
-| :------------------- | :-------: | :---------------------------------------------------------------- |
-| `value` is `Boolean` | `boolean` | The **return type** is a `boolean` as the result of its statement |
+| Returns                         | Type      | Description                                                       |
+| :------------------------------ | :-------: | :---------------------------------------------------------------- |
+| `value` is [`Boolean`][boolean] | `boolean` | The **return type** is a `boolean` as the result of its statement |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a [`Boolean`][boolean] instance.
 
@@ -549,7 +558,7 @@ isBooleanType(BOOLEAN_INSTANCE); // false
 
 ### isClass
 
-Use `isClass()` or `is.class()` to check if **any** `value` is a `function` type, an instance of [`Function`][function] and [`Object`][object] as a generic `Class` type of [`class`][classes].
+Use `isClass()` or `is.class()` to check if **any** `value` is a `function` type, an instance of [`Function`][function] and [`Object`][object] as a generic `Class` type of [`class`][classes]. It also **confirms** with the regexp that function is a [`class`][classes].
 
 ```typescript
 const isClass: IsClass = <Class = Function>(value: any, callback: ResultCallback = resultCallback): value is Class =>
@@ -646,7 +655,7 @@ isDefined(defined); // false
 
 ### isFunction
 
-Use `isFunction()` or `is.function()` to check if **any** `value` is a `function` type, an instance of [`Function`][function] and [`Object`][object].
+Use `isFunction()` or `is.function()` to check if **any** `value` is a `function` type, an instance of [`Function`][function] and [`Object`][object]. It also **denies** with the regexp that function is a [`class`][classes].
 
 ```typescript
 const isFunction: IsFunction = (value: any, callback: ResultCallback = resultCallback): value is Func =>
@@ -2014,6 +2023,8 @@ const guard: Guard = {
 };
 
 ```
+
+----
 
 ### guardArray
 
