@@ -2226,7 +2226,7 @@ const guardDefined: GuardDefined = <Type>(value: Defined<Type>, callback?: Resul
 | :------------------------------------ | :---------: | :---------------------------------------------------------------- |
 | `value` is [`Defined<Type>`][defined] | `boolean`   | By default `Type` variable is equal to the type detected from the `value`, but the detected type `undefined` changes to `never` and the **return type** is a `boolean` as the result of its statement |
 
-The **return value** is A `boolean` indicating whether or not the `value` is defined.
+The **return value** is a `boolean` indicating whether or not the `value` is defined.
 
 ----
 
@@ -2306,7 +2306,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 Use `guardKey()` or `guard.is.key()` to guard the `value` to be one of the `string`, `number`, or `symbol`.
 
 ```typescript
-const guardKey: GuardKey = (value: Key, callback?: ResultCallback): value is Key => 
+const guardKey: GuardKey = (value: Key, callback?: ResultCallback): value is Key =>
   isKey(value, callback);
 ```
 
@@ -2437,7 +2437,7 @@ Use `guardObjectKey()` or `guard.is.objectKey()` to guard the `value` to be an `
 
 ```typescript
 const guardObjectKey: GuardObjectKey =
-  <Obj>(value: Obj, key: keyof Obj | (keyof Obj)[], callback?: ResultCallback): value is Obj =>
+  <Obj extends object>(value: Obj, key: keyof Obj | (keyof Obj)[], callback?: ResultCallback): value is Obj =>
     isObjectKey<Obj>(value, key, callback);
 ```
 
@@ -2505,7 +2505,7 @@ const guardObjectKeys: GuardObjectKeys =
 | :--------------- | :---------: | :---------------------------------------------------------------- |
 | `value` is `Obj` | `boolean`   | By default `Obj` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement |
 
-The **return value** is A `boolean` indicating whether or not the `value` is an `object` with some of its own specified `keys`.
+The **return value** is a `boolean` indicating whether or not the `value` is an `object` with some of its own specified `keys`.
 
 **Usage:**
 
@@ -2561,7 +2561,7 @@ Use `guardPrimitive()` or `guard.is.primitive()` to guard the `value` to be the 
 
 ```typescript
 const guardPrimitive: GuardPrimitive =
-  <Type extends Primitive>(value: Type, type: Primitives, callback?: ResultCallback): value is Type => 
+  <Type extends Primitive>(value: Type, type: Primitives, callback?: ResultCallback): value is Type =>
     isPrimitive<Type>(value, type, callback);
 ```
 
