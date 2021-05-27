@@ -16,7 +16,7 @@ import { IsNumberType } from '../type/is-number-type.type';
 import { IsObject } from '../type/is-object.type';
 import { IsObjectKey } from '../type/is-object-key.type';
 import { IsObjectKeyIn } from '../type/is-object-key-in.type';
-import { IsObjectKeys } from '../type/is-object-some-key.type';
+import { IsObjectKeys } from '../type/is-object-keys.type';
 import { IsPrimitive } from '../type/is-primitive.type';
 import { IsString } from '../type/is-string.type';
 import { IsStringObject } from '../type/is-string-object.type';
