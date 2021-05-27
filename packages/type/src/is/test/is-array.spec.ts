@@ -4,7 +4,7 @@ import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE } from '../../testing/variab
 import { FUNCTION } from '../../testing/variables/function.const';
 import { Func } from '../../type/func.type';
 import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../testing/variables/number.const';
-import { OBJECT_ONE, OBJECT_TWO, ObjectOne, ObjectTwo } from '../../testing/variables/object.const';
+import { OBJECT_ONE, OBJECT_TWO } from '../../testing/variables/object.const';
 import { STRING, STRING_INSTANCE } from '../../testing/variables/string.const';
 import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/variables/symbol.const';
 import { UNDEFINED } from '../../testing/variables/undefined.const';
@@ -24,8 +24,10 @@ import {
   ARRAY_SYMBOL_STRING,
   ARRAY_UNDEFINED
 } from '../../testing/variables/array.const';
+// Interface.
+import { ObjectOne, ObjectTwo } from '../../testing/interface';
 
-describe('isArray', () => {
+describe(isArray.name, () => {
 
   // TRUE
   it('is DEFINED', () => expect(isArray).toBeDefined());

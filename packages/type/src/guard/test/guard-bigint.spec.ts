@@ -1,8 +1,8 @@
 // Function.
 import { guardBigInt } from '../lib/guard-big-int.func';
 // Variables.
-import { BIGINT, BIGINT_EXPECTATION, BIGINT_INSTANCE } from './variables/big-int.const';
-import { TRUE } from './variables/boolean.const';
+import { BIGINT, BIGINT_EXPECTATION, BIGINT_INSTANCE } from '../../testing/variables/strict/big-int.const';
+import { TRUE } from '../../testing/variables/strict/boolean.const';
 
 describe(guardBigInt.name, () => {
   // Defined.

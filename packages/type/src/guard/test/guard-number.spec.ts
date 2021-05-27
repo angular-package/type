@@ -1,8 +1,8 @@
 // Function.
 import { guardNumber } from '../lib/guard-number.func';
 // Variables.
-import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from './variables/number.const';
-import { TRUE } from './variables/boolean.const';
+import { NUMBER } from '../../testing/variables/strict/number.const';
+import { TRUE } from '../../testing/variables/strict/boolean.const';
 
 describe(guardNumber.name, () => {
   // Defined.

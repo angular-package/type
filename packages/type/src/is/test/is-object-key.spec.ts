@@ -9,7 +9,7 @@ import { NULL } from '../../testing/variables/null.const';
 import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../testing/variables/number.const';
 import { OBJECT_ONE } from '../../testing/variables/object.const';
 import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/variables/string.const';
-import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/variables/symbol.const';
+import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/variables/strict/symbol.const';
 import { UNDEFINED } from '../../testing/variables/undefined.const';
 
 describe(isObjectKey.name , () => {

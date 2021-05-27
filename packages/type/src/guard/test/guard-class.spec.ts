@@ -1,9 +1,10 @@
+// Object.
+import { guard } from '../lib/guard.object';
 // Function.
 import { guardClass } from '../lib/guard-class.func';
 // Variables.
-import { Person } from './variables/class.const';
-import { TRUE } from './variables/boolean.const';
-import { guard } from '../lib/guard.object';
+import { Person } from '../../testing/variables/strict/class.const';
+import { TRUE } from '../../testing/variables/strict/boolean.const';
 
 describe(guardClass.name, () => {
   // TRUE

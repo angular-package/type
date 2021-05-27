@@ -1,8 +1,8 @@
 // Function.
 import { guardString } from '../lib/guard-string.func';
 // Variables.
-import { STRING, STRING_NEW_INSTANCE } from './variables/string.const';
-import { TRUE } from './variables/boolean.const';
+import { STRING, STRING_NEW_INSTANCE } from '../../testing/variables/strict/string.const';
+import { TRUE } from '../../testing/variables/strict/boolean.const';
 
 describe(guardString.name, () => {
   // Defined.

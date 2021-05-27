@@ -1,13 +1,13 @@
 // Function.
 import { guardPrimitive } from '../lib/guard-primitive.func';
 // Variables.
-import { BIGINT, BIGINT_EXPECTATION, BIGINT_INSTANCE } from './variables/big-int.const';
-import { FALSE, TRUE, TRUE_INSTANCE, FALSE_INSTANCE, FALSE_EXPECTATION, TRUE_EXPECTATION } from './variables/boolean.const';
-import { NULL } from './variables/null.const';
-import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from './variables/number.const';
-import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from './variables/string.const';
-import { SYMBOL_NUMBER, SYMBOL_STRING } from './variables/symbol.const';
-import { UNDEFINED } from './variables/undefined.const';
+import { BIGINT, BIGINT_EXPECTATION, BIGINT_INSTANCE } from '../../testing/variables/strict/big-int.const';
+import { FALSE, TRUE } from '../../testing/variables/strict/boolean.const';
+import { NULL } from '../../testing/variables/strict/null.const';
+import { NUMBER } from '../../testing/variables/strict/number.const';
+import { STRING } from '../../testing/variables/strict/string.const';
+import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/variables/strict/symbol.const';
+import { UNDEFINED } from '../../testing/variables/strict/undefined.const';
 
 describe(guardPrimitive.name, () => {
   // Defined.

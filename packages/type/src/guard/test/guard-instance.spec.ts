@@ -1,13 +1,13 @@
 // Function.
 import { guardInstance } from '../lib/guard-instance.func';
 // Variables.
-import { CLASS, Class } from './variables/class.const';
-import { FALSE_EXPECTATION, TRUE_EXPECTATION } from './variables/boolean.const';
-import { NUMBER } from './variables/number.const';
-import { NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from './variables/number.const';
-import { STRING } from './variables/string.const';
-import { STRING_INSTANCE, STRING_NEW_INSTANCE } from './variables/string.const';
-import { TRUE, TRUE_INSTANCE, FALSE_INSTANCE, FALSE } from './variables/boolean.const';
+import { CLASS, Class } from '../../testing/variables/strict/class.const';
+import { FALSE_EXPECTATION, TRUE_EXPECTATION } from '../../testing/variables/strict/boolean.const';
+import { NUMBER } from '../../testing/variables/strict/number.const';
+import { NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../testing/variables/strict/number.const';
+import { STRING } from '../../testing/variables/strict/string.const';
+import { STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/variables/strict/string.const';
+import { TRUE, TRUE_INSTANCE, FALSE_INSTANCE, FALSE } from '../../testing/variables/strict/boolean.const';
 
 describe(guardInstance.name , () => {
   // Defined.
