@@ -700,6 +700,8 @@ isFunction(() => 5); // true
 
 ### isInstance
 
+![update][update]
+
 `4.1.0`: Type variable `Class` default value is set to [`Function`][function].
 
 Use `isInstance()` or `is.instance()` to check if **any** value is an `object` of a generic `Obj` type equal to an `instance` of [`Constructor<Class>`](#constructor) type.
