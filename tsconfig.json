@@ -1,17 +1,13 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false,
-    "fullTemplateTypeCheck": true, 
-    "preserveWhitespaces": false,
-    "strictTemplates": true,
-    "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true
-  },
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
@@ -20,11 +16,6 @@
     "importHelpers": true,
     "target": "es2020",
     "module": "es2020",
-    /* Strict. */
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch":true,
     "lib": [
       "es2020",
       "dom"
@@ -35,5 +26,13 @@
         "dist/type"
       ]
     }
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true, 
+    "preserveWhitespaces": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true,
+    "trace": true
   }
 }

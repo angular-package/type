@@ -4,7 +4,7 @@
  * instanceof Number === false
  * instanceof Object === false
  */
-export const BIGINT: bigint = 9007199254740991n;  // typeof === 'bigint'
+export const BIGINT = 9007199254740991n;  // typeof === 'bigint'
 
 /**
  * typeof === 'bigint'

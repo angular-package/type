@@ -13,5 +13,5 @@ import { STRING } from './string.const';
  * instanceof String === false
  * instanceof Symbol === false
  */
-export const SYMBOL_NUMBER: unique symbol = Symbol(NUMBER);
-export const SYMBOL_STRING: unique symbol = Symbol(STRING);
+export const SYMBOL_NUMBER: any = Symbol(NUMBER);
+export const SYMBOL_STRING: any = Symbol(STRING);

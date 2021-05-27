@@ -9,5 +9,5 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @param callback An optional `ResultCallback` function to handle result before returns.
  * @returns A `boolean` indicating whether or not the `value` is an `object` of a generic `Obj`.
  */
-export const guardObject: GuardObject = <Obj>(value: Obj, callback?: ResultCallback): value is Obj =>
+export const guardObject: GuardObject = <Obj extends object>(value: Obj, callback?: ResultCallback): value is Obj =>
   isObject<Obj>(value, callback);

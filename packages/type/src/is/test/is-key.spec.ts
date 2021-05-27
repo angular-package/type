@@ -1,16 +1,16 @@
 // Function.
 import { isKey } from '../lib/is-key.func';
 // Variables.
-import { BIGINT, BIGINT_EXPECTATION, BIGINT_INSTANCE } from './variables/big-int.const';
-import { Class, CLASS } from './variables/class.const';
-import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE, FALSE_EXPECTATION, TRUE_EXPECTATION } from './variables/boolean.const';
-import { FUNCTION } from './variables/function.const';
-import { NULL } from './variables/null.const';
-import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from './variables/number.const';
-import { OBJECT_ONE, OBJECT_TWO, OBJECT_ONE_NEW, OBJECT_TWO_NEW } from './variables/object.const';
-import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from './variables/string.const';
-import { SYMBOL_NUMBER, SYMBOL_STRING } from './variables/symbol.const';
-import { UNDEFINED } from './variables/undefined.const';
+import { BIGINT, BIGINT_EXPECTATION, BIGINT_INSTANCE } from '../../testing/variables/big-int.const';
+import { Class, CLASS } from '../../testing/variables/class.const';
+import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE, FALSE_EXPECTATION, TRUE_EXPECTATION } from '../../testing/variables/boolean.const';
+import { FUNCTION } from '../../testing/variables/function.const';
+import { NULL } from '../../testing/variables/null.const';
+import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../testing/variables/number.const';
+import { OBJECT_ONE, OBJECT_TWO, OBJECT_ONE_NEW, OBJECT_TWO_NEW } from '../../testing/variables/object.const';
+import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/variables/string.const';
+import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/variables/symbol.const';
+import { UNDEFINED } from '../../testing/variables/undefined.const';
 
 describe(isKey.name, () => {
   // Defined.
@@ -80,9 +80,9 @@ describe(isKey.name, () => {
           it(`${FALSE_EXPECTATION}`, () => expect(isKey(FALSE_INSTANCE)).toBe(FALSE));
         });
         // Number
-        describe(`Number`, () => it(`new Number(${NUMBER})`, () => expect(isKey(NUMBER_NEW_INSTANCE)).toBe(TRUE)));
+        describe(`Number`, () => it(`new Number(${NUMBER})`, () => expect(isKey(NUMBER_NEW_INSTANCE)).toBe(FALSE)));
         // String
-        describe(`String`, () => it(`new String(${STRING})`, () => expect(isKey(STRING_NEW_INSTANCE)).toBe(TRUE)));
+        describe(`String`, () => it(`new String(${STRING})`, () => expect(isKey(STRING_NEW_INSTANCE)).toBe(FALSE)));
       });
     });
   });

@@ -14,10 +14,12 @@ import {
   ARRAY_SYMBOL_NUMBER,
   ARRAY_SYMBOL_STRING,
   ARRAY_UNDEFINED
-} from './variables/array.const';
-import { Class } from './variables/class.const';
+} from '../../testing/variables/strict/array.const';
+import { Class } from '../../testing/variables/strict/class.const';
+// Type.
 import { Func } from '../../type/func.type';
-import { ObjectOne, ObjectTwo } from './variables/object.const';
+// Interface.
+import { ObjectOne, ObjectTwo } from '../../testing/interface';
 
 describe(guardArray.name, () => {
   // TRUE
@@ -40,5 +42,5 @@ describe(guardArray.name, () => {
     expect(guardArray<symbol>(ARRAY_SYMBOL_STRING)).toBeTruthy();
     expect(guardArray<symbol>(ARRAY_SYMBOL_NUMBER)).toBeTruthy();
   });
-  it('Array<undefined>', () => expect(guardArray<undefined>(ARRAY_UNDEFINED)).toBeTruthy());
+  it('Array<undefined>', () => expect(guardArray<undefined | unknown>(ARRAY_UNDEFINED)).toBeTruthy());
 });

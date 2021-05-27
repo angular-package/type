@@ -3,14 +3,15 @@
  * instanceof Boolean === false
  * instanceof Object === false
  */
-export const FALSE = false;
+export const FALSE: boolean = false; // typeof === 'boolean'
 
 /**
  * typeof === 'boolean'
  * instanceof Boolean === false
  * instanceof Object === false
  */
-export const TRUE = true;
+export const TRUE: boolean = true; // typeof === 'boolean'
+
 
 /**
  * typeof === 'boolean'

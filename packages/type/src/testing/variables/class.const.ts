@@ -1,6 +1,6 @@
-import { NUMBER } from './number.const';
 import { STRING } from './string.const';
-import { SYMBOL_STRING, SYMBOL_NUMBER } from './symbol.const';
+import { NUMBER } from './number.const';
+import { SYMBOL_STRING, SYMBOL_NUMBER } from './strict/symbol.const';
 
 /**
  * typeof === 'function'
@@ -35,10 +35,6 @@ export class Class {
   }
 }
 
-export class TestClass extends Class {}
-
-export const TEST_CLASS = new TestClass();
-
 /**
  * typeof === 'object'
  * instanceof Class === true
@@ -46,6 +42,7 @@ export const TEST_CLASS = new TestClass();
  * instanceof Object === true
  */
 export const CLASS = new Class();
+
 
 export class Person {
   firstName = '';

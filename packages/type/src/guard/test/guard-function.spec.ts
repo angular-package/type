@@ -1,7 +1,7 @@
 // Function.
 import { guardFunction } from '../lib/guard-function.func';
 // Variables.
-import { FUNCTION } from '../../is/test/variables/function.const';
+import { FUNCTION } from '../../testing/variables/function.const';
 
 describe(guardFunction.name, () => {
   // TRUE

@@ -4,10 +4,11 @@ import { Class } from './class.const';
 import { FALSE, TRUE, TRUE_INSTANCE, FALSE_INSTANCE } from './boolean.const';
 import { NULL } from './null.const';
 import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from './number.const';
-import { ObjectOne, ObjectTwo } from './object.const';
 import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from './string.const';
 import { UNDEFINED } from './undefined.const';
 import { notDefined } from './not-defined.const';
+// Interface.
+import { ObjectOne, ObjectTwo } from '../../interface';
 // Type.
 import { Func } from '../../../type/func.type';
 
@@ -34,4 +35,4 @@ export const ARRAY_STRING: Array<string | String> = [STRING, STRING_INSTANCE, ST
 export const ARRAY_SYMBOL_NUMBER: Array<symbol> = [Symbol(1005), Symbol(1002), Symbol(15), Symbol(1)];
 export const ARRAY_SYMBOL_STRING: Array<symbol> = [Symbol('String Symbol'), Symbol('String Symbol'), Symbol('String Symbol One'), Symbol('String Symbol Two')];
 // Array with `undefined`.
-export const ARRAY_UNDEFINED: Array<undefined> = [undefined, undefined, undefined, UNDEFINED, notDefined];
+export const ARRAY_UNDEFINED: Array<undefined | unknown> = [undefined, undefined, undefined, UNDEFINED, notDefined];

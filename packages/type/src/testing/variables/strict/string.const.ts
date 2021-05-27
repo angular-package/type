@@ -7,7 +7,7 @@
  * instanceof Object === false
  * instanceof String === false
  */
-export const STRING: string = '!@#$%^&*()abcdefghijklmnoprstuwyz';
+export const STRING = '!@#$%^&*()abcdefghijklmnoprstuwyz';
 
 /**
  * typeof === 'string'
@@ -15,7 +15,7 @@ export const STRING: string = '!@#$%^&*()abcdefghijklmnoprstuwyz';
  * instanceof Object === false
  * instanceof String === false
  */
-export const STRING_INSTANCE: String = String(STRING);
+export const STRING_INSTANCE = String(STRING);
 
 /**
  * typeof === 'string'

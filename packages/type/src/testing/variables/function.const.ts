@@ -1,4 +1,4 @@
-import { Func } from '../../../type/func.type';
+import { Func } from '../../type/func.type';
 /**
  * typeof === 'function'
  * instanceof Function === true

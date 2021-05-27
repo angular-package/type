@@ -1,10 +1,10 @@
 // Function.
 import { guardKey } from '../lib/guard-key.func';
 // Variables.
-import { NUMBER } from './variables/number.const';
-import { STRING} from './variables/string.const';
-import { SYMBOL_NUMBER, SYMBOL_STRING } from './variables/symbol.const';
-import { TRUE } from './variables/boolean.const';
+import { NUMBER } from '../../testing/variables/strict/number.const';
+import { STRING} from '../../testing/variables/strict/string.const';
+import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/variables/strict/symbol.const';
+import { TRUE } from '../../testing/variables/strict/boolean.const';
 // Type.
 import { Key } from '../../type/key.type';
 

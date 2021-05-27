@@ -1,6 +1,6 @@
 // Function.
-import { isNumber } from './is-number.func';
-import { isString } from './is-string.func';
+import { isNumberType } from './is-number-type.func';
+import { isStringType } from './is-string-type.func';
 import { isSymbol } from './is-symbol.func';
 import { resultCallback } from '../../lib/result-callback.func';
 // Type.
@@ -15,4 +15,4 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @returns A `boolean` indicating whether or not the `value` is a `Key`.
  */
 export const isKey: IsKey = (value: any, callback: ResultCallback = resultCallback): value is Key =>
-  callback(isString(value) || isNumber(value) || isSymbol(value), value);
+  callback(isStringType(value) || isNumberType(value) || isSymbol(value), value);

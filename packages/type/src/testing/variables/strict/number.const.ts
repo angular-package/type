@@ -12,12 +12,12 @@
 export const NUMBER = 10304050;
 
 /**
- * typeof === 'number'
+ * typeof === 'number
  * instanceof Function === false
  * instanceof Number === false
  * instanceof Object === false
  */
-export const NUMBER_INSTANCE: Number = Number(NUMBER);
+export const NUMBER_INSTANCE = Number(NUMBER);
 
 /**
  * typeof === 'number'

@@ -1,8 +1,8 @@
 // Function.
 import { guardDefined } from '../lib/guard-defined.func';
 // Variables.
-import { FALSE } from './variables/boolean.const';
-import { UNDEFINED } from './variables/undefined.const';
+import { STRING } from '../../testing/variables/strict/string.const';
+import { TRUE } from '../../testing/variables/strict/boolean.const';
 
 describe(guardDefined.name, () => {
   // Defined.
@@ -11,13 +11,11 @@ describe(guardDefined.name, () => {
   // Checks ...
   describe(`guards`, () => {
     it('callback', () => {
-      guardDefined(UNDEFINED, (result: boolean, value: undefined) => {
-        expect(result).toBe(FALSE);
-        expect(value).toBeUndefined();
+      guardDefined(STRING, (result: boolean, value: any) => {
+        expect(result).toBe(TRUE);
+        expect(value).toEqual(STRING);
         return result;
       });
     });
-    // ... primitives.
-    describe(`primitive`, () => it(`${UNDEFINED}`, () => expect(guardDefined(UNDEFINED)).toEqual(FALSE)));
   });
 });

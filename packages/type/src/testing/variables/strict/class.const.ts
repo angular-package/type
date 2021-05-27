@@ -35,6 +35,10 @@ export class Class {
   }
 }
 
+export class TestClass extends Class {}
+
+export const TEST_CLASS = new TestClass();
+
 /**
  * typeof === 'object'
  * instanceof Class === true
