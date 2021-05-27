@@ -176,6 +176,7 @@ Guard
 ----
 
 * [Installation](#installation)
+* [Skeleton](#skeleton)
 * [Callback](#callback)
 * [Check](#check)
   * [typeOf](#typeof)
@@ -206,6 +207,24 @@ Install `@angular-package/type` package with command:
 ```bash
 npm i --save @angular-package/type
 ```
+
+## Skeleton
+
+This project was built with the library [skeleton][skeleton] which is a simple library generated with the command below by the Angular-CLI.
+
+```bash
+ng new skeleton --create-application=false
+```
+
+Copy this package to the folder of skeleton library `packages/type` then you can run commands below.
+
+### Build
+
+Run `ng build type` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+### Running unit tests
+
+Run `ng test type` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Callback
 
@@ -3107,6 +3126,8 @@ How do I know when to release 1.0.0?
 MIT © angular-package ([license][license])
 
 ----
+
+[skeleton]: https://github.com/angular-package/skeleton
 
 <!-- Changes -->
 [new]: https://img.shields.io/badge/-new-green
