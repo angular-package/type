@@ -2,12 +2,12 @@
 
 Useful packages based on the [angular.io](https://angular.io/).
 
-| Package          | Description                                   | Status        | Readme      |
-| :--------------- | :-------------------------------------------- | :-----------: | :---------- |
-| change-detection | Improve application performance.              | *In Progress* | [Readme][cd-readme-github] |
-| prism            | `Prism` highlighter module.                   | *In Progress* | [Readme][prism-readme-github] |
-| property         | Features to handle object properties.         | *In Progress* | [Readme][property-readme-github] |
-| ui               | User interface.                               | *In Progress* | [Github][ui-readme-github] |
+| Package          | Description                                   | Status                                         | Readme                     |
+| :--------------- | :-------------------------------------------- | :--------------------------------------------: | :------------------------- |
+| change-detection | Improve application performance.              | *In Progress*                                  | [Readme][cd-readme-github] |
+| prism            | `Prism` highlighter module.                   | *In Progress*                                  | [Readme][prism-readme-github] |
+| property         | Features to handle object properties.         | *In Progress*                                  | [Readme][property-readme-github] |
+| ui               | User interface.                               | *In Progress*                                  | [Github][ui-readme-github] |
 | type             | Common types, type guards and type checkers.  | [![npm version][type-npm-svg]][type-npm-badge] | [Github][type-readme-github] \| [npm][type-readme-npm] |
 
 ## angular-package/type
