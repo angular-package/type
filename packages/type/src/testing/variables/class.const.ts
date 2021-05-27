@@ -1,6 +1,6 @@
 import { STRING } from './string.const';
 import { NUMBER } from './number.const';
-import { SYMBOL_STRING, SYMBOL_NUMBER } from './symbol.const';
+import { SYMBOL_STRING, SYMBOL_NUMBER } from './strict/symbol.const';
 
 /**
  * typeof === 'function'
