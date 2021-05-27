@@ -1,15 +1,13 @@
-import { SYMBOL_NUMBER, SYMBOL_STRING } from './symbol.const';
-import { STRING } from './string.const';
+// Variables.
 import { NUMBER } from './number.const';
-export interface ObjectOne {
-  'key as string'?: boolean;
-  1030405027?: string;
-  5?: string;
-  [SYMBOL_NUMBER]?: string;
-  [SYMBOL_STRING]?: number;
-  x: number;
-}
-export interface ObjectTwo { x: string; y: number; }
+import { STRING } from './string.const';
+import { SYMBOL_NUMBER, SYMBOL_STRING } from './strict/symbol.const';
+// Interface.
+import { DataDescriptor, } from '../interface';
+import { ObjectOne, ObjectTwo } from '../interface';
+// Type.
+import { ThisAccessorDescriptor } from '../type/this-accessor-descriptor.type'
+
 /**
  * @example https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
  */
@@ -65,3 +63,22 @@ export const OBJECT_ONE_NEW = new Object(OBJECT_ONE);
  * instanceof Symbol === false
  */
 export const OBJECT_TWO_NEW = new Object(OBJECT_TWO);
+
+
+export const DATA_DESCRIPTOR: DataDescriptor<string> = {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  value: 'my value'
+}
+
+export const ACCESSOR_DESCRIPTOR: ThisAccessorDescriptor<string | undefined, ObjectOne> =  {
+  configurable: true,
+  enumerable: true,
+  get(): string | undefined {
+    return this[5];
+  },
+  set(value: string | undefined) {
+    this[5] = value;
+  }
+}
