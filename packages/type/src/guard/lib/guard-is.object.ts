@@ -11,6 +11,7 @@ import { guardNull } from './guard-null.func';
 import { guardNumber } from './guard-number.func';
 import { guardObject } from './guard-object.func';
 import { guardObjectKey } from './guard-object-key.func';
+import { guardObjectKeys } from './guard-object-keys.func';
 import { guardPrimitive } from './guard-primitive.func';
 import { guardString } from './guard-string.func';
 import { guardSymbol } from './guard-symbol.func';
@@ -32,6 +33,7 @@ export const guardIs: GuardIs = {
   number: guardNumber,
   object: guardObject,
   objectKey: guardObjectKey,
+  objectKeys: guardObjectKeys,
   primitive: guardPrimitive,
   string: guardString,
   symbol: guardSymbol,

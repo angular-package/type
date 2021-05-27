@@ -13,6 +13,7 @@ export { guardNumber } from './lib/guard-number.func';
 export { guardNull } from './lib/guard-null.func';
 export { guardObject } from './lib/guard-object.func';
 export { guardObjectKey } from './lib/guard-object-key.func';
+export { guardObjectKeys } from './lib/guard-object-keys.func';
 export { guardPrimitive } from './lib/guard-primitive.func';
 export { guardString } from './lib/guard-string.func';
 export { guardSymbol } from './lib/guard-symbol.func';

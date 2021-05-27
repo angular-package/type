@@ -8,6 +8,7 @@ import { GuardKey } from '../type/guard-key.type';
 import { GuardNumber } from '../type/guard-number.type';
 import { GuardObject } from '../type/guard-object.type';
 import { GuardObjectKey } from '../type/guard-object-key.type';
+import { GuardObjectKeys } from '../type/guard-object-keys.type';
 import { GuardPrimitive } from '../type/guard-primitive.type';
 import { GuardString } from '../type/guard-string.type';
 import { GuardType } from '../type/guard-type.type';
@@ -29,6 +30,7 @@ export interface GuardIs {
   number: GuardNumber;
   object: GuardObject;
   objectKey: GuardObjectKey;
+  objectKeys: GuardObjectKeys,
   primitive: GuardPrimitive;
   string: GuardString;
   symbol: GuardSymbol;
