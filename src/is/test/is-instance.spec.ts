@@ -14,18 +14,18 @@ import { notDefined } from '../../testing/variables/not-defined.const';
 describe(isInstance.name, () => {
   // TRUE.
   it('is DEFINED', () => expect(isInstance).toBeDefined());
-  it(`CLASS instance of Class`, () => expect(isInstance<Class>(CLASS, Class)).toBe(TRUE));
-  it(`PERSON instance of Person`, () => expect(isInstance<Person>(PERSON, Person)).toBe(TRUE));
-  it(`PERSON_COPY instance of PersonCopy`, () => expect(isInstance<PersonCopy>(PERSON_COPY, PersonCopy)).toBe(TRUE));
+  it(`CLASS instance of Class`, () => expect(isInstance(CLASS, Class)).toBe(TRUE));
+  it(`PERSON instance of Person`, () => expect(isInstance(PERSON, Person)).toBe(TRUE));
+  it(`PERSON_COPY instance of PersonCopy`, () => expect(isInstance(PERSON_COPY, PersonCopy)).toBe(TRUE));
   it(`CLASS instance of Class expect result to be true`, () => {
-    isInstance<Class>(CLASS, Class, (result: boolean) => {
+    isInstance(CLASS, Class, (result: boolean) => {
       expect(result).toBe(TRUE);
       return result;
     });
   });
 
   // FALSE.
-  it(`PERSON_COPY not instance of Person`, () => expect(isInstance<Person>(PERSON_COPY, Person)).toBe(FALSE));
+  it(`PERSON_COPY not instance of Person`, () => expect(isInstance(PERSON_COPY, Person)).toBe(FALSE));
   it(`'boolean' | Boolean`, () => {
     expect(isInstance(FALSE, FALSE)).toBe(FALSE);
     expect(isInstance(TRUE, TRUE)).toBe(FALSE);
@@ -36,7 +36,7 @@ describe(isInstance.name, () => {
     expect(isInstance(BIGINT, BIGINT)).toBe(FALSE);
     expect(isInstance(BIGINT_INSTANCE, BIGINT_INSTANCE)).toBe(FALSE);
   });
-  it(`Class`, () => expect(isInstance<Class>(Class, Class)).toBe(FALSE));
+  it(`Class`, () => expect(isInstance(Class, Class)).toBe(FALSE));
   it(`FUNCTION instance of Function`, () => expect(isInstance(FUNCTION, Function)).toBe(FALSE));
   it(`NULL`, () => expect(isInstance(NULL, NULL)).toBe(FALSE));
   it(`'number' | Number`, () => {
