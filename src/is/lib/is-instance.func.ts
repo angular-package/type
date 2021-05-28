@@ -11,7 +11,6 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @param value Any `value` to compare with the `instance`.
  * @param className A generic `Obj` `Constructor` type to create an `instance` to compare with the `value`.
  * @param callback `ResultCallback` function to handle result before returns.
- * @callback `resultCallback`.
  * @returns  A `boolean` indicating whether or not the `value` is an `instance` of a generic `Obj`.
  */
 export const isInstance: IsInstance =

@@ -16,7 +16,6 @@ import { Types } from '../../type/types.type';
  * @param value Any `value` to check if its type is from the `type`.
  * @param type A `string` or generic `Constructor` type from the `Types` to check the `value`.
  * @param callback `ResultCallback` function to handle result before returns.
- * @callback `resultCallback`.
  * @returns A `boolean` indicating whether or not the `value` is the `Type` from a `type` of the `Types`.
  */
 export const isType: IsType = <T extends Type>(value: any, type: Types<T>, callback: ResultCallback = resultCallback): value is T => {

@@ -12,7 +12,6 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @param value Any `value` to check if it contains a specified `key`.
  * @param key A `Key` type or an array of `Key` type to check the `value`.
  * @param callback `ResultCallback` function to handle result before returns.
- * @callback `resultCallback`.
  * @returns A `boolean` indicating whether or not the `value` is an `object` with its own specified keys.
  */
 export const isObjectKey: IsObjectKey =
