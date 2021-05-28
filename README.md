@@ -2,13 +2,13 @@
 
 Useful packages based on the [angular.io](https://angular.io/).
 
-| Package          | Description                                   | Status                                         | Readme                     |
-| :--------------- | :-------------------------------------------- | :--------------------------------------------: | :------------------------- |
-| change-detection | Improve application performance.              | *In Progress*                                  | [Readme][cd-readme-github] |
-| prism            | `Prism` highlighter module.                   | *In Progress*                                  | [Readme][prism-readme-github] |
-| property         | Features to handle object properties.         | *In Progress*                                  | [Readme][property-readme-github] |
-| ui               | User interface.                               | *In Progress*                                  | [Github][ui-readme-github] |
-| type             | Common types, type guards and type checkers.  | [![npm version][type-npm-svg]][type-npm-badge] | [Github][type-readme-github] \| [npm][type-readme-npm] |
+| Package          | Description                                  | Status                                         | Readme                                                 |
+| :--------------- | :------------------------------------------- | :--------------------------------------------: | :----------------------------------------------------- |
+| change-detection | Improve application performance.             | *In Progress*                                  | [Readme][cd-readme-github]                             |
+| prism            | `Prism` highlighter module.                  | *In Progress*                                  | [Readme][prism-readme-github]                          |
+| property         | Features to handle object properties.        | *In Progress*                                  | [Readme][property-readme-github]                       |
+| ui               | User interface.                              | *In Progress*                                  | [Github][ui-readme-github]                             |
+| type             | Common types, type guards and type checkers. | [![npm version][type-npm-svg]][type-npm-badge] | [Github][type-readme-github] \| [npm][type-readme-npm] |
 
 ## angular-package/type
 
@@ -210,17 +210,13 @@ npm i --save @angular-package/type
 
 ## Skeleton
 
-This project was built with the library [skeleton][skeleton] which is a simple library generated with the command below by the Angular-CLI.
+This package was built by the [library skeleton][skeleton] which was generated generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.
 
-```bash
-ng new skeleton --create-application=false
-```
-
-Copy this package to the folder of skeleton library `packages/type` then you can run commands below.
+Copy this package to the `packages/type` folder of [library skeleton][skeleton] then you can run commands below.
 
 ### Build
 
-Run `ng build type` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `ng build type` to build the package. The build artifacts will be stored in the `dist/` directory.
 
 ### Running unit tests
 
@@ -275,7 +271,7 @@ const typeOf = (value: any): string => Object.prototype.toString.call(value).sli
 
 ### are
 
-Tne object contains prefixed with `are` functions.
+The object contains prefixed with `are` functions.
 
 ```typescript
 const are: Are = {
@@ -732,7 +728,7 @@ isFunction(() => 5); // true
 
 ![update][update]
 
-`4.1.0`: Type variable `Class` default value is set to [`Function`][function].
+`4.1.1`: Fixes type variable `Class` default value is set to [`Function`][function] by removing it cause it's always being picked from the `className` parameter.
 
 Use `isInstance()` or `is.instance()` to check if **any** value is an `object` of a generic `Obj` type equal to an `instance` of [`Constructor<Class>`](#constructor) type.
 
