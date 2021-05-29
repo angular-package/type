@@ -1,5 +1,5 @@
 import { StringObject } from '../lib/string-object.class';
-import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../testing/variables/string.const';
+import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../testing/src/string.const';
 
 
 describe(`StringObject`, () => {

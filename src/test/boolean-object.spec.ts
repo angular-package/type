@@ -1,4 +1,4 @@
-import { TRUE, TRUE_EXPECTATION, TRUE_INSTANCE, FALSE, FALSE_INSTANCE, FALSE_EXPECTATION } from '../testing/variables/boolean.const';
+import { TRUE, TRUE_EXPECTATION, TRUE_INSTANCE, FALSE, FALSE_INSTANCE, FALSE_EXPECTATION } from '../testing/src/boolean.const';
 import { BooleanObject } from '../lib/boolean-object.class';
 
 

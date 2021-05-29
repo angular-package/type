@@ -1,8 +1,8 @@
 // Function.
 import { guardDefined } from '../lib/guard-defined.func';
 // Constant.
-import { STRING } from '../../testing/variables/strict/string.const';
-import { TRUE } from '../../testing/variables/strict/boolean.const';
+import { STRING } from '../../testing/src/strict/string.const';
+import { TRUE } from '../../testing/src/strict/boolean.const';
 
 describe(guardDefined.name, () => {
   // Defined.

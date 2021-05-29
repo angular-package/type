@@ -1,13 +1,13 @@
 // Function.
 import { isPrimitive } from '../lib/is-primitive.func';
 // Constant.
-import { BIGINT, BIGINT_EXPECTATION, BIGINT_INSTANCE } from '../../testing/variables/big-int.const';
-import { FALSE, TRUE, TRUE_INSTANCE, FALSE_INSTANCE, FALSE_EXPECTATION, TRUE_EXPECTATION } from '../../testing/variables/boolean.const';
-import { NULL } from '../../testing/variables/null.const';
-import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../testing/variables/number.const';
-import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/variables/string.const';
-import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/variables/symbol.const';
-import { UNDEFINED } from '../../testing/variables/undefined.const';
+import { BIGINT, BIGINT_EXPECTATION, BIGINT_INSTANCE } from '../../testing/src/big-int.const';
+import { FALSE, TRUE, TRUE_INSTANCE, FALSE_INSTANCE, FALSE_EXPECTATION, TRUE_EXPECTATION } from '../../testing/src/boolean.const';
+import { NULL } from '../../testing/src/null.const';
+import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../testing/src/number.const';
+import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/src/string.const';
+import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/src/symbol.const';
+import { UNDEFINED } from '../../testing/src/undefined.const';
 
 describe(isPrimitive.name, () => {
   // Defined.

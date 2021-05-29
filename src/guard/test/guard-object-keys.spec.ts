@@ -1,12 +1,12 @@
 // Function.
 import { guardObjectKeys } from '../lib/guard-object-keys.func';
 // Constant.
-import { DATA_DESCRIPTOR, OBJECT_ONE, ACCESSOR_DESCRIPTOR } from '../../testing/variables/object.const';
+import { DATA_DESCRIPTOR, OBJECT_ONE, ACCESSOR_DESCRIPTOR } from '../../testing/src/object.const';
 // ... strict
-import { CLASS } from '../../testing/variables/strict/class.const';
-import { NUMBER } from '../../testing/variables/strict/number.const';
-import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/variables/strict/symbol.const';
-import { TRUE, FALSE } from '../../testing/variables/strict/boolean.const';
+import { CLASS } from '../../testing/src/strict/class.const';
+import { NUMBER } from '../../testing/src/strict/number.const';
+import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/src/strict/symbol.const';
+import { TRUE, FALSE } from '../../testing/src/strict/boolean.const';
 
 describe(guardObjectKeys.name , () => {
   // Defined.

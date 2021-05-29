@@ -1,10 +1,10 @@
 // Function.
 import { guardSymbol } from '../lib/guard-symbol.func';
 // Constant.
-import { NUMBER } from '../../testing/variables/strict/number.const';
-import { STRING } from '../../testing/variables/strict/string.const';
-import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/variables/strict/symbol.const';
-import { TRUE } from '../../testing/variables/strict/boolean.const';
+import { NUMBER } from '../../testing/src/strict/number.const';
+import { STRING } from '../../testing/src/strict/string.const';
+import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/src/strict/symbol.const';
+import { TRUE } from '../../testing/src/strict/boolean.const';
 
 describe(guardSymbol.name, () => {
   // Defined.

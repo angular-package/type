@@ -1,8 +1,8 @@
 // Function.
 import { guardUndefined } from '../lib/guard-undefined.func';
 // Constant.
-import { TRUE } from '../../testing/variables/strict/boolean.const';
-import { UNDEFINED } from '../../testing/variables/strict/undefined.const';
+import { TRUE } from '../../testing/src/strict/boolean.const';
+import { UNDEFINED } from '../../testing/src/strict/undefined.const';
 
 describe(guardUndefined.name, () => {
   // Defined.

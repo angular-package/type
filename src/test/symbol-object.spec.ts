@@ -1,6 +1,6 @@
-import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../testing/variables/string.const';
+import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../testing/src/string.const';
 import { SymbolObject } from '../lib/symbol-object.class';
-import { SYMBOL_NUMBER } from '../testing/variables/symbol.const';
+import { SYMBOL_NUMBER } from '../testing/src/symbol.const';
 
 describe(`SymbolObject`, () => {
   // Defined.

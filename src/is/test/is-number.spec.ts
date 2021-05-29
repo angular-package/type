@@ -1,17 +1,17 @@
 // Function.
 import { isNumber } from '../lib/is-number.func';
 // Type.
-import { BIGINT, BIGINT_INSTANCE } from '../../testing/variables/big-int.const';
-import { CLASS, Class } from '../../testing/variables/class.const';
-import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE } from '../../testing/variables/boolean.const';
-import { FUNCTION } from '../../testing/variables/function.const';
-import { NULL } from '../../testing/variables/null.const';
-import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../testing/variables/number.const';
-import { OBJECT_ONE, OBJECT_TWO } from '../../testing/variables/object.const';
-import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/variables/string.const';
-import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/variables/symbol.const';
-import { UNDEFINED } from '../../testing/variables/undefined.const';
-import { notDefined } from '../../testing/variables/not-defined.const';
+import { BIGINT, BIGINT_INSTANCE } from '../../testing/src/big-int.const';
+import { CLASS, Class } from '../../testing/src/class.const';
+import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE } from '../../testing/src/boolean.const';
+import { FUNCTION } from '../../testing/src/function.const';
+import { NULL } from '../../testing/src/null.const';
+import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../testing/src/number.const';
+import { OBJECT_ONE, OBJECT_TWO } from '../../testing/src/object.const';
+import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/src/string.const';
+import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/src/symbol.const';
+import { UNDEFINED } from '../../testing/src/undefined.const';
+import { notDefined } from '../../testing/src/not-defined.const';
 /**
  * Checks
  * ✓ typeof === 'number'
