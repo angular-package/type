@@ -1446,7 +1446,7 @@ isObjectKeyIn(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING]); // true
 
 Use `isObjectKeys()` or `is.objectKeys()` to check if **any** `value` is an `object` with **some** its own specified keys of the [`Key`][key].
 Cause of using [`some()`][array-some] on the [rest parameter][function-rest-parameter] `...keys` each of its argument is treated as logic `or`, and cause of using [`every()`][array-every] on its array argument each of array item is treated as logic `and`.
-Simply, the function finds in the object `get` and `set` or `writable` and `value`, means the object contains `get` and `set` or `writable` and `value`.
+Simply, in the usage section below the function finds in the object `get` and `set` or `writable` and `value`, which means the object contains `get` and `set` or `writable` and `value`.
 The function uses [`hasOwnProperty`][hasownproperty] [`Object`][object] method to finds enumerable and non-enumerable [`Key`][key] as `string`, `number`, `symbol` unlike `Object.keys()` but it can't find accessor descriptor property unlike `in` operator, which can.
 
 ```typescript
@@ -2569,7 +2569,7 @@ Use `guardObjectKeys()` or `guard.is.objectKeys()` to guard the value to be an `
 The function uses [`isObjectKeys()`](#isobjectkeys) to search for the `keys` and it means:
 
 > Cause of using `some()` on the rest parameter `...keys` each of its argument is treated as logic `or`, and cause of using `every()` on its array argument each of array item is treated as logic `and`.
-> Simply, the function finds in the object `get` and `set` or `writable` and `value`, means the object contains `get` and `set` or `writable` and `value`.
+> Simply, in the usage section below the function finds in the object `get` and `set` or `writable` and `value`, which means the object contains `get` and `set` or `writable` and `value`.
 > The function uses [`hasOwnProperty`][hasownproperty] [`Object`][object] method to finds enumerable and non-enumerable [`Key`][key] as `string`, `number`, `symbol` unlike `Object.keys()` but it can't find accessor descriptor property unlike `in` operator, which can.
 
 ```typescript
