@@ -2314,6 +2314,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is a [
 ![update][update]
 
 `4.1.0`: Fixes the `value` is not guarded by extending generic type `Obj` variable with `object`.
+
 `4.1.1`: Changes the `instance` parameter name to `constructor` cause it represents [`class`][ts-classes] or [`function`][ts-function] constructor.
 
 Use `guardInstance()` or `guard.is.instance()` to guard the `value` to be an `object` of a generic `Obj` type and an `instance` of [`Constructor`][constructor] type.
