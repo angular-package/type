@@ -210,7 +210,7 @@ npm i --save @angular-package/type
 
 ## Skeleton
 
-This package was built by the [library skeleton][skeleton] which was generated generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.
+This package was built by the [library skeleton][skeleton] which was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.
 
 Copy this package to the `packages/type` folder of the [library skeleton][skeleton] then run the commands below.
 
