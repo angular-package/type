@@ -2,13 +2,13 @@
 
 Useful packages based on the [angular.io](https://angular.io/).
 
-| Package          | Description                                   | Status                                         | Readme                     |
-| :--------------- | :-------------------------------------------- | :--------------------------------------------: | :------------------------- |
-| change-detection | Improve application performance.              | *In Progress*                                  | [Readme][cd-readme-github] |
-| prism            | `Prism` highlighter module.                   | *In Progress*                                  | [Readme][prism-readme-github] |
-| property         | Features to handle object properties.         | *In Progress*                                  | [Readme][property-readme-github] |
-| ui               | User interface.                               | *In Progress*                                  | [Github][ui-readme-github] |
-| type             | Common types, type guards and type checkers.  | [![npm version][type-npm-svg]][type-npm-badge] | [Github][type-readme-github] \| [npm][type-readme-npm] |
+| Package          | Description                                  | Status                                         | Readme                                                 |
+| :--------------- | :------------------------------------------- | :--------------------------------------------: | :----------------------------------------------------- |
+| change-detection | Improve application performance.             | *In Progress*                                  | [Readme][cd-readme-github]                             |
+| prism            | `Prism` highlighter module.                  | *In Progress*                                  | [Readme][prism-readme-github]                          |
+| property         | Features to handle object properties.        | *In Progress*                                  | [Readme][property-readme-github]                       |
+| ui               | User interface.                              | *In Progress*                                  | [Github][ui-readme-github]                             |
+| type             | Common types, type guards and type checkers. | [![npm version][type-npm-svg]][type-npm-badge] | [Github][type-readme-github] \| [npm][type-readme-npm] |
 
 ## angular-package/type
 
@@ -146,7 +146,7 @@ import { Constructor, CycleHook, Defined, Func, Key, Primitive, Primitives, Resu
   * an [`Array`][array] of a generic type with [`guardArray()`](#guardarray).
   * a `bigint` with [`guardBigInt()`](#guardbigint).
   * a `boolean` with [`guardBoolean()`](#guardboolean).
-  * a generic `Class` type [`class`][classes] with [`guardClass()`](#guardclass).
+  * a generic `Class` type [`class`][ts-classes] with [`guardClass()`](#guardclass).
   * defined with [`guardDefined()`](#guarddefined).
   * a [`Func`](#func) type with [`guardFunction()`](#guardfunction).
   * an instance with [`guardInstance()`](#guardinstance).
@@ -210,17 +210,13 @@ npm i --save @angular-package/type
 
 ## Skeleton
 
-This project was built with the library [skeleton][skeleton] which is a simple library generated with the command below by the Angular-CLI.
+This package was built by the [library skeleton][skeleton] which was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.
 
-```bash
-ng new skeleton --create-application=false
-```
-
-Copy this package to the folder of skeleton library `packages/type` then you can run commands below.
+Copy this package to the `packages/type` folder of the [library skeleton][skeleton] then run the commands below.
 
 ### Build
 
-Run `ng build type` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `ng build type` to build the package. The build artifacts will be stored in the `dist/` directory.
 
 ### Running unit tests
 
@@ -275,7 +271,7 @@ const typeOf = (value: any): string => Object.prototype.toString.call(value).sli
 
 ### are
 
-Tne object contains prefixed with `are` functions.
+The object contains prefixed with `are` functions.
 
 ```typescript
 const are: Are = {
@@ -315,7 +311,7 @@ const areString = (...value: any): boolean => check('string', ...value);
 
 ![update][update]
 
-`4.1.0`: Added `objectKeys` as [`isObjectKeys()`](#isobjectkeys).
+`4.1.0`: Adds `objectKeys` as [`isObjectKeys()`](#isobjectkeys).
 
 The object contains prefixed with `is` functions and prefixed with `isNot` functions in property `not`.
 
@@ -579,7 +575,7 @@ isBooleanType(BOOLEAN_INSTANCE); // false
 
 ### isClass
 
-Use `isClass()` or `is.class()` to check if **any** `value` is a `function` type, an instance of [`Function`][function] and [`Object`][object] as a generic `Class` type of [`class`][classes]. It also **confirms** with the regexp that function is a [`class`][classes].
+Use `isClass()` or `is.class()` to check if **any** `value` is a `function` type, an instance of [`Function`][function] and [`Object`][object] as a generic `Class` type of [`class`][ts-classes]. It also **confirms** with the regexp that function is a [`class`][ts-classes].
 
 ```typescript
 const isClass: IsClass = <Class = Function>(value: any, callback: ResultCallback = resultCallback): value is Class =>
@@ -615,7 +611,7 @@ const isClass: IsClass = <Class = Function>(value: any, callback: ResultCallback
 | :----------------- | :-------: | :---------------------------------------------------------------- |
 | `value` is `Class` | `boolean` | By default `Class` variable is equal  to [`Function`][function] and the **return type** is a `boolean` as the result of its statement |
 
-The **return value** is a `boolean` indicating whether or not the `value` is a [`class`][classes].
+The **return value** is a `boolean` indicating whether or not the `value` is a [`class`][ts-classes].
 
 **Usage:**
 
@@ -676,7 +672,7 @@ isDefined(defined); // false
 
 ### isFunction
 
-Use `isFunction()` or `is.function()` to check if **any** `value` is a `function` type, an instance of [`Function`][function] and [`Object`][object]. It also **denies** with the regexp that function is a [`class`][classes].
+Use `isFunction()` or `is.function()` to check if **any** `value` is a `function` type, an instance of [`Function`][function] and [`Object`][object]. It also **denies** with the regexp that function is a [`class`][ts-classes].
 
 ```typescript
 const isFunction: IsFunction = (value: any, callback: ResultCallback = resultCallback): value is Func =>
@@ -732,17 +728,23 @@ isFunction(() => 5); // true
 
 ![update][update]
 
-`4.1.0`: Type variable `Class` default value is set to [`Function`][function].
+`4.1.1`:
 
-Use `isInstance()` or `is.instance()` to check if **any** value is an `object` of a generic `Obj` type equal to an `instance` of [`Constructor<Class>`](#constructor) type.
+* Changes the `Class` type variable name to `Obj`.
+* Changes the `className` parameter name to `constructor` cause it represents [`class`][ts-classes] or [`function`][ts-function] constructor.
+* Fixes type variable `Obj` default value is set to [`Function`][function] by removing it cause it's always being picked from the `constructor` parameter.
+* Removes unnecessary [`Constructor`][constructor] from the return type.
+* Adds check `constructor` against the [`function`][ts-function].
+
+Use `isInstance()` or `is.instance()` to check if **any** value is an `object` of a generic `Obj` type and an instance of [`Constructor`][constructor] type.
 
 ```typescript
 const isInstance: IsInstance =
-  <Class = Function>(value: any, className: Constructor<Class>, callback: ResultCallback = resultCallback): value is Constructor<Class> =>
+  <Obj>(value: any, constructor: Constructor<Obj>, callback: ResultCallback = resultCallback): value is Obj =>
     callback(
-      isObject<Class>(value) ?
-        isClass(className) ?
-          value instanceof className === true
+      isObject<Obj>(value) ?
+        isClass<Obj>(constructor) || isFunction(constructor) ?
+          value instanceof constructor === true
           : false
         : false,
       value
@@ -751,25 +753,25 @@ const isInstance: IsInstance =
 
 **Generic type variables:**
 
-| Type    | Default value | Description                                                           |
-| :------ | :------------ | :-------------------------------------------------------------------- |
-| `Class` | `Function`    | A generic variable to the return type `value` is `Constructor<Class>` |
+| Type  | Default value          | Description                                            |
+| :---- | :--------------------- | :----------------------------------------------------- |
+| `Obj` | From the `constructor` | A generic variable to the return type `value` is `Obj` |
 
 **Parameters:**
 
-| Name     | Type                                                            | Description                                |
-| :------- | :-------------------------------------------------------------: | :----------------------------------------- |
-| value    | `any`                                                           | Any `value` to compare with the `instance` |
-| instance | [`Constructor<Obj>`](#constructor)                              | A generic `Obj` [`Constructor<Obj>`](#constructor) type to create an `instance` to compare with the `value` |
-| callback | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| Name        | Type                                                            | Description                                        |
+| :---------- | :-------------------------------------------------------------: | :------------------------------------------------- |
+| value       | `any`                                                           | Any `value` to be an instance of the `constructor` |
+| constructor | [`Constructor<Obj>`][constructor]                               | A [`class`][ts-classes] or [`function`][ts-function] that specifies the type of the [`Constructor`][constructor] |
+| callback    | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | A [`ResultCallback`][resultcallback] function to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
-| Returns            | Type      | Description                                                       |
-| :----------------- | :-------: | :---------------------------------------------------------------- |
-| `value` is `Class` | `boolean` | By default `Class` variable is equal to [`Function`][function] and the **return type** is a `boolean` as the result of its statement |
+| Returns          | Type      | Description                                                       |
+| :--------------- | :-------: | :---------------------------------------------------------------- |
+| `value` is `Obj` | `boolean` | The **return type** is a `boolean` as the result of its statement |
 
-The **return value** is a `boolean` indicating whether or not the `value` is an `instance` of a generic `Class`.
+The **return value** is a `boolean` indicating whether or not the `value` is an instance of a generic `Obj`.
 
 **Usage:**
 
@@ -777,6 +779,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 // Example usage
 import { isInstance } from '@angular-package/type';
 
+// Classes.
 class Some { x = 127; }
 class Two { y = 'Lorem ipsum'; }
 
@@ -786,6 +789,18 @@ const TWO = new Two();
 isInstance<Some>(TWO, Some); // false
 isInstance<Some>(SOME, Some); // true
 isInstance<Some>(TWO, Two); // true and type error
+
+// Function constructor.
+function functionConstructor(this: any, ...args: any[]): any {
+  if (args) {
+    args.forEach((arg, index: number) => this[index] = arg[index]);
+  }
+  return this;
+}
+
+const anyInstance: any = new (functionConstructor as any)('First name', 'Sur name', 27);
+
+isInstance(anyInstance, functionConstructor as any); // true
 
 ```
 
@@ -797,7 +812,7 @@ isInstance<Some>(TWO, Two); // true and type error
 
 ![update][update]
 
-`4.1.0`: Check only for primitive `string` and `number`.
+`4.1.0`: Checks only for primitive `string` and `number`.
 
 Use `isKey()` or `is.key()` to check if **any** `value` is one of the `string`, `number`, or `symbol`.
 
@@ -2014,7 +2029,7 @@ if (!is.undefined(config.a)) {
 
 ![update][update]
 
-`4.1.0`: Added `objectKeys` as [`guardObjectKeys()`](#guardobjectkeys).
+`4.1.0`: Adds `objectKeys` as [`guardObjectKeys()`](#guardobjectkeys).
 
 The object contains prefixed with `guard` functions in `is` property.
 
@@ -2145,7 +2160,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 `4.1.0`: Fixes the `value` is not guarded by extending generic type `Class` variable with `Function`.
 
-Use `guardClass()` or `guard.is.class()` to guard the `value` to be a generic `Class` type of [`class`][classes].
+Use `guardClass()` or `guard.is.class()` to guard the `value` to be a generic `Class` type of [`class`][ts-classes].
 
 ```typescript
 const guardClass: GuardClass = <Class extends Function>(value: Class, callback?: ResultCallback): value is Class =>
@@ -2171,7 +2186,7 @@ const guardClass: GuardClass = <Class extends Function>(value: Class, callback?:
 | :----------------- | :---------: | :---------------------------------------------------------------- |
 | `value` is `Class` | `boolean`   | By default `Class` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement |
 
-The **return value** is `boolean` indicating whether or not the `value` is a [`class`][classes].
+The **return value** is `boolean` indicating whether or not the `value` is a [`class`][ts-classes].
 
 **Usage:**
 
@@ -2278,7 +2293,7 @@ const guardFunction: GuardFunction = (value: Func, callback?: ResultCallback): v
 | Name      | Type                               | Description                             |
 | :-------- | :--------------------------------: | :-------------------------------------- |
 | value     | [`Func`](#func)                    | A [`Func`](#func) type `value` to guard |
-| callback? | [`ResultCallback`][resultcallback] | Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| callback? | [`ResultCallback`][resultcallback] | An optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -2300,26 +2315,29 @@ The **return value** is a `boolean` indicating whether or not the `value` is a [
 
 `4.1.0`: Fixes the `value` is not guarded by extending generic type `Obj` variable with `object`.
 
-Use `guardInstance()` or `guard.is.instance()` to guard the `value` to be an `object` of a generic `Obj` type equal to an `instance` of [`Constructor<Obj>`](#constructor) type.
+`4.1.1`: Changes the `instance` parameter name to `constructor` cause it represents [`class`][ts-classes] or [`function`][ts-function] constructor.
+
+Use `guardInstance()` or `guard.is.instance()` to guard the `value` to be an `object` of a generic `Obj` type and an `instance` of [`Constructor`][constructor] type.
 
 ```typescript
-const guardInstance: GuardInstance = <Obj extends object>(value: Obj, instance: Constructor<Obj>, callback?: ResultCallback): value is Obj =>
-  isInstance<Obj>(value, instance, callback);
+const guardInstance: GuardInstance =
+  <Obj extends object>(value: Obj, constructor: Constructor<Obj>, callback?: ResultCallback): value is Obj =>
+    isInstance<Obj>(value, constructor, callback);
 ```
 
 **Generic type variables:**
 
-| Variable      | Default value    | Description                                                           |
-| :------------ | :--------------- | :-------------------------------------------------------------------- |
-| `Obj`         | From the `value` | Guarded with `object`, `Obj` variable from the `value` to the return type `value` is `Obj` |
+| Variable | Default value    | Description                                                                                |
+| :------- | :--------------- | :----------------------------------------------------------------------------------------- |
+| `Obj`    | From the `value` | Guarded with `object`, `Obj` variable from the `value` to the return type `value` is `Obj` |
 
 **Parameters:**
 
-| Name      | Type                               | Description                                          |
-| :-------- | :--------------------------------: | :--------------------------------------------------- |
-| value     | `Obj`                              | An `Obj` type `value` to compare with the `instance` |
-| instance  | [`Constructor<Obj>`](#constructor) | A generic `Obj` [`Constructor`](#constructor) type to create an `instance` to compare with the `value` |
-| callback? | [`ResultCallback`][resultcallback] | Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| Name        | Type                               | Description                                          |
+| :---------- | :--------------------------------: | :--------------------------------------------------- |
+| value       | `Obj`                              | A generic `Obj` type `value` to be an instance of the `constructor` |
+| constructor | [`Constructor<Obj>`][constructor]  | A [`class`][ts-classes] or [`[function]`][ts-function] that specifies the type of the [`constructor`][constructor] |
+| callback?   | [`ResultCallback`][resultcallback] | An optional [`ResultCallback`][resultcallback] function to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -2328,6 +2346,46 @@ const guardInstance: GuardInstance = <Obj extends object>(value: Obj, instance: 
 | `value` is `Obj` | `boolean` | By default `Obj` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an `instance` of a generic `Obj`.
+
+**Usage:**
+
+```typescript
+// Usage example.
+import { guardInstance } from '@angular-package/type';
+
+// Person interface.
+interface Person {
+  firstName?: string;
+  surname?: string;
+  age?: number;
+  sex?: 'male' | 'female';
+}
+
+// Class constructor.
+class Persons implements Person {
+  firstName = '';
+  surname = '';
+  age = 15;
+}
+
+// Function person constructor.
+function personFunctionConstructor(this: Person, ...args: any[]): Person {
+  if (args) {
+    this.firstName = args[0];
+    this.surname = args[1];
+    this.age = args[2];
+    this.sex = args[3];
+  }
+  return this;
+}
+
+const personInstance: Person = new (personFunctionConstructor as any)('First name', 'Sur name', 27);
+const personsInstance: Persons = new Persons();
+
+guardInstance(personInstance, personFunctionConstructor as any); // true
+guardInstance(personsInstance, Persons); // true
+
+```
 
 ----
 
@@ -2677,7 +2735,7 @@ const guardSymbol: GuardSymbol = (value: symbol, callback?: ResultCallback): val
 | Name      | Type                               | Description                      |
 | :-------- | :--------------------------------: | :------------------------------- |
 | value     | `symbol`                           | A `symbol` type `value` to guard |
-| callback? | [`ResultCallback`][resultcallback] | Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| callback? | [`ResultCallback`][resultcallback] | An optional [`ResultCallback`][resultcallback] function to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -2706,11 +2764,11 @@ const guardType: GuardType = <T extends Type>(value: T, type: Types<T>, callback
 
 **Parameters:**
 
-| Name      | Type                               | Description                                        |
-| :-------- | :--------------------------------: | :------------------------------------------------- |
-| value     | `T` extends [`Type`][type]         | A [`Type`][type] `value` to guard with the `type` |
-| type      | [`Types<T>`](#types)               | A `string` or generic [`Constructor<T>`](#constructor) type from the [`Types`](#types) to check the `value` |
-| callback? | [`ResultCallback`][resultcallback] | Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| Name      | Type                               | Description                                                                                                           |
+| :-------- | :--------------------------------: | :-------------------------------------------------------------------------------------------------------------------- |
+| value     | `T` extends [`Type`][type]         | A [`Type`][type] `value` to guard with the `type`                                                                     |
+| type      | [`Types<T>`](#types)               | A `string` or generic [`Constructor<T>`][constructor] type from the [`Types`](#types) to check the `value`            |
+| callback? | [`ResultCallback`][resultcallback] | An optional [`ResultCallback`][resultcallback] function to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -3159,6 +3217,7 @@ MIT © angular-package ([license][license])
 
 <!-- Types -->
 [callback]: #callback
+[constructor]: #constructor
 [defined]: #defined
 [resultcallback]: #resultcallback
 [key]: #key
@@ -3197,6 +3256,10 @@ MIT © angular-package ([license][license])
 [symbolconstructor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/Symbol
 
 [undefined]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined
+
+<!-- Typescript -->
+[ts-classes]: https://www.typescriptlang.org/docs/handbook/2/classes.html
+[ts-function]: https://www.typescriptlang.org/docs/handbook/2/functions.html
 
 <!-- Playground: are -->
 [are-string]: https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBAkgzgZWAJwJYDsDmUC8UAUAbgIYA2ArhAFxTHogCUuAfFCRdKnFHChpgG4AUKEhQACmgC2qYKkIRueAOQAjVJgzBlUAD5Q1Ae0OkIdHfuXpyU1RGQWDcELZOPlvNFnfl0AEwgAMwwIP2VhAGNDdF4oLiQvTBp4BP5cAnZKGjpGGkzObk80nFZ8uJjgOgiIQ0CoVKw9fVEaurKcDqc+b0jo2IiACwgIgGt0-BaaSVQZOQU4ABooADpV4mRMOGz6BhpVY1M6FigAbyEoKFNgKGRFclJrvBRKYQurqCkIYAHDP2TEbqCc48ADuskGBBaTDOFwuEWIcGgHkByhon2+v3S8UBAigqluxBGr1hAUCxHuwDRXx+fixAMSuPxZiJwIAvsDAoZkAQohVaBsoLV+ZtocCLrc4BT0uiafh1pgGMSLqg6vgJVKOngyaREaLYbCmYSlVB2RdTTcvuRkOgLZKHsJWb0+esIA1sHh8KtlvKtrQdnsDmYbSUoINhiN8MjEsoll6fYqhEIAPRJqAANXWqGIqlMcCEvNiCAAKgAlGAAOQA4gB9NMAQQAMgBVACi6WUDa5ECkcTAkqkAH5wvm+tdy02ALIAIRbJdrjdb6QATAB2J2xKcAeU3DZbdfL8+bba1ZER6+uTfLABEWwAxCstq+H1vVosAdU36V8pJCfmE70vG973LR9nxbYQRxiEwIGWUhDEwOVbjdfBALvB8n3rI8lmLMsqzApZx2nWd8KgLcdz3A9MNbBhFSgFMoG1RFILgaDYPgxDXUBfAcIrGsqJbbDS14sCaNxejnggZjWLghCXWQni8P4wTcL4hcBNI7dd33ETaPoxjJILaT2LkriFNUrCNPI7SlPqITFLU0S6NTfSgA

@@ -1,6 +1,6 @@
 // Function.
 import { isNotNull } from '../lib/is-not-null.func';
-// Variables.
+// Constant.
 import { BIGINT, BIGINT_EXPECTATION, BIGINT_INSTANCE } from '../../../testing/variables/big-int.const';
 import { Class, CLASS } from '../../../testing/variables/class.const';
 import { FUNCTION } from '../../../testing/variables/function.const';

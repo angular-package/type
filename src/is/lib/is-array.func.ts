@@ -8,7 +8,6 @@ import { ResultCallback } from '../../type/result-callback.type';
  * Checks if any `value` is an `Array`, `Array` instance, and `object` type.
  * @param value Any `value` to check.
  * @param callback `ResultCallback` function to handle result before returns.
- * @callback `resultCallback`.
  * @returns A `boolean` indicating whether or not the `value` is an `Array`.
  */
 export const isArray: IsArray = <Type = any>(value: any, callback: ResultCallback = resultCallback): value is Array<Type> =>

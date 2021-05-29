@@ -1,4 +1,4 @@
-// Variables.
+// Constant.
 import { NUMBER } from './number.const';
 import { STRING } from './string.const';
 import { SYMBOL_NUMBER, SYMBOL_STRING } from './strict/symbol.const';

@@ -1,6 +1,6 @@
 // Function.
 import { isPrimitive } from '../lib/is-primitive.func';
-// Variables.
+// Constant.
 import { BIGINT, BIGINT_EXPECTATION, BIGINT_INSTANCE } from '../../testing/variables/big-int.const';
 import { FALSE, TRUE, TRUE_INSTANCE, FALSE_INSTANCE, FALSE_EXPECTATION, TRUE_EXPECTATION } from '../../testing/variables/boolean.const';
 import { NULL } from '../../testing/variables/null.const';

@@ -1,4 +1,4 @@
-// Variables.
+// Constant.
 import { BIGINT, BIGINT_INSTANCE } from './big-int.const';
 import { Class } from './class.const';
 import { FALSE, TRUE, TRUE_INSTANCE, FALSE_INSTANCE } from './boolean.const';

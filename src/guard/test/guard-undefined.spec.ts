@@ -1,6 +1,6 @@
 // Function.
 import { guardUndefined } from '../lib/guard-undefined.func';
-// Variables.
+// Constant.
 import { TRUE } from '../../testing/variables/strict/boolean.const';
 import { UNDEFINED } from '../../testing/variables/strict/undefined.const';
 

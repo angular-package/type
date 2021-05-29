@@ -8,7 +8,6 @@ import { ResultCallback } from '../../type/result-callback.type';
  * Checks if any `value` is an `object` of a generic `Obj` type and `Object` instance.
  * @param value Any `value` to check.
  * @param callback `ResultCallback` function to handle result before returns.
- * @callback `resultCallback`.
  * @returns A `boolean` indicating whether or not the `value` is an `object`.
  */
 export const isObject: IsObject = <Obj = object>(value: any, callback: ResultCallback = resultCallback): value is Obj =>

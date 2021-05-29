@@ -1,7 +1,7 @@
 
 // Function.
 import { isNull } from '../lib/is-null.func';
-// Variables.
+// Constant.
 import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE } from '../../testing/variables/boolean.const';
 import { BIGINT, BIGINT_INSTANCE } from '../../testing/variables/big-int.const';
 import { Class, CLASS } from '../../testing/variables/class.const';

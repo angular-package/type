@@ -1,6 +1,6 @@
 // Function.
 import { isObjectKeys } from '../lib/is-object-keys.func';
-// Variables.
+// Constant.
 import { ACCESSOR_DESCRIPTOR, DATA_DESCRIPTOR, OBJECT_ONE } from '../../testing/variables/object.const';
 import { BIGINT, BIGINT_EXPECTATION, BIGINT_INSTANCE } from '../../testing/variables/big-int.const';
 import { Class, CLASS } from '../../testing/variables/class.const';

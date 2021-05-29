@@ -1,6 +1,6 @@
 // Function.
 import { guardNull } from '../lib/guard-null.func';
-// Variables.
+// Constant.
 import { NULL } from '../../testing/variables/strict/null.const';
 import { TRUE } from '../../testing/variables/strict/boolean.const';
 

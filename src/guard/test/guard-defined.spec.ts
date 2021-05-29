@@ -1,6 +1,6 @@
 // Function.
 import { guardDefined } from '../lib/guard-defined.func';
-// Variables.
+// Constant.
 import { STRING } from '../../testing/variables/strict/string.const';
 import { TRUE } from '../../testing/variables/strict/boolean.const';
 

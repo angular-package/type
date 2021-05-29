@@ -1,6 +1,6 @@
 // Function.
 import { guardPrimitive } from '../lib/guard-primitive.func';
-// Variables.
+// Constant.
 import { BIGINT, BIGINT_EXPECTATION, BIGINT_INSTANCE } from '../../testing/variables/strict/big-int.const';
 import { FALSE, TRUE } from '../../testing/variables/strict/boolean.const';
 import { NULL } from '../../testing/variables/strict/null.const';
