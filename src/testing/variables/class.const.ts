@@ -1,6 +1,9 @@
+// Constant.
 import { STRING } from './string.const';
 import { NUMBER } from './number.const';
 import { SYMBOL_STRING, SYMBOL_NUMBER } from './strict/symbol.const';
+// Interface.
+import { Person } from '../interface/person.interface';
 
 /**
  * typeof === 'function'
@@ -44,7 +47,7 @@ export class Class {
 export const CLASS = new Class();
 
 
-export class Person {
+export class Persons implements Person {
   firstName = '';
   surname = '';
   age = 15;
@@ -56,5 +59,5 @@ export class PersonCopy {
   age = 15;
 }
 
-export const PERSON: Person = new Person();
+export const PERSON: Persons = new Persons();
 export const PERSON_COPY: PersonCopy = new PersonCopy();
