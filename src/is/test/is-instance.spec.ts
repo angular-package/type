@@ -1,21 +1,24 @@
 // Function.
 import { isInstance } from '../lib/is-instance.func';
-// Variables.
+// Constant.
 import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE } from '../../testing/variables/boolean.const';
 import { BIGINT, BIGINT_INSTANCE } from '../../testing/variables/big-int.const';
-import { Class, CLASS, PERSON, Person, PersonCopy, PERSON_COPY } from '../../testing/variables/class.const';
-import { FUNCTION } from '../../testing/variables/function.const';
+import { Class, CLASS, PERSON, Persons, PersonCopy, PERSON_COPY } from '../../testing/variables/class.const';
+import { FUNCTION, functionConstructor } from '../../testing/variables/function.const';
 import { NULL } from '../../testing/variables/null.const';
 import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../testing/variables/number.const';
 import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/variables/string.const';
 import { UNDEFINED } from '../../testing/variables/undefined.const';
 import { notDefined } from '../../testing/variables/not-defined.const';
-
+/**
+ * Tests.
+ */
 describe(isInstance.name, () => {
+  const anyInstance: any = new (functionConstructor as any)('First name', 'Sur name', 27);
   // TRUE.
   it('is DEFINED', () => expect(isInstance).toBeDefined());
   it(`CLASS instance of Class`, () => expect(isInstance(CLASS, Class)).toBe(TRUE));
-  it(`PERSON instance of Person`, () => expect(isInstance(PERSON, Person)).toBe(TRUE));
+  it(`PERSON instance of Person`, () => expect(isInstance(PERSON, Persons)).toBe(TRUE));
   it(`PERSON_COPY instance of PersonCopy`, () => expect(isInstance(PERSON_COPY, PersonCopy)).toBe(TRUE));
   it(`CLASS instance of Class expect result to be true`, () => {
     isInstance(CLASS, Class, (result: boolean) => {
@@ -23,9 +26,10 @@ describe(isInstance.name, () => {
       return result;
     });
   });
+  it(`function constructor`, () => expect(isInstance(anyInstance, functionConstructor as any)).toBe(TRUE));
 
   // FALSE.
-  it(`PERSON_COPY not instance of Person`, () => expect(isInstance(PERSON_COPY, Person)).toBe(FALSE));
+  it(`PERSON_COPY not instance of Person`, () => expect(isInstance(PERSON_COPY, Persons)).toBe(FALSE));
   it(`'boolean' | Boolean`, () => {
     expect(isInstance(FALSE, FALSE)).toBe(FALSE);
     expect(isInstance(TRUE, TRUE)).toBe(FALSE);
