@@ -6,11 +6,7 @@ import { SYMBOL_NUMBER, SYMBOL_STRING } from './strict/symbol.const';
 import { DataDescriptor, } from '../interface';
 import { ObjectOne, ObjectTwo } from '../interface';
 // Type.
-import { ThisAccessorDescriptor } from '../type/this-accessor-descriptor.type'
-
-/**
- * @example https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
- */
+import { ThisAccessorDescriptor } from '../type/this-accessor-descriptor.type';
 /**
  * typeof === 'object'
  * instanceof Boolean === false
@@ -78,7 +74,7 @@ export const ACCESSOR_DESCRIPTOR: ThisAccessorDescriptor<string | undefined, Obj
   get(): string | undefined {
     return this[5];
   },
-  set(value: string | undefined) {
+  set(value: string | undefined): void {
     this[5] = value;
   }
 }
