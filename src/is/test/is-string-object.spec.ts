@@ -1,6 +1,6 @@
 // Function.
 import { isStringObject } from '../lib/is-string-object.func';
-// Variables.
+// Constant.
 import { BIGINT, BIGINT_EXPECTATION, BIGINT_INSTANCE } from '../../testing/variables/big-int.const';
 import { Class, CLASS } from '../../testing/variables/class.const';
 import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE, FALSE_EXPECTATION, TRUE_EXPECTATION } from '../../testing/variables/boolean.const';

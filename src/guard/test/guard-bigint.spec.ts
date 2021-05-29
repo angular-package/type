@@ -1,6 +1,6 @@
 // Function.
 import { guardBigInt } from '../lib/guard-big-int.func';
-// Variables.
+// Constant.
 import { BIGINT, BIGINT_EXPECTATION, BIGINT_INSTANCE } from '../../testing/variables/strict/big-int.const';
 import { TRUE } from '../../testing/variables/strict/boolean.const';
 

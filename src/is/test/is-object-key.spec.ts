@@ -1,6 +1,6 @@
 // Function.
 import { isObjectKey } from '../lib/is-object-key.func';
-// Variables.
+// Constant.
 import { BIGINT, BIGINT_EXPECTATION, BIGINT_INSTANCE } from '../../testing/variables/big-int.const';
 import { Class, CLASS } from '../../testing/variables/class.const';
 import { FALSE, TRUE, TRUE_INSTANCE, FALSE_INSTANCE, FALSE_EXPECTATION, TRUE_EXPECTATION } from '../../testing/variables/boolean.const';

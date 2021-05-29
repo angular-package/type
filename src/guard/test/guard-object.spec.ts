@@ -1,6 +1,6 @@
 // Function.
 import { guardObject } from '../lib/guard-object.func';
-// Variables.
+// Constant.
 import { CLASS } from '../../testing/variables/strict/class.const';
 import { OBJECT_ONE, OBJECT_TWO, OBJECT_ONE_NEW, OBJECT_TWO_NEW } from '../../testing/variables/object.const';
 import { TRUE } from '../../testing/variables/strict/boolean.const';

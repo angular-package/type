@@ -1,6 +1,6 @@
 // Function.
 import { guardSymbol } from '../lib/guard-symbol.func';
-// Variables.
+// Constant.
 import { NUMBER } from '../../testing/variables/strict/number.const';
 import { STRING } from '../../testing/variables/strict/string.const';
 import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/variables/strict/symbol.const';

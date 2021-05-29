@@ -1,6 +1,6 @@
 // Function.
 import { guardObjectKey } from '../lib/guard-object-key.func';
-// Variables.
+// Constant.
 import { CLASS, TEST_CLASS, TestClass } from '../../testing/variables/strict/class.const';
 import { NUMBER } from '../../testing/variables/number.const';
 import { OBJECT_ONE } from '../../testing/variables/object.const';

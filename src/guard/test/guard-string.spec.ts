@@ -1,6 +1,6 @@
 // Function.
 import { guardString } from '../lib/guard-string.func';
-// Variables.
+// Constant.
 import { STRING, STRING_NEW_INSTANCE } from '../../testing/variables/strict/string.const';
 import { TRUE } from '../../testing/variables/strict/boolean.const';
 

@@ -1,6 +1,6 @@
 // Function.
 import { guardArray } from '../lib/guard-array.func';
-// Variables.
+// Constant.
 import {
   ARRAY_BIGINT,
   ARRAY_BOOLEAN,

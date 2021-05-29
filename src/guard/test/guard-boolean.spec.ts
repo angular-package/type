@@ -1,6 +1,6 @@
 // Function.
 import { guardBoolean } from '../lib/guard-boolean.func';
-// Variables.
+// Constant.
 import { FALSE_EXPECTATION, TRUE, TRUE_EXPECTATION, FALSE, TRUE_INSTANCE, FALSE_INSTANCE } from '../../testing/variables/strict/boolean.const';
 
 describe(guardBoolean.name, () => {
