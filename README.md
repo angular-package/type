@@ -366,7 +366,7 @@ const isArray: IsArray = <Type = any>(value: any, callback: ResultCallback = res
 
 **Generic type variables:**
 
-| Type   | Default value | Description |
+| Name   | Default value | Description |
 | :----- | :------------ | :---------- |
 | `Type` | `any`         | A generic variable to the return type `value` is `Array<Type>` |
 
@@ -594,7 +594,7 @@ const isClass: IsClass = <Class = Function>(value: any, callback: ResultCallback
 
 **Generic type variables:**
 
-| Type    | Default value | Description |
+| Name    | Default value | Description |
 | :------ | :------------ | :---------- |
 | `Class` | `Function`    | A generic variable to the return type `value` is `Class` |
 
@@ -753,7 +753,7 @@ const isInstance: IsInstance =
 
 **Generic type variables:**
 
-| Type  | Default value          | Description                                            |
+| Name  | Default value          | Description                                            |
 | :---- | :--------------------- | :----------------------------------------------------- |
 | `Obj` | From the `constructor` | A generic variable to the return type `value` is `Obj` |
 
@@ -1081,7 +1081,7 @@ const isObject: IsObject = <Obj = object>(value: any, callback: ResultCallback =
 
 **Generic type variables:**
 
-| Type  | Default value | Description |
+| Name  | Default value | Description |
 | :---- | :------------ | :---------- |
 | `Obj` | `object`      | A generic variable to the return type `value` is `Obj` |
 
@@ -1184,7 +1184,7 @@ const isObjectKey: IsObjectKey =
 
 **Generic type variables:**
 
-| Type   | Default value | Description |
+| Name   | Default value | Description |
 | :----- | :------------ | :---------- |
 | `Type` | `object`      | A generic variable to the return type `value` is `Type` |
 
@@ -1337,7 +1337,7 @@ const isObjectKeyIn: IsObjectKeyIn =
 
 **Generic type variables:**
 
-| Type           | Default value | Description |
+| Name           | Default value | Description |
 | :------------- | :------------ | :---------- |
 | `Type`         | `object`      | A generic variable to the return type `value` is `Type` |
 
@@ -1466,7 +1466,7 @@ const isObjectKeys: IsObjectKeys = <Type = object>(
 
 **Generic type variables:**
 
-| Type   | Default value | Description |
+| Name   | Default value | Description |
 | :----- | :------------ | :---------- |
 | `Type` | `object`      | A generic variable to the return type `value` is `Type` |
 
@@ -1561,7 +1561,7 @@ const isPrimitive: IsPrimitive = <T extends Primitive>(
 
 **Generic type variables:**
 
-| Type                    | Default value             | Description |
+| Name                    | Default value             | Description |
 | :---------------------- | :------------------------ | :---------- |
 | `T` extends `Primitive` | [`Primitive`](#primitive) | Guarded with [`Primitive`](#primitive) type, `T` variable to the return type `value` is `T` |
 
@@ -1726,7 +1726,7 @@ const isType: IsType = <T extends Type>(value: any, type: Types<T>, callback: Re
 
 **Generic type variables:**
 
-| Type                       | Default value   | Description |
+| Name                       | Default value   | Description |
 | :------------------------- | :-------------- | :---------- |
 | `T` extends [`Type`][type] | [`Type`][type] | Guarded with [`Type`][type] type, `T` variable to the return type `value` is `T` |
 
@@ -2073,7 +2073,7 @@ const guardArray: GuardArray = <Type>(value: Array<Type>, callback?: ResultCallb
 
 **Generic type variables:**
 
-| Variable | Default value    | Description |
+| Name     | Default value    | Description |
 | :------- | :--------------- | :---------- |
 | `Type`   | From the `value` | An `Array` of a `Type` variable from the `value` to the return type `value` is `Array<Type>` |
 
@@ -2133,7 +2133,7 @@ const guardBoolean: GuardBoolean = <B extends AnyBoolean>(value: B, callback?: R
 
 **Generic type variables:**
 
-| Variable                                | Default value    | Description |
+| Name                                    | Default value    | Description |
 | :-------------------------------------- | :--------------- | :---------- |
 | `B` extends [`AnyBoolean`](#anyboolean) | From the `value` | Guarded with [`AnyBoolean`](#anyboolean), generic `B` variable from the `value` to the return type `value` is `B` |
 
@@ -2169,7 +2169,7 @@ const guardClass: GuardClass = <Class extends Function>(value: Class, callback?:
 
 **Generic type variables:**
 
-| Variable      | Default value    | Description |
+| Name          | Default value    | Description |
 | :------------ | :--------------- | :---------- |
 | `Class`       | From the `value` | Guarded with `Function`, generic `Class` variable from the `value` to the return type `value` is `Class` |
 
@@ -2258,7 +2258,7 @@ const guardDefined: GuardDefined = <Type>(value: Defined<Type>, callback?: Resul
 
 **Generic type variables:**
 
-| Variable | Default value    | Description                                                                                         |
+| Name     | Default value    | Description                                                                                         |
 | :------- | :--------------- | :-------------------------------------------------------------------------------------------------- |
 | `Type`   | From the `value` | Guarded with [`Defined<Type>`][defined], a generic `Type` variable from the `value` to the return type `value` is [`Defined<Type>`][defined] |
 
@@ -2327,14 +2327,14 @@ const guardInstance: GuardInstance =
 
 **Generic type variables:**
 
-| Variable | Default value    | Description                                                                                |
+| Name     | Default value    | Description                                                                                |
 | :------- | :--------------- | :----------------------------------------------------------------------------------------- |
 | `Obj`    | From the `value` | Guarded with `object`, `Obj` variable from the `value` to the return type `value` is `Obj` |
 
 **Parameters:**
 
-| Name        | Type                               | Description                                          |
-| :---------- | :--------------------------------: | :--------------------------------------------------- |
+| Name        | Type                               | Description                                                         |
+| :---------- | :--------------------------------: | :------------------------------------------------------------------ |
 | value       | `Obj`                              | A generic `Obj` type `value` to be an instance of the `constructor` |
 | constructor | [`Constructor<Obj>`][constructor]  | A [`class`][ts-classes] or [`[function]`][ts-function] that specifies the type of the [`constructor`][constructor] |
 | callback?   | [`ResultCallback`][resultcallback] | An optional [`ResultCallback`][resultcallback] function to handle the result before returns eg. to throw an [`Error`][error] |
@@ -2456,7 +2456,7 @@ const guardNumber: GuardNumber = <N extends AnyNumber>(value: N, callback?: Resu
 
 **Generic type variables:**
 
-| Variable                              | Default value    | Description |
+| Name                                  | Default value    | Description |
 | :------------------------------------ | :--------------- | :---------- |
 | `N` extends [`AnyNumber`](#anynumber) | From the `value` | Guarded with [`AnyNumber`](#anynumber), `N` variable from the `value` to the return type `value` is `N` |
 
@@ -2494,8 +2494,8 @@ const guardObject: GuardObject = <Obj extends object>(value: Obj, callback?: Res
 
 **Generic type variables:**
 
-| Variable | Default value    | Description |
-| :------- | :--------------- | :---------- |
+| Name     | Default value    | Description                                                                                |
+| :------- | :--------------- | :----------------------------------------------------------------------------------------- |
 | `Obj`    | From the `value` | Guarded with `object`, `Obj` variable from the `value` to the return type `value` is `Obj` |
 
 **Parameters:**
@@ -2535,8 +2535,8 @@ const guardObjectKey: GuardObjectKey =
 
 **Generic type variables:**
 
-| Variable | Default value    | Description |
-| :------- | :--------------- | :---------- |
+| Name     | Default value    | Description                                                                                |
+| :------- | :--------------- | :----------------------------------------------------------------------------------------- |
 | `Obj`    | From the `value` | Guarded with `object`, `Obj` variable from the `value` to the return type `value` is `Obj` |
 
 **Parameters:**
@@ -2580,8 +2580,8 @@ const guardObjectKeys: GuardObjectKeys =
 
 **Generic type variables:**
 
-| Variable | Default value    | Description |
-| :------- | :--------------- | :---------- |
+| Name     | Default value    | Description                                                                                |
+| :------- | :--------------- | :----------------------------------------------------------------------------------------- |
 | `Obj`    | From the `value` | Guarded with `object`, `Obj` variable from the `value` to the return type `value` is `Obj` |
 
 **Parameters:**
@@ -2659,7 +2659,7 @@ const guardPrimitive: GuardPrimitive =
 
 **Generic type variables:**
 
-| Variable                                 | Default value    | Description |
+| Name                                     | Default value    | Description |
 | :--------------------------------------- | :--------------- | :---------- |
 | `Type` extends [`Primitive`](#primitive) | From the `value` | Guarded with [`Primitive`](#primitive) type, `Type` variable from the `value` to the return type `value` is `Type` |
 
@@ -2696,7 +2696,7 @@ const guardString: GuardString = <S extends AnyString>(value: S, callback?: Resu
 
 **Generic type variables:**
 
-| Variable                              | Default value    | Description |
+| Name                                  | Default value    | Description |
 | :------------------------------------ | :--------------- | :---------- |
 | `S` extends [`AnyString`](#anystring) | From the `value` | Guarded with [`AnyString`](#anystring) type, `S` variable from the `value` to the return type `value` is `S` |
 
@@ -2758,7 +2758,7 @@ const guardType: GuardType = <T extends Type>(value: T, type: Types<T>, callback
 
 **Generic type variables:**
 
-| Variable                   | Default value    | Description |
+| Name                       | Default value    | Description |
 | :------------------------- | :--------------- | :---------- |
 | `T` extends [`Type`][type] | From the `value` | Guarded with [`Type`][type] type,`T` variable from the `value` to the return type `value` is `T` |
 
