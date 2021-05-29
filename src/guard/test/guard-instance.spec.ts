@@ -1,15 +1,22 @@
 // Function.
 import { guardInstance } from '../lib/guard-instance.func';
-// Variables.
-import { CLASS, Class } from '../../testing/variables/strict/class.const';
+// Constant.
+import { CLASS, Class, Persons } from '../../testing/variables/strict/class.const';
 import { FALSE_EXPECTATION, TRUE_EXPECTATION } from '../../testing/variables/strict/boolean.const';
 import { NUMBER } from '../../testing/variables/strict/number.const';
 import { NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../testing/variables/strict/number.const';
 import { STRING } from '../../testing/variables/strict/string.const';
 import { STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/variables/strict/string.const';
 import { TRUE, TRUE_INSTANCE, FALSE_INSTANCE, FALSE } from '../../testing/variables/strict/boolean.const';
-
+import { personFunctionConstructor } from '../../testing/variables/strict/function.const';
+// Interface.
+import { Person } from '../../testing/interface/person.interface';
+/**
+ * Tests.
+ */
 describe(guardInstance.name , () => {
+  const personInstance: Person = new (personFunctionConstructor as any)('First name', 'Sur name', 27);
+  const personsInstance: Persons = new Persons();
   // Defined.
   it('is DEFINED', () => expect(guardInstance).toBeDefined());
 
@@ -23,7 +30,11 @@ describe(guardInstance.name , () => {
       });
     });
     // ... instance.
-    describe(`instance`, () => it(`CLASS`, () => expect(guardInstance(CLASS, Class)).toBe(TRUE)));
+    describe(`instance`, () => {
+      it(`CLASS`, () => expect(guardInstance(CLASS, Class)).toBe(TRUE));
+      it(`class Persons`, () => expect(guardInstance(personsInstance, Persons)).toBe(TRUE));
+      it(`function`, () => expect(guardInstance(personInstance, personFunctionConstructor as any)).toBe(TRUE));
+    });
 
     // ... primitives.
     describe(`primitive`, () => {
