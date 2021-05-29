@@ -311,7 +311,7 @@ const areString = (...value: any): boolean => check('string', ...value);
 
 ![update][update]
 
-`4.1.0`: Added `objectKeys` as [`isObjectKeys()`](#isobjectkeys).
+`4.1.0`: Adds `objectKeys` as [`isObjectKeys()`](#isobjectkeys).
 
 The object contains prefixed with `is` functions and prefixed with `isNot` functions in property `not`.
 
@@ -730,11 +730,11 @@ isFunction(() => 5); // true
 
 `4.1.1`:
 
-* Change the `Class` type variable to `Obj`.
-* Change the `className` parameter name to `constructor`.
+* Changes the `Class` type variable name to `Obj`.
+* Changes the `className` parameter name to `constructor` cause it represents [`class`][ts-classes] or [`function`][ts-function] constructor.
 * Fixes type variable `Obj` default value is set to [`Function`][function] by removing it cause it's always being picked from the `constructor` parameter.
-* Removed unnecessary `Constructor` from the return type.
-* Add check `constructor` against the function.
+* Removes unnecessary [`Constructor`][constructor] from the return type.
+* Adds check `constructor` against the [`function`][ts-function].
 
 Use `isInstance()` or `is.instance()` to check if **any** value is an `object` of a generic `Obj` type and an instance of [`Constructor`][constructor] type.
 
@@ -753,9 +753,9 @@ const isInstance: IsInstance =
 
 **Generic type variables:**
 
-| Type  | Default value | Description                                            |
-| :---- | :------------ | :----------------------------------------------------- |
-| `Obj` |               | A generic variable to the return type `value` is `Obj` |
+| Type  | Default value          | Description                                            |
+| :---- | :--------------------- | :----------------------------------------------------- |
+| `Obj` | From the `constructor` | A generic variable to the return type `value` is `Obj` |
 
 **Parameters:**
 
@@ -812,7 +812,7 @@ isInstance(anyInstance, functionConstructor as any); // true
 
 ![update][update]
 
-`4.1.0`: Check only for primitive `string` and `number`.
+`4.1.0`: Checks only for primitive `string` and `number`.
 
 Use `isKey()` or `is.key()` to check if **any** `value` is one of the `string`, `number`, or `symbol`.
 
@@ -2029,7 +2029,7 @@ if (!is.undefined(config.a)) {
 
 ![update][update]
 
-`4.1.0`: Added `objectKeys` as [`guardObjectKeys()`](#guardobjectkeys).
+`4.1.0`: Adds `objectKeys` as [`guardObjectKeys()`](#guardobjectkeys).
 
 The object contains prefixed with `guard` functions in `is` property.
 
@@ -2314,6 +2314,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is a [
 ![update][update]
 
 `4.1.0`: Fixes the `value` is not guarded by extending generic type `Obj` variable with `object`.
+`4.1.1`: Changes the `instance` parameter name to `constructor` cause it represents [`class`][ts-classes] or [`function`][ts-function] constructor.
 
 Use `guardInstance()` or `guard.is.instance()` to guard the `value` to be an `object` of a generic `Obj` type and an `instance` of [`Constructor`][constructor] type.
 
