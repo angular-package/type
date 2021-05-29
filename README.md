@@ -146,7 +146,7 @@ import { Constructor, CycleHook, Defined, Func, Key, Primitive, Primitives, Resu
   * an [`Array`][array] of a generic type with [`guardArray()`](#guardarray).
   * a `bigint` with [`guardBigInt()`](#guardbigint).
   * a `boolean` with [`guardBoolean()`](#guardboolean).
-  * a generic `Class` type [`class`][classes] with [`guardClass()`](#guardclass).
+  * a generic `Class` type [`class`][ts-classes] with [`guardClass()`](#guardclass).
   * defined with [`guardDefined()`](#guarddefined).
   * a [`Func`](#func) type with [`guardFunction()`](#guardfunction).
   * an instance with [`guardInstance()`](#guardinstance).
@@ -575,7 +575,7 @@ isBooleanType(BOOLEAN_INSTANCE); // false
 
 ### isClass
 
-Use `isClass()` or `is.class()` to check if **any** `value` is a `function` type, an instance of [`Function`][function] and [`Object`][object] as a generic `Class` type of [`class`][classes]. It also **confirms** with the regexp that function is a [`class`][classes].
+Use `isClass()` or `is.class()` to check if **any** `value` is a `function` type, an instance of [`Function`][function] and [`Object`][object] as a generic `Class` type of [`class`][ts-classes]. It also **confirms** with the regexp that function is a [`class`][ts-classes].
 
 ```typescript
 const isClass: IsClass = <Class = Function>(value: any, callback: ResultCallback = resultCallback): value is Class =>
@@ -611,7 +611,7 @@ const isClass: IsClass = <Class = Function>(value: any, callback: ResultCallback
 | :----------------- | :-------: | :---------------------------------------------------------------- |
 | `value` is `Class` | `boolean` | By default `Class` variable is equal  to [`Function`][function] and the **return type** is a `boolean` as the result of its statement |
 
-The **return value** is a `boolean` indicating whether or not the `value` is a [`class`][classes].
+The **return value** is a `boolean` indicating whether or not the `value` is a [`class`][ts-classes].
 
 **Usage:**
 
@@ -672,7 +672,7 @@ isDefined(defined); // false
 
 ### isFunction
 
-Use `isFunction()` or `is.function()` to check if **any** `value` is a `function` type, an instance of [`Function`][function] and [`Object`][object]. It also **denies** with the regexp that function is a [`class`][classes].
+Use `isFunction()` or `is.function()` to check if **any** `value` is a `function` type, an instance of [`Function`][function] and [`Object`][object]. It also **denies** with the regexp that function is a [`class`][ts-classes].
 
 ```typescript
 const isFunction: IsFunction = (value: any, callback: ResultCallback = resultCallback): value is Func =>
@@ -2160,7 +2160,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 `4.1.0`: Fixes the `value` is not guarded by extending generic type `Class` variable with `Function`.
 
-Use `guardClass()` or `guard.is.class()` to guard the `value` to be a generic `Class` type of [`class`][classes].
+Use `guardClass()` or `guard.is.class()` to guard the `value` to be a generic `Class` type of [`class`][ts-classes].
 
 ```typescript
 const guardClass: GuardClass = <Class extends Function>(value: Class, callback?: ResultCallback): value is Class =>
@@ -2186,7 +2186,7 @@ const guardClass: GuardClass = <Class extends Function>(value: Class, callback?:
 | :----------------- | :---------: | :---------------------------------------------------------------- |
 | `value` is `Class` | `boolean`   | By default `Class` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement |
 
-The **return value** is `boolean` indicating whether or not the `value` is a [`class`][classes].
+The **return value** is `boolean` indicating whether or not the `value` is a [`class`][ts-classes].
 
 **Usage:**
 
