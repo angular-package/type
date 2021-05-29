@@ -6,7 +6,6 @@ import { NULL } from './null.const';
 import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from './number.const';
 import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from './string.const';
 import { UNDEFINED } from './undefined.const';
-// Type.
 import { notDefined } from './not-defined.const';
 
 // Arrays.
@@ -25,9 +24,10 @@ export const ARRAY_NULL: Array<any> = [null, null, null, NULL, NULL];
 export const ARRAY_NUMBER: Array<any> = [1, 2, 3, 4, 7, 10, 1000, 3000, 151233, 12352223, NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE];
 // Array with 'object'.
 export const ARRAY_OBJECT_ONE: Array<any> = [{ x: 3000 }, { x: 1 }, { x: 55 }];
-export const ARRAY_OBJECT_TWO: Array<any> = [{ x: 'One Two Three', y: 10000  }, { x: 'One Two Three', y: 10000  }, { x: 'One Two Three', y: 10000  }];
+export const ARRAY_OBJECT_TWO: Array<any> =
+  [{ x: 'One Two Three', y: 10000  }, { x: 'One Two Three', y: 10000  }, { x: 'One Two Three', y: 10000  }];
 // Array with `string`.
-export const ARRAY_STRING: Array<any> = [STRING, STRING_INSTANCE, STRING_NEW_INSTANCE, '!@#$%^&*()abcdefghijklmnoprstuwyz'];
+export const ARRAY_STRING: Array<any> = [STRING, STRING_INSTANCE, STRING_NEW_INSTANCE, '!@#$%^&*()Company'];
 // Array with `symbol`.
 export const ARRAY_SYMBOL_STRING: Array<any> = [Symbol('String Symbol'), Symbol('String Symbol'), Symbol('String Symbol One'), Symbol('String Symbol Two')];
 export const ARRAY_SYMBOL_NUMBER: Array<any> = [Symbol(1005), Symbol(1002), Symbol(15), Symbol(1)];
