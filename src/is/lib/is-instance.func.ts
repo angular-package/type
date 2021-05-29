@@ -9,9 +9,9 @@ import { IsInstance } from '../type/is-instance.type';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
  * Checks if any `value` is an `object` of a generic `Obj` type and an `instance` of `Constructor` type.
- * @param value Any `value` to compare with the `constructor`.
+ * @param value Any `value` to be an instance of the `constructor`.
  * @param constructor A class or function that specifies the type of the `constructor`.
- * @param callback `ResultCallback` function to handle result before returns.
+ * @param callback A `ResultCallback` function to handle the result before returns.
  * @returns  A `boolean` indicating whether or not the `value` is an instance of a generic `Obj`.
  */
 export const isInstance: IsInstance =
