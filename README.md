@@ -179,7 +179,7 @@ Guard
 * [Skeleton](#skeleton)
 * [Callback](#callback)
 * [Check](#check)
-  * [typeOf](#typeof)
+  * [typeOf()](#typeof)
   * [are](#are)
   * [is](#is)
   * [isNot](#isnot)
@@ -372,10 +372,10 @@ const isArray: IsArray = <Type = any>(value: any, callback: ResultCallback = res
 
 **Parameters:**
 
-| Name      | Type                                                            | Description          |
-| :-------- | :-------------------------------------------------------------: | :------------------- |
-| value     | `any`                                                           | Any `value` to check |
-| callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| Name: `type`                                 | Description          |
+| :------------------------------------------- | :------------------- |
+| value: `any`                                 | Any `value` to check |
+| callback: [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -414,10 +414,10 @@ const isBigInt: IsBigInt = (value: any, callback: ResultCallback = resultCallbac
 
 **Parameters:**
 
-| Name      | Type                                                            | Description          |
-| :-------- | :-------------------------------------------------------------: | :------------------- |
-| value     | `any`                                                           | Any `value` to check |
-| callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| Name: `type`                                 | Description          |
+| :------------------------------------------- | :------------------- |
+| value: `any`                                 | Any `value` to check |
+| callback: [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -456,10 +456,10 @@ const isBoolean: IsBoolean = (value: any, callback: ResultCallback = resultCallb
 
 **Parameters:**
 
-| Name     | Type                                                            | Description          |
-| :------- | :-------------------------------------------------------------: | :------------------- |
-| value    | `any`                                                           | Any `value` to check |
-| callback | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| Name: `type`                                 | Description          |
+| :------------------------------------------- | :------------------- |
+| value: `any`                                 | Any `value` to check |
+| callback: [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -498,10 +498,10 @@ const isBooleanObject: IsBooleanObject = (value: any, callback: ResultCallback =
 
 **Parameters:**
 
-| Name      | Type                                                            | Description          |
-| :---------| :-------------------------------------------------------------: | :------------------- |
-| value     | `any`                                                           | Any `value` to check |
-| callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| Name: `type`                                 | Description          |
+| :------------------------------------------- | :------------------- |
+| value: `any`                                 | Any `value` to check |
+| callback: [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -544,10 +544,10 @@ const isBooleanType: IsBooleanType = (value: any, callback: ResultCallback = res
 
 **Parameters:**
 
-| Name      | Type                                                            | Description          |
-| :---------| :-------------------------------------------------------------: | :------------------- |
-| value     | `any`                                                           | Any `value` to check |
-| callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| Name: `type`                                 | Description          |
+| :------------------------------------------- | :------------------- |
+| value: `any`                                 | Any `value` to check |
+| callback: [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -600,10 +600,10 @@ const isClass: IsClass = <Class = Function>(value: any, callback: ResultCallback
 
 **Parameters:**
 
-| Name     | Type                                                            | Description          |
-| :------- | :-------------------------------------------------------------: | :------------------- |
-| value    | `any`                                                           | Any `value` to check |
-| callback | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| Name: `type`                                 | Description          |
+| :------------------------------------------- | :------------------- |
+| value: `any`                                 | Any `value` to check |
+| callback: [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -641,10 +641,10 @@ const isDefined: IsDefined = (value: unknown, callback: ResultCallback = resultC
 
 **Parameters:**
 
-| Name      | Type                                                            | Description                   |
-| :-------- | :-------------------------------------------------------------: | :---------------------------- |
-| value     | `unknown`                                                       | An `unknown` `value` to check |
-| callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| Name: `type`                                 | Description                   |
+| :------------------------------------------- | :---------------------------- |
+| value: `unknown`                             | An `unknown` `value` to check |
+| callback: [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -691,10 +691,10 @@ const isFunction: IsFunction = (value: any, callback: ResultCallback = resultCal
 
 **Parameters:**
 
-| Name      | Type                                                            | Description          |
-| :-------- | :-------------------------------------------------------------: | :------------------- |
-| value     | `any`                                                           | Any `value` to check |
-| callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| Name: `type`                                 | Description          |
+| :------------------------------------------- | :------------------- |
+| value: `any`                                 | Any `value` to check |
+| callback: [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -759,11 +759,11 @@ const isInstance: IsInstance =
 
 **Parameters:**
 
-| Name        | Type                                                            | Description                                        |
-| :---------- | :-------------------------------------------------------------: | :------------------------------------------------- |
-| value       | `any`                                                           | Any `value` to be an instance of the `constructor` |
-| constructor | [`Constructor<Obj>`][constructor]                               | A [`class`][ts-classes] or [`function`][ts-function] that specifies the type of the [`Constructor`][constructor] |
-| callback    | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | A [`ResultCallback`][resultcallback] function to handle the result before returns eg. to throw an [`Error`][error] |
+| Name: `type`                                    | Description                                        |
+| :---------------------------------------------- | :------------------------------------------------- |
+| value: `any`                                    | Any `value` to be an instance of the `constructor` |
+| constructor: [`Constructor<Obj>`][constructor]  | A [`class`][ts-classes] or [`function`][ts-function] that specifies the type of the [`Constructor`][constructor] |
+| callback: [`ResultCallback`][resultcallback]    | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -823,10 +823,10 @@ const isKey: IsKey = (value: any, callback: ResultCallback = resultCallback): va
 
 **Parameters:**
 
-| Name     | Type                                                            | Description          |
-| :------- | :-------------------------------------------------------------: | :------------------- |
-| value    | `any`                                                           | Any `value` to check |
-| callback | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| Name: `type`                                 | Description          |
+| :------------------------------------------- | :------------------- |
+| value: `any`                                 | Any `value` to check |
+| callback: [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -872,10 +872,10 @@ const isNull: IsNull = (value: any, callback: ResultCallback = resultCallback): 
 
 **Parameters:**
 
-| Name     | Type                                                            | Description          |
-| :------- | :-------------------------------------------------------------: |--------------------- |
-| value    | `any`                                                           | Any `value` to check |
-| callback | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| Name: `type`                                 | Description          |
+| :------------------------------------------- |--------------------- |
+| value: `any`                                 | Any `value` to check |
+| callback: [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -927,10 +927,10 @@ const isNumber: IsNumber = (value: any, callback: ResultCallback = resultCallbac
 
 **Parameters:**
 
-| Name     | Type                                                            | Description          |
-| :------- | :-------------------------------------------------------------: | :------------------- |
-| value    | `any`                                                           | Any `value` to check |
-| callback | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| Name: `type`                                 | Description          |
+| :------------------------------------------- | :------------------- |
+| value: `any`                                 | Any `value` to check |
+| callback: [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -957,10 +957,10 @@ const isNumberObject: IsNumberObject = (value: any, callback: ResultCallback = r
 
 **Parameters:**
 
-| Name     | Type                                                            | Description          |
-| :------- | :-------------------------------------------------------------: | :------------------- |
-| value    | `any`                                                           | Any `value` to check |
-| callback | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| Name: `type`                                 | Description          |
+| :------------------------------------------- | :------------------- |
+| value: `any`                                 | Any `value` to check |
+| callback: [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -1019,10 +1019,10 @@ const isNumberType: IsNumberType = (value: any, callback: ResultCallback = resul
 
 **Parameters:**
 
-| Name      | Type                                                            | Description          |
-| :-------- | :-------------------------------------------------------------: | :------------------- |
-| value     | `any`                                                           | Any `value` to check |
-| callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| Name: `type`                                 | Description          |
+| :------------------------------------------- | :------------------- |
+| value: `any`                                 | Any `value` to check |
+| callback: [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -1087,9 +1087,10 @@ const isObject: IsObject = <Obj = object>(value: any, callback: ResultCallback =
 
 **Parameters:**
 
-| Name      | Type   | Description          |
-| :-------- | :----: | :------------------- |
-| value     | `any`  | Any `value` to check |
+| Name: `type`                                 | Description          |
+| :------------------------------------------- | :------------------- |
+| value: `any`                                 | Any `value` to check |
+| callback: [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -1190,11 +1191,11 @@ const isObjectKey: IsObjectKey =
 
 **Parameters:**
 
-| Name      | Type                                                            | Description                                           |
-| :-------- | :-------------------------------------------------------------: | :---------------------------------------------------- |
-| value     | `any`                                                           | Any `value` to check if it contains a specified `key` |
-| key       | [`Key`][key] \| [`Key[]`][key]                                  | A [`Key`][key] type or an array of [`Key`][key] type to check in the `value` |
-| callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| Name: `type`                                 | Description                                           |
+| :------------------------------------------- | :---------------------------------------------------- |
+| value: `any`                                 | Any `value` to check if it contains a specified `key` |
+| key: [`Key`][key] \| [`Key[]`][key]          | A [`Key`][key] type or an array of [`Key`][key] type to check in the `value` |
+| callback: [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -1347,7 +1348,7 @@ const isObjectKeyIn: IsObjectKeyIn =
 | :-------- | :-------------------------------------------------------------: | :---------------------------------------------------- |
 | value     | `any`                                                           | Any `value` to check if it contains a specified `key` |
 | key       | [`Key`][key] \| [`Key[]`][key]                                  | A [`Key`][key] type or an array of [`Key`][key] type to check in the `value` |
-| callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| callback  | [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -1567,11 +1568,11 @@ const isPrimitive: IsPrimitive = <T extends Primitive>(
 
 **Parameters:**
 
-| Name      | Type                                                            | Description                                                               |
-| :-------- | :-------------------------------------------------------------: | :------------------------------------------------------------------------ |
-| value     | `any`                                                           | Any `value` to check if it's a `Primitive` from the `type`                |
-| type      | [`Primitives`](#primitives)                                     | A `string` type from the [`Primitives`](#primitives) to check the `value` |
-| callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| Name: `type`                                 | Description                                                               |
+| :------------------------------------------- | :------------------------------------------------------------------------ |
+| value: `any`                                 | Any `value` to check if it's a `Primitive` from the `type`                |
+| type: [`Primitives`](#primitives)            | A `string` type from the [`Primitives`](#primitives) to check the `value` |
+| callback: [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -1601,7 +1602,7 @@ const isString: IsString = (value: any, callback: ResultCallback = resultCallbac
 | Name      | Type                                | Description          |
 | :-------- | :---------------------------------: | :------------------- |
 | value     | `any`                               | Any `value` to check |
-| callback  | [`ResultCallback`][resultcallback]  | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| callback  | [`ResultCallback`][resultcallback]  | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -1624,10 +1625,10 @@ const isStringObject: IsStringObject = (value: any, callback: ResultCallback = r
 
 **Parameters:**
 
-| Name      | Type                                                            | Description          |
-| :-------- | :-------------------------------------------------------------: | :------------------- |
-| value     | `any`                                                           | Any `value` to check |
-| callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| Name: `type`                                 | Description          |
+| :------------------------------------------- | :------------------- |
+| value: `any`                                 | Any `value` to check |
+| callback: [`ResultCallback`][resultcallback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -1650,10 +1651,10 @@ const isStringType: IsStringType = (value: any, callback: ResultCallback = resul
 
 **Parameters:**
 
-| Name      | Type                                                            | Description          |
-| :-------- | :-------------------------------------------------------------: | :------------------- |
-| value     | `any`                                                           | Any `value` to check |
-| callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| Name: `type`                                 | Description          |
+| :------------------------------------------- | :------------------- |
+| value: `any`                                 | Any `value` to check |
+| callback: [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -1676,10 +1677,10 @@ const isSymbol: IsSymbol = (value: any, callback: ResultCallback = resultCallbac
 
 **Parameters:**
 
-| Name      | Type                                                            | Description          |
-| :-------- | :-------------------------------------------------------------: | :------------------- |
-| value     | `any`                                                           | Any `value` to check |
-| callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| Name: `type`                                 | Description          |
+| :------------------------------------------- | :------------------- |
+| value: `any`                                 | Any `value` to check |
+| callback: [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -1728,20 +1729,20 @@ const isType: IsType = <T extends Type>(value: any, type: Types<T>, callback: Re
 
 | Name                       | Default value   | Description |
 | :------------------------- | :-------------- | :---------- |
-| `T` extends [`Type`][type] | [`Type`][type] | Guarded with [`Type`][type] type, `T` variable to the return type `value` is `T` |
+| `T` extends [`Type`][type] | [`Type`][type]  | Guarded with [`Type`][type] type, `T` variable to the return type `value` is `T` |
 
 **Parameters:**
 
-| Name      | Type                                                            | Description                                         |
-| :-------- | :-------------------------------------------------------------: | :-------------------------------------------------- |
-| value     | `any`                                                           | Any `value` to check if its type is from the `type` |
-| type      | [`Types<T>`](#types)                                            | A `string` or generic `Constructor<T>` type from the [`Types`](#types) to check the `value` |
-| callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| Name: `type`                                 | Description                                         |
+| :------------------------------------------- | :-------------------------------------------------- |
+| value: `any`                                 | Any `value` to check if its type is from the `type` |
+| type: [`Types<T>`](#types)                   | A `string` or generic `Constructor<T>` type from the [`Types`](#types) to check the `value` |
+| callback: [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
-| Returns        | Type        | Description                                                   |
-| :------------- | :---------: | :------------------------------------------------------------ |
+| Returns        | Type        | Description                                                                                                           |
+| :------------- | :---------: | :-------------------------------------------------------------------------------------------------------------------- |
 | `value` is `T` | `boolean`   | By default `T` variable is equal  to [`Type`][type] and the return type is a `boolean` as the result of its statement |
 
 The **return value** is a `boolean` indicating whether or not the `value` is the [`Type`][type] from a `type` of the [`Types`](#types).
@@ -1763,10 +1764,10 @@ const isUndefined: IsUndefined = (value: any, callback: ResultCallback = resultC
 
 **Parameters:**
 
-| Name      | Type                                                            | Description          |
-| :-------- | :-------------------------------------------------------------: | :------------------- |
-| value     | `any`                                                           | Any `value` to check |
-| callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| Name: `type`                                 | Description          |
+| :------------------------------------------- | :------------------- |
+| value: `any`                                 | Any `value` to check |
+| callback: [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Returns:**
 
@@ -1819,7 +1820,7 @@ const isNotBoolean: IsNotBoolean = (value: unknown, callback: ResultCallback = r
 | Name      | Type                                                            | Description                 |
 | :-------- | :-------------------------------------------------------------: | :-------------------------- |
 | value     | `unknown`                                                       | An unknown `value` to check |
-| callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| callback  | [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -1845,7 +1846,7 @@ const isNotDefined: IsNotDefined = (value: unknown, callback: ResultCallback = r
 | Name      | Type                                                            | Description                 |
 | :-------- | :-------------------------------------------------------------: | :-------------------------- |
 | value     | `unknown`                                                       | An unknown `value` to check |
-| callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| callback  | [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -1871,7 +1872,7 @@ const isNotFunction: IsNotFunction = (value: unknown, callback: ResultCallback =
 | Name      | Type      | Description                 |
 | :-------- | :-------: | :-------------------------- |
 | value     | `unknown` | An unknown `value` to check |
-| callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| callback  | [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -1897,7 +1898,7 @@ const isNotNull: IsNotNull = (value: unknown, callback: ResultCallback = resultC
 | Name      | Type                                                            | Description                 |
 | :-------- | :-------------------------------------------------------------: | :-------------------------- |
 | value     | `unknown`                                                       | An unknown `value` to check |
-| callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| callback  | [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -1925,10 +1926,10 @@ const isNotNumber: IsNotNumber = (value: any, callback: ResultCallback = resultC
 
 **Parameters:**
 
-| Name      | Type                                                            | Description                 |
-| :-------- | :-------------------------------------------------------------: | :-------------------------- |
-| value     | `unknown`                                                       | An unknown `value` to check |
-| callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| Name: `type`                                 | Description                 |
+| :------------------------------------------- | :-------------------------- |
+| value: `unknown`                             | An unknown `value` to check |
+| callback: [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -1954,7 +1955,7 @@ const isNotString: IsNotString = (value: unknown, callback: ResultCallback = res
 | Name      | Type                                                            | Description                 |
 | :-------- | :-------------------------------------------------------------: | :-------------------------- |
 | value     | `unknown`                                                       | An unknown `value` to check |
-| callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| callback  | [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -1980,7 +1981,7 @@ const isNotUndefined: IsNotUndefined = (value: unknown, callback: ResultCallback
 | Name      | Type                                                            | Description                 |
 | :-------- | :-------------------------------------------------------------: | :-------------------------- |
 | value     | `unknown`                                                       | An unknown `value` to check |
-| callback  | [`ResultCallback`][resultcallback]=[`resultCallback`][callback] | [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| callback  | [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -2082,7 +2083,7 @@ const guardArray: GuardArray = <Type>(value: Array<Type>, callback?: ResultCallb
 | Name      | Type                               | Description   |
 | :-------- | :--------------------------------: | :------------ |
 | value     | `Array<Type>`                      | An `Array` of a generic `Type` variable from the `value` to guard  |
-| callback? | [`ResultCallback`][resultcallback] | Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| callback? | [`ResultCallback`][resultcallback] | An optional function to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -2112,7 +2113,7 @@ const guardBigInt: GuardBigInt = (value: bigint, callback?: ResultCallback): val
 | Name      | Type                                | Description                      |
 | :-------- | :---------------------------------: | :------------------------------- |
 | value     | `bigint`                            | A `bigint` type `value` to guard |
-| callback? | [`ResultCallback`][resultcallback]  | Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| callback? | [`ResultCallback`][resultcallback]  | An optional function to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -2142,7 +2143,7 @@ const guardBoolean: GuardBoolean = <B extends AnyBoolean>(value: B, callback?: R
 | Name      | Type                                    | Description                                                   |
 | :-------- | :-------------------------------------: | :------------------------------------------------------------ |
 | value     | `B` extends [`AnyBoolean`](#anyboolean) | An [`AnyBoolean`](#anyboolean) type from the `value` to guard |
-| callback? | [`ResultCallback`][resultcallback]      | An Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| callback? | [`ResultCallback`][resultcallback]      | An optional function to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -2169,16 +2170,16 @@ const guardClass: GuardClass = <Class extends Function>(value: Class, callback?:
 
 **Generic type variables:**
 
-| Name          | Default value    | Description |
-| :------------ | :--------------- | :---------- |
-| `Class`       | From the `value` | Guarded with `Function`, generic `Class` variable from the `value` to the return type `value` is `Class` |
+| Name    | Default value    | Description |
+| :------ | :--------------- | :---------- |
+| `Class` | From the `value` | Guarded with `Function`, generic `Class` variable from the `value` to the return type `value` is `Class` |
 
 **Parameters:**
 
-| Name      | Type                               | Description                             |
-| :-------- | :--------------------------------: | :-------------------------------------- |
-| value     | `Class`                            | A generic `Class` type from the `value` to guard |
-| callback? | [`ResultCallback`][resultcallback] | Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| Name: `type`                                  | Description                                                                           |
+| :-------------------------------------------- | :------------------------------------------------------------------------------------ |
+| value: `Class`                                | A generic type from the `value` to guard                                              |
+| callback?: [`ResultCallback`][resultcallback] | An optional function to handle result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -2267,7 +2268,7 @@ const guardDefined: GuardDefined = <Type>(value: Defined<Type>, callback?: Resul
 | Name      | Type                               | Description                                          |
 | :-------- | :--------------------------------: | :--------------------------------------------------- |
 | value     | [`Defined<Type>`][defined]         | A generic type `value` to guard                      |
-| callback? | [`ResultCallback`][resultcallback] | An Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| callback? | [`ResultCallback`][resultcallback] | An optional function to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -2293,7 +2294,7 @@ const guardFunction: GuardFunction = (value: Func, callback?: ResultCallback): v
 | Name      | Type                               | Description                             |
 | :-------- | :--------------------------------: | :-------------------------------------- |
 | value     | [`Func`](#func)                    | A [`Func`](#func) type `value` to guard |
-| callback? | [`ResultCallback`][resultcallback] | An optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| callback? | [`ResultCallback`][resultcallback] | An optional function to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -2465,7 +2466,7 @@ const guardNumber: GuardNumber = <N extends AnyNumber>(value: N, callback?: Resu
 | Name      | Type                                  | Description                          |
 |---------- | :-----------------------------------: | :----------------------------------- |
 | value     | `N` extends [`AnyNumber`](#anynumber) | An `AnyNumber` type `value` to guard |
-| callback? | [`ResultCallback`][resultcallback]    | An Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| callback? | [`ResultCallback`][resultcallback]    | An optional function to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -2503,7 +2504,7 @@ const guardObject: GuardObject = <Obj extends object>(value: Obj, callback?: Res
 | Name      | Type                               | Description                           |
 | :-------- | :--------------------------------: | :------------------------------------ |
 | value     | `Obj`                              | A generic `Obj` type `value` to guard |
-| callback? | [`ResultCallback`][resultcallback] | An Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| callback? | [`ResultCallback`][resultcallback] | An optional function to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -2545,7 +2546,7 @@ const guardObjectKey: GuardObjectKey =
 | :-------- | :--------------------------------: | :--------------------------------------------------------------------- |
 | value     | `Obj`                              | A generic `Obj` type `value` that contains the `key` to guard          |
 | key       | `keyof Obj` \| `(keyof Obj)[]`     | A key of `Obj` or an array of keys of `Obj` type as the name of the property that the `value` contains |
-| callback? | [`ResultCallback`][resultcallback] | An Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| callback? | [`ResultCallback`][resultcallback] | An optional function to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
@@ -2705,7 +2706,7 @@ const guardString: GuardString = <S extends AnyString>(value: S, callback?: Resu
 | Name        | Type                                  | Description                          |
 |-------------| :-----------------------------------: | :----------------------------------- |
 | value       | `S` extends [`AnyString`](#anystring) | An `AnyString` type `value` to guard |
-| callback?   | [`ResultCallback`][resultcallback]    | An Optional [`ResultCallback`][resultcallback] function to handle result before returns eg. to throw an [`Error`][error] |
+| callback?   | [`ResultCallback`][resultcallback]    | An optional function to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Return type:**
 
