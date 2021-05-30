@@ -372,7 +372,7 @@ const isArray: IsArray = <Type = any>(value: any, callback: ResultCallback = res
 
 | Name   | Default value | Description |
 | :----- | :------------ | :---------- |
-| `Type` | `any`         | A generic variable to the return type `value` is `Array<Type>` |
+| `Type` | `any`         | A generic variable to the return type `value is Array<Type>` |
 
 **Parameters:**
 
@@ -383,9 +383,9 @@ const isArray: IsArray = <Type = any>(value: any, callback: ResultCallback = res
 
 **Returns:**
 
-| Returns                  | Type      | Description                                                       |
-| :----------------------- | :-------: | :---------------------------------------------------------------- |
-| `value` is `Array<Type>` | `boolean` | By default `Type` variable is equal  to `any` and the **return type** is a `boolean` as the result of return statement indicating the `value` is an [`Array`][array] of `any` type |
+| Returns                | Type      | Description                                                       |
+| :--------------------- | :-------: | :---------------------------------------------------------------- |
+| `value is Array<Type>` | `boolean` | By default `Type` variable is equal  to `any` and the **return type** is a `boolean` as the result of return statement indicating the `value` is an [`Array`][array] of `any` type |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an [`Array`][array].
 
@@ -425,9 +425,9 @@ const isBigInt: IsBigInt = (value: any, callback: ResultCallback = resultCallbac
 
 **Returns:**
 
-| Returns             | Type      | Description                                                       |
-| :------------------ | :-------: | :---------------------------------------------------------------- |
-| `value` is `bigint` | `boolean` | The **return type** is a `boolean` as the result of its statement |
+| Returns           | Type      | Description                                                       |
+| :---------------- | :-------: | :---------------------------------------------------------------- |
+| `value is bigint` | `boolean` | The **return type** is a `boolean` as the result of its statement |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `bigint`.
 
@@ -467,9 +467,9 @@ const isBoolean: IsBoolean = (value: any, callback: ResultCallback = resultCallb
 
 **Returns:**
 
-| Returns              | Type      | Description                                                       |
-| :------------------- | :-------: | :---------------------------------------------------------------- |
-| `value` is `boolean` | `boolean` | The **return type** is a `boolean` as the result of its statement |
+| Returns            | Type      | Description                                                       |
+| :----------------- | :-------: | :---------------------------------------------------------------- |
+| `value is boolean` | `boolean` | The **return type** is a `boolean` as the result of its statement |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `boolean` type or [`Boolean`][boolean] instance.
 
@@ -509,9 +509,9 @@ const isBooleanObject: IsBooleanObject = (value: any, callback: ResultCallback =
 
 **Returns:**
 
-| Returns                         | Type      | Description                                                       |
-| :------------------------------ | :-------: | :---------------------------------------------------------------- |
-| `value` is [`Boolean`][boolean] | `boolean` | The **return type** is a `boolean` as the result of its statement |
+| Returns            | Type      | Description                                                                                                      |
+| :----------------- | :-------: | :--------------------------------------------------------------------------------------------------------------- |
+| `value is Boolean` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is [`Boolean`][boolean] |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a [`Boolean`][boolean] instance.
 
@@ -555,9 +555,9 @@ const isBooleanType: IsBooleanType = (value: any, callback: ResultCallback = res
 
 **Returns:**
 
-| Returns              | Type      | Description                                                       |
-| :------------------- | :-------: | :---------------------------------------------------------------- |
-| `value` is `boolean` | `boolean` | The **return type** is a `boolean` as the result of its statement |
+| Returns            | Type      | Description                                                       |
+| :----------------- | :-------: | :---------------------------------------------------------------- |
+| `value is boolean` | `boolean` | The **return type** is a `boolean` as the result of its statement |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `boolean` type.
 
@@ -600,7 +600,7 @@ const isClass: IsClass = <Class = Function>(value: any, callback: ResultCallback
 
 | Name    | Default value | Description |
 | :------ | :------------ | :---------- |
-| `Class` | `Function`    | A generic variable to the return type `value` is `Class` |
+| `Class` | `Function`    | A generic variable to the return type `value is Class` |
 
 **Parameters:**
 
@@ -611,9 +611,9 @@ const isClass: IsClass = <Class = Function>(value: any, callback: ResultCallback
 
 **Returns:**
 
-| Returns            | Type      | Description                                                       |
-| :----------------- | :-------: | :---------------------------------------------------------------- |
-| `value` is `Class` | `boolean` | By default `Class` variable is equal  to [`Function`][function] and the **return type** is a `boolean` as the result of its statement indicating the `value` is a [`Function`][function] |
+| Returns          | Type      | Description                                                       |
+| :--------------- | :-------: | :---------------------------------------------------------------- |
+| `value is Class` | `boolean` | By default `Class` variable is equal to [`Function`][function] and the **return type** is a `boolean` as the result of its statement indicating the `value` is a [`Function`][function] |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a [`class`][ts-classes].
 
@@ -645,8 +645,8 @@ const isDefined: IsDefined = (value: unknown, callback: ResultCallback = resultC
 
 **Parameters:**
 
-| Name: `type`                                 | Description                   |
-| :------------------------------------------- | :---------------------------- |
+| Name: `type`                                 | Description                 |
+| :------------------------------------------- | :-------------------------- |
 | value: `unknown`                             | An unknown `value` to check |
 | callback: [`ResultCallback`][resultcallback] | A function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
@@ -757,9 +757,9 @@ const isInstance: IsInstance =
 
 **Generic type variables:**
 
-| Name  | Default value          | Description                                            |
-| :---- | :--------------------- | :----------------------------------------------------- |
-| `Obj` | From the `constructor` | A generic variable to the return type `value` is `Obj` |
+| Name  | Default value          | Description                                          |
+| :---- | :--------------------- | :--------------------------------------------------- |
+| `Obj` | From the `constructor` | A generic variable to the return type `value is Obj` |
 
 **Parameters:**
 
@@ -771,9 +771,9 @@ const isInstance: IsInstance =
 
 **Returns:**
 
-| Returns          | Type      | Description                                                                                                              |
-| :--------------- | :-------: | :----------------------------------------------------------------------------------------------------------------------- |
-| `value` is `Obj` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is `Obj` from the `constructor` |
+| Returns        | Type      | Description                                                                                                                            |
+| :------------- | :-------: | :------------------------------------------------------------------------------------------------------------------------------------- |
+| `value is Obj` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is `Obj` from the detected `constructor` type |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an instance of a generic `Obj`.
 
