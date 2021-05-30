@@ -385,7 +385,7 @@ const isArray: IsArray = <Type = any>(value: any, callback: ResultCallback = res
 
 | Returns                | Type      | Description                                                       |
 | :--------------------- | :-------: | :---------------------------------------------------------------- |
-| `value is Array<Type>` | `boolean` | By default `Type` variable is equal  to `any` and the **return type** is a `boolean` as the result of return statement indicating the `value` is an [`Array`][array] of `any` type |
+| `value is Array<Type>` | `boolean` | By default `Type` variable is equal  to `any` and the **return type** is a `boolean` as the result of its statement indicating the `value` is an [`Array`][array] of `any` type |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an [`Array`][array].
 
