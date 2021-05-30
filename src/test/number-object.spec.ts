@@ -1,4 +1,4 @@
-import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../testing/variables/number.const';
+import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../testing/src/number.const';
 import { NumberObject } from '../lib/number-object.class';
 
 

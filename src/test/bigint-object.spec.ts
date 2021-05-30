@@ -1,4 +1,4 @@
-import { BIGINT, BIGINT_EXPECTATION, BIGINT_INSTANCE } from '../testing/variables/big-int.const';
+import { BIGINT, BIGINT_EXPECTATION, BIGINT_INSTANCE } from '../testing/src/big-int.const';
 import { BigIntObject } from '../lib/bigint-object.class';
 
 

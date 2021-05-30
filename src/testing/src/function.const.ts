@@ -1,4 +1,3 @@
-import { Func } from '../../type/func.type';
 /**
  * typeof === 'function'
  * instanceof Function === true

@@ -4,7 +4,6 @@ import { NUMBER } from './number.const';
 import { SYMBOL_STRING, SYMBOL_NUMBER } from './strict/symbol.const';
 // Interface.
 import { Person } from '../interface/person.interface';
-
 /**
  * typeof === 'function'
  * instanceof Class === false

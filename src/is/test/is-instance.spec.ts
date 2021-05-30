@@ -1,15 +1,15 @@
 // Function.
 import { isInstance } from '../lib/is-instance.func';
 // Constant.
-import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE } from '../../testing/variables/boolean.const';
-import { BIGINT, BIGINT_INSTANCE } from '../../testing/variables/big-int.const';
-import { Class, CLASS, PERSON, Persons, PersonCopy, PERSON_COPY } from '../../testing/variables/class.const';
-import { FUNCTION, functionConstructor } from '../../testing/variables/function.const';
-import { NULL } from '../../testing/variables/null.const';
-import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../testing/variables/number.const';
-import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/variables/string.const';
-import { UNDEFINED } from '../../testing/variables/undefined.const';
-import { notDefined } from '../../testing/variables/not-defined.const';
+import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE } from '../../testing/src/boolean.const';
+import { BIGINT, BIGINT_INSTANCE } from '../../testing/src/big-int.const';
+import { Class, CLASS, PERSON, Persons, PersonCopy, PERSON_COPY } from '../../testing/src/class.const';
+import { FUNCTION, functionConstructor } from '../../testing/src/function.const';
+import { NULL } from '../../testing/src/null.const';
+import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../testing/src/number.const';
+import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/src/string.const';
+import { UNDEFINED } from '../../testing/src/undefined.const';
+import { notDefined } from '../../testing/src/not-defined.const';
 /**
  * Tests.
  */

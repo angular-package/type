@@ -1,7 +1,10 @@
-
 /**
- * @example https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
+ * typeof === 'number'
+ * instanceof Function === false
+ * instanceof Number === false
+ * instanceof Object === false
  */
+export const NUMBER: any = 10304050;
 
 /**
  * typeof === 'number'
@@ -9,15 +12,7 @@
  * instanceof Number === false
  * instanceof Object === false
  */
-export const NUMBER = 10304050;
-
-/**
- * typeof === 'number
- * instanceof Function === false
- * instanceof Number === false
- * instanceof Object === false
- */
-export const NUMBER_INSTANCE = Number(NUMBER);
+export const NUMBER_INSTANCE: any = Number(NUMBER);
 
 /**
  * typeof === 'number'
@@ -25,4 +20,5 @@ export const NUMBER_INSTANCE = Number(NUMBER);
  * instanceof Number === true
  * instanceof Object === true
  */
-export const NUMBER_NEW_INSTANCE: Number = new Number(NUMBER);
+// tslint:disable-next-line: no-construct
+export const NUMBER_NEW_INSTANCE: any = new Number(NUMBER);

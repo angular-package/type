@@ -1,6 +1,6 @@
-import { NUMBER } from '../variables/strict/number.const';
-import { STRING } from '../variables/strict/string.const';
-import { SYMBOL_NUMBER, SYMBOL_STRING } from '../variables/strict/symbol.const';
+import { NUMBER } from '../src/strict/number.const';
+import { STRING } from '../src/strict/string.const';
+import { SYMBOL_NUMBER, SYMBOL_STRING } from '../src/strict/symbol.const';
 
 export interface ObjectOne {
   'key as string'?: boolean;

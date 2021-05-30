@@ -1,14 +1,14 @@
 // Function.
 import { guardInstance } from '../lib/guard-instance.func';
 // Constant.
-import { CLASS, Class, Persons } from '../../testing/variables/strict/class.const';
-import { FALSE_EXPECTATION, TRUE_EXPECTATION } from '../../testing/variables/strict/boolean.const';
-import { NUMBER } from '../../testing/variables/strict/number.const';
-import { NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../testing/variables/strict/number.const';
-import { STRING } from '../../testing/variables/strict/string.const';
-import { STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/variables/strict/string.const';
-import { TRUE, TRUE_INSTANCE, FALSE_INSTANCE, FALSE } from '../../testing/variables/strict/boolean.const';
-import { personFunctionConstructor } from '../../testing/variables/strict/function.const';
+import { CLASS, Class, Persons } from '../../testing/src/strict/class.const';
+import { FALSE_EXPECTATION, TRUE_EXPECTATION } from '../../testing/src/strict/boolean.const';
+import { NUMBER } from '../../testing/src/strict/number.const';
+import { NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../testing/src/strict/number.const';
+import { STRING } from '../../testing/src/strict/string.const';
+import { STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/src/strict/string.const';
+import { TRUE, TRUE_INSTANCE, FALSE_INSTANCE, FALSE } from '../../testing/src/strict/boolean.const';
+import { personFunctionConstructor } from '../../testing/src/strict/function.const';
 // Interface.
 import { Person } from '../../testing/interface/person.interface';
 /**

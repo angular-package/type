@@ -14,8 +14,8 @@ import {
   ARRAY_SYMBOL_NUMBER,
   ARRAY_SYMBOL_STRING,
   ARRAY_UNDEFINED
-} from '../../testing/variables/strict/array.const';
-import { Class } from '../../testing/variables/strict/class.const';
+} from '../../testing/src/strict/array.const';
+import { Class } from '../../testing/src/strict/class.const';
 // Type.
 import { Func } from '../../type/func.type';
 // Interface.

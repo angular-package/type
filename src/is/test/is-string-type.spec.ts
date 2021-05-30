@@ -1,16 +1,16 @@
 // Function.
 import { isStringType } from '../lib/is-string-type.func';
 // Constant.
-import { BIGINT, BIGINT_EXPECTATION, BIGINT_INSTANCE } from '../../testing/variables/big-int.const';
-import { Class, CLASS } from '../../testing/variables/class.const';
-import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE, FALSE_EXPECTATION, TRUE_EXPECTATION } from '../../testing/variables/boolean.const';
-import { FUNCTION } from '../../testing/variables/function.const';
-import { NULL } from '../../testing/variables/null.const';
-import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../testing/variables/number.const';
-import { OBJECT_ONE, OBJECT_TWO, OBJECT_ONE_NEW, OBJECT_TWO_NEW } from '../../testing/variables/object.const';
-import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/variables/string.const';
-import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/variables/symbol.const';
-import { UNDEFINED } from '../../testing/variables/undefined.const';
+import { BIGINT, BIGINT_EXPECTATION, BIGINT_INSTANCE } from '../../testing/src/big-int.const';
+import { Class, CLASS } from '../../testing/src/class.const';
+import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE, FALSE_EXPECTATION, TRUE_EXPECTATION } from '../../testing/src/boolean.const';
+import { FUNCTION } from '../../testing/src/function.const';
+import { NULL } from '../../testing/src/null.const';
+import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../testing/src/number.const';
+import { OBJECT_ONE, OBJECT_TWO, OBJECT_ONE_NEW, OBJECT_TWO_NEW } from '../../testing/src/object.const';
+import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/src/string.const';
+import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/src/symbol.const';
+import { UNDEFINED } from '../../testing/src/undefined.const';
 
 /**
  * Checks

@@ -16,6 +16,7 @@ import { Func } from '../../../type/func.type';
 // Array with `bigint`.
 export const ARRAY_BIGINT: Array<bigint> = [BIGINT, BIGINT_INSTANCE, 9007199254740991n];
 // Array with `boolean`.
+// tslint:disable-next-line: ban-types
 export const ARRAY_BOOLEAN: Array<boolean | Boolean> = [true, false, TRUE_INSTANCE, FALSE_INSTANCE, false, FALSE, TRUE];
 // Array with `Class` instances.
 export const ARRAY_CLASS: Array<Class> = [new Class(), new Class()];
@@ -25,12 +26,14 @@ export const ARRAY_FUNCTION: Array<Func> =
 // Array with `null`.
 export const ARRAY_NULL: Array<null> = [null, null, null, NULL, NULL];
 // Array with `number`.
+// tslint:disable-next-line: ban-types
 export const ARRAY_NUMBER: Array<number | Number> = [1, 2, 3, 4, 7, 10, 1000, 3000, 151233, NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE];
 // Array with 'object'.
 export const ARRAY_OBJECT_ONE: Array<ObjectOne> = [{ [NUMBER]: 'my number', x: 3000 }, { [NUMBER]: 'my number', x: 1 }];
 export const ARRAY_OBJECT_TWO: Array<ObjectTwo> = [{ x: 'One Two Three', y: 10000  }, { x: 'One Two Three', y: 10000  }, { x: 'One Two Three', y: 10000  }];
 // Array with `string`.
-export const ARRAY_STRING: Array<string | String> = [STRING, STRING_INSTANCE, STRING_NEW_INSTANCE, '!@#$%^&*()abcdefghijklmnoprstuwyz'];
+// tslint:disable-next-line: ban-types
+export const ARRAY_STRING: Array<string | String> = [STRING, STRING_INSTANCE, STRING_NEW_INSTANCE, '!@#$%^&*()Company'];
 // Array with `symbol`.
 export const ARRAY_SYMBOL_NUMBER: Array<symbol> = [Symbol(1005), Symbol(1002), Symbol(15), Symbol(1)];
 export const ARRAY_SYMBOL_STRING: Array<symbol> = [Symbol('String Symbol'), Symbol('String Symbol'), Symbol('String Symbol One'), Symbol('String Symbol Two')];

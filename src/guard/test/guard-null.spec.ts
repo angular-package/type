@@ -1,8 +1,8 @@
 // Function.
 import { guardNull } from '../lib/guard-null.func';
 // Constant.
-import { NULL } from '../../testing/variables/strict/null.const';
-import { TRUE } from '../../testing/variables/strict/boolean.const';
+import { NULL } from '../../testing/src/strict/null.const';
+import { TRUE } from '../../testing/src/strict/boolean.const';
 
 describe(guardNull.name, () => {
   // Defined.
