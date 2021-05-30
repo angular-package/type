@@ -1474,7 +1474,7 @@ const isObjectKeys: IsObjectKeys = <Type = object>(
 
 | Name/Type                                  | Description                                                                                 |
 | :----------------------------------------- | :------------------------------------------------------------------------------------------ |
-| value:<br>`any`                            | `any`                          | Any `value` to check if it contains **some** of the specified `keys`                        |
+| value:<br>`any`                            | Any `value` to check if it contains **some** of the specified `keys`                        |
 | ...keys:<br>[`Key`][key] \| [`Key[]`][key] | A rest parameter [`Key`][key] type or an array of [`Key`][key] type to check in the `value` |
 
 **Return type:**
