@@ -385,7 +385,7 @@ const isArray: IsArray = <Type = any>(value: any, callback: ResultCallback = res
 
 | Returns                  | Type      | Description                                                       |
 | :----------------------- | :-------: | :---------------------------------------------------------------- |
-| `value` is `Array<Type>` | `boolean` | By default `Type` variable is equal  to `any` and the **return type** is a `boolean` as the result of its statement |
+| `value` is `Array<Type>` | `boolean` | By default `Type` variable is equal  to `any` and the **return type** is a `boolean` as the result of return statement indicating the `value` is an [`Array`][array] of `any` type |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an [`Array`][array].
 
@@ -613,7 +613,7 @@ const isClass: IsClass = <Class = Function>(value: any, callback: ResultCallback
 
 | Returns            | Type      | Description                                                       |
 | :----------------- | :-------: | :---------------------------------------------------------------- |
-| `value` is `Class` | `boolean` | By default `Class` variable is equal  to [`Function`][function] and the **return type** is a `boolean` as the result of its statement |
+| `value` is `Class` | `boolean` | By default `Class` variable is equal  to [`Function`][function] and the **return type** is a `boolean` as the result of its statement indicating the `value` is a [`Function`][function] |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a [`class`][ts-classes].
 
@@ -702,9 +702,9 @@ const isFunction: IsFunction = (value: any, callback: ResultCallback = resultCal
 
 **Returns:**
 
-| Returns                    | Type      | Description                                                       |
-| :------------------------- | :-------: | :---------------------------------------------------------------- |
-| `value` is [`Func`](#func) | `boolean` | The **return type** is a `boolean` as the result of its statement |
+| Returns          | Type      | Description                                                       |
+| :--------------- | :-------: | :---------------------------------------------------------------- |
+| `value is Func`  | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a [`Func`](#func) |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `function`.
 
@@ -771,9 +771,9 @@ const isInstance: IsInstance =
 
 **Returns:**
 
-| Returns          | Type      | Description                                                       |
-| :--------------- | :-------: | :---------------------------------------------------------------- |
-| `value` is `Obj` | `boolean` | The **return type** is a `boolean` as the result of its statement |
+| Returns          | Type      | Description                                                                                                              |
+| :--------------- | :-------: | :----------------------------------------------------------------------------------------------------------------------- |
+| `value` is `Obj` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is `Obj` from the `constructor` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an instance of a generic `Obj`.
 
@@ -834,9 +834,9 @@ const isKey: IsKey = (value: any, callback: ResultCallback = resultCallback): va
 
 **Returns:**
 
-| Returns                 | Type      | Description                                                       |
-| :---------------------- | :-------: | :---------------------------------------------------------------- |
-| `value` is [`Key`][key] | `boolean` | The **return type** is a `boolean` as the result of its statement |
+| Returns         | Type      | Description                                                                                              |
+| :-------------- | :-------: | :------------------------------------------------------------------------------------------------------- |
+| `value is Key`  | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is [`Key`][key] |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a [`Key`][key].
 
@@ -883,9 +883,9 @@ const isNull: IsNull = (value: any, callback: ResultCallback = resultCallback): 
 
 **Returns:**
 
-| Returns           | Type      | Description                                                       |
-| :---------------- | :-------: | :---------------------------------------------------------------- |
-| `value` is `null` | `boolean` | The **return type** is a `boolean` as the result of its statement |
+| Returns         | Type      | Description                                                       |
+| :-------------- | :-------: | :---------------------------------------------------------------- |
+| `value is null` | `boolean` | The **return type** is a `boolean` as the result of its statement |
 
 The **return value** is a `boolean` indicating whether or not the `value` is `null`.
 
@@ -938,9 +938,9 @@ const isNumber: IsNumber = (value: any, callback: ResultCallback = resultCallbac
 
 **Returns:**
 
-| Returns             | Type      | Description                                                       |
-| :------------------ | :-------: | :---------------------------------------------------------------- |
-| `value` is `number` | `boolean` | The **return type** is a `boolean` as the result of its statement |
+| Returns           | Type      | Description                                                       |
+| :---------------- | :-------: | :---------------------------------------------------------------- |
+| `value is number` | `boolean` | The **return type** is a `boolean` as the result of its statement |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `number` type or [`Number`][number] instance.
 
@@ -968,9 +968,9 @@ const isNumberObject: IsNumberObject = (value: any, callback: ResultCallback = r
 
 **Returns:**
 
-| Returns             | Type      | Description                                                       |
-| :------------------ | :-------: | :---------------------------------------------------------------- |
-| `value` is `Number` | `boolean` | The **return type** is a `boolean` as the result of its statement |
+| Returns           | Type      | Description                                                                                                    |
+| :---------------- | :-------: | :------------------------------------------------------------------------------------------------------------- |
+| `value is Number` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is [`Number`][number] |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a [`Number`][number] instance.
 
@@ -1030,9 +1030,9 @@ const isNumberType: IsNumberType = (value: any, callback: ResultCallback = resul
 
 **Returns:**
 
-| Returns             | Type      | Description                                                       |
-| :------------------ | :-------: | :---------------------------------------------------------------- |
-| `value` is `number` | `boolean` | The **return type** is a `boolean` as the result of its statement |
+| Returns           | Type      | Description                                                       |
+| :---------------- | :-------: | :---------------------------------------------------------------- |
+| `value is number` | `boolean` | The **return type** is a `boolean` as the result of its statement |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `number` type.
 
@@ -1087,7 +1087,7 @@ const isObject: IsObject = <Obj = object>(value: any, callback: ResultCallback =
 
 | Name  | Default value | Description |
 | :---- | :------------ | :---------- |
-| `Obj` | `object`      | A generic variable to the return type `value` is `Obj` |
+| `Obj` | `object`      | A generic variable to the return type `value is Obj` |
 
 **Parameters:**
 
@@ -1098,9 +1098,9 @@ const isObject: IsObject = <Obj = object>(value: any, callback: ResultCallback =
 
 **Returns:**
 
-| Returns          | Type        | Description                                                            |
-| :--------------- | :---------: | :--------------------------------------------------------------------- |
-| `value` is `Obj` | `boolean`   | By default `Obj` variable is equal to `object` and the return type is a `boolean` as the result of its statement |
+| Returns        | Type        | Description                                                            |
+| :------------- | :---------: | :--------------------------------------------------------------------- |
+| `value is Obj` | `boolean`   | By default `Obj` variable is equal to `object` and the **return type** is a `boolean` as the result of its statement indicating the `value` is `object` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an `object`.
 
@@ -1191,7 +1191,7 @@ const isObjectKey: IsObjectKey =
 
 | Name   | Default value | Description |
 | :----- | :------------ | :---------- |
-| `Type` | `object`      | A generic variable to the return type `value` is `Type` |
+| `Type` | `object`      | A generic variable to the return type `value is Type` |
 
 **Parameters:**
 
@@ -1203,9 +1203,9 @@ const isObjectKey: IsObjectKey =
 
 **Returns:**
 
-| Returns           | Type      | Description                                                            |
-| :---------------- | :-------: | :--------------------------------------------------------------------- |
-| `value` is `Type` | `boolean` | By default `Type` variable is equal  to `object` and the return type is a `boolean` as the result of its statement |
+| Returns         | Type      | Description                                                            |
+| :-------------- | :-------: | :--------------------------------------------------------------------- |
+| `value is Type` | `boolean` | By default `Type` variable is equal to `object` and the **return type** is a `boolean` as the result of its statement indicating the `value` is `object` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an `object` with its own specified keys.
 
@@ -1344,7 +1344,7 @@ const isObjectKeyIn: IsObjectKeyIn =
 
 | Name   | Default value | Description |
 | :----- | :------------ | :---------- |
-| `Type` | `object`      | A generic variable to the return type `value` is `Type` |
+| `Type` | `object`      | A generic variable to the return type `value is Type` |
 
 **Parameters:**
 
@@ -1356,9 +1356,9 @@ const isObjectKeyIn: IsObjectKeyIn =
 
 **Returns:**
 
-| Returns           | Type      | Description                                                            |
-| :---------------- | :-------: | :--------------------------------------------------------------------- |
-| `value` is `Type` | `boolean` | By default `Type` variable is equal  to `object` and the return type is a `boolean` as the result of its statement |
+| Returns         | Type      | Description                                                            |
+| :-------------- | :-------: | :--------------------------------------------------------------------- |
+| `value is Type` | `boolean` | By default `Type` variable is equal to `object` and the **return type** is a `boolean` as the result of its statement indicating the `value` is `object` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an `object` with the keys.
 
@@ -1473,7 +1473,7 @@ const isObjectKeys: IsObjectKeys = <Type = object>(
 
 | Name   | Default value | Description |
 | :----- | :------------ | :---------- |
-| `Type` | `object`      | A generic variable to the return type `value` is `Type` |
+| `Type` | `object`      | A generic variable to the return type `value is Type` |
 
 **Parameters:**
 
@@ -1484,9 +1484,9 @@ const isObjectKeys: IsObjectKeys = <Type = object>(
 
 **Returns:**
 
-| Returns           | Type      | Description                                                            |
-| :---------------- | :-------: | :--------------------------------------------------------------------- |
-| `value` is `Type` | `boolean` | By default `Type` variable is equal  to `object` and the return type is a `boolean` as the result of its statement |
+| Returns         | Type      | Description                                                            |
+| :-------------- | :-------: | :--------------------------------------------------------------------- |
+| `value is Type` | `boolean` | By default `Type` variable is equal to `object` and the **return type** is a `boolean` as the result of its statement indicating the `value` is `object` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an `object` with some its own specified keys.
 
@@ -1568,7 +1568,7 @@ const isPrimitive: IsPrimitive = <T extends Primitive>(
 
 | Name                    | Default value             | Description |
 | :---------------------- | :------------------------ | :---------- |
-| `T` extends `Primitive` | [`Primitive`](#primitive) | Guarded with [`Primitive`](#primitive) type, `T` variable to the return type `value` is `T` |
+| `T` extends `Primitive` | [`Primitive`](#primitive) | Guarded with [`Primitive`](#primitive) type, `T` variable to the return type `value is T` |
 
 **Parameters:**
 
@@ -1580,9 +1580,9 @@ const isPrimitive: IsPrimitive = <T extends Primitive>(
 
 **Returns:**
 
-| Returns        | Type      | Description                                                            |
-| :------------- | :-------: | :--------------------------------------------------------------------- |
-| `value` is `T` | `boolean` | By default `T` variable is equal  to [`Primitive`](#primitive) and the return type is a `boolean` as the result of its statement |
+| Returns      | Type      | Description                                                            |
+| :----------- | :-------: | :--------------------------------------------------------------------- |
+| `value is T` | `boolean` | By default `T` variable is equal  to [`Primitive`](#primitive) and the **return type** is a `boolean` as the result of its statement indicating the `value` is [`Primitive`](#primitive) |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `type` from the [`Primitives`](#primitives).
 
@@ -1610,9 +1610,9 @@ const isString: IsString = (value: any, callback: ResultCallback = resultCallbac
 
 **Returns:**
 
-| Returns             | Type      | Description                                                 |
-| :------------------ | :-------: | :---------------------------------------------------------- |
-| `value` is `string` | `boolean` | A return type is a `boolean` as the result of its statement |
+| Returns           | Type      | Description                                                 |
+| :---------------- | :-------: | :---------------------------------------------------------- |
+| `value is string` | `boolean` | The **return type** is a `boolean` as the result of its statement |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `string` type or [`String`][string] instance.
 
@@ -1636,9 +1636,9 @@ const isStringObject: IsStringObject = (value: any, callback: ResultCallback = r
 
 **Returns:**
 
-| Returns                       | Type      | Description                                                   |
-| :---------------------------- | :-------: | :------------------------------------------------------------ |
-| `value` is [`String`][string] | `boolean` | The return type is a `boolean` as the result of its statement |
+| Returns           | Type      | Description                                                   |
+| :---------------- | :-------: | :------------------------------------------------------------ |
+| `value is String` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is [`String`][string] |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a [`String`][string] instance.
 
@@ -1662,9 +1662,9 @@ const isStringType: IsStringType = (value: any, callback: ResultCallback = resul
 
 **Returns:**
 
-| Returns             | Type        | Description                                                   |
-| :------------------ | :---------: | :------------------------------------------------------------ |
-| `value` is `string` | `boolean`   | The return type is a `boolean` as the result of its statement |
+| Returns           | Type        | Description                                                   |
+| :---------------- | :---------: | :------------------------------------------------------------ |
+| `value is string` | `boolean`   | The **return type** is a `boolean` as the result of its statement |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `string` type.
 
@@ -1688,9 +1688,9 @@ const isSymbol: IsSymbol = (value: any, callback: ResultCallback = resultCallbac
 
 **Returns:**
 
-| Returns             | Type      | Description                                                   |
-| :------------------ | :-------: | :------------------------------------------------------------ |
-| `value` is `symbol` | `boolean` | The return type is a `boolean` as the result of its statement |
+| Returns           | Type      | Description                                                   |
+| :---------------- | :-------: | :------------------------------------------------------------ |
+| `value is symbol` | `boolean` | The **return type** is a `boolean` as the result of its statement |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `symbol`.
 
@@ -1733,7 +1733,7 @@ const isType: IsType = <T extends Type>(value: any, type: Types<T>, callback: Re
 
 | Name                       | Default value   | Description |
 | :------------------------- | :-------------- | :---------- |
-| `T` extends [`Type`][type] | [`Type`][type]  | Guarded with [`Type`][type] type, `T` variable to the return type `value` is `T` |
+| `T` extends [`Type`][type] | [`Type`][type]  | Guarded with [`Type`][type] type, `T` variable to the return type `value is T` |
 
 **Parameters:**
 
@@ -1745,9 +1745,9 @@ const isType: IsType = <T extends Type>(value: any, type: Types<T>, callback: Re
 
 **Returns:**
 
-| Returns        | Type      | Description                                                                                                           |
-| :------------- | :-------: | :-------------------------------------------------------------------------------------------------------------------- |
-| `value` is `T` | `boolean` | By default `T` variable is equal  to [`Type`][type] and the return type is a `boolean` as the result of its statement |
+| Returns      | Type      | Description                                                                                                           |
+| :----------- | :-------: | :-------------------------------------------------------------------------------------------------------------------- |
+| `value is T` | `boolean` | By default `T` variable is equal  to [`Type`][type] and the **return type** is a `boolean` as the result of its statement indicating the `value` is [`Type`][type] |
 
 The **return value** is a `boolean` indicating whether or not the `value` is the [`Type`][type] from a `type` of the [`Types`](#types).
 
@@ -1775,9 +1775,9 @@ const isUndefined: IsUndefined = (value: any, callback: ResultCallback = resultC
 
 **Returns:**
 
-| Returns                | Type      | Description                                                   |
-| :--------------------- | :-------: | :------------------------------------------------------------ |
-| `value` is `undefined` | `boolean` | The return type is a `boolean` as the result of its statement |
+| Returns              | Type      | Description                                                       |
+| :------------------- | :-------: | :---------------------------------------------------------------- |
+| `value is undefined` | `boolean` | The **return type** is a `boolean` as the result of its statement |
 
 The **return value** is a `boolean` indicating whether or not the `value` is `undefined`.
 
@@ -1828,9 +1828,9 @@ const isNotBoolean: IsNotBoolean = (value: unknown, callback: ResultCallback = r
 
 **Returns:**
 
-| Returns   | Type      | Description                                                   |
-| :-------- | :-------: | :------------------------------------------------------------ |
-| `boolean` | `boolean` | The return type is a `boolean` as the result of its statement |
+| Returns   | Type      | Description                        |
+| :-------- | :-------: | :--------------------------------- |
+| `boolean` | `boolean` | The **return type** is a `boolean` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is not a `boolean`.
 
@@ -1854,9 +1854,9 @@ const isNotDefined: IsNotDefined = (value: unknown, callback: ResultCallback = r
 
 **Returns:**
 
-| Returns   | Type      | Description                                                       |
-| :-------- | :-------: | :---------------------------------------------------------------- |
-| `boolean` | `boolean` | The **return type** is a `boolean` as the result of its statement |
+| Returns   | Type      | Description                        |
+| :-------- | :-------: | :--------------------------------- |
+| `boolean` | `boolean` | The **return type** is a `boolean` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is not defined, is `undefined`.
 
@@ -1880,9 +1880,9 @@ const isNotFunction: IsNotFunction = (value: unknown, callback: ResultCallback =
 
 **Returns:**
 
-| Returns   | Type      | Description                                                       |
-| :-------- | :-------: | :---------------------------------------------------------------- |
-| `boolean` | `boolean` | The **return type** is a `boolean` as the result of its statement |
+| Returns   | Type      | Description                        |
+| :-------- | :-------: | :--------------------------------- |
+| `boolean` | `boolean` | The **return type** is a `boolean` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is not a `function`.
 
@@ -1908,7 +1908,7 @@ const isNotNull: IsNotNull = (value: unknown, callback: ResultCallback = resultC
 
 | Returns   | Type      | Description                                                       |
 | :-------- | :-------: | :---------------------------------------------------------------- |
-| `boolean` | `boolean` | The **return type** is a `boolean` as the result of its statement |
+| `boolean` | `boolean` | The **return type** is a `boolean` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is not `null`.
 
@@ -1963,9 +1963,9 @@ const isNotString: IsNotString = (value: unknown, callback: ResultCallback = res
 
 **Returns:**
 
-| Returns   | Type      | Description                                                       |
-| :-------- | :-------: | :---------------------------------------------------------------- |
-| `boolean` | `boolean` | The **return type** is a `boolean` as the result of its statement |
+| Returns   | Type      | Description                         |
+| :-------- | :-------: | :---------------------------------- |
+| `boolean` | `boolean` | The **return type** is a `boolean`  |
 
 The **return value** is a `boolean` indicating whether or not the `value` is not a `string`.
 
@@ -1989,9 +1989,9 @@ const isNotUndefined: IsNotUndefined = (value: unknown, callback: ResultCallback
 
 **Returns:**
 
-| Returns   | Type      | Description                                                       |
-| :-------- | :-------: | :---------------------------------------------------------------- |
-| `boolean` | `boolean` | The **return type** is a `boolean` as the result of its statement |
+| Returns   | Type      | Description                        |
+| :-------- | :-------: | :--------------------------------- |
+| `boolean` | `boolean` | The **return type** is a `boolean` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is not `undefined`.
 
@@ -2080,7 +2080,7 @@ const guardArray: GuardArray = <Type>(value: Array<Type>, callback?: ResultCallb
 
 | Name   | Default value    | Description |
 | :----- | :--------------- | :---------- |
-| `Type` | From the `value` | An `Array` of a `Type` variable from the `value` to the return type `value` is `Array<Type>` |
+| `Type` | From the `value` | An `Array` of a `Type` variable from the `value` to the return type `value is Array<Type>` |
 
 **Parameters:**
 
@@ -2091,9 +2091,9 @@ const guardArray: GuardArray = <Type>(value: Array<Type>, callback?: ResultCallb
 
 **Returns:**
 
-| Returns                  | Type      | Description                                                       |
-| :----------------------- | :-------: | :---------------------------------------------------------------- |
-| `value` is `Array<Type>` | `boolean` | By default `Type` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement |
+| Returns                | Type      | Description                                                       |
+| :--------------------- | :-------: | :---------------------------------------------------------------- |
+| `value is Array<Type>` | `boolean` | By default `Type` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement indicating the `value` is an [`Array`][array] of `Type` detected from the `value` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an [`Array`][array].
 
@@ -2140,7 +2140,7 @@ const guardBoolean: GuardBoolean = <B extends AnyBoolean>(value: B, callback?: R
 
 | Name                                    | Default value    | Description |
 | :-------------------------------------- | :--------------- | :---------- |
-| `B` extends [`AnyBoolean`](#anyboolean) | From the `value` | Guarded with [`AnyBoolean`](#anyboolean), generic `B` variable from the `value` to the return type `value` is `B` |
+| `B` extends [`AnyBoolean`](#anyboolean) | From the `value` | Guarded with [`AnyBoolean`](#anyboolean), generic `B` variable from the `value` to the return type `value is B` |
 
 **Parameters:**
 
@@ -2151,9 +2151,9 @@ const guardBoolean: GuardBoolean = <B extends AnyBoolean>(value: B, callback?: R
 
 **Returns:**
 
-| Returns        | Type      | Description                                                       |
-| :------------- | :-------: | :---------------------------------------------------------------- |
-| `value` is `B` | `boolean` | By default `B` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement |
+| Returns      | Type      | Description                                                       |
+| :----------- | :-------: | :---------------------------------------------------------------- |
+| `value is B` | `boolean` | By default `B` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement indicating the `value` is [`AnyBoolean`](#anyboolean) detected from the `value` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `boolean` type or [`Boolean`][boolean] instance.
 
@@ -2176,7 +2176,7 @@ const guardClass: GuardClass = <Class extends Function>(value: Class, callback?:
 
 | Name    | Default value    | Description |
 | :------ | :--------------- | :---------- |
-| `Class` | From the `value` | Guarded with `Function`, generic `Class` variable from the `value` to the return type `value` is `Class` |
+| `Class` | From the `value` | Guarded with `Function`, generic `Class` variable from the `value` to the return type `value is Class` |
 
 **Parameters:**
 
@@ -2187,9 +2187,9 @@ const guardClass: GuardClass = <Class extends Function>(value: Class, callback?:
 
 **Returns:**
 
-| Returns            | Type      | Description                                                       |
-| :----------------- | :-------: | :---------------------------------------------------------------- |
-| `value` is `Class` | `boolean` | By default `Class` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement |
+| Returns          | Type      | Description                                                       |
+| :--------------- | :-------: | :---------------------------------------------------------------- |
+| `value is Class` | `boolean` | By default `Class` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement indicating the `value` is a [Function][function] detected from the `value` |
 
 The **return value** is `boolean` indicating whether or not the `value` is a [`class`][ts-classes].
 
@@ -2265,7 +2265,7 @@ const guardDefined: GuardDefined = <Type>(value: Defined<Type>, callback?: Resul
 
 | Name   | Default value    | Description                                                                                         |
 | :----- | :--------------- | :-------------------------------------------------------------------------------------------------- |
-| `Type` | From the `value` | Guarded with [`Defined<Type>`][defined], a generic `Type` variable from the `value` to the return type `value` is [`Defined<Type>`][defined] |
+| `Type` | From the `value` | Guarded with [`Defined<Type>`][defined], a generic `Type` variable from the `value` to the return type `value is Defined<Type>` |
 
 **Parameters:**
 
@@ -2276,9 +2276,9 @@ const guardDefined: GuardDefined = <Type>(value: Defined<Type>, callback?: Resul
 
 **Returns:**
 
-| Returns                               | Type      | Description                                                       |
-| :------------------------------------ | :-------: | :---------------------------------------------------------------- |
-| `value` is [`Defined<Type>`][defined] | `boolean` | By default `Type` variable is equal to the type detected from the `value`, but the detected type `undefined` changes to `never` and the **return type** is a `boolean` as the result of its statement |
+| Returns                  | Type      | Description                                                       |
+| :----------------------- | :-------: | :---------------------------------------------------------------- |
+| `value is Defined<Type>` | `boolean` | By default `Type` variable is equal to the type detected from the `value`, but the detected type `undefined` changes to `never` and the **return type** is a `boolean` as the result of its statement indicating the `value` is [`Defined<Type>`][defined] |
 
 The **return value** is a `boolean` indicating whether or not the `value` is defined.
 
@@ -2295,16 +2295,16 @@ const guardFunction: GuardFunction = (value: Func, callback?: ResultCallback): v
 
 **Parameters:**
 
-| Name: `type`                                  | Description                             |
-| :-------------------------------------------- | :-------------------------------------- |
-| value: [`Func`](#func)                        | A [`Func`](#func) type `value` to guard |
+| Name: `type`                                  | Description                                                                               |
+| :-------------------------------------------- | :---------------------------------------------------------------------------------------- |
+| value: [`Func`](#func)                        | A [`Func`](#func) type `value` to guard                                                   |
 | callback?: [`ResultCallback`][resultcallback] | An optional function to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Returns:**
 
-| Returns                    | Type      | Description                                                       |
-| :------------------------- | :-------: | :---------------------------------------------------------------- |
-| `value` is [`Func`](#func) | `boolean` | The **return type** is a `boolean` as the result of its statement |
+| Returns         | Type      | Description                                                                                                 |
+| :-------------- | :-------: | :---------------------------------------------------------------------------------------------------------- |
+| `value is Func` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is [`Func`](#func) |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a [`Func`](#func).
 
@@ -2332,23 +2332,23 @@ const guardInstance: GuardInstance =
 
 **Generic type variables:**
 
-| Name  | Default value    | Description                                                                                |
-| :---- | :--------------- | :----------------------------------------------------------------------------------------- |
-| `Obj` | From the `value` | Guarded with `object`, `Obj` variable from the `value` to the return type `value` is `Obj` |
+| Name  | Default value    | Description                                                                              |
+| :---- | :--------------- | :--------------------------------------------------------------------------------------- |
+| `Obj` | From the `value` | Guarded with `object`, `Obj` variable from the `value` to the return type `value is Obj` |
 
 **Parameters:**
 
-| Name: `type`                                   | Description                                                         |
-| :--------------------------------------------- | :------------------------------------------------------------------ |
+| Name: `type`                                   | Description                                                                  |
+| :--------------------------------------------- | :--------------------------------------------------------------------------- |
 | value: `Obj`                                   | A generic `Obj` type from the `value` to be an instance of the `constructor` |
 | constructor: [`Constructor<Obj>`][constructor] | A [`class`][ts-classes] or [`[function]`][ts-function] that specifies the type of the [`constructor`][constructor] |
 | callback?: [`ResultCallback`][resultcallback]  | An optional [`ResultCallback`][resultcallback] type function to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Returns:**
 
-| Returns          | Type      | Description                                                       |
-| :--------------- | :-------: | :---------------------------------------------------------------- |
-| `value` is `Obj` | `boolean` | By default `Obj` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement |
+| Returns        | Type      | Description                                                       |
+| :------------- | :-------: | :---------------------------------------------------------------- |
+| `value is Obj` | `boolean` | By default `Obj` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement indicating the `value` is an `object` of detected from the `value` type |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an `instance` of a generic `Obj`.
 
@@ -2416,9 +2416,9 @@ const guardKey: GuardKey = (value: Key, callback?: ResultCallback): value is Key
 
 **Returns:**
 
-| Returns                 | Type      | Description                                                       |
-| :---------------------- | :-------: | :---------------------------------------------------------------- |
-| `value` is [`Key`][key] | `boolean` | The **return type** is a `boolean` as the result of its statement |
+| Returns        | Type      | Description                                                                                              |
+| :------------- | :-------: | :------------------------------------------------------------------------------------------------------- |
+| `value is Key` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is [`Key`][key] |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a [`Key`][key].
 
@@ -2442,9 +2442,9 @@ const guardNull: GuardNull = (value: null, callback?: ResultCallback): value is 
 
 **Returns:**
 
-| Returns           | Type      | Description                                                       |
-| :---------------- | :-------: | :---------------------------------------------------------------- |
-| `value` is `null` | `boolean` | The **return type** is a `boolean` as the result of its statement |
+| Returns         | Type      | Description                                                       |
+| :-------------- | :-------: | :---------------------------------------------------------------- |
+| `value is null` | `boolean` | The **return type** is a `boolean` as the result of its statement |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `null`.
 
@@ -2463,7 +2463,7 @@ const guardNumber: GuardNumber = <N extends AnyNumber>(value: N, callback?: Resu
 
 | Name                                  | Default value    | Description |
 | :------------------------------------ | :--------------- | :---------- |
-| `N` extends [`AnyNumber`](#anynumber) | From the `value` | Guarded with [`AnyNumber`](#anynumber), `N` variable from the `value` to the return type `value` is `N` |
+| `N` extends [`AnyNumber`](#anynumber) | From the `value` | Guarded with [`AnyNumber`](#anynumber), `N` variable from the `value` to the return type `value is N` |
 
 **Parameters:**
 
@@ -2474,9 +2474,9 @@ const guardNumber: GuardNumber = <N extends AnyNumber>(value: N, callback?: Resu
 
 **Returns:**
 
-| Returns        | Type      | Description                                                       |
-| :------------- | :-------: | :---------------------------------------------------------------- |
-| `value` is `N` | `boolean` | By default `N` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement |
+| Returns      | Type      | Description                                                       |
+| :----------- | :-------: | :---------------------------------------------------------------- |
+| `value is N` | `boolean` | By default `N` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement indicating the `value` is [`AnyNumber`](#anynumber) detected from the `value` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `number` type or [`Number`][number] object.
 
@@ -2499,9 +2499,9 @@ const guardObject: GuardObject = <Obj extends object>(value: Obj, callback?: Res
 
 **Generic type variables:**
 
-| Name  | Default value    | Description                                                                                |
-| :---- | :--------------- | :----------------------------------------------------------------------------------------- |
-| `Obj` | From the `value` | Guarded with `object`, `Obj` variable from the `value` to the return type `value` is `Obj` |
+| Name  | Default value    | Description                                                                              |
+| :---- | :--------------- | :--------------------------------------------------------------------------------------- |
+| `Obj` | From the `value` | Guarded with `object`, `Obj` variable from the `value` to the return type `value is Obj` |
 
 **Parameters:**
 
@@ -2512,9 +2512,9 @@ const guardObject: GuardObject = <Obj extends object>(value: Obj, callback?: Res
 
 **Returns:**
 
-| Returns          | Type      | Description                                                       |
-| :--------------- | :-------: | :---------------------------------------------------------------- |
-| `value` is `Obj` | `boolean` | By default `Obj` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement |
+| Returns        | Type      | Description                                                       |
+| :------------- | :-------: | :---------------------------------------------------------------- |
+| `value is Obj` | `boolean` | By default `Obj` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement indicating the `value` is an `object` of detected from the `value` type |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an `object`.
 
@@ -2540,9 +2540,9 @@ const guardObjectKey: GuardObjectKey =
 
 **Generic type variables:**
 
-| Name  | Default value    | Description                                                                                |
-| :---- | :--------------- | :----------------------------------------------------------------------------------------- |
-| `Obj` | From the `value` | Guarded with `object`, `Obj` variable from the `value` to the return type `value` is `Obj` |
+| Name  | Default value    | Description                                                                              |
+| :---- | :--------------- | :--------------------------------------------------------------------------------------- |
+| `Obj` | From the `value` | Guarded with `object`, `Obj` variable from the `value` to the return type `value is Obj` |
 
 **Parameters:**
 
@@ -2554,9 +2554,9 @@ const guardObjectKey: GuardObjectKey =
 
 **Returns:**
 
-| Returns          | Type      | Description                                                       |
-| :--------------- | :-------: | :---------------------------------------------------------------- |
-| `value` is `Obj` | `boolean` | By default `Obj` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement |
+| Returns        | Type      | Description                                                       |
+| :------------- | :-------: | :---------------------------------------------------------------- |
+| `value is Obj` | `boolean` | By default `Obj` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement indicating the `value` is an `object` of detected from the `value` type |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an `object` of a generic `Obj` containing the `key`.
 
@@ -2585,9 +2585,9 @@ const guardObjectKeys: GuardObjectKeys =
 
 **Generic type variables:**
 
-| Name  | Default value    | Description                                                                                |
-| :---- | :--------------- | :----------------------------------------------------------------------------------------- |
-| `Obj` | From the `value` | Guarded with `object`, `Obj` variable from the `value` to the return type `value` is `Obj` |
+| Name  | Default value    | Description                                                                              |
+| :---- | :--------------- | :--------------------------------------------------------------------------------------- |
+| `Obj` | From the `value` | Guarded with `object`, `Obj` variable from the `value` to the return type `value is Obj` |
 
 **Parameters:**
 
@@ -2598,9 +2598,9 @@ const guardObjectKeys: GuardObjectKeys =
 
 **Returns:**
 
-| Returns          | Type      | Description                                                       |
-| :--------------- | :-------: | :---------------------------------------------------------------- |
-| `value` is `Obj` | `boolean` | By default `Obj` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement |
+| Returns        | Type      | Description                                                       |
+| :------------- | :-------: | :---------------------------------------------------------------- |
+| `value is Obj` | `boolean` | By default `Obj` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement indicating the `value` is an `object` of detected from the `value` type |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an `object` with some of its own specified `keys`.
 
@@ -2666,7 +2666,7 @@ const guardPrimitive: GuardPrimitive =
 
 | Name                                     | Default value    | Description |
 | :--------------------------------------- | :--------------- | :---------- |
-| `Type` extends [`Primitive`](#primitive) | From the `value` | Guarded with [`Primitive`](#primitive) type, `Type` variable from the `value` to the return type `value` is `Type` |
+| `Type` extends [`Primitive`](#primitive) | From the `value` | Guarded with [`Primitive`](#primitive) type, `Type` variable from the `value` to the return type `value is Type` |
 
 **Parameters:**
 
@@ -2678,9 +2678,9 @@ const guardPrimitive: GuardPrimitive =
 
 **Returns:**
 
-| Returns           | Type      | Description                                                       |
-| :---------------- | :-------: | :---------------------------------------------------------------- |
-| `value` is `Type` | `boolean` | By default `Type` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement |
+| Returns         | Type      | Description                                                       |
+| :-------------- | :-------: | :---------------------------------------------------------------- |
+| `value is Type` | `boolean` | By default `Type` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement indicating the `value` is [`Primitive`](#primitive) from the detected `value` type |
 
 The **return value** is a `boolean` indicating whether or not the `value` is the [`Primitive`][primitive] from the `type`.
 
@@ -2703,7 +2703,7 @@ const guardString: GuardString = <S extends AnyString>(value: S, callback?: Resu
 
 | Name                                  | Default value    | Description |
 | :------------------------------------ | :--------------- | :---------- |
-| `S` extends [`AnyString`](#anystring) | From the `value` | Guarded with [`AnyString`](#anystring) type, `S` variable from the `value` to the return type `value` is `S` |
+| `S` extends [`AnyString`](#anystring) | From the `value` | Guarded with [`AnyString`](#anystring) type, `S` variable from the `value` to the return type `value is S` |
 
 **Parameters:**
 
@@ -2714,9 +2714,9 @@ const guardString: GuardString = <S extends AnyString>(value: S, callback?: Resu
 
 **Returns:**
 
-| Returns        | Type      | Description                                                       |
-| :------------- | :-------: | :---------------------------------------------------------------- |
-| `value` is `S` | `boolean` | By default `S` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement |
+| Returns      | Type      | Description                                                       |
+| :----------- | :-------: | :---------------------------------------------------------------- |
+| `value is S` | `boolean` | By default `S` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement indicating the `value` is [`AnyString`](#anystring) from the `value` type |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `string` type or [`String`][string] instance.
 
@@ -2744,9 +2744,9 @@ const guardSymbol: GuardSymbol = (value: symbol, callback?: ResultCallback): val
 
 **Returns:**
 
-| Returns             | Type      | Description                                                       |
-| :------------------ | :-------: | :---------------------------------------------------------------- |
-| `value` is `symbol` | `boolean` | The **return type** is a `boolean` as the result of its statement |
+| Returns           | Type      | Description                                                       |
+| :---------------- | :-------: | :---------------------------------------------------------------- |
+| `value is symbol` | `boolean` | The **return type** is a `boolean` as the result of its statement |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `symbol`.
 
@@ -2765,7 +2765,7 @@ const guardType: GuardType = <T extends Type>(value: T, type: Types<T>, callback
 
 | Name                       | Default value    | Description |
 | :------------------------- | :--------------- | :---------- |
-| `T` extends [`Type`][type] | From the `value` | Guarded with [`Type`][type] type,`T` variable from the `value` to the return type `value` is `T` |
+| `T` extends [`Type`][type] | From the `value` | Guarded with [`Type`][type] type,`T` variable from the `value` to the return type `value is T` |
 
 **Parameters:**
 
@@ -2777,9 +2777,9 @@ const guardType: GuardType = <T extends Type>(value: T, type: Types<T>, callback
 
 **Returns:**
 
-| Returns        | Type      | Description                                                       |
-| :------------- | :-------: | :---------------------------------------------------------------- |
-| `value` is `T` | `boolean` | By default `T` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement |
+| Returns      | Type      | Description                                                       |
+| :----------- | :-------: | :---------------------------------------------------------------- |
+| `value is T` | `boolean` | By default `T` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement indicating the `value` is detected from the `value` type of [`Type`][type] |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `type` from the [`Types`](#types).
 
@@ -2807,9 +2807,9 @@ const guardUndefined: GuardUndefined = (value: undefined, callback?: ResultCallb
 
 **Returns:**
 
-| Returns                | Type      | Description                                                       |
-| :--------------------- | :-------: | :---------------------------------------------------------------- |
-| `value` is `undefined` | `boolean` | The **return type** is a `boolean` as the result of its statement |
+| Returns              | Type      | Description                                                       |
+| :------------------- | :-------: | :---------------------------------------------------------------- |
+| `value is undefined` | `boolean` | The **return type** is a `boolean` as the result of its statement |
 
 The **return value** is a `boolean` indicating whether or not the `value` is `undefined`.
 
