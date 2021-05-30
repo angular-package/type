@@ -2680,7 +2680,7 @@ const guardPrimitive: GuardPrimitive =
 
 | Returns         | Type      | Description                                                       |
 | :-------------- | :-------: | :---------------------------------------------------------------- |
-| `value is Type` | `boolean` | By default `Type` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement indicating the `value` is [`Primitive`](#primitive) from the detected `value` type |
+| `value is Type` | `boolean` | By default `Type` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement indicating the `value` is detected from the `value` type of [`Primitive`](#primitive) |
 
 The **return value** is a `boolean` indicating whether or not the `value` is the [`Primitive`][primitive] from the `type`.
 
