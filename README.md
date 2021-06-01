@@ -1849,7 +1849,7 @@ const isNotBoolean: IsNotBoolean = <Type>(
 | :--------------------------------- | :-------: | :--------------------------------- |
 | `value is Never<AnyBoolean, Type>` | `boolean` | By default `Type` variable is equal to the type detected from the `value`, but the detected type `boolean` or [`Boolean`][boolean] changes to `never` and the **return type** is a `boolean` as the result of its statement `value` is [`Never<AnyBoolean, Type>`][type-never] |
 
-The **return value** is a `boolean` indicating whether or not the `value` is not a `boolean` or [`Boolean`][boolean] instance.
+The **return value** is a `boolean` indicating whether or not the `value` is not a `boolean` and [`Boolean`][boolean] instance.
 
 **Usage:**
 
@@ -2079,7 +2079,7 @@ const isNotNumber: IsNotNumber = <Type>(
 | :-------------------------------- | :-------: | :---------------------------------- |
 | `value is Never<AnyNumber, Type>` | `boolean` | By default `Type` variable is equal to the type detected from the `value`, but the detected type `number` or [`Number`][number] changes to `never` and the **return type** is a `boolean` as the result of its statement `value` is [`Never<AnyNumber, Type>`][type-never] |
 
-The **return value** is a `boolean` indicating whether or not the `value` is not a `number` or [`Number`][number] instance.
+The **return value** is a `boolean` indicating whether or not the `value` is not a `number` and [`Number`][number] instance.
 
 **Usage:**
 
@@ -2137,11 +2137,13 @@ const isNotString: IsNotString = <Type>(
 
 **Returns:**
 
-| Returns                           | Type      | Description                         |
-| :-------------------------------- | :-------: | :---------------------------------- |
-| `value is Never<AnyString, Type>` | `boolean` | By default `Type` variable is equal to the type detected from the `value`, but the detected type `string` or [`String`][string] changes to `never` and the **return type** is a `boolean` as the result of its statement `value` is [`Never<AnyString, Type>`][type-never] |
+`value is Never<AnyString, Type>`
 
-The **return value** is a `boolean` indicating whether or not the `value` is not a `string` or [`String`][string] instance.
+| Type      | Description                         |
+| :-------: | :---------------------------------- |
+| `boolean` | By default `Type` variable is equal to the type detected from the `value`, but the detected type `string` or [`String`][string] changes to `never` and the **return type** is a `boolean` as the result of its statement `value` is [`Never<AnyString, Type>`][type-never] |
+
+The **return value** is a `boolean` indicating whether or not the `value` is not a `string` and [`String`][string] instance.
 
 **Usage:**
 
