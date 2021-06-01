@@ -1811,7 +1811,7 @@ const isNot: IsNot = {
 
 ### isNotBoolean
 
-![fix][update]
+![fix][fix]
 
 `4.1.2`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is not `boolean` or [`Boolean`][boolean] by changing the `value` type to a generic `Type` and the return type to `value is Never<AnyBoolean, Type>`.
 
@@ -1871,7 +1871,7 @@ isNotBoolean(objectBoolean); // false; return type is `value is never`
 
 ### isNotDefined
 
-![fix][update]
+![fix][fix]
 
 `4.1.2`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is not `defined` by changing the `value` type to a generic `Type` and the return type to `value is Undefined<Type>`.
 
@@ -1929,7 +1929,7 @@ isNotDefined(surname); // false; return type is `value is never`
 
 ### isNotFunction
 
-![fix][update]
+![fix][fix]
 
 `4.1.2`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is not `function` by changing the `value` type to a generic `Type` and the return type to `value is Never<Func, Type>`.
 
@@ -1988,7 +1988,7 @@ isNotFunction('maybe i am not'); // true; return type is `value is string`
 
 ### isNotNull
 
-![fix][update]
+![fix][fix]
 
 `4.1.2`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is not `null` by changing `value` type to a generic `Type` and the return type to `value is Never<null, Type>`.
 
@@ -2041,7 +2041,7 @@ isNotNull(firstName); // return type is `value is never`
 
 ### isNotNumber
 
-![fix][update]
+![fix][fix]
 
 `4.1.2`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is not a `number` or `Number` by changing `value` type to a generic `Type` and the return type to `value is Never<number, Type>`.
 
@@ -2103,7 +2103,7 @@ isNotNumber(objectNumber); // return type is `value is never`
 
 ### isNotString
 
-![fix][update]
+![fix][fix]
 
 `4.1.2`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is not a `string` or [`String`][string] by changing `value` type to a generic `Type` and the return type to `value is Never<string, Type>`.
 
@@ -2165,7 +2165,7 @@ isNotString(objectString); // return type is `value is never`
 
 ### isNotUndefined
 
-![fix][update]
+![fix][fix]
 
 `4.1.2`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is not `undefined` by changing `value` type to a generic `Type` and the return type to `value is Defined<Type>`.
 
@@ -3419,6 +3419,7 @@ MIT © angular-package ([license][license])
 [skeleton]: https://github.com/angular-package/skeleton
 
 <!-- Changes -->
+[fix]: https://img.shields.io/badge/-fix-red
 [new]: https://img.shields.io/badge/-new-green
 [update]: https://img.shields.io/badge/-update-red
 
