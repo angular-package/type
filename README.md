@@ -638,7 +638,7 @@ isClass(() => 5); // false
 
 ![fix][fix]
 
-`4.1.2`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is defined by changing the `value` type to a generic `Type` and the return type to `value is Defined<Type>`.
+`4.1.3`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is defined by changing the `value` type to a generic `Type` and the return type to `value is Defined<Type>`.
 
 Use `isDefined()` or `is.defined()` to check if a generic `Type` `value` is **not** an `undefined` type and is **not** equal to `undefined`.
 
@@ -1825,7 +1825,7 @@ const isNot: IsNot = {
 
 ![fix][fix]
 
-`4.1.2`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is not `boolean` or [`Boolean`][boolean] by changing the `value` type to a generic `Type` and the return type to `value is Never<AnyBoolean, Type>`.
+`4.1.3`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is not `boolean` or [`Boolean`][boolean] by changing the `value` type to a generic `Type` and the return type to `value is Never<AnyBoolean, Type>`.
 
 Use `isNotBoolean()` or `is.not.boolean()` to check if a generic `Type` `value` is **not** a `boolean` type and **not** an instance of a [`Boolean`][boolean].
 
@@ -1885,7 +1885,7 @@ isNotBoolean(objectBoolean); // false; return type is `value is never`
 
 ![fix][fix]
 
-`4.1.2`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is not `defined` by changing the `value` type to a generic `Type` and the return type to `value is Undefined<Type>`.
+`4.1.3`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is not `defined` by changing the `value` type to a generic `Type` and the return type to `value is Undefined<Type>`.
 
 Use `isNotDefined()` or `is.not.defined()` to check if a generic `Type` `value` is an `undefined` type and is equal to `undefined`.
 
@@ -1943,7 +1943,7 @@ isNotDefined(surname); // false; return type is `value is never`
 
 ![fix][fix]
 
-`4.1.2`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is not `function` by changing the `value` type to a generic `Type` and the return type to `value is Never<Func, Type>`.
+`4.1.3`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is not `function` by changing the `value` type to a generic `Type` and the return type to `value is Never<Func, Type>`.
 
 Use `isNotFunction()` or `is.not.function()` to check if a generic `Type` `value` is **not** a `function` type and **not** an instance of [`Function`](#func).
 
@@ -2002,7 +2002,7 @@ isNotFunction('maybe i am not'); // true; return type is `value is string`
 
 ![fix][fix]
 
-`4.1.2`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is not `null` by changing `value` type to a generic `Type` and the return type to `value is Never<null, Type>`.
+`4.1.3`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is not `null` by changing `value` type to a generic `Type` and the return type to `value is Never<null, Type>`.
 
 Use `isNotNull()` or `is.not.null()` to check if a generic `Type` `value` is **not** a `null` type and **not** equal to `null`.
 
@@ -2055,7 +2055,7 @@ isNotNull(firstName); // return type is `value is never`
 
 ![fix][fix]
 
-`4.1.2`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is not a `number` or `Number` by changing `value` type to a generic `Type` and the return type to `value is Never<number, Type>`.
+`4.1.3`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is not a `number` or `Number` by changing `value` type to a generic `Type` and the return type to `value is Never<number, Type>`.
 
 Use `isNotNumber()` or `is.not.number()` to check if a generic `Type` `value` is **not** a `number` type and **not** an instance of [`Number`][number].
 
@@ -2117,7 +2117,7 @@ isNotNumber(objectNumber); // return type is `value is never`
 
 ![fix][fix]
 
-`4.1.2`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is not a `string` or [`String`][string] by changing `value` type to a generic `Type` and the return type to `value is Never<string, Type>`.
+`4.1.3`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is not a `string` or [`String`][string] by changing `value` type to a generic `Type` and the return type to `value is Never<string, Type>`.
 
 Use `isNotString()` or `is.not.string()` to check if a generic `Type` `value` is **not** a `string` type and **not** an instance of [`String`][string].
 
@@ -2181,7 +2181,7 @@ isNotString(objectString); // return type is `value is never`
 
 ![fix][fix]
 
-`4.1.2`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is not `undefined` by changing `value` type to a generic `Type` and the return type to `value is Defined<Type>`.
+`4.1.3`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is not `undefined` by changing `value` type to a generic `Type` and the return type to `value is Defined<Type>`.
 
 Use `isNotUndefined()` or `is.not.undefined()` to check if a generic `Type` `value` is **not** an `undefined` type and **not** equal to `undefined`.
 
