@@ -2,7 +2,7 @@
 import { resultCallback } from '../../../lib/result-callback.func';
 import { typeOf } from '../../../lib/type-of.func';
 // Type.
-import { Func } from 'type';
+import { Func } from '../../../type/func.type';
 import { IsNotFunction } from '../type/is-not-function.type';
 import { Never } from '../../../type/never.type';
 import { ResultCallback } from '../../../type/result-callback.type';
