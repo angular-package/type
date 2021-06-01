@@ -1204,7 +1204,7 @@ const isObjectKey: IsObjectKey =
 | Name: `type`               | Description                                           |
 | :------------------------- | :---------------------------------------------------- |
 | value: `any`               | Any `value` to check if it contains a specified `key` |
-| key: `Key | Key[]`         | A [`Key`][key] type or an array of [`Key`][key] type to check in the `value` |
+| key: `Key \| Key[]`        | A [`Key`][key] type or an array of [`Key`][key] type to check in the `value` |
 | callback: `ResultCallback` | A [`ResultCallback`][resultcallback] type function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Returns:**
@@ -1357,7 +1357,7 @@ const isObjectKeyIn: IsObjectKeyIn =
 | Name: `type`               | Description                                                                  |
 | :------------------------- | :--------------------------------------------------------------------------- |
 | value: `any`               | Any `value` to check if it contains a specified `key`                        |
-| key: `Key | Key[]`         | A [`Key`][key] type or an array of [`Key`][key] type to check in the `value` |
+| key: `Key \| Key[]`        | A [`Key`][key] type or an array of [`Key`][key] type to check in the `value` |
 | callback: `ResultCallback` | A [`ResultCallback`][resultcallback] type function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Returns:**
@@ -1483,10 +1483,10 @@ const isObjectKeys: IsObjectKeys = <Type = object>(
 
 **Parameters:**
 
-| Name: `type`                    | Description                                                                                 |
-| :------------------------------ | :------------------------------------------------------------------------------------------ |
-| value: `any`                    | Any `value` to check if it contains **some** of the specified `keys`                        |
-| ...keys: `(Key | Array<Key>)[]` | A [rest parameter][function-rest-parameter] single [`Key`][key] type or an array of [`Key`][key] type to check in the `value` |
+| Name: `type`                     | Description                                                                                 |
+| :------------------------------- | :------------------------------------------------------------------------------------------ |
+| value: `any`                     | Any `value` to check if it contains **some** of the specified `keys`                        |
+| ...keys: `(Key \| Array<Key>)[]` | A [rest parameter][function-rest-parameter] single [`Key`][key] type or an array of [`Key`][key] type to check in the `value` |
 
 **Returns:**
 
@@ -2552,11 +2552,11 @@ const guardObjectKey: GuardObjectKey =
 
 **Parameters:**
 
-| Name: `type`                     | Description                                                                                                              |
-| :------------------------------- | :----------------------------------------------------------------------------------------------------------------------- |
-| value: `Obj`                     | An `object` of a generic `Obj` type that contains the `key`, by default of type detected from the `value` to guard       |
-| key: `keyof Obj | (keyof Obj)[]` | A key of `Obj` or an array of keys of `Obj` type as the name of the property that the `value` contains                   |
-| callback?: `ResultCallback`      | An optional [`ResultCallback`][resultcallback] type to handle the result before returns eg. to throw an [`Error`][error] |
+| Name: `type`                      | Description                                                                                                              |
+| :-------------------------------- | :----------------------------------------------------------------------------------------------------------------------- |
+| value: `Obj`                      | An `object` of a generic `Obj` type that contains the `key`, by default of type detected from the `value` to guard       |
+| key: `keyof Obj \| (keyof Obj)[]` | A key of `Obj` or an array of keys of `Obj` type as the name of the property that the `value` contains                   |
+| callback?: `ResultCallback`       | An optional [`ResultCallback`][resultcallback] type to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Returns:**
 
@@ -2597,10 +2597,10 @@ const guardObjectKeys: GuardObjectKeys =
 
 **Parameters:**
 
-| Name: `type`                         | Description                                                                                                       |
-| :----------------------------------- | :---------------------------------------------------------------------------------------------------------------- |
-| value: `Obj`                         | An object of a generic `Obj` type that contains the `keys`, by default of type detected from the `value` to guard |
-| ...keys: `keyof Obj | (keyof Obj)[]` | A [rest parameter][function-rest-parameter] single key of `Obj` or an array of key of `Obj` type as the name of the property that the `value` contains |
+| Name: `type`                          | Description                                                                                                       |
+| :------------------------------------ | :---------------------------------------------------------------------------------------------------------------- |
+| value: `Obj`                          | An object of a generic `Obj` type that contains the `keys`, by default of type detected from the `value` to guard |
+| ...keys: `keyof Obj \| (keyof Obj)[]` | A [rest parameter][function-rest-parameter] single key of `Obj` or an array of key of `Obj` type as the name of the property that the `value` contains |
 
 **Returns:**
 
@@ -2771,7 +2771,7 @@ const guardType: GuardType = <T extends Type>(value: T, type: Types<T>, callback
 
 | Name             | Default value    | Description |
 | :--------------- | :--------------- | :---------- |
-| `T extends Type` | From the `value` | Guarded with [`Type`][type],`T` variable from the `value` to the return type `value is T` |
+| `T extends Type` | From the `value` | Guarded with [`Type`][type], `T` variable from the `value` to the return type `value is T` |
 
 **Parameters:**
 
