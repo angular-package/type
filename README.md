@@ -639,28 +639,36 @@ isClass(() => 5); // false
 Use `isDefined()` or `is.defined()` to check if a generic `Type` `value` is **not** an `undefined` type and is **not** equal to `undefined`.
 
 ```typescript
-const isDefined: IsDefined = <Type>(value: Type, callback: ResultCallback = resultCallback): value is Defined<Type> =>
-  callback(typeOf(value) !== 'undefined' && typeof value !== 'undefined' && value !== undefined, value);
+const isDefined: IsDefined = <Type>(
+  value: Type,
+  callback: ResultCallback = resultCallback
+): value is Defined<Type> =>
+  callback(
+    typeOf(value) !== 'undefined' &&
+    typeof value !== 'undefined' &&
+    value !== undefined,
+    value
+  );
 ```
 
 **Generic type variables:**
 
-| Name   | Default value    | Description                                                    |
-| :----- | :--------------- | :------------------------------------------------------------- |
-| `Type` | From the `value` | A generic variable to the return type `value is Defined<Type>` |
+| Name   | Default value    | Description                                                           |
+| :----- | :--------------- | :-------------------------------------------------------------------- |
+| `Type` | From the `value` | A generic `Type` variable to the return type `value is Defined<Type>` |
 
 **Parameters:**
 
-| Name: `type`               | Description                     |
-| :------------------------- | :------------------------------ |
-| value: `unknown`           | A generic type `value` to check |
+| Name: `type`               | Description                                                                      |
+| :------------------------- | :------------------------------------------------------------------------------- |
+| value: `Type`              | A generic `Type` `value`, by default of type detected from the `value`, to check |
 | callback: `ResultCallback` | A [`ResultCallback`][resultcallback] type function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Returns:**
 
 | Returns                  | Type      | Description                         |
-| :----------------------- | :-------: | :---------------------------------  |
-| `value is Defined<Type>` | `boolean` | The **return type** is a `boolean`  |
+| :----------------------- | :-------: | :---------------------------------- |
+| `value is Defined<Type>` | `boolean` | By default `Type` variable is equal to the type detected from the `value`, but the detected type `undefined` changes to `never` and the **return type** is a `boolean` as the result of its statement `value` is [`Defined<Type>`][type-defined] |
 
 The **return value** is a `boolean` indicating whether or not the `value` is defined, not `undefined`
 
@@ -2220,13 +2228,7 @@ function configFunction(value: string): string {
   return '';
 }
 
-// Cause typescript returns `boolean` this will generate a type error
 if (is.not.undefined(config.a)) {
-  configFunction(config.a);
-}
-
-// Cause typescript return `value is undefined` will not generate an error
-if (!is.undefined(config.a)) {
   configFunction(config.a);
 }
 
@@ -3130,10 +3132,10 @@ type Types<Obj> = Constructor<Obj> | 'function' | 'object' | Primitives;
 
 ### Undefined
 
-Undefined or `never` - treat types as `never` excluding `undefined`.
+Undefined or never - treat types as `never` excluding `undefined`.
 
 ```typescript
-export type Undefined<Type> = Type extends undefined ? Type : never;
+type Undefined<Type> = Type extends undefined ? Type : never;
 ```
 
 ----
