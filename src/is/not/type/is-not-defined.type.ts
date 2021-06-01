@@ -1,2 +1,3 @@
 import { ResultCallback } from '../../../type/result-callback.type';
-export type IsNotDefined = (value: unknown, callback?: ResultCallback) => boolean;
+import { Undefined } from '../../../type/undefined.type';
+export type IsNotDefined = <Type>(value: Type, callback?: ResultCallback) => value is Undefined<Type>;
