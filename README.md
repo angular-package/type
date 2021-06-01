@@ -2137,7 +2137,7 @@ const isNotString: IsNotString = <Type>(
 
 **Returns:**
 
-`value is Never<AnyString, Type>`
+The function returns statement `value is Never<AnyString, Type>`.
 
 | Type      | Description                         |
 | :-------: | :---------------------------------- |
