@@ -5,8 +5,8 @@ import { GuardArray } from '../type/guard-array.type';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
  * Guard the `value` to be an `Array` of a generic `Type`.
- * @param value A generic `Type` `Array` `value` to guard.
- * @param callback An optional `ResultCallback` function to handle result before returns.
+ * @param value An `Array` of a generic `Type`, by default type detected from the `value` - to guard.
+ * @param callback An optional `ResultCallback` function to handle the result before returns.
  * @returns A `boolean` indicating whether or not the `value` is an `Array` of a generic `Type`.
  */
 export const guardArray: GuardArray = <Type>(value: Array<Type>, callback?: ResultCallback): value is Array<Type> =>
