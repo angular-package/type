@@ -1,1 +1,2 @@
-export type Defined<T> = T extends undefined ? never : T;
+import { Never } from './never.type';
+export type Defined<Type> = Never<undefined, Type>;
