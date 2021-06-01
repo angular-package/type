@@ -2347,7 +2347,7 @@ const guardInstance: GuardInstance =
 | Name: `type`                    | Description                                                                                                                       |
 | :------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------- |
 | value: `Obj`                    | An `object`, by default of a generic `Obj` type detected from the `value` to guard and to check if it's a `constructor` instance  |
-| constructor: `Constructor<Obj>` | A [`class`][ts-classes] or [`[function]`][ts-function] that specifies the type of the [`constructor`][constructor]                |
+| constructor: `Constructor<Obj>` | A [`class`][ts-classes] or [`function`][ts-function] that specifies the type of the [`constructor`][constructor]                |
 | callback?: `ResultCallback`     | An optional [`ResultCallback`][resultcallback] type function to handle the result before returns eg. to throw an [`Error`][error] |
 
 **Returns:**
