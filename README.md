@@ -636,6 +636,10 @@ isClass(() => 5); // false
 
 ### isDefined
 
+![fix][fix]
+
+`4.1.2`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is defined by changing the `value` type to a generic `Type` and the return type to `value is Defined<Type>`.
+
 Use `isDefined()` or `is.defined()` to check if a generic `Type` `value` is **not** an `undefined` type and is **not** equal to `undefined`.
 
 ```typescript
