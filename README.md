@@ -1572,9 +1572,9 @@ const isPrimitive: IsPrimitive = <T extends Primitive>(
 
 **Generic type variables:**
 
-| Name                    | Default value             | Description |
-| :---------------------- | :------------------------ | :---------- |
-| `T` extends `Primitive` | [`Primitive`](#primitive) | Guarded with [`Primitive`](#primitive) type, `T` variable to the return type `value is T` |
+| Name                  | Default value             | Description |
+| :-------------------- | :------------------------ | :---------- |
+| `T extends Primitive` | [`Primitive`](#primitive) | Guarded with [`Primitive`](#primitive) type, `T` variable to the return type `value is T` |
 
 **Parameters:**
 
@@ -1737,9 +1737,9 @@ const isType: IsType = <T extends Type>(value: any, type: Types<T>, callback: Re
 
 **Generic type variables:**
 
-| Name                       | Default value   | Description |
-| :------------------------- | :-------------- | :---------- |
-| `T` extends [`Type`][type] | [`Type`][type]  | Guarded with [`Type`][type] type, `T` variable to the return type `value is T` |
+| Name             | Default value   | Description |
+| :--------------- | :-------------- | :---------- |
+| `T extends Type` | [`Type`][type]  | Guarded with [`Type`][type] type, `T` variable to the return type `value is T` |
 
 **Parameters:**
 
@@ -2505,9 +2505,9 @@ const guardObject: GuardObject = <Obj extends object>(value: Obj, callback?: Res
 
 **Generic type variables:**
 
-| Name  | Default value    | Description                                                                              |
-| :---- | :--------------- | :--------------------------------------------------------------------------------------- |
-| `Obj` | From the `value` | Guarded with `object`, `Obj` variable from the `value` to the return type `value is Obj` |
+| Name                 | Default value    | Description                                                                              |
+| :------------------- | :--------------- | :--------------------------------------------------------------------------------------- |
+| `Obj extends object` | From the `value` | Guarded with `object`, `Obj` variable from the `value` to the return type `value is Obj` |
 
 **Parameters:**
 
@@ -2546,9 +2546,9 @@ const guardObjectKey: GuardObjectKey =
 
 **Generic type variables:**
 
-| Name  | Default value    | Description                                                                              |
-| :---- | :--------------- | :--------------------------------------------------------------------------------------- |
-| `Obj` | From the `value` | Guarded with `object`, `Obj` variable from the `value` to the return type `value is Obj` |
+| Name                 | Default value    | Description                                                                              |
+| :------------------- | :--------------- | :--------------------------------------------------------------------------------------- |
+| `Obj extends object` | From the `value` | Guarded with `object`, `Obj` variable from the `value` to the return type `value is Obj` |
 
 **Parameters:**
 
@@ -2591,9 +2591,9 @@ const guardObjectKeys: GuardObjectKeys =
 
 **Generic type variables:**
 
-| Name  | Default value    | Description                                                                              |
-| :---- | :--------------- | :--------------------------------------------------------------------------------------- |
-| `Obj` | From the `value` | Guarded with `object`, `Obj` variable from the `value` to the return type `value is Obj` |
+| Name                 | Default value    | Description                                                                              |
+| :------------------- | :--------------- | :--------------------------------------------------------------------------------------- |
+| `Obj extends object` | From the `value` | Guarded with `object`, `Obj` variable from the `value` to the return type `value is Obj` |
 
 **Parameters:**
 
@@ -2670,9 +2670,9 @@ const guardPrimitive: GuardPrimitive =
 
 **Generic type variables:**
 
-| Name                                     | Default value    | Description |
-| :--------------------------------------- | :--------------- | :---------- |
-| `Type` extends [`Primitive`](#primitive) | From the `value` | Guarded with [`Primitive`](#primitive) type, `Type` variable from the `value` to the return type `value is Type` |
+| Name                     | Default value    | Description |
+| :----------------------- | :--------------- | :---------- |
+| `Type extends Primitive` | From the `value` | Guarded with [`Primitive`](#primitive) type, `Type` variable from the `value` to the return type `value is Type` |
 
 **Parameters:**
 
@@ -2707,9 +2707,9 @@ const guardString: GuardString = <S extends AnyString>(value: S, callback?: Resu
 
 **Generic type variables:**
 
-| Name                                  | Default value    | Description |
-| :------------------------------------ | :--------------- | :---------- |
-| `S` extends [`AnyString`](#anystring) | From the `value` | Guarded with [`AnyString`](#anystring) type, `S` variable from the `value` to the return type `value is S` |
+| Name                  | Default value    | Description |
+| :-------------------- | :--------------- | :---------- |
+| `S extends AnyString` | From the `value` | Guarded with [`AnyString`](#anystring) type, `S` variable from the `value` to the return type `value is S` |
 
 **Parameters:**
 
@@ -2769,9 +2769,9 @@ const guardType: GuardType = <T extends Type>(value: T, type: Types<T>, callback
 
 **Generic type variables:**
 
-| Name                       | Default value    | Description |
-| :------------------------- | :--------------- | :---------- |
-| `T` extends [`Type`][type] | From the `value` | Guarded with [`Type`][type] type,`T` variable from the `value` to the return type `value is T` |
+| Name             | Default value    | Description |
+| :--------------- | :--------------- | :---------- |
+| `T extends Type` | From the `value` | Guarded with [`Type`][type] type,`T` variable from the `value` to the return type `value is T` |
 
 **Parameters:**
 
