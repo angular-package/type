@@ -385,7 +385,7 @@ const isArray: IsArray = <Type = any>(value: any, callback: ResultCallback = res
 
 | Returns                | Type      | Description                                                       |
 | :--------------------- | :-------: | :---------------------------------------------------------------- |
-| `value is Array<Type>` | `boolean` | By default `Type` variable is equal  to `any` and the **return type** is a `boolean` as the result of its statement indicating the `value` is an [`Array`][array] of `any` type |
+| `value is Array<Type>` | `boolean` | By default `Type` variable is equal to `any` and the **return type** is a `boolean` as the result of its statement indicating the `value` is an [`Array`][array] of `any` type |
 
 The **return value** is a `boolean` indicating whether or not the `value` is an [`Array`][array].
 
@@ -1588,7 +1588,7 @@ const isPrimitive: IsPrimitive = <T extends Primitive>(
 
 | Returns      | Type      | Description                                                            |
 | :----------- | :-------: | :--------------------------------------------------------------------- |
-| `value is T` | `boolean` | By default `T` variable is equal  to [`Primitive`](#primitive) and the **return type** is a `boolean` as the result of its statement indicating the `value` is [`Primitive`](#primitive) |
+| `value is T` | `boolean` | By default `T` variable is equal to [`Primitive`](#primitive) and the **return type** is a `boolean` as the result of its statement indicating the `value` is [`Primitive`](#primitive) |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `type` from the [`Primitives`](#primitives).
 
@@ -1739,13 +1739,13 @@ const isType: IsType = <T extends Type>(value: any, type: Types<T>, callback: Re
 
 | Name             | Default value   | Description |
 | :--------------- | :-------------- | :---------- |
-| `T extends Type` | [`Type`][type]  | Guarded with [`Type`][type] type, `T` variable to the return type `value is T` |
+| `T extends Type` | [`Type`][type]  | Guarded with [`Type`][type], `T` variable to the return type `value is T` |
 
 **Parameters:**
 
-| Name: `type`               | Description                                         |
-| :------------------------- | :-------------------------------------------------- |
-| value: `any`               | Any `value` to check if its type is from the `type` |
+| Name: `type`               | Description                                                                                 |
+| :------------------------- | :------------------------------------------------------------------------------------------ |
+| value: `any`               | Any `value` to check if its type is from the `type`                                         |
 | type: `Types<T>`           | A `string` or generic `Constructor<T>` type from the [`Types`](#types) to check the `value` |
 | callback: `ResultCallback` | A [`ResultCallback`][resultcallback] type function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][error] |
 
@@ -1753,7 +1753,7 @@ const isType: IsType = <T extends Type>(value: any, type: Types<T>, callback: Re
 
 | Returns      | Type      | Description                                                                                                           |
 | :----------- | :-------: | :-------------------------------------------------------------------------------------------------------------------- |
-| `value is T` | `boolean` | By default `T` variable is equal  to [`Type`][type] and the **return type** is a `boolean` as the result of its statement indicating the `value` is [`Type`][type] |
+| `value is T` | `boolean` | By default `T` variable is equal to [`Type`][type] and the **return type** is a `boolean` as the result of its statement indicating the `value` is [`Type`][type] |
 
 The **return value** is a `boolean` indicating whether or not the `value` is the [`Type`][type] from a `type` of the [`Types`](#types).
 
@@ -2771,7 +2771,7 @@ const guardType: GuardType = <T extends Type>(value: T, type: Types<T>, callback
 
 | Name             | Default value    | Description |
 | :--------------- | :--------------- | :---------- |
-| `T extends Type` | From the `value` | Guarded with [`Type`][type] type,`T` variable from the `value` to the return type `value is T` |
+| `T extends Type` | From the `value` | Guarded with [`Type`][type],`T` variable from the `value` to the return type `value is T` |
 
 **Parameters:**
 
