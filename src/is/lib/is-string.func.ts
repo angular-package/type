@@ -9,8 +9,15 @@ import { ResultCallback } from '../../type/result-callback.type';
 /**
  * Checks if any `value` is a `string` type, not instance of `Object` and `String` or `object` type and instance of `String` and `Object`.
  * @param value Any `value` to check.
- * @param callback `ResultCallback` function to handle result before returns.
+ * @param callback A `ResultCallback` function to handle the result before returns.
  * @returns A `boolean` indicating whether or not the `value` is a `string` type or `String` object.
  */
-export const isString: IsString = (value: any, callback: ResultCallback = resultCallback): value is string =>
-  callback(typeOf(value) === 'string' && (isStringType(value) || isStringObject(value)), value);
+export const isString: IsString = (
+  value: any,
+  callback: ResultCallback = resultCallback
+): value is string =>
+  callback(
+    typeOf(value) === 'string' &&
+    (isStringType(value) || isStringObject(value)),
+    value
+  );

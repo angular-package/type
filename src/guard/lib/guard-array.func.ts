@@ -9,5 +9,7 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @param callback An optional `ResultCallback` function to handle the result before returns.
  * @returns A `boolean` indicating whether or not the `value` is an `Array` of a generic `Type`.
  */
-export const guardArray: GuardArray = <Type>(value: Array<Type>, callback?: ResultCallback): value is Array<Type> =>
-  isArray<Type>(value, callback);
+export const guardArray: GuardArray = <Type>(
+  value: Array<Type>,
+  callback?: ResultCallback
+): value is Array<Type> => isArray<Type>(value, callback);

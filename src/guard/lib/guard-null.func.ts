@@ -9,5 +9,7 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @param callback An optional `ResultCallback` function to handle the result before returns.
  * @returns A `boolean` indicating whether or not the `value` is a `null`.
  */
-export const guardNull: GuardNull = (value: null, callback?: ResultCallback): value is null =>
-  isNull(value, callback);
+export const guardNull: GuardNull = (
+  value: null,
+  callback?: ResultCallback
+): value is null => isNull(value, callback);

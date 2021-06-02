@@ -10,5 +10,7 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @param callback An optional `ResultCallback` function to handle the result before returns.
  * @returns A `boolean` indicating whether or not the `value` is a `string` type or `String` object.
  */
-export const guardString: GuardString = <S extends AnyString>(value: S, callback?: ResultCallback): value is S =>
-  isString(value, callback);
+export const guardString: GuardString = <S extends AnyString>(
+  value: S,
+  callback?: ResultCallback
+): value is S => isString(value, callback);

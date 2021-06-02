@@ -11,18 +11,23 @@ import { ResultCallback } from '../../type/result-callback.type';
  * Checks if any `value` is an `object` with its own specified `key` of the `Key` type.
  * @param value Any `value` to check if it contains a specified `key`.
  * @param key A `Key` type or an array of `Key` type to check the `value`.
- * @param callback `ResultCallback` function to handle result before returns.
+ * @param callback A `ResultCallback` function to handle the result before returns.
  * @returns A `boolean` indicating whether or not the `value` is an `object` with its own specified keys.
  */
-export const isObjectKey: IsObjectKey =
-  <Type = object>(value: any, key: Key | Key[], callback: ResultCallback = resultCallback): value is Type =>
-    callback(
-      isObject<Type>(value) ?
-        isArray(key) ?
-          key.every(k => isKey(k) ? ({}).hasOwnProperty.call(value, k) === true : false)
-          : isKey(key) ?
-            ({}).hasOwnProperty.call(value, key)
-            : false
-        : false,
-      value
-    );
+export const isObjectKey: IsObjectKey = <Type = object>(
+  value: any,
+  key: Key | Key[],
+  callback: ResultCallback = resultCallback
+): value is Type =>
+  callback(
+    isObject<Type>(value)
+      ? isArray(key)
+        ? key.every((k) =>
+          isKey(k) ? {}.hasOwnProperty.call(value, k) === true : false
+        )
+        : isKey(key)
+          ? {}.hasOwnProperty.call(value, key)
+          : false
+      : false,
+    value
+  );

@@ -10,5 +10,7 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @param callback An optional `ResultCallback` function to handle the result before returns.
  * @returns A `boolean` indicating whether or not the `value` is a `Key`.
  */
-export const guardKey: GuardKey = (value: Key, callback?: ResultCallback): value is Key =>
-  isKey(value, callback);
+export const guardKey: GuardKey = (
+  value: Key,
+  callback?: ResultCallback
+): value is Key => isKey(value, callback);

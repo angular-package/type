@@ -8,6 +8,7 @@ import { GuardObjectKeys } from '../type/guard-object-keys.type';
  * @param keys A rest parameter single key of `Obj` or an array of keys of `Obj`, as the name of the property that the `value` contains.
  * @returns A `boolean` indicating whether or not the `value` is an `object` with some of its own specified `keys`.
  */
-export const guardObjectKeys: GuardObjectKeys =
-  <Obj extends object>(value: Obj, ...keys: (keyof Obj | Array<keyof Obj>)[]): value is Obj =>
-    isObjectKeys<Obj>(value, ...keys);
+export const guardObjectKeys: GuardObjectKeys = <Obj extends object>(
+  value: Obj,
+  ...keys: (keyof Obj | Array<keyof Obj>)[]
+): value is Obj => isObjectKeys<Obj>(value, ...keys);
