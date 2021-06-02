@@ -12,6 +12,8 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @param callback An optional `ResultCallback` function to handle the result before returns.
  * @returns A `boolean` indicating whether or not the `value` is an `instance` of a generic `Obj`.
  */
-export const guardInstance: GuardInstance =
-  <Obj extends object>(value: Obj, constructor: Constructor<Obj>, callback?: ResultCallback): value is Obj =>
-    isInstance<Obj>(value, constructor, callback);
+export const guardInstance: GuardInstance = <Obj extends object>(
+  value: Obj,
+  constructor: Constructor<Obj>,
+  callback?: ResultCallback
+): value is Obj => isInstance<Obj>(value, constructor, callback);

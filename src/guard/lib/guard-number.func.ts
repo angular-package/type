@@ -10,5 +10,7 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @param callback An optional `ResultCallback` function to handle the result before returns.
  * @returns A `boolean` indicating whether or not the `value` is a `number` type or `Number` object.
  */
-export const guardNumber: GuardNumber = <N extends AnyNumber>(value: N, callback?: ResultCallback): value is N =>
-  isNumber(value, callback);
+export const guardNumber: GuardNumber = <N extends AnyNumber>(
+  value: N,
+  callback?: ResultCallback
+): value is N => isNumber(value, callback);

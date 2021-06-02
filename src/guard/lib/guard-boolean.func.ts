@@ -10,5 +10,7 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @param callback An optional `ResultCallback` function to handle the result before returns.
  * @returns A `boolean` indicating whether or not the `value` is a `boolean` type or `Boolean` object.
  */
-export const guardBoolean: GuardBoolean = <B extends AnyBoolean>(value: B, callback?: ResultCallback): value is B =>
-  isBoolean(value, callback);
+export const guardBoolean: GuardBoolean = <B extends AnyBoolean>(
+  value: B,
+  callback?: ResultCallback
+): value is B => isBoolean(value, callback);

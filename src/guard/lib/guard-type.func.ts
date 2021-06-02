@@ -12,5 +12,9 @@ import { Types } from '../../type/types.type';
  * @param callback An optional `ResultCallback` function to handle the result before returns.
  * @returns A `boolean` indicating whether or not the `value` is a type from the `Types`.
  */
-export const guardType: GuardType = <T extends Type>(value: T, type: Types<T>, callback?: ResultCallback): value is T  =>
-  isType<T>(value, type, callback);
+export const guardType: GuardType = <T extends Type>(
+  value: T,
+  type: Types<T>,
+  callback?: ResultCallback
+): value is T => isType<T>(value, type, callback);
+

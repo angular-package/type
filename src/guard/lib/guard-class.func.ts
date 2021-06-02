@@ -10,5 +10,7 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @returns A `boolean` indicating whether or not the `value` is a generic `class`.
  */
 // tslint:disable-next-line: ban-types
-export const guardClass: GuardClass = <Class extends Function>(value: Class, callback?: ResultCallback): value is Class =>
-  isClass<Class>(value, callback);
+export const guardClass: GuardClass = <Class extends Function>(
+  value: Class,
+  callback?: ResultCallback
+): value is Class => isClass<Class>(value, callback);

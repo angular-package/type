@@ -9,5 +9,7 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @param callback An optional `ResultCallback` function to handle the result before returns.
  * @returns A `boolean` indicating whether or not the `value` is `undefined`.
  */
-export const guardUndefined: GuardUndefined = (value: undefined, callback?: ResultCallback): value is undefined =>
-  isUndefined(value, callback);
+export const guardUndefined: GuardUndefined = (
+  value: undefined,
+  callback?: ResultCallback
+): value is undefined => isUndefined(value, callback);
