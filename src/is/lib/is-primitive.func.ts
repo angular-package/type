@@ -16,7 +16,7 @@ import { ResultCallback } from '../../type/result-callback.type';
  * Checks if any `value` is the `Primitive` type from a `type` of the `Primitives` type.
  * @param value Any `value` to check if it's a `Primitive` from the `type`.
  * @param type A `string` type from the `Primitives` to check the `value`.
- * @param callback `ResultCallback` function to handle result before returns.
+ * @param callback A `ResultCallback` function to handle the result before returns.
  * @returns A `boolean` indicating whether or not the `value` is a `type` from the `Primitives`.
  */
 export const isPrimitive: IsPrimitive = <T extends Primitive>(

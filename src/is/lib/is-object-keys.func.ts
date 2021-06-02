@@ -15,11 +15,14 @@ export const isObjectKeys: IsObjectKeys = <Type = object>(
   value: any,
   ...keys: (Key | Array<Key>)[]
 ): value is Type =>
-  isObject<Type>(value) ?
-    keys.some(key =>
-      isArray(key) ?
-        key.every(k => isKey(k) ? ({}).hasOwnProperty.call(value, k) === true : false)
-        : isKey(key) ?
-          ({}).hasOwnProperty.call(value, key) === true
-          : false)
+  isObject<Type>(value)
+    ? keys.some((key) =>
+      isArray(key)
+        ? key.every((k) =>
+          isKey(k) ? {}.hasOwnProperty.call(value, k) === true : false
+        )
+        : isKey(key)
+          ? {}.hasOwnProperty.call(value, key) === true
+          : false
+    )
     : false;
