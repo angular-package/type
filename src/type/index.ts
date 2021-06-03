@@ -1,8 +1,13 @@
+export { AnyBoolean } from './any-boolean.type';
+export { AnyNumber } from './any-number.type';
+export { AnyString } from './any-string.type';
 export { Constructor } from './constructor.type';
 export { CycleHook } from './cycle-hook.type';
 export { Defined } from './defined.type';
 export { Func } from './func.type';
 export { Key } from './key.type';
+export { Never } from './never.type';
+export { NotUndefined } from './not-undefined.type';
 export { Primitive } from './primitive.type';
 export { Primitives } from './primitives.type';
 export { ResultCallback } from './result-callback.type';
