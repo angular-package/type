@@ -1,2 +1,9 @@
-export type CycleHook = 'ngAfterContentInit' | 'ngAfterContentChecked' | 'ngAfterViewInit' | 'ngAfterViewChecked'
-  | 'ngAfterViewChecked' | 'ngOnInit' | 'ngOnDestroy' | 'ngOnChanges';
+export type CycleHook =
+  | 'ngAfterContentInit'
+  | 'ngAfterContentChecked'
+  | 'ngAfterViewInit'
+  | 'ngAfterViewChecked'
+  | 'ngAfterViewChecked'
+  | 'ngOnInit'
+  | 'ngOnDestroy'
+  | 'ngOnChanges';
