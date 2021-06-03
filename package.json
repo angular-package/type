@@ -4,10 +4,6 @@
   "description": "Common types, type guards and type checkers.",
   "author": "Angular Package <angular-package@wvvw.dev> (https://wvvw.dev)",
   "homepage": "https://github.com/angular-package/type#readme",
-  "peerDependencies": {},
-  "devDependencies": {
-    "tslint": "^6.1.3"
-  },
   "dependencies": {
     "tslib": "^2.1.0"
   },
