@@ -102,7 +102,23 @@ import { are, guard, is, isNot } from '@angular-package/type';
 
 ```typescript
 // Types.
-import { Constructor, CycleHook, Defined, Func, Key, Primitive, Primitives, ResultCallback, Type, Types } from '@angular-package/type';
+import {
+  AnyBoolean,
+  AnyNumber,
+  AnyString,
+  Constructor,
+  CycleHook,
+  Defined,
+  Func,
+  Key,
+  Never,
+  NotUndefined,
+  Primitive,
+  Primitives,
+  ResultCallback,
+  Type,
+  Types,
+} from '@angular-package/type';
 ```
 
 ## Features
@@ -358,7 +374,10 @@ const is: Is = {
 Use `isArray()` or `is.array()` to check if **any** `value` is an [`Array`][array], [`Array`][array] instance, and `object` type.
 
 ```typescript
-const isArray: IsArray = <Type = any>(value: any, callback: ResultCallback = resultCallback): value is Array<Type> =>
+const isArray: IsArray = <Type = any>(
+  value: any,
+  callback: ResultCallback = resultCallback
+): value is Array<Type> =>
   callback(
     typeOf(value) === 'array' &&
     Array.isArray(value) === true &&
@@ -2009,14 +2028,16 @@ isNotBoolean(objectBoolean); // false; return type is `value is never`
 Use `isNotDefined()` or `is.not.defined()` to check if a generic `Type` `value` is an `undefined` type and is equal to `undefined`.
 
 ```typescript
-const isNotDefined: IsNotDefined =
-  <Type>(value: Type, callback: ResultCallback = resultCallback): value is Undefined<Type> =>
-    callback(
-      typeOf(value) === 'undefined' &&
-      typeof value === 'undefined' &&
-      value === undefined,
-      value
-    );
+const isNotDefined: IsNotDefined = <Type>(
+  value: Type,
+  callback: ResultCallback = resultCallback
+): value is Undefined<Type> =>
+  callback(
+    typeOf(value) === 'undefined' &&
+    typeof value === 'undefined' &&
+    value === undefined,
+    value
+  );
 ```
 
 **Generic type variables:**
@@ -3343,7 +3364,7 @@ guardUndefined(5); // false; type error
 
 ### AnyBoolean
 
-Represents `boolean` type or `Boolean` object.
+Represents `boolean` type or [`Boolean`][boolean] object.
 
 ```typescript
 type AnyBoolean = Exclude<boolean | Boolean, true | false>;
@@ -3351,7 +3372,7 @@ type AnyBoolean = Exclude<boolean | Boolean, true | false>;
 
 ### AnyNumber
 
-Represents `number` type or `Number` object.
+Represents `number` type or [`Number`][number] object.
 
 ```typescript
 type AnyNumber = number | Number;
@@ -3359,7 +3380,7 @@ type AnyNumber = number | Number;
 
 ### AnyString
 
-Represents `string` type or `String` object.
+Represents `string` type or [`String`][string] object.
 
 ```typescript
 type AnyString = string | String;
@@ -3373,15 +3394,26 @@ type Constructor<Type> = new (...args: any[]) => Type;
 
 ### Defined
 
+Indicate that `Type` variable is defined.
+
 ```typescript
 type Defined<Type> = Never<undefined, Type>;
 ```
 
 ### CycleHook
 
+Angular cycle hooks method names.
+
 ```typescript
-type CycleHook = 'ngAfterContentInit' | 'ngAfterContentChecked' | 'ngAfterViewInit' | 'ngAfterViewChecked'
-  | 'ngAfterViewChecked' | 'ngOnInit' | 'ngOnDestroy' | 'ngOnChanges';
+type CycleHook =
+  | 'ngAfterContentInit'
+  | 'ngAfterContentChecked'
+  | 'ngAfterViewInit'
+  | 'ngAfterViewChecked'
+  | 'ngAfterViewChecked'
+  | 'ngOnInit'
+  | 'ngOnDestroy'
+  | 'ngOnChanges';
 ```
 
 ### Func

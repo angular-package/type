@@ -24,7 +24,7 @@ export {
   guardString,
   guardSymbol,
   guardType,
-  guardUndefined
+  guardUndefined,
 } from './guard';
 
 // `are` object and functions.
@@ -62,7 +62,7 @@ export {
   isStringType,
   isSymbol,
   isType,
-  isUndefined
+  isUndefined,
 } from './is';
 
 // `isNot` functions.
@@ -73,8 +73,24 @@ export {
   isNotNull,
   isNotNumber,
   isNotString,
-  isNotUndefined
+  isNotUndefined,
 } from './is/not';
 
 // Types.
-export { Constructor, CycleHook, Defined, Func, Key, Primitive, Primitives, ResultCallback, Type, Types } from './type';
+export {
+  AnyBoolean,
+  AnyNumber,
+  AnyString,
+  Constructor,
+  CycleHook,
+  Defined,
+  Func,
+  Key,
+  Never,
+  NotUndefined,
+  Primitive,
+  Primitives,
+  ResultCallback,
+  Type,
+  Types,
+} from './type';
