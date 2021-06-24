@@ -7,7 +7,7 @@ Useful packages based on the [angular.io](https://angular.io/).
 | change-detection | Improve application performance.             | *In Progress*                                                | [GitHub][cd-github-readme]                                     |
 | prism            | `Prism` highlighter module.                  | *In Progress*                                                | [GitHub][prism-github-readme]                                  |
 | property         | Features to handle object properties.        | [![npm version][property-npm-badge-svg]][property-npm-badge] | [GitHub][property-github-readme] \| [npm][property-npm-readme] |
-| ui               | User interface.                              | *In Progress*                                                | [GitHub][ui-readme-github]                                     |
+| ui               | User interface.                              | *In Progress*                                                | [GitHub][ui-github-readme]                                     |
 | type             | Common types, type guards and type checkers. | [![npm version][type-npm-badge-svg]][type-npm-badge]         | [GitHub][type-github-readme] \| [npm][type-npm-readme]         |
 
 ## angular-package/type
