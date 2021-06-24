@@ -249,13 +249,10 @@ Run `ng test type` to execute the unit tests via [Karma](https://karma-runner.gi
 
 ### `resultCallback()`
 
-**Description:**
-
 Default function to handle `callback` of [`ResultCallback`][resultcallback] type.
 
-**Syntax:**
-
 ```typescript
+// Syntax.
 const resultCallback: ResultCallback = (result: boolean): boolean => result
 ```
 
@@ -276,6 +273,8 @@ The **return value** is a `boolean` type result from the check.
 
 Custom function to handle `callback`.
 
+**Usage:**
+
 ```typescript
 const customCallback: ResultCallback = (result: boolean, value: any): boolean => {
   if (result === false) {
@@ -285,7 +284,6 @@ const customCallback: ResultCallback = (result: boolean, value: any): boolean =>
 };
 
 const stringResult = isString('Lorem ipsum', customCallback);
-
 ```
 
 ## Check
@@ -295,6 +293,7 @@ const stringResult = isString('Lorem ipsum', customCallback);
 Primary and common function in checking the types. [Here](https://javascript.plainenglish.io/the-best-way-to-type-check-in-vanilla-js-55197b4f45ec) is article about how it works.
 
 ```typescript
+// Syntax.
 const typeOf = (value: any): string => Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
 ```
 
@@ -302,13 +301,10 @@ const typeOf = (value: any): string => Object.prototype.toString.call(value).sli
 
 ### `are`
 
-**Description:**
-
 The object contains prefixed with `are` functions.
 
-**Syntax:**
-
 ```typescript
+// Syntax.
 const are: Are = {
   string: areString
 };
@@ -318,11 +314,10 @@ const are: Are = {
 
 ### `areString`
 
-**Description:**
-
  Use `areString()` or `are.string()` to check if all the values are `string`.
 
 ```typescript
+// Syntax.
 const areString = (...value: any): boolean => check('string', ...value);
 ```
 
@@ -355,13 +350,10 @@ The **return value** is a `boolean` indicating whether or not all the values are
 `4.2.0`: Adds `isDate()`, `isFalse()`, `isNumberBetween()`, `isRegExp()`, `isStringLength()`, `isTrue()`.
 `4.1.0`: Adds `objectKeys` as [`isObjectKeys()`](#isobjectkeys).
 
-**Description:**
-
 The object contains prefixed with `is` functions and prefixed with `isNot` functions in property `not`.
 
-**Syntax:**
-
 ```typescript
+// Syntax.
 const is: Is = {
   array: isArray,
   bigInt: isBigInt, // deprecated
@@ -401,11 +393,12 @@ const is: Is = {
 
 ----
 
-### isArray
+### `isArray`
 
 Use `isArray()` or `is.array()` to check if **any** `value` is an [`Array`][js-array], [`Array`][js-array] instance, and `object` type.
 
 ```typescript
+// Syntax.
 const isArray: IsArray = <Type = any>(
   value: any,
   callback: ResultCallback = resultCallback
