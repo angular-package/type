@@ -57,6 +57,7 @@ import {
   isBooleanObject,
   isBooleanType,
   isClass,
+  isDate,
   isDefined,
   isFunction,
   isInstance,
@@ -199,10 +200,12 @@ Guard
 * [Skeleton](#skeleton)
 * [Callback](#callback)
 * [Check](#check)
-  * [typeOf()](#typeof)
-  * [are](#are)
-  * [is](#is)
-  * [isNot](#isnot)
+  * Function
+    * [`typeOf()`](#typeof)
+  * Object
+    * [`are`](#are)
+    * [`is`](#is)
+    * [`isNot`](#isnot)
 * [Guard](#guard)
 * [Common types](#common-types)
 * [Experimental](#experimental)
@@ -244,7 +247,13 @@ Run `ng test type` to execute the unit tests via [Karma](https://karma-runner.gi
 
 ## Callback
 
+### `resultCallback()`
+
+**Description:**
+
 Default function to handle `callback` of [`ResultCallback`][resultcallback] type.
+
+**Syntax:**
 
 ```typescript
 const resultCallback: ResultCallback = (result: boolean): boolean => result
@@ -281,7 +290,7 @@ const stringResult = isString('Lorem ipsum', customCallback);
 
 ## Check
 
-### typeOf
+### `typeOf()`
 
 Primary and common function in checking the types. [Here](https://javascript.plainenglish.io/the-best-way-to-type-check-in-vanilla-js-55197b4f45ec) is article about how it works.
 
@@ -291,9 +300,13 @@ const typeOf = (value: any): string => Object.prototype.toString.call(value).sli
 
 ----
 
-### are
+### `are`
+
+**Description:**
 
 The object contains prefixed with `are` functions.
+
+**Syntax:**
 
 ```typescript
 const are: Are = {
@@ -303,7 +316,9 @@ const are: Are = {
 
 ----
 
-### areString
+### `areString`
+
+**Description:**
 
  Use `areString()` or `are.string()` to check if all the values are `string`.
 
@@ -331,13 +346,20 @@ The **return value** is a `boolean` indicating whether or not all the values are
 
 ----
 
-### is
+### `is`
 
 ![update][update]
 
+**Version:**
+
+`4.2.0`: Adds `isDate()`, `isFalse()`, `isNumberBetween()`, `isRegExp()`, `isStringLength()`, `isTrue()`.
 `4.1.0`: Adds `objectKeys` as [`isObjectKeys()`](#isobjectkeys).
 
+**Description:**
+
 The object contains prefixed with `is` functions and prefixed with `isNot` functions in property `not`.
+
+**Syntax:**
 
 ```typescript
 const is: Is = {
@@ -348,13 +370,16 @@ const is: Is = {
   booleanObject: isBooleanObject,
   booleanType: isBooleanType,
   class: isClass,
+  date: isDate, // From `4.2.0`
   defined: isDefined,
+  false: isFalse, // From `4.2.0`
   function: isFunction,
   instance: isInstance,
   key: isKey,
   not: isNot,
   null: isNull,
   number: isNumber,
+  numberBetween: isNumberBetween, // From `4.2.0`
   numberObject: isNumberObject,
   numberType: isNumberType,
   object: isObject,
@@ -362,10 +387,13 @@ const is: Is = {
   objectKeyIn: isObjectKeyIn,
   objectKeys: isObjectKeys,
   primitive: isPrimitive,
+  regexp: isRegExp, // From `4.2.0`
   string: isString,
+  stringLength: isStringLength, // From `4.2.0`
   stringObject: isStringObject,
   stringType: isStringType,
   symbol: isSymbol,
+  true: isTrue, // From `4.2.0`
   type: isType,
   undefined: isUndefined
 };
@@ -3772,7 +3800,7 @@ How do I know when to release 1.0.0?
 
 ## License
 
-MIT © angular-package ([license][license])
+MIT © angular-package ([license][property-badge-license])
 
 ----
 
@@ -3860,6 +3888,10 @@ MIT © angular-package ([license][license])
 [function-rest-parameter]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
 
 [js-getter]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get
+
+[js-object-getownpropertydescriptor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor
+[js-object-getOwnpropertydescriptors]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors
+
 [js-setter]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
 
 [js-hasownproperty]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty
@@ -3870,6 +3902,8 @@ MIT © angular-package ([license][license])
 [numberconstructor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/Number
 
 [js-object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+[js-object-define-property]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
+
 [primitive]: https://developer.mozilla.org/en-US/docs/Glossary/Primitive
 
 [js-string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
@@ -3883,6 +3917,7 @@ MIT © angular-package ([license][license])
 <!-- Typescript -->
 [ts-classes]: https://www.typescriptlang.org/docs/handbook/2/classes.html
 [ts-function]: https://www.typescriptlang.org/docs/handbook/2/functions.html
+[ts-interface]: https://www.typescriptlang.org/docs/handbook/interfaces.html#our-first-interface
 
 <!-- Playground: are -->
 [are-string]: https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBAkgzgZWAJwJYDsDmUC8UAUAbgIYA2ArhAFxTHogCUuAfFCRdKnFHChpgG4AUKEhQACmgC2qYKkIRueAOQAjVJgzBlUAD5Q1Ae0OkIdHfuXpyU1RGQWDcELZOPlvNFnfl0AEwgAMwwIP2VhAGNDdF4oLiQvTBp4BP5cAnZKGjpGGkzObk80nFZ8uJjgOgiIQ0CoVKw9fVEaurKcDqc+b0jo2IiACwgIgGt0-BaaSVQZOQU4ABooADpV4mRMOGz6BhpVY1M6FigAbyEoKFNgKGRFclJrvBRKYQurqCkIYAHDP2TEbqCc48ADuskGBBaTDOFwuEWIcGgHkByhon2+v3S8UBAigqluxBGr1hAUCxHuwDRXx+fixAMSuPxZiJwIAvsDAoZkAQohVaBsoLV+ZtocCLrc4BT0uiafh1pgGMSLqg6vgJVKOngyaREaLYbCmYSlVB2RdTTcvuRkOgLZKHsJWb0+esIA1sHh8KtlvKtrQdnsDmYbSUoINhiN8MjEsoll6fYqhEIAPRJqAANXWqGIqlMcCEvNiCAAKgAlGAAOQA4gB9NMAQQAMgBVACi6WUDa5ECkcTAkqkAH5wvm+tdy02ALIAIRbJdrjdb6QATAB2J2xKcAeU3DZbdfL8+bba1ZER6+uTfLABEWwAxCstq+H1vVosAdU36V8pJCfmE70vG973LR9nxbYQRxiEwIGWUhDEwOVbjdfBALvB8n3rI8lmLMsqzApZx2nWd8KgLcdz3A9MNbBhFSgFMoG1RFILgaDYPgxDXUBfAcIrGsqJbbDS14sCaNxejnggZjWLghCXWQni8P4wTcL4hcBNI7dd33ETaPoxjJILaT2LkriFNUrCNPI7SlPqITFLU0S6NTfSgA
