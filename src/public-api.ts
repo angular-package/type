@@ -44,12 +44,15 @@ export {
   isBooleanObject,
   isBooleanType,
   isClass,
+  isDate, // From 4.2.0
   isDefined,
+  isFalse, // From 4.2.0
   isFunction,
   isInstance,
   isKey,
   isNull,
   isNumber,
+  isNumberBetween, // From 4.2.0
   isNumberObject,
   isNumberType,
   isObject,
@@ -57,10 +60,13 @@ export {
   isObjectKeyIn,
   isObjectKeys,
   isPrimitive,
+  isRegExp, // From 4.2.0
   isString,
+  isStringLength, // From 4.2.0
   isStringObject,
   isStringType,
   isSymbol,
+  isTrue, // From 4.2.0
   isType,
   isUndefined,
 } from './is';
@@ -88,9 +94,11 @@ export {
   Key,
   Never,
   NotUndefined,
+  NumberBetween, // From 4.2.0
   Primitive,
   Primitives,
   ResultCallback,
+  StringOfLength, // From 4.2.0
   Type,
   Types,
 } from './type';

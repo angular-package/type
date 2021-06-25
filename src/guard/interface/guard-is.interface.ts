@@ -1,3 +1,4 @@
+// Import: Type.
 import { GuardArray } from '../type/guard-array.type';
 import { GuardBigInt } from '../type/guard-big-int.type';
 import { GuardBoolean } from '../type/guard-boolean.type';
@@ -16,7 +17,7 @@ import { GuardInstance } from '../type/guard-instance.type';
 import { GuardNull } from '../type/guard-null.type';
 import { GuardSymbol } from '../type/guard-symbol.type';
 import { GuardUndefined } from '../type/guard-undefined.type';
-
+// Export: Interface.
 export interface GuardIs {
   array: GuardArray;
   bigint: GuardBigInt;
@@ -30,7 +31,7 @@ export interface GuardIs {
   number: GuardNumber;
   object: GuardObject;
   objectKey: GuardObjectKey;
-  objectKeys: GuardObjectKeys,
+  objectKeys: GuardObjectKeys;
   primitive: GuardPrimitive;
   string: GuardString;
   symbol: GuardSymbol;
