@@ -140,8 +140,8 @@ Checks if  **any** value is
 * an [`Array`][js-array] of any type with [`isArray()`](#isarray).
 * a `bigint` with [`isBigInt()`](#isbigint).
 * a `boolean` with [`isBoolean()`](#isboolean).
-* an `object`type and instance of [`Boolean`][js-boolean] and [`Object`][js-object] with [`isBooleanObject()`](#isbooleanobject).
-* a `boolean` type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `true` or `false` with [`isBooleanType()`](#isbooleantype).
+* an instance of a [`Boolean`][js-boolean]  with [`isBooleanObject()`](#isbooleanobject).
+* a `boolean` type with [`isBooleanType()`](#isbooleantype).
 * a `class` with [`isClass()`](#isclass).
 * a [`Date`][js-date] with [`isDate()`](#isdate).
 * defined with [`isDefined()`](#isdefined).
