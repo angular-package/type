@@ -1102,40 +1102,66 @@ isNull(NUMBER); // false
 Use `isNumberBetween()` or `is.numberBetween()` to check if **any** `value` is a `boolean` type **not** an instance of [`Boolean`][js-boolean] and [`Object`][js-object], or is an `object` type and instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `false`.
 
 ```typescript
-const isFalse: IsFalse = (
+const isNumberBetween = <Min extends number, Max extends number>(
   value: any,
+  min: Min,
+  max: Max,
   callback: ResultCallback = resultCallback
-): value is false =>
-  callback(
-    (isBooleanType(value) && value === false)
-    ||
-    (isBooleanObject(value) && value.valueOf() === false),
+): value is NumberBetween<Min, Max> => {
+  return callback(
+    typeOf(value) === 'number' &&
+      ((isNumberType(value) ? value >= min && value <= max : false) ||
+        (isNumberObject(value)
+          ? value.valueOf() >= min && value.valueOf() <= max
+          : false)),
     value
   );
+};
 ```
+
+**Generic type variables:**
+
+| Name  | Default value                    | Description |
+| :---- | :------------------------------- | :---------- |
+| `Min` | Captured from the provided `min` | Constrained with the `number` type, a generic `Min` variable, by default of a value captured from the provided `min` to the return type `value is NumberBetween<Min, Max>` |
+| `Max` | Captured from the provided `min` | Constrained with the `number` type, a generic `Max` variable, by default of a value captured from the provided `max` to the return type `value is NumberBetween<Min, Max>` |
 
 **Parameters:**
 
 | Name: `type`               | Description          |
-| :------------------------- |--------------------- |
-| value: `any`               | Any `value` to check |
-| callback: `ResultCallback` | A [`ResultCallback`][resultcallback] type function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][js-error] |
+| :------------------------- | :------------------- |
+| `value: any`               | Any `value` to check |
+| `min: Min`                 | A `number` of the minimum range of the provided `value` |
+| `max: Max`                 | A `number` of the maximum range of the provided `value` |
+| `callback: ResultCallback` | A [`ResultCallback`][resultcallback] type function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][js-error] |
 
 **Returns:**
 
-| Returns          | Type      | Description                                                                                          |
-| :--------------- | :-------: | :--------------------------------------------------------------------------------------------------- |
-| `value is false` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is `false` |
+| Returns                            | Type      | Description                                                       |
+| :--------------------------------- | :-------: | :---------------------------------------------------------------- |
+| `value is NumberBetween<Min, Max>` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is a `number` in the specified range |
 
-The **return value** is a `boolean` indicating whether or not the `value` is a date.
+The **return value** is a `boolean` indicating whether or not the `value` is a `number` type or [`Number`][js-number] instance in the specified range.
 
 **Usage:**
 
 ```typescript
-// Example usage
-import { isFalse } from '@angular-package/type';
+// Example usage.
+import { isNumberBetween } from '@angular-package/type';
 
-isFalse(true); // false; value is false
+const age = 13;
+
+isNumberBetween(age, 0, 13); // true; The return type `value is NumberBetween<0, 13>`
+isNumberBetween(age, 14, 28); // false; The return type `value is NumberBetween<14, 28>`
+isNumberBetween(age, 0, 12); // false; The return type `value is NumberBetween<0, 12>`
+isNumberBetween(age, 13, 13); // true; The return type `value is NumberBetween<13, 13>`
+
+const ageBox = new Number(age);
+
+isNumberBetween(ageBox, 0, 13); // true; The return type `value is NumberBetween<0, 13>`
+isNumberBetween(ageBox, 14, 28); // false; The return type `value is NumberBetween<14, 28>`
+isNumberBetween(ageBox, 0, 12); // false; The return type `value is NumberBetween<0, 12>`
+isNumberBetween(ageBox, 13, 13); // true; The return type `value is NumberBetween<13, 13>`
 ```
 
 ----
@@ -1701,8 +1727,6 @@ isObjectKeyIn(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING]); // true
 ----
 
 ### `isObjectKeys()`
-
-![new][new]
 
 Use `isObjectKeys()` or `is.objectKeys()` to check if **any** `value` is an `object` with **some** its own specified keys of the [`Key`][key].
 Cause of using [`some()`][array-some] on the [rest parameter][function-rest-parameter] `...keys` each of its argument is treated as logic `or`, and cause of using [`every()`][array-every] on its array argument each of array item is treated as logic `and`.
