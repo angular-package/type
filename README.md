@@ -135,60 +135,62 @@ import {
 
 ## Features
 
-* Checks if
-  * **any** value is
-    * an [`Array`][js-array] of any type with [`isArray()`](#isarray).
-    * a `bigint` with [`isBigInt()`](#isbigint).
-    * a `boolean` with [`isBoolean()`](#isboolean).
-    * an `object`type and instance of [`Boolean`][boolean] and [`Object`][js-object] with [`isBooleanObject()`](#isbooleanobject).
-    * a `boolean` type not an instance of [`Boolean`][boolean] and [`Object`][js-object], and equal to `true` or `false` with [`isBooleanType()`](#isbooleantype).
-    * a `class` with [`isClass()`](#isclass).
-    * a `function` with [`isFunction()`](#isfunction).
-    * a generic type `instance` with [`isInstance()`](#isinstance).
-    * a [`Key`][key] type with [`isKey()`](#iskey).
-    * a `null` with [`isNull()`](#isnull).
-    * a `number` with [`isNumber()`](#isnumber).
-    * an `object` type and instance of [`Number`][js-number] and [`Object`][js-object] with [`isNumberObject()`](#isnumberobject).
-    * a `number` type and **not** instance of [`Number`][js-number] and [`Object`][js-object] with [`isNumberType()`](#isnumbertype).
-    * a generic type `object` with [`isObject()`](#isobject).
-    * an `object` with its own specified [`Key`][key] with [`isObjectKey()`](#isobjectkey).
-    * an `object` with the [`Key`][key] by using the [`in`][js-in-operator] operator with [`isObjectKeyIn()`](#isobjectkeyin).
-    * an `object` with some of its own specified [`Key`][key] with [`isObjectKeys()`](#isobjectkeys).
-    * a one of the primitive `boolean`, `bigint`, `number`, `string` with [`isPrimitive()`](#isPrimitive).
-    * a `string` with [`isString()`](#isstring).
-    * an `object` type and instance of [`String`][js-string] and [`Object`][js-object] with [`isStringObject()`](#isstringobject).
-    * a `string` type and **not** instance of [`String`][js-string] and [`Object`][js-object] with [`isStringType()`](#isstringtype).
-    * a `symbol` with [`isSymbol()`](#isSymbol).
-    * a generic type instance, `function`, `object` or primitive type with [`isType()`](#istype).
-    * a `undefined` with [`isUndefined()`](#isundefined).
-  * a generic type value is
-    * defined with [`isDefined()`](#isdefined).
-  * a generic type value is **not**
-    * a `boolean` with [`isNotBoolean()`](#isnotboolean)
-    * a `function` with [`isNotFunction()`](#isnotfunction)
-    * `null` with [`isNotNull()`](#isnotnull)
-    * a `number` with [`isNotNumber()`](#isnotnumber)
-    * a `string` with [`isNotString()`](#isnotstring)
-    * `undefined` with [`isNotUndefined()`](#isnotundefined)
-* Guard the value to be
-  * an [`Array`][js-array] of a generic type with [`guardArray()`](#guardarray).
-  * a `bigint` with [`guardBigInt()`](#guardbigint).
-  * a `boolean` with [`guardBoolean()`](#guardboolean).
-  * a generic `Class` type [`class`][ts-classes] with [`guardClass()`](#guardclass).
-  * defined with [`guardDefined()`](#guarddefined).
-  * a [`Func`](#func) type with [`guardFunction()`](#guardfunction).
-  * an instance with [`guardInstance()`](#guardinstance).
-  * a `null` with [`guardNull()`](#guardnull).
-  * a [`Key`][key] with [`guardKey()`](#guardkey).
-  * a `number` with [`guardNumber()`](#guardnumber).
-  * an `object` of a generic type with [`guardObject()`](#guardobject).
-  * an `object` of a generic type that contains `key` with [`guardObjectKey()`](#guardobjectkey).
-  * an `object` of a generic type that contains some of its own specified keys with [`guardObjectKeys()`](#guardobjectkeys).
-  * a one of the [`Primitives`](#primitives) with [`guardPrimitive()`](#guardprimitive).
-  * a `string` with [`guardString()`](#guardstring).
-  * a `symbol` with [`guardSymbol()`](#guardsymbol).
-  * a generic type from one of the [`Types`](#types) type with [`guardType()`](#guardtype).
-  * `undefined` with [`guardUndefined()`](#guardundefined).
+Checks if  **any** value is
+
+* an [`Array`][js-array] of any type with [`isArray()`](#isarray).
+* a `bigint` with [`isBigInt()`](#isbigint).
+* a `boolean` with [`isBoolean()`](#isboolean).
+* an `object`type and instance of [`Boolean`][boolean] and [`Object`][js-object] with [`isBooleanObject()`](#isbooleanobject).
+* a `boolean` type not an instance of [`Boolean`][boolean] and [`Object`][js-object], and equal to `true` or `false` with [`isBooleanType()`](#isbooleantype).
+* a `class` with [`isClass()`](#isclass).
+* a `function` with [`isFunction()`](#isfunction).
+* a generic type `instance` with [`isInstance()`](#isinstance).
+* a [`Key`][key] type with [`isKey()`](#iskey).
+* a `null` with [`isNull()`](#isnull).
+* a `number` with [`isNumber()`](#isnumber).
+* an `object` type and instance of [`Number`][js-number] and [`Object`][js-object] with [`isNumberObject()`](#isnumberobject).
+* a `number` type and **not** instance of [`Number`][js-number] and [`Object`][js-object] with [`isNumberType()`](#isnumbertype).
+* a generic type `object` with [`isObject()`](#isobject).
+* an `object` with its own specified [`Key`][key] with [`isObjectKey()`](#isobjectkey).
+* an `object` with the [`Key`][key] by using the [`in`][js-in-operator] operator with [`isObjectKeyIn()`](#isobjectkeyin).
+* an `object` with some of its own specified [`Key`][key] with [`isObjectKeys()`](#isobjectkeys).
+* a one of the primitive `boolean`, `bigint`, `number`, `string` with [`isPrimitive()`](#isPrimitive).
+* a `string` with [`isString()`](#isstring).
+* an `object` type and instance of [`String`][js-string] and [`Object`][js-object] with [`isStringObject()`](#isstringobject).
+* a `string` type and **not** instance of [`String`][js-string] and [`Object`][js-object] with [`isStringType()`](#isstringtype).
+* a `symbol` with [`isSymbol()`](#isSymbol).
+* a generic type instance, `function`, `object` or primitive type with [`isType()`](#istype).
+* a `undefined` with [`isUndefined()`](#isundefined).
+* a generic type value is
+* defined with [`isDefined()`](#isdefined).
+* **not**
+  * a `boolean` with [`isNotBoolean()`](#isnotboolean)
+  * a `function` with [`isNotFunction()`](#isnotfunction)
+  * `null` with [`isNotNull()`](#isnotnull)
+  * a `number` with [`isNotNumber()`](#isnotnumber)
+  * a `string` with [`isNotString()`](#isnotstring)
+  * `undefined` with [`isNotUndefined()`](#isnotundefined)
+
+Guards the value to be
+
+* an [`Array`][js-array] of a generic type with [`guardArray()`](#guardarray).
+* a `bigint` with [`guardBigInt()`](#guardbigint).
+* a `boolean` with [`guardBoolean()`](#guardboolean).
+* a generic `Class` type [`class`][ts-classes] with [`guardClass()`](#guardclass).
+* defined with [`guardDefined()`](#guarddefined).
+* a [`Func`](#func) type with [`guardFunction()`](#guardfunction).
+* an instance with [`guardInstance()`](#guardinstance).
+* a `null` with [`guardNull()`](#guardnull).
+* a [`Key`][key] with [`guardKey()`](#guardkey).
+* a `number` with [`guardNumber()`](#guardnumber).
+* an `object` of a generic type with [`guardObject()`](#guardobject).
+* an `object` of a generic type that contains `key` with [`guardObjectKey()`](#guardobjectkey).
+* an `object` of a generic type that contains some of its own specified keys with [`guardObjectKeys()`](#guardobjectkeys).
+* a one of the [`Primitives`](#primitives) with [`guardPrimitive()`](#guardprimitive).
+* a `string` with [`guardString()`](#guardstring).
+* a `symbol` with [`guardSymbol()`](#guardsymbol).
+* a generic type from one of the [`Types`](#types) type with [`guardType()`](#guardtype).
+* `undefined` with [`guardUndefined()`](#guardundefined).
 
 ## How angular-package understands
 
