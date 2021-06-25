@@ -140,29 +140,35 @@ Checks if  **any** value is
 * an [`Array`][js-array] of any type with [`isArray()`](#isarray).
 * a `bigint` with [`isBigInt()`](#isbigint).
 * a `boolean` with [`isBoolean()`](#isboolean).
-* an `object`type and instance of [`Boolean`][boolean] and [`Object`][js-object] with [`isBooleanObject()`](#isbooleanobject).
-* a `boolean` type not an instance of [`Boolean`][boolean] and [`Object`][js-object], and equal to `true` or `false` with [`isBooleanType()`](#isbooleantype).
+* an `object`type and instance of [`Boolean`][js-boolean] and [`Object`][js-object] with [`isBooleanObject()`](#isbooleanobject).
+* a `boolean` type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `true` or `false` with [`isBooleanType()`](#isbooleantype).
 * a `class` with [`isClass()`](#isclass).
+* a [`Date`][js-date] with [`isDate()`](#isdate).
+* defined with [`isDefined()`](#isdefined).
+* `false` with [`isFalse()`](#isfalse).
 * a `function` with [`isFunction()`](#isfunction).
 * a generic type `instance` with [`isInstance()`](#isinstance).
 * a [`Key`][key] type with [`isKey()`](#iskey).
 * a `null` with [`isNull()`](#isnull).
 * a `number` with [`isNumber()`](#isnumber).
+* a `number` between the specified range with [`isNumberBetween()`](#isnumberbetween).
 * an `object` type and instance of [`Number`][js-number] and [`Object`][js-object] with [`isNumberObject()`](#isnumberobject).
 * a `number` type and **not** instance of [`Number`][js-number] and [`Object`][js-object] with [`isNumberType()`](#isnumbertype).
 * a generic type `object` with [`isObject()`](#isobject).
 * an `object` with its own specified [`Key`][key] with [`isObjectKey()`](#isobjectkey).
 * an `object` with the [`Key`][key] by using the [`in`][js-in-operator] operator with [`isObjectKeyIn()`](#isobjectkeyin).
 * an `object` with some of its own specified [`Key`][key] with [`isObjectKeys()`](#isobjectkeys).
-* a one of the primitive `boolean`, `bigint`, `number`, `string` with [`isPrimitive()`](#isPrimitive).
+* a one of the primitive `boolean`, `bigint`, `number`, `string` with [`isPrimitive()`](#isprimitive).
+* a regular expression of a `RegExp` type with [`isRegExp()`](#isregexp).
 * a `string` with [`isString()`](#isstring).
+* a `string` with the specified length with [`isStringLength`](#isstringlength).
 * an `object` type and instance of [`String`][js-string] and [`Object`][js-object] with [`isStringObject()`](#isstringobject).
 * a `string` type and **not** instance of [`String`][js-string] and [`Object`][js-object] with [`isStringType()`](#isstringtype).
-* a `symbol` with [`isSymbol()`](#isSymbol).
+* a `symbol` with [`isSymbol()`](#issymbol).
+* `true` with [`isTrue()`](#istrue).
 * a generic type instance, `function`, `object` or primitive type with [`isType()`](#istype).
 * a `undefined` with [`isUndefined()`](#isundefined).
 * a generic type value is
-* defined with [`isDefined()`](#isdefined).
 * **not**
   * a `boolean` with [`isNotBoolean()`](#isnotboolean)
   * a `function` with [`isNotFunction()`](#isnotfunction)
@@ -209,12 +215,6 @@ Guard
 * [Skeleton](#skeleton)
 * [Callback](#callback)
 * [Check](#check)
-  * Function
-    * [`typeOf()`](#typeof)
-  * Object
-    * [`are`](#are)
-    * [`is`](#is)
-    * [`isNot`](#isnot)
 * [Guard](#guard)
 * [Common types](#common-types)
 * [Experimental](#experimental)
@@ -502,7 +502,7 @@ isBigInt(BIGINT); // true
 
 ### `isBoolean()`
 
-Use `isBoolean()` or `is.boolean()` to check if **any** `value` is a `boolean` type not instance of [`Boolean`][boolean] and [`Object`][js-object] or `object` type instance of [`Boolean`][boolean] and [`Object`][js-object].
+Use `isBoolean()` or `is.boolean()` to check if **any** `value` is a `boolean` type not instance of [`Boolean`][js-boolean] and [`Object`][js-object] or `object` type instance of [`Boolean`][js-boolean] and [`Object`][js-object].
 
 ```typescript
 const isBoolean: IsBoolean = (
@@ -529,7 +529,7 @@ const isBoolean: IsBoolean = (
 | :----------------- | :-------: | :---------------------------------------------------------------- |
 | `value is boolean` | `boolean` | The **return type** is a `boolean` as the result of its statement |
 
-The **return value** is a `boolean` indicating whether or not the `value` is a `boolean` type or [`Boolean`][boolean] instance.
+The **return value** is a `boolean` indicating whether or not the `value` is a `boolean` type or [`Boolean`][js-boolean] instance.
 
 **Usage:**
 
@@ -551,7 +551,7 @@ isBoolean(BOOLEAN_INSTANCE); // true
 
 ### `isBooleanObject()`
 
-Use `isBooleanObject()` or `is.booleanObject()` to check if **any** `value` is an `object` type and instance of [`Boolean`][boolean] and [`Object`][js-object].
+Use `isBooleanObject()` or `is.booleanObject()` to check if **any** `value` is an `object` type and instance of [`Boolean`][js-boolean] and [`Object`][js-object].
 
 ```typescript
 const isBooleanObject: IsBooleanObject = (
@@ -577,9 +577,9 @@ const isBooleanObject: IsBooleanObject = (
 
 | Returns            | Type      | Description                                                                                                      |
 | :----------------- | :-------: | :--------------------------------------------------------------------------------------------------------------- |
-| `value is Boolean` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is [`Boolean`][boolean] |
+| `value is Boolean` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is [`Boolean`][js-boolean] |
 
-The **return value** is a `boolean` indicating whether or not the `value` is a [`Boolean`][boolean] instance.
+The **return value** is a `boolean` indicating whether or not the `value` is a [`Boolean`][js-boolean] instance.
 
 **Usage:**
 
@@ -598,7 +598,7 @@ isBooleanObject(BOOLEAN_INSTANCE); // true
 
 ### `isBooleanType()`
 
-Use `isBooleanType()` or `is.booleanType()` to check if **any** `value` is a `boolean` type not an instance of [`Boolean`][boolean] and [`Object`][js-object], and equal to `true` or `false`.
+Use `isBooleanType()` or `is.booleanType()` to check if **any** `value` is a `boolean` type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `true` or `false`.
 
 ```typescript
 const isBooleanType: IsBooleanType = (
@@ -2290,7 +2290,7 @@ const isNot: IsNot = {
 
 ### `isNotBoolean()`
 
-Use `isNotBoolean()` or `is.not.boolean()` to check if a generic `Type` `value` is **not** a `boolean` type and **not** an instance of a [`Boolean`][boolean].
+Use `isNotBoolean()` or `is.not.boolean()` to check if a generic `Type` `value` is **not** a `boolean` type and **not** an instance of a [`Boolean`][js-boolean].
 
 ```typescript
 const isNotBoolean: IsNotBoolean = <Type>(
@@ -2322,9 +2322,9 @@ const isNotBoolean: IsNotBoolean = <Type>(
 
 | Returns                            | Type      | Description                        |
 | :--------------------------------- | :-------: | :--------------------------------- |
-| `value is Never<AnyBoolean, Type>` | `boolean` | By default `Type` variable is equal to the type detected from the `value`, but the detected type `boolean` or [`Boolean`][boolean] changes to `never` and the **return type** is a `boolean` as the result of its statement `value` is **never** of [`AnyBoolean`](#anyboolean) type but of type detected from the `value` |
+| `value is Never<AnyBoolean, Type>` | `boolean` | By default `Type` variable is equal to the type detected from the `value`, but the detected type `boolean` or [`Boolean`][js-boolean] changes to `never` and the **return type** is a `boolean` as the result of its statement `value` is **never** of [`AnyBoolean`](#anyboolean) type but of type detected from the `value` |
 
-The **return value** is a `boolean` indicating whether or not the `value` is not a `boolean` and [`Boolean`][boolean] instance.
+The **return value** is a `boolean` indicating whether or not the `value` is not a `boolean` and [`Boolean`][js-boolean] instance.
 
 **Usage:**
 
@@ -2802,7 +2802,7 @@ const guardBoolean: GuardBoolean = <B extends AnyBoolean>(
 | :----------- | :-------: | :---------------------------------------------------------------- |
 | `value is B` | `boolean` | By default `B` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement indicating the `value` is of [`AnyBoolean`](#anyboolean) type detected from the `value`  |
 
-The **return value** is a `boolean` indicating whether or not the `value` is a `boolean` type or [`Boolean`][boolean] instance.
+The **return value** is a `boolean` indicating whether or not the `value` is a `boolean` type or [`Boolean`][js-boolean] instance.
 
 ----
 
@@ -3833,7 +3833,7 @@ const bigint: BigIntObject = BigIntObject.get;
 
 ### BooleanObject
 
-The object handles creating and getting the [`Boolean`][boolean] object instance with [`Boolean()`][booleanconstructor].
+The object handles creating and getting the [`Boolean`][js-boolean] object instance with [`Boolean()`][booleanconstructor].
 
 ```typescript
 class BooleanObject {
@@ -3850,13 +3850,13 @@ class BooleanObject {
 }
 ```
 
-Create a new [`Boolean`][boolean] instance by assign value to the `set` property.
+Create a new [`Boolean`][js-boolean] instance by assign value to the `set` property.
 
 ```typescript
 BooleanObject.set = false;
 ```
 
-Get created [`Boolean`][boolean] instance with the `get` property.
+Get created [`Boolean`][js-boolean] instance with the `get` property.
 
 ```typescript
 const booleanInstance: Boolean = BooleanObject.get;
@@ -4159,7 +4159,6 @@ MIT © angular-package ([license][property-badge-license])
 [bigint]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt
 [bigintconstructor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt
 
-[boolean]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 [booleanconstructor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean/Boolean
 
 [js-error]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error
