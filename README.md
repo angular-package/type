@@ -145,7 +145,7 @@ Checks if  **any** value is
 * a `class` with [`isClass()`](#isclass).
 * a [`Date`][js-date] with [`isDate()`](#isdate).
 * defined with [`isDefined()`](#isdefined).
-* `false` with [`isFalse()`](#isfalse).
+* a `false` value with [`isFalse()`](#isfalse).
 * a `function` with [`isFunction()`](#isfunction).
 * a generic type `instance` with [`isInstance()`](#isinstance).
 * a [`Key`][key] type with [`isKey()`](#iskey).
@@ -158,16 +158,16 @@ Checks if  **any** value is
 * an `object` with its own specified [`Key`][key] with [`isObjectKey()`](#isobjectkey).
 * an `object` with the [`Key`][key] by using the [`in`][js-in-operator] operator with [`isObjectKeyIn()`](#isobjectkeyin).
 * an `object` with some of its own specified [`Key`][key] with [`isObjectKeys()`](#isobjectkeys).
-* a one of the primitive `boolean`, `bigint`, `number`, `string` with [`isPrimitive()`](#isprimitive).
+* primitive of a [`Primitive`](#primitive) type with [`isPrimitive()`](#isprimitive).
 * a regular expression of a `RegExp` type with [`isRegExp()`](#isregexp).
 * a `string` with [`isString()`](#isstring).
 * a `string` with the specified length with [`isStringLength`](#isstringlength).
 * an `object` type and instance of [`String`][js-string] and [`Object`][js-object] with [`isStringObject()`](#isstringobject).
 * a `string` type and **not** instance of [`String`][js-string] and [`Object`][js-object] with [`isStringType()`](#isstringtype).
 * a `symbol` with [`isSymbol()`](#issymbol).
-* `true` with [`isTrue()`](#istrue).
+* a `true` value with [`isTrue()`](#istrue).
 * a generic type instance, `function`, `object` or primitive type with [`isType()`](#istype).
-* a `undefined` with [`isUndefined()`](#isundefined).
+* `undefined` with [`isUndefined()`](#isundefined).
 * a generic type value is
 * **not**
   * a `boolean` with [`isNotBoolean()`](#isnotboolean)
@@ -215,7 +215,13 @@ Guard
 * [Skeleton](#skeleton)
 * [Callback](#callback)
 * [Check](#check)
+  * Object
+    * [`are`](#are)
+    * [`is`](#is)
+    * [`isNot`](#isnot)
 * [Guard](#guard)
+  * Object
+    * [`guard`](#guard)
 * [Common types](#common-types)
 * [Experimental](#experimental)
   * [BigIntObject](#bigintobject)
@@ -354,8 +360,7 @@ The object contains prefixed with `is` functions and prefixed with `isNot` funct
 
 ![update][update]
 
-`4.2.0`: Adds `isDate()`, `isFalse()`, `isNumberBetween()`, `isRegExp()`, `isStringLength()`, `isTrue()`.  
-`4.1.0`: Adds `objectKeys` as [`isObjectKeys()`](#isobjectkeys).
+`4.2.0`: Adds [`isDate()`](#isdate), [`isFalse()`](#isfalse), [`isNumberBetween()`](#isnumberbetween), [`isRegExp()`](#isregexp), [`isStringLength()`](#isstringlength), [`isTrue()`](#istrue). 
 
 ```typescript
 const is: Is = {
