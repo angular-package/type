@@ -3764,7 +3764,7 @@ Callback function for `callback` parameter.
 type ResultCallback = (result: boolean, value?: any) => boolean;
 ```
 
-### StringLength
+### StringOfLength
 
 ![new][new]
 
