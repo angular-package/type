@@ -1,8 +1,6 @@
-// Object.
+// Import: Object.
 import { guardIs } from './guard-is.object';
-// Interface.
+// Import: Interface.
 import { Guard } from '../interface/guard-interface';
-// `guard`
-export const guard: Guard = {
-  is: guardIs
-};
+// Export: `guard`
+export const guard: Guard = { ...guardIs, is: guardIs };
