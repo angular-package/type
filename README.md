@@ -701,6 +701,8 @@ isClass(() => 5); // false
 
 ### `isDate()`
 
+![new][new]
+
 Use `isDate()` or `is.date()` to check if **any** `value` is an `object` type instance of [`Date`][js-date] and [`Object`][js-object].
 
 ```typescript
@@ -804,6 +806,8 @@ isDefined(defined); // false
 ----
 
 ### `isFalse()`
+
+![new][new]
 
 Use `isFalse()` or `is.false()` to check if **any** `value` is a `boolean` type **not** an instance of [`Boolean`][js-boolean] and [`Object`][js-object], or is an `object` type and instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `false`.
 
@@ -1093,6 +1097,8 @@ isNull(NUMBER); // false
 
 ### `isNumberBetween()`
 
+![new][new]
+
 Use `isNumberBetween()` or `is.numberBetween()` to check if **any** `value` is a `boolean` type **not** an instance of [`Boolean`][js-boolean] and [`Object`][js-object], or is an `object` type and instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `false`.
 
 ```typescript
@@ -1133,6 +1139,7 @@ isFalse(true); // false; value is false
 ```
 
 ----
+
 ### `isNumber()`
 
 Use `isNumber()` or `is.number()` to check if **any** `value` is a `number` type not an instance of [`Number`][js-number] and [`Object`][js-object] or `object` type instance of [`Number`][js-number] and [`Object`][js-object].
@@ -1844,6 +1851,8 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 ### `isRegExp()`
 
+![new][new]
+
 Use `isRegExp()` or `is.regexp()` to check if **any** `value` is a `regexp` type, an instance of `Object` and `RegExp`.
 
 ```typescript
@@ -1919,6 +1928,8 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 ----
 
 ### `isStringLength()`
+
+![new][new]
 
 Use `isStringLength()` or `is.stringLength()` to check if **any** `value` is a `string` type, not instance of [`Object`][js-object] and [`String`][js-string] or `object` type and instance of [`String`][js-string] and [`Object`][js-object] of a length in the specified range.
 
@@ -2093,6 +2104,8 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 ----
 
 ### `isTrue()`
+
+![new][new]
 
 Use `isTrue()` or `is.true()` to check if **any** `value` is a `boolean` type **not** an instance of [`Boolean`][js-boolean] and [`Object`][js-object], or is an `object` type and instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `true`.
 
@@ -4110,6 +4123,8 @@ MIT © angular-package ([license][property-badge-license])
 [js-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 [array-every]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every
 [array-some]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
+
+[js-boolean]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 
 [classes]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
 
