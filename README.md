@@ -159,16 +159,15 @@ Checks if  **any** value is
 * an `object` with the [`Key`][key] by using the [`in`][js-in-operator] operator with [`isObjectKeyIn()`](#isobjectkeyin).
 * an `object` with some of its own specified [`Key`][key] with [`isObjectKeys()`](#isobjectkeys).
 * primitive of a [`Primitive`](#primitive) type with [`isPrimitive()`](#isprimitive).
-* a regular expression of a `RegExp` type with [`isRegExp()`](#isregexp).
+* a regular expression of a [`RegExp`][js-regexp] type with [`isRegExp()`](#isregexp).
 * a `string` with [`isString()`](#isstring).
-* a `string` with the specified length with [`isStringLength`](#isstringlength).
+* a `string` with the specified length with [`isStringLength()`](#isstringlength).
 * an `object` type and instance of [`String`][js-string] and [`Object`][js-object] with [`isStringObject()`](#isstringobject).
 * a `string` type and **not** instance of [`String`][js-string] and [`Object`][js-object] with [`isStringType()`](#isstringtype).
 * a `symbol` with [`isSymbol()`](#issymbol).
 * a `true` value with [`isTrue()`](#istrue).
 * a generic type instance, `function`, `object` or primitive type with [`isType()`](#istype).
 * `undefined` with [`isUndefined()`](#isundefined).
-* a generic type value is
 * **not**
   * a `boolean` with [`isNotBoolean()`](#isnotboolean)
   * a `function` with [`isNotFunction()`](#isnotfunction)
@@ -840,11 +839,11 @@ const isFalse: IsFalse = (
 
 **Returns:**
 
-| Returns          | Type      | Description                                                                                          |
-| :--------------- | :-------: | :--------------------------------------------------------------------------------------------------- |
-| `value is false` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is `false` |
+| Returns          | Type      | Description                                                                                                  |
+| :--------------- | :-------: | :----------------------------------------------------------------------------------------------------------- |
+| `value is false` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is equal to`false` |
 
-The **return value** is a `boolean` indicating whether or not the `value` is a date.
+The **return value** is a `boolean` indicating whether or not the `value` is a `boolean` equal to `false`.
 
 **Usage:**
 
@@ -859,7 +858,7 @@ isFalse(true); // false; value is false
 
 ### `isFunction()`
 
-Use `isFunction()` or `is.function()` to check if **any** `value` is a `function` type, an instance of [`Function`][js-function] and [`Object`][js-object]. It also **denies** with the regexp that function is a [`class`][ts-classes].
+Use `isFunction()` or `is.function()` to check if **any** `value` is a `function` type, an instance of [`Function`][js-function] and [`Object`][js-object]. It also **denies** with the [`RegExp`][js-regexp] that function is a [`class`][ts-classes].
 
 ```typescript
 const isFunction: IsFunction = (
@@ -1106,7 +1105,7 @@ isNull(NUMBER); // false
 
 ![new][new]
 
-Use `isNumberBetween()` or `is.numberBetween()` to check if **any** `value` is a `boolean` type **not** an instance of [`Boolean`][js-boolean] and [`Object`][js-object], or is an `object` type and instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `false`.
+Use `isNumberBetween()` or `is.numberBetween()` to check if **any** `value` is a `number` type, not instance of [`Object`][js-object] and [`Number`][js-number] or `object` type and instance of [`Number`][js-number] and [`Object`][js-object], in the specified range.
 
 ```typescript
 const isNumberBetween = <Min extends number, Max extends number>(
@@ -1884,7 +1883,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 ![new][new]
 
-Use `isRegExp()` or `is.regexp()` to check if **any** `value` is a `regexp` type, an instance of `Object` and `RegExp`.
+Use `isRegExp()` or `is.regexp()` to check if **any** `value` is a regular expression of a [`RegExp`][js-regexp] type, an instance of [`Object`][js-object] and [`RegExp`][js-regexp].
 
 ```typescript
 const isRegExp: IsRegExp = (
@@ -1910,7 +1909,7 @@ const isRegExp: IsRegExp = (
 
 | Returns           | Type      | Description                                                       |
 | :---------------- | :-------: | :---------------------------------------------------------------- |
-| `value is RegExp` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is a regular expression of a `RegExp` type |
+| `value is RegExp` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is a regular expression of a [`RegExp`][js-regexp] type |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a regular expression.
 
@@ -2162,9 +2161,9 @@ const isTrue: IsTrue = (
 
 **Returns:**
 
-| Returns          | Type      | Description                                                                                          |
-| :--------------- | :-------: | :--------------------------------------------------------------------------------------------------- |
-| `value is false` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is `true` |
+| Returns         | Type      | Description                                                                                          |
+| :-------------- | :-------: | :--------------------------------------------------------------------------------------------------- |
+| `value is true` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is `true` |
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `boolean` equal to `true`.
 
@@ -4189,6 +4188,8 @@ MIT © angular-package ([license][property-badge-license])
 [js-object-define-property]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
 
 [primitive]: https://developer.mozilla.org/en-US/docs/Glossary/Primitive
+
+[js-regexp]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp
 
 [js-string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
 [stringconstructor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/String
