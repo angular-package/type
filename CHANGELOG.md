@@ -13,8 +13,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - [`a6b567f`](https://github.com/angular-package/type/commit/a6b567f32a00726d2b7ecf38ce7a57a42366aaf6)
   New `NumberBetween` and `StringOfLength` type.
 
-- [21f3f48]: https://github.com/angular-package/type/commit/21f3f48029d79e1dfd4507d3a684ec1e81e44713
-  `isDate()`, `isFalse()`, `isNumberBetween()`, `isRegExp()`, `isStringLength()`, `isTrue()` with tests and types.
+- [`21f3f48`](https://github.com/angular-package/type/commit/21f3f48029d79e1dfd4507d3a684ec1e81e44713)
+  New functions `isDate()`, `isFalse()`, `isNumberBetween()`, `isRegExp()`, `isStringLength()`, `isTrue()` with tests and types.
+
+- [`7d4cda7`](https://github.com/angular-package/type/commit/7d4cda7d3c91fca89a35baed6c1db9cd35070f4e)
+  This `CHANGELOG.md`.
 
 ### Changed
 
