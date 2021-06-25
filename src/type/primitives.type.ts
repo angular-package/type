@@ -1,4 +1,11 @@
 /**
- * All primitives as `string`.
+ * All primitives types as `string`.
  */
-export type Primitives = 'bigint' | 'boolean' | 'null' | 'number' | 'string' | 'symbol' | 'undefined';
+export type Primitives =
+  | 'bigint'
+  | 'boolean'
+  | 'null'
+  | 'number'
+  | 'string'
+  | 'symbol'
+  | 'undefined';

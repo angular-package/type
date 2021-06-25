@@ -1,4 +1,11 @@
 /**
- * All primitives.
+ * All primitives types.
  */
-export type Primitive = boolean | bigint | null | number | string | symbol | undefined;
+export type Primitive =
+  | boolean
+  | bigint
+  | null
+  | number
+  | string
+  | symbol
+  | undefined;
