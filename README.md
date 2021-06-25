@@ -57,13 +57,15 @@ import {
   isBooleanObject,
   isBooleanType,
   isClass,
-  isDate,
+  isDate, // From 4.2.0
   isDefined,
+  isFalse, // From 4.2.0
   isFunction,
   isInstance,
   isKey,
   isNull,
   isNumber,
+  isNumberBetween, // From 4.2.0
   isNumberObject,
   isNumberType,
   isObject,
@@ -71,12 +73,15 @@ import {
   isObjectKeyIn,
   isObjectKeys,
   isPrimitive,
+  isRegExp, // From 4.2.0
   isString,
+  isStringLength, // From 4.2.0
   isStringObject,
   isStringType,
   isSymbol,
+  isTrue, // From 4.2.0
   isType,
-  isUndefined
+  isUndefined,
 } from '@angular-package/type';
 ```
 
@@ -118,9 +123,11 @@ import {
   Key,
   Never,
   NotUndefined,
+  NumberBetween, // From 4.2.0
   Primitive,
   Primitives,
   ResultCallback,
+  StringOfLength, // From 4.2.0
   Type,
   Types,
 } from '@angular-package/type';
@@ -186,13 +193,13 @@ import {
 ## How angular-package understands
 
 Check
-> Is to check the inputted value to be **the same** as **expected**.
+> Is to check the provided argument to be **the same** as **expected**.
 
-Type guard
-> Is to guard the parameter type to **not let** input **unexpected** value in the **code editor**.
+Type guard (constrain)
+> Is to constrain the parameter type to **not let** input **unexpected** value in the **code editor**.
 
 Guard
-> Is a **combination** of both above to **guard type** in the **code editor** and to check inputted value.
+> Is a **combination** of both above to **guard type** in the **code editor** and in the provided argument by checking it.
 
 ----
 
@@ -252,7 +259,6 @@ Run `ng test type` to execute the unit tests via [Karma](https://karma-runner.gi
 Default function to handle `callback` of [`ResultCallback`][resultcallback] type.
 
 ```typescript
-// Syntax.
 const resultCallback: ResultCallback = (result: boolean): boolean => result
 ```
 
@@ -271,9 +277,9 @@ const resultCallback: ResultCallback = (result: boolean): boolean => result
 
 The **return value** is a `boolean` type result from the check.
 
-Custom function to handle `callback`.
-
 **Usage:**
+
+Custom function to handle `callback`.
 
 ```typescript
 const customCallback: ResultCallback = (result: boolean, value: any): boolean => {
@@ -290,10 +296,9 @@ const stringResult = isString('Lorem ipsum', customCallback);
 
 ### `typeOf()`
 
-Primary and common function in checking the types. [Here](https://javascript.plainenglish.io/the-best-way-to-type-check-in-vanilla-js-55197b4f45ec) is article about how it works.
+Primary and common function in checking the types. [Here](https://javascript.plainenglish.io/the-best-way-to-type-check-in-vanilla-js-55197b4f45ec) is an article about how it works.
 
 ```typescript
-// Syntax.
 const typeOf = (value: any): string => Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
 ```
 
@@ -304,7 +309,6 @@ const typeOf = (value: any): string => Object.prototype.toString.call(value).sli
 The object contains prefixed with `are` functions.
 
 ```typescript
-// Syntax.
 const are: Are = {
   string: areString
 };
@@ -317,7 +321,6 @@ const are: Are = {
  Use `areString()` or `are.string()` to check if all the values are `string`.
 
 ```typescript
-// Syntax.
 const areString = (...value: any): boolean => check('string', ...value);
 ```
 
@@ -343,17 +346,16 @@ The **return value** is a `boolean` indicating whether or not all the values are
 
 ### `is`
 
-![update][update]
+The object contains prefixed with `is` functions and prefixed with `isNot` functions in property `not`.
 
 **Version:**
 
-`4.2.0`: Adds `isDate()`, `isFalse()`, `isNumberBetween()`, `isRegExp()`, `isStringLength()`, `isTrue()`.
+![update][update]
+
+`4.2.0`: Adds `isDate()`, `isFalse()`, `isNumberBetween()`, `isRegExp()`, `isStringLength()`, `isTrue()`.  
 `4.1.0`: Adds `objectKeys` as [`isObjectKeys()`](#isobjectkeys).
 
-The object contains prefixed with `is` functions and prefixed with `isNot` functions in property `not`.
-
 ```typescript
-// Syntax.
 const is: Is = {
   array: isArray,
   bigInt: isBigInt, // deprecated
@@ -393,7 +395,7 @@ const is: Is = {
 
 ----
 
-### `isArray`
+### `isArray()`
 
 Use `isArray()` or `is.array()` to check if **any** `value` is an [`Array`][js-array], [`Array`][js-array] instance, and `object` type.
 
@@ -451,7 +453,7 @@ isArray<string>(ARRAY_STRING); // true
 
 ----
 
-### isBigInt
+### `isBigInt()`
 
 Use `isBigInt()` or `is.bigint()` to check if **any** `value` is a `bigint` type.
 
@@ -496,7 +498,7 @@ isBigInt(BIGINT); // true
 
 ----
 
-### isBoolean
+### `isBoolean()`
 
 Use `isBoolean()` or `is.boolean()` to check if **any** `value` is a `boolean` type not instance of [`Boolean`][boolean] and [`Object`][js-object] or `object` type instance of [`Boolean`][boolean] and [`Object`][js-object].
 
@@ -545,7 +547,7 @@ isBoolean(BOOLEAN_INSTANCE); // true
 
 ----
 
-### isBooleanObject
+### `isBooleanObject()`
 
 Use `isBooleanObject()` or `is.booleanObject()` to check if **any** `value` is an `object` type and instance of [`Boolean`][boolean] and [`Object`][js-object].
 
@@ -588,12 +590,11 @@ const BOOLEAN_INSTANCE = new Boolean(false);
 
 isBooleanObject(BOOLEAN); // false
 isBooleanObject(BOOLEAN_INSTANCE); // true
-
 ```
 
 ----
 
-### isBooleanType
+### `isBooleanType()`
 
 Use `isBooleanType()` or `is.booleanType()` to check if **any** `value` is a `boolean` type not an instance of [`Boolean`][boolean] and [`Object`][js-object], and equal to `true` or `false`.
 
@@ -637,12 +638,11 @@ const BOOLEAN_INSTANCE = new Boolean(false);
 
 isBooleanType(BOOLEAN); // true
 isBooleanType(BOOLEAN_INSTANCE); // false
-
 ```
 
 ----
 
-### isClass
+### `isClass()`
 
 Use `isClass()` or `is.class()` to check if **any** `value` is a `function` type, an instance of [`Function`][js-function] and [`Object`][js-object] as a generic `Class` type of [`class`][ts-classes]. It also **confirms** with the regexp that function is a [`class`][ts-classes].
 
@@ -695,16 +695,62 @@ const FUNC: Func = (x: number): any => x + 5;
 isClass(Class); // true
 isClass(FUNC); // false
 isClass(() => 5); // false
-
 ```
 
 ----
 
-### isDefined
+### `isDate()`
 
-![fix][fix]
+Use `isDate()` or `is.date()` to check if **any** `value` is an `object` type instance of [`Date`][js-date] and [`Object`][js-object].
 
-`4.1.3`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is defined by changing the `value` type to a generic `Type` and the return type to `value is Defined<Type>`.
+```typescript
+const isDate: IsDate = (
+  value: any,
+  callback: ResultCallback = resultCallback
+): value is Date =>
+  callback(
+    typeOf(value) === 'date' &&
+    typeof value === 'object' &&
+    value instanceof Date === true &&
+    value instanceof Object === true,
+    value
+  );
+```
+
+**Parameters:**
+
+| Name: `type`               | Description          |
+| :------------------------- |--------------------- |
+| value: `any`               | Any `value` to check |
+| callback: `ResultCallback` | A [`ResultCallback`][resultcallback] type function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][js-error] |
+
+**Returns:**
+
+| Returns         | Type      | Description                                                                                           |
+| :-------------- | :-------: | :---------------------------------------------------------------------------------------------------- |
+| `value is Date` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is a `Date` |
+
+The **return value** is a `boolean` indicating whether or not the `value` is a date.
+
+**Usage:**
+
+```typescript
+// Example usage
+import { isDate } from '@angular-package/type';
+
+/**
+ * typeof === 'object'
+ * instanceof Date === true
+ * instanceof Object === true
+ */
+const DATE = new Date(1995, 11, 17, 3, 24, 0);
+
+isDate(DATE); // true; value is Date
+```
+
+----
+
+### `isDefined()`
 
 Use `isDefined()` or `is.defined()` to check if a generic `Type` `value` is **not** an `undefined` type and is **not** equal to `undefined`.
 
@@ -753,12 +799,54 @@ let defined;
 
 isDefined(UNDEFINED); // false
 isDefined(defined); // false
-
 ```
 
 ----
 
-### isFunction
+### `isFalse()`
+
+Use `isFalse()` or `is.false()` to check if **any** `value` is a `boolean` type **not** an instance of [`Boolean`][js-boolean] and [`Object`][js-object], or is an `object` type and instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `false`.
+
+```typescript
+const isFalse: IsFalse = (
+  value: any,
+  callback: ResultCallback = resultCallback
+): value is false =>
+  callback(
+    (isBooleanType(value) && value === false)
+    ||
+    (isBooleanObject(value) && value.valueOf() === false),
+    value
+  );
+```
+
+**Parameters:**
+
+| Name: `type`               | Description          |
+| :------------------------- |--------------------- |
+| value: `any`               | Any `value` to check |
+| callback: `ResultCallback` | A [`ResultCallback`][resultcallback] type function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][js-error] |
+
+**Returns:**
+
+| Returns          | Type      | Description                                                                                          |
+| :--------------- | :-------: | :--------------------------------------------------------------------------------------------------- |
+| `value is false` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is `false` |
+
+The **return value** is a `boolean` indicating whether or not the `value` is a date.
+
+**Usage:**
+
+```typescript
+// Example usage
+import { isFalse } from '@angular-package/type';
+
+isFalse(true); // false; value is false
+```
+
+----
+
+### `isFunction()`
 
 Use `isFunction()` or `is.function()` to check if **any** `value` is a `function` type, an instance of [`Function`][js-function] and [`Object`][js-object]. It also **denies** with the regexp that function is a [`class`][ts-classes].
 
@@ -807,24 +895,13 @@ const FUNC: Func = (x: number): any => x + 5;
 isFunction(Class); // true
 isFunction(FUNC); // true
 isFunction(() => 5); // true
-
 ```
 
 [Example usage on playground][is-function] | [How to detect `function` type][detect-function]
 
 ----
 
-### isInstance
-
-![update][update]
-
-`4.1.1`:
-
-* Changes the `Class` type variable name to `Obj`.
-* Changes the `className` parameter name to `constructor` cause it represents [`class`][ts-classes] or [`function`][ts-function] constructor.
-* Fixes type variable `Obj` default value is set to [`Function`][js-function] by removing it cause it's always being picked from the `constructor` parameter.
-* Removes unnecessary [`Constructor`][constructor] from the return type.
-* Adds check `constructor` against the [`function`][ts-function].
+### `isInstance()`
 
 Use `isInstance()` or `is.instance()` to check if **any** value is an `object` of a generic `Obj` type and an instance of [`Constructor`][constructor] type.
 
@@ -894,18 +971,13 @@ function functionConstructor(this: any, ...args: any[]): any {
 const anyInstance: any = new (functionConstructor as any)('First name', 'Sur name', 27);
 
 isInstance(anyInstance, functionConstructor as any); // true
-
 ```
 
 [Example usage on playground][is-instance] | [How to detect `constructor` instance][detect-instance]
 
 ----
 
-### isKey
-
-![update][update]
-
-`4.1.0`: Checks only for primitive `string` and `number`.
+### `isKey()`
 
 Use `isKey()` or `is.key()` to check if **any** `value` is one of the `string`, `number`, or `symbol`.
 
@@ -955,12 +1027,11 @@ const SYMBOL_NUMBER: unique symbol = Symbol(NUMBER);
 const SYMBOL_STRING: unique symbol = Symbol(STRING);
 isKey(SYMBOL_NUMBER); // true
 isKey(SYMBOL_STRING); // true
-
 ```
 
 ----
 
-### isNull
+### `isNull()`
 
 Use `isNull()` or `is.null()` to check if **any** `value` is an `object` type and equal to `null`.
 
@@ -1014,14 +1085,55 @@ const NUMBER = 27;
 
 isNull(NULL); // true
 isNull(NUMBER); // false
-
 ```
 
 [Example usage on playground][is-null] | [How to detect `null` type][detect-null]
 
 ----
 
-### isNumber
+### `isNumberBetween()`
+
+Use `isNumberBetween()` or `is.numberBetween()` to check if **any** `value` is a `boolean` type **not** an instance of [`Boolean`][js-boolean] and [`Object`][js-object], or is an `object` type and instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `false`.
+
+```typescript
+const isFalse: IsFalse = (
+  value: any,
+  callback: ResultCallback = resultCallback
+): value is false =>
+  callback(
+    (isBooleanType(value) && value === false)
+    ||
+    (isBooleanObject(value) && value.valueOf() === false),
+    value
+  );
+```
+
+**Parameters:**
+
+| Name: `type`               | Description          |
+| :------------------------- |--------------------- |
+| value: `any`               | Any `value` to check |
+| callback: `ResultCallback` | A [`ResultCallback`][resultcallback] type function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][js-error] |
+
+**Returns:**
+
+| Returns          | Type      | Description                                                                                          |
+| :--------------- | :-------: | :--------------------------------------------------------------------------------------------------- |
+| `value is false` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is `false` |
+
+The **return value** is a `boolean` indicating whether or not the `value` is a date.
+
+**Usage:**
+
+```typescript
+// Example usage
+import { isFalse } from '@angular-package/type';
+
+isFalse(true); // false; value is false
+```
+
+----
+### `isNumber()`
 
 Use `isNumber()` or `is.number()` to check if **any** `value` is a `number` type not an instance of [`Number`][js-number] and [`Object`][js-object] or `object` type instance of [`Number`][js-number] and [`Object`][js-object].
 
@@ -1059,7 +1171,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 ----
 
-### isNumberObject
+### `isNumberObject()`
 
 Use `isNumberObject()` or `is.numberObject()` to check if **any** `value` is an `object` type and instance of [`Number`][js-number] and [`Object`][js-object].
 
@@ -1124,12 +1236,11 @@ const NUMBER_NEW_INSTANCE = new Number(NUMBER);
 isNumberObject(NUMBER); // false
 isNumberObject(NUMBER_INSTANCE); // false
 isNumberObject(NUMBER_NEW_INSTANCE); // true
-
 ```
 
 ----
 
-### isNumberType
+### `isNumberType()`
 
 Use `isNumberType()` or `is.numberType()` to check if **any** `value` is a `number` type not an instance of [`Number`][js-number] and [`Object`][js-object].
 
@@ -1194,12 +1305,11 @@ const NUMBER_NEW_INSTANCE = new Number(NUMBER);
 isNumberType(NUMBER); // true
 isNumberType(NUMBER_INSTANCE); // true
 isNumberType(NUMBER_NEW_INSTANCE); // false
-
 ```
 
 ----
 
-### isObject
+### `isObject()`
 
 Use `isObject()` or `is.object()` to check if **any** `value` is an `object` of a generic `Obj` type and [`Object`][js-object] instance.
 
@@ -1293,14 +1403,13 @@ const OBJECT_ONE: ObjectOne = {
 };
 
 isObject(OBJECT_ONE); // true
-
 ```
 
 [Example usage on playground][is-object] | [How to detect an `object` type][detect-object]
 
 ----
 
-### isObjectKey
+### `isObjectKey()`
 
 Use `isObjectKey()` or `is.objectKey()` to check if **any** `value` is an `object` with its own specified keys of the [`Key`][key].
 The function uses [`hasOwnProperty`][js-hasownproperty] [`Object`][js-object] method to finds enumerable and non-enumerable [`Key`][key] as `string`, `number`, `symbol` unlike `Object.keys()`, but it can't find [`getter`][js-getter] property unlike [`in`][js-in-operator] operator, which can.
@@ -1454,12 +1563,11 @@ const CLASS = new Class();
 isObjectKey(CLASS, SYMBOL_NUMBER); // false
 isObjectKey(CLASS, SYMBOL_STRING); // false
 isObjectKey(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING]); // false
-
 ```
 
 ----
 
-### isObjectKeyIn
+### `isObjectKeyIn()`
 
 Use `isObjectKeyIn()` or `is.objectKeyIn()` to check if **any** `value` is an [`Object`][js-object] of a generic type with the `key` of the [`Key`][key] type by using the [`in`][js-in-operator] operator.
 
@@ -1581,12 +1689,11 @@ const CLASS = new Class();
 isObjectKeyIn(CLASS, SYMBOL_NUMBER); // true
 isObjectKeyIn(CLASS, SYMBOL_STRING); // true
 isObjectKeyIn(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING]); // true
-
 ```
 
 ----
 
-### isObjectKeys
+### `isObjectKeys()`
 
 ![new][new]
 
@@ -1678,12 +1785,11 @@ isObjectKeys(DATA_DESCRIPTOR, ['writable', 'value']); // true
 isObjectKeys(DATA_DESCRIPTOR, 'writable', 'value'); // true
 isObjectKeys(DATA_DESCRIPTOR, ['get', 'set']); // false
 isObjectKeys(DATA_DESCRIPTOR, 'get', 'set'); // false
-
 ```
 
 ----
 
-### isPrimitive
+### `isPrimitive()`
 
 Use `isPrimitive()` or `is.primitive()` to check if **any** `value` is the [`Primitive`](#primitive) type from a `type` of the [`Primitives`](#primitives) type.
 
@@ -1736,7 +1842,50 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 ----
 
-### isString
+### `isRegExp()`
+
+Use `isRegExp()` or `is.regexp()` to check if **any** `value` is a `regexp` type, an instance of `Object` and `RegExp`.
+
+```typescript
+const isRegExp: IsRegExp = (
+  value: any,
+  callback: ResultCallback = resultCallback
+): value is RegExp =>
+  callback(
+    typeOf(value) === 'regexp' &&
+      typeof value === 'object' &&
+      value instanceof Object &&
+      value instanceof RegExp
+  );
+```
+
+**Parameters:**
+
+| Name: `type`               | Description          |
+| :------------------------- |--------------------- |
+| value: `any`               | Any `value` to check |
+| callback: `ResultCallback` | A [`ResultCallback`][resultcallback] type function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][js-error] |
+
+**Returns:**
+
+| Returns           | Type      | Description                                                       |
+| :---------------- | :-------: | :---------------------------------------------------------------- |
+| `value is RegExp` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is a regular expression of a `RegExp` type |
+
+The **return value** is a `boolean` indicating whether or not the `value` is a regular expression.
+
+**Usage:**
+
+```typescript
+// Example usage
+import { isRegExp } from '@angular-package/type';
+
+isRegExp(/[^a-z]/g); // true; The return type `value is RegExp`
+```
+
+----
+
+### `isString()`
 
 Use `isString()` or `is.string()` to check if **any** `value` is a `string` type, not instance of [`Object`][js-object] and [`String`][js-string] or `object` type and instance of [`String`][js-string] and [`Object`][js-object].
 
@@ -1769,7 +1918,80 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 ----
 
-### isStringObject
+### `isStringLength()`
+
+Use `isStringLength()` or `is.stringLength()` to check if **any** `value` is a `string` type, not instance of [`Object`][js-object] and [`String`][js-string] or `object` type and instance of [`String`][js-string] and [`Object`][js-object] of a length in the specified range.
+
+```typescript
+const isStringLength: IsStringLength = <
+  Min extends number,
+  Max extends number
+>(
+  value: any,
+  min: Min,
+  max: Max,
+  callback: ResultCallback = resultCallback
+): value is StringOfLength<Min, Max> =>
+  callback(
+    typeOf(value) === 'string' &&
+      ((isStringType(value)
+        ? value.length >= min && value.length <= max
+        : false) ||
+        (isStringObject(value)
+          ? value.valueOf().length >= min && value.valueOf().length <= max
+          : false)),
+    value
+  );
+```
+
+**Generic type variables:**
+
+| Name  | Default value                    | Description |
+| :---- | :------------------------------- | :---------- |
+| `Min` | Captured from the provided `min` | Constrained with the `number` type, a generic `Min` variable, by default of a value captured from the provided `min` to the return type `value is StringOfLength<Min, Max>` |
+| `Max` | Captured from the provided `min` | Constrained with the `number` type, a generic `Max` variable, by default of a value captured from the provided `max` to the return type `value is StringOfLength<Min, Max>` |
+
+**Parameters:**
+
+| Name: `type`               | Description          |
+| :------------------------- | :------------------- |
+| `value: any`               | Any `value` to check |
+| `min: Min`                 | A `number` of the minimum length of the provided `value` |
+| `max: Max`                 | A `number` of the maximum length of the provided `value` |
+| `callback: ResultCallback` | A [`ResultCallback`][resultcallback] type function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][js-error] |
+
+**Returns:**
+
+| Returns                             | Type      | Description                                                       |
+| :---------------------------------- | :-------: | :---------------------------------------------------------------- |
+| `value is StringOfLength<Min, Max>` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is a `string` of length in the specified range |
+
+The **return value** is a `boolean` indicating whether or not the `value` is a `string` type or [`String`][js-string] instance of length in the specified range.
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { isStringLength } from '@angular-package/type';
+
+const firstName = 'my first name';
+
+isStringLength(firstName, 0, 13); // true; The return type `value is StringOfLength<0, 13>`
+isStringLength(firstName, 14, 28); // false; The return type `value is StringOfLength<14, 28>`
+isStringLength(firstName, 0, 12); // false; The return type `value is StringOfLength<0, 12>`
+isStringLength(firstName, 13, 13); // true; The return type `value is StringOfLength<13, 13>`
+
+const firstNameBox = new String(firstName);
+
+isStringLength(firstNameBox, 0, 13); // true; The return type `value is StringOfLength<0, 13>`
+isStringLength(firstNameBox, 14, 28); // false; The return type `value is StringOfLength<14, 28>`
+isStringLength(firstNameBox, 0, 12); // false; The return type `value is StringOfLength<0, 12>`
+isStringLength(firstNameBox, 13, 13); // true; The return type `value is StringOfLength<13, 13>`
+```
+
+----
+
+### `isStringObject()`
 
 Use `isStringObject()` or `is.stringObject()` to check if **any** `value` is an `object` type and instance of [`String`][js-string] and [`Object`][js-object].
 
@@ -1803,7 +2025,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is a [
 
 ----
 
-### isStringType
+### `isStringType()`
 
 Use `isStringType()` or `is.stringType()` to check if **any** `value` is a `string` type and **not** instance of [`String`][js-string] and [`Object`][js-object].
 
@@ -1837,7 +2059,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 ----
 
-### isSymbol
+### `isSymbol()`
 
 Use `isSymbol()` or `is.symbol()` to check if **any** `value` is a `symbol` type.
 
@@ -1870,7 +2092,50 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 ----
 
-### isType
+### `isTrue()`
+
+Use `isTrue()` or `is.true()` to check if **any** `value` is a `boolean` type **not** an instance of [`Boolean`][js-boolean] and [`Object`][js-object], or is an `object` type and instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `true`.
+
+```typescript
+const isTrue: IsTrue = (
+  value: any,
+  callback: ResultCallback = resultCallback
+): value is true =>
+  callback(
+    (isBooleanType(value) && value === true)
+    ||
+    (isBooleanObject(value) && value.valueOf() === true),
+    value
+  );
+```
+
+**Parameters:**
+
+| Name: `type`               | Description          |
+| :------------------------- |--------------------- |
+| value: `any`               | Any `value` to check |
+| callback: `ResultCallback` | A [`ResultCallback`][resultcallback] type function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][js-error] |
+
+**Returns:**
+
+| Returns          | Type      | Description                                                                                          |
+| :--------------- | :-------: | :--------------------------------------------------------------------------------------------------- |
+| `value is false` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is `true` |
+
+The **return value** is a `boolean` indicating whether or not the `value` is a `boolean` equal to `true`.
+
+**Usage:**
+
+```typescript
+// Example usage
+import { isTrue } from '@angular-package/type';
+
+isTrue(false); // false; value is true
+```
+
+----
+
+### `isType()`
 
 Use `isType()` or `is.type()` to check if **any** `value` is the [`Type`][type] from a `type` of the [`Types`](#types) type.
 
@@ -1930,7 +2195,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is the
 
 ----
 
-### isUndefined
+### `isUndefined()`
 
 Use `isUndefined()` or `is.undefined()` to check if **any** `value` is an `undefined` type and equal to `undefined`.
 
@@ -1968,7 +2233,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is `un
 
 ----
 
-### isNot
+### `isNot`
 
 Object `isNot` with all **check is not** functions.
 
@@ -1984,11 +2249,7 @@ const isNot: IsNot = {
 };
 ```
 
-### isNotBoolean
-
-![fix][fix]
-
-`4.1.3`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is not `boolean` or [`Boolean`][boolean] by changing the `value` type to a generic `Type` and the return type to `value is Never<AnyBoolean, Type>`.
+### `isNotBoolean()`
 
 Use `isNotBoolean()` or `is.not.boolean()` to check if a generic `Type` `value` is **not** a `boolean` type and **not** an instance of a [`Boolean`][boolean].
 
@@ -2039,16 +2300,11 @@ const objectBoolean = new Boolean(strictBoolean);
 isNotBoolean(anyBoolean); // false; return type is `value is any`
 isNotBoolean(strictBoolean); // false; return type is `value is never`
 isNotBoolean(objectBoolean); // false; return type is `value is never`
-
 ```
 
 ----
 
-### isNotDefined
-
-![fix][fix]
-
-`4.1.3`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is not `defined` by changing the `value` type to a generic `Type` and the return type to `value is Undefined<Type>`.
+### `isNotDefined()`
 
 Use `isNotDefined()` or `is.not.defined()` to check if a generic `Type` `value` is an `undefined` type and is equal to `undefined`.
 
@@ -2099,16 +2355,11 @@ const surname = 'My last name ';
 isNotDefined(anyUndefined); // true; return type is `value is any`
 isNotDefined(firstName); // true;  return type is `value is undefined`
 isNotDefined(surname); // false; return type is `value is never`
-
 ```
 
 ----
 
-### isNotFunction
-
-![fix][fix]
-
-`4.1.3`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is not `function` by changing the `value` type to a generic `Type` and the return type to `value is Never<Func, Type>`.
+### `isNotFunction()`
 
 Use `isNotFunction()` or `is.not.function()` to check if a generic `Type` `value` is **not** a `function` type and **not** an instance of [`Function`](#func).
 
@@ -2158,16 +2409,11 @@ const myFunc: Func = (x: string) => x;
 isNotFunction(anyFunc); // false; return type is `value is any`
 isNotFunction(myFunc); // false; return type is `value is never`
 isNotFunction('maybe i am not a function'); // true; return type is `value is string`
-
 ```
 
 ----
 
-### isNotNull
-
-![fix][fix]
-
-`4.1.3`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is not `null` by changing `value` type to a generic `Type` and the return type to `value is Never<null, Type>`.
+### `isNotNull()`
 
 Use `isNotNull()` or `is.not.null()` to check if a generic `Type` `value` is **not** a `null` type and **not** equal to `null`.
 
@@ -2211,16 +2457,11 @@ const firstName = null;
 
 isNotNull(anyNull); // return type is `value is any`
 isNotNull(firstName); // return type is `value is never`
-
 ```
 
 ----
 
-### isNotNumber
-
-![fix][fix]
-
-`4.1.3`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is not a `number` or `Number` by changing `value` type to a generic `Type` and the return type to `value is Never<number, Type>`.
+### `isNotNumber()`
 
 Use `isNotNumber()` or `is.not.number()` to check if a generic `Type` `value` is **not** a `number` type and **not** an instance of [`Number`][js-number].
 
@@ -2273,16 +2514,11 @@ isNotNumber(anyNumber); // return type is `value is any`
 isNotNumber(firstName); // return type is `value is string`
 isNotNumber(age); // return type is `value is never`
 isNotNumber(objectNumber); // return type is `value is never`
-
 ```
 
 ----
 
-### isNotString
-
-![fix][fix]
-
-`4.1.3`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is not a `string` or [`String`][js-string] by changing `value` type to a generic `Type` and the return type to `value is Never<string, Type>`.
+### `isNotString()`
 
 Use `isNotString()` or `is.not.string()` to check if a generic `Type` `value` is **not** a `string` type and **not** an instance of [`String`][js-string].
 
@@ -2337,16 +2573,11 @@ isNotString(anyString); // return type is `value is any`
 isNotString(firstName); // return type is `value is never`
 isNotString(age); // return type is `value is number`
 isNotString(objectString); // return type is `value is never`
-
 ```
 
 ----
 
-### isNotUndefined
-
-![fix][fix]
-
-`4.1.3`: Fixes the return type `boolean`, which doesn't strictly indicate the `value` is not `undefined` by changing `value` type to a generic `Type` and the return type to `value is Defined<Type>`.
+### `isNotUndefined()`
 
 Use `isNotUndefined()` or `is.not.undefined()` to check if a generic `Type` `value` is **not** an `undefined` type and **not** equal to `undefined`.
 
@@ -2400,20 +2631,17 @@ function configFunction(value: string): string {
 if (is.not.undefined(config.a)) {
   configFunction(config.a);
 }
-
 ```
 
 ----
 
 ## Guard
 
-### guard
+### `guard`
 
 ![update][update]
 
-`4.1.0`: Adds `objectKeys` as [`guardObjectKeys()`](#guardobjectkeys).
-
-The object contains prefixed with `guard` functions in `is` property.
+The object contains prefixed with `guard` functions, and in `is` property.
 
 ```typescript
 const guardIs: GuardIs = {
@@ -2436,15 +2664,12 @@ const guardIs: GuardIs = {
   type: guardType,
   undefined: guardUndefined
 };
-const guard: Guard = {
-  is: guardIs
-};
-
+const guard: Guard = { ...guardIs, is: guardIs };
 ```
 
 ----
 
-### guardArray
+### `guardArray()`
 
 Use `guardArray()` or `guard.is.array()` to guard the `value` to be an [`Array`][js-array] of a generic `Type`.
 
@@ -2482,7 +2707,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 
 ----
 
-### guardBigInt
+### `guardBigInt()`
 
 Use `guardBigInt()` or `guard.is.bigint()` to guard the `value` to be a `bigint`.
 
@@ -2508,7 +2733,7 @@ const guardBigInt: GuardBigInt = (
 
 ----
 
-### guardBoolean
+### `guardBoolean()`
 
 Use `guardBoolean()` or `guard.is.boolean()` to guard the `value` to be any type of a boolean.
 
@@ -2542,11 +2767,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 ----
 
-### guardClass
-
-![update][update]
-
-`4.1.0`: Fixes the `value` is not guarded by extending generic type `Class` variable with `Function`.
+### `guardClass()`
 
 Use `guardClass()` or `guard.is.class()` to guard the `value` to be a generic `Class` type of [`class`][ts-classes].
 
@@ -2628,16 +2849,11 @@ class Class {
 
 guardClass(FUNCTION); // false
 guardClass<Class>(FUNCTION); // type error
-
 ```
 
 ----
 
-### guardDefined
-
-![update][update]
-
-`4.1.0`: Fixes the `value` is not guarded by changing its type to  [`Defined<Type>`][type-defined].
+### `guardDefined()`
 
 Use `guardDefined()` or `guard.is.defined()` to guard the `value` to be defined.
 
@@ -2684,7 +2900,7 @@ guardDefined(firstName); // true; return type `value is string`
 
 ----
 
-### guardFunction
+### `guardFunction()`
 
 Use `guardFunction()` or `guard.is.function()` to guard the `value` to be a [`Func`](#func) type.
 
@@ -2716,13 +2932,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is a [
 
 ----
 
-### guardInstance
-
-![update][update]
-
-`4.1.0`: Fixes the `value` is not guarded by extending generic type `Obj` variable with `object`.
-
-`4.1.1`: Changes the `instance` parameter name to `constructor` cause it represents [`class`][ts-classes] or [`function`][ts-function] constructor.
+### `guardInstance()`
 
 Use `guardInstance()` or `guard.is.instance()` to guard the `value` to be an `object` of a generic `Obj` type and an `instance` of [`Constructor`][constructor] type.
 
@@ -2793,16 +3003,11 @@ const personsInstance: Persons = new Persons();
 
 guardInstance(personInstance, personFunctionConstructor as any); // true
 guardInstance(personsInstance, Persons); // true
-
 ```
 
 ----
 
-### guardKey
-
-![update][update]
-
-`4.1.0`: Fixes the return type `boolean` to `value` is `Key`.
+### `guardKey()`
 
 Use `guardKey()` or `guard.is.key()` to guard the `value` to be one of the `string`, `number`, or `symbol`.
 
@@ -2830,7 +3035,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is a [
 
 ----
 
-### guardNull
+### `guardNull()`
 
 Use `guardNull()` or `guard.is.null()` to guard the `value` to be a `null`.
 
@@ -2858,7 +3063,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 ----
 
-### guardNumber
+### `guardNumber()`
 
 Use `guardNumber()` or `guard.is.number()` to guard the `value` to be any type of a number.
 
@@ -2896,11 +3101,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 ----
 
-### guardObject
-
-![update][update]
-
-`4.1.0`: Fixes the `value` is not guarded by extending generic type `Obj` variable with `object`.
+### `guardObject()`
 
 Use `guardObject()` or `guard.is.object()` to guard the `value` to be an `object` of a generic `Obj` type.
 
@@ -2938,11 +3139,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 
 ----
 
-### guardObjectKey
-
-![update][update]
-
-`4.1.0`: Fixes the `value` is not guarded by extending generic type `Obj` variable with `object`.
+### `guardObjectKey()`
 
 Use `guardObjectKey()` or `guard.is.objectKey()` to guard the `value` to be an `object` of a generic `Obj` type that contains the `key`.
 
@@ -2982,9 +3179,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 
 ----
 
-### guardObjectKeys
-
-![new][new]
+### `guardObjectKeys()`
 
 Use `guardObjectKeys()` or `guard.is.objectKeys()` to guard the value to be an `object` of a generic `Type` with some of its own specified `keys`.
 The function uses [`isObjectKeys()`](#isobjectkeys) to search for the `keys` and it means:
@@ -3064,12 +3259,11 @@ guardObjectKeys(ACCESSOR_DESCRIPTOR, ['writable', 'value'], ['get', 'set']); // 
 guardObjectKeys(ACCESSOR_DESCRIPTOR, ['configurable', 'enumerable'], 'writable', 'value'); // type error on 'writable'
 guardObjectKeys(ACCESSOR_DESCRIPTOR, ['configurable', 'enumerable'], 'get'); // true
 guardObjectKeys(ACCESSOR_DESCRIPTOR, ['configurable', 'enumerable'], 'set'); // true
-
 ```
 
 ----
 
-### guardPrimitive
+### `guardPrimitive()`
 
 Use `guardPrimitive()` or `guard.is.primitive()` to guard the `value` to be the [`Primitive`][primitive] from a `type` of the [`Primitives`](#primitives).
 
@@ -3151,7 +3345,7 @@ guardPrimitive(Symbol(firstName), 'symbol'); // true; return type `value is symb
 
 ----
 
-### guardString
+### `guardString()`
 
 Use `guardString()` or `guard.is.string()` to guard the `value` to be string of any type.
 
@@ -3200,7 +3394,7 @@ guardString(firstName); // true; return type `value is "my name"`
 
 ----
 
-### guardSymbol
+### `guardSymbol()`
 
 Use `guardSymbol()` or `guard.is.symbol()` to guard the `value` to be a `symbol`.
 
@@ -3241,7 +3435,7 @@ guardSymbol(SYMBOL_STRING); // true; return type `value is symbol`
 
 ----
 
-### guardType
+### `guardType()`
 
 Use `guardType()` or `guard.is.type()` to guard the `value` to be the [`Type`][type] from a `type` of the [`Types`](#types).
 
@@ -3344,7 +3538,7 @@ guardType(someone, Person); // true; return type `value is Person`
 
 ----
 
-### guardUndefined
+### `guardUndefined()`
 
 Use `guardUndefined()` or `guard.is.undefined()` to guard the `value` to be `undefined`.
 
@@ -3389,7 +3583,7 @@ guardUndefined(5); // false; type error
 
 ### AnyBoolean
 
-Represents `boolean` type or [`Boolean`][boolean] object.
+A `boolean` type or an instance of a [`Boolean`][js-boolean].
 
 ```typescript
 type AnyBoolean = Exclude<boolean | Boolean, true | false>;
@@ -3397,7 +3591,7 @@ type AnyBoolean = Exclude<boolean | Boolean, true | false>;
 
 ### AnyNumber
 
-Represents `number` type or [`Number`][js-number] object.
+A `number` type or an instance of a [`Number`][js-number].
 
 ```typescript
 type AnyNumber = number | Number;
@@ -3405,7 +3599,7 @@ type AnyNumber = number | Number;
 
 ### AnyString
 
-Represents `string` type or [`String`][js-string] object.
+A `string` type or an instance of a [`String`][js-string].
 
 ```typescript
 type AnyString = string | String;
@@ -3413,13 +3607,15 @@ type AnyString = string | String;
 
 ### Constructor
 
+An instance of a type from the provided generic `Type` variable.
+
 ```typescript
 type Constructor<Type> = new (...args: any[]) => Type;
 ```
 
 ### Defined
 
-Indicate that `Type` variable is defined.
+A type from the provided generic `Type` variable, besides an `undefined` which causes its change to `never`.
 
 ```typescript
 type Defined<Type> = Never<undefined, Type>;
@@ -3451,7 +3647,7 @@ type Func = (...param: any) => any;
 
 ### Key
 
-Name of the `object` property.
+Name of the `object` property as `number`, `string` or `symbol`.
 
 ```typescript
 type Key =  number | string | symbol;
@@ -3459,12 +3655,32 @@ type Key =  number | string | symbol;
 
 ### Never
 
-![new][new]
-
-Choose a type to exclude. A generic `Type` is never a `Not` type.
+A type from the provided generic `Type` variable, besides a type provided in the generic `Not` variable which causes its change to `never`.
 
 ```typescript
 type Never<Not, Type> = Type extends Not ? never : Type;
+```
+
+### NotUndefined
+
+A type from the provided generic `Type` variable, besides an `undefined` or `null` which causes its change to `never`.
+
+```typescript
+type NotUndefined<T> = T extends undefined | null ? never : T;
+```
+
+### NumberBetween
+
+![new][new]
+
+A `number` type or an instance of a [`Number`][js-number] with its specified range. For the `strict` purpose generic variables `Min` and `Max` are constrained with the `number` type.
+
+```typescript
+type NumberBetween<Min extends number, Max extends number> =
+  AnyNumber & {
+    min: Min;
+    max: Max;
+  };
 ```
 
 ### Primitive
@@ -3472,7 +3688,14 @@ type Never<Not, Type> = Type extends Not ? never : Type;
 All [`Primitive`][primitive] types.
 
 ```typescript
-type Primitive = bigint | boolean | null | number | string | symbol | undefined;
+type Primitive =
+  | boolean
+  | bigint
+  | null
+  | number
+  | string
+  | symbol
+  | undefined;
 ```
 
 ### Primitives
@@ -3480,18 +3703,41 @@ type Primitive = bigint | boolean | null | number | string | symbol | undefined;
 All [`Primitive`](#primitive) types as `string`.
 
 ```typescript
-type Primitives = 'bigint' | 'boolean' | 'null' | 'number' | 'symbol' | 'string' | 'undefined';
+type Primitives =
+  | 'bigint'
+  | 'boolean'
+  | 'null'
+  | 'number'
+  | 'string'
+  | 'symbol'
+  | 'undefined';
 ```
 
 ### ResultCallback
 
+Callback function for `callback` parameter.
+
 ```typescript
-type ResultCallback = <Obj>(result: boolean, value?: any) => boolean;
+type ResultCallback = (result: boolean, value?: any) => boolean;
+```
+
+### StringOfLength
+
+![new][new]
+
+A `string` type or an instance of a  [`String`][js-string] with its specified minimum and maximum length. Generic variables `Min` and `Max` are constrained with the `number` type.
+
+```typescript
+type StringOfLength<Min extends number, Max extends number> =
+  AnyString & {
+    min: Min;
+    max: Max;
+  };
 ```
 
 ### Type
 
-Main types.
+The main types.
 
 ```typescript
 type Type = Func | object | Primitive;
@@ -3499,7 +3745,7 @@ type Type = Func | object | Primitive;
 
 ### Types
 
-Main types as `string`.
+The main types as `string` values, besides the [`Constructor`][constructor] which is an instance of an `Obj`.
 
 ```typescript
 type Types<Obj> = Constructor<Obj> | 'function' | 'object' | Primitives;
@@ -3507,9 +3753,7 @@ type Types<Obj> = Constructor<Obj> | 'function' | 'object' | Primitives;
 
 ### Undefined
 
-![new][new]
-
-Undefined or never - treat types as `never` excluding `undefined`.
+A type from the provided generic `Type` variable, constrained with the `undefined` which causes other types its change to `never`.
 
 ```typescript
 type Undefined<Type> = Type extends undefined ? Type : never;
@@ -3868,6 +4112,8 @@ MIT © angular-package ([license][property-badge-license])
 [array-some]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
 
 [classes]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
+
+[js-date]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
 
 [bigint]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt
 [bigintconstructor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt
