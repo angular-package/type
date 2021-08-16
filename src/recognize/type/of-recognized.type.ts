@@ -1,0 +1,43 @@
+export interface OfRecognized {
+  Array?: boolean;
+  ArrayBuffer?: boolean;
+  Boolean?: boolean;
+  DataView?: boolean;
+  Date?: boolean;
+  Error?: boolean;
+  EvalError?: boolean;
+  Float32Array?: boolean;
+  Float64Array?: boolean;
+  Function?: boolean;
+  Int16Array?: boolean;
+  Int32Array?: boolean;
+  Int8Array?: boolean;
+  Map?: boolean;
+  Number?: boolean;
+  Object?: boolean;
+  Promise?: boolean;
+  // Proxy?: boolean;
+  RangeError?: boolean;
+  ReferenceError?: boolean;
+  RegExp?: boolean;
+  Set?: boolean;
+  SharedArrayBuffer?: boolean;
+  Storage?: boolean;
+  String?: boolean;
+  Symbol?: boolean;
+  SyntaxError?: boolean;
+  TypeError?: boolean;
+  URIError?: boolean;
+  Uint16Array?: boolean;
+  Uint32Array?: boolean;
+  Uint8Array?: boolean;
+  Uint8ClampedArray?: boolean;
+  WeakMap?: boolean;
+  WeakSet?: boolean;
+  typeOf: string;
+  typeof?: string;
+  class?: boolean;
+  function?: boolean;
+
+  [index: string]: boolean | string | undefined;
+}
