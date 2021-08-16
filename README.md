@@ -308,11 +308,11 @@ import {
 
 ### Recognize value
 
-The first step is to recognize what type and instance our value is before it can be properly checked.
+The first step to properly check any value is to recognize what type and instance the value can be and for this purpose `recognizeValue()` function was created.
 
 #### `recognizeValue()`
 
-Gets recognized types from given `value` by using `instanceof`, `typeof` operator, and `typeOf()`, `isClass()`, `isFunction()` functions.
+Gets recognized types and instances of given `value` by using `instanceof`, `typeof` operator, and `typeOf()`, `isClass()`, `isFunction()` functions.
 
 ```typescript
 // Syntax.
@@ -389,7 +389,7 @@ const RECOGNIZE_INSTANCES = [
 
 ### Precise check
 
-The second step is to precisely check the type of our value and [`typeOf()`](#typeof) is an ideal solution for this.
+The second step is to precisely check the type of any value and [`typeOf()`](#typeof) is an ideal solution for this.
 
 #### `typeOf()`
 
@@ -403,7 +403,7 @@ const typeOf = (value: any): string => Object.prototype.toString.call(value).sli
 
 ### Callback
 
-The third is to handle the result before it returns with an optional payload by using the callback function cause it's possible to send it to our error logger (e.g. [sentry.io](https://sentry.io)) or even to change the result.
+The third step is to handle the result before it returns with an optional payload by using the callback function cause it's possible to send it to our error logger (e.g. [sentry.io](https://sentry.io)) or even to change the result.
 The default callback function is used to properly return the result of the check.
 
 #### `resultCallback()`
