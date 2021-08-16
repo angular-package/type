@@ -308,11 +308,11 @@ import {
 
 ### Recognize value
 
-The first step to properly check any value is to recognize what type and instance the value can be and for this purpose `recognizeValue()` function was created.
+To properly check any value is to know what type and instance the value can be and for this purpose [`recognizeValue()`](#recognizevalue) function was created.
 
 #### `recognizeValue()`
 
-Gets recognized types and instances of given `value` by using `instanceof`, `typeof` operator, and `typeOf()`, `isClass()`, `isFunction()` functions.
+Gets recognized types and instances of given `value` by using [`instanceof`][js-instanceof], [`typeof`][js-typeof] operator, and [`typeOf()`](#typeof), [`isClass()`](#isclass), [`isFunction()`][js-function] functions.
 
 ```typescript
 // Syntax.
@@ -346,7 +346,24 @@ const recognizeValue = (
 };
 ```
 
-An [`Array`][js-array] of default objects to check by using the [`instanceof`][js-instanceof] operator. It can be expanded by the provided `instances` parameter.
+**Parameters:**
+
+| Name: type           | Description |
+| :------------------- | :---------- |
+| `result: boolean`    | A [`boolean`][js-boolean] type value from the result of the check |
+| `callback?: Payload` | Any type value from the check |
+
+**Returns:**
+
+| Returns   | Type      | Description                        |
+| :-------- | :-------: | :--------------------------------- |
+| `boolean` | `boolean` | The **return type** is a `boolean` |
+
+The **return value** is a [`boolean`][js-boolean] type result from the check.
+
+**Constants:**
+
+An [`Array`][js-array] of default objects that is used by the [`recognizeValue()`](#recognizevalue) function to check the value instance by using the [`instanceof`][js-instanceof] operator. It can be expanded by the provided `instances` parameter.
 
 ```typescript
 const RECOGNIZE_INSTANCES = [
@@ -385,11 +402,64 @@ const RECOGNIZE_INSTANCES = [
 ];
 ```
 
+**Usage:**
+
+```typescript
+// Example usage.
+
+// Class.
+class CustomClass {}
+const customClass = new CustomClass();
+
+// String.
+const firstName = 'Artemis';
+
+/*
+Returns {
+  "typeOf": "object",
+  "typeof": "object",
+  "Object": true,
+  "CustomClass": true
+}
+*/
+recognizeValue(customClass, true, [CustomClass]);
+
+/*
+Returns {
+  "class": true,
+  "typeOf": "function",
+  "typeof": "function",
+  "Function": true,
+  "Object": true
+}
+*/
+recognizeValue(CustomClass);
+
+
+/*
+Returns {
+  "typeOf": "string",
+  "typeof": "string"
+}
+*/
+recognizeValue(firstName);
+
+/*
+Returns {
+  "typeOf": "string",
+  "typeof": "object",
+  "Object": true,
+  "String": true
+}
+*/
+recognizeValue(new String(firstName));
+```
+
 <br>
 
 ### Precise check
 
-The second step is to precisely check the type of any value and [`typeOf()`](#typeof) is an ideal solution for this.
+To precisely check the type of any value it needs to check the prototype of the value and [`typeOf()`](#typeof) is an ideal solution for this.
 
 #### `typeOf()`
 
@@ -403,8 +473,7 @@ const typeOf = (value: any): string => Object.prototype.toString.call(value).sli
 
 ### Callback
 
-The third step is to handle the result before it returns with an optional payload by using the callback function cause it's possible to send it to our error logger (e.g. [sentry.io](https://sentry.io)) or even to change the result.
-The default callback function is used to properly return the result of the check.
+To handle the result of the check(before it returns) with an additional payload there is a callback function, so it is possible to, for example, send it to error tracker [sentry.io](https://sentry.io) or even to change the value of the result and then return. The default callback function is used to return the result of the check.
 
 #### `resultCallback()`
 
@@ -434,7 +503,7 @@ The **return value** is a [`boolean`][js-boolean] type result from the check.
 
 **Usage:**
 
-Custom function to handle `callback`. By default, the callback function passes the function name that performed the callback and the value that was being checked, but they are changeable by the `payload` parameter of the `isString()` function and also it's possible to add new properties through it.
+A custom function to handle `callback`. By default, the callback function inside of [`isString()`](#isstring) and the rest functions passes the function name that performed the callback and the value that was being checked, but they are changeable by the `payload` parameter of the [`isString()`](#isstring) function and also it's possible to add new properties through it.
 
 ```typescript
 // Example usage.
