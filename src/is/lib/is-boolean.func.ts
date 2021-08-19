@@ -3,21 +3,32 @@ import { isBooleanObject } from './is-boolean-object.func';
 import { isBooleanType } from './is-boolean-type.func';
 import { resultCallback } from '../../lib/result-callback.func';
 import { typeOf } from '../../lib/type-of.func';
+// Interface.
+import { CallbackPayload } from '../../interface/callback-payload.interface';
 // Type.
-import { IsBoolean } from '../type/is-boolean.type';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
  * Checks if any `value` is a `boolean` type not instance of `Boolean` and `Object` or `object` type instance of `Boolean` and `Object`.
- * @param value Any `value` to check.
- * @param callback `ResultCallback` function to handle result before returns.
- * @returns A `boolean` indicating whether or not the `value` is a `boolean` type or `Boolean` instance.
+ * @param value The `value` of any type to check.
+ * @param callback A callback `function` of `ResultCallback` type with `payload` parameter of the default `CallbackPayload` shape to handle
+ * the `result` and `payload` of the check before the `result` return. By default it uses `resultCallback()` function.
+ * @param payload An optional `object` of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback`.
+ * @returns The return value is a `boolean` indicating whether the provided `value` is a `boolean` type or `Boolean` instance.
+ * @angularpackage
  */
-export const isBoolean: IsBoolean = (
+export const isBoolean = <Payload extends object>(
   value: any,
-  callback: ResultCallback = resultCallback
+  callback: ResultCallback<CallbackPayload & Payload> = resultCallback,
+  payload?: Payload
 ): value is boolean =>
   callback(
     typeOf(value) === 'boolean' &&
     (isBooleanType(value) || isBooleanObject(value)),
-    value
+    {
+      ...{
+        name: isBoolean.name,
+        value,
+      },
+      ...payload,
+    } as Payload
   );

@@ -1,23 +1,26 @@
-import { IsNotBoolean } from '../type/is-not-boolean.type';
-import { IsNotNumber } from '../type/is-not-number.type';
-import { IsNotUndefined } from '../type/is-not-undefined.type';
-import { IsNotNull } from '../type/is-not-null.type';
-import { IsNotString } from '../type/is-not-string.type';
-import { IsNotFunction } from '../type/is-not-function.type';
-import { IsNotDefined } from '../type/is-not-defined.type';
-
+// Function.
+import { isNotBoolean } from '../lib/is-not-boolean.func';
+import { isNotDefined } from '../lib/is-not-defined.func';
+import { isNotFunction } from '../lib/is-not-function.func';
+import { isNotNull } from '../lib/is-not-null.func';
+import { isNotNumber } from '../lib/is-not-number.func';
+import { isNotString } from '../lib/is-not-string.func';
+import { isNotUndefined } from '../lib/is-not-undefined.func';
+/**
+ * A shape of an object with all prefixed with `isNot` functions.
+ */
 export interface IsNot {
   // array: IsArray;
   // bigInt: IsBigInt;
-  boolean: IsNotBoolean;
-  defined: IsNotDefined;
-  function: IsNotFunction;
-  null: IsNotNull;
-  number: IsNotNumber;
+  boolean: typeof isNotBoolean;
+  defined: typeof isNotDefined;
+  function: typeof isNotFunction;
+  null: typeof isNotNull;
+  number: typeof isNotNumber;
   // object: IsObject;
   // primitive: IsPrimitive;
-  string: IsNotString;
+  string: typeof isNotString;
   // symbol: IsSymbol;
   // type: IsType;
-  undefined: IsNotUndefined;
+  undefined: typeof isNotUndefined;
 }
