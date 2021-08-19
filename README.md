@@ -32,7 +32,7 @@ Common types, type guards and type checkers.
 <!-- Patreon badge -->
 [![Support me on Patreon][patreon-badge]][patreon-link]
 
-----
+<br>
 
 ## Table of contents
 
@@ -72,8 +72,6 @@ Common types, type guards and type checkers.
   * [Commit](#commit)
   * [Versioning](#versioning)
 * [License](#license)
-
-----
 
 <br>
 
@@ -511,45 +509,45 @@ const stringResult = isString(firstName, customCallback, additionalPayload);
 
 ### Check functions
 
-| Function                                | Checks if any `value` is |
+| Function                                | Checks if any value is |
 | :-------------------------------------- | :----------------------- |
-| [`isArray()`](#isarray)                 |  an [`Array`][js-array], [`Array`][js-array] instance, and [`object`][js-object] type. |
+| [`isArray()`](#isarray)                 |  an [`array`][js-array], [`Array`][js-array] instance, and [`object`][js-object] type. |
 | [`isBigInt()`](#isbigint)               |  a [`bigint`][js-bigint] type. |
-| [`isBoolean()`](#isboolean)             |  a `boolean` type not instance of [`Boolean`][js-boolean] and [`Object`][js-object] or `object` type instance of [`Boolean`][js-boolean] and [`Object`][js-object]. |
-| [`isBooleanObject()`](#isbooleanobject) |  an `object` type and instance of [`Boolean`][js-boolean] and [`Object`][js-object]. |
-| [`isBooleanType()`](#isbooleantype)     |  a `boolean` type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `true` or `false`. |
-| [`isClass()`](#isclass)                 |  a `function` type, an instance of [`Function`][js-function] and [`Object`][js-object] as a generic `Class` type of [`class`][ts-classes]. |
-| [`isDate()`](#isdate)                   |  an `object` type instance of [`Date`][js-date] and [`Object`][js-object]. |
-| [`isDefined()`](#isdefined)             |  not an `undefined` type and is not equal to [`undefined`][js-undefined]. |
-| [`isFalse()`](#isfalse)                 |  a `boolean` type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], or is an `object` type and instance of [`Boolean`][js-boolean] and [`Object`][js-object] and equal to `false`.|
-| [`isFunction()`](#isfunction)           |  a `function` type, an instance of [`Function`][js-function] and [`Object`][js-object]. |
-| [`isInstance()`](#isinstance)           |  an `object` of a generic `Obj` type and an `instance` of [`Constructor`](#constructor) type. |
-| [`isKey()`](#iskey)                     |  one of the `string`, `number`, or `symbol`. |
-| [`isNull()`](#isnull)                   |  an `object` type and equal to [`null`][js-null]. |
-| [`isNumber()`](#isnumber)               |  a `number` type not an instance of [`Number`][js-number] and [`Object`][js-object] or `object` type instance of [`Number`][js-number] and [`Object`][js-object]. |
-| [`isNumberBetween()`](#isnumberbetween) |  a `number` type, not instance of [`Object`][js-object] and [`Number`][js-number] or `object` type and instance of [`Number`][js-number] and [`Object`][js-object], in the specified range. |
-| [`isNumberObject()`](#isnumberobject)   |  an `object` type and instance of [`Number`][js-number] and [`Object`][js-object]. |
-| [`isNumberType()`](#isnumbertype)       |  a `boolean` type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `true` or `false`.|
-| [`isObject()`](#isobject)               |  an `object` of a generic `Obj` type and [`Object`][js-object] instance. |
-| [`isObjectKey()`](#isobjectkey)         |  an `object` with its own specified `key` of the `PropertyKey` type. |
-| [`isObjectKeyIn()`](#isobjectkeyin)     |  an [`Object`][js-object] with the `key` of the `Key` type by using the [`in`][js-in-operator] operator. |
-| [`isObjectKeys()`](#isobjectkeys)       |  an `object` of a generic `Type` with some of its keys from given `keys` of the `PropertyKey` type. |
+| [`isBoolean()`](#isboolean)             |  a [`boolean`][js-boolean] type not instance of [`Boolean`][js-boolean] and [`Object`][js-object] or `object` type instance of [`Boolean`][js-boolean] and [`Object`][js-object]. |
+| [`isBooleanObject()`](#isbooleanobject) |  an [`object`][js-object] type and instance of [`Boolean`][js-boolean] and [`Object`][js-object]. |
+| [`isBooleanType()`](#isbooleantype)     |  a [`boolean`][js-boolean] type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `true` or `false`. |
+| [`isClass()`](#isclass)                 |  a [`function`][js-function] type, an instance of [`Function`][js-function] and [`Object`][js-object] as a generic `Class` type of [`class`][ts-classes]. |
+| [`isDate()`](#isdate)                   |  an [`object`][js-object] type instance of [`Date`][js-date] and [`Object`][js-object]. |
+| [`isDefined()`](#isdefined)             |  not an [`undefined`][js-undefined] type and is not equal to [`undefined`][js-undefined]. |
+| [`isFalse()`](#isfalse)                 |  a [`boolean`][js-boolean] type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], or is an [`object`][js-object] type and instance of [`Boolean`][js-boolean] and [`Object`][js-object] and equal to `false`.|
+| [`isFunction()`](#isfunction)           |  a [`function`][js-function] type, an instance of [`Function`][js-function] and [`Object`][js-object]. |
+| [`isInstance()`](#isinstance)           |  an [`object`][js-object] of a generic `Obj` type and an `instance` of [`Constructor`](#constructor) type. |
+| [`isKey()`](#iskey)                     |  one of the [`string`][js-string], [`number`][js-number], or [`symbol`][js-symbol] type. |
+| [`isNull()`](#isnull)                   |  an [`object`][js-object] type and equal to [`null`][js-null]. |
+| [`isNumber()`](#isnumber)               |  a [`number`][js-number] type not an instance of [`Number`][js-number] and [`Object`][js-object] or [`object`][js-object] type instance of [`Number`][js-number] and [`Object`][js-object]. |
+| [`isNumberBetween()`](#isnumberbetween) |  a [`number`][js-number] type, not instance of [`Object`][js-object] and [`Number`][js-number] or [`object`][js-object] type and instance of [`Number`][js-number] and [`Object`][js-object], in the specified range. |
+| [`isNumberObject()`](#isnumberobject)   |  an [`object`][js-object] type and instance of [`Number`][js-number] and [`Object`][js-object]. |
+| [`isNumberType()`](#isnumbertype)       |  a [`boolean`][js-boolean] type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `true` or `false`.|
+| [`isObject()`](#isobject)               |  an [`object`][js-object] of a generic `Obj` type and [`Object`][js-object] instance. |
+| [`isObjectKey()`](#isobjectkey)         |  an [`object`][js-object] with its own specified `key` of the `PropertyKey` type. |
+| [`isObjectKeyIn()`](#isobjectkeyin)     |  an [`object`][js-object] with the `key` of the `Key` type by using the [`in`][js-in-operator] operator. |
+| [`isObjectKeys()`](#isobjectkeys)       |  an [`object`][js-object] of a generic `Type` with some of its keys from given `keys` of the `PropertyKey` type. |
 | [`isPrimitive()`](#isprimitive)         |  the [`Primitive`](#primitive) type from a given `type` of the [`Primitives`](#primitives). |
-| [`isRegExp()`](#isregexp)               |  a regular expression of a [`RegExp`][js-regexp] type, an instance of [`Object`][js-object] and [`RegExp`][js-regexp]. |
-| [`isString()`](#isstring)               |  a `string` type, not instance of [`Object`][js-object] and [`String`][js-string] or `object` type and instance of [`String`][js-string] and [`Object`][js-object]. |
-| [`isStringLength()`](#isstringlength)   |  a `string` type, not instance of [`Object`][js-object] and [`String`][js-string] or `object` type and instance of [`String`][js-string] and [`Object`][js-object], of a length in the specified range. |
-| [`isStringObject()`](#isstringobject)   |  an `object` type instance of [`String`][js-string] and [`Object`][js-object]. |
-| [`isStringType()`](#isstringtype)       |  a `string` type not instance of [`String`][js-string] and [`Object`][js-object]. |
-| [`isSymbol()`](#issymbol)               |  a `symbol` type. |
-| [`isTrue()`](#istrue)                   |  a `boolean` type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], or is an `object` type and instance of [`Boolean`][js-boolean]. |
-| [`isType()`](#istype)                   |  a type of `Type` from a given `type` of the [`Types`](#types). |
-| [`isUndefined()`](#isundefined)         |  an `undefined` type and equal to [`undefined`][js-undefined]. |
+| [`isRegExp()`](#isregexp)               |  a regular expression of a [`regexp`][js-regexp] type, an instance of [`Object`][js-object] and [`RegExp`][js-regexp]. |
+| [`isString()`](#isstring)               |  a [`string`][js-string] type, not instance of [`Object`][js-object] and [`String`][js-string] or [`object`][js-object] type and instance of [`String`][js-string] and [`Object`][js-object]. |
+| [`isStringLength()`](#isstringlength)   |  a [`string`][js-string] type, not instance of [`Object`][js-object] and [`String`][js-string] or [`object`][js-object] type and instance of [`String`][js-string] and [`Object`][js-object], of a length in the specified range. |
+| [`isStringObject()`](#isstringobject)   |  an [`object`][js-object] type instance of [`String`][js-string] and [`Object`][js-object]. |
+| [`isStringType()`](#isstringtype)       |  a [`string`][js-string] type not instance of [`String`][js-string] and [`Object`][js-object]. |
+| [`isSymbol()`](#issymbol)               |  a [`symbol`][js-symbol] type. |
+| [`isTrue()`](#istrue)                   |  a [`boolean`][js-boolean] type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], or is an [`object`][js-object] type and instance of [`Boolean`][js-boolean]. |
+| [`isType()`](#istype)                   |  a type of [`Type`](#type) from a given `type` of the [`Types`](#types). |
+| [`isUndefined()`](#isundefined)         |  an [`undefined`][js-undefined] type and equal to [`undefined`][js-undefined]. |
 
-----
+<br>
 
 #### `areString()`
 
-Use `areString()` or `are.string()` to check if all the values are `string`.
+Use `areString()` or `are.string()` to check if all the values are [`string`][js-string].
 
 ```typescript
 const areString = (...value: any): boolean => check('string', ...value);
@@ -616,7 +614,7 @@ const isArray = <Type = any, Payload extends object = object>(
 | Name: type                                            | Description |
 | :---------------------------------------------------- | :---------- |
 | `value: any`                                          | The `value` of any type to check. |
-| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default `CallbackPayload` shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
+| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default [`CallbackPayload`][package-callback-callbackpayload] shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
 | `payload?: Payload`                                   | An optional [`object`][js-object] of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback` function. |
 
 **Returns:**
@@ -693,7 +691,7 @@ const isBigInt = <Payload extends object>(
 | Name: type                                            | Description |
 | :---------------------------------------------------- | :---------- |
 | `value: any`                                          | The `value` of any type to check. |
-| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default `CallbackPayload` shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
+| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default [`CallbackPayload`][package-callback-callbackpayload] shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
 | `payload?: Payload`                                   | An optional [`object`][js-object] of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback` function. |
 
 **Returns:**
@@ -752,7 +750,7 @@ const isBoolean = <Payload extends object>(
 | Name: type                                            | Description |
 | :---------------------------------------------------- | :---------- |
 | `value: any`                                          | The `value` of any type to check. |
-| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default `CallbackPayload` shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
+| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default [`CallbackPayload`][package-callback-callbackpayload] shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
 | `payload?: Payload`                                   | An optional [`object`][js-object] of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback` function. |
 
 **Returns:**
@@ -824,7 +822,7 @@ const isBooleanObject = <Payload extends object>(
 | Name: type                                            | Description |
 | :---------------------------------------------------- | :---------- |
 | `value: any`                                          | The `value` of any type to check. |
-| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default `CallbackPayload` shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
+| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default [`CallbackPayload`][package-callback-callbackpayload] shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
 | `payload?: Payload`                                   | An optional [`object`][js-object] of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback` function. |
 
 **Returns:**
@@ -885,7 +883,7 @@ const isBooleanType = <Payload extends object>(
 | Name: type                                            | Description |
 | :---------------------------------------------------- | :---------- |
 | `value: any`                                          | The `value` of any type to check. |
-| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default `CallbackPayload` shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
+| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default [`CallbackPayload`][package-callback-callbackpayload] shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
 | `payload?: Payload`                                   | An optional [`object`][js-object] of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback` function. |
 
 **Returns:**
@@ -949,7 +947,7 @@ const isClass = <Class = Function, Payload extends object = object>(
 | Name: type                                            | Description |
 | :---------------------------------------------------- | :---------- |
 | `value: any`                                          | The `value` of any type to check. |
-| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default `CallbackPayload` shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
+| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default [`CallbackPayload`][package-callback-callbackpayload] shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
 | `payload?: Payload`                                   | An optional [`object`][js-object] of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback` function. |
 
 **Returns:**
@@ -1025,7 +1023,7 @@ const isDate = <Payload extends object>(
 | Name: type                                            | Description |
 | :---------------------------------------------------- | :---------- |
 | `value: any`                                          | The `value` of any type to check. |
-| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default `CallbackPayload` shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
+| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default [`CallbackPayload`][package-callback-callbackpayload] shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
 | `payload?: Payload`                                   | An optional [`object`][js-object] of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback` function. |
 
 **Returns:**
@@ -1098,7 +1096,7 @@ const isDefined = <Type, Payload extends object = object>(
 | Name: type                                            | Description |
 | :---------------------------------------------------- | :---------- |
 | `value: Type`                                         | The `value` of a generic `Type`, by default of type captured from the provided `value`, to check. |
-| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default `CallbackPayload` shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
+| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default [`CallbackPayload`][package-callback-callbackpayload] shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
 | `payload?: Payload`                                   | An optional [`object`][js-object] of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback` function. |
 
 **Returns:**
@@ -1173,7 +1171,7 @@ const isFalse = <Payload extends object>(
 | Name: type                                            | Description |
 | :---------------------------------------------------- | :---------- |
 | `value: any`                                          | The `value` of any type to check. |
-| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default `CallbackPayload` shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
+| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default [`CallbackPayload`][package-callback-callbackpayload] shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
 | `payload?: Payload`                                   | An optional [`object`][js-object] of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback` function. |
 
 **Returns:**
@@ -1252,7 +1250,7 @@ const isFunction = <Value extends any, Payload extends object = object>(
 | Name: type                                            | Description |
 | :---------------------------------------------------- | :---------- |
 | `value: Value extends Function ? Value : any`         | The value of the captured type of [`function`][js-function] from the provided `value` or else any type to check. |
-| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default `CallbackPayload` shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
+| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default [`CallbackPayload`][package-callback-callbackpayload] shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
 | `payload?: Payload`                                   | An optional [`object`][js-object] of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback` function. |
 
 **Returns:**
@@ -1420,7 +1418,7 @@ const isKey = <Payload extends object>(
 | Name: type                                            | Description |
 | :---------------------------------------------------- | :---------- |
 | `value: any`                                          | The `value` of any type to check. |
-| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default `CallbackPayload` shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
+| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default [`CallbackPayload`][package-callback-callbackpayload] shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
 | `payload?: Payload`                                   | An optional [`object`][js-object] of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback` function. |
 
 **Returns:**
@@ -1490,7 +1488,7 @@ const isNull = <Payload extends object>(
 | Name: type                                            | Description |
 | :---------------------------------------------------- | :---------- |
 | `value: any`                                          | The `value` of any type to check. |
-| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default `CallbackPayload` shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
+| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default [`CallbackPayload`][package-callback-callbackpayload] shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
 | `payload?: Payload`                                   | An optional [`object`][js-object] of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback` function. |
 
 **Returns:**
@@ -1636,7 +1634,7 @@ const isNumber = <Payload extends object>(
 | Name: type                                            | Description |
 | :---------------------------------------------------- | :---------- |
 | `value: any`                                          | The `value` of any type to check. |
-| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default `CallbackPayload` shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
+| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default [`CallbackPayload`][package-callback-callbackpayload] shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
 | `payload?: Payload`                                   | An optional [`object`][js-object] of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback` function. |
 
 **Returns:**
@@ -1697,7 +1695,7 @@ const isNumberObject = <Payload extends object>(
 | Name: type                                            | Description |
 | :---------------------------------------------------- | :---------- |
 | `value: any`                                          | The `value` of any type to check. |
-| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default `CallbackPayload` shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
+| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default [`CallbackPayload`][package-callback-callbackpayload] shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
 | `payload?: Payload`                                   | An optional [`object`][js-object] of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback` function. |
 
 **Returns:**
@@ -1758,7 +1756,7 @@ const isNumberType = <Payload extends object>(
 | Name: type                                            | Description |
 | :---------------------------------------------------- | :---------- |
 | `value: any`                                          | The `value` of any type to check. |
-| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default `CallbackPayload` shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
+| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default [`CallbackPayload`][package-callback-callbackpayload] shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
 | `payload?: Payload`                                   | An optional [`object`][js-object] of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback` function. |
 
 **Returns:**
@@ -1820,7 +1818,7 @@ const isObject = <Obj = object, Payload extends object = object>(
 | Name: type                                            | Description |
 | :---------------------------------------------------- | :---------- |
 | `value: any`                                          | The `value` of any type to check. |
-| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default `CallbackPayload` shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
+| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default [`CallbackPayload`][package-callback-callbackpayload] shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
 | `payload?: Payload`                                   | An optional [`object`][js-object] of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback` function. |
 
 **Returns:**
@@ -2237,7 +2235,7 @@ const isPrimitive = <
 | :---------------------------------------------------- | :---------- |
 | `value: any`                                          | The `value` of any type to check against the [`Primitive`](#primitive) of a given `type`. |
 | `type: Primitives`                                    | A value of [`Primitives`](#primitives) type indicates against which type the provided `value` is checked. |
-| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default `CallbackPayload` shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
+| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default [`CallbackPayload`][package-callback-callbackpayload] shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
 | `payload?: Payload`                                   | An optional [`object`][js-object] of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback` function. |
 
 **Returns:**
@@ -2303,7 +2301,7 @@ const isRegExp = <Payload extends object>(
 | Name: type                                            | Description |
 | :---------------------------------------------------- | :---------- |
 | `value: any`                                          | The `value` of any type to check. |
-| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default `CallbackPayload` shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
+| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default [`CallbackPayload`][package-callback-callbackpayload] shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
 | `payload?: Payload`                                   | An optional [`object`][js-object] of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback` function. |
 
 **Returns:**
@@ -2361,7 +2359,7 @@ const isString = <Payload extends object>(
 | Name: type                                            | Description |
 | :---------------------------------------------------- | :---------- |
 | `value: any`                                          | The `value` of any type to check. |
-| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default `CallbackPayload` shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
+| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default [`CallbackPayload`][package-callback-callbackpayload] shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
 | `payload?: Payload`                                   | An optional [`object`][js-object] of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback` function. |
 
 **Returns:**
@@ -2438,7 +2436,7 @@ const isStringLength = <
 | `value: any`                                                             | The `value` of any type to check. |
 | `min: Min`                                                               | A `number` of the minimum length of the provided `value` |
 | `max: Max`                                                               | A `number` of the maximum length of the provided `value` |
-| `callback: ResultCallback<CallbackPayload & MinMax<Min, Max> & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default `CallbackPayload` shape and the provided `min` and `max` length to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
+| `callback: ResultCallback<CallbackPayload & MinMax<Min, Max> & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default [`CallbackPayload`][package-callback-callbackpayload] shape and the provided `min` and `max` length to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
 | `payload?: Payload`                                                      | An optional [`object`][js-object] of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback` function. |
 
 **Returns:**
@@ -2509,7 +2507,7 @@ const isStringObject = <Payload extends object>(
 | Name: type                                            | Description |
 | :---------------------------------------------------- | :---------- |
 | `value: any`                                          | The `value` of any type to check. |
-| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default `CallbackPayload` shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
+| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default [`CallbackPayload`][package-callback-callbackpayload] shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
 | `payload?: Payload`                                   | An optional [`object`][js-object] of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback` function. |
 
 **Returns:**
@@ -2569,7 +2567,7 @@ const isStringType = <Payload extends object>(
 | Name: type                                            | Description |
 | :---------------------------------------------------- | :---------- |
 | `value: any`                                          | The `value` of any type to check. |
-| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default `CallbackPayload` shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
+| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default [`CallbackPayload`][package-callback-callbackpayload] shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
 | `payload?: Payload`                                   | An optional [`object`][js-object] of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback` function. |
 
 **Returns:**
@@ -2625,7 +2623,7 @@ const isSymbol = <Payload extends object>(
 | Name: type                                            | Description |
 | :---------------------------------------------------- | :---------- |
 | `value: any`                                          | The `value` of any type to check. |
-| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default `CallbackPayload` shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
+| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default [`CallbackPayload`][package-callback-callbackpayload] shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
 | `payload?: Payload`                                   | An optional [`object`][js-object] of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback` function. |
 
 **Returns:**
@@ -2683,7 +2681,7 @@ const isTrue = <Payload extends object>(
 | Name: type                                            | Description |
 | :---------------------------------------------------- | :---------- |
 | `value: any`                                          | The `value` of any type to check. |
-| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default `CallbackPayload` shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
+| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default [`CallbackPayload`][package-callback-callbackpayload] shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
 | `payload?: Payload`                                   | An optional [`object`][js-object] of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback` function. |
 
 **Returns:**
@@ -2753,7 +2751,7 @@ const isType = <T extends Type, Payload extends object = object>(
 | :---------------------------------------------------- | :---------- |
 | `value: any`                                          | The `value` of any type to check against a type of given `type` of [`Types`](#types). |
 | `type: Primitives`                                    | A value of [`string`][js-string] or [`Constructor`](#constructor) type of the `Types` indicates against which type the provided `value` is checked. |
-| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default `CallbackPayload` shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
+| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default [`CallbackPayload`][package-callback-callbackpayload] shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
 | `payload?: Payload`                                   | An optional [`object`][js-object] of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback` function. |
 
 **Returns:**
@@ -2840,7 +2838,7 @@ const isUndefined = <Payload extends object>(
 | Name: type                                            | Description |
 | :---------------------------------------------------- | :---------- |
 | `value: any`                                          | The `value` of any type to check. |
-| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default `CallbackPayload` shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
+| `callback: ResultCallback<CallbackPayload & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default [`CallbackPayload`][package-callback-callbackpayload] shape to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
 | `payload?: Payload`                                   | An optional [`object`][js-object] of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback` function. |
 
 **Returns:**
