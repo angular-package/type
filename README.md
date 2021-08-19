@@ -32,70 +32,6 @@ Common types, type guards and type checkers.
 <!-- Patreon badge -->
 [![Support me on Patreon][patreon-badge]][patreon-link]
 
-## Features
-
-Checks if  **any** value is
-
-* an [`Array`][js-array] of any type with [`isArray()`](#isarray).
-* a `bigint` with [`isBigInt()`](#isbigint).
-* a `boolean` with [`isBoolean()`](#isboolean).
-* an instance of a [`Boolean`][js-boolean]  with [`isBooleanObject()`](#isbooleanobject).
-* a `boolean` type with [`isBooleanType()`](#isbooleantype).
-* a `class` with [`isClass()`](#isclass).
-* a [`Date`][js-date] with [`isDate()`](#isdate).
-* defined with [`isDefined()`](#isdefined).
-* a `false` value with [`isFalse()`](#isfalse).
-* a `function` with [`isFunction()`](#isfunction).
-* a generic type `instance` with [`isInstance()`](#isinstance).
-* a `PropertyKey` type with [`isKey()`](#iskey).
-* a `null` with [`isNull()`](#isnull).
-* a `number` with [`isNumber()`](#isnumber).
-* a `number` between the specified range with [`isNumberBetween()`](#isnumberbetween).
-* an `object` type and instance of [`Number`][js-number] and [`Object`][js-object] with [`isNumberObject()`](#isnumberobject).
-* a `number` type and **not** instance of [`Number`][js-number] and [`Object`][js-object] with [`isNumberType()`](#isnumbertype).
-* a generic type `object` with [`isObject()`](#isobject).
-* an `object` with its own specified `PropertyKey` with [`isObjectKey()`](#isobjectkey).
-* an `object` with the `PropertyKey` by using the [`in`][js-in-operator] operator with [`isObjectKeyIn()`](#isobjectkeyin).
-* an `object` with some of its own specified `PropertyKey` with [`isObjectKeys()`](#isobjectkeys).
-* primitive of a [`Primitive`](#primitive) type with [`isPrimitive()`](#isprimitive).
-* a regular expression of a [`RegExp`][js-regexp] type with [`isRegExp()`](#isregexp).
-* a `string` with [`isString()`](#isstring).
-* a `string` with the specified length with [`isStringLength()`](#isstringlength).
-* an `object` type and instance of [`String`][js-string] and [`Object`][js-object] with [`isStringObject()`](#isstringobject).
-* a `string` type and **not** instance of [`String`][js-string] and [`Object`][js-object] with [`isStringType()`](#isstringtype).
-* a `symbol` with [`isSymbol()`](#issymbol).
-* a `true` value with [`isTrue()`](#istrue).
-* a generic type instance, `function`, `object` or primitive type with [`isType()`](#istype).
-* `undefined` with [`isUndefined()`](#isundefined).
-* **not**
-  * a `boolean` with [`isNotBoolean()`](#isnotboolean)
-  * a `function` with [`isNotFunction()`](#isnotfunction)
-  * `null` with [`isNotNull()`](#isnotnull)
-  * a `number` with [`isNotNumber()`](#isnotnumber)
-  * a `string` with [`isNotString()`](#isnotstring)
-  * `undefined` with [`isNotUndefined()`](#isnotundefined)
-
-Guards the value to be
-
-* an [`Array`][js-array] of a generic type with [`guardArray()`](#guardarray).
-* a `bigint` with [`guardBigInt()`](#guardbigint).
-* a `boolean` with [`guardBoolean()`](#guardboolean).
-* a generic `Class` type [`class`][ts-classes] with [`guardClass()`](#guardclass).
-* defined with [`guardDefined()`](#guarddefined).
-* a [`Func`](#func) type with [`guardFunction()`](#guardfunction).
-* an instance with [`guardInstance()`](#guardinstance).
-* a `null` with [`guardNull()`](#guardnull).
-* a `PropertyKey` with [`guardKey()`](#guardkey).
-* a `number` with [`guardNumber()`](#guardnumber).
-* an `object` of a generic type with [`guardObject()`](#guardobject).
-* an `object` of a generic type that contains `key` with [`guardObjectKey()`](#guardobjectkey).
-* an `object` of a generic type that contains some of its own specified keys with [`guardObjectKeys()`](#guardobjectkeys).
-* a one of the [`Primitives`](#primitives) with [`guardPrimitive()`](#guardprimitive).
-* a `string` with [`guardString()`](#guardstring).
-* a `symbol` with [`guardSymbol()`](#guardsymbol).
-* a generic type from one of the [`Types`](#types) type with [`guardType()`](#guardtype).
-* `undefined` with [`guardUndefined()`](#guardundefined).
-
 ----
 
 ## Table of contents
@@ -104,6 +40,7 @@ Guards the value to be
 * [Skeleton](#skeleton)
 * [Installation](#installation)
 * [Api](#api)
+* [Features](#features)
 * [Preparation](#preparation)
   * [Recognize value](#recognize-value)
   * [Precise check](#precise-check)
@@ -300,6 +237,42 @@ import {
   Types,
 } from '@angular-package/type';
 ```
+
+<br>
+
+## Features
+
+Checks if  **any** value is
+
+
+* **not**
+  * a `boolean` with [`isNotBoolean()`](#isnotboolean)
+  * a `function` with [`isNotFunction()`](#isnotfunction)
+  * `null` with [`isNotNull()`](#isnotnull)
+  * a `number` with [`isNotNumber()`](#isnotnumber)
+  * a `string` with [`isNotString()`](#isnotstring)
+  * `undefined` with [`isNotUndefined()`](#isnotundefined)
+
+Guards the value to be
+
+* an [`Array`][js-array] of a generic type with [`guardArray()`](#guardarray).
+* a `bigint` with [`guardBigInt()`](#guardbigint).
+* a `boolean` with [`guardBoolean()`](#guardboolean).
+* a generic `Class` type [`class`][ts-classes] with [`guardClass()`](#guardclass).
+* defined with [`guardDefined()`](#guarddefined).
+* a [`Func`](#func) type with [`guardFunction()`](#guardfunction).
+* an instance with [`guardInstance()`](#guardinstance).
+* a `null` with [`guardNull()`](#guardnull).
+* a `PropertyKey` with [`guardKey()`](#guardkey).
+* a `number` with [`guardNumber()`](#guardnumber).
+* an `object` of a generic type with [`guardObject()`](#guardobject).
+* an `object` of a generic type that contains `key` with [`guardObjectKey()`](#guardobjectkey).
+* an `object` of a generic type that contains some of its own specified keys with [`guardObjectKeys()`](#guardobjectkeys).
+* a one of the [`Primitives`](#primitives) with [`guardPrimitive()`](#guardprimitive).
+* a `string` with [`guardString()`](#guardstring).
+* a `symbol` with [`guardSymbol()`](#guardsymbol).
+* a generic type from one of the [`Types`](#types) type with [`guardType()`](#guardtype).
+* `undefined` with [`guardUndefined()`](#guardundefined).
 
 <br>
 
@@ -538,9 +511,43 @@ const stringResult = isString(firstName, customCallback, additionalPayload);
 
 ### Check functions
 
+| Function                                | Checks if any `value` is |
+| :-------------------------------------- | :----------------------- |
+| [`isArray()`](#isarray)                 |  an [`Array`][js-array], [`Array`][js-array] instance, and [`object`][js-object] type. |
+| [`isBigInt()`](#isbigint)               |  a [`bigint`][js-bigint] type. |
+| [`isBoolean()`](#isboolean)             |  a `boolean` type not instance of [`Boolean`][js-boolean] and [`Object`][js-object] or `object` type instance of [`Boolean`][js-boolean] and [`Object`][js-object]. |
+| [`isBooleanObject()`](#isbooleanobject) |  an `object` type and instance of [`Boolean`][js-boolean] and [`Object`][js-object]. |
+| [`isBooleanType()`](#isbooleantype)     |  a `boolean` type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `true` or `false`. |
+| [`isClass()`](#isclass)                 |  a `function` type, an instance of [`Function`][js-function] and [`Object`][js-object] as a generic `Class` type of [`class`][ts-classes]. |
+| [`isDate()`](#isdate)                   |  an `object` type instance of [`Date`][js-date] and [`Object`][js-object]. |
+| [`isDefined()`](#isdefined)             |  not an `undefined` type and is not equal to [`undefined`][js-undefined]. |
+| [`isFalse()`](#isfalse)                 |  a `boolean` type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], or is an `object` type and instance of [`Boolean`][js-boolean] and [`Object`][js-object] and equal to `false`.|
+| [`isFunction()`](#isfunction)           |  a `function` type, an instance of [`Function`][js-function] and [`Object`][js-object]. |
+| [`isInstance()`](#isinstance)           |  an `object` of a generic `Obj` type and an `instance` of [`Constructor`](#constructor) type. |
+| [`isKey()`](#iskey)                     |  one of the `string`, `number`, or `symbol`. |
+| [`isNull()`](#isnull)                   |  an `object` type and equal to [`null`][js-null]. |
+| [`isNumber()`](#isnumber)               |  a `number` type not an instance of [`Number`][js-number] and [`Object`][js-object] or `object` type instance of [`Number`][js-number] and [`Object`][js-object]. |
+| [`isNumberBetween()`](#isnumberbetween) |  a `number` type, not instance of [`Object`][js-object] and [`Number`][js-number] or `object` type and instance of [`Number`][js-number] and [`Object`][js-object], in the specified range. |
+| [`isNumberObject()`](#isnumberobject)   |  an `object` type and instance of [`Number`][js-number] and [`Object`][js-object]. |
+| [`isNumberType()`](#isnumbertype)       |  a `boolean` type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `true` or `false`.|
+| [`isObject()`](#isobject)               |  an `object` of a generic `Obj` type and [`Object`][js-object] instance. |
+| [`isObjectKey()`](#isobjectkey)         |  an `object` with its own specified `key` of the `PropertyKey` type. |
+| [`isObjectKeyIn()`](#isobjectkeyin)     |  an [`Object`][js-object] with the `key` of the `Key` type by using the [`in`][js-in-operator] operator. |
+| [`isObjectKeys()`](#isobjectkeys)       |  an `object` of a generic `Type` with some of its keys from given `keys` of the `PropertyKey` type. |
+| [`isPrimitive()`](#isprimitive)         |  the [`Primitive`](#primitive) type from a given `type` of the [`Primitives`](#primitives). |
+| [`isRegExp()`](#isregexp)               |  a regular expression of a [`RegExp`][js-regexp] type, an instance of [`Object`][js-object] and [`RegExp`][js-regexp]. |
+| [`isString()`](#isstring)               |  a `string` type, not instance of [`Object`][js-object] and [`String`][js-string] or `object` type and instance of [`String`][js-string] and [`Object`][js-object]. |
+| [`isStringLength()`](#isstringlength)   |  a `string` type, not instance of [`Object`][js-object] and [`String`][js-string] or `object` type and instance of [`String`][js-string] and [`Object`][js-object], of a length in the specified range. |
+| [`isStringObject()`](#isstringobject)   |  an `object` type instance of [`String`][js-string] and [`Object`][js-object]. |
+| [`isStringType()`](#isstringtype)       |  a `string` type not instance of [`String`][js-string] and [`Object`][js-object]. |
+| [`isSymbol()`](#issymbol)               |  a `symbol` type. |
+| [`isTrue()`](#istrue)                   |  a `boolean` type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], or is an `object` type and instance of [`Boolean`][js-boolean]. |
+| [`isType()`](#istype)                   |  a type of `Type` from a given `type` of the [`Types`](#types). |
+| [`isUndefined()`](#isundefined)         |  an `undefined` type and equal to [`undefined`][js-undefined]. |
+
 ----
 
-#### `areString`
+#### `areString()`
 
 Use `areString()` or `are.string()` to check if all the values are `string`.
 
@@ -552,13 +559,13 @@ const areString = (...value: any): boolean => check('string', ...value);
 
 | Name: `type`    | Description         |
 | :-------------- | :------------------ |
-| ...value: `any` | A [rest parameter][js-rest-parameter] of any type to check |
+| ...value: `any` | A [rest parameter][js-rest-parameter] of any type to check. |
 
 **Returns:**
 
 | Returns   | Type      | Description                         |
-| :-------- | :-------: | :---------------------------------  |
-| `boolean` | `boolean` | The **return type** is a `boolean`  |
+| :-------- | :-------: | :---------------------------------- |
+| `boolean` | `boolean` | The **return type** is a `boolean`. |
 
 The **return value** is a `boolean` indicating whether all the provided values are `string`.
 
@@ -4412,7 +4419,7 @@ type Undefined<Type> = Type extends undefined ? Type : never;
 
 #### `BigIntObject`
 
-The object handles creating and getting the [`BigInt`][bigint] with [`BigInt()`][bigintconstructor].
+The object handles creating and getting the [`BigInt`][js-bigint] with [`BigInt()`][bigintconstructor].
 
 ```typescript
 class BigIntObject {
@@ -4425,13 +4432,13 @@ class BigIntObject {
 }
 ```
 
-Create a new [`BigInt`][bigint] by assign value to the `set` property.
+Create a new [`BigInt`][js-bigint] by assign value to the `set` property.
 
 ```typescript
 BigIntObject.set = 1n;
 ```
 
-Get created [`BigInt`][bigint] with the `get` property.
+Get created [`BigInt`][js-bigint] with the `get` property.
 
 ```typescript
 const bigint: BigIntObject = BigIntObject.get;
