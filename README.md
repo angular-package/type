@@ -108,16 +108,16 @@ Guards the value to be
   * [Recognize value](#recognize-value)
   * [Precise check](#precise-check)
   * [Callback](#callback)
-* [Check](#check): *Everything to check the type of values.*
-  * Objects: *Objects that contain functions to check the types of values.*
+* [Check](#check)
+  * [Functions](#check-functions)
+  * Objects
     * [`are`](#are)
     * [`is`](#is)
     * [`isNot`](#isnot)
-  * [Functions](#check-functions)
-* [Guard](#guard): *Everything to guard the type of values.*
-  * Object: *Object to guard the type of values.*
-    * [`guard`](#guard)
+* [Guard](#guard)
   * [Functions](#guard-functions)
+  * Object
+    * [`guard`](#guard)
 * Common
   * [Interfaces](#common-interfaces)
   * [Types](#common-types)
@@ -536,68 +536,7 @@ const stringResult = isString(firstName, customCallback, additionalPayload);
 
 ## Check
 
-### Objects
-
-----
-
-#### `are`
-
-The object contains prefixed with `are` functions.
-
-```typescript
-const are: Are = {
-  string: areString
-};
-```
-
-<br>
-
-#### `is`
-
-[![update]](#500)
-
-The object contains prefixed with `is` functions and prefixed with `isNot` functions in property `not`.
-
-```typescript
-const is: Is = {
-  array: isArray,
-  bigint: isBigInt,
-  boolean: isBoolean,
-  booleanObject: isBooleanObject,
-  booleanType: isBooleanType,
-  class: isClass,
-  date: isDate, // From the `4.2.0` version.
-  defined: isDefined,
-  false: isFalse, // From the `4.2.0` version.
-  function: isFunction,
-  instance: isInstance,
-  key: isKey,
-  not: isNot,
-  null: isNull,
-  number: isNumber,
-  numberBetween: isNumberBetween, // From the `4.2.0` version.
-  numberObject: isNumberObject,
-  numberType: isNumberType,
-  object: isObject,
-  objectKey: isObjectKey,
-  objectKeyIn: isObjectKeyIn,
-  objectKeys: isObjectKeys,
-  primitive: isPrimitive,
-  regexp: isRegExp, // From the `4.2.0` version.
-  string: isString,
-  stringLength: isStringLength, // From the `4.2.0` version.
-  stringObject: isStringObject,
-  stringType: isStringType,
-  symbol: isSymbol,
-  true: isTrue, // From the `4.2.0` version.
-  type: isType,
-  undefined: isUndefined
-};
-```
-
-<br>
-
-### Functions
+### Check functions
 
 ----
 
@@ -613,7 +552,7 @@ const areString = (...value: any): boolean => check('string', ...value);
 
 | Name: `type`    | Description         |
 | :-------------- | :------------------ |
-| ...value: `any` | A [rest parameter][function-rest-parameter] of any type to check |
+| ...value: `any` | A [rest parameter][js-rest-parameter] of any type to check |
 
 **Returns:**
 
@@ -1159,7 +1098,7 @@ const isDefined = <Type, Payload extends object = object>(
 
 | Returns                  | Type      | Description                         |
 | :----------------------- | :-------: | :---------------------------------- |
-| `value is Defined<Type>` | `boolean` | By default `Type` variable is equal to the type detected from the `value`, but the captured type `undefined` changes to `never` and the **return type** is a `boolean` as the result of its statement `value` is [`Defined<Type>`][type-defined]. |
+| `value is Defined<Type>` | `boolean` | By default `Type` variable is equal to the type detected from the `value`, but the captured type `undefined` changes to `never` and the **return type** is a `boolean` as the result of its statement `value` is [`Defined<Type>`](#defined). |
 
 The **return value** is a `boolean` indicating whether the provided `value` is defined, not `undefined`
 
@@ -1347,7 +1286,7 @@ isFunction(() => 5, (result, payload) => {
 
 [![update]](#500)
 
-Use `isInstance()` or `is.instance()` to check if **any** value is an `object` of a generic `Obj` type and an instance of [`Constructor`][constructor] type.
+Use `isInstance()` or `is.instance()` to check if **any** value is an `object` of a generic `Obj` type and an instance of [`Constructor`](#constructor) type.
 
 ```typescript
 const isInstance = <Obj, Payload extends object>(
@@ -1387,7 +1326,7 @@ const isInstance = <Obj, Payload extends object>(
 | Name: type                                                                  | Description |
 | :-------------------------------------------------------------------------- | :---------- |
 | `value: any`                                                                | The `value` of any type to check against an instance of the provided `constructor`. |
-| `constructor: Constructor<Obj>`                                             | A [`class`][ts-classes] or [`function`][ts-function] that specifies the type of the [`Constructor`][constructor]. |
+| `constructor: Constructor<Obj>`                                             | A [`class`][ts-classes] or [`function`][ts-function] that specifies the type of the [`Constructor`](#constructor). |
 | `callback: CallbackPayload & { constructor: typeof constructor } & Payload` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with `payload` parameter of the default [`CallbackPayload`][package-callback-callbackpayload] shape and the provided `constructor` to handle the `result` and `payload` of the check before the `result` return. By default it uses [`resultCallback()`](#resultcallback) function. |
 | `payload?: Payload`                                                         | An optional [`object`][js-object] of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback` function. |
 
@@ -2763,7 +2702,7 @@ isTrue(false); // Returns `false` as `value is true`
 
 [![update]](#500)
 
-Use `isType()` or `is.type()` to check if **any** `value` is a type of [`Type`][type] from a given `type` of the [`Types`](#types).
+Use `isType()` or `is.type()` to check if **any** `value` is a type of [`Type`](#type) from a given `type` of the [`Types`](#types).
 
 ```typescript
 const isType = <T extends Type, Payload extends object = object>(
@@ -2796,10 +2735,10 @@ const isType = <T extends Type, Payload extends object = object>(
 
 **Generic type variables:**
 
-| Name             | Default value  | Description |
-| :--------------- | :------------- | :---------- |
-| `T extends Type` | [`Type`][type] | A generic type variable `T` constrained by the [`Type`][type] indicates the type of `value` parameter through the return type `value is T`. |
-| `Payload`        | `object`       | The shape of the optional `payload` parameter of the [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `T` and can be captured from a type of the provided `payload` optional parameter. |
+| Name             | Default value   | Description |
+| :--------------- | :-------------- | :---------- |
+| `T extends Type` | [`Type`](#type) | A generic type variable `T` constrained by the [`Type`](#type) indicates the type of `value` parameter through the return type `value is T`. |
+| `Payload`        | `object`        | The shape of the optional `payload` parameter of the [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `T` and can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -2814,7 +2753,7 @@ const isType = <T extends Type, Payload extends object = object>(
 
 | Returns      | Type      | Description                                                                                                           |
 | :----------- | :-------: | :-------------------------------------------------------------------------------------------------------------------- |
-| `value is T` | `boolean` | By default `T` variable is equal to [`Type`][type], but captured [`class`][ts-classes] by the provided `type` changes it to the class name and the **return type** is a `boolean` as the result of its statement indicating the `value` is [`Type`][type]. |
+| `value is T` | `boolean` | By default `T` variable is equal to [`Type`](#type), but captured [`class`][ts-classes] by the provided `type` changes it to the class name and the **return type** is a `boolean` as the result of its statement indicating the `value` is [`Type`](#type). |
 
 The **return value** is a `boolean` indicating whether the provided `value` is a type from a given `type` of the [`Types`](#types).
 
@@ -3320,39 +3259,70 @@ if (is.not.undefined(config.a)) {
 
 <br>
 
-## Guard
+### Objects
 
-#### `guard`
+----
 
-![update][update]
+#### `are`
 
-The object contains prefixed with `guard` functions, and in `is` property.
+The object contains prefixed with `are` functions.
 
 ```typescript
-const guardIs: GuardIs = {
-  array: guardArray,
-  bigint: guardBigInt,
-  boolean: guardBoolean,
-  class: guardClass,
-  defined: guardDefined,
-  function: guardFunction,
-  instance: guardInstance,
-  key: guardKey,
-  null: guardNull,
-  number: guardNumber,
-  object: guardObject,
-  objectKey: guardObjectKey,
-  objectKeys: guardObjectKeys,
-  primitive: guardPrimitive,
-  string: guardString,
-  symbol: guardSymbol,
-  type: guardType,
-  undefined: guardUndefined
+const are: Are = {
+  string: areString
 };
-const guard: Guard = { ...guardIs, is: guardIs };
 ```
 
 <br>
+
+#### `is`
+
+[![update]](#500)
+
+The object contains prefixed with `is` functions and prefixed with `isNot` functions in property `not`.
+
+```typescript
+const is: Is = {
+  array: isArray,
+  bigint: isBigInt,
+  boolean: isBoolean,
+  booleanObject: isBooleanObject,
+  booleanType: isBooleanType,
+  class: isClass,
+  date: isDate, // From the `4.2.0` version.
+  defined: isDefined,
+  false: isFalse, // From the `4.2.0` version.
+  function: isFunction,
+  instance: isInstance,
+  key: isKey,
+  not: isNot,
+  null: isNull,
+  number: isNumber,
+  numberBetween: isNumberBetween, // From the `4.2.0` version.
+  numberObject: isNumberObject,
+  numberType: isNumberType,
+  object: isObject,
+  objectKey: isObjectKey,
+  objectKeyIn: isObjectKeyIn,
+  objectKeys: isObjectKeys,
+  primitive: isPrimitive,
+  regexp: isRegExp, // From the `4.2.0` version.
+  string: isString,
+  stringLength: isStringLength, // From the `4.2.0` version.
+  stringObject: isStringObject,
+  stringType: isStringType,
+  symbol: isSymbol,
+  true: isTrue, // From the `4.2.0` version.
+  type: isType,
+  undefined: isUndefined
+};
+```
+
+<br>
+
+## Guard
+
+### Guard functions
 
 #### `guardArray()`
 
@@ -3388,7 +3358,9 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 
 **Usage:**
 
-[Example usage on playground][guard-array]
+```typescript
+// Example usage.
+```
 
 <br>
 
@@ -3553,7 +3525,7 @@ const guardDefined: GuardDefined = <Type>(
 
 | Name   | Default value    | Description                                                                                         |
 | :----- | :--------------- | :-------------------------------------------------------------------------------------------------- |
-| `Type` | From the `value` | Guarded with [`Defined`][type-defined], a generic `Type` variable from the `value` to the return type `value is Defined<Type>` |
+| `Type` | From the `value` | Guarded with [`Defined`](#defined), a generic `Type` variable from the `value` to the return type `value is Defined<Type>` |
 
 **Parameters:**
 
@@ -3613,13 +3585,14 @@ The **return value** is a `boolean` indicating whether or not the `value` is a [
 
 **Usage:**
 
-[Example usage on playground][guard-function]
+```typescript
+```
 
 <br>
 
 #### `guardInstance()`
 
-Use `guardInstance()` or `guard.is.instance()` to guard the `value` to be an `object` of a generic `Obj` type and an `instance` of [`Constructor`][constructor] type.
+Use `guardInstance()` or `guard.is.instance()` to guard the `value` to be an `object` of a generic `Obj` type and an `instance` of [`Constructor`](#constructor) type.
 
 ```typescript
 const guardInstance: GuardInstance = <Obj extends object>(
@@ -3640,7 +3613,7 @@ const guardInstance: GuardInstance = <Obj extends object>(
 | Name: `type`                    | Description                                                                                                                       |
 | :------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------- |
 | value: `Obj`                    | An `object`, by default of a generic `Obj` type detected from the `value` to guard and to check if it's a `constructor` instance  |
-| constructor: `Constructor<Obj>` | A [`class`][ts-classes] or [`function`][ts-function] that specifies the type of the [`constructor`][constructor]                |
+| constructor: `Constructor<Obj>` | A [`class`][ts-classes] or [`function`][ts-function] that specifies the type of the [`constructor`](#constructor)                |
 | callback?: `ResultCallback`     | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error] |
 
 **Returns:**
@@ -3782,7 +3755,8 @@ The **return value** is a `boolean` indicating whether or not the `value` is a `
 
 **Usage:**
 
-[Example usage on playground][guard-number]
+```typescript
+```
 
 <br>
 
@@ -3820,7 +3794,9 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 
 **Usage:**
 
-[Example usage on playground][guard-object]
+```typescript
+// Example usage.
+```
 
 <br>
 
@@ -3860,7 +3836,8 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 
 **Usage:**
 
-[Example usage on playground][guard-object-key]
+```typescript
+```
 
 <br>
 
@@ -3869,7 +3846,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 Use `guardObjectKeys()` or `guard.is.objectKeys()` to guard the value to be an `object` of a generic `Type` with some of its own specified `keys`.
 The function uses [`isObjectKeys()`](#isobjectkeys) to search for the `keys` and it means:
 
-> Cause of using [`some()`][array-some] on the [rest parameter][function-rest-parameter] `...keys` each of its argument is treated as logic `or`, and cause of using [`every()`][array-every] on its array argument each of array item is treated as logic `and`.
+> Cause of using [`some()`][array-some] on the [rest parameter][js-rest-parameter] `...keys` each of its argument is treated as logic `or`, and cause of using [`every()`][array-every] on its array argument each of array item is treated as logic `and`.
 > Simply, in the usage section below the function finds in the object `get` and `set` or `writable` and `value`, which means the object contains `get` and `set` or `writable` and `value`.
 > The function uses [`hasOwnProperty`][js-hasownproperty] [`Object`][js-object] method to finds enumerable and non-enumerable `PropertyKey` as `string`, `number`, `symbol` unlike `Object.keys()`, but it can't find [`getter`][js-getter] property unlike [`in`][js-in-operator] operator, which can.
 
@@ -3891,7 +3868,7 @@ const guardObjectKeys: GuardObjectKeys = <Obj extends object>(
 | Name: `type`                          | Description                                                                                                       |
 | :------------------------------------ | :---------------------------------------------------------------------------------------------------------------- |
 | value: `Obj`                          | An object of a generic `Obj` type that contains the `keys`, by default of type detected from the `value` to guard |
-| ...keys: `keyof Obj \| (keyof Obj)[]` | A [rest parameter][function-rest-parameter] single key of `Obj` or an array of key of `Obj` type as the name of the property that the `value` contains |
+| ...keys: `keyof Obj \| (keyof Obj)[]` | A [rest parameter][js-rest-parameter] single key of `Obj` or an array of key of `Obj` type as the name of the property that the `value` contains |
 
 **Returns:**
 
@@ -3987,8 +3964,6 @@ guardPrimitive(letUndefined, 'undefined'); // true; return type `value is undefi
 guardPrimitive(Symbol(firstName), 'symbol'); // true; return type `value is symbol`
 ```
 
-[Example usage on playground][guard-primitive]
-
 <br>
 
 #### `guardString()`
@@ -4036,8 +4011,6 @@ const firstName = 'my name';
 guardString(firstName); // true; return type `value is "my name"`
 ```
 
-[Example usage on playground][guard-string]
-
 <br>
 
 #### `guardSymbol()`
@@ -4083,7 +4056,7 @@ guardSymbol(SYMBOL_STRING); // true; return type `value is symbol`
 
 #### `guardType()`
 
-Use `guardType()` or `guard.is.type()` to guard the `value` to be the [`Type`][type] from a `type` of the [`Types`](#types).
+Use `guardType()` or `guard.is.type()` to guard the `value` to be the [`Type`](#type) from a `type` of the [`Types`](#types).
 
 ```typescript
 const guardType: GuardType = <T extends Type>(
@@ -4097,14 +4070,14 @@ const guardType: GuardType = <T extends Type>(
 
 | Name             | Default value    | Description |
 | :--------------- | :--------------- | :---------- |
-| `T extends Type` | From the `value` | Guarded with [`Type`][type], `T` variable from the `value` to the return type `value is T` |
+| `T extends Type` | From the `value` | Guarded with [`Type`](#type), `T` variable from the `value` to the return type `value is T` |
 
 **Parameters:**
 
 | Name: `type`                | Description                                                                                                                       |
 | :-------------------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
-| value: `T`                  | A [`Type`][type] `value`, by default of a generic `T` type detected from the `value` to guard with the `type`                     |
-| type: `Types<T>`            | A `string` or generic [`Constructor<T>`][constructor] type from the [`Types`](#types) to check the `value`                        |
+| value: `T`                  | A [`Type`](#type) `value`, by default of a generic `T` type detected from the `value` to guard with the `type`                     |
+| type: `Types<T>`            | A `string` or generic [`Constructor<T>`](#constructor) type from the [`Types`](#types) to check the `value`                        |
 | callback?: `ResultCallback` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error] |
 
 **Returns:**
@@ -4180,8 +4153,6 @@ guardType(Symbol(firstName), 'symbol'); // true; return type `value is symbol`
 guardType(someone, Person); // true; return type `value is Person`
 ```
 
-[Example usage on playground][guard-type]
-
 <br>
 
 #### `guardUndefined()`
@@ -4221,6 +4192,40 @@ const UNDEFINED: undefined = undefined;
 guardUndefined(UNDEFINED); // true; 
 guardUndefined('x'); // false; type error
 guardUndefined(5); // false; type error
+```
+
+<br>
+
+### Guard object
+
+#### `guard`
+
+[![update]](#500)
+
+The object contains prefixed with `guard` functions, and in `is` property.
+
+```typescript
+const guardIs: GuardIs = {
+  array: guardArray,
+  bigint: guardBigInt,
+  boolean: guardBoolean,
+  class: guardClass,
+  defined: guardDefined,
+  function: guardFunction,
+  instance: guardInstance,
+  key: guardKey,
+  null: guardNull,
+  number: guardNumber,
+  object: guardObject,
+  objectKey: guardObjectKey,
+  objectKeys: guardObjectKeys,
+  primitive: guardPrimitive,
+  string: guardString,
+  symbol: guardSymbol,
+  type: guardType,
+  undefined: guardUndefined
+};
+const guard: Guard = { ...guardIs, is: guardIs };
 ```
 
 <br>
@@ -4294,7 +4299,7 @@ A type from the provided generic `Type` variable, besides an `undefined` which c
 type Defined<Type> = Never<undefined, Type>;
 ```
 
-### `Never`
+#### `Never`
 
 A type from the provided generic `Type` variable, besides a type provided in the generic `Not` variable which causes its change to `never`.
 
@@ -4302,7 +4307,7 @@ A type from the provided generic `Type` variable, besides a type provided in the
 type Never<Not, Type> = Type extends Not ? never : Type;
 ```
 
-### `NotUndefined`
+#### `NotUndefined`
 
 A type from the provided generic `Type` variable, besides an `undefined` or `null` which causes its change to `never`.
 
@@ -4310,7 +4315,7 @@ A type from the provided generic `Type` variable, besides an `undefined` or `nul
 type NotUndefined<T> = T extends undefined | null ? never : T;
 ```
 
-### `NumberBetween`
+#### `NumberBetween`
 
 [![update]](#500)
 
@@ -4387,7 +4392,7 @@ type Type = Function | object | Primitive;
 
 #### `Types`
 
-The main types as `string` values, besides the [`Constructor`][constructor] which is an instance of an `Obj`.
+The main types as `string` values, besides the [`Constructor`](#constructor) which is an instance of an `Obj`.
 
 ```typescript
 type Types<Obj> = Constructor<Obj> | 'function' | 'object' | Primitives;
@@ -4434,7 +4439,7 @@ const bigint: BigIntObject = BigIntObject.get;
 
 <br>
 
-#### BooleanObject``
+#### `BooleanObject`
 
 The object handles creating and getting the [`Boolean`][js-boolean] object instance with [`Boolean()`][booleanconstructor].
 
@@ -4879,7 +4884,7 @@ MIT © angular-package ([license][type-license])
 [js-error]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error
 
 [js-function]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions
-[js-function-rest-parameter]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
+[js-rest-parameter]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
 
 [js-getter]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get
 [js-object-getownpropertydescriptor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor
