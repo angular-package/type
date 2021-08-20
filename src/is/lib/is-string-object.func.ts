@@ -30,10 +30,3 @@ export const isStringObject = <Payload extends object>(
       ...payload,
     } as Payload
   );
-
-
-console.log(
-  isStringObject('age'),
-  isStringObject(new String('age'))
-);
-  
