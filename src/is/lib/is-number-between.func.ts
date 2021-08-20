@@ -10,7 +10,7 @@ import { MinMax } from '../../interface/min-max.interface';
 import { NumberBetween } from '../../type/number-between.type';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Checks if any `value` is a `number` type, not instance of `Object` and `Number` or `object` type and instance of `Number` and `Object`,
+ * Checks if any `value` is a `number` type not an instance of `Object` and `Number` or `object` type instance of `Number` and `Object`,
  * in the specified range.
  * @param value The `value` of any type to check.
  * @param min A `number` of the minimum range of the provided `value`.

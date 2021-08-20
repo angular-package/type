@@ -8,7 +8,7 @@ import { CallbackPayload } from '../../interface/callback-payload.interface';
 // Type.
 import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Checks if any `value` is an `Object` with the `key` of the `Key` type by using the `in` operator.
+ * Checks if any `value` is an `Object` with the `key` of the `PropertyKey` type by using the `in` operator.
  * @param value The `value` of any type to check against an `object` that contains the given `key`.
  * @param key A property key or an array of property keys to check if the given `value` contains them.
  * @param callback A callback `function` of `ResultCallback` type with `payload` parameter of the default `CallbackPayload` shape and the

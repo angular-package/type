@@ -10,7 +10,7 @@ import { ResultCallback } from '../../type/result-callback.type';
 import { StringOfLength } from '../../type/string-of-length.type';
 import { MinMax } from '../../interface/min-max.interface';
 /**
- * Checks if any `value` is a `string` type, not instance of `Object` and `String` or `object` type and instance of `String` and `Object`,
+ * Checks if any `value` is a `string` type not instance of `Object` and `String` or `object` type and instance of `String` and `Object`,
  * of a length in the specified range.
  * @param value The `value` of any type to check.
  * @param min A `number` of the minimum length of the provided `value`.
