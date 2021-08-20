@@ -469,15 +469,9 @@ const stringResult = isString(firstName, customCallback, additionalPayload);
 
 | Function                                   | Checks if any value is |
 | :----------------------------------------- | :--------------------- |
-| **[`isArray()`](#isarray)**                |  an [`array`][js-array], [`Array`][js-array] instance, and [`object`][js-object] type. |
-
-<br>
-
-| Function                                   | Checks if any value is |
-| :----------------------------------------- | :--------------------- |
 | **[`isArray()`](#isarray)**                | an [`array`][js-array], [`Array`][js-array] instance, and [`object`][js-object] type. |
 | **[`isBigInt()`](#isbigint)**              | a [`bigint`][js-bigint] type. |
-| **[`isBoolean()`](#isboolean)**            | a [`boolean`][js-boolean] type not instance of [`Boolean`][js-boolean] and [`Object`][js-object] or `object` type instance of [`Boolean`][js-boolean] and [`Object`][js-object]. |
+| **[`isBoolean()`](#isboolean)**            | a [`boolean`][js-boolean] type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object] or `object` type instance of [`Boolean`][js-boolean] and [`Object`][js-object]. |
 | **[`isBooleanObject()`](#isbooleanobject)**| an [`object`][js-object] type and instance of [`Boolean`][js-boolean] and [`Object`][js-object]. |
 | **[`isBooleanType()`](#isbooleantype)**    | a [`boolean`][js-boolean] type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `true` or `false`. |
 | **[`isClass()`](#isclass)**                | a [`function`][js-function] type, an instance of [`Function`][js-function] and [`Object`][js-object] as a generic `Class` type of [`class`][ts-classes]. It also **confirms** with the regexp that function is a [`class`][ts-classes]. |
@@ -489,7 +483,7 @@ const stringResult = isString(firstName, customCallback, additionalPayload);
 | **[`isKey()`](#iskey)**                    | one of the [`string`][js-string], [`number`][js-number], or [`symbol`][js-symbol] type. |
 | **[`isNull()`](#isnull)**                  | an [`object`][js-object] type and equal to [`null`][js-null]. |
 | **[`isNumber()`](#isnumber)**              | a [`number`][js-number] type not an instance of [`Number`][js-number] and [`Object`][js-object] or [`object`][js-object] type instance of [`Number`][js-number] and [`Object`][js-object]. |
-| **[`isNumberBetween()`](#isnumberbetween)**| a [`number`][js-number] type, not instance of [`Object`][js-object] and [`Number`][js-number] or [`object`][js-object] type and instance of [`Number`][js-number] and [`Object`][js-object], in the specified range. |
+| **[`isNumberBetween()`](#isnumberbetween)**| a [`number`][js-number] type not instance of [`Object`][js-object] and [`Number`][js-number] or [`object`][js-object] type and instance of [`Number`][js-number] and [`Object`][js-object], in the specified range. |
 | **[`isNumberObject()`](#isnumberobject)**  | an [`object`][js-object] type and instance of [`Number`][js-number] and [`Object`][js-object]. |
 | **[`isNumberType()`](#isnumbertype)**      | a [`number`][js-number] type not an instance of [`Number`][js-number] and [`Object`][js-object]. |
 | **[`isObject()`](#isobject)**              | an [`object`][js-object] of a generic `Obj` type and [`Object`][js-object] instance. |
@@ -498,25 +492,14 @@ const stringResult = isString(firstName, customCallback, additionalPayload);
 | **[`isObjectKeys()`](#isobjectkeys)**      | an [`object`][js-object] with **some** of its keys from given `keys` of the `PropertyKey` type. |
 | **[`isPrimitive()`](#isprimitive)**        | the [`Primitive`](#primitive) type from a given `type` of the [`Primitives`](#primitives). |
 | **[`isRegExp()`](#isregexp)**              | a regular expression of a [`regexp`][js-regexp] type, an instance of [`Object`][js-object] and [`RegExp`][js-regexp]. |
-| **[`isString()`](#isstring)**              | a [`string`][js-string] type, not instance of [`Object`][js-object] and [`String`][js-string] or [`object`][js-object] type and instance of [`String`][js-string] and [`Object`][js-object]. |
-| **[`isStringLength()`](#isstringlength)**  | a [`string`][js-string] type, not instance of [`Object`][js-object] and [`String`][js-string] or [`object`][js-object] type and instance of [`String`][js-string] and [`Object`][js-object], of a length in the specified range. |
+| **[`isString()`](#isstring)**              | a [`string`][js-string] type not instance of [`Object`][js-object] and [`String`][js-string] or [`object`][js-object] type and instance of [`String`][js-string] and [`Object`][js-object]. |
+| **[`isStringLength()`](#isstringlength)**  | a [`string`][js-string] type not instance of [`Object`][js-object] and [`String`][js-string] or [`object`][js-object] type and instance of [`String`][js-string] and [`Object`][js-object], of a length in the specified range. |
 | **[`isStringObject()`](#isstringobject)**  | an [`object`][js-object] type and instance of [`String`][js-string] and [`Object`][js-object]. |
 | **[`isStringType()`](#isstringtype)**      | a [`string`][js-string] type and **not** instance of [`String`][js-string] and [`Object`][js-object]. |
 | **[`isSymbol()`](#issymbol)**              | a [`symbol`][js-symbol] type. |
 | **[`isTrue()`](#istrue)**                  | a [`boolean`][js-boolean] type **not** an instance of [`Boolean`][js-boolean] and [`Object`][js-object], or is an `object` type and instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `true`. |
 | **[`isType()`](#istype)**                  | a type of [`Type`](#type) from a given `type` of the [`Types`](#types). |
 | **[`isUndefined()`](#isundefined)**        | an [`undefined`][js-undefined] type and equal to [`undefined`][js-undefined]. |
-
-<br>
-
-| Function                                   | Checks if any value is not |
-| :----------------------------------------- | :------------------------- |
-| **[`isNotBoolean()`](#isnotboolean)**      |  |
-| **[`isNotFunction()`](#isnotfunction)**    |  |
-| **[`isNotNull()`](#isnotnull)**            |  |
-| **[`isNotNumber()`](#isnotnumber)**        |  |
-| **[`isNotString()`](#isnotstring)**        |  |
-| **[`isNotUndefined()`](#isnotundefined)**  |  |
 
 <br>
 
@@ -693,7 +676,7 @@ isBigInt(9007199254740991n); // Returns `true` as `value is bigint`
 
 [![update]](#500)
 
-Use `isBoolean()` or `is.boolean()` to check if **any** `value` is a [`boolean`][js-boolean] type not instance of [`Boolean`][js-boolean] and [`Object`][js-object] or `object` type instance of [`Boolean`][js-boolean] and [`Object`][js-object].
+Use `isBoolean()` or `is.boolean()` to check if **any** `value` is a [`boolean`][js-boolean] type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object] or `object` type instance of [`Boolean`][js-boolean] and [`Object`][js-object].
 
 ```typescript
 const isBoolean = <Payload extends object>(
