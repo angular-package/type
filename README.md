@@ -467,47 +467,46 @@ const stringResult = isString(firstName, customCallback, additionalPayload);
 
 ### Check functions
 
-Checks if  **any** value is
+Checks if  **any** value
 
-* an [`array`][js-array], [`Array`][js-array] instance, and [`object`][js-object] type with [`isArray()`](#isarray).
-* a [`bigint`][js-bigint] type with [`isBigInt()`](#isbigint).
-* a [`boolean`][js-boolean] type not instance of [`Boolean`][js-boolean] and [`Object`][js-object] or `object` type instance of [`Boolean`][js-boolean] and [`Object`][js-object] [`isBoolean()`](#isboolean).
-* an [`object`][js-object] type and instance of [`Boolean`][js-boolean] and [`Object`][js-object] with [`isBooleanObject()`](#isbooleanobject).
-* a [`boolean`][js-boolean] type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `true` or `false` with [`isBooleanType()`](#isbooleantype).
-* a [`function`][js-function] type, an instance of [`Function`][js-function] and [`Object`][js-object] as a generic `Class` type of [`class`][ts-classes] with [`isClass()`](#isclass).
-* an [`object`][js-object] type instance of [`Date`][js-date] and [`Object`][js-object] with [`isDate()`](#isdate).
-* not an [`undefined`][js-undefined] type and is not equal to [`undefined`][js-undefined] with [`isDefined()`](#isdefined).
-* a [`boolean`][js-boolean] type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], or is an [`object`][js-object] type and instance of [`Boolean`][js-boolean] and [`Object`][js-object] and equal to `false` with [`isFalse()`](#isfalse).
-* a [`function`][js-function] type, an instance of [`Function`][js-function] and [`Object`][js-object] with [`isFunction()`](#isfunction).
-* an [`object`][js-object] of a generic `Obj` type and an `instance` of [`Constructor`](#constructor) type with [`isInstance()`](#isinstance).
-* one of the [`string`][js-string], [`number`][js-number], or [`symbol`][js-symbol] type with [`isKey()`](#iskey).
-* an [`object`][js-object] type and equal to [`null`][js-null] with [`isNull()`](#isnull).
-* a [`number`][js-number] type not an instance of [`Number`][js-number] and [`Object`][js-object] or [`object`][js-object] type instance of [`Number`][js-number] and [`Object`][js-object] with [`isNumber()`](#isnumber).
-* a [`number`][js-number] type, not instance of [`Object`][js-object] and [`Number`][js-number] or [`object`][js-object] type and instance of [`Number`][js-number] and [`Object`][js-object], in the specified range with [`isNumberBetween()`](#isnumberbetween).
-* an [`object`][js-object] type and instance of [`Number`][js-number] and [`Object`][js-object] with [`isNumberObject()`](#isnumberobject).
-* a [`boolean`][js-boolean] type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `true` or `false` with [`isNumberType()`](#isnumbertype).
-* an [`object`][js-object] of a generic `Obj` type and [`Object`][js-object] instance with [`isObject()`](#isobject).
-* an [`object`][js-object] * with its own specified `key` of the `PropertyKey` type with [`isObjectKey()`](#isobjectkey).
-* an [`object`][js-object] * with the `key` of the `Key` type by using the [`in`][js-in-operator] operator with [`isObjectKeyIn()`](#isobjectkeyin).
-* an [`object`][js-object] of a generic `Type` * with some of its keys from given `keys` of the `PropertyKey` type with [`isObjectKeys()`](#isobjectkeys).
-* the [`Primitive`](#primitive) type from a given `type` of the [`Primitives`](#primitives) with [`isPrimitive()`](#isprimitive).
-* a regular expression of a [`regexp`][js-regexp] type, an instance of [`Object`][js-object] and [`RegExp`][js-regexp] with [`isRegExp()`](#isregexp).
-* a [`string`][js-string] type, not instance of [`Object`][js-object] and [`String`][js-string] or [`object`][js-object] type and instance of [`String`][js-string] and [`Object`][js-object] with [`isString()`](#isstring).
-* a [`string`][js-string] type, not instance of [`Object`][js-object] and [`String`][js-string] or [`object`][js-object] type and instance of [`String`][js-string] and [`Object`][js-object], of a length in the specified range with [`isStringLength()`](#isstringlength).
-* an [`object`][js-object] type instance of [`String`][js-string] and [`Object`][js-object] with [`isStringObject()`](#isstringobject).
-* a [`string`][js-string] type not instance of [`String`][js-string] and [`Object`][js-object] with [`isStringType()`](#isstringtype).
-* a [`symbol`][js-symbol] type with [`isSymbol()`](#issymbol)                .
-* a [`boolean`][js-boolean] type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], or is an [`object`][js-object] type and instance of [`Boolean`][js-boolean] with [`isTrue()`](#istrue).
-* a type of [`Type`](#type) from a given `type` of the [`Types`](#types) with [`isType()`](#istype)                    .
-* an [`undefined`][js-undefined] type and equal to [`undefined`][js-undefined] with [`isUndefined()`](#isundefined).
-
+* an [`array`][js-array], [`Array`][js-array] instance, and [`object`][js-object] type with **[`isArray()`](#isarray)**.
+* a [`bigint`][js-bigint] type with **[`isBigInt()`](#isbigint)**.
+* a [`boolean`][js-boolean] type not instance of [`Boolean`][js-boolean] and [`Object`][js-object] or `object` type instance of [`Boolean`][js-boolean] and [`Object`][js-object] **[`isBoolean()`](#isboolean)**.
+* an [`object`][js-object] type and instance of [`Boolean`][js-boolean] and [`Object`][js-object] with **[`isBooleanObject()`](#isbooleanobject)**.
+* a [`boolean`][js-boolean] type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `true` or `false` with **[`isBooleanType()`](#isbooleantype)**.
+* a [`function`][js-function] type, an instance of [`Function`][js-function] and [`Object`][js-object] as a generic `Class` type of [`class`][ts-classes] with **[`isClass()`](#isclass)**.
+* an [`object`][js-object] type instance of [`Date`][js-date] and [`Object`][js-object] with **[`isDate()`](#isdate)**.
+* not an [`undefined`][js-undefined] type and is not equal to [`undefined`][js-undefined] with **[`isDefined()`](#isdefined)**.
+* a [`boolean`][js-boolean] type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], or is an [`object`][js-object] type and instance of [`Boolean`][js-boolean] and [`Object`][js-object] and equal to `false` with **[`isFalse()`](#isfalse)**.
+* a [`function`][js-function] type, an instance of [`Function`][js-function] and [`Object`][js-object] with **[`isFunction()`](#isfunction)**.
+* an [`object`][js-object] of a generic `Obj` type and an `instance` of [`Constructor`](#constructor) type with **[`isInstance()`](#isinstance)**.
+* one of the [`string`][js-string], [`number`][js-number], or [`symbol`][js-symbol] type with **[`isKey()`](#iskey)**.
+* an [`object`][js-object] type and equal to [`null`][js-null] with **[`isNull()`](#isnull)**.
+* a [`number`][js-number] type not an instance of [`Number`][js-number] and [`Object`][js-object] or [`object`][js-object] type instance of [`Number`][js-number] and [`Object`][js-object] with **[`isNumber()`](#isnumber)**.
+* a [`number`][js-number] type, not instance of [`Object`][js-object] and [`Number`][js-number] or [`object`][js-object] type and instance of [`Number`][js-number] and [`Object`][js-object], in the specified range with **[`isNumberBetween()`](#isnumberbetween)**.
+* an [`object`][js-object] type and instance of [`Number`][js-number] and [`Object`][js-object] with **[`isNumberObject()`](#isnumberobject)**.
+* a [`boolean`][js-boolean] type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `true` or `false` with **[`isNumberType()`](#isnumbertype)**.
+* an [`object`][js-object] of a generic `Obj` type and [`Object`][js-object] instance with **[`isObject()`](#isobject)**.
+* an [`object`][js-object] * with its own specified `key` of the `PropertyKey` type with **[`isObjectKey()`](#isobjectkey)**.
+* an [`object`][js-object] * with the `key` of the `Key` type by using the [`in`][js-in-operator] operator with **[`isObjectKeyIn()`](#isobjectkeyin)**.
+* an [`object`][js-object] of a generic `Type` * with some of its keys from given `keys` of the `PropertyKey` type with **[`isObjectKeys()`](#isobjectkeys)**.
+* the [`Primitive`](#primitive) type from a given `type` of the [`Primitives`](#primitives) with **[`isPrimitive()`](#isprimitive)**.
+* a regular expression of a [`regexp`][js-regexp] type, an instance of [`Object`][js-object] and [`RegExp`][js-regexp] with **[`isRegExp()`](#isregexp)**.
+* a [`string`][js-string] type, not instance of [`Object`][js-object] and [`String`][js-string] or [`object`][js-object] type and instance of [`String`][js-string] and [`Object`][js-object] with **[`isString()`](#isstring)**.
+* a [`string`][js-string] type, not instance of [`Object`][js-object] and [`String`][js-string] or [`object`][js-object] type and instance of [`String`][js-string] and [`Object`][js-object], of a length in the specified range with **[`isStringLength()`](#isstringlength)**.
+* an [`object`][js-object] type instance of [`String`][js-string] and [`Object`][js-object] with **[`isStringObject()`](#isstringobject)**.
+* a [`string`][js-string] type not instance of [`String`][js-string] and [`Object`][js-object] with **[`isStringType()`](#isstringtype)**.
+* a [`symbol`][js-symbol] type with **[`isSymbol()`](#issymbol)**.
+* a [`boolean`][js-boolean] type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], or is an [`object`][js-object] type and instance of [`Boolean`][js-boolean] with **[`isTrue()`](#istrue)**.
+* a type of [`Type`](#type) from a given `type` of the [`Types`](#types) with **[`isType()`](#istype)**.
+* an [`undefined`][js-undefined] type and equal to [`undefined`][js-undefined] with **[`isUndefined()`](#isundefined)**.
 * **not**
-  * a [`boolean`][js-boolean] with [`isNotBoolean()`](#isnotboolean)
-  * a [`function`][js-function] with [`isNotFunction()`](#isnotfunction)
-  * [`null`][js-null] with [`isNotNull()`](#isnotnull)
-  * a [`number`][js-number] with [`isNotNumber()`](#isnotnumber)
-  * a [`string`][js-string] with [`isNotString()`](#isnotstring)
-  * [`undefined`][js-undefined] with [`isNotUndefined()`](#isnotundefined)
+  * a [`boolean`][js-boolean] with **[`isNotBoolean()`](#isnotboolean)**.
+  * a [`function`][js-function] with **[`isNotFunction()`](#isnotfunction)**.
+  * [`null`][js-null] with **[`isNotNull()`](#isnotnull)**.
+  * a [`number`][js-number] with **[`isNotNumber()`](#isnotnumber)**.
+  * a [`string`][js-string] with **[`isNotString()`](#isnotstring)**.
+  * [`undefined`][js-undefined] with **[`isNotUndefined()`](#isnotundefined)**.
 
 <br>
 
