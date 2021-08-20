@@ -40,18 +40,17 @@ Common types, type guards and type checkers.
 * [Skeleton](#skeleton)
 * [Installation](#installation)
 * [Api](#api)
-* [Features](#features)
 * [Preparation](#preparation)
   * [Recognize value](#recognize-value)
   * [Precise check](#precise-check)
   * [Callback](#callback)
-* [Check](#check)
+* Check
   * [Functions](#check-functions)
   * Objects
     * [`are`](#are)
     * [`is`](#is)
     * [`isNot`](#isnot)
-* [Guard](#guard)
+* Guard
   * [Functions](#guard-functions)
   * Object
     * [`guard`](#guard)
@@ -235,42 +234,6 @@ import {
   Types,
 } from '@angular-package/type';
 ```
-
-<br>
-
-## Features
-
-Checks if  **any** value is
-
-
-* **not**
-  * a `boolean` with [`isNotBoolean()`](#isnotboolean)
-  * a `function` with [`isNotFunction()`](#isnotfunction)
-  * `null` with [`isNotNull()`](#isnotnull)
-  * a `number` with [`isNotNumber()`](#isnotnumber)
-  * a `string` with [`isNotString()`](#isnotstring)
-  * `undefined` with [`isNotUndefined()`](#isnotundefined)
-
-Guards the value to be
-
-* an [`Array`][js-array] of a generic type with [`guardArray()`](#guardarray).
-* a `bigint` with [`guardBigInt()`](#guardbigint).
-* a `boolean` with [`guardBoolean()`](#guardboolean).
-* a generic `Class` type [`class`][ts-classes] with [`guardClass()`](#guardclass).
-* defined with [`guardDefined()`](#guarddefined).
-* a [`Func`](#func) type with [`guardFunction()`](#guardfunction).
-* an instance with [`guardInstance()`](#guardinstance).
-* a `null` with [`guardNull()`](#guardnull).
-* a `PropertyKey` with [`guardKey()`](#guardkey).
-* a `number` with [`guardNumber()`](#guardnumber).
-* an `object` of a generic type with [`guardObject()`](#guardobject).
-* an `object` of a generic type that contains `key` with [`guardObjectKey()`](#guardobjectkey).
-* an `object` of a generic type that contains some of its own specified keys with [`guardObjectKeys()`](#guardobjectkeys).
-* a one of the [`Primitives`](#primitives) with [`guardPrimitive()`](#guardprimitive).
-* a `string` with [`guardString()`](#guardstring).
-* a `symbol` with [`guardSymbol()`](#guardsymbol).
-* a generic type from one of the [`Types`](#types) type with [`guardType()`](#guardtype).
-* `undefined` with [`guardUndefined()`](#guardundefined).
 
 <br>
 
@@ -509,6 +472,10 @@ const stringResult = isString(firstName, customCallback, additionalPayload);
 
 ### Check functions
 
+----
+
+Checks if  **any** value is
+
 | Function                                | Checks if any value is |
 | :-------------------------------------- | :----------------------- |
 | [`isArray()`](#isarray)                 |  an [`array`][js-array], [`Array`][js-array] instance, and [`object`][js-object] type. |
@@ -542,6 +509,14 @@ const stringResult = isString(firstName, customCallback, additionalPayload);
 | [`isTrue()`](#istrue)                   |  a [`boolean`][js-boolean] type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], or is an [`object`][js-object] type and instance of [`Boolean`][js-boolean]. |
 | [`isType()`](#istype)                   |  a type of [`Type`](#type) from a given `type` of the [`Types`](#types). |
 | [`isUndefined()`](#isundefined)         |  an [`undefined`][js-undefined] type and equal to [`undefined`][js-undefined]. |
+
+* **not**
+  * a `boolean` with [`isNotBoolean()`](#isnotboolean)
+  * a `function` with [`isNotFunction()`](#isnotfunction)
+  * `null` with [`isNotNull()`](#isnotnull)
+  * a `number` with [`isNotNumber()`](#isnotnumber)
+  * a `string` with [`isNotString()`](#isnotstring)
+  * `undefined` with [`isNotUndefined()`](#isnotundefined)
 
 <br>
 
@@ -2116,7 +2091,7 @@ isObjectKeyIn(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING]); // true
 [![update]](#500)
 
 Use `isObjectKeys()` or `is.objectKeys()` to check if **any** value is an [`object`][js-object] with **some** of its keys from given `keys` of the `PropertyKey` type.
-Because of using [`some()`][array-some] on the provided `keys` parameter of [`Array`][js-array] its elements are treated as logic `or`, and if an element is an [`Array`][js-array] type its elements are treated as logic `and` because of using [`every()`][array-every].
+Because of using [`some()`][js-array-some] on the provided `keys` parameter of [`Array`][js-array] its elements are treated as logic `or`, and if an element is an [`Array`][js-array] type its elements are treated as logic `and` because of using [`every()`][js-array-every].
 The function uses [`hasOwnProperty`][js-hasownproperty] of [`Object`][js-object] method to find enumerable and non-enumerable `PropertyKey` as `string`, `number`, `symbol` unlike `Object.keys()`, but it can't find [`getter`][js-getter] property unlike [`in`][js-in-operator] operator, which can.
 
 ```typescript
@@ -2862,22 +2837,6 @@ isUndefined(27); // Returns `false` as `value is undefined`
 
 <br>
 
-#### `isNot`
-
-Object `isNot` with all **check is not** functions.
-
-```typescript
-const isNot: IsNot = {
-  boolean: isNotBoolean,
-  defined: isNotDefined,
-  function: isNotFunction,
-  null: isNotNull,
-  number: isNotNumber,
-  string: isNotString,
-  undefined: isNotUndefined
-};
-```
-
 #### `isNotBoolean()`
 
 Use `isNotBoolean()` or `is.not.boolean()` to check if a generic `Type` `value` is **not** a `boolean` type and **not** an instance of a [`Boolean`][js-boolean].
@@ -2990,7 +2949,7 @@ isNotDefined(surname); // false; return type is `value is never`
 
 #### `isNotFunction()`
 
-Use `isNotFunction()` or `is.not.function()` to check if a generic `Type` `value` is **not** a `function` type and **not** an instance of [`Function`](#func).
+Use `isNotFunction()` or `is.not.function()` to check if a generic `Type` `value` is **not** a `function` type and **not** an instance of [`Function`][js-function].
 
 ```typescript
 const isNotFunction: IsNotFunction = <Type>(
@@ -3022,7 +2981,7 @@ const isNotFunction: IsNotFunction = <Type>(
 
 | Returns                      | Type      | Description                         |
 | :--------------------------- | :-------: | :---------------------------------- |
-| `value is Never<Func, Type>` | `boolean` | By default `Type` variable is equal to the type detected from the `value`, but the detected type `Func` changes to `never` and the **return type** is a `boolean` as the result of its statement `value` is **never** [`Func`](#func) but of type detected from the `value` |
+| `value is Never<Func, Type>` | `boolean` | By default `Type` variable is equal to the type detected from the `value`, but the detected type `Func` changes to `never` and the **return type** is a `boolean` as the result of its statement `value` is **never** [`Function`][js-function] but of type detected from the `value`. |
 
 The **return value** is a `boolean` indicating whether or not the `value` is not a `function`.
 
@@ -3264,7 +3223,7 @@ if (is.not.undefined(config.a)) {
 
 <br>
 
-### Objects
+### Check objects
 
 ----
 
@@ -3325,9 +3284,52 @@ const is: Is = {
 
 <br>
 
+#### `isNot`
+
+Object `isNot` with all **check is not** functions.
+
+```typescript
+const isNot: IsNot = {
+  boolean: isNotBoolean,
+  defined: isNotDefined,
+  function: isNotFunction,
+  null: isNotNull,
+  number: isNotNumber,
+  string: isNotString,
+  undefined: isNotUndefined
+};
+```
+
+<br>
+
 ## Guard
 
 ### Guard functions
+
+----
+
+Guards the provided value to be
+
+* an [`array`][js-array] of a generic type with [`guardArray()`](#guardarray).
+* a [`bigint`][js-bigint] with [`guardBigInt()`](#guardbigint).
+* a [`boolean`][js-boolean] with [`guardBoolean()`](#guardboolean).
+* a [`class`][ts-classes] with [`guardClass()`](#guardclass).
+* defined with [`guardDefined()`](#guarddefined).
+* a [`function`][js-function] type with [`guardFunction()`](#guardfunction).
+* an instance with [`guardInstance()`](#guardinstance).
+* a [`null`][js-null] with [`guardNull()`](#guardnull).
+* a `PropertyKey` with [`guardKey()`](#guardkey).
+* a [`number`][js-number] with [`guardNumber()`](#guardnumber).
+* an [`object`][js-object] of a generic type with [`guardObject()`](#guardobject).
+* an [`object`][js-object] of a generic type that contains `key` with [`guardObjectKey()`](#guardobjectkey).
+* an [`object`][js-object] of a generic type that contains some of its own specified keys with [`guardObjectKeys()`](#guardobjectkeys).
+* one of the [`Primitives`](#primitives) with [`guardPrimitive()`](#guardprimitive).
+* a [`string`][js-string] with [`guardString()`](#guardstring).
+* a [`symbol`][js-symbol] with [`guardSymbol()`](#guardsymbol).
+* one of the [`Types`](#types) with [`guardType()`](#guardtype).
+* [`undefined`][js-undefined] with [`guardUndefined()`](#guardundefined).
+
+<br>
 
 #### `guardArray()`
 
@@ -3851,7 +3853,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 Use `guardObjectKeys()` or `guard.is.objectKeys()` to guard the value to be an `object` of a generic `Type` with some of its own specified `keys`.
 The function uses [`isObjectKeys()`](#isobjectkeys) to search for the `keys` and it means:
 
-> Cause of using [`some()`][array-some] on the [rest parameter][js-rest-parameter] `...keys` each of its argument is treated as logic `or`, and cause of using [`every()`][array-every] on its array argument each of array item is treated as logic `and`.
+> Cause of using [`some()`][js-array-some] on the [rest parameter][js-rest-parameter] `...keys` each of its argument is treated as logic `or`, and cause of using [`every()`][js-array-every] on its array argument each of array item is treated as logic `and`.
 > Simply, in the usage section below the function finds in the object `get` and `set` or `writable` and `value`, which means the object contains `get` and `set` or `writable` and `value`.
 > The function uses [`hasOwnProperty`][js-hasownproperty] [`Object`][js-object] method to finds enumerable and non-enumerable `PropertyKey` as `string`, `number`, `symbol` unlike `Object.keys()`, but it can't find [`getter`][js-getter] property unlike [`in`][js-in-operator] operator, which can.
 
@@ -4202,6 +4204,8 @@ guardUndefined(5); // false; type error
 <br>
 
 ### Guard object
+
+----
 
 #### `guard`
 
