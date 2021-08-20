@@ -1,7 +1,4 @@
 // Function.
-import { isClass } from './is-class.func';
-import { isFunction } from './is-function.func';
-import { isObject } from './is-object.func';
 import { resultCallback } from '../../lib/result-callback.func';
 // Interface.
 import { CallbackPayload } from '../../interface/callback-payload.interface';
@@ -9,7 +6,7 @@ import { CallbackPayload } from '../../interface/callback-payload.interface';
 import { Constructor } from '../../type/constructor.type';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Checks if any `value` is an `object` of a generic `Obj` type and an `instance` of `Constructor` type.
+ * Checks if any `value` is an `object` type, an instance of `Object` and an instance of the provided `constructor`.
  * @param value The `value` of any type to check against an instance of the provided `constructor`.
  * @param constructor A `class` or `function` that specifies the type of the `Constructor`.
  * @param callback A callback function of `ResultCallback` type with `payload` parameter of the default `CallbackPayload` shape and the
@@ -28,11 +25,11 @@ export const isInstance = <Obj, Payload extends object>(
   payload?: Payload
 ): value is Obj =>
   callback(
-    isObject<Obj>(value)
-      ? isClass<Obj>(constructor) || isFunction(constructor)
-        ? value instanceof constructor === true
-        : false
-      : false,
+    typeof value === 'object' &&
+    value instanceof Object === true &&
+    typeof constructor === 'function'
+    ? value instanceof constructor === true
+    : false,
     {
       ...{
         name: isInstance.name,
