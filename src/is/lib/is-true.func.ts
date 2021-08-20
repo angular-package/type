@@ -7,7 +7,7 @@ import { CallbackPayload } from '../../interface/callback-payload.interface';
 // Type.
 import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Checks if any `value` is a `boolean` type not an instance of `Boolean` and `Object`, or is an `object` type and instance of `Boolean` 
+ * Checks if any `value` is a `boolean` type not an instance of `Boolean` and `Object`, or is an `object` type and instance of `Boolean`.
  * and `Object` and equal to `true`.
  * @param value The `value` of any type to check.
  * @param callback A callback `function` of `ResultCallback` type with `payload` parameter of the default `CallbackPayload` shape to handle
