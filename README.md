@@ -44,27 +44,20 @@ Common types, type guards and type checkers.
   * [Recognize value](#recognize-value)
   * [Precise check](#precise-check)
   * [Callback](#callback)
-* Check
+* [Check](#check)
   * [Functions](#check-functions)
-  * Objects
+  * [Objects](#check-objects)
     * [`are`](#are)
     * [`is`](#is)
     * [`isNot`](#isnot)
-* Guard
+* [Guard](#guard)
   * [Functions](#guard-functions)
-  * Object
+  * [Object](#guard-object)
     * [`guard`](#guard)
-* Common
+* [Common](#common)
   * [Interfaces](#common-interfaces)
   * [Types](#common-types)
 * [Experimental](#experimental)
-  * [BigIntObject](#bigintobject)
-  * [BooleanObject](#booleanobject)
-  * [NumberObject](#numberobject)
-  * [PrimitiveObject](#primitiveobject)
-  * [StringObject](#stringobject)
-  * [SymbolObject](#symbolobject)
-  * [isParam()](#isparam)
 * [Changelog](#changelog)
   * [5.0.0](#500)
 * [Git](#git)
@@ -130,7 +123,16 @@ npm i @angular-package/type --save
 import {
   recognizeValue
 } from '@angular-package/type';
+```
 
+```typescript
+// `are` prefix functions.
+import {
+  areString
+} from '@angular-package/type';
+```
+
+```typescript
 // `guard` prefix functions.
 import { 
   guardArray,
@@ -192,13 +194,6 @@ import {
 ```
 
 ```typescript
-// `are` prefix functions.
-import {
-  areString
-} from '@angular-package/type';
-```
-
-```typescript
 // `isNot` prefix functions.
 import {
   isNotBoolean,
@@ -212,7 +207,7 @@ import {
 ```
 
 ```typescript
-// Object.
+// Objects.
 import { are, guard, is, isNot } from '@angular-package/type';
 ```
 
@@ -290,7 +285,7 @@ const recognizeValue = (
 
 The **return value** is an object of types and instances recognized as `true` or all even those recognized as `false`.
 
-**Constant:**
+**Recognized instances:**
 
 An [`Array`][js-array] of default objects that is used by the [`recognizeValue()`](#recognizevalue) function to check the value instance by using the [`instanceof`][js-instanceof] operator. It can be expanded by the provided `instances` parameter.
 
@@ -472,51 +467,47 @@ const stringResult = isString(firstName, customCallback, additionalPayload);
 
 ### Check functions
 
-----
-
 Checks if  **any** value is
 
-| Function                                | Checks if any value is |
-| :-------------------------------------- | :----------------------- |
-| [`isArray()`](#isarray)                 |  an [`array`][js-array], [`Array`][js-array] instance, and [`object`][js-object] type. |
-| [`isBigInt()`](#isbigint)               |  a [`bigint`][js-bigint] type. |
-| [`isBoolean()`](#isboolean)             |  a [`boolean`][js-boolean] type not instance of [`Boolean`][js-boolean] and [`Object`][js-object] or `object` type instance of [`Boolean`][js-boolean] and [`Object`][js-object]. |
-| [`isBooleanObject()`](#isbooleanobject) |  an [`object`][js-object] type and instance of [`Boolean`][js-boolean] and [`Object`][js-object]. |
-| [`isBooleanType()`](#isbooleantype)     |  a [`boolean`][js-boolean] type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `true` or `false`. |
-| [`isClass()`](#isclass)                 |  a [`function`][js-function] type, an instance of [`Function`][js-function] and [`Object`][js-object] as a generic `Class` type of [`class`][ts-classes]. |
-| [`isDate()`](#isdate)                   |  an [`object`][js-object] type instance of [`Date`][js-date] and [`Object`][js-object]. |
-| [`isDefined()`](#isdefined)             |  not an [`undefined`][js-undefined] type and is not equal to [`undefined`][js-undefined]. |
-| [`isFalse()`](#isfalse)                 |  a [`boolean`][js-boolean] type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], or is an [`object`][js-object] type and instance of [`Boolean`][js-boolean] and [`Object`][js-object] and equal to `false`.|
-| [`isFunction()`](#isfunction)           |  a [`function`][js-function] type, an instance of [`Function`][js-function] and [`Object`][js-object]. |
-| [`isInstance()`](#isinstance)           |  an [`object`][js-object] of a generic `Obj` type and an `instance` of [`Constructor`](#constructor) type. |
-| [`isKey()`](#iskey)                     |  one of the [`string`][js-string], [`number`][js-number], or [`symbol`][js-symbol] type. |
-| [`isNull()`](#isnull)                   |  an [`object`][js-object] type and equal to [`null`][js-null]. |
-| [`isNumber()`](#isnumber)               |  a [`number`][js-number] type not an instance of [`Number`][js-number] and [`Object`][js-object] or [`object`][js-object] type instance of [`Number`][js-number] and [`Object`][js-object]. |
-| [`isNumberBetween()`](#isnumberbetween) |  a [`number`][js-number] type, not instance of [`Object`][js-object] and [`Number`][js-number] or [`object`][js-object] type and instance of [`Number`][js-number] and [`Object`][js-object], in the specified range. |
-| [`isNumberObject()`](#isnumberobject)   |  an [`object`][js-object] type and instance of [`Number`][js-number] and [`Object`][js-object]. |
-| [`isNumberType()`](#isnumbertype)       |  a [`boolean`][js-boolean] type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `true` or `false`.|
-| [`isObject()`](#isobject)               |  an [`object`][js-object] of a generic `Obj` type and [`Object`][js-object] instance. |
-| [`isObjectKey()`](#isobjectkey)         |  an [`object`][js-object] with its own specified `key` of the `PropertyKey` type. |
-| [`isObjectKeyIn()`](#isobjectkeyin)     |  an [`object`][js-object] with the `key` of the `Key` type by using the [`in`][js-in-operator] operator. |
-| [`isObjectKeys()`](#isobjectkeys)       |  an [`object`][js-object] of a generic `Type` with some of its keys from given `keys` of the `PropertyKey` type. |
-| [`isPrimitive()`](#isprimitive)         |  the [`Primitive`](#primitive) type from a given `type` of the [`Primitives`](#primitives). |
-| [`isRegExp()`](#isregexp)               |  a regular expression of a [`regexp`][js-regexp] type, an instance of [`Object`][js-object] and [`RegExp`][js-regexp]. |
-| [`isString()`](#isstring)               |  a [`string`][js-string] type, not instance of [`Object`][js-object] and [`String`][js-string] or [`object`][js-object] type and instance of [`String`][js-string] and [`Object`][js-object]. |
-| [`isStringLength()`](#isstringlength)   |  a [`string`][js-string] type, not instance of [`Object`][js-object] and [`String`][js-string] or [`object`][js-object] type and instance of [`String`][js-string] and [`Object`][js-object], of a length in the specified range. |
-| [`isStringObject()`](#isstringobject)   |  an [`object`][js-object] type instance of [`String`][js-string] and [`Object`][js-object]. |
-| [`isStringType()`](#isstringtype)       |  a [`string`][js-string] type not instance of [`String`][js-string] and [`Object`][js-object]. |
-| [`isSymbol()`](#issymbol)               |  a [`symbol`][js-symbol] type. |
-| [`isTrue()`](#istrue)                   |  a [`boolean`][js-boolean] type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], or is an [`object`][js-object] type and instance of [`Boolean`][js-boolean]. |
-| [`isType()`](#istype)                   |  a type of [`Type`](#type) from a given `type` of the [`Types`](#types). |
-| [`isUndefined()`](#isundefined)         |  an [`undefined`][js-undefined] type and equal to [`undefined`][js-undefined]. |
+* an [`array`][js-array], [`Array`][js-array] instance, and [`object`][js-object] type with [`isArray()`](#isarray).
+* a [`bigint`][js-bigint] type with [`isBigInt()`](#isbigint).
+* a [`boolean`][js-boolean] type not instance of [`Boolean`][js-boolean] and [`Object`][js-object] or `object` type instance of [`Boolean`][js-boolean] and [`Object`][js-object] [`isBoolean()`](#isboolean).
+* an [`object`][js-object] type and instance of [`Boolean`][js-boolean] and [`Object`][js-object] with [`isBooleanObject()`](#isbooleanobject).
+* a [`boolean`][js-boolean] type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `true` or `false` with [`isBooleanType()`](#isbooleantype).
+* a [`function`][js-function] type, an instance of [`Function`][js-function] and [`Object`][js-object] as a generic `Class` type of [`class`][ts-classes] with [`isClass()`](#isclass).
+* an [`object`][js-object] type instance of [`Date`][js-date] and [`Object`][js-object] with [`isDate()`](#isdate).
+* not an [`undefined`][js-undefined] type and is not equal to [`undefined`][js-undefined] with [`isDefined()`](#isdefined).
+* a [`boolean`][js-boolean] type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], or is an [`object`][js-object] type and instance of [`Boolean`][js-boolean] and [`Object`][js-object] and equal to `false` with [`isFalse()`](#isfalse).
+* a [`function`][js-function] type, an instance of [`Function`][js-function] and [`Object`][js-object] with [`isFunction()`](#isfunction).
+* an [`object`][js-object] of a generic `Obj` type and an `instance` of [`Constructor`](#constructor) type with [`isInstance()`](#isinstance).
+* one of the [`string`][js-string], [`number`][js-number], or [`symbol`][js-symbol] type with [`isKey()`](#iskey).
+* an [`object`][js-object] type and equal to [`null`][js-null] with [`isNull()`](#isnull).
+* a [`number`][js-number] type not an instance of [`Number`][js-number] and [`Object`][js-object] or [`object`][js-object] type instance of [`Number`][js-number] and [`Object`][js-object] with [`isNumber()`](#isnumber).
+* a [`number`][js-number] type, not instance of [`Object`][js-object] and [`Number`][js-number] or [`object`][js-object] type and instance of [`Number`][js-number] and [`Object`][js-object], in the specified range with [`isNumberBetween()`](#isnumberbetween).
+* an [`object`][js-object] type and instance of [`Number`][js-number] and [`Object`][js-object] with [`isNumberObject()`](#isnumberobject).
+* a [`boolean`][js-boolean] type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `true` or `false` with [`isNumberType()`](#isnumbertype).
+* an [`object`][js-object] of a generic `Obj` type and [`Object`][js-object] instance with [`isObject()`](#isobject).
+* an [`object`][js-object] * with its own specified `key` of the `PropertyKey` type with [`isObjectKey()`](#isobjectkey).
+* an [`object`][js-object] * with the `key` of the `Key` type by using the [`in`][js-in-operator] operator with [`isObjectKeyIn()`](#isobjectkeyin).
+* an [`object`][js-object] of a generic `Type` * with some of its keys from given `keys` of the `PropertyKey` type with [`isObjectKeys()`](#isobjectkeys).
+* the [`Primitive`](#primitive) type from a given `type` of the [`Primitives`](#primitives) with [`isPrimitive()`](#isprimitive).
+* a regular expression of a [`regexp`][js-regexp] type, an instance of [`Object`][js-object] and [`RegExp`][js-regexp] with [`isRegExp()`](#isregexp).
+* a [`string`][js-string] type, not instance of [`Object`][js-object] and [`String`][js-string] or [`object`][js-object] type and instance of [`String`][js-string] and [`Object`][js-object] with [`isString()`](#isstring).
+* a [`string`][js-string] type, not instance of [`Object`][js-object] and [`String`][js-string] or [`object`][js-object] type and instance of [`String`][js-string] and [`Object`][js-object], of a length in the specified range with [`isStringLength()`](#isstringlength).
+* an [`object`][js-object] type instance of [`String`][js-string] and [`Object`][js-object] with [`isStringObject()`](#isstringobject).
+* a [`string`][js-string] type not instance of [`String`][js-string] and [`Object`][js-object] with [`isStringType()`](#isstringtype).
+* a [`symbol`][js-symbol] type with [`isSymbol()`](#issymbol)                .
+* a [`boolean`][js-boolean] type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], or is an [`object`][js-object] type and instance of [`Boolean`][js-boolean] with [`isTrue()`](#istrue).
+* a type of [`Type`](#type) from a given `type` of the [`Types`](#types) with [`isType()`](#istype)                    .
+* an [`undefined`][js-undefined] type and equal to [`undefined`][js-undefined] with [`isUndefined()`](#isundefined).
 
 * **not**
-  * a `boolean` with [`isNotBoolean()`](#isnotboolean)
-  * a `function` with [`isNotFunction()`](#isnotfunction)
-  * `null` with [`isNotNull()`](#isnotnull)
-  * a `number` with [`isNotNumber()`](#isnotnumber)
-  * a `string` with [`isNotString()`](#isnotstring)
-  * `undefined` with [`isNotUndefined()`](#isnotundefined)
+  * a [`boolean`][js-boolean] with [`isNotBoolean()`](#isnotboolean)
+  * a [`function`][js-function] with [`isNotFunction()`](#isnotfunction)
+  * [`null`][js-null] with [`isNotNull()`](#isnotnull)
+  * a [`number`][js-number] with [`isNotNumber()`](#isnotnumber)
+  * a [`string`][js-string] with [`isNotString()`](#isnotstring)
+  * [`undefined`][js-undefined] with [`isNotUndefined()`](#isnotundefined)
 
 <br>
 
@@ -1266,23 +1257,23 @@ isFunction(() => 5, (result, payload) => {
 
 [![update]](#500)
 
-Use `isInstance()` or `is.instance()` to check if **any** value is an `object` of a generic `Obj` type and an instance of [`Constructor`](#constructor) type.
+Use `isInstance()` or `is.instance()` to check if **any** `value` is an `object` type, an instance of `Object` and an instance of the provided `constructor`.
 
 ```typescript
 const isInstance = <Obj, Payload extends object>(
   value: any,
   constructor: Constructor<Obj>,
   callback: ResultCallback<
-    CallbackPayload & { constructor: typeof constructor } & Payload
+    CallbackPayload & { constructor?: typeof constructor } & Payload
   > = resultCallback,
   payload?: Payload
 ): value is Obj =>
   callback(
-    isObject<Obj>(value)
-      ? isClass<Obj>(constructor) || isFunction(constructor)
-        ? value instanceof constructor === true
-        : false
-      : false,
+    typeof value === 'object' &&
+    value instanceof Object === true &&
+    typeof constructor === 'function'
+    ? value instanceof constructor === true
+    : false,
     {
       ...{
         name: isInstance.name,
@@ -1290,7 +1281,7 @@ const isInstance = <Obj, Payload extends object>(
         value,
       },
       ...payload,
-    } as CallbackPayload & { constructor: typeof constructor } & Payload
+    } as CallbackPayload & { constructor?: typeof constructor } & Payload
   );
 ```
 
@@ -1357,6 +1348,38 @@ function functionConstructor(this: any, ...args: any[]): any {
 const anyInstance: any = new (functionConstructor as any)('First name', 'Sur name', 27);
 
 isInstance(anyInstance, functionConstructor as any); // true
+isInstance(new Array(), Array), // Returns `true` as `value is Array`
+isInstance(new ArrayBuffer(20), ArrayBuffer), // Returns `true` as `value is ArrayBuffer`
+isInstance(new Boolean(), Boolean), // Returns `true` as `value is Boolean`
+isInstance(new DataView(new ArrayBuffer(20)), DataView), // Returns `true` as `value is ArrayBuffer`
+isInstance(new Date(), Date), // Returns `true` as `value is Date`
+isInstance(new Error(), Error), // Returns `true` as `value is Error`
+isInstance(new EvalError(), EvalError), // Returns `true` as `value is EvalError`
+isInstance(new Float64Array(), Float64Array), // Returns `true` as `value is Float64Array`
+isInstance(new Float32Array(), Float32Array), // Returns `true` as `value is Float32Array`
+isInstance(new Function(), Function), // Returns `true` as `value is Function`
+isInstance(new Int16Array(), Int16Array), // Returns `true` as `value is Int16Array`
+isInstance(new Int32Array(), Int32Array), // Returns `true` as `value is Int32Array`
+isInstance(new Int8Array(), Int8Array), // Returns `true` as `value is Int8Array`
+isInstance(new Function(), Function), // Returns `true` as `value is Function`
+isInstance(new Map(), Map), // Returns `true` as `value is Map`
+isInstance(new Number(), Number), // Returns `true` as `value is Number`
+isInstance(new Object(), Object), // Returns `true` as `value is Object`
+isInstance(new RangeError(), RangeError), // Returns `true` as `value is RangeError`
+isInstance(new RangeError(), RangeError), // Returns `true` as `value is RangeError`
+isInstance(new ReferenceError(), ReferenceError), // Returns `true` as `value is ReferenceError`
+isInstance(new RegExp(/^[]/), RegExp), // Returns `true` as `value is RegExp`
+isInstance(new Set(), Set), // Returns `true` as `value is Set`
+isInstance(new String(), String), // Returns `true` as `value is String`
+isInstance(new SyntaxError(), SyntaxError), // Returns `true` as `value is SyntaxError`
+isInstance(new TypeError(), TypeError), // Returns `true` as `value is TypeError`
+isInstance(new URIError(), URIError), // Returns `true` as `value is URIError`
+isInstance(new Uint16Array(), Uint16Array), // Returns `true` as `value is Uint16Array`
+isInstance(new Uint32Array(), Uint32Array), // Returns `true` as `value is Uint32Array`
+isInstance(new Uint8Array(), Uint8Array), // Returns `true` as `value is Uint8Array`
+isInstance(new Uint8ClampedArray(), Uint8ClampedArray), // Returns `true` as `value is Uint8ClampedArray`
+isInstance(new WeakMap(), WeakMap), // Returns `true` as `value is WeakMap`
+isInstance(new WeakSet(), WeakSet), // Returns `true` as `value is WeakSet`
 ```
 
 <br>
@@ -2865,7 +2888,7 @@ const isNotBoolean: IsNotBoolean = <Type>(
 | Name: `type`               | Description                                                                      |
 | :------------------------- | :------------------------------------------------------------------------------- |
 | value: `Type`              | A generic `Type` `value`, by default of type detected from the `value`, to check |
-| callback: `ResultCallback` | A [`ResultCallback`][package-callback-resultcallback] type function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][js-error] |
+| callback: `ResultCallback` | A [`ResultCallback`][package-callback-resultcallback] type function, which by default is [`resultCallback()`](#resultcallback) to handle the result before returns eg. to throw an [`Error`][js-error] |
 
 **Returns:**
 
@@ -2920,7 +2943,7 @@ const isNotDefined: IsNotDefined = <Type>(
 | Name: `type`               | Description                 |
 | :------------------------- | :-------------------------- |
 | value: `Type`              | A generic `Type` `value`, by default of type detected from the `value`, to check |
-| callback: `ResultCallback` | A [`ResultCallback`][package-callback-resultcallback] type function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][js-error] |
+| callback: `ResultCallback` | A [`ResultCallback`][package-callback-resultcallback] type function, which by default is [`resultCallback()`](#resultcallback) to handle the result before returns eg. to throw an [`Error`][js-error] |
 
 **Returns:**
 
@@ -2975,7 +2998,7 @@ const isNotFunction: IsNotFunction = <Type>(
 | Name: `type`               | Description                                                                      |
 | :------------------------- | :------------------------------------------------------------------------------- |
 | value: `Type`              | A generic `Type` `value`, by default of type detected from the `value`, to check |
-| callback: `ResultCallback` | A [`ResultCallback`][package-callback-resultcallback] type function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][js-error] |
+| callback: `ResultCallback` | A [`ResultCallback`][package-callback-resultcallback] type function, which by default is [`resultCallback()`](#resultcallback) to handle the result before returns eg. to throw an [`Error`][js-error] |
 
 **Returns:**
 
@@ -3024,7 +3047,7 @@ const isNotNull: IsNotNull = <Type>(
 | Name: `type`               | Description                 |
 | :------------------------- | :-------------------------- |
 | value: `Type`              | A generic `Type` `value`, by default of type detected from the `value` to check |
-| callback: `ResultCallback` | A [`ResultCallback`][package-callback-resultcallback] type function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][js-error] |
+| callback: `ResultCallback` | A [`ResultCallback`][package-callback-resultcallback] type function, which by default is [`resultCallback()`](#resultcallback) to handle the result before returns eg. to throw an [`Error`][js-error] |
 
 **Returns:**
 
@@ -3077,7 +3100,7 @@ const isNotNumber: IsNotNumber = <Type>(
 | Name: `type`               | Description                                                             |
 | :------------------------- | :---------------------------------------------------------------------- |
 | value: `Type`              | A generic `Type`, by default of type detected from the `value` to check |
-| callback: `ResultCallback` | A [`ResultCallback`][package-callback-resultcallback] type function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][js-error] |
+| callback: `ResultCallback` | A [`ResultCallback`][package-callback-resultcallback] type function, which by default is [`resultCallback()`](#resultcallback) to handle the result before returns eg. to throw an [`Error`][js-error] |
 
 **Returns:**
 
@@ -3134,7 +3157,7 @@ const isNotString: IsNotString = <Type>(
 | Name: `type`               | Description                                                             |
 | :------------------------- | :---------------------------------------------------------------------- |
 | value: `Type`              | A generic `Type`, by default of type detected from the `value` to check |
-| callback: `ResultCallback` | A [`ResultCallback`][package-callback-resultcallback] type function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][js-error] |
+| callback: `ResultCallback` | A [`ResultCallback`][package-callback-resultcallback] type function, which by default is [`resultCallback()`](#resultcallback) to handle the result before returns eg. to throw an [`Error`][js-error] |
 
 **Returns:**
 
@@ -3187,7 +3210,7 @@ const isNotUndefined: IsNotUndefined = <Type>(
 | Name: `type`               | Description                                                                      |
 | :------------------------- | :------------------------------------------------------------------------------- |
 | value: `Type`              | A generic `Type` `value`, by default of type detected from the `value`, to check |
-| callback: `ResultCallback` | A [`ResultCallback`][package-callback-resultcallback] type function, which by default is [`resultCallback()`][callback] to handle the result before returns eg. to throw an [`Error`][js-error] |
+| callback: `ResultCallback` | A [`ResultCallback`][package-callback-resultcallback] type function, which by default is [`resultCallback()`](#resultcallback) to handle the result before returns eg. to throw an [`Error`][js-error] |
 
 **Returns:**
 
@@ -3225,9 +3248,7 @@ if (is.not.undefined(config.a)) {
 
 ### Check objects
 
-----
-
-#### `are`
+#### `are.`
 
 The object contains prefixed with `are` functions.
 
@@ -3239,7 +3260,7 @@ const are: Are = {
 
 <br>
 
-#### `is`
+#### `is.`
 
 [![update]](#500)
 
@@ -3284,7 +3305,7 @@ const is: Is = {
 
 <br>
 
-#### `isNot`
+#### `isNot.`
 
 Object `isNot` with all **check is not** functions.
 
@@ -3305,8 +3326,6 @@ const isNot: IsNot = {
 ## Guard
 
 ### Guard functions
-
-----
 
 Guards the provided value to be
 
@@ -3429,7 +3448,7 @@ const guardBoolean: GuardBoolean = <B extends AnyBoolean>(
 
 The **return value** is a `boolean` indicating whether or not the `value` is a `boolean` type or [`Boolean`][js-boolean] instance.
 
-----
+<br>
 
 #### `guardClass()`
 
@@ -3895,7 +3914,7 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 
 #### `guardPrimitive()`
 
-Use `guardPrimitive()` or `guard.is.primitive()` to guard the `value` to be the [`Primitive`][primitive] from a `type` of the [`Primitives`](#primitives).
+Use `guardPrimitive()` or `guard.is.primitive()` to guard the `value` to be the [`Primitive`](#primitive) from a `type` of the [`Primitives`](#primitives).
 
 ```typescript
 const guardPrimitive: GuardPrimitive = <Type extends Primitive>(
@@ -3923,9 +3942,9 @@ const guardPrimitive: GuardPrimitive = <Type extends Primitive>(
 
 | Returns         | Type      | Description                                                       |
 | :-------------- | :-------: | :---------------------------------------------------------------- |
-| `value is Type` | `boolean` | By default `Type` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement indicating the `value` is of [`Primitive`][primitive] type detected from the `value` |
+| `value is Type` | `boolean` | By default `Type` variable is equal to the type detected from the `value` and the **return type** is a `boolean` as the result of its statement indicating the `value` is of [`Primitive`](#primitive) type detected from the `value` |
 
-The **return value** is a `boolean` indicating whether or not the `value` is the [`Primitive`][primitive] from the `type`.
+The **return value** is a `boolean` indicating whether or not the `value` is the [`Primitive`](#primitive) from the `type`.
 
 **Usage:**
 
@@ -4205,9 +4224,7 @@ guardUndefined(5); // false; type error
 
 ### Guard object
 
-----
-
-#### `guard`
+#### `guard.`
 
 [![update]](#500)
 
@@ -4243,8 +4260,6 @@ const guard: Guard = { ...guardIs, is: guardIs };
 
 ### Common interfaces
 
-----
-
 #### `MinMax`
 
 ```typescript
@@ -4265,8 +4280,6 @@ A generic type variable constrained by a `number` type as the maximum value.
 <br>
 
 ### Common types
-
-----
 
 #### `AnyBoolean`
 
@@ -4337,7 +4350,7 @@ type NumberBetween<Min extends number, Max extends number> = AnyNumber &
 
 #### `Primitive`
 
-All [`Primitive`][primitive] types.
+All [`primitive`][js-primitive] types.
 
 ```typescript
 type Primitive =
@@ -4352,7 +4365,7 @@ type Primitive =
 
 #### `Primitives`
 
-All [`Primitive`](#primitive) types as `string`.
+[`Primitive`](#primitive) types as a `string`.
 
 ```typescript
 type Primitives =
@@ -4417,7 +4430,7 @@ type Undefined<Type> = Type extends undefined ? Type : never;
 
 <br>
 
-### Experimental
+## Experimental
 
 #### `BigIntObject`
 
@@ -4524,7 +4537,7 @@ class PrimitiveObject  {
 }
 ```
 
-----
+<br>
 
 #### `StringObject`
 
@@ -4584,9 +4597,9 @@ const symbol: Symbol = SymbolObject.get;
 
 <br>
 
-#### `isParam`
+#### `isParam()`
 
-Method decorator to check the type and return `undefined` if it's not the same as expected.
+Method decorator to check the type and return [`undefined`][js-undefined] if it's not the same as expected.
 
 ```typescript
 function isParam(...param: Array<string>): MethodDecorator {
@@ -4628,7 +4641,7 @@ function isParam(...param: Array<string>): MethodDecorator {
 }
 ```
 
-Example usage.
+**Usage:**
 
 ```typescript
 // Example  usage
