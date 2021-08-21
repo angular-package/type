@@ -8,7 +8,7 @@ import { CallbackPayload } from '../../interface/callback-payload.interface';
 // Type.
 import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Checks if any `value` is one of the `string`, `number`, or `symbol`.
+ * Checks if any `value` is one of the `string`, `number`, or `symbol` type.
  * @param value The `value` of any type to check.
  * @param callback A callback `function` of `ResultCallback` type with `payload` parameter of the default `CallbackPayload` shape to handle
  * the `result` and `payload` of the check before the `result` return. By default it uses `resultCallback()` function.
