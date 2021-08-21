@@ -1,24 +1,32 @@
 // Function.
 import { resultCallback } from '../../../lib/result-callback.func';
 import { typeOf } from '../../../lib/type-of.func';
+// Interface.
+import { CallbackPayload } from '../../../interface/callback-payload.interface';
 // Type.
 import { AnyString } from '../../../type/any-string.type';
-import { IsNotString } from '../type/is-not-string.type';
 import { Never } from '../../../type/never.type';
 import { ResultCallback } from '../../../type/result-callback.type';
 /**
- * Checks if a generic `Type` `value` is not a `string` type and not an instance of `String`.
- * @param value A generic `Type`, by default of type detected from the `value` to check.
- * @param callback A `ResultCallback` function to handle the result before returns.
- * @returns A `boolean` indicating whether or not the `value` is not a `string` or `String` instance.
+ * Checks if the `value` of a generic `Type` is not a `string` type and not an instance of `String`.
+ * @param value The `value` of a generic `Type`, by default of type captured from the provided `value` to check.
+ * @param callback A callback `function` of `ResultCallback` type with `payload` parameter of the default `CallbackPayload` shape to handle
+ * the `result` and `payload` of the check before the `result` return. By default it uses `resultCallback()` function.
+ * @param payload An optional `object` of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback`.
+ * @returns The return value is a `boolean` indicating whether the provided `value` is not a `string`.
+ * @angularpackage
  */
-export const isNotString: IsNotString = <Type>(
+export const isNotString = <Type, Payload extends object = object>(
   value: Type,
-  callback: ResultCallback = resultCallback
+  callback: ResultCallback<CallbackPayload & Payload> = resultCallback,
+  payload?: Payload
 ): value is Never<AnyString, Type> =>
   callback(
     typeOf(value) !== 'string' &&
     typeof value !== 'string' &&
     value instanceof String === false,
-    value
+    {
+      ...{ name: isNotString.name, value },
+      ...payload,
+    } as Payload
   );

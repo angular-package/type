@@ -1,23 +1,28 @@
 // Function.
 import { resultCallback } from '../../../lib/result-callback.func';
 import { typeOf } from '../../../lib/type-of.func';
+// Interface.
+import { CallbackPayload } from '../../../interface/callback-payload.interface';
 // Type.
 import { Defined } from '../../../type/defined.type';
-import { IsNotUndefined } from '../type/is-not-undefined.type';
 import { ResultCallback } from '../../../type/result-callback.type';
 /**
- * Checks if a generic `Type` `value` is not an `undefined` type and not equal to `undefined`.
- * @param value A generic `Type` `value`, by default of type detected from the `value`, to check.
+ * Checks if the `value` of a generic `Type` `value` is not an `undefined` type and not equal to `undefined`.
+ * @param value The `value` of a generic `Type`, by default of type captured from the provided `value` to check.
  * @param callback A `ResultCallback` function to handle the result before returns.
- * @returns A `boolean` indicating whether or not the `value` is not `undefined`.
+ * @returns A `boolean` indicating whether the `value` is not `undefined`.
  */
-export const isNotUndefined: IsNotUndefined = <Type>(
+export const isNotUndefined = <Type, Payload extends object = object>(
   value: Type,
-  callback: ResultCallback = resultCallback
+  callback: ResultCallback<CallbackPayload & Payload> = resultCallback,
+  payload?: Payload
 ): value is Defined<Type> =>
   callback(
     typeOf(value) !== 'undefined' &&
     typeof value !== 'undefined' &&
     value !== undefined,
-    value
+    {
+      ...{ name: isNotUndefined.name, value },
+      ...payload,
+    } as Payload
   );
