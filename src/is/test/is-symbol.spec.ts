@@ -1,3 +1,5 @@
+import { Testing, TestingToBeMatchers } from '@angular-package/testing';
+import { tests } from '../../execute-tests';
 // Function.
 import { isSymbol } from '../lib/is-symbol.func';
 // Constant.
@@ -11,87 +13,103 @@ import { OBJECT_ONE, OBJECT_TWO, OBJECT_ONE_NEW, OBJECT_TWO_NEW } from '../../te
 import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/src/string.const';
 import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/src/symbol.const';
 import { UNDEFINED } from '../../testing/src/undefined.const';
-
 /**
- * Checks
- * ✓ typeof === 'symbol'
+ * Initialize testing.
  */
-describe(isSymbol.name, () => {
-  // Defined.
-  it('is DEFINED', () => expect(isSymbol).toBeDefined());
+const testing = new Testing(tests.is.symbol.describe, tests.is.symbol.it);
+const toBe = new TestingToBeMatchers();
+/**
+ * Tests.
+ */
+testing.describe(isSymbol.name, () => {
+  testing
+    // Defined.
+    .it('is DEFINED', () => expect(isSymbol).toBeDefined())
 
-  // Checks ...
-  describe(`checks`, () => {
-    it('callback', () => {
-      isSymbol(SYMBOL_NUMBER, (result: boolean) => {
-        expect(result).toBe(TRUE);
-        return result;
-      });
-    });
+    // Checks ...
+    .describe(`checks`, () => {
+      testing
+        .it('callback', () => {
+          isSymbol(SYMBOL_NUMBER, (result: boolean) => {
+            expect(result).toBe(TRUE);
+            return result;
+          });
+        })
 
-    // ... arrays.
-    describe(`array`, () => {
-      // it(`${FUNCTION}`, () => expect(isSymbol(FUNCTION, 'function')).toBe(FALSE));
-      // it(`${Class}`, () => expect(isSymbol(Class, 'function')).toBe(FALSE));
-    });
-    // ... function.
-    describe(`function`, () => {
-      it(`FUNCTION`, () => expect(isSymbol(FUNCTION)).toBe(FALSE));
-      it(`Class`, () => expect(isSymbol(Class)).toBe(FALSE));
-    });
-    // ... objects.
-    describe('object', () => {
-      it(`CLASS`, () => expect(isSymbol(CLASS)).toBe(FALSE));
-      it(`OBJECT_ONE`, () => expect(isSymbol(OBJECT_ONE)).toBe(FALSE));
-      it(`OBJECT_TWO`, () => expect(isSymbol(OBJECT_TWO)).toBe(FALSE));
-      it(`new Object(OBJECT_ONE_NEW})`, () => expect(isSymbol(OBJECT_ONE_NEW)).toBe(FALSE));
-      it(`new Object(OBJECT_TWO_NEW})`, () => expect(isSymbol(OBJECT_TWO_NEW)).toBe(FALSE));
-    });
-    // ... primitives.
-    describe(`primitive`, () => {
-      // bigint
-      describe(`bigint`, () => it(`${BIGINT}`, () => expect(isSymbol(BIGINT)).toBe(FALSE)));
+        // ... arrays.
+        .describe(`array`, () => {
+          // it(`${FUNCTION}`, () => expect(isSymbol(FUNCTION, 'function')).toBe(FALSE));
+          // it(`${Class}`, () => expect(isSymbol(Class, 'function')).toBe(FALSE));
+        })
+        // ... function.
+        .describe(`function`, () => {
+          testing
+            .it(`FUNCTION`, () => expect(isSymbol(FUNCTION)).toBe(FALSE))
+            .it(`Class`, () => expect(isSymbol(Class)).toBe(FALSE));
+        })
+        // ... objects.
+        .describe('object', () => {
+          testing
+            .it(`CLASS`, () => expect(isSymbol(CLASS)).toBe(FALSE))
+            .it(`OBJECT_ONE`, () => expect(isSymbol(OBJECT_ONE)).toBe(FALSE))
+            .it(`OBJECT_TWO`, () => expect(isSymbol(OBJECT_TWO)).toBe(FALSE))
+            .it(`new Object(OBJECT_ONE_NEW})`, () => expect(isSymbol(OBJECT_ONE_NEW)).toBe(FALSE))
+            .it(`new Object(OBJECT_TWO_NEW})`, () => expect(isSymbol(OBJECT_TWO_NEW)).toBe(FALSE));
+        })
+        // ... primitives.
+        .describe(`primitive`, () => {
+          testing
+            // bigint
+            .describe(`bigint`, () => testing.it(`${BIGINT}`, () => expect(isSymbol(BIGINT)).toBe(FALSE)))
 
-      // boolean
-      describe(`boolean`, () => {
-        it(`${TRUE}`, () => expect(isSymbol(TRUE)).toBe(FALSE));
-        it(`${FALSE}`, () => expect(isSymbol(FALSE)).toBe(FALSE));
-      });
+            // boolean
+            .describe(`boolean`, () => {
+              testing
+                .it(`${TRUE}`, () => expect(isSymbol(TRUE)).toBe(FALSE))
+                .it(`${FALSE}`, () => expect(isSymbol(FALSE)).toBe(FALSE));
+            })
 
-      // null
-      it(`${NULL}`, () => expect(isSymbol(NULL)).toBe(FALSE));
+            // null
+            .it(`${NULL}`, () => expect(isSymbol(NULL)).toBe(FALSE))
 
-      // number
-      describe(`number`, () => {
-        it(`${NUMBER}`, () => expect(isSymbol(NUMBER)).toBe(FALSE));
-        it(`Number(${NUMBER})`, () => expect(isSymbol(NUMBER_INSTANCE)).toBe(FALSE));
-      });
-      // string
-      describe(`string`, () => {
-        it(`${STRING}`, () => expect(isSymbol(STRING)).toBe(FALSE));
-        it(`String(${STRING})`, () => expect(isSymbol(STRING_INSTANCE)).toBe(FALSE));
-      });
-      // symbol
-      describe(`symbol`, () => {
-        it(`Symbol(${NUMBER})`, () => expect(isSymbol(SYMBOL_NUMBER)).toBe(TRUE));
-        it(`Symbol(${STRING})`, () => expect(isSymbol(SYMBOL_STRING)).toBe(TRUE));
-      });
-      // undefined
-      it(`${UNDEFINED}`, () => expect(isSymbol(UNDEFINED)).toBe(FALSE));
-      // ... object.
-      describe(`object`, () => {
-        // BigInt
-        describe(`BigInt`, () => it(`${BIGINT_EXPECTATION}`, () => expect(isSymbol(BIGINT_INSTANCE)).toBe(FALSE)));
-        // Boolean
-        describe(`Boolean`, () => {
-          it(`${TRUE_EXPECTATION}`, () => expect(isSymbol(TRUE_INSTANCE)).toBe(FALSE));
-          it(`${FALSE_EXPECTATION}`, () => expect(isSymbol(FALSE_INSTANCE)).toBe(FALSE));
+            // number
+            .describe(`number`, () => {
+              testing
+                .it(`${NUMBER}`, () => expect(isSymbol(NUMBER)).toBe(FALSE))
+                .it(`Number(${NUMBER})`, () => expect(isSymbol(NUMBER_INSTANCE)).toBe(FALSE));
+            })
+            // string
+            .describe(`string`, () => {
+              testing
+                .it(`${STRING}`, () => expect(isSymbol(STRING)).toBe(FALSE))
+                .it(`String(${STRING})`, () => expect(isSymbol(STRING_INSTANCE)).toBe(FALSE));
+            })
+            // symbol
+            .describe(`symbol`, () => {
+              testing
+                .it(`Symbol(${NUMBER})`, () => expect(isSymbol(SYMBOL_NUMBER)).toBe(TRUE))
+                .it(`Symbol(${STRING})`, () => expect(isSymbol(SYMBOL_STRING)).toBe(TRUE));
+            })
+            // undefined
+            .it(`${UNDEFINED}`, () => expect(isSymbol(UNDEFINED)).toBe(FALSE))
+            // ... object.
+            .describe(`object`, () => {
+              testing
+                // BigInt
+                .describe(`BigInt`, () => testing.it(`${BIGINT_EXPECTATION}`, () => expect(isSymbol(BIGINT_INSTANCE)).toBe(FALSE)))
+                // Boolean
+                .describe(`Boolean`, () => {
+                  testing
+                    .it(`${TRUE_EXPECTATION}`, () => expect(isSymbol(TRUE_INSTANCE)).toBe(FALSE))
+                    .it(`${FALSE_EXPECTATION}`, () => expect(isSymbol(FALSE_INSTANCE)).toBe(FALSE));
+                })
+                // Number
+                .describe(`Number`, () =>
+                  testing.it(`new Number(${NUMBER})`, () => expect(isSymbol(NUMBER_NEW_INSTANCE)).toBe(FALSE)))
+                // String
+                .describe(`String`, () =>
+                  testing.it(`new String(${STRING})`, () => expect(isSymbol(STRING_NEW_INSTANCE)).toBe(FALSE)));
+            });
         });
-        // Number
-        describe(`Number`, () => it(`new Number(${NUMBER})`, () => expect(isSymbol(NUMBER_NEW_INSTANCE)).toBe(FALSE)));
-        // String
-        describe(`String`, () => it(`new String(${STRING})`, () => expect(isSymbol(STRING_NEW_INSTANCE)).toBe(FALSE)));
-      });
     });
-  });
 });

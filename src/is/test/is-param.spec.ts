@@ -1,3 +1,5 @@
+import { Testing, TestingToBeMatchers } from '@angular-package/testing';
+import { tests } from '../../execute-tests';
 import { NUMBER } from '../../testing/src/number.const';
 import { STRING } from '../../testing/src/string.const';
 import { isParam } from '../lib/is-param.decorator';
@@ -8,8 +10,13 @@ class TestClass {
     return {object, firstName, age};
   }
 }
+/**
+ * Initialize testing.
+ */
+const testing = new Testing(tests.is.param.describe, tests.is.param.it);
+const toBe = new TestingToBeMatchers();
 
-describe(isParam.name, () => {
+testing.describe(isParam.name, () => {
   const resultTRUE = new TestClass().testMethod({firstName: 'NoName'}, STRING, NUMBER);
   const resultFALSE = new TestClass().testMethod(NUMBER, {firstName: 'NoName'}, STRING);
 

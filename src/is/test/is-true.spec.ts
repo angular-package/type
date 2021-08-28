@@ -1,3 +1,5 @@
+import { Testing, TestingToBeMatchers } from '@angular-package/testing';
+import { tests } from '../../execute-tests';
 // Function.
 import { isTrue } from '../lib/is-true.func';
 // Constant.
@@ -13,9 +15,14 @@ import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/src/
 import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/src/symbol.const';
 import { UNDEFINED } from '../../testing/src/undefined.const';
 /**
+ * Initialize testing.
+ */
+const testing = new Testing(tests.is.true.describe, tests.is.true.it);
+const toBe = new TestingToBeMatchers();
+/**
  * Tests.
  */
-describe(isTrue.name, () => {
+testing.describe(isTrue.name, () => {
   // Defined.
   it('is DEFINED', () => expect(isTrue).toBeDefined());
 

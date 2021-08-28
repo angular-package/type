@@ -1,4 +1,5 @@
-
+import { Testing, TestingToBeMatchers } from '@angular-package/testing';
+import { tests } from '../../execute-tests';
 // Function.
 import { isNull } from '../lib/is-null.func';
 // Constant.
@@ -13,57 +14,64 @@ import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/src/
 import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/src/symbol.const';
 import { UNDEFINED } from '../../testing/src/undefined.const';
 import { notDefined } from '../../testing/src/not-defined.const';
-
-describe(isNull.name, () => {
-  // TRUE
-  it('is DEFINED', () => expect(isNull).toBeDefined());
-  it(`null | NULL`, () => {
-    expect(isNull(null)).toBe(TRUE);
-    expect(isNull(NULL)).toBe(TRUE);
-    isNull(NULL, (result: boolean) => {
-      expect(result).toBe(TRUE);
-      return result;
+/**
+ * Initialize testing.
+ */
+const testing = new Testing(tests.is.null.describe, tests.is.null.it);
+const toBe = new TestingToBeMatchers();
+/**
+ * Tests.
+ */
+testing.describe(isNull.name, () => {
+  testing
+    // TRUE
+    .it('is DEFINED', () => expect(isNull).toBeDefined())
+    .it(`null | NULL`, () => {
+      expect(isNull(null)).toBe(TRUE);
+      expect(isNull(NULL)).toBe(TRUE);
+      isNull(NULL, (result: boolean) => {
+        expect(result).toBe(TRUE);
+        return result;
+      });
+    })
+    // FALSE
+    .it(`'bigint'`, () => {
+      expect(isNull(BIGINT)).toBe(FALSE);
+      expect(isNull(BIGINT_INSTANCE)).toBe(FALSE);
+    })
+    .it(`'boolean' | Boolean`, () => {
+      expect(isNull(FALSE)).toBe(FALSE);
+      expect(isNull(TRUE)).toBe(FALSE);
+      expect(isNull(FALSE_INSTANCE)).toBe(FALSE);
+      expect(isNull(TRUE_INSTANCE)).toBe(FALSE);
+      expect(isNull(Boolean(false))).toBe(FALSE);
+      expect(isNull(Boolean(true))).toBe(FALSE);
+    })
+    .it(`Class | CLASS`, () => {
+      expect(isNull(Class)).toBe(FALSE);
+      expect(isNull(CLASS)).toBe(FALSE);
+    })
+    .it(`'function' | Function`, () => expect(isNull(FUNCTION)).toBe(FALSE))
+    .it(`'number' | Number`, () => {
+      expect(isNull(NUMBER)).toBe(FALSE);
+      expect(isNull(NUMBER_INSTANCE)).toBe(FALSE);
+      expect(isNull(NUMBER_NEW_INSTANCE)).toBe(FALSE);
+    })
+    .it(`'object' | Object`, () => {
+      expect(isNull(OBJECT_ONE)).toBe(FALSE);
+      expect(isNull(OBJECT_TWO)).toBe(FALSE);
+    })
+    .it(`'string' | String`, () => {
+      expect(isNull(STRING)).toBe(FALSE);
+      expect(isNull(STRING_INSTANCE)).toBe(FALSE);
+      expect(isNull(STRING_NEW_INSTANCE)).toBe(FALSE);
+    })
+    .it(`'symbol'`, () => {
+      expect(isNull(SYMBOL_NUMBER)).toBe(FALSE);
+      expect(isNull(SYMBOL_STRING)).toBe(FALSE);
+    })
+    .it(`'undefined'`, () => {
+      expect(isNull(notDefined)).toBe(FALSE);
+      expect(isNull(UNDEFINED)).toBe(FALSE);
     });
-  });
-
-  // FALSE
-  it(`'bigint'`, () => {
-    expect(isNull(BIGINT)).toBe(FALSE);
-    expect(isNull(BIGINT_INSTANCE)).toBe(FALSE);
-  });
-  it(`'boolean' | Boolean`, () => {
-    expect(isNull(FALSE)).toBe(FALSE);
-    expect(isNull(TRUE)).toBe(FALSE);
-    expect(isNull(FALSE_INSTANCE)).toBe(FALSE);
-    expect(isNull(TRUE_INSTANCE)).toBe(FALSE);
-    expect(isNull(Boolean(false))).toBe(FALSE);
-    expect(isNull(Boolean(true))).toBe(FALSE);
-  });
-  it(`Class | CLASS`, () => {
-    expect(isNull(Class)).toBe(FALSE);
-    expect(isNull(CLASS)).toBe(FALSE);
-  });
-  it(`'function' | Function`, () => expect(isNull(FUNCTION)).toBe(FALSE));
-  it(`'number' | Number`, () => {
-    expect(isNull(NUMBER)).toBe(FALSE);
-    expect(isNull(NUMBER_INSTANCE)).toBe(FALSE);
-    expect(isNull(NUMBER_NEW_INSTANCE)).toBe(FALSE);
-  });
-  it(`'object' | Object`, () => {
-    expect(isNull(OBJECT_ONE)).toBe(FALSE);
-    expect(isNull(OBJECT_TWO)).toBe(FALSE);
-  });
-  it(`'string' | String`, () => {
-    expect(isNull(STRING)).toBe(FALSE);
-    expect(isNull(STRING_INSTANCE)).toBe(FALSE);
-    expect(isNull(STRING_NEW_INSTANCE)).toBe(FALSE);
-  });
-  it(`'symbol'`, () => {
-    expect(isNull(SYMBOL_NUMBER)).toBe(FALSE);
-    expect(isNull(SYMBOL_STRING)).toBe(FALSE);
-  });
-  it(`'undefined'`, () => {
-    expect(isNull(notDefined)).toBe(FALSE);
-    expect(isNull(UNDEFINED)).toBe(FALSE);
-  });
 });
