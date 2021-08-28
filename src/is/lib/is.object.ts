@@ -23,6 +23,8 @@ import { isObjectKeys } from './is-object-keys.func';
 import { isPrimitive } from './is-primitive.func';
 import { isRegExp } from './is-regexp.func';
 import { isString } from './is-string.func';
+import { isStringIncludes } from './is-string-includes.func';
+import { isStringIncludesSome } from './is-string-includes-some.func';
 import { isStringLength } from './is-string-length.func';
 import { isStringObject } from './is-string-object.func';
 import { isStringType } from './is-string-type.func';
@@ -61,6 +63,8 @@ export const is: Is = {
   primitive: isPrimitive,
   regexp: isRegExp, // From the `4.2.0` version.
   string: isString,
+  stringIncludes: isStringIncludes, // From the `5.0.0` version.
+  stringIncludesSome: isStringIncludesSome, // From the `5.0.0` version.
   stringLength: isStringLength, // From the `4.2.0` version.
   stringObject: isStringObject,
   stringType: isStringType,
