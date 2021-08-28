@@ -1,25 +1,25 @@
 // Function.
-import { isNumberObject } from './is-number-object.func';
+import { isNumber } from './is-number.func';
 import { isNumberType } from './is-number-type.func';
+import { isObject } from './is-object.func';
 import { resultCallback } from '../../lib/result-callback.func';
-import { typeOf } from '../../lib/type-of.func';
 // Interface.
-import { CallbackPayload } from '../../interface/callback-payload.interface';
+import { CallbackPayload } from '../../type/callback-payload.type';
 import { MinMax } from '../../interface/min-max.interface';
 // Type.
 import { NumberBetween } from '../../type/number-between.type';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Checks if any `value` is a `number` type not an instance of `Object` and `Number` or `object` type instance of `Number` and `Object`,
- * in the specified range.
+ * Checks if any `value` is a `number` type or an instance of `Number`(by using `isNumber()`) within the specified range.
  * @param value The `value` of any type to check.
- * @param min A `number` of the minimum range of the provided `value`.
- * @param max A `number` of the maximum range of the provided `value`.
- * @param callback A callback `function` of `ResultCallback` type with `payload` parameter of the default `CallbackPayload` shape and the
- * provided `min` and `max` range to handle the `result` and `payload` of the check before the `result` return. By default it uses
- * `resultCallback()` function.
- * @param payload An optional `object` of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback`.
- * @returns A `boolean` indicating whether the provided `value` is a `number` type or `Number` instance in the specified range.
+ * @param range An `object` of optional minimum and maximum `range` of the provided `value`.
+ * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this
+ * check, and `payload` of the default `CallbackPayload` shape, with the minimum and maximum `range` and optional properties from the
+ * provided `payload`, to handle them before the `result` return. By default, it uses `resultCallback()` function.
+ * @param payload An optional `object` of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback`
+ * function.
+ * @returns The return value is a `boolean` indicating whether the provided `value` is a finite number of a `number` type or an instance
+ * of `Number` within the specified range.
  * @angularpackage
  */
 export const isNumberBetween = <
@@ -28,26 +28,24 @@ export const isNumberBetween = <
   Max extends number
 >(
   value: any,
-  min: Min,
-  max: Max,
-  callback: ResultCallback<
-    CallbackPayload & Payload & MinMax<Min, Max>
-  > = resultCallback,
-  payload?: Payload
+  range: MinMax<Min, Max>,
+  callback: ResultCallback<any, typeof payload> = resultCallback,
+  payload?: CallbackPayload<MinMax<Min, Max> & Payload>
 ): value is NumberBetween<Min, Max> =>
   callback(
-    typeOf(value) === 'number' &&
-      ((isNumberType(value) ? value >= min && value <= max : false) ||
-        (isNumberObject(value)
-          ? value.valueOf() >= min && value.valueOf() <= max
-          : false)),
+    isNumber(value) && isObject(range)
+    ? (isNumberType(range.min) && range.min >= 0
+      ? value.valueOf() >= range.min
+      : true) &&
+    (isNumberType(range.max) && range.max >= 0
+      ? value.valueOf() <= range.max
+      : true)
+    : false,
+    value,
     {
-      ...{
-        name: isNumberBetween.name,
-        min,
-        max,
-        value,
-      },
+      name: isNumberBetween.name,
+      min: range?.min,
+      max: range?.max,
       ...payload,
-    } as CallbackPayload & Payload & MinMax<Min, Max>
+    } as any
   );

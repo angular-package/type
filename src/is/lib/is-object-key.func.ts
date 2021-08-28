@@ -1,47 +1,30 @@
 // Function.
-import { isArray } from './is-array.func';
-import { isKey } from './is-key.func';
 import { isObject } from './is-object.func';
 import { resultCallback } from '../../lib/result-callback.func';
 // Interface.
-import { CallbackPayload } from '../../interface/callback-payload.interface';
+import { CallbackPayload } from '../../type/callback-payload.type';
 // Type.
 import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Checks if any `value` is an `object` with its key or group of keys of the `PropertyKey` type.
- * @param value The `value` of any type to check against the `object` that contains key or group of keys from the given `key`.
- * @param key A property key or an array of property keys to check if the given `value` contains all of them.
- * @param callback A callback `function` of `ResultCallback` type with `payload` parameter of the default `CallbackPayload` shape and the
- * provided `key` to handle the `result` and `payload` of the check before the `result` return. By default it uses `resultCallback()`
+ * Checks if any `value` is an `object`(by using the `isObject()`) with its key of the `PropertyKey` type.
+ * @param value The `value` of any type to check against the `object` that contains key from the given `key`.
+ * @param key A property key to check if the given `value` contains.
+ * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this
+ * check, and `payload` of the default `CallbackPayload` shape, with the provided `key` and optional properties from the provided
+ * `payload`, to handle them before the `result` return. By default, it uses `resultCallback()` function.
+ * @param payload An optional `object` of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback`
  * function.
- * @param payload An optional `object` of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback`.
- * @returns The return value is a `boolean` indicating whether the provided `value` is an `object` with its key or group of keys.
+ * @returns The return value is a `boolean` indicating whether the provided `value` is an `object` with its key.
  * @angularpackage
  */
 export const isObjectKey = <Obj = object, Payload extends object = object>(
   value: any,
-  key: PropertyKey | PropertyKey[],
-  callback: ResultCallback<
-    CallbackPayload & { key: typeof key } & Payload
-  > = resultCallback,
-  payload?: Payload
+  key: PropertyKey,
+  callback: ResultCallback<any, typeof payload> = resultCallback,
+  payload?: CallbackPayload<{ key?: typeof key } & Payload>
 ): value is Obj =>
   callback(
-    isObject(value)
-      ? isArray(key)
-        ? key.every((k) =>
-            isKey(k) ? {}.hasOwnProperty.call(value, k) === true : false
-          )
-        : isKey(key)
-        ? {}.hasOwnProperty.call(value, key)
-        : false
-      : false,
-    {
-      ...{
-        key,
-        name: isObjectKey.name,
-        value,
-      },
-      ...payload,
-    } as CallbackPayload & { key: typeof key } & Payload
+    isObject(value) ? {}.hasOwnProperty.call(value, key) : false,
+    value,
+    { name: isObjectKey.name, key, ...payload } as any
   );
