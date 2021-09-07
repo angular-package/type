@@ -61,7 +61,6 @@ Common types, type guards and type checkers.
   * [Types](#common-types)
 * [Experimental](#experimental)
 * [Changelog](#changelog)
-  * [5.0.0](#500)
 * [Git](#git)
   * [Commit](#commit)
   * [Versioning](#versioning)
@@ -121,9 +120,10 @@ npm i @angular-package/type --save
 ## Api
 
 ```typescript
-// Recognition.
+// Main.
 import {
-  recognizeValue
+  recognizeValue, // From the 5.0.0 version
+  typeOf,
 } from '@angular-package/type';
 ```
 
@@ -141,20 +141,28 @@ import {
   guardBigInt,
   guardBoolean,
   guardClass,
+  guardDate, // From the 5.0.0 version
   guardDefined,
+  guardFalse,  // From the 5.0.0 version
   guardFunction,
   guardInstance,
   guardKey,
   guardNull,
   guardNumber,
+  guardNumberBetween,  // From the 5.0.0 version
   guardObject,
   guardObjectKey,
+  guardObjectKeyIn,  // From the 5.0.0 version
   guardObjectKeys,
+  guardObjectSomeKeys, // From the 5.0.0 version
   guardPrimitive,
+  guardRegExp,  // From the 5.0.0 version
   guardString,
+  guardStringLength,  // From the 5.0.0 version
   guardSymbol,
+  guardTrue,  // From the 5.0.0 version
   guardType,
-  guardUndefined
+  guardUndefined,
 } from '@angular-package/type'; 
 ```
 
@@ -182,9 +190,13 @@ import {
   isObjectKey,
   isObjectKeyIn,
   isObjectKeys,
+  isObjectKeysIn, // From the 5.0.0 version
+  isObjectSomeKeys, // From the 5.0.0 version
   isPrimitive,
   isRegExp, // From the 4.2.0 version.
   isString,
+  isStringIncludes, // From the 5.0.0 version
+  isStringIncludesSome, // From the 5.0.0 version
   isStringLength, // From the 4.2.0 version.
   isStringObject,
   isStringType,
@@ -210,7 +222,14 @@ import {
 
 ```typescript
 // Objects.
-import { are, guard, is, isNot } from '@angular-package/type';
+import { are, guard, is, isNot, type } from '@angular-package/type';
+```
+
+```typescript
+// Interfaces.
+import {
+  MinMax
+} from '@angular-package/type';
 ```
 
 ```typescript
@@ -927,7 +946,7 @@ import { areUndefined } from '@angular-package/type';
 #### `isArray()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isArray()` or `is.array()` to check if **any** `value` is of the type obtained from its `Object.prototype` equal to `'array'` or an [`object`][js-object] type. The value is also checked by the `isArray()` method of [`Array`][js-array].
 
@@ -1019,7 +1038,7 @@ isArray([1, 2, 3], (result, value, payload) => {
 #### `isBigInt()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isBigInt()` or `is.bigint()` to check if **any** `value` is a [`bigint`][js-bigint] type .
 
@@ -1072,7 +1091,7 @@ isBigInt(9007199254740991n); // Returns `true` as `value is bigint`
 #### `isBoolean()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isBoolean()` or `is.boolean()` to check if **any** `value` is a [`boolean`][js-boolean] type, or the obtained type from its `Object.prototype` equal to `'boolean'`, or an [`object`][js-object] type and an instance of [`Boolean`][js-boolean] that is equal to `true` or `false`.
 
@@ -1167,7 +1186,7 @@ typeof stringAsBoolean; // "object"
 #### `isBooleanObject()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isBooleanObject()` or `is.booleanObject()` to check if **any** `value` is of the type obtained from its `Object.prototype` equal to `'boolean'` or an [`object`][js-object] type, and an instance of [`Boolean`][js-boolean] that is equal to `true` or `false`.
 
@@ -1223,7 +1242,7 @@ isBooleanObject(new Boolean(false)); // true
 #### `isBooleanType()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isBooleanType()` or `is.booleanType()` to check if **any** `value` is a [`boolean`][js-boolean] type equal to `true` or `false`.
 
@@ -1277,7 +1296,7 @@ isBooleanType(new Boolean(false)); // false
 #### `isClass()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isClass()` or `is.class()` to check if **any** `value` is a [`function`][js-function] type or of the type obtained from its `Object.prototype` equal to `'function'` and an instance of [`Function`][js-function]. It also **confirms**  it's a [`class`][ts-classes] by using [`regexp`][js-regexp] on the obtained string from its `Function.prototype`.
 
@@ -1350,7 +1369,7 @@ isClass(() => 5, (result, value, payload) => {
 #### `isDate()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isDate()` or `is.date()` to check if **any** `value` is of the type obtained from its `Object.prototype` equal to `'date'` or an [`object`][js-object] type, and an instance of [`Date`][js-date]. The `value` is checked against a valid date by using [`isNaN()`][js-isnan] function.
 
@@ -1422,7 +1441,7 @@ isDate(DATE, (result, payload) => {
 #### `isDefined()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isDefined()` or `is.defined()` to check if **any** `value` is **not** an [`undefined`][js-undefined] type and is **not** equal to [`undefined`][js-undefined].
 
@@ -1492,7 +1511,7 @@ isDefined('age', (result, value, payload) => {
 #### `isFalse()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isFalse()` or `is.false()` to check if **any** `value` is a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] by using [`isBoolean()`](#isboolean) function, that is equal to `false`.
 
@@ -1559,7 +1578,7 @@ isFalse(new Boolean(false), (result, value, payload) => {
 #### `isFunction()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isFunction()` or `is.function()` to check if **any** `value` is a [`function`][js-function] type or of the type obtained from its `Object.prototype` equal to `'function'` and an instance of [`Function`][js-function]. It also **denies** it's a [`class`][ts-classes] by using [`RegExp`][js-regexp] on the obtained string from its `Function.prototype`.
 
@@ -1631,7 +1650,7 @@ isFunction(() => 5, (result, value, payload) => {
 #### `isInstance()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isInstance()` or `is.instance()` to check if **any** `value` is an instance of a given [`Constructor`](#constructor).
 
@@ -1734,7 +1753,7 @@ isInstance(new String(), String), // Returns `true` as `value is String`
 #### `isKey()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isKey()` or `is.key()` to check if **any** `value` is one of the [`string`][js-string], [`number`][js-number], or [`symbol`][js-symbol] type.
 
@@ -1800,7 +1819,7 @@ isKey(SYMBOL_STRING); // true
 #### `isNull()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isNull()` or `is.null()` to check if **any** `value` is of the type obtained from its `Object.prototype` equal to `'null'` or an [`object`][js-object] type that is equal to [`null`][js-null].
 
@@ -1854,7 +1873,7 @@ isNull(27); // false
 #### `isNumber()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isNumber()` or `is.number()` to check if **any** `value` is a [`number`][js-number] type, or of the type obtained from its `Object.prototype` equal to `'number'` or an [`object`][js-object] type and an instance of [`Number`][js-number]. The value is also checked by the [`isFinite()`][js-isfinite] function to determine whether it's finite and is validated by the [`Number.isNaN()`][js-numberisnan] function.
 
@@ -1913,7 +1932,7 @@ isNumber(new Number(10304050)); // true
 #### `isNumberBetween()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isNumberBetween()` or `is.numberBetween()` to check if **any** `value` is a [`number`][js-number] type or an instance of [`Number`][js-number] by using [`isNumber()`](#isnumber), between a specified range.
 
@@ -1997,7 +2016,7 @@ isNumberBetween(ageBox, 13, 13); // true; The return type `value is NumberBetwee
 #### `isNumberObject()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isNumberObject()` or `is.numberObject()` to check if **any** `value` is of the type obtained from its `Object.prototype` equal to `'number'`, or an [`object`][js-object] type and an instance of [`Number`][js-number] and is also checked by the [`isFinite()`][js-isfinite] function to determine whether it's finite and is validated by the [`Number.isNaN()`][js-numberisnan] function.
 
@@ -2055,7 +2074,7 @@ isNumberObject(new Number(10304050)); // true
 #### `isNumberType()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isNumberType()` or `is.numberType()` to check if **any** `value` is a [`number`][js-number] type and is checked by the [`isFinite()`][js-isfinite] function to determine whether it's finite and is validated by the [`Number.isNaN()`][js-numberisnan] function.
 
@@ -2110,7 +2129,7 @@ isNumberType(new Number(10304050)); // false
 #### `isObject()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isObject()` or `is.object()` to check if **any** `value` is an [`object`][js-object] type or of the type obtained from its `Object.prototype` equal to `'object'`, and an instance of [`Object`][js-object].
 
@@ -2193,7 +2212,7 @@ isObject(OBJECT_ONE); // true
 #### `isObjectKey()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isObjectKey()` or `is.objectKey()` to check if **any** `value` is an [`object`][js-object] by using the [`isObject()`](#isobject) function with its key of the `PropertyKey` type.
 The function uses [`hasOwnProperty`][js-hasownproperty] [`Object`][js-object] method to finds enumerable and non-enumerable `PropertyKey` as `string`, `number`, `symbol` unlike `Object.keys()`, but it can't find [`getter`][js-getter] property unlike [`in`][js-in-operator] operator, which can.
@@ -2314,7 +2333,7 @@ isObjectKey(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING]); // false
 #### `isObjectKeyIn()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isObjectKeyIn()` or `is.objectKeyIn()` to check if **any** `value` is an [`object`][js-object] by using the [`isObject()`](#isobject) function with a key of the `PropertyKey` in it(or its prototype chain) by using the [`in`][js-in-operator] operator.
 
@@ -2408,7 +2427,7 @@ isObjectKeyIn(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING]); // true
 #### `isObjectKeys()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isObjectKeys()` or `is.objectKeys()` to check if **any** `value` is an [`object`][js-object] by using the [`isObject()`](#isobject) with its keys.
 The function uses [`hasOwnProperty`][js-hasownproperty] of [`Object`][js-object] method to find enumerable and non-enumerable `PropertyKey` as `string`, `number`, `symbol` unlike `Object.keys()`, but it can't find [`getter`][js-getter] property unlike [`in`][js-in-operator] operator, which can.
@@ -2498,7 +2517,7 @@ Object.keys(person);
 #### `isObjectKeysIn()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isObjectKeysIn()` or `is.objectKeysIn()` to check if **any** `value` is an `object` by using the [`isObject()`](#isobject) function with keys in it(or its prototype chain) by using the [`in`][js-in-operator] operator.
 
@@ -2574,7 +2593,7 @@ isObjectKeysIn(person, ['notEnumerable']); // Returns `true` as `value is object
 #### `isObjectSomeKeys()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isObjectSomeKeys()` or `is.objectSomeKeys()` to check if **any** `value` is an [`object`][js-object] by using the [`isObject()`](#isobject) function with some of its keys or some groups of its keys of the `PropertyKey` type.
 Because of using [`some()`][js-array-some] on the provided `keys` parameter of [`Array`][js-array] its elements are treated as logic `or`, and if an element is an [`Array`][js-array] type its elements are treated as logic `and` because of using [`every()`][js-array-every].
@@ -2665,7 +2684,7 @@ isObjectSomeKeys(person, [['firstName1', 'surname1'], ['city1', 'no property']])
 #### `isPrimitive()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isPrimitive()` or `is.primitive()` to check if **any** `value` is the [`Primitive`](#primitive) type or type from a given `type` of the [`Primitives`](#primitives).
 
@@ -2754,7 +2773,7 @@ isPrimitive<undefined>(undefined, 'undefined'); // Returns `true` as `value is u
 #### `isRegExp()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isRegExp()` or `is.regexp()` to check if **any** `value` is a regular expression of the type obtained from its `Object.prototype` equal to `'regexp'`, or an [`object`][js-object] type, and an instance of [`RegExp`][js-regexp].
 
@@ -2808,7 +2827,7 @@ isRegExp(/[^a-z]/g); // true; The return type `value is RegExp`
 #### `isString()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isString()` or `is.string()` to check if **any** `value` is a [`string`][js-string] type by using the [`isStringType()`](#isstringtype) function or an instance of [`String`][js-string] by using the [`isStringObject()`](#isstringobject) function.
 
@@ -2874,7 +2893,7 @@ typeof fakeString; // "object"
 #### `isStringIncludes()`
 
 TODO: Done.
-[![new]](#500)
+[![new]][type-github-changelog]
 
 Use `isStringIncludes()` or `is.stringIncludes()` to check if **any** `value` is a [`string`][js-string] type or an instance of [`String`][js-string] by using [`isString()`](#isstring) that includes all of the specified words.
 
@@ -2939,7 +2958,7 @@ isStringIncludes(new String('This is artificial intelligence.'), [
 #### `isStringIncludesSome()`
 
 TODO: Done.
-[![new]](#500)
+[![new]][type-github-changelog]
 
 Use `isStringIncludesSome()` or `is.stringIncludesSome()` to check if **any** `value` is a [`string`][js-string] type or an instance of [`String`][js-string] by using [`isString()`](#isstring) that includes **some** of the specified words.
 
@@ -3004,7 +3023,7 @@ isStringIncludesSome(new String('This is artificial intelligence.'), [
 #### `isStringLength()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isStringLength()` or `is.stringLength()` to check if **any** `value` is a [`string`][js-string] type or an instance of [`String`][js-string] by using [`isString()`](#isstring) of `length` within the specified range.
 
@@ -3091,7 +3110,7 @@ isStringLength(firstNameBox, { min: 13, max: 13 }); // true; The return type `va
 #### `isStringObject()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isStringObject()` or `is.stringObject()` to check if **any** `value` is of the type obtained from its `Object.prototype` equal to `'string'` or an [`object`][js-object] type, and an instance of [`String`][js-string].
 
@@ -3146,7 +3165,7 @@ isStringObject(new String('age')) // Returns `true` as `value is String`
 #### `isStringType()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isStringType()` or `is.stringType()` to check if **any** `value` is a [`string`][js-string] type.
 
@@ -3199,7 +3218,7 @@ isStringType(new String('age')) // Returns `false` as `value is string`
 #### `isSymbol()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isSymbol()` or `is.symbol()` to check if **any** `value` is a [`symbol`][js-symbol] type.
 
@@ -3251,7 +3270,7 @@ isSymbol(Symbol('age')); // Returns `true` as `value is symbol`
 #### `isTrue()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isTrue()` or `is.true()` to check if **any** `value` is a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean](by using the [`isBoolean()`](#isboolean)) equal to `true`.
 
@@ -3302,7 +3321,7 @@ isTrue(false); // Returns `false` as `value is true`
 
 #### `isType()`
 
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isType()` or `is.type()` to check if **any** `value` is a type of [`Type`](#type) from a given `type` of the [`Types`](#types).
 
@@ -3402,7 +3421,7 @@ isType(person, Person, (result, value, payload) => {
 #### `isUndefined()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isUndefined()` or `is.undefined()` to check if **any** `value` is an [`undefined`][js-undefined] type.
 
@@ -3456,7 +3475,7 @@ isUndefined(27); // Returns `false` as `value is undefined`
 #### `isNotBoolean()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isNotBoolean()` or `is.not.boolean()` to check if the `value` of a generic `Type` is **not** of the type obtained from its `Object.prototype` equal to `'boolean'`, not a `boolean` type and not an instance of [`Boolean`][js-boolean].
 
@@ -3518,7 +3537,7 @@ isNotBoolean(objectBoolean); // false; return type is `value is never`
 #### `isNotDefined()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isNotDefined()` or `is.not.defined()` to check if the `value` of a generic `Type` is **not** of the type obtained from its `Object.prototype` equal to `'undefined'`, **not** an `undefined` type and is **not** equal to [`undefined`][js-undefined].
 
@@ -3580,7 +3599,7 @@ isNotDefined(surname); // false; return type is `value is never`
 #### `isNotFunction()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isNotFunction()` or `is.not.function()` to check if the `value` of a generic `Type` is **not** of the type obtained from its `Object.prototype` equal to `'function'`, **not** a `function` type and **not** an instance of [`Function`][js-function].
 
@@ -3641,7 +3660,7 @@ isNotFunction('maybe i am not a function'); // true; return type is `value is st
 #### `isNotNull()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isNotNull()` or `is.not.null()` to check if the `value` of a generic `Type` is **not** of the type obtained from its `Object.prototype` equal to `'null'` and **not** equal to [`null`][js-null].
 
@@ -3698,7 +3717,7 @@ isNotNull(firstName); // return type is `value is never`
 #### `isNotNumber()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isNotNumber()` or `is.not.number()` to check if the `value` of a generic `Type` is **not** of the type obtained from its `Object.prototype` equal to `'number'`, **not** a `number` type and **not** an instance of [`Number`][js-number].
 
@@ -3762,7 +3781,7 @@ isNotNumber(objectNumber); // return type is `value is never`
 #### `isNotString()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isNotString()` or `is.not.string()` to check if the `value` of a generic `Type` is **not** of the type obtained from its `Object.prototype` equal to `'string'`, **not** a `string` type and **not** an instance of [`String`][js-string].
 
@@ -3828,7 +3847,7 @@ isNotString(objectString); // return type is `value is never`
 #### `isNotUndefined()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `isNotUndefined()` or `is.not.undefined()` to check if the `value` of a generic `Type` is **not** of the type obtained from its `Object.prototype` equal to `'undefined'`, **not** an `undefined` type and **not** equal to [`undefined`][js-undefined].
 
@@ -3900,7 +3919,7 @@ if (is.not.undefined(config.a)) {
 
 #### `are.`
 
-[![update]](#500)
+[![update]][type-github-changelog]
 
 The object contains prefixed with **are** functions.
 
@@ -3920,12 +3939,12 @@ const are: Are = {
 
 #### `is.`
 
-[![update]](#500)
+[![update]][type-github-changelog]
 
 The object contains prefixed with **is** functions and prefixed with **isNot** functions in property `not`.
 
 ```typescript
-const is: Is = {
+const is: Is = Object.freeze({
   array: isArray,
   bigint: isBigInt,
   boolean: isBoolean,
@@ -3948,8 +3967,8 @@ const is: Is = {
   objectKey: isObjectKey,
   objectKeyIn: isObjectKeyIn,
   objectKeys: isObjectKeys,
-  objectKeysIn: isObjectKeysIn,
-  objectSomeKeys: isObjectSomeKeys,
+  objectKeysIn: isObjectKeysIn, // From the `5.0.0` version.
+  objectSomeKeys: isObjectSomeKeys, // From the `5.0.0` version.
   primitive: isPrimitive,
   regexp: isRegExp, // From the `4.2.0` version.
   string: isString,
@@ -3962,7 +3981,7 @@ const is: Is = {
   true: isTrue, // From the `4.2.0` version.
   type: isType,
   undefined: isUndefined
-};
+});
 ```
 
 <br>
@@ -4041,12 +4060,9 @@ check.is.string('my example string');
 
 #### `guardArray()`
 
-TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
-Use `guardArray()` or `guard.array()` to guard the `value` to be an [`array`][js-array] of a generic type variable `Type`.
-
-> The function guards only the array, not its specific elements.
+Use `guardArray()` or `guard.array()` to guard the value to be an [`array`][js-array] of a generic type variable `Type`. The function guards **only** the `array`, not its specific elements.
 
 ```typescript
 const guardArray = <Type, Payload extends object = object>(
@@ -4068,7 +4084,7 @@ const guardArray = <Type, Payload extends object = object>(
 
 | Name: type                                               | Description |
 | :------------------------------------------------------- | :---------- |
-| `value: Array<Type>`                                     | An `Array` of a generic type variable `Type`, implicitly of the type captured from the supplied `value`, to guard. |
+| `value: Array<Type>`                                     | An [`Array`][js-array] of a generic type variable `Type`, implicitly of the type captured from the supplied `value`, to guard. |
 | `callback?: ResultCallback<Array<Type>, typeof payload>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
 | `payload?: CallbackPayload<Payload>`                     | An optional [`object`][js-object] of [`CallbackPayload<Payload>`][package-callback-callbackpayload] type that is assigned to the `payload` of the provided `callback` function. |
 
@@ -4076,7 +4092,7 @@ const guardArray = <Type, Payload extends object = object>(
 
 | Returns                | Type      | Description |
 | :--------------------- | :-------: | :---------- |
-| `value is Array<Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is an [`Array`][js-array] of a generic type variable `Type` equal to the array element type of the supplied `value`. |
+| `value is Array<Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is an [`Array`][js-array] of a generic type variable `Type`, by default equal to the array element type of the supplied `value`. |
 
 The **return value** is a `boolean` indicating whether the `value` is an [`Array`][js-array] of a generic type variable `Type`.
 
@@ -4099,9 +4115,9 @@ guardArray([1, '2', 3n, undefined, null, Symbol(6), true]);
 
 #### `guardBigInt()`
 
-TODO: Done.
-[![update]](#500)
-Use `guardBigInt()` or `guard.bigint()` to guard the `value` to be a [`bigint`][js-bigint].
+[![update]][type-github-changelog]
+
+Use `guardBigInt()` or `guard.bigint()` to guard the value to be a [`bigint`][js-bigint].
 
 ```typescript
 const guardBigInt = <Payload extends object>(
@@ -4122,7 +4138,7 @@ const guardBigInt = <Payload extends object>(
 
 | Name: type                                          | Description |
 | :-------------------------------------------------- | :---------- |
-| `value: bigint`                                     | A [`bigint`][js-bigint] type `value` to guard. |
+| `value: bigint`                                     | A [`bigint`][js-bigint] type value to guard. |
 | `callback?: ResultCallback<bigint, typeof payload>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
 | `payload?: CallbackPayload<Payload>`                | An optional [`object`][js-object] of [`CallbackPayload<Payload>`][package-callback-callbackpayload] type that is assigned to the `payload` of the provided `callback` function. |
 
@@ -4146,9 +4162,9 @@ guardBigInt(false as any); // false, value is bigint
 
 #### `guardBoolean()`
 
-TODO: Done.
-[![update]](#500)
-Use `guardBoolean()` or `guard.boolean()` to guard the `value` to be boolean of any type.
+[![update]][type-github-changelog]
+
+Use `guardBoolean()` or `guard.boolean()` to guard the value to be boolean of any type.
 
 ```typescript
 const guardBoolean = <
@@ -4176,7 +4192,7 @@ const guardBoolean = <
 
 | Name: type                                        | Description |
 | :------------------------------------------------ | :---------- |
-| `value: Type`                                     | The `value` of [`AnyBoolean`](#anyboolean) type, by default of type captured from the supplied `value`, to guard. |
+| `value: Type`                                     | The value of a generic type variable `Type`, by default of the type captured from the supplied `value`, to guard. |
 | `callback?: ResultCallback<Type, typeof payload>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
 | `payload?: CallbackPayload<Payload>`              | An optional [`object`][js-object] of [`CallbackPayload<Payload>`][package-callback-callbackpayload] type that is assigned to the `payload` of the provided `callback` function. |
 
@@ -4202,12 +4218,9 @@ guardBoolean(new Boolean(false)) // true, value is Boolean
 
 #### `guardClass()`
 
-TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
-Use `guardClass()` or `guard.class()` to guard the `value` to be a [`class`][ts-classes] of generic type variable `Class`.
-
-> The function guards only the [`class`][ts-classes], not its specific elements.
+Use `guardClass()` or `guard.class()` to guard the value to be a [`class`][ts-classes] of generic type variable `Class`.
 
 ```typescript
 const guardClass = <
@@ -4232,7 +4245,7 @@ const guardClass = <
 
 | Name: type                                         | Description |
 | :------------------------------------------------- | :---------- |
-| `value: Class`                                     | The `value` of a generic type variable `Class` constrained by the [`Function`][ts-function], by default of the type captured from the provided `value` to guard. |
+| `value: Class`                                     | The [`class`][ts-classes] of a generic type variable `Class`, by default of the type captured from the provided `value` parameter, to guard. |
 | `callback?: ResultCallback<Class, typeof payload>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
 | `payload?: CallbackPayload<Payload>`               | An optional [`object`][js-object] of [`CallbackPayload<Payload>`][package-callback-callbackpayload] type that is assigned to the `payload` of the provided `callback` function. |
 
@@ -4300,10 +4313,9 @@ guardClass<Class>(FUNCTION); // type error
 
 #### `guardDate()`
 
-TODO: Usage.
-[![update]](#500)
+[![new]][type-github-changelog]
 
-Use `guardDate()` or `guard.date()` to guard the `value` to be [`Date`][js-date].
+Use `guardDate()` or `guard.date()` to guard the value to be a [`Date`][js-date] type.
 
 ```typescript
 const guardDate = <Payload extends object>(
@@ -4324,7 +4336,7 @@ const guardDate = <Payload extends object>(
 
 | Name: type                                        | Description |
 | :------------------------------------------------ | :---------- |
-| `value: Date`                                     | The `value` of [`Date`][js-date] type to guard. |
+| `value: Date`                                     | The value of [`Date`][js-date] type to guard. |
 | `callback?: ResultCallback<Date, typeof payload>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
 | `payload?: CallbackPayload<Payload>`              | An optional [`object`][js-object] of [`CallbackPayload<Payload>`][package-callback-callbackpayload] type that is assigned to the `payload` of the provided `callback` function. |
 
@@ -4334,7 +4346,7 @@ const guardDate = <Payload extends object>(
 | :-------------- | :-------: | :---------- |
 | `value is Date` | `boolean` | The **return type** is a `boolean` as the result of its statement `value` is [`Date`][js-date]. |
 
-The **return value** is a `boolean` indicating whether the `value` is a date.
+The **return value** is a `boolean` indicating whether the `value` is a [`Date`][js-date].
 
 **Usage:**
 
@@ -4342,16 +4354,20 @@ The **return value** is a `boolean` indicating whether the `value` is a date.
 // Example usage.
 import { guardDate } from '@angular-package/type';
 
+guardDate(new Date('December 17, 1995 03:24:00')); // true, value is Date
+guardDate(new Date('1995-12-17T03:24:00')); // true, value is Date
+guardDate(new Date(1995, 11, 17)); // true, value is Date
+guardDate(new Date(1995, 11, 17, 3, 24, 0)); // true, value is Date
+guardDate(new Date(628021800000)); // true, value is Date
 ```
 
 <br>
 
 #### `guardDefined()`
 
-TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
-Use `guardDefined()` or `guard.defined()` to guard the `value` to be defined.
+Use `guardDefined()` or `guard.defined()` to guard the value to be defined.
 
 ```typescript
 const guardDefined = <Type, Payload extends object = object>(
@@ -4386,7 +4402,7 @@ const guardDefined = <Type, Payload extends object = object>(
 | :----------------------- | :-------: | :---------- |
 | `value is Defined<Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement `value` is [`Defined<Type>`](#defined) (that depends on a generic type variable `Type`), which means by default is equal to the type captured from the provided `value`, but captured type `undefined` changes to `never`. |
 
-The **return value** is a `boolean` indicating whether the `value` is defined.
+The **return value** is a `boolean` indicating whether the `value` is **defined**.
 
 **Usage:**
 
@@ -4405,10 +4421,9 @@ guardDefined(firstName); // true; return type `value is string`
 
 #### `guardFalse()`
 
-TODO: Done.
-[![update]](#500)
+[![new]][type-github-changelog]
 
-Use `guardFalse()` or `guard.false()` to guard the `value` to be `false`.
+Use `guardFalse()` or `guard.false()` to guard the value to be `false`.
 
 ```typescript
 const guardFalse = <Payload extends object>(
@@ -4432,7 +4447,7 @@ const guardFalse = <Payload extends object>(
 
 | Name: type                                         | Description |
 | :------------------------------------------------- | :---------- |
-| `value: false`                                     | The `value` of `false` type to guard. |
+| `value: false`                                     | The value of `false` type to guard. |
 | `callback?: ResultCallback<false, typeof payload>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
 | `payload?: CallbackPayload<Payload>`               | An optional [`object`][js-object] of [`CallbackPayload<Payload>`][package-callback-callbackpayload] type that is assigned to the `payload` of the provided `callback` function. |
 
@@ -4463,12 +4478,9 @@ guardFalse(new Boolean(valFalse) as any); // true, value is false
 
 #### `guardFunction()`
 
-TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
-Use `guardFunction()` or `guard.function()` to guard the `value` to be a [`Function`][js-function].
-
-> The function guards only the generic [`function`][js-function] type, not the specific function.
+Use `guardFunction()` or `guard.function()` to guard the value to be a [`Function`][js-function]. The function guards only generic [`function`][js-function] type, not specific function.
 
 ```typescript
 const guardFunction = <Type extends Function, Payload extends object>(
@@ -4493,7 +4505,7 @@ const guardFunction = <Type extends Function, Payload extends object>(
 
 | Name: type                                            | Description |
 | :---------------------------------------------------- | :---------- |
-| `value: Type`                                         | The value of a generic type variable `Type`, constrained by the [`Function`][js-function] type, by default of the type captured from the provided `value` to guard. |
+| `value: Type`                                         | The `function` of a generic type variable `Type`, by default of the type captured from the provided `value`, to guard. |
 | `callback?: ResultCallback<Function, typeof payload>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
 | `payload?: CallbackPayload<Payload>`                  | An optional [`object`][js-object] of [`CallbackPayload<Payload>`][package-callback-callbackpayload] type that is assigned to the `payload` of the provided `callback` function. |
 
@@ -4520,10 +4532,9 @@ guardFunction((x: number, y: number) => x + y); // true value is (x: number, y: 
 
 #### `guardInstance()`
 
-TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
-Use `guardInstance()` or `guard.instance()` to guard the `value` to be an instance of the given `constructor` of [`Constructor`](#constructor) type.
+Use `guardInstance()` or `guard.instance()` to guard the value to be an instance of the given `constructor` of [`Constructor`](#constructor) type.
 
 ```typescript
 const guardInstance = <
@@ -4608,10 +4619,9 @@ guardInstance(personsInstance, Persons); // true
 
 #### `guardKey()`
 
-TODO: Usage.
-[![update]](#500)
+[![update]][type-github-changelog]
 
-Use `guardKey()` or `guard.key()` to guard the `value` to be one of the `string`, `number`, or `symbol`.
+Use `guardKey()` or `guard.key()` to guard the value to be one of the `string`, `number`, or `symbol`.
 
 ```typescript
 const guardKey = <Payload extends object>(
@@ -4632,7 +4642,7 @@ const guardKey = <Payload extends object>(
 
 | Name: type                                               | Description |
 | :------------------------------------------------------- | :---------- |
-| `value: PropertyKey`                                     | The `value` of a `PropertyKey` type to guard.  |
+| `value: PropertyKey`                                     | The value of `PropertyKey` type to guard. |
 | `callback?: ResultCallback<PropertyKey, typeof payload>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
 | `payload?: CallbackPayload<Payload>`                     | An optional [`object`][js-object] of [`CallbackPayload<Payload>`][package-callback-callbackpayload] type that is assigned to the `payload` of the provided `callback` function. |
 
@@ -4650,6 +4660,13 @@ The **return value** is a `boolean` indicating whether the `value` is a `Propert
 // Example usage.
 import { guardKey } from '@angular-package/type';
 
+guardKey('string key'); // true, value is PropertyKey
+guardKey(27); // true, value is PropertyKey
+guardKey(Symbol('string key')); // true, value is PropertyKey
+guardKey(Symbol(27)); // true, value is PropertyKey
+
+guardKey(new String('string key') as any); // false, value is PropertyKey
+guardKey(new Number(27) as any); // false, value is PropertyKey
 ```
 
 <br>
@@ -4657,9 +4674,9 @@ import { guardKey } from '@angular-package/type';
 #### `guardNull()`
 
 TODO: Usage.
-[![update]](#500)
+[![update]][type-github-changelog]
 
-Use `guardNull()` or `guard.null()` to guard the `value` to be `null`.
+Use `guardNull()` or `guard.null()` to guard the value to be `null`.
 
 ```typescript
 const guardNull = <Payload extends object>(
@@ -4698,16 +4715,17 @@ The **return value** is a `boolean` indicating whether the `value` is `null`.
 // Example usage.
 import { guardNull } from '@angular-package/type';
 
+guardNull(null); // true, value is null
+guardNull(undefined as any); // false, value is null
 ```
 
 <br>
 
 #### `guardNumber()`
 
-TODO: Usage.
-[![update]](#500)
+[![update]][type-github-changelog]
 
-Use `guardNumber()` or `guard.number()` to guard the `value` to be `number` of any type.
+Use `guardNumber()` or `guard.number()` to guard the value to be a [`number`][js-number] of any type.
 
 ```typescript
 const guardNumber = <
@@ -4732,7 +4750,7 @@ const guardNumber = <
 
 | Name: type                                        | Description |
 | :------------------------------------------------ | :---------- |
-| `value: Type`                                     | The `value` of a generic type variable `Type` constrained by [`AnyNumber`](#anynumber), by default of the type captured from the provided `value` to guard. |
+| `value: Type`                                     | The value of a generic type variable `Type` constrained by [`AnyNumber`](#anynumber), by default of the type captured from the provided `value` to guard. |
 | `callback?: ResultCallback<Type, typeof payload>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
 | `payload?: CallbackPayload<Payload>`              | An optional [`object`][js-object] of [`CallbackPayload<Payload>`][package-callback-callbackpayload] type that is assigned to the `payload` of the provided `callback` function. |
 
@@ -4750,14 +4768,24 @@ The **return value** is a `boolean` indicating whether the `value` is a `number`
 // Example usage.
 import { guardNumber } from '@angular-package/type';
 
+guardNumber(3); // true, value is number
+guardNumber(3.14); // true, value is number
+guardNumber(3.500); // true, value is number
+guardNumber(Infinity); // false, value is number
+guardNumber(NaN); // false, value is number
+
+guardNumber(new Number(3)); // true, value is Number
+guardNumber(new Number(3.14)); // true, value is Number
+guardNumber(new Number(3.500)); // true, value is Number
+guardNumber(new Number(Infinity)); // false, value is Number
+guardNumber(new Number(NaN)); // false, value is Number
 ```
 
 <br>
 
 #### `guardNumberBetween()`
 
-TODO: Usage.
-[![update]](#500)
+[![new]][type-github-changelog]
 
 Use `guardNumberBetween()` or `guard.numberBetween()` to guard the `value` to be [`number`][js-number] between the specified range.
 
@@ -4792,7 +4820,7 @@ const guardNumberBetween = <
 
 | Name: type                                        | Description |
 | :------------------------------------------------ | :---------- |
-| `value: Type`                                     | The `value` of a generic type variable `Type` constrained by [`AnyNumber`](#anynumber), by default of the type captured from the provided `value` to guard. |
+| `value: Type`                                     | The value of a generic type variable `Type` constrained by [`AnyNumber`](#anynumber), by default of the type captured from the provided `value`, to guard. |
 | `range: MinMax<Min, Max>`                         | An [`object`][js-object] of optional minimum and maximum `range` of a given `value`. |
 | `callback?: ResultCallback<Type, typeof payload>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
 | `payload?: CallbackPayload<Payload>`              | An optional [`object`][js-object] of [`CallbackPayload<Payload>`][package-callback-callbackpayload] type that is assigned to the `payload` of the provided `callback` function. |
@@ -4811,18 +4839,32 @@ The **return value** is a `boolean` indicating whether the `value` is a `number`
 // Example usage.
 import { guardNumberBetween } from '@angular-package/type';
 
+guardNumberBetween(Infinity, {min: 0}); // false, value is number
+guardNumberBetween(NaN, {min: 0}); // false, value is number
+guardNumberBetween(new Number(Infinity), {min: 0}); // false, value is Number
+guardNumberBetween(new Number(NaN), {min: 0}); // false, value is Number
+
+// Minimum.
+guardNumberBetween(3, {min: 3 }); // true, value is number
+guardNumberBetween(new Number(3), {min: 2 }); // true, value is Number
+guardNumberBetween(3, {min: 4 }); // false, value is number
+
+// Maximum.
+guardNumberBetween(3, {max: 3 }); // true, value is number
+guardNumberBetween(3, {max: 2 }); // false, value is number
+
+// Minimum and Maximum.
+guardNumberBetween(3, {min: 1, max: 3 }); // true, value is number
+guardNumberBetween(3, {min: 4, max: 2 }); // false, value is number
 ```
 
 <br>
 
 #### `guardObject()`
 
-TODO: Usage.
-[![update]](#500)
+[![update]][type-github-changelog]
 
-Use `guardObject()` or `guard.object()` to guard the `value` to be an `object` of a generic type variable `Obj`.
-
-> The function guards only the generic [`object`][js-object] type, not the **specific** object.
+Use `guardObject()` or `guard.object()` to guard the value to be an `object` of a generic type variable `Obj`. The function guards only generic [`object`][js-object] type, not **specific** object.
 
 ```typescript
 const guardObject = <
@@ -4865,16 +4907,21 @@ The **return value** is a `boolean` indicating whether the `value` is an `object
 // Example usage.
 import { guardObject } from '@angular-package/type';
 
+class Person {}
+const o = {};
+const p = new Person();
+
+guardObject(o); // true, value is {}
+guardObject(p); // true, value is Person
 ```
 
 <br>
 
 #### `guardObjectKey()`
 
-TODO: Usage.
-[![update]](#500)
+[![update]][type-github-changelog]
 
-Use `guardObjectKey()` or `guard.objectKey()` to guard the `value` to be an [`object`][js-object] of a generic `Obj` type that contains the `key`.
+Use `guardObjectKey()` or `guard.objectKey()` to guard the value to be an [`object`][js-object] of a generic `Obj` type that contains the given `key`.
 
 ```typescript
 const guardObjectKey = <
@@ -4924,16 +4971,50 @@ The **return value** is a `boolean` indicating whether the `value` is an `object
 // Example usage.
 import { guardObjectKey } from '@angular-package/type';
 
+const NUMBER = 10304050;
+const STRING = '!@#$%^&*()abcdefghijklmnoprstuwyz';
+const SYMBOL_NUMBER: unique symbol = Symbol(NUMBER);
+
+interface ObjectOne {
+  1030405027?: string;
+  [NUMBER]: number;
+  [STRING]: string;
+  [SYMBOL_NUMBER]?: string;
+}
+
+const OBJECT_ONE: ObjectOne = {
+  1030405027: 'key is number',
+  [STRING]: 'key is string',
+  [SYMBOL_NUMBER]: 'key is symbol number',
+  get [NUMBER](): number {
+    return NUMBER;
+  },
+};
+
+guardObjectKey(OBJECT_ONE, 1030405027); // true, value is ObjectOne
+guardObjectKey(OBJECT_ONE, SYMBOL_NUMBER); // true, value is ObjectOne
+guardObjectKey(OBJECT_ONE, STRING); // true, value is ObjectOne
+// Getter found in the object.
+guardObjectKey(OBJECT_ONE, NUMBER); // true, value is ObjectOne
+
+// Searching in an instance of `Class`.
+class Class {
+  get [NUMBER](): number {
+    return NUMBER;
+  }
+}
+const CLASS = new Class();
+// Getter not found.
+guardObjectKey(CLASS, NUMBER); // false, value is Class
 ```
 
 <br>
 
 #### `guardObjectKeyIn()`
 
-TODO: Usage.
-[![update]](#500)
+[![new]][type-github-changelog]
 
-Use `guardObjectKeyIn()` or `guard.objectKeyIn()` to guard the `value` to be an [`object`][js-object] of a generic `Obj` type that contains(or its prototype chain) the given `key`.
+Use `guardObjectKeyIn()` or `guard.objectKeyIn()` to guard the value to be an [`object`][js-object] of a generic type variable `Obj` that contains(or its prototype chain) the given `key`.
 
 ```typescript
 const guardObjectKeyIn = <
@@ -4983,14 +5064,45 @@ The **return value** is a `boolean` indicating whether the `value` is an `object
 // Example usage.
 import { guardObjectKeyIn } from '@angular-package/type';
 
+const NUMBER = 10304050;
+const STRING = '!@#$%^&*()abcdefghijklmnoprstuwyz';
+const SYMBOL_NUMBER: unique symbol = Symbol(NUMBER);
+
+interface ObjectOne {
+  1030405027?: string;
+  [NUMBER]: number;
+  [STRING]: string;
+  [SYMBOL_NUMBER]?: string;
+}
+const OBJECT_ONE: ObjectOne = {
+  1030405027: 'key is number',
+  [STRING]: 'key is string',
+  [SYMBOL_NUMBER]: 'key is symbol number',
+  get [NUMBER](): number {
+    return NUMBER;
+  },
+};
+guardObjectKeyIn(OBJECT_ONE, 1030405027); // true, value is ObjectOne
+guardObjectKeyIn(OBJECT_ONE, SYMBOL_NUMBER); // true, value is ObjectOne
+guardObjectKeyIn(OBJECT_ONE, STRING); // true, value is ObjectOne
+guardObjectKeyIn(OBJECT_ONE, NUMBER); // true, value is ObjectOne
+
+// Searching in an instance of `Class`.
+class Class {
+  get [NUMBER](): number {
+    return NUMBER;
+  }
+}
+const CLASS = new Class();
+// Getter found.
+guardObjectKeyIn(CLASS, NUMBER); // true, value is Class
 ```
 
 <br>
 
 #### `guardObjectKeys()`
 
-TODO: Usage.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `guardObjectKeys()` or `guard.objectKeys()` to guard the value to be an [`object`][js-object] of a generic type variable `Obj` with its specified `keys`.
 
@@ -5038,25 +5150,58 @@ The **return value** is a `boolean` indicating whether or not the `value` is an 
 // Example usage.
 import { guardObjectKeys } from '@angular-package/type';
 
+const NUMBER = 10304050;
+const STRING = '!@#$%^&*()abcdefghijklmnoprstuwyz';
+const SYMBOL_NUMBER: unique symbol = Symbol(NUMBER);
+
+interface ObjectOne {
+  1030405027?: string;
+  [NUMBER]: number;
+  [STRING]: string;
+  [SYMBOL_NUMBER]?: string;
+}
+const OBJECT_ONE: ObjectOne = {
+  1030405027: 'key is number',
+  [STRING]: 'key is string',
+  [SYMBOL_NUMBER]: 'key is symbol number',
+  get [NUMBER](): number {
+    return NUMBER;
+  },
+};
+
+guardObjectKeys(OBJECT_ONE, [
+  STRING,
+  SYMBOL_NUMBER,
+  NUMBER,
+  1030405027]); // true, value is Class
+
+// Searching in an instance of `Class`.
+class Class {
+  get [NUMBER](): number {
+    return NUMBER;
+  }
+}
+const CLASS = new Class();
+// Getter not found.
+guardObjectKeys(CLASS, [NUMBER]); // false, value is Class
+
 ```
 
 <br>
 
 #### `guardObjectSomeKeys()`
 
-TODO: Usage.
-[![update]](#500)
+[![new]][type-github-changelog]
 
 Use `guardObjectSomeKeys()` or `guard.objectSomeKeys()` to guard the value to be an [`object`][js-object] of a generic type variable `Obj` with some of its `keys` or some groups of its `keys`. The function uses [`isObjectSomeKeys()`](#isobjectsomekeys) to search for the `keys`.
 
 ```typescript
 const guardObjectSomeKeys = <
   Obj extends object,
-  Key extends keyof Obj,
   Payload extends object = object
 >(
   value: Obj,
-  keys: (Key | Array<Key>)[],
+  keys: (keyof Obj | Array<keyof Obj>)[],
   callback?: ResultCallback<Obj, typeof payload>,
   payload?: CallbackPayload<{ keys: typeof keys } & Payload>
 ): value is Obj => isObjectSomeKeys(value, keys, callback);
@@ -5067,7 +5212,6 @@ const guardObjectSomeKeys = <
 | Name      | Default value    | Description |
 | :-------- | :--------------- | :---------- |
 | `Obj`     | From the `value` | A generic type variable `Obj` guarded by [`object`][js-object], by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Obj`. |
-| `Keys`    | From the `keys`  | A generic type variable `Keys` constrained by the `keyof Obj`, by default of value captured from the supplied `keys` indicates the specific property name of `Obj`. |
 | `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
@@ -5075,7 +5219,7 @@ const guardObjectSomeKeys = <
 | Name: type                                                   | Description |
 | :----------------------------------------------------------- | :---------- |
 | `value: Obj`                                                 | An [`object`][js-object] of a generic type variable `Obj`, by default of the type captured from the `value` that contains some or some of the groups of the given `keys`, to guard. |
-| `(Key | Array<Key>)[]`                                       | An [`Array`][js-array] of property names or a two-dimensional array of property names to check if the given `value` contains some of them or some groups of them. |
+| `keys: (keyof Obj | Array<keyof Obj>)[]`                     | An [`Array`][js-array] of property names or a two-dimensional array of property names to check if the given `value` contains some of them or some groups of them. |
 | `callback?: ResultCallback<Obj, typeof payload>`             | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
 | `payload?: CallbackPayload<{ keys: typeof keys } & Payload>` | An optional [`object`][js-object] of [`CallbackPayload<Payload>`][package-callback-callbackpayload] type that is assigned to the `payload` of the provided `callback` function. |
 
@@ -5093,6 +5237,34 @@ The **return value** is a `boolean` indicating whether the `value` is an `object
 // Example usage.
 import { guardObjectSomeKeys } from '@angular-package/type';
 
+const NUMBER = 10304050;
+const STRING = '!@#$%^&*()abcdefghijklmnoprstuwyz';
+const SYMBOL_NUMBER: unique symbol = Symbol(NUMBER);
+
+interface ObjectOne {
+  1030405027?: string;
+  [NUMBER]: number;
+  [STRING]: string;
+  [SYMBOL_NUMBER]?: string;
+}
+const OBJECT_ONE: ObjectOne = {
+  1030405027: 'key is number',
+  [STRING]: 'key is string',
+  [SYMBOL_NUMBER]: 'key is symbol number',
+  get [NUMBER](): number {
+    return NUMBER;
+  },
+};
+
+guardObjectSomeKeys(OBJECT_ONE, [NUMBER, STRING]), // true, value is ObjectOne
+guardObjectSomeKeys(OBJECT_ONE, ['no property' as any, STRING]), // true, value is ObjectOne
+guardObjectSomeKeys(OBJECT_ONE, ['no property', 2 as any ]), // false, value is ObjectOne
+guardObjectSomeKeys(OBJECT_ONE, [['no property'], [2 as any] ]), // false, value is ObjectOne
+guardObjectSomeKeys(OBJECT_ONE, [
+  [1030405027, NUMBER], // Or
+  [1030405027, STRING], // Or
+  [1030405027, SYMBOL_NUMBER]
+]); // true, value is ObjectOne
 ```
 
 <br>
@@ -5100,7 +5272,7 @@ import { guardObjectSomeKeys } from '@angular-package/type';
 #### `guardPrimitive()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Use `guardPrimitive()` or `guard.primitive()` to guard the `value` to be the [`Primitive`](#primitive) type or the given `type` of the [`Primitives`](#primitives).
 
@@ -5125,14 +5297,14 @@ const guardPrimitive = <
 
 | Name      | Default value    | Description |
 | :-------- | :--------------- | :---------- |
-| `Type`    | From the `value` | A generic type variable `Type` guarded by [`Primitive`](#primitive), by default captured from the supplied `value` indicates the type of the `value` via the return type `value is Type`. |
+| `Type`    | From the `value` | A generic type variable `Type` guarded by [`Primitive`](#primitive), by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Type`. |
 | `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                        | Description |
 | :------------------------------------------------ | :---------- |
-| `value: Type`                                     | The `value` of a generic type variable `Type` constrained by the [`Primitive`](#primitive), by default of the type captured from the provided `value` to guard. |
+| `value: Type`                                     | The value of a generic type variable `Type` constrained by the [`Primitive`](#primitive), by default of the type captured from the provided `value` to guard. |
 | `type: Primitives`                                | An optional specific type of [`Primitives`](#primitives) to check the given value. |
 | `callback?: ResultCallback<Type, typeof payload>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
 | `payload?: CallbackPayload<Payload>`              | An optional [`object`][js-object] of [`CallbackPayload<Payload>`][package-callback-callbackpayload] type that is assigned to the `payload` of the provided `callback` function. |
@@ -5143,13 +5315,20 @@ const guardPrimitive = <
 | :-------------- | :-------: | :---------- |
 | `value is Type` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is [`Primitive`](#primitive), by default of type captured from the supplied `value`. |
 
-The **return value** is a `boolean` indicating whether the `value` is the [`Primitive`](#primitive) type or the given `type` of [`Primitives`](#primitives) .
+The **return value** is a `boolean` indicating whether the `value` is the [`Primitive`](#primitive) type or the given `type` of [`Primitives`](#primitives).
 
 **Usage:**
 
 ```typescript
 // Example usage.
 import { guardPrimitive } from '@angular-package/type';
+
+// Any primitive.
+guardPrimitive('x'); // true, value is 'x'
+guardPrimitive(1); // true, value is 1
+guardPrimitive(true), // true, value is true
+guardPrimitive(undefined); // true, value is undefined
+guardPrimitive(null); // true, value is null
 
 // string.
 const firstName = 'firstName';
@@ -5193,9 +5372,9 @@ guardPrimitive(Symbol(firstName), 'symbol'); // true; return type `value is symb
 
 #### `guardRegExp()`
 
-TODO: Done.
-[![update]](#500)
-Use `guardRegExp()` or `guard.regexp()` to guard the `value` to be a [`RegExp`][js-regexp].
+[![new]][type-github-changelog]
+
+Use `guardRegExp()` or `guard.regexp()` to guard the value to be a [`RegExp`][js-regexp].
 
 ```typescript
 const guardRegExp = <Payload extends object>(
@@ -5216,7 +5395,7 @@ const guardRegExp = <Payload extends object>(
 
 | Name: type                                          | Description |
 | :-------------------------------------------------- | :---------- |
-| `value: RegExp`                                     | A [`RegExp`][js-regexp] type `value` to guard. |
+| `value: RegExp`                                     | A [`RegExp`][js-regexp] type value to guard. |
 | `callback?: ResultCallback<RegExp, typeof payload>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
 | `payload?: CallbackPayload<Payload>`                | An optional [`object`][js-object] of [`CallbackPayload<Payload>`][package-callback-callbackpayload] type that is assigned to the `payload` of the provided `callback` function. |
 
@@ -5240,10 +5419,9 @@ guardRegExp(false as any); // false, value is RegExp
 
 #### `guardString()`
 
-TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
-Use `guardString()` or `guard.string()` to guard the `value` to be string of any type.
+Use `guardString()` or `guard.string()` to guard the value to be [`string`][js-string] of any type.
 
 ```typescript
 const guardString = <
@@ -5261,29 +5439,14 @@ const guardString = <
 
 | Name      | Default value    | Description |
 | :-------- | :--------------- | :---------- |
-| `Type`    | From the `value` | A generic type variable `Type` guarded by [`AnyBoolean`](#anyboolean), by default captured from the supplied `value` indicates the type of the `value` via the return type `value is Type`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
+| `Type`    | From the `value` | A generic type variable `Type` guarded by [`AnyString`](#anystring), by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Type`. |
+| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
-| Name: `type`                                      | Description |
-| :------------------------------------------------ | :---------- |
-| `value: Type`                                     | The `value` of [`AnyBoolean`](#anyboolean) type, by default of type captured from the supplied `value` - to guard. |
-| `callback?: ResultCallback<Type, typeof payload>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
-| `payload?: CallbackPayload<Payload>`              | An optional [`object`][js-object] of [`CallbackPayload<Payload>`][package-callback-callbackpayload] type that is assigned to the `payload` of the provided `callback` function. |
-
-**Generic type variables:**
-
-| Name      | Default value    | Description |
-| :-------- | :--------------- | :---------- |
-| `Type`    | From the `value` | A generic type variable `Type` guarded by [`AnyString`](#anystring), by default captured from the supplied `value` indicates the type of the `value` via the return type `value is Type`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and can be captured from a type of the provided `payload` optional parameter. |
-
-**Parameters:**
-
-| `Name: type`                                      | Description |
+| Name: type                                        | Description |
 |-------------------------------------------------- | :---------- |
-| `value: Type`                                     | An [`AnyString`](#anystring) type `value`, by default of a generic `S` type detected from the `value` to guard. |
+| `value: Type`                                     | The value of a generic type variable `Type` constrained by the [`AnyString`](#anystring), by default of the type captured from the provided `value` to guard. |
 | `callback?: ResultCallback<Type, typeof payload>` | An optional [`ResultCallback`][package-callback-resultcallback] type to handle the result before returns eg. to throw an [`Error`][js-error]. |
 | `payload?: CallbackPayload<Payload>`              | An optional [`object`][js-object] of [`CallbackPayload<Payload>`][package-callback-callbackpayload] type that is assigned to the `payload` of the provided `callback` function. |
 
@@ -5312,15 +5475,14 @@ guardString(firstName); // true; return type `value is "my name"`
 
 #### `guardStringLength()`
 
-TODO: Done.
-[![update]](#500)
+[![new]][type-github-changelog]
 
-Use `guardStringLength()` or `guard.stringLength()` to guard the `value` to be a `string` of a length between the specified range.
+Use `guardStringLength()` or `guard.stringLength()` to guard the value to be a [`string`][js-string] of a **length** between the specified range.
 
 ```typescript
 const guardStringLength = <
   Type extends AnyString,
-  Min extends number,f
+  Min extends number,
   Max extends number,
   Payload extends object = object
 >(
@@ -5346,12 +5508,12 @@ const guardStringLength = <
 
 **Parameters:**
 
-| Name: type                                        | Description |
-|-------------------------------------------------- | :---------- |
-| `value: Type`                                     | The `value` of a generic type variable `Type` constrained by [`AnyString`](#anystring), by default of the type captured from the provided `value` to guard. |
-| `length: MinMax<Min, Max>`                        | An [`object`][js-object] of optional minimum and maximum `length` of the given `value`. |
-| `callback?: ResultCallback<Type, typeof payload>` | An optional [`ResultCallback`][package-callback-resultcallback] type to handle the result before returns eg. to throw an [`Error`][js-error]. |
-| `payload?: CallbackPayload<Payload>`              | An optional [`object`][js-object] of [`CallbackPayload<Payload>`][package-callback-callbackpayload] type that is assigned to the `payload` of the provided `callback` function. |
+| Name: type                                              | Description |
+|-------------------------------------------------------- | :---------- |
+| `value: Type`                                           | The value of a generic type variable `Type` constrained by [`AnyString`](#anystring), by default of the type captured from the provided `value` to guard. |
+| `length: MinMax<Min, Max>`                              | An [`object`][js-object] of optional minimum and maximum `length` of the given `value`. |
+| `callback?: ResultCallback<Type, typeof payload>`       | An optional [`ResultCallback`][package-callback-resultcallback] type to handle the result before returns eg. to throw an [`Error`][js-error]. |
+| `payload?: CallbackPayload<MinMax<Min, Max> & Payload>` | An optional [`object`][js-object] of [`CallbackPayload<Payload>`][package-callback-callbackpayload] type that is assigned to the `payload` of the provided `callback` function. |
 
 **Returns:**
 
@@ -5365,13 +5527,12 @@ The **return value** is a `boolean` indicating whether the `value` is a `string`
 
 ```typescript
 // Example usage.
-import { guardString } from '@angular-package/type';
+import { guardStringLength } from '@angular-package/type';
 
-let letFirstName = 'not my name';
-guardString(letFirstName); // true; return type `value is string`
-
-const firstName = 'my name';
-guardString(firstName); // true; return type `value is "my name"`
+guardStringLength('not my name', {min: 11}); // true; return type `value is StringOfLength<11, number, "not my name">`
+guardStringLength('my name', { max: 11 }); // true; return type `value is StringOfLength<number, 11, "my name">`
+guardStringLength('not my name', {min: 11, max: 11}); // true; return type `value is StringOfLength<11, 11, "not my name">`
+guardStringLength('not my name', {min: 12, max: 15}); // false; return type `value is StringOfLength<12, 15, "not my name">`
 
 // Long text for the captured value type.
 const value = `Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -5389,10 +5550,9 @@ guardStringLength(value, { max: 3 }); // false, value is StringOfLength<number, 
 
 #### `guardSymbol()`
 
-TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
-Use `guardSymbol()` or `guard.symbol()` to guard the `value` to be a `symbol`.
+Use `guardSymbol()` or `guard.symbol()` to guard the value to be a [`symbol`][js-symbol].
 
 ```typescript
 const guardSymbol = <Payload extends object>(
@@ -5413,7 +5573,7 @@ const guardSymbol = <Payload extends object>(
 
 | Name: type                                          | Description |
 | :-------------------------------------------------- | :---------- |
-| `value: symbol`                                     | A `symbol` type `value` to guard. |
+| `value: symbol`                                     | A `symbol` type value to guard. |
 | `callback?: ResultCallback<symbol, typeof payload>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
 | `payload?: CallbackPayload<Payload>`                | An optional [`object`][js-object] of [`CallbackPayload<Payload>`][package-callback-callbackpayload] type that is assigned to the `payload` of the provided `callback` function. |
 
@@ -5442,10 +5602,9 @@ guardSymbol(SYMBOL_STRING); // true; return type `value is symbol`
 
 #### `guardTrue()`
 
-TODO: Done.
-[![update]](#500)
+[![new]][type-github-changelog]
 
-Use `guardTrue()` or `guard.true()` to guard the `value` to be `true`.
+Use `guardTrue()` or `guard.true()` to guard the value to be `true`.
 
 ```typescript
 const guardTrue = <Payload extends object>(
@@ -5466,7 +5625,7 @@ const guardTrue = <Payload extends object>(
 
 | Name: type                                        | Description |
 | :------------------------------------------------ | :---------- |
-| `value: true`                                     | The `value` of `true` type to guard. |
+| `value: true`                                     | The value of `true` type to guard. |
 | `callback?: ResultCallback<true, typeof payload>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
 | `payload?: CallbackPayload<Payload>`              | An optional [`object`][js-object] of [`CallbackPayload<Payload>`][package-callback-callbackpayload] type that is assigned to the `payload` of the provided `callback` function. |
 
@@ -5498,9 +5657,9 @@ guardTrue(new Boolean(valFalse) as any); // true, value is false
 #### `guardType()`
 
 TODO: Done.
-[![update]](#500)
+[![update]][type-github-changelog]
 
-Use `guardType()` or `guard.type()` to guard the `value` to be the [`Type`](#type) from a given `type` of the [`Types`](#types).
+Use `guardType()` or `guard.type()` to guard the value to be the [`Type`](#type) from a given `type` of the [`Types`](#types).
 
 ```typescript
 const guardType = <T extends Type, Payload extends object = object>(
@@ -5526,7 +5685,7 @@ const guardType = <T extends Type, Payload extends object = object>(
 
 | Name: type                                     | Description |
 | :--------------------------------------------- | :---------- |
-| `value: T`                                     | The `value` of a generic type variable `T` constrained by the [`Type`](#type), by default of the type captured from the provided `value` to guard. |
+| `value: T`                                     | The value of a generic type variable `T` constrained by the [`Type`](#type), by default of the type captured from the provided `value` to guard. |
 | `type: Types<T>`                               | The value of [`string`][js-string] or [`Constructor<T>`](#constructor) type of the [`Types`](#types) indicates against which type a given `value` is checked. |
 | `callback?: ResultCallback<T, typeof payload>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error] |
 | `payload?: CallbackPayload<Payload>`           | An optional [`object`][js-object] of [`CallbackPayload<Payload>`][package-callback-callbackpayload] type that is assigned to the `payload` of the provided `callback` function. |
@@ -5608,7 +5767,9 @@ guardType(someone, Person); // true; return type `value is Person`
 
 #### `guardUndefined()`
 
-Use `guardUndefined()` or `guard.undefined()` to guard the `value` to be [`undefined`][js-undefined].
+[![update]][type-github-changelog]
+
+Use `guardUndefined()` or `guard.undefined()` to guard the value to be [`undefined`][js-undefined].
 
 ```typescript
 const guardUndefined = <Payload extends object>(
@@ -5632,7 +5793,7 @@ const guardUndefined = <Payload extends object>(
 
 | Name: type                                             | Description |
 | :----------------------------------------------------- | :---------- |
-| `value: undefined`                                     | The `value` of an [`undefined`][js-undefined] type to guard. |
+| `value: undefined`                                     | The value of an [`undefined`][js-undefined] type to guard. |
 | `callback?: ResultCallback<undefined, typeof payload>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
 | `payload?: CallbackPayload<Payload>`                   | An optional [`object`][js-object] of [`CallbackPayload<Payload>`][package-callback-callbackpayload] type that is assigned to the `payload` of the provided `callback` function. |
 
@@ -5691,7 +5852,7 @@ gUndefined(5 as any); // false
 
 #### `guard.`
 
-[![update]](#500)
+[![update]][type-github-changelog]
 
 The object contains prefixed with **guard** functions, and in `is` property.
 
@@ -5723,29 +5884,48 @@ const guardIs: GuardIs = {
   type: guardType,
   undefined: guardUndefined
 };
-const guard: Guard = { ...guardIs, is: guardIs };
+const guard: Guard = Object.freeze({ ...guardIs, is: guardIs });
 ```
 
 <br>
 
 ## The `type.`
 
-The `object` consists of [`check`](#check) and [`guard`](#guard) objects.
+A [frozen][js-isfrozen] `object` consists of [`is`](#is), [`are`](#are), and [`guard`](#guard) objects.
 
 ```typescript
-const type = {
-  check,
+const type = Object.freeze({
+  are,
+  is,
   guard
-};
+});
 ```
 
 **Properties:**
 
-**`check`**  
-The `object` consists of [`are`](#are) and [`is`](#is) functions.
+**`are`**  
+The `object` consists of [`are`](#are) functions.
+
+**`is`**  
+The `object` consists of [`is`](#is) functions.
 
 **`guard`**  
 The `object` consists of [`guard`](#guard) functions.
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { type } from '@angular-package/type';
+
+// `is` functions
+type.is.boolean(true); // true, value is boolean
+type.is.array(true); // false, value is unknown[]
+
+// `guard` functions
+type.guard.number(3); // true, value is number
+
+```
 
 <br>
 
@@ -5765,10 +5945,10 @@ interface MinMax<Min extends number, Max extends number> {
 **Parameters:**
 
 **`min: Min`**  
-A generic type variable constrained by a `number` type as the minimum value.
+The minimum value of a generic type variable `Min` constrained by a `number` type.
 
 **`max: Max`**  
-A generic type variable constrained by a `number` type as the maximum value.
+The maximum value of a generic type variable `Max` constrained by a `number` type.
 
 <br>
 
@@ -5832,13 +6012,16 @@ type NotUndefined<T> = T extends undefined | null ? never : T;
 
 #### `NumberBetween`
 
-[![update]](#500)
+[![update]][type-github-changelog]
 
 A `number` type or an instance of a [`Number`][js-number] with its specified range. For the `strict` purpose generic variables `Min` and `Max` are constrained with the `number` type.
 
 ```typescript
-type NumberBetween<Min extends number, Max extends number> = AnyNumber &
-  MinMax<Min, Max>;
+type NumberBetween<
+  Min extends number,
+  Max extends number,
+  Type extends AnyNumber = number
+> = Type & MinMax<Min, Max>;
 ```
 
 #### `Primitive`
@@ -5873,31 +6056,35 @@ type Primitives =
 
 #### `ResultCallback`
 
-[![update]](#500)
+[![update]][type-github-changelog]
 
 Callback function for `callback` parameter.
 
 ```typescript
-type ResultCallback<Payload> = (
+type ResultCallback<Value = any, Payload = object> = (
   result: boolean,
+  value: Value,
   payload?: Payload
 ) => boolean;
 ```
 
 #### `StringOfLength`
 
-[![update]](#500)
+[![update]][type-github-changelog]
 
 A `string` type or an instance of a  [`String`][js-string] with its specified minimum and maximum length. Generic variables `Min` and `Max` are constrained with the `number` type.
 
 ```typescript
-type StringOfLength<Min extends number, Max extends number> = AnyString &
-  MinMax<Min, Max>;
+type StringOfLength<
+  Min extends number,
+  Max extends number,
+  Type extends AnyString = string
+> = Type & MinMax<Min, Max>;
 ```
 
 #### `Type`
 
-[![update]](#500)
+[![update]][type-github-changelog]
 
 The main types.
 
@@ -6171,19 +6358,9 @@ resultTRUE === {
 
 ## Changelog
 
-The **changelog** of this package is based on [*keep a changelog*](https://keepachangelog.com/en/1.0.0/). To read it, click on the [CHANGELOG.md](https://github.com/angular-package/error/blob/main/CHANGELOG.md) link.
+The **changelog** of this package is based on [*keep a changelog*](https://keepachangelog.com/en/1.0.0/). To read it, click on the [CHANGELOG.md](https://github.com/angular-package/type/blob/main/CHANGELOG.md) link.
 
 > A changelog is a file which contains a curated, chronologically ordered list of notable changes for each version of a project. - [*keep a changelog*](https://keepachangelog.com/en/1.0.0/)
-
-### 5.0.0
-
-* [`Is`](#is) interface changes types to use [`typeof`][js-typeof] operator.
-* Adds a generic type variable `Payload` constrained by the `object` type that is by default equal to the `object`.
-* Adds a `payload` parameter of generic variable type `Payload` to assign to callback function `payload` parameter.
-* Updates the type of callback function `ResultCallback` to [`ResultCallback<Payload>`][package-callback-resultcallback] to provide the shape of `payload`.
-* Passes function name that performed the callback function to callback function `payload` parameter.
-* Removes `Func` type to use build-in `Function` type.
-* Removes `Key` type to use build-in `PropertyKey` type.
 
 <br>
 
@@ -6357,6 +6534,7 @@ MIT © angular-package ([license][type-license])
 
   <!-- GitHub -->
   [type-github-readme]: https://github.com/angular-package/type#readme
+  [type-github-changelog]: https://github.com/angular-package/type/blob/main/CHANGELOG.md
 
   [package-type-resultcallback]: https://github.com/angular-package/type#resultcallback
   [package-type-key]: https://github.com/angular-package/type#key
@@ -6411,7 +6589,9 @@ MIT © angular-package ([license][type-license])
 
 [js-instanceof]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof
 [js-in-operator]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in
+
 [js-isfinite]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isFinite
+[js-isfrozen]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isFrozen
 [js-isnan]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN
 
 [js-map]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
