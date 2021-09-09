@@ -44,16 +44,18 @@ Common types, type guards and type checkers.
   * [Recognize value](#recognize-value)
   * [Precise check](#precise-check)
   * [Callback](#callback)
-* [Checks](#checks)
-  * [Functions](#checks)
+* [Check](#check)
+  * [Functions](#check)
+    * [`are`](#are-functions)
+    * [`is`](#is-functions)
+    * [`isNot`](#isnot-functions)
   * [Objects](#check-objects)
     * [`are`](#are)
     * [`is`](#is)
     * [`isNot`](#isnot)
-    * [`check`](#check)
-* [Guards](#guard)
+* [Guard](#guard)
   * [Functions](#guard-functions)
-  * [Object](#guard-object)
+  * [Objects](#guard-objects)
     * [`guard`](#guard)
 * [The `type`](#the-type)
 * [Common](#common)
@@ -560,7 +562,7 @@ isObject('x', customCallback, { database: '' });
 
 <br>
 
-## Checks
+## Check
 
 ### `are` functions
 
@@ -574,61 +576,6 @@ TODO:
 | [`areNumber()`](#arestring) | of a [`string`][js-string] type. |
 | [`areSymbol()`](#arestring) | of a [`string`][js-string] type. |
 | [`areUndefined()`](#arestring) | of a [`string`][js-string] type. |
-
-### `is` functions
-
-REVIEW:
-
-| Function                                          | Checks if any value is |
-| :------------------------------------------------ | :--------------------- |
-| [`isArray()`](#isarray)                           | the type obtained from its `Object.prototype` equal to `'array'` or an [`object`][js-object] type. The value is also checked by the [`isArray()`][js-isarray] method of [`Array`][js-array]. |
-| [`isBigInt()`](#isbigint)                         | a [`bigint`][js-bigint] type. |
-| [`isBoolean()`](#isboolean)                       | a [`boolean`][js-boolean] type, or the obtained type from its `Object.prototype` equal to `'boolean'`, or an [`object`][js-object] type and an instance of [`Boolean`][js-boolean] that is equal to `true` or `false`. |
-| [`isBooleanObject()`](#isbooleanobject)           | the type obtained from its `Object.prototype` equal to `'boolean'` or an [`object`][js-object] type, and an instance of [`Boolean`][js-boolean] that is equal to `true` or `false`. |
-| [`isBooleanType()`](#isbooleantype)               | a [`boolean`][js-boolean] type equal to `true` or `false`. |
-| [`isClass()`](#isclass)                           | a [`function`][js-function] type or of the type obtained from its `Object.prototype` equal to `'function'` and an instance of [`Function`][js-function]. It also **confirms**  it's a [`class`][ts-classes] by using [`regexp`][js-regexp] on the obtained string from its `Function.prototype`. |
-| [`isDate()`](#isdate)                             | the type obtained from its `Object.prototype` equal to `'date'` or an [`object`][js-object] type, and an instance of [`Date`][js-date]. The `value` is checked against a valid date by using [`Number.isNaN()`][js-numberisnan] method. |
-| [`isDefined()`](#isdefined)                       | **not** an [`undefined`][js-undefined] type and is **not** equal to [`undefined`][js-undefined]. |
-| [`isFalse()`](#isfalse)                           | a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] that is equal to `false`. |
-| [`isFunction()`](#isfunction)                     | a [`function`][js-function] type or the type obtained from its `Object.prototype` equal to `'function'` and an instance of [`Function`][js-function]. It also **denies** it's a [`class`][ts-classes] by using [`RegExp`][js-regexp] on the obtained string from its `Function.prototype`. |
-| [`isInstance()`](#isinstance)                     | an instance of a given [`Constructor`](#constructor). |
-| [`isKey()`](#iskey)                               | one of the [`string`][js-string], [`number`][js-number], or [`symbol`][js-symbol] type. |
-| [`isNull()`](#isnull)                             | the type obtained from its `Object.prototype` equal to `'null'` or an [`object`][js-object] type that is equal to [`null`][js-null]. |
-| [`isNumber()`](#isnumber)                         | a [`number`][js-number] type, or the type obtained from its `Object.prototype` equal to `'number'` or an [`object`][js-object] type and an instance of [`Number`][js-number]. The value is also checked by the [`Number.isFinite()`][js-numberisfinite] method to determine whether it's **finite** and is **validated** by the [`Number.isNaN()`][js-numberisnan] method. |
-| [`isNumberBetween()`](#isnumberbetween)           | a [`number`][js-number] type or an instance of [`Number`][js-number] between a specified range. |
-| [`isNumberObject()`](#isnumberobject)             | the type obtained from its `Object.prototype` equal to `'number'`, or an [`object`][js-object] type and an instance of [`Number`][js-number] and is also checked by the [`Number.isFinite()`][js-numberisfinite] function to determine whether it's finite and is validated by the [`Number.isNaN()`][js-numberisnan] function. |
-| [`isNumberType()`](#isnumbertype)                 | a [`number`][js-number] type and is checked by the [`Number.isFinite()`][js-numberisfinite] method to determine whether it's finite and is validated by the [`Number.isNaN()`][js-numberisnan] method. |
-| [`isObject()`](#isobject)                         | an [`object`][js-object] type or the type obtained from its `Object.prototype` equal to `'object'`, and an instance of [`Object`][js-object]. |
-| [`isObjectKey()`](#isobjectkey)                   | an [`object`][js-object] with its key of the `PropertyKey` type. |
-| [`isObjectKeyIn()`](#isobjectkeyin)               | an [`object`][js-object] function with a key of the `PropertyKey` in it(or its prototype chain) by using the [`in`][js-in-operator] operator. |
-| [`isObjectKeys()`](#isobjectkeys)                 | an [`object`][js-object] with its keys |
-| [`isObjectKeysIn()`](#isobjectkeysin)             | an `object` with keys in it(or its prototype chain) by using the [`in`][js-in-operator] operator. |
-| [`isObjectSomeKeys()`](#isobjectsomekeys)         | an [`object`][js-object] with **some** of its keys or **some groups** of its keys of the `PropertyKey` type. |
-| [`isPrimitive()`](#isprimitive)                   | the [`Primitive`](#primitive) type or specific type from a given `type` of the [`Primitives`](#primitives). |
-| [`isRegExp()`](#isregexp)                         | a regular expression of the type obtained from its `Object.prototype` equal to `'regexp'`, or an [`object`][js-object] type, and an instance of [`RegExp`][js-regexp]. |
-| [`isString()`](#isstring)                         | a [`string`][js-string] type or an instance of [`String`][js-string]. |
-| [`isStringIncludes()`](#isstringincludes)         | a [`string`][js-string] type or an instance of [`String`][js-string] that **includes all** of the specified **words/sentences**. |
-| [`isStringIncludesSome()`](#isstringincludessome) | a [`string`][js-string] type or an instance of [`String`][js-string] by using [`isString()`](#isstring) that includes **some** of the specified **words/sentences**. |
-| [`isStringLength()`](#isstringlength)             | a [`string`][js-string] type or an instance of [`String`][js-string] of `length` within the specified range. |
-| [`isStringObject()`](#isstringobject)             | the type obtained from its `Object.prototype` equal to `'string'` or an [`object`][js-object] type, and an instance of [`String`][js-string]. |
-| [`isStringType()`](#isstringtype)                 | a [`string`][js-string] type. |
-| [`isSymbol()`](#issymbol)                         | a [`symbol`][js-symbol] type. |
-| [`isTrue()`](#istrue)                             | a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean](by using the [`isBoolean()`](#isboolean)) equal to `true`. |
-| [`isType()`](#istype)                             | the type of [`Type`](#type) from a given `type` parameter of the [`Types`](#types). |
-| [`isUndefined()`](#isundefined)                   | an [`undefined`][js-undefined] type. |
-
-### `isNot` functions
-
-REVIEW:
-
-| Function                                   | Checks if any value is not |
-| :----------------------------------------- | :------------------------- |
-| [`isNotBoolean()`](#isnotboolean)      | a [`boolean`][js-boolean] type and **not** an instance of a [`Boolean`][js-boolean]. |
-| [`isNotFunction()`](#isnotfunction)    | a [`function`][js-function] type and **not** an instance of [`Function`][js-function]. |
-| [`isNotNull()`](#isnotnull)            | a [`null`][js-null] type and **not** equal to [`null`][js-null]. |
-| [`isNotNumber()`](#isnotnumber)        | a [`number`][js-number] type and **not** an instance of [`Number`][js-number]. |
-| [`isNotString()`](#isnotstring)        | a [`string`][js-string] type and **not** an instance of [`String`][js-string]. |
-| [`isNotUndefined()`](#isnotundefined)  | an [`undefined`][js-undefined] type and **not** equal to [`undefined`][js-undefined]. |
 
 <br>
 
@@ -962,6 +909,48 @@ The **return value** is a `boolean` indicating whether the provided array contai
 import { areUndefined } from '@angular-package/type'; 
 
 ```
+
+<br>
+
+### `is` functions
+
+| Function                                          | Checks if any value is |
+| :------------------------------------------------ | :--------------------- |
+| [`isArray()`](#isarray)                           | the type obtained from its `Object.prototype` equal to `'array'` or an [`object`][js-object] type. The value is also checked by the [`isArray()`][js-isarray] method of [`Array`][js-array]. |
+| [`isBigInt()`](#isbigint)                         | a [`bigint`][js-bigint] type. |
+| [`isBoolean()`](#isboolean)                       | a [`boolean`][js-boolean] type, or the obtained type from its `Object.prototype` equal to `'boolean'`, or an [`object`][js-object] type and an instance of [`Boolean`][js-boolean] that is equal to `true` or `false`. |
+| [`isBooleanObject()`](#isbooleanobject)           | the type obtained from its `Object.prototype` equal to `'boolean'` or an [`object`][js-object] type, and an instance of [`Boolean`][js-boolean] that is equal to `true` or `false`. |
+| [`isBooleanType()`](#isbooleantype)               | a [`boolean`][js-boolean] type equal to `true` or `false`. |
+| [`isClass()`](#isclass)                           | a [`function`][js-function] type or of the type obtained from its `Object.prototype` equal to `'function'` and an instance of [`Function`][js-function]. It also **confirms**  it's a [`class`][ts-classes] by using [`regexp`][js-regexp] on the obtained string from its `Function.prototype`. |
+| [`isDate()`](#isdate)                             | the type obtained from its `Object.prototype` equal to `'date'` or an [`object`][js-object] type, and an instance of [`Date`][js-date]. The `value` is checked against a valid date by using [`Number.isNaN()`][js-numberisnan] method. |
+| [`isDefined()`](#isdefined)                       | **not** an [`undefined`][js-undefined] type and is **not** equal to [`undefined`][js-undefined]. |
+| [`isFalse()`](#isfalse)                           | a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] that is equal to `false`. |
+| [`isFunction()`](#isfunction)                     | a [`function`][js-function] type or the type obtained from its `Object.prototype` equal to `'function'` and an instance of [`Function`][js-function]. It also **denies** it's a [`class`][ts-classes] by using [`RegExp`][js-regexp] on the obtained string from its `Function.prototype`. |
+| [`isInstance()`](#isinstance)                     | an instance of a given [`Constructor`](#constructor). |
+| [`isKey()`](#iskey)                               | one of the [`string`][js-string], [`number`][js-number], or [`symbol`][js-symbol] type. |
+| [`isNull()`](#isnull)                             | the type obtained from its `Object.prototype` equal to `'null'` or an [`object`][js-object] type that is equal to [`null`][js-null]. |
+| [`isNumber()`](#isnumber)                         | a [`number`][js-number] type, or the type obtained from its `Object.prototype` equal to `'number'` or an [`object`][js-object] type and an instance of [`Number`][js-number]. The value is also checked by the [`Number.isFinite()`][js-numberisfinite] method to determine whether it's **finite** and is **validated** by the [`Number.isNaN()`][js-numberisnan] method. |
+| [`isNumberBetween()`](#isnumberbetween)           | a [`number`][js-number] type or an instance of [`Number`][js-number] between a specified range. |
+| [`isNumberObject()`](#isnumberobject)             | the type obtained from its `Object.prototype` equal to `'number'`, or an [`object`][js-object] type and an instance of [`Number`][js-number] and is also checked by the [`Number.isFinite()`][js-numberisfinite] method to determine whether it's finite and is validated by the [`Number.isNaN()`][js-numberisnan] function. |
+| [`isNumberType()`](#isnumbertype)                 | a [`number`][js-number] type and is checked by the [`Number.isFinite()`][js-numberisfinite] method to determine whether it's finite and is validated by the [`Number.isNaN()`][js-numberisnan] method. |
+| [`isObject()`](#isobject)                         | an [`object`][js-object] type or the type obtained from its `Object.prototype` equal to `'object'`, and an instance of [`Object`][js-object]. |
+| [`isObjectKey()`](#isobjectkey)                   | an [`object`][js-object] with its key of the `PropertyKey` type. |
+| [`isObjectKeyIn()`](#isobjectkeyin)               | an [`object`][js-object] function with a key of the `PropertyKey` in it(or its prototype chain) by using the [`in`][js-in-operator] operator. |
+| [`isObjectKeys()`](#isobjectkeys)                 | an [`object`][js-object] with its keys |
+| [`isObjectKeysIn()`](#isobjectkeysin)             | an `object` with keys in it(or its prototype chain) by using the [`in`][js-in-operator] operator. |
+| [`isObjectSomeKeys()`](#isobjectsomekeys)         | an [`object`][js-object] with **some** of its keys or **some groups** of its keys of the `PropertyKey` type. |
+| [`isPrimitive()`](#isprimitive)                   | the [`Primitive`](#primitive) type or specific type from a given `type` of the [`Primitives`](#primitives). |
+| [`isRegExp()`](#isregexp)                         | a regular expression of the type obtained from its `Object.prototype` equal to `'regexp'`, or an [`object`][js-object] type, and an instance of [`RegExp`][js-regexp]. |
+| [`isString()`](#isstring)                         | a [`string`][js-string] type or an instance of [`String`][js-string]. |
+| [`isStringIncludes()`](#isstringincludes)         | a [`string`][js-string] type or an instance of [`String`][js-string] that **includes all** of the specified **words/sentences**. |
+| [`isStringIncludesSome()`](#isstringincludessome) | a [`string`][js-string] type or an instance of [`String`][js-string] by using [`isString()`](#isstring) that includes **some** of the specified **words/sentences**. |
+| [`isStringLength()`](#isstringlength)             | a [`string`][js-string] type or an instance of [`String`][js-string] of `length` within the specified range. |
+| [`isStringObject()`](#isstringobject)             | the type obtained from its `Object.prototype` equal to `'string'` or an [`object`][js-object] type, and an instance of [`String`][js-string]. |
+| [`isStringType()`](#isstringtype)                 | a [`string`][js-string] type. |
+| [`isSymbol()`](#issymbol)                         | a [`symbol`][js-symbol] type. |
+| [`isTrue()`](#istrue)                             | a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] equal to `true`. |
+| [`isType()`](#istype)                             | the type of [`Type`](#type) from a given `type` parameter of the [`Types`](#types). |
+| [`isUndefined()`](#isundefined)                   | an [`undefined`][js-undefined] type. |
 
 <br>
 
@@ -2068,7 +2057,7 @@ DONE
 
 [![update]][type-github-changelog]
 
-Use `isNumberObject()` or `is.numberObject()` to check if **any** value is of the type obtained from its `Object.prototype` equal to `'number'`, or an [`object`][js-object] type and an instance of [`Number`][js-number] and is also checked by the [`Number.isFinite()`][js-numberisfinite] function to determine whether it's finite and is validated by the [`Number.isNaN()`][js-numberisnan] function.
+Use `isNumberObject()` or `is.numberObject()` to check if **any** value is of the type obtained from its `Object.prototype` equal to `'number'`, or an [`object`][js-object] type and an instance of [`Number`][js-number] and is also checked by the [`Number.isFinite()`][js-numberisfinite] method to determine whether it's finite and is validated by the [`Number.isNaN()`][js-numberisnan] function.
 
 ```typescript
 const isNumberObject = <Payload extends object>(
@@ -2575,7 +2564,7 @@ DONE
 
 [![update]][type-github-changelog]
 
-Use `isObjectKeysIn()` or `is.objectKeysIn()` to check if **any** value is an `object` with keys in it(or its prototype chain) by using the [`in`][js-in-operator] operator.
+Use `isObjectKeysIn()` or `is.objectKeysIn()` to check if **any** value is an [`object`][js-object] with keys in it(or its prototype chain) by using the [`in`][js-in-operator] operator.
 
 ```typescript
 const isObjectKeysIn = <Obj = object, Payload extends object = object>(
@@ -3030,7 +3019,7 @@ DONE
 
 [![new]][type-github-changelog]
 
-Use `isStringIncludesSome()` or `is.stringIncludesSome()` to check if **any** value is a [`string`][js-string] type or an instance of [`String`][js-string] by using [`isString()`](#isstring) that includes **some** of the specified **words/sentences**.
+Use `isStringIncludesSome()` or `is.stringIncludesSome()` to check if **any** value is a [`string`][js-string] type or an instance of [`String`][js-string] that includes **some** of the specified **words/sentences**.
 
 ```typescript
 const isStringIncludesSome = <
@@ -3354,7 +3343,7 @@ DONE
 
 [![update]][type-github-changelog]
 
-Use `isTrue()` or `is.true()` to check if **any** value is a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean](by using the [`isBoolean()`](#isboolean)) equal to `true`.
+Use `isTrue()` or `is.true()` to check if **any** value is a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] equal to `true`.
 
 ```typescript
 const isTrue = <Payload extends object>(
@@ -3557,6 +3546,19 @@ isUndefined(27); // Returns `false` as `value is undefined`
 
 <br>
 
+### `isNot` functions
+
+| Function                               | Checks if any value is not |
+| :------------------------------------- | :------------------------- |
+| [`isNotBoolean()`](#isnotboolean)      | a [`boolean`][js-boolean] type and **not** an instance of a [`Boolean`][js-boolean]. |
+| [`isNotFunction()`](#isnotfunction)    | a [`function`][js-function] type and **not** an instance of [`Function`][js-function]. |
+| [`isNotNull()`](#isnotnull)            | a [`null`][js-null] type and **not** equal to [`null`][js-null]. |
+| [`isNotNumber()`](#isnotnumber)        | a [`number`][js-number] type and **not** an instance of [`Number`][js-number]. |
+| [`isNotString()`](#isnotstring)        | a [`string`][js-string] type and **not** an instance of [`String`][js-string]. |
+| [`isNotUndefined()`](#isnotundefined)  | an [`undefined`][js-undefined] type and **not** equal to [`undefined`][js-undefined]. |
+
+<br>
+
 #### `isNotBoolean()`
 
 TODO: Done.
@@ -3564,7 +3566,7 @@ TODO: Done.
 
 TODO: 
 
-Use `isNotBoolean()` or `is.not.boolean()` to check if the value of a generic `Type` is **not** of the type obtained from its `Object.prototype` equal to `'boolean'`, not a `boolean` type and not an instance of [`Boolean`][js-boolean].
+Use `isNotBoolean()` or `is.not.boolean()` to check if the value of a generic type variable `Type` is **not** of the type obtained from its `Object.prototype` equal to `'boolean'`, not a `boolean` type and not an instance of [`Boolean`][js-boolean].
 
 TODO: 
 
@@ -4129,7 +4131,7 @@ const isNot: IsNot = Object.freeze({
 
 <br>
 
-## Guards
+## Guard
 
 ### `guard` functions
 
@@ -5960,9 +5962,9 @@ gUndefined(5 as any); // false
 
 <br>
 
-### Guard object
+### Guard objects
 
-#### `guard.`
+#### `guard.` object
 
 [![update]][type-github-changelog]
 
@@ -6003,7 +6005,7 @@ const guard: Guard = Object.freeze({ ...guardIs, is: guardIs });
 
 ## The `type.`
 
-A [frozen][js-isfrozen] `object` consists of [`is`](#is), [`are`](#are), and [`guard`](#guard) objects.
+A [frozen][js-isfrozen] `object` that consists of [`is`](#is), [`are`](#are), and [`guard`](#guard) objects.
 
 ```typescript
 const type = Object.freeze({
@@ -6036,7 +6038,6 @@ type.is.array(true); // false, value is unknown[]
 
 // `guard` functions
 type.guard.number(3); // true, value is number
-
 ```
 
 <br>
@@ -6092,7 +6093,7 @@ type AnyString = string | String;
 
 #### `Constructor`
 
-An instance of a type from the provided generic `Type` variable.
+An instance of a type from the provided generic type variable `Type`.
 
 ```typescript
 type Constructor<Type> = new (...args: any[]) => Type;
@@ -6100,7 +6101,7 @@ type Constructor<Type> = new (...args: any[]) => Type;
 
 #### `Defined`
 
-A type from the provided generic `Type` variable, besides an `undefined` which causes its change to `never`.
+A generic type that takes generic type variable `Type` constrained by `undefined` by using [`Never`](#never) which constraint causes its change to `never`.
 
 ```typescript
 type Defined<Type> = Never<undefined, Type>;
@@ -6108,7 +6109,7 @@ type Defined<Type> = Never<undefined, Type>;
 
 #### `Never`
 
-A type from the provided generic `Type` variable, besides a type provided in the generic `Not` variable which causes its change to `never`.
+A generic type that takes generic type variable `Type` constrained by a generic type variable `Not` which constraint causes its change to `never`.
 
 ```typescript
 type Never<Not, Type> = Type extends Not ? never : Type;
@@ -6116,17 +6117,17 @@ type Never<Not, Type> = Type extends Not ? never : Type;
 
 #### `NotUndefined`
 
-A type from the provided generic `Type` variable, besides an `undefined` or `null` which causes its change to `never`.
+A generic type that takes generic type variable `Type` constrained by `undefined` and `null` which constraint causes its change to `never`.
 
 ```typescript
-type NotUndefined<T> = T extends undefined | null ? never : T;
+type NotUndefined<Type> = Type extends undefined | null ? never : Type;
 ```
 
 #### `NumberBetween`
 
 [![update]][type-github-changelog]
 
-A `number` type or an instance of a [`Number`][js-number] with its specified range. For the `strict` purpose generic variables `Min` and `Max` are constrained with the `number` type.
+A generic type that takes generic type variable `Min` and `Max` constrained by `number` type as **range**, and takes generic type variable `Type` constrained by [`AnyNumber`](#anynumber) as the type by default `number` or an instance of [`Number`][js-number].
 
 ```typescript
 type NumberBetween<
@@ -6166,25 +6167,11 @@ type Primitives =
   | 'undefined';
 ```
 
-#### `ResultCallback`
-
-[![update]][type-github-changelog]
-
-Callback function for `callback` parameter.
-
-```typescript
-type ResultCallback<Value = any, Payload = object> = (
-  result: boolean,
-  value: Value,
-  payload?: Payload
-) => boolean;
-```
-
 #### `StringOfLength`
 
 [![update]][type-github-changelog]
 
-A `string` type or an instance of a  [`String`][js-string] with its specified minimum and maximum length. Generic variables `Min` and `Max` are constrained with the `number` type.
+A generic type that takes generic type variable `Min` and `Max` constrained by `number` type as **length**, and takes generic type variable `Type` constrained by [`AnyString`](#anystring) as the type by default `string` or an instance of [`String`][js-string].
 
 ```typescript
 type StringOfLength<
@@ -6214,7 +6201,7 @@ type Types<Obj> = Constructor<Obj> | 'function' | 'object' | Primitives;
 
 #### `Undefined`
 
-A type from the provided generic `Type` variable, constrained with the `undefined` which causes other types its change to `never`.
+A generic type that takes generic type variable `Type` constrained by `undefined` causes other types than `undefined` its change to `never`.
 
 ```typescript
 type Undefined<Type> = Type extends undefined ? Type : never;
