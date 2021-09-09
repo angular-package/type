@@ -568,50 +568,54 @@ TODO:
 
 | Function                        | Checks if values of any type are |
 | :------------------------------ | :------------------------------- |
-| **[`areString()`](#arestring)** | of a [`string`][js-string] type. |
-| **[`areBigInt()`](#arestring)** | of a [`string`][js-string] type. |
-| **[`areNull()`](#arestring)** | of a [`string`][js-string] type. |
-| **[`areNumber()`](#arestring)** | of a [`string`][js-string] type. |
-| **[`areSymbol()`](#arestring)** | of a [`string`][js-string] type. |
-| **[`areUndefined()`](#arestring)** | of a [`string`][js-string] type. |
+| [`areString()`](#arestring) | of a [`string`][js-string] type. |
+| [`areBigInt()`](#arestring) | of a [`string`][js-string] type. |
+| [`areNull()`](#arestring) | of a [`string`][js-string] type. |
+| [`areNumber()`](#arestring) | of a [`string`][js-string] type. |
+| [`areSymbol()`](#arestring) | of a [`string`][js-string] type. |
+| [`areUndefined()`](#arestring) | of a [`string`][js-string] type. |
 
 ### `is` functions
 
 REVIEW:
 
-| Function                                   | Checks if any value is |
-| :----------------------------------------- | :--------------------- |
-| **[`isArray()`](#isarray)**                | an [`array`][js-array], [`Array`][js-array] instance, and [`object`][js-object] type. |
-| **[`isBigInt()`](#isbigint)**              | a [`bigint`][js-bigint] type. |
-| **[`isBoolean()`](#isboolean)**            | a [`boolean`][js-boolean] type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object] or `object` type instance of [`Boolean`][js-boolean] and [`Object`][js-object]. |
-| **[`isBooleanObject()`](#isbooleanobject)**| an [`object`][js-object] type and instance of [`Boolean`][js-boolean] and [`Object`][js-object]. |
-| **[`isBooleanType()`](#isbooleantype)**    | a [`boolean`][js-boolean] type not an instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `true` or `false`. |
-| **[`isClass()`](#isclass)**                | a [`function`][js-function] type, an instance of [`Function`][js-function] and [`Object`][js-object] as a generic `Class` type of [`class`][ts-classes]. It also **confirms** with the regexp that function is a [`class`][ts-classes]. |
-| **[`isDate()`](#isdate)**                  | an [`object`][js-object] type instance of [`Date`][js-date] and [`Object`][js-object]. |
-| **[`isDefined()`](#isdefined)**            | **not** an [`undefined`][js-undefined] type and is **not** equal to [`undefined`][js-undefined]. |
-| **[`isFalse()`](#isfalse)**                | a [`boolean`][js-boolean] type **not** an instance of [`Boolean`][js-boolean] and [`Object`][js-object], or is an `object` type and instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `false`. |
-| **[`isFunction()`](#isfunction)**          | a [`function`][js-function] type, an instance of [`Function`][js-function] and [`Object`][js-object]. It also **denies** that function is a [`class`][ts-classes] with the [`RegExp`][js-regexp]. |
-| **[`isInstance()`](#isinstance)**          | an [`object`][js-object] type, an instance of `Object` and an instance of the provided `constructor`. |
-| **[`isKey()`](#iskey)**                    | one of the [`string`][js-string], [`number`][js-number], or [`symbol`][js-symbol] type. |
-| **[`isNull()`](#isnull)**                  | an [`object`][js-object] type and equal to [`null`][js-null]. |
-| **[`isNumber()`](#isnumber)**              | a [`number`][js-number] type not an instance of [`Number`][js-number] and [`Object`][js-object] or [`object`][js-object] type instance of [`Number`][js-number] and [`Object`][js-object]. |
-| **[`isNumberBetween()`](#isnumberbetween)**| a [`number`][js-number] type not instance of [`Object`][js-object] and [`Number`][js-number] or [`object`][js-object] type and instance of [`Number`][js-number] and [`Object`][js-object], in the specified range. |
-| **[`isNumberObject()`](#isnumberobject)**  | an [`object`][js-object] type and instance of [`Number`][js-number] and [`Object`][js-object]. |
-| **[`isNumberType()`](#isnumbertype)**      | a [`number`][js-number] type not an instance of [`Number`][js-number] and [`Object`][js-object]. |
-| **[`isObject()`](#isobject)**              | an [`object`][js-object] of a generic `Obj` type and [`Object`][js-object] instance. |
-| **[`isObjectKey()`](#isobjectkey)**        | an [`object`][js-object] with its own specified `key` of the `PropertyKey` type. |
-| **[`isObjectKeyIn()`](#isobjectkeyin)**    | an [`object`][js-object] of a generic type with the `key` of the `PropertyKey` type by using the [`in`][js-in-operator] operator. |
-| **[`isObjectKeys()`](#isobjectkeys)**      | an [`object`][js-object] with **some** of its keys from given `keys` of the `PropertyKey` type. |
-| **[`isPrimitive()`](#isprimitive)**        | the [`Primitive`](#primitive) type from a given `type` of the [`Primitives`](#primitives). |
-| **[`isRegExp()`](#isregexp)**              | a regular expression of a [`regexp`][js-regexp] type, an instance of [`Object`][js-object] and [`RegExp`][js-regexp]. |
-| **[`isString()`](#isstring)**              | a [`string`][js-string] type not instance of [`Object`][js-object] and [`String`][js-string] or [`object`][js-object] type and instance of [`String`][js-string] and [`Object`][js-object]. |
-| **[`isStringLength()`](#isstringlength)**  | a [`string`][js-string] type not instance of [`Object`][js-object] and [`String`][js-string] or [`object`][js-object] type and instance of [`String`][js-string] and [`Object`][js-object], of a length in the specified range. |
-| **[`isStringObject()`](#isstringobject)**  | an [`object`][js-object] type and instance of [`String`][js-string] and [`Object`][js-object]. |
-| **[`isStringType()`](#isstringtype)**      | a [`string`][js-string] type and **not** instance of [`String`][js-string] and [`Object`][js-object]. |
-| **[`isSymbol()`](#issymbol)**              | a [`symbol`][js-symbol] type. |
-| **[`isTrue()`](#istrue)**                  | a [`boolean`][js-boolean] type **not** an instance of [`Boolean`][js-boolean] and [`Object`][js-object], or is an `object` type and instance of [`Boolean`][js-boolean] and [`Object`][js-object], and equal to `true`. |
-| **[`isType()`](#istype)**                  | a type of [`Type`](#type) from a given `type` of the [`Types`](#types). |
-| **[`isUndefined()`](#isundefined)**        | an [`undefined`][js-undefined] type and equal to [`undefined`][js-undefined]. |
+| Function                                          | Checks if any value is |
+| :------------------------------------------------ | :--------------------- |
+| [`isArray()`](#isarray)                           | the type obtained from its `Object.prototype` equal to `'array'` or an [`object`][js-object] type. The value is also checked by the [`isArray()`][js-isarray] method of [`Array`][js-array]. |
+| [`isBigInt()`](#isbigint)                         | a [`bigint`][js-bigint] type. |
+| [`isBoolean()`](#isboolean)                       | a [`boolean`][js-boolean] type, or the obtained type from its `Object.prototype` equal to `'boolean'`, or an [`object`][js-object] type and an instance of [`Boolean`][js-boolean] that is equal to `true` or `false`. |
+| [`isBooleanObject()`](#isbooleanobject)           | the type obtained from its `Object.prototype` equal to `'boolean'` or an [`object`][js-object] type, and an instance of [`Boolean`][js-boolean] that is equal to `true` or `false`. |
+| [`isBooleanType()`](#isbooleantype)               | a [`boolean`][js-boolean] type equal to `true` or `false`. |
+| [`isClass()`](#isclass)                           | a [`function`][js-function] type or of the type obtained from its `Object.prototype` equal to `'function'` and an instance of [`Function`][js-function]. It also **confirms**  it's a [`class`][ts-classes] by using [`regexp`][js-regexp] on the obtained string from its `Function.prototype`. |
+| [`isDate()`](#isdate)                             | the type obtained from its `Object.prototype` equal to `'date'` or an [`object`][js-object] type, and an instance of [`Date`][js-date]. The `value` is checked against a valid date by using [`Number.isNaN()`][js-numberisnan] method. |
+| [`isDefined()`](#isdefined)                       | **not** an [`undefined`][js-undefined] type and is **not** equal to [`undefined`][js-undefined]. |
+| [`isFalse()`](#isfalse)                           | a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] that is equal to `false`. |
+| [`isFunction()`](#isfunction)                     | a [`function`][js-function] type or the type obtained from its `Object.prototype` equal to `'function'` and an instance of [`Function`][js-function]. It also **denies** it's a [`class`][ts-classes] by using [`RegExp`][js-regexp] on the obtained string from its `Function.prototype`. |
+| [`isInstance()`](#isinstance)                     | an instance of a given [`Constructor`](#constructor). |
+| [`isKey()`](#iskey)                               | one of the [`string`][js-string], [`number`][js-number], or [`symbol`][js-symbol] type. |
+| [`isNull()`](#isnull)                             | the type obtained from its `Object.prototype` equal to `'null'` or an [`object`][js-object] type that is equal to [`null`][js-null]. |
+| [`isNumber()`](#isnumber)                         | a [`number`][js-number] type, or the type obtained from its `Object.prototype` equal to `'number'` or an [`object`][js-object] type and an instance of [`Number`][js-number]. The value is also checked by the [`Number.isFinite()`][js-numberisfinite] method to determine whether it's **finite** and is **validated** by the [`Number.isNaN()`][js-numberisnan] method. |
+| [`isNumberBetween()`](#isnumberbetween)           | a [`number`][js-number] type or an instance of [`Number`][js-number] between a specified range. |
+| [`isNumberObject()`](#isnumberobject)             | the type obtained from its `Object.prototype` equal to `'number'`, or an [`object`][js-object] type and an instance of [`Number`][js-number] and is also checked by the [`Number.isFinite()`][js-numberisfinite] function to determine whether it's finite and is validated by the [`Number.isNaN()`][js-numberisnan] function. |
+| [`isNumberType()`](#isnumbertype)                 | a [`number`][js-number] type and is checked by the [`Number.isFinite()`][js-numberisfinite] method to determine whether it's finite and is validated by the [`Number.isNaN()`][js-numberisnan] method. |
+| [`isObject()`](#isobject)                         | an [`object`][js-object] type or the type obtained from its `Object.prototype` equal to `'object'`, and an instance of [`Object`][js-object]. |
+| [`isObjectKey()`](#isobjectkey)                   | an [`object`][js-object] with its key of the `PropertyKey` type. |
+| [`isObjectKeyIn()`](#isobjectkeyin)               | an [`object`][js-object] function with a key of the `PropertyKey` in it(or its prototype chain) by using the [`in`][js-in-operator] operator. |
+| [`isObjectKeys()`](#isobjectkeys)                 | an [`object`][js-object] with its keys |
+| [`isObjectKeysIn()`](#isobjectkeysin)             | an `object` with keys in it(or its prototype chain) by using the [`in`][js-in-operator] operator. |
+| [`isObjectSomeKeys()`](#isobjectsomekeys)         | an [`object`][js-object] with **some** of its keys or **some groups** of its keys of the `PropertyKey` type. |
+| [`isPrimitive()`](#isprimitive)                   | the [`Primitive`](#primitive) type or specific type from a given `type` of the [`Primitives`](#primitives). |
+| [`isRegExp()`](#isregexp)                         | a regular expression of the type obtained from its `Object.prototype` equal to `'regexp'`, or an [`object`][js-object] type, and an instance of [`RegExp`][js-regexp]. |
+| [`isString()`](#isstring)                         | a [`string`][js-string] type or an instance of [`String`][js-string]. |
+| [`isStringIncludes()`](#isstringincludes)         | a [`string`][js-string] type or an instance of [`String`][js-string] that **includes all** of the specified **words/sentences**. |
+| [`isStringIncludesSome()`](#isstringincludessome) | a [`string`][js-string] type or an instance of [`String`][js-string] by using [`isString()`](#isstring) that includes **some** of the specified **words/sentences**. |
+| [`isStringLength()`](#isstringlength)             | a [`string`][js-string] type or an instance of [`String`][js-string] of `length` within the specified range. |
+| [`isStringObject()`](#isstringobject)             | the type obtained from its `Object.prototype` equal to `'string'` or an [`object`][js-object] type, and an instance of [`String`][js-string]. |
+| [`isStringType()`](#isstringtype)                 | a [`string`][js-string] type. |
+| [`isSymbol()`](#issymbol)                         | a [`symbol`][js-symbol] type. |
+| [`isTrue()`](#istrue)                             | a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean](by using the [`isBoolean()`](#isboolean)) equal to `true`. |
+| [`isType()`](#istype)                             | the type of [`Type`](#type) from a given `type` parameter of the [`Types`](#types). |
+| [`isUndefined()`](#isundefined)                   | an [`undefined`][js-undefined] type. |
 
 ### `isNot` functions
 
@@ -619,12 +623,12 @@ REVIEW:
 
 | Function                                   | Checks if any value is not |
 | :----------------------------------------- | :------------------------- |
-| **[`isNotBoolean()`](#isnotboolean)**      | a [`boolean`][js-boolean] type and **not** an instance of a [`Boolean`][js-boolean]. |
-| **[`isNotFunction()`](#isnotfunction)**    | a [`function`][js-function] type and **not** an instance of [`Function`][js-function]. |
-| **[`isNotNull()`](#isnotnull)**            | a [`null`][js-null] type and **not** equal to [`null`][js-null]. |
-| **[`isNotNumber()`](#isnotnumber)**        | a [`number`][js-number] type and **not** an instance of [`Number`][js-number]. |
-| **[`isNotString()`](#isnotstring)**        | a [`string`][js-string] type and **not** an instance of [`String`][js-string]. |
-| **[`isNotUndefined()`](#isnotundefined)**  | an [`undefined`][js-undefined] type and **not** equal to [`undefined`][js-undefined]. |
+| [`isNotBoolean()`](#isnotboolean)      | a [`boolean`][js-boolean] type and **not** an instance of a [`Boolean`][js-boolean]. |
+| [`isNotFunction()`](#isnotfunction)    | a [`function`][js-function] type and **not** an instance of [`Function`][js-function]. |
+| [`isNotNull()`](#isnotnull)            | a [`null`][js-null] type and **not** equal to [`null`][js-null]. |
+| [`isNotNumber()`](#isnotnumber)        | a [`number`][js-number] type and **not** an instance of [`Number`][js-number]. |
+| [`isNotString()`](#isnotstring)        | a [`string`][js-string] type and **not** an instance of [`String`][js-string]. |
+| [`isNotUndefined()`](#isnotundefined)  | an [`undefined`][js-undefined] type and **not** equal to [`undefined`][js-undefined]. |
 
 <br>
 
@@ -738,12 +742,9 @@ const areNull = <Payload extends object>(
 ```
 
 **Generic type variables:**
+| `callback: ResultCallback<any, typeof payload>`               | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape, with the provided `keys` and optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<{ keys?: typeof keys } & Payload>` | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
-
-**Parameters:**
 
 | Name: type                                            | Description |
 | :---------------------------------------------------- | :---------- |
@@ -764,8 +765,9 @@ import { areNull } from '@angular-package/type';
 ```
 
 <br>
+| `callback: ResultCallback<any, typeof payload>`               | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape, with the provided `keys` and optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<{ keys?: typeof keys } & Payload>` | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
-#### `areNumber()`
 
 TODO:
 
@@ -965,11 +967,11 @@ import { areUndefined } from '@angular-package/type';
 
 #### `isArray()`
 
-REVIEW: Seems to be okay.
+DONE
 
 [![update]][type-github-changelog]
 
-Use `isArray()` or `is.array()` to check if **any** value is of the type obtained from its `Object.prototype` equal to `'array'` or an [`object`][js-object] type. The value is also checked by the `isArray()` method of [`Array`][js-array].
+Use `isArray()` or `is.array()` to check if **any** value is of the type obtained from its `Object.prototype` equal to `'array'` or an [`object`][js-object] type. The value is also checked by the [`isArray()`][js-isarray] method of [`Array`][js-array].
 
 ```typescript
 const isArray = <Type, Payload extends object = object>(
@@ -1009,8 +1011,6 @@ const isArray = <Type, Payload extends object = object>(
 The **return value** is a `boolean` indicating whether the provided `value` is an [`Array`][js-array].
 
 **Usage:**
-
-REVIEW: Seems to be okay.
 
 ```typescript
 // Example usage.
@@ -1060,7 +1060,7 @@ isArray([1, 2, 3], (result, value, payload) => {
 
 #### `isBigInt()`
 
-REVIEW: Seems to be okay.
+DONE
 
 [![update]][type-github-changelog]
 
@@ -1114,7 +1114,7 @@ isBigInt(9007199254740991n); // Returns `true` as `value is bigint`
 
 #### `isBoolean()`
 
-REVIEW: Seems to be okay.
+DONE
 
 [![update]][type-github-changelog]
 
@@ -1214,7 +1214,7 @@ typeof stringAsBoolean; // "object"
 
 #### `isBooleanObject()`
 
-REVIEW: Seems to be okay.
+DONE
 
 [![update]][type-github-changelog]
 
@@ -1271,6 +1271,8 @@ isBooleanObject(new Boolean(false)); // true
 
 #### `isBooleanType()`
 
+DONE
+
 [![update]][type-github-changelog]
 
 Use `isBooleanType()` or `is.booleanType()` to check if **any** value is a [`boolean`][js-boolean] type equal to `true` or `false`.
@@ -1323,6 +1325,8 @@ isBooleanType(new Boolean(false)); // false
 <br>
 
 #### `isClass()`
+
+DONE
 
 [![update]][type-github-changelog]
 
@@ -1396,11 +1400,11 @@ isClass(() => 5, (result, value, payload) => {
 
 #### `isDate()`
 
-REVIEW: Seems to be okay.
+DONE
 
 [![update]][type-github-changelog]
 
-Use `isDate()` or `is.date()` to check if **any** value is of the type obtained from its `Object.prototype` equal to `'date'` or an [`object`][js-object] type, and an instance of [`Date`][js-date]. The `value` is checked against a valid date by using [`Number.isNaN()`][js-numberisnan] function.
+Use `isDate()` or `is.date()` to check if **any** value is of the type obtained from its `Object.prototype` equal to `'date'` or an [`object`][js-object] type, and an instance of [`Date`][js-date]. The `value` is checked against a valid date by using [`Number.isNaN()`][js-numberisnan] method.
 
 ```typescript
 const isDate = <Payload extends object>(
@@ -1469,6 +1473,8 @@ isDate(DATE, (result, payload) => {
 
 #### `isDefined()`
 
+DONE
+
 [![update]][type-github-changelog]
 
 Use `isDefined()` or `is.defined()` to check if **any** value is **not** an [`undefined`][js-undefined] type and is **not** equal to [`undefined`][js-undefined].
@@ -1504,7 +1510,7 @@ const isDefined = <Type, Payload extends object = object>(
 
 | Returns                  | Type      | Description |
 | :----------------------- | :-------: | :---------- |
-| `value is Defined<Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type [`Defined<Type>`](#defined) that takes a generic type variable `Type` of value by default equal to the type captured from the supplied `value` parameter excepts `undefined` which changes to never. |
+| `value is Defined<Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type [`Defined`](#defined) that takes a generic type variable `Type` of value by default equal to the type captured from the supplied `value` parameter excepts [`undefined`][js-undefined] which changes to never. |
 
 The **return value** is a `boolean` indicating whether the provided `value` is defined, not `undefined`
 
@@ -1538,11 +1544,11 @@ isDefined('age', (result, value, payload) => {
 
 #### `isFalse()`
 
-REVIEW: Seems to be okay.
+DONE
 
 [![update]][type-github-changelog]
 
-Use `isFalse()` or `is.false()` to check if **any** value is a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] by using [`isBoolean()`](#isboolean) function, that is equal to `false`.
+Use `isFalse()` or `is.false()` to check if **any** value is a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] that is equal to `false`.
 
 ```typescript
 const isFalse = <Payload extends object>(
@@ -1606,11 +1612,11 @@ isFalse(new Boolean(false), (result, value, payload) => {
 
 #### `isFunction()`
 
-REVIEW: Seems to be okay.
+DONE
 
 [![update]][type-github-changelog]
 
-Use `isFunction()` or `is.function()` to check if **any** value is a [`function`][js-function] type or of the type obtained from its `Object.prototype` equal to `'function'` and an instance of [`Function`][js-function]. It also **denies** it's a [`class`][ts-classes] by using [`RegExp`][js-regexp] on the obtained string from its `Function.prototype`.
+Use `isFunction()` or `is.function()` to check if **any** value is a [`function`][js-function] type or the type obtained from its `Object.prototype` equal to `'function'` and an instance of [`Function`][js-function]. It also **denies** it's a [`class`][ts-classes] by using [`RegExp`][js-regexp] on the obtained string from its `Function.prototype`.
 
 ```typescript
 const isFunction = <Payload extends object>(
@@ -1679,7 +1685,7 @@ isFunction(() => 5, (result, value, payload) => {
 
 #### `isInstance()`
 
-REVIEW: Seems to be okay.
+DONE
 
 [![update]][type-github-changelog]
 
@@ -1723,7 +1729,7 @@ const isInstance = <Obj, Payload extends object>(
 
 | Returns        | Type      | Description |
 | :------------- | :-------: | :---------- |
-| `value is Obj` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is a generic type variable `Obj` by default of type captured from the provided `constructor`. |
+| `value is Obj` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is a generic type variable `Obj` by default of type captured from the supplied `constructor`. |
 
 The **return value** is a `boolean` indicating whether the provided `value` is an instance of a given `constructor`.
 
@@ -1783,7 +1789,7 @@ isInstance(new String(), String), // Returns `true` as `value is String`
 
 #### `isKey()`
 
-REVIEW: Seems to be okay.
+DONE
 
 [![update]][type-github-changelog]
 
@@ -1850,7 +1856,7 @@ isKey(SYMBOL_STRING); // true
 
 #### `isNull()`
 
-REVIEW: Seems to be okay.
+DONE
 
 [![update]][type-github-changelog]
 
@@ -1905,11 +1911,11 @@ isNull(27); // false
 
 #### `isNumber()`
 
-REVIEW: Seems to be okay.
+DONE
 
 [![update]][type-github-changelog]
 
-Use `isNumber()` or `is.number()` to check if **any** value is a [`number`][js-number] type, or of the type obtained from its `Object.prototype` equal to `'number'` or an [`object`][js-object] type and an instance of [`Number`][js-number]. The value is also checked by the [`Number.isFinite()`][js-numberisfinite] function to determine whether it's **finite** and is **validated** by the [`Number.isNaN()`][js-numberisnan] function.
+Use `isNumber()` or `is.number()` to check if **any** value is a [`number`][js-number] type, or the type obtained from its `Object.prototype` equal to `'number'` or an [`object`][js-object] type and an instance of [`Number`][js-number]. The value is also checked by the [`Number.isFinite()`][js-numberisfinite] method to determine whether it's **finite** and is **validated** by the [`Number.isNaN()`][js-numberisnan] method.
 
 ```typescript
 const isNumber = <
@@ -1960,20 +1966,21 @@ The **return value** is a `boolean` indicating whether the provided `value` is a
 // Example usage.
 import { isNumber } from '@angular-package/type';
 
-isNumber(10304050); // true
-isNumber(Number(10304050)); // true
-isNumber(new Number(10304050)); // true
+isNumber(10304050); // true, value is number
+isNumber(Number(10304050)); // true, value is number
+isNumber(new Number(10304050)); // true, value is number
+isNumber<Number>(new Number(10304050)); // true, value is Number
 ```
 
 <br>
 
 #### `isNumberBetween()`
 
-REVIEW: Seems to be okay.
+DONE
 
 [![update]][type-github-changelog]
 
-Use `isNumberBetween()` or `is.numberBetween()` to check if **any** value is a [`number`][js-number] type or an instance of [`Number`][js-number] by using [`isNumber()`](#isnumber), between a specified range.
+Use `isNumberBetween()` or `is.numberBetween()` to check if **any** value is a [`number`][js-number] type or an instance of [`Number`][js-number] between a specified range.
 
 ```typescript
 const isNumberBetween = <
@@ -2008,27 +2015,27 @@ const isNumberBetween = <
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Type`    | `number`      | A generic type variable `Type` guarded by [`AnyNumber`](#anynumber) by default of `number` indicates the type of the `value` via the return type `value is NumberBetween<Min, Max, Type>`. |
-| `Min`     | `number`      | A generic type variable `Min` constrained with the `number` type, by default of value captured from optional `min` of provided `range` that indicates the **minimum** range of the provided `value` via the return type `value is NumberBetween<Min, Max, Type>` |
-| `Max`     | `number`      | A generic type variable `Max` constrained with the `number` type, by default of value captured from optional `max` of provided `range` that indicates the **maximum** range of the provided `value` via the return type `value is NumberBetween<Min, Max, Type>` |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value             | Description |
+| :-------- | :------------------------ | :---------- |
+| `Type`    | `number`                  | A generic type variable `Type` guarded by [`AnyNumber`](#anynumber) by default of `number` indicates the type of the `value` via the return type `value is NumberBetween<Min, Max, Type>`. |
+| `Min`     | From the `min` of `range` | A generic type variable `Min` constrained by the `number` type, by default of value captured from optional `min` of the provided `range` that indicates the **minimum** range of the provided `value` via the return type `value is NumberBetween<Min, Max, Type>` |
+| `Max`     | From the `max` of `range` | A generic type variable `Max` constrained by the `number` type, by default of value captured from optional `max` of the provided `range` that indicates the **maximum** range of the provided `value` via the return type `value is NumberBetween<Min, Max, Type>` |
+| `Payload` | `object`                  | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                              | Description |
 | :------------------------------------------------------ | :---------- |
 | `value: any`                                            | The value of any type to check. |
-| `range: MinMax<Min, Max>`                               | An [`object`][js-object] of optional minimum and maximum `range` of a given `value`. |
-| `callback: ResultCallback<any, typeof payload>`         | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape, with minimum and maximum `range` and optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<MinMax<Min, Max> & Payload>` | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `range: MinMax<Min, Max>`                               | An [`object`][js-object] of optional **minimum** and **maximum** range of a given `value`. |
+| `callback: ResultCallback<any, typeof payload>`         | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and optional `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<MinMax<Min, Max> & Payload>` | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variables `Min` and `Max` and generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
 | Returns                                  | Type      | Description |
 | :--------------------------------------- | :-------: | :---------- |
-| `value is NumberBetween<Min, Max, Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is a generic type [`NumberBetween`](#numberbetween) that takes generic type variables `Min` and `Max`(from the provided `range` parameter) constrained by **number** type by default of value `number` as **range** of the supplied value, and `Type` constrained by [`AnyNumber`](#anynumber) by default of value `number` as the supplied value type. |
+| `value is NumberBetween<Min, Max, Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type [`NumberBetween`](#numberbetween) that takes generic type variables `Min` and `Max` as a **range** of the supplied value and `Type` as the type of the supplied value. |
 
 The **return value** is a `boolean` indicating whether the `value` is a finite number of a `number` type or an instance of [`Number`][js-number] between a specified range.
 
@@ -2057,7 +2064,7 @@ isNumberBetween(ageBox, 13, 13); // true; The return type `value is NumberBetwee
 
 #### `isNumberObject()`
 
-REVIEW: Seems to be okay.
+DONE
 
 [![update]][type-github-changelog]
 
@@ -2116,11 +2123,11 @@ isNumberObject(new Number(10304050)); // true
 
 #### `isNumberType()`
 
-REVIEW: Seems to be okay.
+DONE
 
 [![update]][type-github-changelog]
 
-Use `isNumberType()` or `is.numberType()` to check if **any** value is a [`number`][js-number] type and is checked by the [`Number.isFinite()`][js-numberisfinite] function to determine whether it's finite and is validated by the [`Number.isNaN()`][js-numberisnan] function.
+Use `isNumberType()` or `is.numberType()` to check if **any** value is a [`number`][js-number] type and is checked by the [`Number.isFinite()`][js-numberisfinite] method to determine whether it's finite and is validated by the [`Number.isNaN()`][js-numberisnan] method.
 
 ```typescript
 const isNumberType = <Payload extends object>(
@@ -2172,11 +2179,11 @@ isNumberType(new Number(10304050)); // false
 
 #### `isObject()`
 
-REVIEW: Seems to be okay.
+DONE
 
 [![update]][type-github-changelog]
 
-Use `isObject()` or `is.object()` to check if **any** value is an [`object`][js-object] type or of the type obtained from its `Object.prototype` equal to `'object'`, and an instance of [`Object`][js-object].
+Use `isObject()` or `is.object()` to check if **any** value is an [`object`][js-object] type or the type obtained from its `Object.prototype` equal to `'object'`, and an instance of [`Object`][js-object].
 
 ```typescript
 const isObject = <Obj = object, Payload extends object = object>(
@@ -2211,7 +2218,7 @@ const isObject = <Obj = object, Payload extends object = object>(
 
 | Returns        | Type      | Description |
 | :------------- | :-------: | :---------- |
-| `value is Obj` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type variable `Obj` which by default is equal to `object`. |
+| `value is Obj` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type variable `Obj` by default equal to `object`. |
 
 The **return value** is a `boolean` indicating whether the provided `value` is an [`object`][js-object].
 
@@ -2256,13 +2263,12 @@ isObject(OBJECT_ONE); // true
 
 #### `isObjectKey()`
 
-REVIEW: Seems to be okay.
 DONE
 
 [![update]][type-github-changelog]
 
-Use `isObjectKey()` or `is.objectKey()` to check if **any** value is an [`object`][js-object] by using the [`isObject()`](#isobject) function with its key of the `PropertyKey` type.
-The function uses [`hasOwnProperty`][js-hasownproperty] [`Object`][js-object] method to finds enumerable and non-enumerable `PropertyKey` as `string`, `number`, `symbol` unlike `Object.keys()`, but it can't find [`getter`][js-getter] property unlike [`in`][js-in-operator] operator, which can.
+Use `isObjectKey()` or `is.objectKey()` to check if **any** value is an [`object`][js-object] with its key of the `PropertyKey` type.
+The function uses [`hasOwnProperty`][js-hasownproperty] method of [`Object`][js-object] to finds enumerable and non-enumerable `PropertyKey` as `string`, `number`, `symbol` unlike `Object.keys()`, but it can't find [`getter`][js-getter] property unlike [`in`][js-in-operator] operator, which can.
 
 ```typescript
 const isObjectKey = <Obj = object, Payload extends object = object>(
@@ -2277,13 +2283,12 @@ const isObjectKey = <Obj = object, Payload extends object = object>(
     { name: isObjectKey.name, key, ...payload } as any
   );
 ```
-TODO:
 
 **Generic type variables:**
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Obj`     | `object`      | A generic type variable `Obj` indicates the type of `value` parameter, which by default is `object` via the return type `value is Obj`. |
+| `Obj`     | `object`      | A generic type variable `Obj` indicates the type of `value` parameter by default `object` via the return type `value is Obj`. |
 | `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
@@ -2292,8 +2297,8 @@ TODO:
 | :---------------------------------------------------------- | :---------- |
 | `value: any`                                                | The value of any type to check against an `object` that contains a key from a given `key`. |
 | `key: PropertyKey`                                          | A property key to check if a given `value` contains. |
-| `callback: ResultCallback<any, typeof payload>`             | A callback `function` of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape, with the provided `key` and optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<{ key?: typeof key } & Payload>` | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, typeof payload>`             | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<{ key?: typeof key } & Payload>` | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes `PropertyKey` and generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -2301,7 +2306,7 @@ TODO:
 | :------------- | :-------: | :---------- |
 | `value is Obj` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is a generic type variable `Obj` by default equal to the `object`. |
 
-The **return value** is a `boolean` indicating whether the provided `value` is an `object` with its key.
+The **return value** is a `boolean` indicating whether the provided `value` is an `object` with its `key`.
 
 **Usage:**
 
@@ -2380,9 +2385,11 @@ isObjectKey(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING]); // false
 
 #### `isObjectKeyIn()`
 
+DONE
+
 [![update]][type-github-changelog]
 
-Use `isObjectKeyIn()` or `is.objectKeyIn()` to check if **any** value is an [`object`][js-object] by using the [`isObject()`](#isobject) function with a key of the `PropertyKey` in it(or its prototype chain) by using the [`in`][js-in-operator] operator.
+Use `isObjectKeyIn()` or `is.objectKeyIn()` to check if **any** value is an [`object`][js-object] function with a key of the `PropertyKey` in it(or its prototype chain) by using the [`in`][js-in-operator] operator.
 
 ```typescript
 const isObjectKeyIn = <Obj = object, Payload extends object = object>(
@@ -2402,7 +2409,7 @@ const isObjectKeyIn = <Obj = object, Payload extends object = object>(
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Obj`     | `object`      | A generic type variable `Obj` indicates the type of `value` parameter, which by default is `object` via the return type `value is Obj`. |
+| `Obj`     | `object`      | A generic type variable `Obj` indicates the type of `value` parameter by default `object` via the return type `value is Obj`. |
 | `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
@@ -2411,16 +2418,16 @@ const isObjectKeyIn = <Obj = object, Payload extends object = object>(
 | :--------------------------------------------------------- | :---------- |
 | `value: any`                                               | The value of any type to check against an `object` that contains(or its prototype chain) a key from a given `key`. |
 | `key: PropertyKey`                                         | A property key to check if a given `value` contains(or its prototype chain). |
-| `callback: ResultCallback<any, typeof payload>`            | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape, with the provided `key` and optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<{ key: typeof key } & Payload>` | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, typeof payload>`            | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<{ key: typeof key } & Payload>` | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes `PropertyKey` and generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
 | Returns        | Type      | Description |
 | :------------- | :-------: | :---------- |
-| `value is Obj` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is a generic type variable `Obj` by default equal to the `object`. |
+| `value is Obj` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type variable `Obj` by default equal to the `object`. |
 
-The **return value** is a `boolean` indicating whether the provided `value` is an `object` that contains(or its prototype chain) a given key.
+The **return value** is a `boolean` indicating whether the provided `value` is an `object` that contains(or its prototype chain) a given `key`.
 
 **Usage:**
 
@@ -2473,10 +2480,12 @@ isObjectKeyIn(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING]); // true
 
 #### `isObjectKeys()`
 
+DONE
+
 [![update]][type-github-changelog]
 
-Use `isObjectKeys()` or `is.objectKeys()` to check if **any** value is an [`object`][js-object] by using the [`isObject()`](#isobject) with its keys.
-The function uses [`hasOwnProperty`][js-hasownproperty] of [`Object`][js-object] method to find enumerable and non-enumerable `PropertyKey` as `string`, `number`, `symbol` unlike `Object.keys()`, but it can't find [`getter`][js-getter] property unlike [`in`][js-in-operator] operator, which can.
+Use `isObjectKeys()` or `is.objectKeys()` to check if **any** value is an [`object`][js-object] with its keys.
+The function uses [`hasOwnProperty`][js-hasownproperty] method of [`Object`][js-object] to find enumerable and non-enumerable `PropertyKey` as `string`, `number`, `symbol` unlike `Object.keys()`, but it can't find [`getter`][js-getter] property unlike [`in`][js-in-operator] operator, which can.
 
 ```typescript
 const isObjectKeys = <Obj = object, Payload extends object = object>(
@@ -2498,7 +2507,7 @@ const isObjectKeys = <Obj = object, Payload extends object = object>(
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Obj`     | `object`      | A generic type variable `Obj` indicates the type of `value` parameter, which by default is `object` via the return type `value is Obj`. |
+| `Obj`     | `object`      | A generic type variable `Obj` indicates the type of `value` parameter by default `object` via the return type `value is Obj`. |
 | `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
@@ -2507,16 +2516,16 @@ const isObjectKeys = <Obj = object, Payload extends object = object>(
 | :------------------------------------------------------------ | :---------- |
 | `value: any`                                                  | The value of any type to check against an [`object`][js-object] that contains its keys from given `keys`. |
 | `keys: PropertyKey[]`                                         | An [`Array`][js-array] of property keys to check if a given `value` contains all of them. |
-| `callback: ResultCallback<any, typeof payload>`               | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape, with the provided `keys` and optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<{ keys?: typeof keys } & Payload>` | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, typeof payload>`               | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<{ keys?: typeof keys } & Payload>` | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes an `array` of `PropertyKey` and generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
 | Returns        | Type      | Description |
 | :------------- | :-------: | :---------- |
-| `value is Obj` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is a generic type variable `Obj` by default equal to the `object`. |
+| `value is Obj` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type variable `Obj` by default equal to the `object`. |
 
-The **return value** is a `boolean` indicating whether the provided `value` is an `object` with its keys.
+The **return value** is a `boolean` indicating whether the provided `value` is an `object` with its `keys`.
 
 **Usage:**
 
@@ -2562,9 +2571,11 @@ Object.keys(person);
 
 #### `isObjectKeysIn()`
 
+DONE
+
 [![update]][type-github-changelog]
 
-Use `isObjectKeysIn()` or `is.objectKeysIn()` to check if **any** value is an `object` by using the [`isObject()`](#isobject) function with keys in it(or its prototype chain) by using the [`in`][js-in-operator] operator.
+Use `isObjectKeysIn()` or `is.objectKeysIn()` to check if **any** value is an `object` with keys in it(or its prototype chain) by using the [`in`][js-in-operator] operator.
 
 ```typescript
 const isObjectKeysIn = <Obj = object, Payload extends object = object>(
@@ -2584,23 +2595,23 @@ const isObjectKeysIn = <Obj = object, Payload extends object = object>(
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Obj`     | `object`      | A generic type variable `Obj` indicates the type of `value` parameter, which by default is `object` via the return type `value is Obj`. |
+| `Obj`     | `object`      | A generic type variable `Obj` indicates the type of `value` parameter by default `object` via the return type `value is Obj`. |
 | `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                    | Description |
 | :------------------------------------------------------------ | :---------- |
-| `value: any`                                                  | The value of any type to check against an [`object`][js-object] that contains its keys from given `keys`. |
-| `keys: PropertyKey[]`                                         | An [`Array`][js-array] of property keys to check if a given `value` contains all of them. |
-| `callback: ResultCallback<any, typeof payload>`               | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape, with the provided `keys` and optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<{ keys?: typeof keys } & Payload>` | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `value: any`                                                  | The value of any type to check against an [`object`][js-object] that contains(or its prototype chain) keys from given `keys`. |
+| `keys: PropertyKey[]`                                         | An [`Array`][js-array] of property keys to check if a given `value` contains(or its prototype chain) all of them. |
+| `callback: ResultCallback<any, typeof payload>`               | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<{ keys?: typeof keys } & Payload>` | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes an `array` of `PropertyKey` and generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
 | Returns        | Type      | Description |
 | :------------- | :-------: | :---------- |
-| `value is Obj` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is a generic type variable `Obj` by default equal to the `object`. |
+| `value is Obj` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type variable `Obj` by default equal to the `object`. |
 
 The **return value** is a `boolean` indicating whether the provided `value` is an `object` that contains(or its prototype chain) given `keys`.
 
@@ -2637,9 +2648,11 @@ isObjectKeysIn(person, ['notEnumerable']); // Returns `true` as `value is object
 
 #### `isObjectSomeKeys()`
 
+DONE
+
 [![update]][type-github-changelog]
 
-Use `isObjectSomeKeys()` or `is.objectSomeKeys()` to check if **any** value is an [`object`][js-object] by using the [`isObject()`](#isobject) function with **some** of its keys or **some groups** of its keys of the `PropertyKey` type.
+Use `isObjectSomeKeys()` or `is.objectSomeKeys()` to check if **any** value is an [`object`][js-object] with **some** of its keys or **some groups** of its keys of the `PropertyKey` type.
 Because of using [`some()`][js-array-some] on the provided `keys` parameter of [`Array`][js-array] its elements are treated as logic `or`, and if an element is an [`Array`][js-array] type its elements are treated as logic `and` because of using [`every()`][js-array-every].
 
 ```typescript
@@ -2671,7 +2684,7 @@ const isObjectSomeKeys = <
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Obj`     | `object`      | A generic type variable `Obj` indicates the type of `value` parameter, which by default is `object` via the return type `value is Obj`. |
+| `Obj`     | `object`      | A generic type variable `Obj` indicates the type of `value` parameter by default `object` via the return type `value is Obj`. |
 | `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
@@ -2680,14 +2693,14 @@ const isObjectSomeKeys = <
 | :------------------------------------------------------------ | :---------- |
 | `value: any`                                                  | The value of any type to check against an [`object`][js-object] that contains some of its keys or some groups of its keys from a given `keys`. |
 | `keys: (PropertyKey | Array<PropertyKey>)[]`                  | An [`Array`][js-array] of property names or a two-dimensional array of property names to check if the given `value` contains some of them or some groups of them. |
-| `callback: ResultCallback<any, typeof payload>`               | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape, with the provided `keys` and optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<{ keys?: typeof keys } & Payload>` | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, typeof payload>`               | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<{ keys?: typeof keys } & Payload>` | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes an `array` of `PropertyKey` and generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
 | Returns        | Type      | Description |
 | :------------- | :-------: | :---------- |
-| `value is Obj` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is a generic type variable `Obj` by default equal to the `object`. |
+| `value is Obj` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type variable `Obj` by default equal to the `object`. |
 
 The **return value** is a `boolean` indicating whether the provided `value` is an `object` with some of its keys or some groups of its keys from a given `keys`.
 
@@ -2727,9 +2740,11 @@ isObjectSomeKeys(person, [['firstName1', 'surname1'], ['city1', 'no property']])
 
 #### `isPrimitive()`
 
+DONE
+
 [![update]][type-github-changelog]
 
-Use `isPrimitive()` or `is.primitive()` to check if **any** value is the [`Primitive`](#primitive) type or type from a given `type` of the [`Primitives`](#primitives).
+Use `isPrimitive()` or `is.primitive()` to check if **any** value is the [`Primitive`](#primitive) type or specific type from a given `type` of the [`Primitives`](#primitives).
 
 ```typescript
 const isPrimitive = <
@@ -2791,7 +2806,7 @@ const isPrimitive = <
 
 | Returns         | Type      | Description |
 | :-------------- | :-------: | :---------- |
-| `value is Type` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type variable `Type` constrained by [`Primitive`](#primitive) by default equal to [`Primitive`](#primitive). |
+| `value is Type` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type variable `Type` by default equal to [`Primitive`](#primitive). |
 
 The **return value** is a `boolean` indicating whether the provided `value` is a primitive type of the [`Primitives`](#primitives).
 
@@ -2814,6 +2829,8 @@ isPrimitive<undefined>(undefined, 'undefined'); // Returns `true` as `value is u
 <br>
 
 #### `isRegExp()`
+
+DONE
 
 [![update]][type-github-changelog]
 
@@ -2851,7 +2868,7 @@ const isRegExp = <Payload extends object>(
 
 | Returns           | Type      | Description |
 | :---------------- | :-------: | :---------- |
-| `value is RegExp` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is a regular expression of a [`RegExp`][js-regexp]. |
+| `value is RegExp` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a regular expression of a [`RegExp`][js-regexp]. |
 
 The **return value** is a `boolean` indicating whether the provided `value` is a regular expression.
 
@@ -2868,9 +2885,11 @@ isRegExp(/[^a-z]/g); // true; The return type `value is RegExp`
 
 #### `isString()`
 
+DONE
+
 [![update]][type-github-changelog]
 
-Use `isString()` or `is.string()` to check if **any** value is a [`string`][js-string] type by using the [`isStringType()`](#isstringtype) function or an instance of [`String`][js-string] by using the [`isStringObject()`](#isstringobject) function.
+Use `isString()` or `is.string()` to check if **any** value is a [`string`][js-string] type or an instance of [`String`][js-string].
 
 ```typescript
 const isString = <
@@ -2891,7 +2910,7 @@ const isString = <
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Type`    | `string`      | A generic type variable `Type` guarded by [`AnyString`](#anystring) by default of `string` indicates the type of the `value` via the return type `value is Type`. |
+| `Type`    | `string`      | A generic type variable `Type` guarded by [`AnyString`](#anystring) by default `string` indicates the type of the `value` via the return type `value is Type`. |
 | `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
@@ -2906,7 +2925,7 @@ const isString = <
 
 | Returns         | Type      | Description |
 | :-------------- | :-------: | :---------- |
-| `value is Type` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is a generic type variable `Type` by default equal to the `string`. |
+| `value is Type` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type variable `Type` by default equal to the `string`. |
 
 The **return value** is a `boolean` indicating whether the provided `value` is a `string` type or an instance of [`String`][js-string].
 
@@ -2937,9 +2956,11 @@ typeof fakeString; // "object"
 
 #### `isStringIncludes()`
 
+DONE
+
 [![new]][type-github-changelog]
 
-Use `isStringIncludes()` or `is.stringIncludes()` to check if **any** value is a [`string`][js-string] type or an instance of [`String`][js-string] by using [`isString()`](#isstring) that **includes all** of the specified **words/sentences**.
+Use `isStringIncludes()` or `is.stringIncludes()` to check if **any** value is a [`string`][js-string] type or an instance of [`String`][js-string] that **includes all** of the specified **words/sentences**.
 
 ```typescript
 const isStringIncludes = <
@@ -2966,25 +2987,25 @@ const isStringIncludes = <
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Type`    | `string`      | A generic type variable `Type` guarded by [`AnyString`](#anystring) by default of `string` indicates the type of the `value` via the return type `value is Type`. |
+| `Type`    | `string`      | A generic type variable `Type` guarded by [`AnyString`](#anystring) by default `string` indicates the type of the `value` via the return type `value is Type`. |
 | `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                            | Description |
 | :-------------------------------------------------------------------- | :---------- |
-| `value: any`                                                          | The value of any type to check against the string that contains words/sentences from a given `includes`.  |
-| `includes: string[]`                                                  | An [`Array`][js-array] of [`string`][js-string] as words/sentences to be **case-sensitive** searched for within a given `value`. |
-| `callback: ResultCallback<any, typeof payload>`                       | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape with the `includes` and optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<{ includes?: typeof includes } & Payload>` | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `value: any`                                                          | The value of any type to check against the string that contains **words/sentences** from a given `includes`.  |
+| `includes: string[]`                                                  | An [`Array`][js-array] of [`string`][js-string] as **words/sentences** to be **case-sensitive** searched for within a given `value`. |
+| `callback: ResultCallback<any, typeof payload>`                       | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<{ includes?: typeof includes } & Payload>` | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes an `array` of `string` and generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
 | Returns         | Type      | Description |
 | :-------------- | :-------: | :---------- |
-| `value is Type` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is a generic type variable `Type` by default equal to the `string`. |
+| `value is Type` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type variable `Type` by default equal to the `string`. |
 
-The **return value** is a `boolean` indicating whether the provided `value` is a [`string`][js-string] type or an instance of [`String`][js-string] that includes all of the specified words/sentences.
+The **return value** is a `boolean` indicating whether the provided `value` is a [`string`][js-string] type or an instance of [`String`][js-string] that includes all of the specified **words/sentences**.
 
 **Usage:**
 
@@ -3004,6 +3025,8 @@ isStringIncludes(new String('This is artificial intelligence.'), [
 <br>
 
 #### `isStringIncludesSome()`
+
+DONE
 
 [![new]][type-github-changelog]
 
@@ -3034,7 +3057,7 @@ const isStringIncludesSome = <
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Type`    | `string`      | A generic type variable `Type` guarded by [`AnyString`](#anystring) by default of `string` indicates the type of the `value` via the return type `value is Type`. |
+| `Type`    | `string`      | A generic type variable `Type` guarded by [`AnyString`](#anystring) by default `string` indicates the type of the `value` via the return type `value is Type`. |
 | `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
@@ -3043,16 +3066,16 @@ const isStringIncludesSome = <
 | :-------------------------------------------------------------------- | :---------- |
 | `value: any`                                                          | The value of any type to check against the string that `includes` **some** of the **words/sentences**. |
 | `includes: string[]`                                                  | An [`Array`][js-array] of [`string`][js-string] as **words/sentences** to be **case-sensitive** searched for within a given `value`. |
-| `callback: ResultCallback<any, typeof payload>`                       | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape with the `includes` and optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<{ includes?: typeof includes } & Payload>` | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, typeof payload>`                       | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<{ includes?: typeof includes } & Payload>` | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes an `array` of `string` and generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
 | Returns         | Type      | Description |
 | :-------------- | :-------: | :---------- |
-| `value is Type` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is a generic type variable `Type` by default equal to the `string`. |
+| `value is Type` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type variable `Type` by default equal to the `string`. |
 
-The **return value** is a `boolean` indicating whether the provided `value` is a [`string`][js-string] type or an instance of [`String`][js-string] that includes **some** of the specified words/sentences.
+The **return value** is a `boolean` indicating whether the provided `value` is a [`string`][js-string] type or an instance of [`String`][js-string] that includes **some** of the specified **words/sentences**.
 
 **Usage:**
 
@@ -3073,9 +3096,11 @@ isStringIncludesSome(new String('This is artificial intelligence.'), [
 
 #### `isStringLength()`
 
+DONE
+
 [![update]][type-github-changelog]
 
-Use `isStringLength()` or `is.stringLength()` to check if **any** value is a [`string`][js-string] type or an instance of [`String`][js-string] by using [`isString()`](#isstring) of `length` within the specified range.
+Use `isStringLength()` or `is.stringLength()` to check if **any** value is a [`string`][js-string] type or an instance of [`String`][js-string] of `length` within the specified range.
 
 ```typescript
 const isStringLength = <
@@ -3112,7 +3137,7 @@ const isStringLength = <
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Type`    | `string`      | A generic type variable `Type` guarded by [`AnyString`](#anystring) by default of `string` indicates the type of the `value` via the return type `value is StringOfLength<Min, Max, Type>`. |
+| `Type`    | `string`      | A generic type variable `Type` guarded by [`AnyString`](#anystring) by of default `string` indicates the type of the `value` via the return type `value is StringOfLength<Min, Max, Type>`. |
 | `Min`     | `number`      | A generic type variable `Min` constrained with the `number` type, by default of value captured from optional `min` of provided `length` that indicates the **minimum** length of the provided `value` via the return type `value is StringOfLength<Min, Max, Type>` |
 | `Max`     | `number`      | A generic type variable `Max` constrained with the `number` type, by default of value captured from optional `max` of provided `length` that indicates the **maximum** length of the provided `value` via the return type `value is StringOfLength<Min, Max, Type>` |
 | `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
@@ -3123,14 +3148,14 @@ const isStringLength = <
 | :------------------------------------------------------ | :---------- |
 | `value: any`                                            | The value of any type to check. |
 | `length: MinMax<Min, Max>`                              | An [`object`][js-object] of optional minimum and a maximum `length` of the given `value`. |
-| `callback: ResultCallback<any, typeof payload>`         | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape with the minimum and maximum `length` and optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<MinMax<Min, Max> & Payload>` | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, typeof payload>`         | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<MinMax<Min, Max> & Payload>` | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variables `Min` and `Max` and generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
 | Returns                                   | Type      | Description |
 | :---------------------------------------- | :-------: | :---------- |
-| `value is StringOfLength<Min, Max, Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is a generic type [`StringOfLength`](#stringoflength) that takes generic type variables `Min` and `Max`(from the provided `length` parameter) constrained by **number** type by default of value `number` as the **length** of the supplied value, and generic type variable `Type` constrained by [`AnyString`](#anystring) by default of value `string` as the supplied value type. |
+| `value is StringOfLength<Min, Max, Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type [`StringOfLength`](#stringoflength) that takes generic type variables `Min` and `Max` as the **length** of the supplied value, and generic type variable `Type` as the type of the supplied value. |
 
 The **return value** is a `boolean` indicating whether the `value` is a `string` type or an instance of [`String`][js-string] of length within the specified range.
 
@@ -3161,6 +3186,8 @@ isStringLength(firstNameBox, { min: 13, max: 13 }); // true; The return type `va
 <br>
 
 #### `isStringObject()`
+
+DONE
 
 [![update]][type-github-changelog]
 
@@ -3216,6 +3243,8 @@ isStringObject(new String('age')) // Returns `true` as `value is String`
 
 #### `isStringType()`
 
+DONE
+
 [![update]][type-github-changelog]
 
 Use `isStringType()` or `is.stringType()` to check if **any** value is a [`string`][js-string] type.
@@ -3268,6 +3297,8 @@ isStringType(new String('age')) // Returns `false` as `value is string`
 
 #### `isSymbol()`
 
+DONE
+
 [![update]][type-github-changelog]
 
 Use `isSymbol()` or `is.symbol()` to check if **any** value is a [`symbol`][js-symbol] type.
@@ -3319,6 +3350,8 @@ isSymbol(Symbol('age')); // Returns `true` as `value is symbol`
 
 #### `isTrue()`
 
+DONE
+
 [![update]][type-github-changelog]
 
 Use `isTrue()` or `is.true()` to check if **any** value is a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean](by using the [`isBoolean()`](#isboolean)) equal to `true`.
@@ -3353,7 +3386,7 @@ const isTrue = <Payload extends object>(
 
 | Returns         | Type      | Description |
 | :-------------- | :-------: | :---------- |
-| `value is true` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is `true`. |
+| `value is true` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is `true`. |
 
 The **return value** is a `boolean` indicating whether the provided `value` is a `boolean` equal to `true`.
 
@@ -3370,9 +3403,11 @@ isTrue(false); // Returns `false` as `value is true`
 
 #### `isType()`
 
+DONE
+
 [![update]][type-github-changelog]
 
-Use `isType()` or `is.type()` to check if **any** value is a type of [`Type`](#type) from a given `type` of the [`Types`](#types).
+Use `isType()` or `is.type()` to check if **any** value is the type of [`Type`](#type) from a given `type` parameter of the [`Types`](#types).
 
 ```typescript
 const isType = <T extends Type, Payload extends object = object>(
@@ -3414,7 +3449,7 @@ const isType = <T extends Type, Payload extends object = object>(
 
 | Name: type                                      | Description |
 | :---------------------------------------------- | :---------- |
-| `value: any`                                    | The value of any type to check against a type of given `type` of [`Types`](#types). |
+| `value: any`                                    | The value of any type to check against the type of given `type` of [`Types`](#types). |
 | `type: Types<T>`                                | A value of [`string`][js-string] or [`Constructor`](#constructor) type of the `Types` indicates against which type the provided `value` is checked. |
 | `callback: ResultCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
 | `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
@@ -3423,7 +3458,7 @@ const isType = <T extends Type, Payload extends object = object>(
 
 | Returns      | Type      | Description |
 | :----------- | :-------: | :---------- |
-| `value is T` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is a generic type variable `T` constrained by [`Type`](#type) by default equal to the [`Type`](#type) but captured type [`class`][ts-classes] of the supplied `type` changes to the class name. |
+| `value is T` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type variable `T` by default equal to the [`Type`](#type) but captured type [`class`][ts-classes] of the supplied `type` changes it to the class name. |
 
 The **return value** is a `boolean` indicating whether the provided `value` is a type from a given `type` of the [`Types`](#types).
 
@@ -3469,7 +3504,8 @@ isType(person, Person, (result, value, payload) => {
 
 #### `isUndefined()`
 
-TODO: Done.
+DONE
+
 [![update]][type-github-changelog]
 
 Use `isUndefined()` or `is.undefined()` to check if **any** value is an [`undefined`][js-undefined] type.
@@ -4101,32 +4137,32 @@ TODO:
 
 | Function                                            | Guards the value to be |
 | :-------------------------------------------------- | :--------------------- |
-| **[`guardArray()`](#guardarray)**                   |  |
-| **[`guardBigInt()`](#guardbigint)**                 |  |
-| **[`guardBoolean()`](#guardboolean)**               |  |
-| **[`guardClass()`](#guardclass)**                   |  |
-| **[`guardDate()`](#guarddate)**                     |  |
-| **[`guardDefined()`](#guarddefined)**               |  |
-| **[`guardFalse()`](#guardfalse)**                   |  |
-| **[`guardFunction()`](#guardfunction)**             |  |
-| **[`guardInstance()`](#guardinstance)**             |  |
-| **[`guardKey()`](#guardkey)**                       |  |
-| **[`guardNull()`](#guardnull)**                     |  |
-| **[`guardNumber()`](#guardnumber)**                 |  |
-| **[`guardNumberBetween()`](#guardnumberbetween)**   |  |
-| **[`guardObject()`](#guardobject)**                 |  |
-| **[`guardObjectKey()`](#guardobjectkey)**           |  |
-| **[`guardObjectKeyIn()`](#guardobjectkeyin)**       |  |
-| **[`guardObjectKeys()`](#guardobjectkeys)**         |  |
-| **[`guardObjectSomeKeys()`](#guardobjectsomekeys)** |  |
-| **[`guardPrimitive()`](#guardprimitive)**           |  |
-| **[`guardRegExp()`](#guardregexp)**                 |  |
-| **[`guardString()`](#guardstring)**                 |  |
-| **[`guardStringLength()`](#guardstringlength)**     |  |
-| **[`guardSymbol()`](#guardsymbol)**                 |  |
-| **[`guardTrue()`](#guardtrue)**                     |  |
-| **[`guardType()`](#guardtype)**                     |  |
-| **[`guardUndefined()`](#guardundefined)**           |  |
+| [`guardArray()`](#guardarray)                   |  |
+| [`guardBigInt()`](#guardbigint)                 |  |
+| [`guardBoolean()`](#guardboolean)               |  |
+| [`guardClass()`](#guardclass)                   |  |
+| [`guardDate()`](#guarddate)                     |  |
+| [`guardDefined()`](#guarddefined)               |  |
+| [`guardFalse()`](#guardfalse)                   |  |
+| [`guardFunction()`](#guardfunction)             |  |
+| [`guardInstance()`](#guardinstance)             |  |
+| [`guardKey()`](#guardkey)                       |  |
+| [`guardNull()`](#guardnull)                     |  |
+| [`guardNumber()`](#guardnumber)                 |  |
+| [`guardNumberBetween()`](#guardnumberbetween)   |  |
+| [`guardObject()`](#guardobject)                 |  |
+| [`guardObjectKey()`](#guardobjectkey)           |  |
+| [`guardObjectKeyIn()`](#guardobjectkeyin)       |  |
+| [`guardObjectKeys()`](#guardobjectkeys)         |  |
+| [`guardObjectSomeKeys()`](#guardobjectsomekeys) |  |
+| [`guardPrimitive()`](#guardprimitive)           |  |
+| [`guardRegExp()`](#guardregexp)                 |  |
+| [`guardString()`](#guardstring)                 |  |
+| [`guardStringLength()`](#guardstringlength)     |  |
+| [`guardSymbol()`](#guardsymbol)                 |  |
+| [`guardTrue()`](#guardtrue)                     |  |
+| [`guardType()`](#guardtype)                     |  |
+| [`guardUndefined()`](#guardundefined)           |  |
 
 <br>
 
@@ -4905,7 +4941,7 @@ const guardNumberBetween = <
 
 | Returns                                  | Type      | Description |
 | :--------------------------------------- | :-------: | :---------- |
-| `value is NumberBetween<Min, Max, Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is a generic type [`NumberBetween`](#numberbetween) that takes generic type variables `Min` and `Max`(from the provided `range` parameter) constrained by **number** type by default of value `number` as **range** of the supplied value, and `Type` constrained by [`AnyNumber`](#anynumber) by default of value `number` as the supplied value type. |
+| `value is NumberBetween<Min, Max, Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type [`NumberBetween`](#numberbetween) that takes generic type variables `Min` and `Max` as a **range** of the supplied value and `Type` as the **type** of the supplied value. |
 
 The **return value** is a `boolean` indicating whether the `value` is a `number` type or an instance of [`Number`][js-number] between the specified `range`.
 
@@ -6666,6 +6702,7 @@ MIT © angular-package ([license][type-license])
 [js-instanceof]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof
 [js-in-operator]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in
 
+[js-isarray]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray
 [js-isfinite]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isFinite
 [js-isfrozen]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isFrozen
 [js-isnan]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN
