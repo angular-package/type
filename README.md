@@ -595,11 +595,13 @@ isObject('x', customCallback, { database: '' });
 
 <br>
 
+----
+
 #### `areBigInt()`
 
 [![new]][type-github-changelog]
 
-Checks if the **values** are a [`bigint`][js-bigint] type by using `every()`, `forEach()` and `some()` methods of the returned object.
+Checks if the **values** are a [`bigint`][js-bigint] type by using [`every()`](#arebigintevery), [`forEach()`](#arebigintforeach) and [`some()`](#arebigintsome) methods of the returned object.
 
 ```typescript
 const areBigInt = (...values: any[]) => { ... };
@@ -616,6 +618,8 @@ const areBigInt = (...values: any[]) => { ... };
 The **return value** is an [`object`][js-object] consists of [`every()`](#arebigintevery), [`forEach()`](#arebigintforeach) and [`some()`](#arebigintsome) methods for checking supplied `values`.
 
 #### `areBigInt().every()`
+
+[![new]][type-github-changelog]
 
 Checks if **every** of the provided `values` of [`areBigInt()`](#arebigint) is a [`string`][js-string] type.
 
@@ -666,6 +670,8 @@ areBigInt(1n, 22n).every((result, value, payload) => {
 
 #### `areBigInt().forEach()`
 
+[![new]][type-github-changelog]
+
 The `forEach()` method executes a provided callback function once for each element of the supplied values of `areBigInt()`.
 
 ```typescript
@@ -694,10 +700,10 @@ The `forEach()` method executes a provided callback function once for each eleme
 
 **Parameters:**
 
-| Name: type                                      | Description |
-| :---------------------------------------------- | :---------- |
-| `callback: ResultCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ForEachCallback`][package-callback-foreachcallback] type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default `CallbackPayload` shape with optional properties from the provided `payload`, to handle. |
-| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| Name: type                                       | Description |
+| :----------------------------------------------- | :---------- |
+| `callback: ForEachCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ForEachCallback`][package-callback-foreachcallback] type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default `CallbackPayload` shape with optional properties from the provided `payload`, to handle. |
+| `payload?: CallbackPayload<Payload>`             | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -725,7 +731,7 @@ areBigInt(1n, 2, '3').forEach(
 
 #### `areBigInt().some()`
 
-Checks if **some** of the provided `values` of [`areBigInt()`](#arebigint) is a [`bigint`][js-bigint] type.
+Checks if **some** of the provided `values` of [`areBigInt()`](#arebigint) are a [`bigint`][js-bigint] type.
 
 ```typescript
 {
@@ -771,6 +777,8 @@ areBigInt(1n, 2, '3').some((result, value, payload) => {
   return result;
 });
 ```
+
+----
 
 <br>
 
