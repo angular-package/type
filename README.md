@@ -617,7 +617,7 @@ const areBigInt = (...values: any[]) => { ... };
 
 The **return value** is an [`object`][js-object] consists of [`every()`](#arebigintevery), [`forEach()`](#arebigintforeach) and [`some()`](#arebigintsome) methods for checking supplied `values`.
 
-#### `areBigInt().every()`
+#### &rsaquo; `areBigInt().every()`
 
 [![new]][type-github-changelog]
 
@@ -668,7 +668,7 @@ areBigInt(1n, 22n).every((result, value, payload) => {
 }); // true, boolean
 ```
 
-#### `areBigInt().forEach()`
+#### &rsaquo; `areBigInt().forEach()`
 
 [![new]][type-github-changelog]
 
@@ -729,7 +729,9 @@ areBigInt(1n, 2, '3').forEach(
 );
 ```
 
-#### `areBigInt().some()`
+#### &rsaquo; `areBigInt().some()`
+
+[![new]][type-github-changelog]
 
 Checks if **some** of the provided `values` of [`areBigInt()`](#arebigint) are a [`bigint`][js-bigint] type.
 
