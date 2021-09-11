@@ -599,6 +599,8 @@ isObject('x', customCallback, { database: '' });
 
 #### `areBigInt()`
 
+DONE
+
 [![new]][type-github-changelog]
 
 Checks if the **values** are a [`bigint`][js-bigint] type by using [`every()`](#arebigintevery), [`forEach()`](#arebigintforeach) and [`some()`](#arebigintsome) methods of the returned object.
@@ -617,11 +619,11 @@ const areBigInt = (...values: any[]) => { ... };
 
 The **return value** is an [`object`][js-object] consists of [`every()`](#arebigintevery), [`forEach()`](#arebigintforeach) and [`some()`](#arebigintsome) methods for checking supplied `values`.
 
-#### &rsaquo; `areBigInt().every()`
+#### `areBigInt().every()`
 
 [![new]][type-github-changelog]
 
-Checks if **every** of the provided `values` of [`areBigInt()`](#arebigint) is a [`string`][js-string] type.
+Checks if **every** of the provided `values` of [`areBigInt()`](#arebigint) is a [`bigint`][js-bigint] type.
 
 ```typescript
 {
@@ -668,11 +670,11 @@ areBigInt(1n, 22n).every((result, value, payload) => {
 }); // true, boolean
 ```
 
-#### &rsaquo; `areBigInt().forEach()`
+#### `areBigInt().forEach()`
 
 [![new]][type-github-changelog]
 
-The `forEach()` method executes a provided callback function once for each element of the supplied values of `areBigInt()`.
+The `forEach()` method executes a provided callback function once for each element of the supplied `values` of [`areBigInt()`](#arebigint).
 
 ```typescript
 {
@@ -702,7 +704,7 @@ The `forEach()` method executes a provided callback function once for each eleme
 
 | Name: type                                       | Description |
 | :----------------------------------------------- | :---------- |
-| `callback: ForEachCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ForEachCallback`][package-callback-foreachcallback] type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default `CallbackPayload` shape with optional properties from the provided `payload`, to handle. |
+| `callback: ForEachCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ForEachCallback`][package-callback-foreachcallback] type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape with optional properties from the provided `payload`, to handle. |
 | `payload?: CallbackPayload<Payload>`             | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
@@ -729,7 +731,7 @@ areBigInt(1n, 2, '3').forEach(
 );
 ```
 
-#### &rsaquo; `areBigInt().some()`
+#### `areBigInt().some()`
 
 [![new]][type-github-changelog]
 
@@ -775,7 +777,7 @@ import { areBigInt } from '@angular-package/type';
 areBigInt(1n, 2, '3').some((result, value, payload) => {
   result // true
   value // [1n, 2, '3']
-  payload // { "name": "areBigInt" }
+  payload // { name: 'areBigInt' }
   return result;
 });
 ```
@@ -786,7 +788,9 @@ areBigInt(1n, 2, '3').some((result, value, payload) => {
 
 #### `areBoolean()`
 
-Checks if the **values** are a [`boolean`][js-boolean] type or an instance of `Boolean` by using `every()`, `forEach()` and `some()` methods of the returned object.
+DONE
+
+Checks if the **values** are a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] by using [`every()`](#arebooleanevery), [`forEach()`](#arebooleanforeach) and [`some()`](#arebooleansome) methods of the returned object.
 
 ```typescript
 const areBoolean = (...values: any[]) => { ... };
@@ -802,13 +806,178 @@ const areBoolean = (...values: any[]) => { ... };
 
 The **return value** is an [`object`][js-object] consists of [`every()`](#arebooleanevery), [`forEach()`](#arebooleanforeach) and [`some()`](#arebooleansome) methods for checking supplied `values`.
 
+#### `areBoolean().every()`
+
+[![new]][type-github-changelog]
+
+Checks if **every** of the provided `values` of [`areBoolean()`](#areboolean) is a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean].
+
+```typescript
+{
+  every: <Payload extends object>(
+    callback: ResultCallback<any, typeof payload> = resultCallback,
+    payload?: CallbackPayload<Payload>
+  ): boolean =>
+    callback(
+      values.every((value) => isBoolean(value)),
+      values,
+      { name: areBoolean.name, ...payload } as Payload
+    )
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                      | Description |
+| :---------------------------------------------- | :---------- |
+| `callback: ResultCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is a `boolean` indicating whether the provided `values` of [`areBoolean()`](#areboolean) are a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean].
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areBoolean } from '@angular-package/type';
+
+areBoolean(1, true, null, new Boolean(3)).every((result, value, payload) => {
+  result // false
+  value // [1, true, null, Boolean]
+  payload // { name: 'areBoolean' }
+  return result;
+}); // false, boolean
+```
+
+#### `areBoolean().forEach()`
+
+[![new]][type-github-changelog]
+
+The `forEach()` method executes a provided callback function once for each element of the supplied `values` of [`areBoolean()`](#areboolean).
+
+```typescript
+{
+  forEach: <Payload extends object>(
+    forEachCallback: ForEachCallback<any, typeof payload>,
+    payload?: CallbackPayload<Payload>
+  ) => {
+    if (isArray(values) && isFunction(forEachCallback)) {
+      values.forEach((value, index) =>
+        forEachCallback(isBoolean(value), value, index, values, {
+          name: areBoolean.name,
+          ...payload,
+        } as CallbackPayload<Payload>)
+      );
+    }
+  }
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                       | Description |
+| :----------------------------------------------- | :---------- |
+| `callback: ForEachCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ForEachCallback`][package-callback-foreachcallback] type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape with optional properties from the provided `payload`, to handle. |
+| `payload?: CallbackPayload<Payload>`             | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is void.
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areBoolean } from '@angular-package/type';
+
+areBoolean(1, true, null, new Boolean(3)).forEach(
+  (result, value, index, array, payload) => {
+    result // false, true, false, true
+    value // 1, true, null, Boolean
+    index // 0, 1, 2, 3
+    array // [ 1, true, null, Boolean ]
+    payload // { name: 'areBoolean', age: 2 }
+  },
+  { age: 2 }
+);
+```
+
+#### `areBoolean().some()`
+
+[![new]][type-github-changelog]
+
+Checks if **some** of the provided `values` of [`areBoolean()`](#areboolean) is a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean].
+
+```typescript
+{
+  some: <Payload extends object>(
+    callback: ResultCallback<any, typeof payload> = resultCallback,
+    payload?: CallbackPayload<Payload>,
+  ): boolean =>
+    callback(
+      isArray(values) ? values.some((value) => isBoolean(value)) : false,
+      values,
+      { name: areBoolean.name, ...payload } as Payload
+    )
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                      | Description |
+| :---------------------------------------------- | :---------- |
+| `callback: ResultCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is a `boolean` indicating whether **some** of the provided `values` of [`areBoolean()`](#areboolean) is a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean].
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areBoolean } from '@angular-package/type';
+
+areBoolean(1, true, null, new Boolean(3)).some((result, value, payload) => {
+  result // true
+  value // [1, true, null, Boolean]
+  payload // { name: 'areBoolean' }
+  return result;
+}); // true, boolean
+```
+
+----
+
 <br>
 
 #### `areDate()`
 
+DONE
+
 [![new]][type-github-changelog]
 
-Checks if the **values** are [`Date`][js-date] by using `every()`, `forEach()` and `some()` methods of the returned object.
+Checks if the **values** are [`Date`][js-date] by using [`every()`](#aredateevery), [`forEach()`](aredateforeach) and [`some()`](#aredatesome) methods of the returned object.
 
 ```typescript
 const areDate = (...values: any[]) => { ... };
@@ -824,41 +993,1871 @@ const areDate = (...values: any[]) => { ... };
 
 The **return value** is an [`object`][js-object] consists of [`every()`](#aredateevery), [`forEach()`](#aredateforeach) and [`some()`](#aredatesome) methods for checking supplied `values`.
 
+#### `areDate().every()`
+
+[![new]][type-github-changelog]
+
+Checks if **every** of the provided `values` of [`areDate()`](#aredate) is a [`Date`][js-date].
+
+```typescript
+{
+  every: <Payload extends object>(
+    callback: ResultCallback<any, typeof payload> = resultCallback,
+    payload?: CallbackPayload<Payload>
+  ): boolean =>
+    callback(
+      values.every((value) => isDate(value)),
+      values,
+      { name: areDate.name, ...payload } as Payload
+    )
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                      | Description |
+| :---------------------------------------------- | :---------- |
+| `callback: ResultCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is a `boolean` indicating whether the provided `values` of [`areDate()`](#aredate) are [`Date`][js-date].
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areDate } from '@angular-package/type';
+
+areDate(new Date(), new Date('invalid date')).every((result, value, payload) => {
+  result // false
+  value // [Sat Sep 11 2021 21:36:43 GMT+0200 (Central European Summer Time), Invalid Date]
+  payload // { name: 'areDate' }
+  return result;
+}); // false, boolean
+```
+
+#### `areDate().forEach()`
+
+[![new]][type-github-changelog]
+
+The `forEach()` method executes a provided callback function once for each element of the supplied `values` of [`areDate()`](#aredate).
+
+```typescript
+{
+  forEach: <Payload extends object>(
+    forEachCallback: ForEachCallback<any, typeof payload>,
+    payload?: CallbackPayload<Payload>
+  ) => {
+    if (isArray(values) && isFunction(forEachCallback)) {
+      values.forEach((value, index) =>
+        forEachCallback(isDate(value), value, index, values, {
+          name: areDate.name,
+          ...payload,
+        } as CallbackPayload<Payload>)
+      );
+    }
+  }
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                       | Description |
+| :----------------------------------------------- | :---------- |
+| `callback: ForEachCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ForEachCallback`][package-callback-foreachcallback] type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape with optional properties from the provided `payload`, to handle. |
+| `payload?: CallbackPayload<Payload>`             | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is void.
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areDate } from '@angular-package/type';
+
+areDate(new Date(), new Date('invalid date')).forEach(
+  (result, value, index, array, payload) => {
+    result // true, false
+    value // Sat Sep 11 2021 21:38:19 GMT+0200 (Central European Summer Time, Invalid Date
+    index // 0, 1
+    array // [ Sat Sep 11 2021 21:38:19 GMT+0200 (Central European Summer Time), Invalid Date ]
+    payload // { name: 'areDate', age: 2 }
+  },
+  { age: 2 }
+);
+```
+
+#### `areDate().some()`
+
+[![new]][type-github-changelog]
+
+Checks if **some** of the provided `values` of [`areDate()`](#aredate) are [`Date`][js-date].
+
+```typescript
+{
+  some: <Payload extends object>(
+    callback: ResultCallback<any, typeof payload> = resultCallback,
+    payload?: CallbackPayload<Payload>,
+  ): boolean =>
+    callback(
+      isArray(values) ? values.some((value) => isDate(value)) : false,
+      values,
+      { name: areDate.name, ...payload } as Payload
+    )
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                      | Description |
+| :---------------------------------------------- | :---------- |
+| `callback: ResultCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is a `boolean` indicating whether **some** of the provided `values` of [`areDate()`](#aredate) are [`Date`][js-date].
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areDate } from '@angular-package/type';
+
+areDate(new Date(), new Date('invalid date')).some((result, value, payload) => {
+  result // true
+  value // [Sat Sep 11 2021 21:37:43 GMT+0200 (Central European Summer Time), Invalid Date]
+  payload // { name: 'areDate' }
+  return result;
+}); // true, boolean
+```
+
+----
+
+<br>
+
+#### `areDefined()`
+
+DONE
+
+[![new]][type-github-changelog]
+
+Checks if the **values** are **defined** by using [`every()`](#aredefinedevery), [`forEach()`](aredefinedforeach) and [`some()`](#aredefinedsome) methods of the returned object.
+
+```typescript
+const areDefined = (...values: any[]) => { ... };
+```
+
+**Parameters:**
+
+| Name: type         | Description |
+| :----------------- | :---------- |
+| `...values: any[]` | A rest parameter of `any` type to check its elements against **defined**. |
+
+**Returns:**
+
+The **return value** is an [`object`][js-object] consists of [`every()`](#aredefinedevery), [`forEach()`](#aredefinedforeach) and [`some()`](#aredefinedsome) methods for checking supplied `values`.
+
+#### `areDefined().every()`
+
+[![new]][type-github-changelog]
+
+Checks if **every** of the provided `values` of [`areDefined()`](#aredefined) is **defined**.
+
+```typescript
+{
+  every: <Payload extends object>(
+    callback: ResultCallback<any, typeof payload> = resultCallback,
+    payload?: CallbackPayload<Payload>
+  ): boolean =>
+    callback(
+      values.every((value) => isDefined(value)),
+      values,
+      { name: areDefined.name, ...payload } as Payload
+    )
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                      | Description |
+| :---------------------------------------------- | :---------- |
+| `callback: ResultCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is a `boolean` indicating whether the provided `values` of [`areDefined()`](#aredefined) are **defined**.
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areDefined } from '@angular-package/type';
+
+let age;
+
+areDefined('1', 2, null, undefined, age).every((result, value, payload) => {
+  result // false
+  value // [ '1', 2, null, undefined, undefined ]
+  payload // { name: 'areDefined' }
+  return result;
+}); // false, boolean
+```
+
+#### `areDefined().forEach()`
+
+[![new]][type-github-changelog]
+
+The `forEach()` method executes a provided callback function once for each element of the supplied `values` of [`areDefined()`](#aredefined).
+
+```typescript
+{
+  forEach: <Payload extends object>(
+    forEachCallback: ForEachCallback<any, typeof payload>,
+    payload?: CallbackPayload<Payload>
+  ) => {
+    if (isArray(values) && isFunction(forEachCallback)) {
+      values.forEach((value, index) =>
+        forEachCallback(isDefined(value), value, index, values, {
+          name: areDefined.name,
+          ...payload,
+        } as CallbackPayload<Payload>)
+      );
+    }
+  }
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                       | Description |
+| :----------------------------------------------- | :---------- |
+| `callback: ForEachCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ForEachCallback`][package-callback-foreachcallback] type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape with optional properties from the provided `payload`, to handle. |
+| `payload?: CallbackPayload<Payload>`             | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is void.
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areDefined } from '@angular-package/type';
+
+let age;
+
+areDefined('1', 2, null, undefined, age).forEach(
+  (result, value, index, array, payload) => {
+    result // true, true, true, false, false
+    value // '1', 2, null, undefined, undefined
+    index // 0, 1, 2, 3, 4
+    array // [ '1', 2, null, undefined, undefined ]
+    payload // { name: 'areDefined', age: 2 }
+  },
+  { age: 2 }
+);
+```
+
+#### `areDefined().some()`
+
+[![new]][type-github-changelog]
+
+Checks if **some** of the provided `values` of [`areDefined()`](#aredefined) are **defined**.
+
+```typescript
+{
+  some: <Payload extends object>(
+    callback: ResultCallback<any, typeof payload> = resultCallback,
+    payload?: CallbackPayload<Payload>,
+  ): boolean =>
+    callback(
+      isArray(values) ? values.some((value) => isDefined(value)) : false,
+      values,
+      { name: areDefined.name, ...payload } as Payload
+    )
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                      | Description |
+| :---------------------------------------------- | :---------- |
+| `callback: ResultCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is a `boolean` indicating whether **some** of the provided `values` of [`areDefined()`](#aredefined) are **defined**.
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areDefined } from '@angular-package/type';
+
+let age;
+
+areDefined('1', 2, null, undefined, age).some((result, value, payload) => {
+  result // true
+  value // [ '1', 2, null, undefined, undefined ]
+  payload // { name: 'areDefined' }
+  return result;
+}); // true, boolean
+```
+
+----
+
+<br>
+
+#### `areFalse()`
+
+DONE
+
+[![new]][type-github-changelog]
+
+Checks if the **values** are **defined** by using [`every()`](#aredefinedevery), [`forEach()`](aredefinedforeach) and [`some()`](#aredefinedsome) methods of the returned object.
+
+```typescript
+const areDefined = (...values: any[]) => { ... };
+```
+
+**Parameters:**
+
+| Name: type         | Description |
+| :----------------- | :---------- |
+| `...values: any[]` | A rest parameter of `any` type to check its elements against **defined**. |
+
+**Returns:**
+
+The **return value** is an [`object`][js-object] consists of [`every()`](#aredefinedevery), [`forEach()`](#aredefinedforeach) and [`some()`](#aredefinedsome) methods for checking supplied `values`.
+
+#### `areFalse().every()`
+
+[![new]][type-github-changelog]
+
+Checks if **every** of the provided `values` of [`areDefined()`](#aredefined) is **defined**.
+
+```typescript
+{
+  every: <Payload extends object>(
+    callback: ResultCallback<any, typeof payload> = resultCallback,
+    payload?: CallbackPayload<Payload>
+  ): boolean =>
+    callback(
+      values.every((value) => isDefined(value)),
+      values,
+      { name: areDefined.name, ...payload } as Payload
+    )
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                      | Description |
+| :---------------------------------------------- | :---------- |
+| `callback: ResultCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is a `boolean` indicating whether the provided `values` of [`areDefined()`](#aredefined) are **defined**.
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areFalse } from '@angular-package/type';
+
+areFalse(true, null, false, new Boolean(false)).every((result, value, payload) => {
+  result // false
+  value // [ true, null, false, Boolean ]
+  payload // { name: 'areFalse' }
+  return result;
+}); // false, boolean
+```
+
+#### `areFalse().forEach()`
+
+[![new]][type-github-changelog]
+
+The `forEach()` method executes a provided callback function once for each element of the supplied `values` of [`areFalse()`](#arefalse).
+
+```typescript
+{
+  forEach: <Payload extends object>(
+    forEachCallback: ForEachCallback<any, typeof payload>,
+    payload?: CallbackPayload<Payload>
+  ) => {
+    if (isArray(values) && isFunction(forEachCallback)) {
+      values.forEach((value, index) =>
+        forEachCallback(isFalse(value), value, index, values, {
+          name: areFalse.name,
+          ...payload,
+        } as CallbackPayload<Payload>)
+      );
+    }
+  }
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                       | Description |
+| :----------------------------------------------- | :---------- |
+| `callback: ForEachCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ForEachCallback`][package-callback-foreachcallback] type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape with optional properties from the provided `payload`, to handle. |
+| `payload?: CallbackPayload<Payload>`             | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is void.
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areFalse } from '@angular-package/type';
+
+areFalse(true, null, false, new Boolean(false)).forEach(
+  (result, value, index, array, payload) => {
+    result // false, false, true, true
+    value // true, null, false, Boolean
+    index // 0, 1, 2, 3
+    array // [ true, null, false, Boolean ]
+    payload // { name: 'areFalse', age: 2 }
+  },
+  { age: 2 }
+);
+```
+
+#### `areFalse().some()`
+
+[![new]][type-github-changelog]
+
+Checks if **some** of the provided `values` of [`areDefined()`](#aredefined) are **defined**.
+
+```typescript
+{
+  some: <Payload extends object>(
+    callback: ResultCallback<any, typeof payload> = resultCallback,
+    payload?: CallbackPayload<Payload>,
+  ): boolean =>
+    callback(
+      isArray(values) ? values.some((value) => isFalse(value)) : false,
+      values,
+      { name: areFalse.name, ...payload } as Payload
+    )
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                      | Description |
+| :---------------------------------------------- | :---------- |
+| `callback: ResultCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is a `boolean` indicating whether **some** of the provided `values` of [`areDefined()`](#aredefined) are **defined**.
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areFalse } from '@angular-package/type';
+
+areFalse(true, null, false, new Boolean(false)).some((result, value, payload) => {
+  result // true
+  value // [ true, null, false, Boolean ]
+  payload // { name: 'areFalse' }
+  return result;
+}); // true, boolean
+```
+
+----
+
 <br>
 
 #### `areNull()`
+
+DONE
+
+[![new]][type-github-changelog]
+
+Checks if the **values** are [`null`][js-null] by using [`every()`](#arenullevery), [`forEach()`](#arenullforeach) and [`some()`](#arenullsome) methods of the returned object.
+
+```typescript
+const areNull = (...values: any[]) => { ... };
+```
+
+**Parameters:**
+
+| Name: type         | Description |
+| :----------------- | :---------- |
+| `...values: any[]` | A rest parameter of `any` type to check its elements against [`null`][js-null]. |
+
+**Returns:**
+
+The **return value** is an [`object`][js-object] consists of [`every()`](#arenullevery), [`forEach()`](#arenullforeach) and [`some()`](#arenullsome) methods for checking supplied `values`.
+
+#### `areNull().every()`
+
+[![new]][type-github-changelog]
+
+Checks if **every** of the provided `values` of [`areNull()`](#arenull) is [`null`][js-null].
+
+```typescript
+{
+  every: <Payload extends object>(
+    callback: ResultCallback<any, typeof payload> = resultCallback,
+    payload?: CallbackPayload<Payload>
+  ): boolean =>
+    callback(
+      values.every((value) => isNull(value)),
+      values,
+      { name: areNull.name, ...payload } as Payload
+    )
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                      | Description |
+| :---------------------------------------------- | :---------- |
+| `callback: ResultCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is a `boolean` indicating whether the provided `values` of [`areNull()`](#arenull) are [`null`][js-null].
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areNull } from '@angular-package/type';
+
+areNull(null, undefined, false, !!null).every((result, value, payload) => {
+  result // false
+  value // [ null, undefined, false, false ]
+  payload // { name: 'areNull' }
+  return result;
+}); // false, boolean
+```
+
+#### `areNull().forEach()`
+
+[![new]][type-github-changelog]
+
+The `forEach()` method executes a provided callback function once for each element of the supplied `values` of [`areNull()`](#arenull).
+
+```typescript
+{
+  forEach: <Payload extends object>(
+    forEachCallback: ForEachCallback<any, typeof payload>,
+    payload?: CallbackPayload<Payload>
+  ) => {
+    if (isArray(values) && isFunction(forEachCallback)) {
+      values.forEach((value, index) =>
+        forEachCallback(isNull(value), value, index, values, {
+          name: areNull.name,
+          ...payload,
+        } as CallbackPayload<Payload>)
+      );
+    }
+  }
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                       | Description |
+| :----------------------------------------------- | :---------- |
+| `callback: ForEachCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ForEachCallback`][package-callback-foreachcallback] type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape with optional properties from the provided `payload`, to handle. |
+| `payload?: CallbackPayload<Payload>`             | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is void.
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areNull } from '@angular-package/type';
+
+areNull(true, null, false, new Boolean(false)).forEach(
+  (result, value, index, array, payload) => {
+    result // false, true, false, false
+    value // null, undefined, false, false
+    index // 0, 1, 2, 3
+    array // [ null, undefined, false, false ]
+    payload // { name: 'areNull', age: 2 }
+  },
+  { age: 2 }
+);
+```
+
+#### `areNull().some()`
+
+[![new]][type-github-changelog]
+
+Checks if **some** of the provided `values` of [`areNull()`](#arenull) are [`null`][js-null].
+
+```typescript
+{
+  some: <Payload extends object>(
+    callback: ResultCallback<any, typeof payload> = resultCallback,
+    payload?: CallbackPayload<Payload>,
+  ): boolean =>
+    callback(
+      isArray(values) ? values.some((value) => isNull(value)) : false,
+      values,
+      { name: areNull.name, ...payload } as Payload
+    )
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                      | Description |
+| :---------------------------------------------- | :---------- |
+| `callback: ResultCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is a `boolean` indicating whether **some** of the provided `values` of [`areNull()`](#arenull) are [`null`][js-null].
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areNull } from '@angular-package/type';
+
+areNull(true, null, false, new Boolean(false)).some((result, value, payload) => {
+  result // true
+  value // [ null, undefined, false, false ]
+  payload // { name: 'areNull' }
+  return result;
+}); // true, boolean
+```
+
+----
 
 <br>
 
 #### `areNumber()`
 
+DONE
+
+[![new]][type-github-changelog]
+
+Checks if the **values** are a [`number`][js-number] type or an instance of [`Number`][js-number] by using [`every()`](#arenumberevery), [`forEach()`](#arenumberforeach) and [`some()`](#arenumbersome) methods of the returned object.
+
+```typescript
+const areNumber = (...values: any[]) => { ... };
+```
+
+**Parameters:**
+
+| Name: type         | Description |
+| :----------------- | :---------- |
+| `...values: any[]` | A rest parameter of `any` type to check its elements against a [`number`][js-number] type or an instance of [`Number`][js-number]. |
+
+**Returns:**
+
+The **return value** is an [`object`][js-object] consists of [`every()`](#arenumberevery), [`forEach()`](#arenumberforeach) and [`some()`](#arenumbersome) methods for checking supplied `values`.
+
+#### `areNumber().every()`
+
+[![new]][type-github-changelog]
+
+Checks if **every** of the provided `values` of [`areNumber()`](#arenumber) is a [`number`][js-number] type or an instance of [`Number`][js-number].
+
+```typescript
+{
+  every: <Payload extends object>(
+    callback: ResultCallback<any, typeof payload> = resultCallback,
+    payload?: CallbackPayload<Payload>
+  ): boolean =>
+    callback(
+      values.every((value) => isNumber(value)),
+      values,
+      { name: areNumber.name, ...payload } as Payload
+    )
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                      | Description |
+| :---------------------------------------------- | :---------- |
+| `callback: ResultCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is a `boolean` indicating whether the provided `values` of [`areNumber()`](#arenumber) are a [`number`][js-number] type or an instance of [`Number`][js-number].
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areNumber } from '@angular-package/type';
+
+areNumber(1, new Number(2), Number(3), '4').every((result, value, payload) => {
+  result // false
+  value // [ 1, Number, 3, '4' ]
+  payload // { name: 'areNumber' }
+  return result;
+}); // false, boolean
+```
+
+#### `areNumber().forEach()`
+
+[![new]][type-github-changelog]
+
+The `forEach()` method executes a provided callback function once for each element of the supplied `values` of [`areNumber()`](#arenumber).
+
+```typescript
+{
+  forEach: <Payload extends object>(
+    forEachCallback: ForEachCallback<any, typeof payload>,
+    payload?: CallbackPayload<Payload>
+  ) => {
+    if (isArray(values) && isFunction(forEachCallback)) {
+      values.forEach((value, index) =>
+        forEachCallback(isNumber(value), value, index, values, {
+          name: areNumber.name,
+          ...payload,
+        } as CallbackPayload<Payload>)
+      );
+    }
+  }
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                       | Description |
+| :----------------------------------------------- | :---------- |
+| `callback: ForEachCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ForEachCallback`][package-callback-foreachcallback] type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape with optional properties from the provided `payload`, to handle. |
+| `payload?: CallbackPayload<Payload>`             | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is void.
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areNumber } from '@angular-package/type';
+
+areNumber(1, new Number(2), Number(3), '4').forEach(
+  (result, value, index, array, payload) => {
+    result // true, true, true, false
+    value // 1, Number, 3, '4'
+    index // 0, 1, 2, 3
+    array // [ 1, Number, 3, '4' ]
+    payload // { name: 'areNumber', age: 2 }
+  },
+  { age: 2 }
+);
+```
+
+#### `areNumber().some()`
+
+[![new]][type-github-changelog]
+
+Checks if **some** of the provided `values` of [`areNumber()`](#arenumber) are a [`number`][js-number] type or an instance of [`Number`][js-number].
+
+```typescript
+{
+  some: <Payload extends object>(
+    callback: ResultCallback<any, typeof payload> = resultCallback,
+    payload?: CallbackPayload<Payload>,
+  ): boolean =>
+    callback(
+      isArray(values) ? values.some((value) => isNumber(value)) : false,
+      values,
+      { name: areNumber.name, ...payload } as Payload
+    )
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                      | Description |
+| :---------------------------------------------- | :---------- |
+| `callback: ResultCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is a `boolean` indicating whether **some** of the provided `values` of [`areNumber()`](#arenumber) are a [`number`][js-number] type or an instance of [`Number`][js-number].
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areNumber } from '@angular-package/type';
+
+areNumber(1, new Number(2), Number(3), '4').some((result, value, payload) => {
+  result // true
+  value // [ 1, Number, 3, '4' ]
+  payload // { name: 'areNumber' }
+  return result;
+}); // true, boolean
+```
+
+----
+
 <br>
 
 #### `areRegExp()`
+
+DONE
+
+[![new]][type-github-changelog]
+
+Checks if the values are regular expressions of [`RegExp`][js-regexp] by using [`every()`](#areregexpevery), [`forEach()`](#areregexpforeach) and [`some()`](#areregexpsome) methods of the returned object.
+
+```typescript
+const areRegExp = (...values: any[]) => { ... };
+```
+
+**Parameters:**
+
+| Name: type         | Description |
+| :----------------- | :---------- |
+| `...values: any[]` | A rest parameter of `any` type to check its elements against the regular expression of [`RegExp`][js-regexp]. |
+
+**Returns:**
+
+The **return value** is an [`object`][js-object] consists of [`every()`](#areregexpevery), [`forEach()`](#areregexpforeach) and [`some()`](#areregexpsome) methods for checking supplied `values`.
+
+#### `areRegExp().every()`
+
+[![new]][type-github-changelog]
+
+Checks if **every** of the provided `values` of [`areRegExp()`](#areregexp) is a regular expression of [`RegExp`][js-regexp].
+
+```typescript
+{
+  every: <Payload extends object>(
+    callback: ResultCallback<any, typeof payload> = resultCallback,
+    payload?: CallbackPayload<Payload>
+  ): boolean =>
+    callback(
+      values.every((value) => isRegExp(value)),
+      values,
+      { name: areRegExp.name, ...payload } as Payload
+    )
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                      | Description |
+| :---------------------------------------------- | :---------- |
+| `callback: ResultCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is a `boolean` indicating whether the provided `values` of [`areRegExp()`](#areregexp) are regular expressions of a [`RegExp`][js-regexp].
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areRegExp } from '@angular-package/type';
+
+areRegExp(/^[]/, /^[]/, /^[]/, 3).every((result, value, payload) => {
+  result // false
+  value // [/^[]/, /^[]/, /^[]/, 3]
+  payload // { name: 'areRegExp }
+  return result;
+}); // false, boolean
+```
+
+#### `areRegExp().forEach()`
+
+[![new]][type-github-changelog]
+
+The `forEach()` method executes a provided callback function once for each element of the supplied `values` of [`areRegExp()`](#areregexp).
+
+```typescript
+{
+  forEach: <Payload extends object>(
+    forEachCallback: ForEachCallback<any, typeof payload>,
+    payload?: CallbackPayload<Payload>
+  ) => {
+    if (isArray(values) && isFunction(forEachCallback)) {
+      values.forEach((value, index) =>
+        forEachCallback(isRegExp(value), value, index, values, {
+          name: areRegExp.name,
+          ...payload,
+        } as CallbackPayload<Payload>)
+      );
+    }
+  }
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                       | Description |
+| :----------------------------------------------- | :---------- |
+| `callback: ForEachCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ForEachCallback`][package-callback-foreachcallback] type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape with optional properties from the provided `payload`, to handle. |
+| `payload?: CallbackPayload<Payload>`             | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is void.
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areRegExp } from '@angular-package/type';
+
+areRegExp(/^[]/, /^[]/, /^[]/, 3).forEach(
+  (result, value, index, payload, array) => {
+    result // true, true, true, false
+    value // /^[]/, /^[]/, /^[]/, 4
+    index // 0, 1, 2, 3
+    array // [ /^[]/, /^[]/, /^[]/, 3 ]
+    payload // { name: 'areRegExp', age: 2 }
+    if (result === true) {
+      // Do something.
+    }
+    return result;
+  },
+  { age: 2 }
+);
+```
+
+#### `areRegExp().some()`
+
+[![new]][type-github-changelog]
+
+Checks if **some** of the provided `values` of [`areRegExp()`](#areregexp) are regular expressions of [`RegExp`][js-regexp].
+
+```typescript
+{
+  some: <Payload extends object>(
+    callback: ResultCallback<any, typeof payload> = resultCallback,
+    payload?: CallbackPayload<Payload>,
+  ): boolean =>
+    callback(
+      isArray(values) ? values.some((value) => isRegExp(value)) : false,
+      values,
+      { name: areRegExp.name, ...payload } as Payload
+    )
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                      | Description |
+| :---------------------------------------------- | :---------- |
+| `callback: ResultCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is a `boolean` indicating whether **some** of the provided `values` of [`areRegExp()`](#areregexp) are a [`string`][js-string] type or an instance of [`String`][js-string].
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areRegExp } from '@angular-package/type';
+
+areRegExp(/^[]/, /^[]/, /^[]/, 3).some((result, value, payload) => {
+  result // true
+  value // [/^[]/, /^[]/, /^[]/, 3]
+  payload // { name: 'areRegExp }
+  return result;
+});
+```
+
+----
 
 <br>
 
 #### `areString()`
 
-[![update]][type-github-changelog]
+[![new]][type-github-changelog]
 
-Checks if the **values** are a [`string`][js-string] type or an instance of [`String`][js-string] by using `every()`, `forEach()` and `some()` methods of the returned object.
+Checks if the **values** are a [`string`][js-string] type or an instance of [`String`][js-string] by using [`every()`](#arestringevery), [`forEach()`](#arestringforeach) and [`some()`](#arestringsome) methods of the returned object.
 
 ```typescript
 const areString = (...values: any[]) => { ... };
 ```
 
+**Parameters:**
+
+| Name: type         | Description |
+| :----------------- | :---------- |
+| `...values: any[]` | A rest parameter of `any` type to check its elements against a [`string`][js-string] type or an instance of [`String`][js-string]. |
+
+**Returns:**
+
+The **return value** is an [`object`][js-object] consists of [`every()`](#arestringevery), [`forEach()`](#arestringforeach) and [`some()`](#arestringforeach) methods for checking supplied `values`.
+
+#### `areString().every()`
+
+[![new]][type-github-changelog]
+
+Checks if **every** of the provided `values` of [`areString()`](#arestring) is a [`string`][js-string] type or an instance of [`String`][js-string]. |
+
+```typescript
+{
+  every: <Payload extends object>(
+    callback: ResultCallback<any, typeof payload> = resultCallback,
+    payload?: CallbackPayload<Payload>
+  ): boolean =>
+    callback(
+      values.every((value) => isString(value)),
+      values,
+      { name: areString.name, ...payload } as Payload
+    )
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                      | Description |
+| :---------------------------------------------- | :---------- |
+| `callback: ResultCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is a `boolean` indicating whether the provided values of [`areString()`](#arestring) are a [`string`][js-string] type or an instance of [`String`][js-string]. |
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areString } from '@angular-package/type';
+
+areString(1, '2', '3').every((result, value, payload) => {
+  result // true
+  value // [1, '2', '3']
+  payload // { name: 'areString' }
+  return result;
+}); // false, boolean
+```
+
+#### `areString().forEach()`
+
+[![new]][type-github-changelog]
+
+The `forEach()` method executes a provided callback function once for each element of the supplied `values` of [`areString()`](#arestring).
+
+```typescript
+{
+  forEach: <Payload extends object>(
+    forEachCallback: ForEachCallback<any, typeof payload>,
+    payload?: CallbackPayload<Payload>
+  ) => {
+    if (isArray(values) && isFunction(forEachCallback)) {
+      values.forEach((value, index) =>
+        forEachCallback(isString(value), value, index, values, {
+          name: areString.name,
+          ...payload,
+        } as CallbackPayload<Payload>)
+      );
+    }
+  }
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                       | Description |
+| :----------------------------------------------- | :---------- |
+| `callback: ForEachCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ForEachCallback`][package-callback-foreachcallback] type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape with optional properties from the provided `payload`, to handle. |
+| `payload?: CallbackPayload<Payload>`             | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is void.
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areString } from '@angular-package/type';
+
+areString(1, '2', '3', false).forEach(
+  (result, value, index, array, payload) => {
+    result // false, true, true, false
+    value // 1, '2', '3', false
+    index // 0, 1, 2, 3
+    array // [ 1, '2', '3', false ]
+    payload // { name: 'areString', age: 2 }
+  },
+  { age: 2 }
+);
+```
+
+#### `areString().some()`
+
+[![new]][type-github-changelog]
+
+Checks if **some** of the provided `values` of [`areString()`](#arestring) are a [`string`][js-string] type or an instance of [`String`][js-string].
+
+```typescript
+{
+  some: <Payload extends object>(
+    callback: ResultCallback<any, typeof payload> = resultCallback,
+    payload?: CallbackPayload<Payload>,
+  ): boolean =>
+    callback(
+      isArray(values) ? values.some((value) => isString(value)) : false,
+      values,
+      { name: areString.name, ...payload } as Payload
+    )
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                      | Description |
+| :---------------------------------------------- | :---------- |
+| `callback: ResultCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is a `boolean` indicating whether **some** of the provided values of [`areString()`](#arestring) are a [`string`][js-string] type or an instance of [`String`][js-string].
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areString } from '@angular-package/type';
+
+areString(1, '2', '3').some((result, value, payload) => {
+  result // true
+  value // [1, '2', '3']
+  payload // { name: 'areString' }
+  return result;
+}); // true, boolean
+```
+
+----
+
 <br>
 
 #### `areSymbol()`
+
+[![new]][type-github-changelog]
+
+Checks if the **values** are a [`symbol`][js-symbol] type by using [`every()`](#aresymbolevery), [`forEach()`](#aresymbolforeach) and [`some()`](#aresymbolsome) methods of the returned object.
+
+```typescript
+const areBigInt = (...values: any[]) => { ... };
+```
+
+**Parameters:**
+
+| Name: type         | Description |
+| :----------------- | :---------- |
+| `...values: any[]` | A rest parameter of `any` type to check its elements against a [`symbol`][js-symbol] type. |
+
+**Returns:**
+
+The **return value** is an [`object`][js-object] consists of [`every()`](#aresymbolevery), [`forEach()`](#aresymbolforeach) and [`some()`](#aresymbolsome) methods for checking supplied `values`.
+
+#### `areSymbol().every()`
+
+[![new]][type-github-changelog]
+
+Checks if **every** of the provided `values` of [`areSymbol()`](#aresymbol) is a [`symbol`][js-symbol] type.
+
+```typescript
+{
+  every: <Payload extends object>(
+    callback: ResultCallback<any, typeof payload> = resultCallback,
+    payload?: CallbackPayload<Payload>
+  ): boolean =>
+    callback(
+      values.every((value) => isSymbol(value)),
+      values,
+      { name: areSymbol.name, ...payload } as Payload
+    )
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                      | Description |
+| :---------------------------------------------- | :---------- |
+| `callback: ResultCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is a `boolean` indicating whether the provided `values` of [`areSymbol()`](#aresymbol) are a [`symbol`][js-symbol] type.
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areSymbol } from '@angular-package/type';
+
+areSymbol(Symbol(1), 2, Symbol(3), 4).every((result, value, payload) => {
+  result // true
+  value // [ Symbol(1), 2, Symbol(3), 4 ]
+  payload // { name: areSymbol }
+  return result;
+}); // false, boolean
+```
+
+#### `areSymbol().forEach()`
+
+[![new]][type-github-changelog]
+
+The `forEach()` method executes a provided callback function once for each element of the supplied `values` of [`areSymbol()`](#aresymbol).
+
+```typescript
+{
+  forEach: <Payload extends object>(
+    forEachCallback: ForEachCallback<any, typeof payload>,
+    payload?: CallbackPayload<Payload>
+  ) => {
+    if (isArray(values) && isFunction(forEachCallback)) {
+      values.forEach((value, index) =>
+        forEachCallback(isSymbol(value), value, index, values, {
+          name: areSymbol.name,
+          ...payload,
+        } as CallbackPayload<Payload>)
+      );
+    }
+  }
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                       | Description |
+| :----------------------------------------------- | :---------- |
+| `callback: ForEachCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ForEachCallback`][package-callback-foreachcallback] type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape with optional properties from the provided `payload`, to handle. |
+| `payload?: CallbackPayload<Payload>`             | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is void.
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areSymbol } from '@angular-package/type';
+
+areSymbol(Symbol(1), 2, Symbol(3), 4).forEach(
+  (result, value, index, array, payload) => {
+    result // true, false, true, false
+    value // Symbol(1), 2, Symbol(3), 4
+    index // 0, 1, 2, 3
+    array // [ Symbol(1), 2, Symbol(3), 4 ]
+    payload //  { name: 'areSymbol', age: 2 }
+
+    if (result === true) {
+      // if undefined do something.
+    }
+  },
+  { age: 2 }
+); // void
+```
+
+#### `areSymbol().some()`
+
+[![new]][type-github-changelog]
+
+Checks if **some** of the provided `values` of [`areSymbol()`](#aresymbol) are a [`symbol`][js-symbol] type.
+
+```typescript
+{
+  some: <Payload extends object>(
+    callback: ResultCallback<any, typeof payload> = resultCallback,
+    payload?: CallbackPayload<Payload>,
+  ): boolean =>
+    callback(
+      isArray(values) ? values.some((value) => isSymbol(value)) : false,
+      values,
+      { name: areSymbol.name, ...payload } as Payload
+    )
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                      | Description |
+| :---------------------------------------------- | :---------- |
+| `callback: ResultCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is a `boolean` indicating whether **some** of the provided `values` of [`areSymbol()`](#aresymbol) are a [`symbol`][js-symbol] type.
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areSymbol } from '@angular-package/type';
+
+areSymbol(Symbol(1), 2, Symbol(3), 4).some((result, value, payload) => {
+  result // true
+  value // [ Symbol(1), 2, Symbol(3), 4 ]
+  payload // { name: areSymbol }
+  return result;
+}); // true, boolean
+```
+
+----
 
 <br>
 
 #### `areTrue()`
 
+[![new]][type-github-changelog]
+
+Checks if the **values** are a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] equal to `true` by using [`every()`](#aretrueevery), [`forEach()`](#aretrueforeach) and [`some()`](#aretruesome) methods of the returned object.
+
+```typescript
+const areTrue = (...values: any[]) => { ... };
+```
+
+**Parameters:**
+
+| Name: type         | Description |
+| :----------------- | :---------- |
+| `...values: any[]` | A rest parameter of `any` type to check its elements against a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] equal to `true`. |
+
+**Returns:**
+
+The **return value** is an [`object`][js-object] consists of [`every()`](#aretrueevery), [`forEach()`](#aretrueforeach) and [`some()`](#aretruesome) methods for checking supplied `values`.
+
+#### `areTrue().every()`
+
+[![new]][type-github-changelog]
+
+Checks if **every** of the provided `values` of [`areTrue()`](#aretrue) is a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] equal to `true`.
+
+```typescript
+{
+  every: <Payload extends object>(
+    callback: ResultCallback<any, typeof payload> = resultCallback,
+    payload?: CallbackPayload<Payload>
+  ): boolean =>
+    callback(
+      values.every((value) => isTrue(value)),
+      values,
+      { name: areTrue.name, ...payload } as Payload
+    )
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                      | Description |
+| :---------------------------------------------- | :---------- |
+| `callback: ResultCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is a `boolean` indicating whether the provided `values` of [`areTrue()`](#aretrue) are a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] equal to `true`.
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areTrue } from '@angular-package/type';
+
+const deleteElements = [true, false, false,  new Boolean(false)];
+
+areTrue(...deleteElements).every((result, value, payload) => {
+  result // false
+  value // [ true, false, false, Boolean ]
+  payload // { name: areTrue }
+  return result;
+}); // false, boolean
+```
+
+#### `areTrue().forEach()`
+
+[![new]][type-github-changelog]
+
+The `forEach()` method executes a provided callback function once for each element of the supplied `values` of [`areTrue()`](#aretrue).
+
+```typescript
+{
+  forEach: <Payload extends object>(
+    forEachCallback: ForEachCallback<any, typeof payload>,
+    payload?: CallbackPayload<Payload>
+  ) => {
+    if (isArray(values) && isFunction(forEachCallback)) {
+      values.forEach((value, index) =>
+        forEachCallback(isTrue(value), value, index, values, {
+          name: areTrue.name,
+          ...payload,
+        } as CallbackPayload<Payload>)
+      );
+    }
+  }
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                       | Description |
+| :----------------------------------------------- | :---------- |
+| `callback: ForEachCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ForEachCallback`][package-callback-foreachcallback] type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape with optional properties from the provided `payload`, to handle. |
+| `payload?: CallbackPayload<Payload>`             | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is void.
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areTrue } from '@angular-package/type';
+
+const deleteElements = [true, false, false,  new Boolean(false)];
+
+areTrue(...deleteElements).forEach(
+  (result, value, index, array, payload) => {
+    result // true, false, false, false
+    value // true, false, false, Boolean
+    index // 0, 1, 2, 3
+    array // [ true, false, false, Boolean ]
+    payload //  { "name": "areTrue", "age": 2 }
+
+    if (result === true) {
+      // if undefined do something.
+    }
+  },
+  { age: 2 }
+);
+```
+
+#### `areTrue().some()`
+
+[![new]][type-github-changelog]
+
+Checks if **some** of the provided `values` of of [`areTrue()`](#aretrue) are a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] equal to `true`.
+
+```typescript
+{
+  some: <Payload extends object>(
+    callback: ResultCallback<any, typeof payload> = resultCallback,
+    payload?: CallbackPayload<Payload>,
+  ): boolean =>
+    callback(
+      isArray(values) ? values.some((value) => isTrue(value)) : false,
+      values,
+      { name: areTrue.name, ...payload } as Payload
+    )
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                      | Description |
+| :---------------------------------------------- | :---------- |
+| `callback: ResultCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is a `boolean` indicating whether **some** of the provided `values` of [`areTrue()`](#aretrue) are a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] equal to `true`.
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areTrue } from '@angular-package/type';
+
+const deleteElements = [true, false, false,  new Boolean(false)];
+
+areTrue(...deleteElements).some((result, value, payload) => {
+  result // true
+  value // [ true, false, false, Boolean ]
+  payload // { name: areTrue }
+  return result;
+}); // true, boolean
+```
+
+----
+
 <br>
 
 #### `areUndefined()`
+
+[![new]][type-github-changelog]
+
+Checks if the **values** are [`undefined`][js-undefined] by using [`every()`](#areundefinedevery), [`forEach()`](#areundefinedforeach) and [`some()`](#areundefinedsome) methods of the returned object.
+
+```typescript
+const areUndefined = (...values: any[]) => { ... };
+```
+
+**Parameters:**
+
+| Name: type         | Description |
+| :----------------- | :---------- |
+| `...values: any[]` | A rest parameter of `any` type to check its elements against [`undefined`][js-undefined]. |
+
+**Returns:**
+
+The **return value** is an [`object`][js-object] consists of [`every()`](#arebigintevery), [`forEach()`](#arebigintforeach) and [`some()`](#arebigintsome) methods for checking supplied `values`.
+
+#### `areUndefined().every()`
+
+[![new]][type-github-changelog]
+
+Checks if **every** of the provided `values` of [`areUndefined()`](#areundefined) is [`undefined`][js-undefined].
+
+```typescript
+{
+  every: <Payload extends object>(
+    callback: ResultCallback<any, typeof payload> = resultCallback,
+    payload?: CallbackPayload<Payload>
+  ): boolean =>
+    callback(
+      values.every((value) => isUndefined(value)),
+      values,
+      { name: areUndefined.name, ...payload } as Payload
+    )
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                      | Description |
+| :---------------------------------------------- | :---------- |
+| `callback: ResultCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is a `boolean` indicating whether the provided `values` of [`areUndefined()`](#areundefined) is [`undefined`][js-undefined].
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areUndefined } from '@angular-package/type';
+
+areUndefined(undefined, 2, 3, new String('4')).every((result, value, payload) => {
+  result // false
+  value // [ undefined, 2, 3, String]
+  payload // { name: "areUndefined  }
+  return result;
+}); // false, boolean
+```
+
+#### `areUndefined().forEach()`
+
+[![new]][type-github-changelog]
+
+The `forEach()` method executes a provided callback function once for each element of the supplied `values` of [`areUndefined()`](#areundefined).
+
+```typescript
+{
+  forEach: <Payload extends object>(
+    forEachCallback: ForEachCallback<any, typeof payload>,
+    payload?: CallbackPayload<Payload>
+  ) => {
+    if (isArray(values) && isFunction(forEachCallback)) {
+      values.forEach((value, index) =>
+        forEachCallback(isUndefined(value), value, index, values, {
+          name: areUndefined.name,
+          ...payload,
+        } as CallbackPayload<Payload>)
+      );
+    }
+  },
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                       | Description |
+| :----------------------------------------------- | :---------- |
+| `callback: ForEachCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ForEachCallback`][package-callback-foreachcallback] type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape with optional properties from the provided `payload`, to handle. |
+| `payload?: CallbackPayload<Payload>`             | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is void.
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areUndefined } from '@angular-package/type';
+
+areUndefined(undefined, 1, 2, '3').forEach(
+  (result, value, index, array, payload) => {
+    result // true, false, false, false
+    value // undefined, 1, 2, '3'
+    index // 0, 1, 2, 3
+    payload //  { "name": 'areUndefined', age: 2 }
+    array // [ undefined, 1, 2, '3' ]
+
+    if (result === true) {
+      // if undefined do something.
+    }
+  },
+  { age: 2 }
+);
+```
+
+#### `areUndefined().some()`
+
+[![new]][type-github-changelog]
+
+Checks if **some** of the provided `values` of [`areUndefined()`](#areundefined) are [`undefined`](#undefined).
+
+```typescript
+{
+  some: <Payload extends object>(
+    callback: ResultCallback<any, typeof payload> = resultCallback,
+    payload?: CallbackPayload<Payload>,
+  ): boolean =>
+    callback(
+      isArray(values) ? values.some((value) => isUndefined(value)) : false,
+      values,
+      { name: areUndefined.name, ...payload } as Payload
+    )
+}
+```
+
+**Generic type variables:**
+
+| Name      | Default value | Description |
+| :-------- | :------------ | :---------- |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                      | Description |
+| :---------------------------------------------- | :---------- |
+| `callback: ResultCallback<any, typeof payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+The **return value** is a `boolean` indicating whether **some** of the provided `values` of [`areUndefined()`](#areundefined) are [`undefined`](#undefined).
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { areUndefined } from '@angular-package/type';
+
+areUndefined(undefined, 2, 3, new String('4')).some((result, value, payload) => {
+  result // false
+  value // [ undefined, 2, 3, String]
+  payload // { name: "areUndefined  }
+  return result;
+}); // true, boolean
+```
+
+----
 
 <br>
 
