@@ -580,10 +580,10 @@ isObject('x', customCallback, { database: '' });
 
 | Function                          | Checks if the values are |
 | :-------------------------------- | :----------------------- |
-| [`areBigInt()`](#arebigint)       | a [`bigint`][js-bigint] type by using `every()`, `forEach()` and `some()` methods of the returned object. |
-| [`areBoolean()`](#areboolean)     |  |
-| [`areDate()`](#aredate)           |  |
-| [`areDefined()`](#aredefined)     |  |
+| [`areBigInt()`](#arebigint)       | a [`bigint`][js-bigint] type by using [`every()`](#arebigintevery), [`forEach()`](#arebigintforeach) and [`some()`](#arebigintsome) methods of the returned object. |
+| [`areBoolean()`](#areboolean)     | a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] by using [`every()`](#arebooleanevery), [`forEach()`](#arebooleanforeach) and [`some()`](#arebooleansome) methods of the returned object. |
+| [`areDate()`](#aredate)           | [`Date`][js-date] by using [`every()`](#aredateevery), [`forEach()`](aredateforeach) and [`some()`](#aredatesome) methods of the returned object. |
+| [`areDefined()`](#aredefined)     | **defined** by using [`every()`](#aredefinedevery), [`forEach()`](aredefinedforeach) and [`some()`](#aredefinedsome) methods of the returned object. |
 | [`areFalse()`](#arefalse)         |  |
 | [`areNull()`](#arenull)           |  |
 | [`areNumber()`](#arenumber)       |  |
@@ -920,7 +920,7 @@ areBoolean(1, true, null, new Boolean(3)).forEach(
 
 [![new]][type-github-changelog]
 
-Checks if **some** of the provided `values` of [`areBoolean()`](#areboolean) is a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean].
+Checks if **some** of the provided `values` of [`areBoolean()`](#areboolean) are a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean].
 
 ```typescript
 {
@@ -951,7 +951,7 @@ Checks if **some** of the provided `values` of [`areBoolean()`](#areboolean) is 
 
 **Returns:**
 
-The **return value** is a `boolean` indicating whether **some** of the provided `values` of [`areBoolean()`](#areboolean) is a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean].
+The **return value** is a `boolean` indicating whether **some** of the provided `values` of [`areBoolean()`](#areboolean) are a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean].
 
 **Usage:**
 
@@ -1357,17 +1357,17 @@ DONE
 
 [![new]][type-github-changelog]
 
-Checks if the **values** are **defined** by using [`every()`](#aredefinedevery), [`forEach()`](aredefinedforeach) and [`some()`](#aredefinedsome) methods of the returned object.
+Checks if the **values** are a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] equal to `false` by using [`every()`](#arefalseevery), [`forEach()`](#arefalseforeach) and [`some()`](#arefalsesome) methods of the returned object.
 
 ```typescript
-const areDefined = (...values: any[]) => { ... };
+const areFalse = (...values: any[]) => { ... };
 ```
 
 **Parameters:**
 
 | Name: type         | Description |
 | :----------------- | :---------- |
-| `...values: any[]` | A rest parameter of `any` type to check its elements against **defined**. |
+| `...values: any[]` | A rest parameter of `any` type to check its elements against a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] equal to `false`. |
 
 **Returns:**
 
@@ -1377,7 +1377,7 @@ The **return value** is an [`object`][js-object] consists of [`every()`](#aredef
 
 [![new]][type-github-changelog]
 
-Checks if **every** of the provided `values` of [`areDefined()`](#aredefined) is **defined**.
+Checks if **every** of the provided `values` of [`areFalse()`](#arefalse) is a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] equal to `false`.
 
 ```typescript
 {
@@ -1386,9 +1386,9 @@ Checks if **every** of the provided `values` of [`areDefined()`](#aredefined) is
     payload?: CallbackPayload<Payload>
   ): boolean =>
     callback(
-      values.every((value) => isDefined(value)),
+      values.every((value) => isFalse(value)),
       values,
-      { name: areDefined.name, ...payload } as Payload
+      { name: areFalse.name, ...payload } as Payload
     )
 }
 ```
@@ -1408,7 +1408,7 @@ Checks if **every** of the provided `values` of [`areDefined()`](#aredefined) is
 
 **Returns:**
 
-The **return value** is a `boolean` indicating whether the provided `values` of [`areDefined()`](#aredefined) are **defined**.
+The **return value** is a `boolean` indicating whether the provided `values` of [`areFalse()`](#arefalse) are a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] equal to `false`.
 
 **Usage:**
 
@@ -1487,7 +1487,7 @@ areFalse(true, null, false, new Boolean(false)).forEach(
 
 [![new]][type-github-changelog]
 
-Checks if **some** of the provided `values` of [`areDefined()`](#aredefined) are **defined**.
+Checks if **some** of the provided `values` of [`areFalse()`](#arefalse) are a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] equal to `false`.
 
 ```typescript
 {
@@ -1518,7 +1518,7 @@ Checks if **some** of the provided `values` of [`areDefined()`](#aredefined) are
 
 **Returns:**
 
-The **return value** is a `boolean` indicating whether **some** of the provided `values` of [`areDefined()`](#aredefined) are **defined**.
+The **return value** is a `boolean` indicating whether **some** of the provided `values` of [`areFalse()`](#arefalse) are a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] equal to `false`.
 
 **Usage:**
 
@@ -2295,7 +2295,7 @@ areString(1, '2', '3').some((result, value, payload) => {
 Checks if the **values** are a [`symbol`][js-symbol] type by using [`every()`](#aresymbolevery), [`forEach()`](#aresymbolforeach) and [`some()`](#aresymbolsome) methods of the returned object.
 
 ```typescript
-const areBigInt = (...values: any[]) => { ... };
+const areSymbol = (...values: any[]) => { ... };
 ```
 
 **Parameters:**
