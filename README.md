@@ -584,14 +584,14 @@ isObject('x', customCallback, { database: '' });
 | [`areBoolean()`](#areboolean)     | a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] by using [`every()`](#arebooleanevery), [`forEach()`](#arebooleanforeach) and [`some()`](#arebooleansome) methods of the returned object. |
 | [`areDate()`](#aredate)           | [`Date`][js-date] by using [`every()`](#aredateevery), [`forEach()`](aredateforeach) and [`some()`](#aredatesome) methods of the returned object. |
 | [`areDefined()`](#aredefined)     | **defined** by using [`every()`](#aredefinedevery), [`forEach()`](aredefinedforeach) and [`some()`](#aredefinedsome) methods of the returned object. |
-| [`areFalse()`](#arefalse)         |  |
-| [`areNull()`](#arenull)           |  |
-| [`areNumber()`](#arenumber)       |  |
-| [`areRegExp()`](#areregexp)       |  |
-| [`areString()`](#arestring)       |  |
-| [`areSymbol()`](#aresymbol)       |  |
-| [`areTrue()`](#aretrue)           |  |
-| [`areUndefined()`](#areundefined) |  |
+| [`areFalse()`](#arefalse)         | a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] equal to `false` by using [`every()`](#arefalseevery), [`forEach()`](#arefalseforeach) and [`some()`](#arefalsesome) methods of the returned object. |
+| [`areNull()`](#arenull)           | [`null`][js-null] by using [`every()`](#arenullevery), [`forEach()`](#arenullforeach) and [`some()`](#arenullsome) methods of the returned object. |
+| [`areNumber()`](#arenumber)       | a [`number`][js-number] type or an instance of [`Number`][js-number] by using [`every()`](#arenumberevery), [`forEach()`](#arenumberforeach) and [`some()`](#arenumbersome) methods of the returned object. |
+| [`areRegExp()`](#areregexp)       | regular expressions of [`RegExp`][js-regexp] by using [`every()`](#areregexpevery), [`forEach()`](#areregexpforeach) and [`some()`](#areregexpsome) methods of the returned object. |
+| [`areString()`](#arestring)       | a [`string`][js-string] type or an instance of [`String`][js-string] by using [`every()`](#arestringevery), [`forEach()`](#arestringforeach) and [`some()`](#arestringsome) methods of the returned object. |
+| [`areSymbol()`](#aresymbol)       | a [`symbol`][js-symbol] type by using [`every()`](#aresymbolevery), [`forEach()`](#aresymbolforeach) and [`some()`](#aresymbolsome) methods of the returned object. |
+| [`areTrue()`](#aretrue)           | a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] equal to `true` by using [`every()`](#aretrueevery), [`forEach()`](#aretrueforeach) and [`some()`](#aretruesome) methods of the returned object. |
+| [`areUndefined()`](#areundefined) | [`undefined`][js-undefined] by using [`every()`](#areundefinedevery), [`forEach()`](#areundefinedforeach) and [`some()`](#areundefinedsome) methods of the returned object. |
 
 <br>
 
