@@ -400,6 +400,7 @@ const RECOGNIZE_INSTANCES = [
 
 ```typescript
 // Example usage.
+import { recognizeValue } from '@angular-package/type';
 
 // Class.
 class CustomClass {}
@@ -412,6 +413,7 @@ const firstName = 'Artemis';
 Returns {
   "typeOf": "object",
   "typeof": "object",
+  "isNaN": true,
   "Object": true,
   "CustomClass": true
 }
@@ -420,20 +422,21 @@ recognizeValue(customClass, true, [CustomClass]);
 
 /*
 Returns {
-  "class": true,
+  "isClass": true,
   "typeOf": "function",
   "typeof": "function",
+  "isNaN": true,
   "Function": true,
   "Object": true
 }
 */
 recognizeValue(CustomClass);
 
-
 /*
 Returns {
   "typeOf": "string",
-  "typeof": "string"
+  "typeof": "string",
+  "isNaN": true
 }
 */
 recognizeValue(firstName);
@@ -442,6 +445,7 @@ recognizeValue(firstName);
 Returns {
   "typeOf": "string",
   "typeof": "object",
+  "isNaN": true,
   "Object": true,
   "String": true
 }
@@ -603,7 +607,6 @@ const customCallback = <
 };
 
 isObject('x', customCallback, { database: '' });
-
 ```
 
 <br>
@@ -2706,7 +2709,7 @@ areTrue(...deleteElements).some((result, value, payload) => {
 }); // true, boolean
 ```
 
-[&uArr; Up](#aretrue) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#is)
+[&uArr; Up](#aretrue) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#is-functions)
 
 ----
 
@@ -4097,7 +4100,7 @@ isNumberObject(Number(10304050)); // false
 isNumberObject(new Number(10304050)); // true
 ```
 
-[&uArr; isNumberObject()](#isnumberobject) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; isObject()](#isobject)
+[&uArr; Up](#isnumberobject) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isobject)
 
 <br>
 
@@ -4153,7 +4156,7 @@ isNumberType(Number(10304050)); // true
 isNumberType(new Number(10304050)); // false
 ```
 
-[&uArr; isNumberType()](#isnumbertype) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; isObjectKey()](#isobjectkey)
+[&uArr; Up](#isnumbertype) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isobjectkey)
 
 <br>
 
@@ -4237,7 +4240,7 @@ const OBJECT_ONE: ObjectOne = {
 isObject(OBJECT_ONE); // true
 ```
 
-[&uArr; isObject()](#isobject) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; isObjectKeyIn()](#isobjectkeyin)
+[&uArr; Up](#isobject) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isobjectkeyin)
 
 <br>
 
@@ -4359,7 +4362,7 @@ isObjectKey(CLASS, SYMBOL_STRING); // false
 isObjectKey(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING]); // false
 ```
 
-[&uArr; isObjectKey()](#isobjectkey) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; isObjectKeys()](#isobjectkeys)
+[&uArr; Up](#isobjectkey) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isobjectkeys)
 
 <br>
 
@@ -4454,7 +4457,7 @@ isObjectKeyIn(CLASS, SYMBOL_STRING); // true
 isObjectKeyIn(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING]); // true
 ```
 
-[&uArr; isObjectKeyIn()](#isobjectkeyin) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; isObjectKeysIn()](#isobjectkeysin)
+[&uArr; Up](#isobjectkeyin) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isobjectkeysin)
 
 <br>
 
@@ -4545,7 +4548,7 @@ isObjectKeys(person, ['notEnumerable']); // Returns `true` as `value is object`.
 Object.keys(person);
 ```
 
-[&uArr; isObjectKeys()](#isobjectkeys) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; isObjectSomeKey()](#isobjectsomekeys)
+[&uArr; Up](#isobjectkeys) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isobjectsomekeys)
 
 <br>
 
@@ -4712,6 +4715,8 @@ isObjectSomeKeys(person, [['firstName', 'surname'], ['city', 'no property']]); /
 isObjectSomeKeys(person, [['firstName1', 'surname1'], ['city1', 'no property']]); // Returns `false` as `value is object`.
 ```
 
+[&uArr; Up](#isobjectsomekeys) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isregexp)
+
 <br>
 
 #### `isPrimitive()`
@@ -4800,6 +4805,8 @@ isPrimitive<symbol>(Symbol(27), 'symbol'); // Returns `true` as `value is symbol
 isPrimitive<undefined>(undefined, 'undefined'); // Returns `true` as `value is undefined`
 ```
 
+[&uArr; Up](#isprimitive) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isstring)
+
 <br>
 
 #### `isRegExp()`
@@ -4852,6 +4859,8 @@ import { isRegExp } from '@angular-package/type';
 
 isRegExp(/[^a-z]/g); // true; The return type `value is RegExp`
 ```
+
+[&uArr; Up](#isregexp) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isstringincludes)
 
 <br>
 
@@ -4922,6 +4931,8 @@ typeOf(fakeString); // "string"
 typeof fakeString; // "object"
 ```
 
+[&uArr; Up](#isstring) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isstringincludesSome)
+
 <br>
 
 #### `isStringIncludes()`
@@ -4990,6 +5001,8 @@ isStringIncludes(new String('This is artificial intelligence.'), [
 ]); // true; The return type `value is string`
 ```
 
+[&uArr; Up](#isstringincludes) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isstringincludessome)
+
 <br>
 
 #### `isStringIncludesSome()`
@@ -5057,6 +5070,8 @@ isStringIncludesSome(new String('This is artificial intelligence.'), [
   'intelligence',
 ]); // true; The return type `value is string`
 ```
+
+[&uArr; Up](#isstringincludessome) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isstringobject)
 
 <br>
 
@@ -5147,6 +5162,8 @@ isStringLength(firstNameBox, { min: 0, max: 12 }); // false; The return type `va
 isStringLength(firstNameBox, { min: 13, max: 13 }); // true; The return type `value is StringOfLength<13, 13>`
 ```
 
+[&uArr; Up](#isstringlength) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isstringtype)
+
 <br>
 
 #### `isStringObject()`
@@ -5201,6 +5218,8 @@ isStringObject('age'); // Returns `false` as `value is String`
 isStringObject(new String('age')) // Returns `true` as `value is String`
 ```
 
+[&uArr; Up](#isstringobject) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#issymbol)
+
 <br>
 
 #### `isStringType()`
@@ -5253,6 +5272,8 @@ isStringType('age'); // Returns `true` as `value is string`
 isStringType(new String('age')) // Returns `false` as `value is string`
 ```
 
+[&uArr; Up](#isstringtype) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#istrue)
+
 <br>
 
 #### `isSymbol()`
@@ -5304,6 +5325,8 @@ import { isSymbol } from '@angular-package/type';
 isSymbol(Symbol('age')); // Returns `true` as `value is symbol`
 ```
 
+[&uArr; Up](#issymbol) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#istype)
+
 <br>
 
 #### `isTrue()`
@@ -5354,6 +5377,8 @@ import { isTrue } from '@angular-package/type';
 
 isTrue(false); // Returns `false` as `value is true`
 ```
+
+[&uArr; Up](#istrue) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isundefined)
 
 <br>
 
@@ -5454,6 +5479,8 @@ isType(person, Person, (result, value, payload) => {
 }, { id: 15, database: 'Persons' }); // Returns `true` as `value is Person`
 ```
 
+[&uArr; Up](#istype) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isnot-functions)
+
 <br>
 
 #### `isUndefined()`
@@ -5506,6 +5533,8 @@ let age;
 isUndefined(age); // Returns `true` as `value is undefined`
 isUndefined(27); // Returns `false` as `value is undefined`
 ```
+
+[&uArr; Up](#isundefined)
 
 <br>
 
@@ -5582,6 +5611,8 @@ isNotBoolean(strictBoolean); // false; return type is `value is never`
 isNotBoolean(objectBoolean); // false; return type is `value is never`
 ```
 
+[&uArr; Up](#isnotboolean) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isnotdefined)
+
 <br>
 
 #### `isNotDefined()`
@@ -5643,6 +5674,8 @@ isNotDefined(firstName); // true;  return type is `value is undefined`
 isNotDefined(surname); // false; return type is `value is never`
 ```
 
+[&uArr; Up](#isnotdefined) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isnotnull)
+
 <br>
 
 #### `isNotFunction()`
@@ -5703,6 +5736,8 @@ isNotFunction(myFunc); // false; return type is `value is never`
 isNotFunction('maybe i am not a function'); // true; return type is `value is string`
 ```
 
+[&uArr; Up](#isnotfunction) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isnotnumber)
+
 <br>
 
 #### `isNotNull()`
@@ -5758,6 +5793,8 @@ const firstName = null;
 isNotNull(anyNull); // return type is `value is any`
 isNotNull(firstName); // return type is `value is never`
 ```
+
+[&uArr; Up](#isnotnull) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isnotstring)
 
 <br>
 
@@ -5821,6 +5858,8 @@ isNotNumber(firstName); // return type is `value is string`
 isNotNumber(age); // return type is `value is never`
 isNotNumber(objectNumber); // return type is `value is never`
 ```
+
+[&uArr; Up](#isnotnumber) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isnotundefined)
 
 <br>
 
@@ -5956,6 +5995,8 @@ if (is.not.undefined(config.a)) {
   configFunction(config.a);
 }
 ```
+
+[&uArr; Up](#isnotundefined)
 
 <br>
 
@@ -6141,6 +6182,8 @@ guardArray([1, '2', 3n, undefined, null, Symbol(6), ]);
 guardArray([1, '2', 3n, undefined, null, Symbol(6), true]);
 ```
 
+[&uArr; Up](#guardarray) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardboolean)
+
 <br>
 
 #### `guardBigInt()`
@@ -6187,6 +6230,8 @@ import { guardBigInt } from '@angular-package/type';
 guardBigInt(1n); // true, value is bigint
 guardBigInt(false as any); // false, value is bigint
 ```
+
+[&uArr; Up](#guardbigint) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardclass)
 
 <br>
 
@@ -6243,6 +6288,8 @@ import { guardBoolean } from '@angular-package/type';
 guardBoolean(true), // true, value is boolean
 guardBoolean(new Boolean(false)) // true, value is Boolean
 ```
+
+[&uArr; Up](#guardboolean) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guarddate)
 
 <br>
 
@@ -6339,6 +6386,8 @@ guardClass(FUNCTION); // false
 guardClass<Class>(FUNCTION); // type error
 ```
 
+[&uArr; Up](#guardclass) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guarddefined)
+
 <br>
 
 #### `guardDate()`
@@ -6390,6 +6439,8 @@ guardDate(new Date(1995, 11, 17)); // true, value is Date
 guardDate(new Date(1995, 11, 17, 3, 24, 0)); // true, value is Date
 guardDate(new Date(628021800000)); // true, value is Date
 ```
+
+[&uArr; Up](#guarddate) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardfalse)
 
 <br>
 
@@ -6446,6 +6497,8 @@ guardDefined(letFirstName); // true; return type `value is string`
 const firstName = 'my const name';
 guardDefined(firstName); // true; return type `value is string`
 ```
+
+[&uArr; Up](#guarddefined) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardfunction)
 
 <br>
 
@@ -6504,6 +6557,8 @@ guardFalse(new Boolean(valTrue) as any); // false, value is false
 guardFalse(new Boolean(valFalse) as any); // true, value is false
 ```
 
+[&uArr; Up](#guardfalse) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardinstance)
+
 <br>
 
 #### `guardFunction()`
@@ -6557,6 +6612,8 @@ guardFunction('x'); // false value is Function
 guardFunction(() => {}); // true value is () => void
 guardFunction((x: number, y: number) => x + y); // true value is (x: number, y: number) => number
 ```
+
+[&uArr; Up](#guardfunction) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardkey)
 
 <br>
 
@@ -6645,6 +6702,8 @@ guardInstance(personInstance, personFunctionConstructor as any); // true
 guardInstance(personsInstance, Persons); // true
 ```
 
+[&uArr; Up](#guardinstance) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardnull)
+
 <br>
 
 #### `guardKey()`
@@ -6699,11 +6758,12 @@ guardKey(new String('string key') as any); // false, value is PropertyKey
 guardKey(new Number(27) as any); // false, value is PropertyKey
 ```
 
+[&uArr; Up](#guardkey) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardnumber)
+
 <br>
 
 #### `guardNull()`
 
-TODO: Usage.
 [![update]][type-github-changelog]
 
 Use `guardNull()` or `guard.null()` to guard the value to be `null`.
@@ -6748,6 +6808,8 @@ import { guardNull } from '@angular-package/type';
 guardNull(null); // true, value is null
 guardNull(undefined as any); // false, value is null
 ```
+
+[&uArr; Up](#guardnull) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardnumberbetween)
 
 <br>
 
@@ -6810,6 +6872,8 @@ guardNumber(new Number(3.500)); // true, value is Number
 guardNumber(new Number(Infinity)); // false, value is Number
 guardNumber(new Number(NaN)); // false, value is Number
 ```
+
+[&uArr; Up](#guardnumber) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardobject)
 
 <br>
 
@@ -6888,6 +6952,8 @@ guardNumberBetween(3, {min: 1, max: 3 }); // true, value is number
 guardNumberBetween(3, {min: 4, max: 2 }); // false, value is number
 ```
 
+[&uArr; Up](#guardnumberbetwen) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardobjectkey)
+
 <br>
 
 #### `guardObject()`
@@ -6944,6 +7010,8 @@ const p = new Person();
 guardObject(o); // true, value is {}
 guardObject(p); // true, value is Person
 ```
+
+[&uArr; Up](#guardobject) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardobjectkeyin)
 
 <br>
 
@@ -7038,6 +7106,8 @@ const CLASS = new Class();
 guardObjectKey(CLASS, NUMBER); // false, value is Class
 ```
 
+[&uArr; Up](#guardobjectkey) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardobjectkeys)
+
 <br>
 
 #### `guardObjectKeyIn()`
@@ -7128,6 +7198,8 @@ const CLASS = new Class();
 guardObjectKeyIn(CLASS, NUMBER); // true, value is Class
 ```
 
+[&uArr; Up](#guardobjectkeyin) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardobjectsomekeys)
+
 <br>
 
 #### `guardObjectKeys()`
@@ -7217,6 +7289,8 @@ guardObjectKeys(CLASS, [NUMBER]); // false, value is Class
 
 ```
 
+[&uArr; Up](#guardobjectkey) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardprimitive)
+
 <br>
 
 #### `guardObjectSomeKeys()`
@@ -7296,6 +7370,8 @@ guardObjectSomeKeys(OBJECT_ONE, [
   [1030405027, SYMBOL_NUMBER]
 ]); // true, value is ObjectOne
 ```
+
+[&uArr; Up](#guardobjectsomekeys) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardregexp)
 
 <br>
 
@@ -7397,6 +7473,8 @@ guardPrimitive(letUndefined, 'undefined'); // true; return type `value is undefi
 guardPrimitive(Symbol(firstName), 'symbol'); // true; return type `value is symbol`
 ```
 
+[&uArr; Up](#guardprimitive) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardstring)
+
 <br>
 
 #### `guardRegExp()`
@@ -7443,6 +7521,8 @@ import { guardRegExp } from '@angular-package/type';
 guardRegExp(/^[]/); // true, value is RegExp
 guardRegExp(false as any); // false, value is RegExp
 ```
+
+[&uArr; Up](#guardregexp) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardstringlength)
 
 <br>
 
@@ -7499,6 +7579,8 @@ guardString(letFirstName); // true; return type `value is string`
 const firstName = 'my name';
 guardString(firstName); // true; return type `value is "my name"`
 ```
+
+[&uArr; Up](#guardstring) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardsymbol)
 
 <br>
 
@@ -7575,6 +7657,8 @@ like Aldus PageMaker including versions of Lorem Ipsum.` as string;
 guardStringLength(value, { max: 3 }); // false, value is StringOfLength<number, 3, string>
 ```
 
+[&uArr; Up](#guardstringlength) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardtrue)
+
 <br>
 
 #### `guardSymbol()`
@@ -7626,6 +7710,8 @@ const SYMBOL_STRING: unique symbol = Symbol('Twenty seven');
 guardSymbol(SYMBOL_NUMBER); // true; return type `value is symbol`
 guardSymbol(SYMBOL_STRING); // true; return type `value is symbol`
 ```
+
+[&uArr; Up](#guardsymbol) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardtype)
 
 <br>
 
@@ -7680,6 +7766,8 @@ guardTrue(valFalse); // true, value is false
 guardTrue(new Boolean(valTrue) as any); // false, value is false
 guardTrue(new Boolean(valFalse) as any); // true, value is false
 ```
+
+[&uArr; Up](#guardtrue) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardundefined)
 
 <br>
 
@@ -7791,6 +7879,8 @@ guardType(Symbol(firstName), 'symbol'); // true; return type `value is symbol`
 guardType(someone, Person); // true; return type `value is Person`
 ```
 
+[&uArr; Up](#guardtype) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guard-objects)
+
 <br>
 
 #### `guardUndefined()`
@@ -7874,6 +7964,8 @@ const gUndefined = (value: undefined): value is undefined =>
 gUndefined(5 as any); // false
 ```
 
+[&uArr; Up](#guardundefined) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#the-type)
+
 <br>
 
 ### Guard objects
@@ -7915,6 +8007,8 @@ const guardIs: GuardIs = Object.freeze({
 const guard: Guard = Object.freeze({ ...guardIs, is: guardIs });
 ```
 
+[&uArr; Up](#guard-objects) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#common)
+
 <br>
 
 ## The `type.`
@@ -7953,6 +8047,8 @@ type.is.array(true); // false, value is unknown[]
 // `guard` functions
 type.guard.number(3); // true, value is number
 ```
+
+[&uArr; Up](#the-type) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#experimental)
 
 <br>
 
@@ -8120,6 +8216,8 @@ A generic type that takes generic type variable `Type` constrained by `undefined
 ```typescript
 type Undefined<Type> = Type extends undefined ? Type : never;
 ```
+
+[&uArr; Up](#common) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#changelog)
 
 <br>
 
@@ -8366,6 +8464,8 @@ resultTRUE === {
 };
 
 ```
+
+[&uArr; Up](#experimental)
 
 <br>
 
