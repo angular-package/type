@@ -616,8 +616,8 @@ isObject('x', customCallback, { database: '' });
 | :-------------------------------- | :----------------------- |
 | [`areBigInt()`](#arebigint)       | a [`bigint`][js-bigint] type by using [`every()`](#arebigintevery), [`forEach()`](#arebigintforeach) and [`some()`](#arebigintsome) methods of the returned object. |
 | [`areBoolean()`](#areboolean)     | a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] by using [`every()`](#arebooleanevery), [`forEach()`](#arebooleanforeach) and [`some()`](#arebooleansome) methods of the returned object. |
-| [`areDate()`](#aredate)           | [`Date`][js-date] by using [`every()`](#aredateevery), [`forEach()`](aredateforeach) and [`some()`](#aredatesome) methods of the returned object. |
-| [`areDefined()`](#aredefined)     | **defined** by using [`every()`](#aredefinedevery), [`forEach()`](aredefinedforeach) and [`some()`](#aredefinedsome) methods of the returned object. |
+| [`areDate()`](#aredate)           | [`Date`][js-date] by using [`every()`](#aredateevery), [`forEach()`](#aredateforeach) and [`some()`](#aredatesome) methods of the returned object. |
+| [`areDefined()`](#aredefined)     | **defined** by using [`every()`](#aredefinedevery), [`forEach()`](#aredefinedforeach) and [`some()`](#aredefinedsome) methods of the returned object. |
 | [`areFalse()`](#arefalse)         | a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] equal to `false` by using [`every()`](#arefalseevery), [`forEach()`](#arefalseforeach) and [`some()`](#arefalsesome) methods of the returned object. |
 | [`areNull()`](#arenull)           | [`null`][js-null] by using [`every()`](#arenullevery), [`forEach()`](#arenullforeach) and [`some()`](#arenullsome) methods of the returned object. |
 | [`areNumber()`](#arenumber)       | a [`number`][js-number] type or an instance of [`Number`][js-number] by using [`every()`](#arenumberevery), [`forEach()`](#arenumberforeach) and [`some()`](#arenumbersome) methods of the returned object. |
@@ -814,6 +814,8 @@ areBigInt(1n, 2, '3').some((result, value, payload) => {
 });
 ```
 
+[&uArr; Up](#arebigint) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#aredate)
+
 ----
 
 <br>
@@ -996,6 +998,8 @@ areBoolean(1, true, null, new Boolean(3)).some((result, value, payload) => {
   return result;
 }); // true, boolean
 ```
+
+[&uArr; Up](#areboolean) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#aredefined)
 
 ----
 
@@ -1181,6 +1185,8 @@ areDate(new Date(), new Date('invalid date')).some((result, value, payload) => {
   return result;
 }); // true, boolean
 ```
+
+[&uArr; Up](#aredate) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#arefalse)
 
 ----
 
@@ -1373,6 +1379,8 @@ areDefined('1', 2, null, undefined, age).some((result, value, payload) => {
 }); // true, boolean
 ```
 
+[&uArr; Up](#aredefined) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#arenull)
+
 ----
 
 <br>
@@ -1557,6 +1565,8 @@ areFalse(true, null, false, new Boolean(false)).some((result, value, payload) =>
   return result;
 }); // true, boolean
 ```
+
+[&uArr; Up](#arefalse) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#arenumber)
 
 ----
 
@@ -1743,6 +1753,8 @@ areNull(true, null, false, new Boolean(false)).some((result, value, payload) => 
 }); // true, boolean
 ```
 
+[&uArr; Up](#arenull) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#areregexp)
+
 ----
 
 <br>
@@ -1927,6 +1939,8 @@ areNumber(1, new Number(2), Number(3), '4').some((result, value, payload) => {
   return result;
 }); // true, boolean
 ```
+
+[&uArr; Up](#arenumber) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#arestring)
 
 ----
 
@@ -2117,6 +2131,8 @@ areRegExp(/^[]/, /^[]/, /^[]/, 3).some((result, value, payload) => {
 });
 ```
 
+[&uArr; Up](#areregexp) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#aresymbol)
+
 ----
 
 <br>
@@ -2301,6 +2317,8 @@ areString(1, '2', '3').some((result, value, payload) => {
   return result;
 }); // true, boolean
 ```
+
+[&uArr; Up](#arestring) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#aretrue)
 
 ----
 
@@ -2490,6 +2508,8 @@ areSymbol(Symbol(1), 2, Symbol(3), 4).some((result, value, payload) => {
   return result;
 }); // true, boolean
 ```
+
+[&uArr; Up](#aresymbol) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#areundefined)
 
 ----
 
@@ -2686,6 +2706,8 @@ areTrue(...deleteElements).some((result, value, payload) => {
 }); // true, boolean
 ```
 
+[&uArr; Up](#aretrue) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#is)
+
 ----
 
 <br>
@@ -2875,6 +2897,8 @@ areUndefined(undefined, 2, 3, new String('4')).some((result, value, payload) => 
 }); // true, boolean
 ```
 
+[&uArr; Up](#areundefined)
+
 ----
 
 <br>
@@ -3010,6 +3034,8 @@ isArray([1, 2, 3], (result, value, payload) => {
 }, { transform: { 1: 'First', 2: 'Second', 3: 'Third'} }); // Returns `true` as `value is any[]`
 ```
 
+[&uArr; Up](#isarray) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isboolean)
+
 <br>
 
 #### `isBigInt()`
@@ -3061,6 +3087,8 @@ import { isBigInt } from '@angular-package/type';
 isBigInt(27); // Returns `false` as `value is bigint`
 isBigInt(9007199254740991n); // Returns `true` as `value is bigint`
 ```
+
+[&uArr; Up](#isbigint) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isbooleanobject)
 
 <br>
 
@@ -3160,6 +3188,8 @@ typeOf(stringAsBoolean); // "string"
 typeof stringAsBoolean; // "object"
 ```
 
+[&uArr; Up](#isboolean) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isbooleantype)
+
 <br>
 
 #### `isBooleanObject()`
@@ -3215,6 +3245,8 @@ isBooleanObject(false); // false
 isBooleanObject(new Boolean(false)); // true
 ```
 
+[&uArr; Up](#isbooleanobject) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isclass)
+
 <br>
 
 #### `isBooleanType()`
@@ -3267,6 +3299,8 @@ import { isBooleanType } from '@angular-package/type';
 isBooleanType(false); // true
 isBooleanType(new Boolean(false)); // false
 ```
+
+[&uArr; Up](#isbooleantype) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isdate)
 
 <br>
 
@@ -3340,6 +3374,8 @@ isClass(() => 5, (result, value, payload) => {
 }, { c: Class }); // Returns `false` as `value is Function`
 ```
 
+[&uArr; Up](#isclass) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isdefined)
+
 <br>
 
 #### `isDate()`
@@ -3411,6 +3447,8 @@ isDate(DATE, (result, payload) => {
 }, { birthDay: 14 }); // Returns `true` as `value is Date`
 ```
 
+[&uArr; Up](#isdate) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isfalse)
+
 <br>
 
 #### `isDefined()`
@@ -3480,6 +3518,8 @@ isDefined('age', (result, value, payload) => {
 }, { notDefined: false }); // Returns `true` as `value is string`
 ```
 
+[&uArr; Up](#isdefined) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isfunction)
+
 <br>
 
 #### `isFalse()`
@@ -3545,6 +3585,8 @@ isFalse(new Boolean(false), (result, value, payload) => {
   return result;
 }, { age: 27 }); // Returns `true` as `value is false`
 ```
+
+[&uArr; Up](#isfalse) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isinstance)
 
 <br>
 
@@ -3616,6 +3658,8 @@ isFunction(() => 5, (result, value, payload) => {
   return result;
 }, { number: true }); // Returns `true` as `value is () => 5`
 ```
+
+[&uArr; Up](#isfunction) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#iskey)
 
 <br>
 
@@ -3719,6 +3763,8 @@ isInstance(new Set(), Set), // Returns `true` as `value is Set`
 isInstance(new String(), String), // Returns `true` as `value is String`
 ```
 
+[&uArr; Up](#isinstance) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isnull)
+
 <br>
 
 #### `isKey()`
@@ -3784,6 +3830,8 @@ isKey(SYMBOL_NUMBER); // true
 isKey(SYMBOL_STRING); // true
 ```
 
+[&uArr; Up](#iskey) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isnumber)
+
 <br>
 
 #### `isNull()`
@@ -3836,6 +3884,8 @@ import { isNull } from '@angular-package/type';
 isNull(null); // true
 isNull(27); // false
 ```
+
+[&uArr; Up](#isnull) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isnumberbetween)
 
 <br>
 
@@ -3899,6 +3949,8 @@ isNumber(Number(10304050)); // true, value is number
 isNumber(new Number(10304050)); // true, value is number
 isNumber<Number>(new Number(10304050)); // true, value is Number
 ```
+
+[&uArr; Up](#isnumber) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isnumberobject)
 
 <br>
 
@@ -3986,6 +4038,8 @@ isNumberBetween(ageBox, 0, 12); // false; The return type `value is NumberBetwee
 isNumberBetween(ageBox, 13, 13); // true; The return type `value is NumberBetween<13, 13>`
 ```
 
+[&uArr; Up](#isnumberbetween) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isnumbertype)
+
 <br>
 
 #### `isNumberObject()`
@@ -4043,6 +4097,8 @@ isNumberObject(Number(10304050)); // false
 isNumberObject(new Number(10304050)); // true
 ```
 
+[&uArr; isNumberObject()](#isnumberobject) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; isObject()](#isobject)
+
 <br>
 
 #### `isNumberType()`
@@ -4096,6 +4152,8 @@ isNumberType(10304050); // true
 isNumberType(Number(10304050)); // true
 isNumberType(new Number(10304050)); // false
 ```
+
+[&uArr; isNumberType()](#isnumbertype) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; isObjectKey()](#isobjectkey)
 
 <br>
 
@@ -4178,6 +4236,8 @@ const OBJECT_ONE: ObjectOne = {
 
 isObject(OBJECT_ONE); // true
 ```
+
+[&uArr; isObject()](#isobject) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; isObjectKeyIn()](#isobjectkeyin)
 
 <br>
 
@@ -4299,6 +4359,8 @@ isObjectKey(CLASS, SYMBOL_STRING); // false
 isObjectKey(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING]); // false
 ```
 
+[&uArr; isObjectKey()](#isobjectkey) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; isObjectKeys()](#isobjectkeys)
+
 <br>
 
 #### `isObjectKeyIn()`
@@ -4392,6 +4454,8 @@ isObjectKeyIn(CLASS, SYMBOL_STRING); // true
 isObjectKeyIn(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING]); // true
 ```
 
+[&uArr; isObjectKeyIn()](#isobjectkeyin) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; isObjectKeysIn()](#isobjectkeysin)
+
 <br>
 
 #### `isObjectKeys()`
@@ -4480,6 +4544,8 @@ isObjectKeys(person, ['notEnumerable']); // Returns `true` as `value is object`.
 */
 Object.keys(person);
 ```
+
+[&uArr; isObjectKeys()](#isobjectkeys) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; isObjectSomeKey()](#isobjectsomekeys)
 
 <br>
 
