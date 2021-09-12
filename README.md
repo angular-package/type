@@ -132,7 +132,19 @@ import {
 ```typescript
 // `are` prefix functions.
 import {
-  areString
+  // Function.
+  areBigInt,
+  areBoolean,
+  areDate,
+  areDefined,
+  areFalse,
+  areNull,
+  areNumber,
+  areRegExp,
+  areString,
+  areSymbol,
+  areTrue,
+  areUndefined,
 } from '@angular-package/type';
 ```
 
@@ -259,11 +271,34 @@ import {
 
 ### Recognize value
 
-To check any value that is to know what type and instance the value can be, and for this purpose [`recognizeValue()`](#recognizevalue) function was created, and it's not enough because it must be known what are the risks when using `instanceof`, `typeof` operator and `typeOf()` function to check the type.
+To determine any value that is to know what type and instance the value can be, and for this purpose [`recognizeValue()`](#recognizevalue) function was created, and it's not enough because it must be known what are the threats of using operators, functions, and methods described below.
 
 #### `recognizeValue()`
 
-Gets recognized types and instances of given `value` by using [`instanceof`][js-instanceof], [`typeof`][js-typeof] operator, and [`typeOf()`](#typeof), [`isClass()`](#isclass), [`isFunction()`][js-function] functions.
+Gets recognized types and instances of given `value` by using:
+
+Function:
+
+* [`isClass()`](#isclass),
+* [`isFinite()`][js-isfinite],
+* [`isFunction()`][js-function],
+* [`isNaN()`][js-isnan],
+* [`typeOf()`](#typeof),
+
+Method:
+
+* [`Array.isArray`][js-isarray],
+* [`Number.isInteger()`][js-numberisinteger],
+* [`Number.isFinite()`][js-numberisfinite],
+* [`Number.isNaN()`][js-numberisnan],
+* [`Number.isSafeInteger()`][js-numberissafeinteger],
+* [`Object.hasOwnProperty()`][js-hasownproperty]
+
+Operator:
+
+* [`in`][js-in-operator] operator,
+* [`instanceof`][js-instanceof] operator,
+* [`typeof`][js-typeof] operator,
 
 ```typescript
 const recognizeValue = (
@@ -564,7 +599,6 @@ const customCallback = <
   value: any,
   payload?: Payload
 ) => {
-  console.log(payload);
   return result;
 };
 
@@ -598,8 +632,6 @@ isObject('x', customCallback, { database: '' });
 ----
 
 #### `areBigInt()`
-
-DONE
 
 [![new]][type-github-changelog]
 
@@ -788,8 +820,6 @@ areBigInt(1n, 2, '3').some((result, value, payload) => {
 
 #### `areBoolean()`
 
-DONE
-
 Checks if the **values** are a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] by using [`every()`](#arebooleanevery), [`forEach()`](#arebooleanforeach) and [`some()`](#arebooleansome) methods of the returned object.
 
 ```typescript
@@ -972,8 +1002,6 @@ areBoolean(1, true, null, new Boolean(3)).some((result, value, payload) => {
 <br>
 
 #### `areDate()`
-
-DONE
 
 [![new]][type-github-changelog]
 
@@ -1159,8 +1187,6 @@ areDate(new Date(), new Date('invalid date')).some((result, value, payload) => {
 <br>
 
 #### `areDefined()`
-
-DONE
 
 [![new]][type-github-changelog]
 
@@ -1353,8 +1379,6 @@ areDefined('1', 2, null, undefined, age).some((result, value, payload) => {
 
 #### `areFalse()`
 
-DONE
-
 [![new]][type-github-changelog]
 
 Checks if the **values** are a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] equal to `false` by using [`every()`](#arefalseevery), [`forEach()`](#arefalseforeach) and [`some()`](#arefalsesome) methods of the returned object.
@@ -1539,8 +1563,6 @@ areFalse(true, null, false, new Boolean(false)).some((result, value, payload) =>
 <br>
 
 #### `areNull()`
-
-DONE
 
 [![new]][type-github-changelog]
 
@@ -1727,8 +1749,6 @@ areNull(true, null, false, new Boolean(false)).some((result, value, payload) => 
 
 #### `areNumber()`
 
-DONE
-
 [![new]][type-github-changelog]
 
 Checks if the **values** are a [`number`][js-number] type or an instance of [`Number`][js-number] by using [`every()`](#arenumberevery), [`forEach()`](#arenumberforeach) and [`some()`](#arenumbersome) methods of the returned object.
@@ -1913,8 +1933,6 @@ areNumber(1, new Number(2), Number(3), '4').some((result, value, payload) => {
 <br>
 
 #### `areRegExp()`
-
-DONE
 
 [![new]][type-github-changelog]
 
@@ -2871,7 +2889,7 @@ areUndefined(undefined, 2, 3, new String('4')).some((result, value, payload) => 
 | [`isBooleanObject()`](#isbooleanobject)           | the type obtained from its `Object.prototype` equal to `'boolean'` or an [`object`][js-object] type, and an instance of [`Boolean`][js-boolean] that is equal to `true` or `false`. |
 | [`isBooleanType()`](#isbooleantype)               | a [`boolean`][js-boolean] type equal to `true` or `false`. |
 | [`isClass()`](#isclass)                           | a [`function`][js-function] type or of the type obtained from its `Object.prototype` equal to `'function'` and an instance of [`Function`][js-function]. It also **confirms**  it's a [`class`][ts-classes] by using [`regexp`][js-regexp] on the obtained string from its `Function.prototype`. |
-| [`isDate()`](#isdate)                             | the type obtained from its `Object.prototype` equal to `'date'` or an [`object`][js-object] type, and an instance of [`Date`][js-date]. The `value` is checked against a valid date by using [`Number.isNaN()`][js-numberisnan] method. |
+| [`isDate()`](#isdate)                             | the type obtained from its `Object.prototype` equal to `'date'` or an [`object`][js-object] type, and an instance of [`Date`][js-date]. The `value` is checked against a valid date by using [`isNaN()`][js-isnan] method. |
 | [`isDefined()`](#isdefined)                       | **not** an [`undefined`][js-undefined] type and is **not** equal to [`undefined`][js-undefined]. |
 | [`isFalse()`](#isfalse)                           | a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] that is equal to `false`. |
 | [`isFunction()`](#isfunction)                     | a [`function`][js-function] type or the type obtained from its `Object.prototype` equal to `'function'` and an instance of [`Function`][js-function]. It also **denies** it's a [`class`][ts-classes] by using [`RegExp`][js-regexp] on the obtained string from its `Function.prototype`. |
@@ -2904,8 +2922,6 @@ areUndefined(undefined, 2, 3, new String('4')).some((result, value, payload) => 
 <br>
 
 #### `isArray()`
-
-DONE
 
 [![update]][type-github-changelog]
 
@@ -2998,8 +3014,6 @@ isArray([1, 2, 3], (result, value, payload) => {
 
 #### `isBigInt()`
 
-DONE
-
 [![update]][type-github-changelog]
 
 Use `isBigInt()` or `is.bigint()` to check if **any** value is a [`bigint`][js-bigint] type .
@@ -3051,8 +3065,6 @@ isBigInt(9007199254740991n); // Returns `true` as `value is bigint`
 <br>
 
 #### `isBoolean()`
-
-DONE
 
 [![update]][type-github-changelog]
 
@@ -3152,8 +3164,6 @@ typeof stringAsBoolean; // "object"
 
 #### `isBooleanObject()`
 
-DONE
-
 [![update]][type-github-changelog]
 
 Use `isBooleanObject()` or `is.booleanObject()` to check if **any** value is of the type obtained from its `Object.prototype` equal to `'boolean'` or an [`object`][js-object] type, and an instance of [`Boolean`][js-boolean] that is equal to `true` or `false`.
@@ -3209,8 +3219,6 @@ isBooleanObject(new Boolean(false)); // true
 
 #### `isBooleanType()`
 
-DONE
-
 [![update]][type-github-changelog]
 
 Use `isBooleanType()` or `is.booleanType()` to check if **any** value is a [`boolean`][js-boolean] type equal to `true` or `false`.
@@ -3263,8 +3271,6 @@ isBooleanType(new Boolean(false)); // false
 <br>
 
 #### `isClass()`
-
-DONE
 
 [![update]][type-github-changelog]
 
@@ -3338,11 +3344,9 @@ isClass(() => 5, (result, value, payload) => {
 
 #### `isDate()`
 
-DONE
-
 [![update]][type-github-changelog]
 
-Use `isDate()` or `is.date()` to check if **any** value is of the type obtained from its `Object.prototype` equal to `'date'` or an [`object`][js-object] type, and an instance of [`Date`][js-date]. The `value` is checked against a valid date by using [`Number.isNaN()`][js-numberisnan] method.
+Use `isDate()` or `is.date()` to check if **any** value is of the type obtained from its `Object.prototype` equal to `'date'` or an [`object`][js-object] type, and an instance of [`Date`][js-date]. The `value` is checked against a valid date by using [`isNaN()`][js-isnan] method.
 
 ```typescript
 const isDate = <Payload extends object>(
@@ -3410,8 +3414,6 @@ isDate(DATE, (result, payload) => {
 <br>
 
 #### `isDefined()`
-
-DONE
 
 [![update]][type-github-changelog]
 
@@ -3482,8 +3484,6 @@ isDefined('age', (result, value, payload) => {
 
 #### `isFalse()`
 
-DONE
-
 [![update]][type-github-changelog]
 
 Use `isFalse()` or `is.false()` to check if **any** value is a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] that is equal to `false`.
@@ -3549,8 +3549,6 @@ isFalse(new Boolean(false), (result, value, payload) => {
 <br>
 
 #### `isFunction()`
-
-DONE
 
 [![update]][type-github-changelog]
 
@@ -3622,8 +3620,6 @@ isFunction(() => 5, (result, value, payload) => {
 <br>
 
 #### `isInstance()`
-
-DONE
 
 [![update]][type-github-changelog]
 
@@ -3727,8 +3723,6 @@ isInstance(new String(), String), // Returns `true` as `value is String`
 
 #### `isKey()`
 
-DONE
-
 [![update]][type-github-changelog]
 
 Use `isKey()` or `is.key()` to check if **any** value is one of the [`string`][js-string], [`number`][js-number], or [`symbol`][js-symbol] type.
@@ -3794,8 +3788,6 @@ isKey(SYMBOL_STRING); // true
 
 #### `isNull()`
 
-DONE
-
 [![update]][type-github-changelog]
 
 Use `isNull()` or `is.null()` to check if **any** value is of the type obtained from its `Object.prototype` equal to `'null'` or an [`object`][js-object] type that is equal to [`null`][js-null].
@@ -3848,8 +3840,6 @@ isNull(27); // false
 <br>
 
 #### `isNumber()`
-
-DONE
 
 [![update]][type-github-changelog]
 
@@ -3913,8 +3903,6 @@ isNumber<Number>(new Number(10304050)); // true, value is Number
 <br>
 
 #### `isNumberBetween()`
-
-DONE
 
 [![update]][type-github-changelog]
 
@@ -4002,8 +3990,6 @@ isNumberBetween(ageBox, 13, 13); // true; The return type `value is NumberBetwee
 
 #### `isNumberObject()`
 
-DONE
-
 [![update]][type-github-changelog]
 
 Use `isNumberObject()` or `is.numberObject()` to check if **any** value is of the type obtained from its `Object.prototype` equal to `'number'`, or an [`object`][js-object] type and an instance of [`Number`][js-number] and is also checked by the [`Number.isFinite()`][js-numberisfinite] method to determine whether it's finite and is validated by the [`Number.isNaN()`][js-numberisnan] function.
@@ -4061,8 +4047,6 @@ isNumberObject(new Number(10304050)); // true
 
 #### `isNumberType()`
 
-DONE
-
 [![update]][type-github-changelog]
 
 Use `isNumberType()` or `is.numberType()` to check if **any** value is a [`number`][js-number] type and is checked by the [`Number.isFinite()`][js-numberisfinite] method to determine whether it's finite and is validated by the [`Number.isNaN()`][js-numberisnan] method.
@@ -4116,8 +4100,6 @@ isNumberType(new Number(10304050)); // false
 <br>
 
 #### `isObject()`
-
-DONE
 
 [![update]][type-github-changelog]
 
@@ -4200,8 +4182,6 @@ isObject(OBJECT_ONE); // true
 <br>
 
 #### `isObjectKey()`
-
-DONE
 
 [![update]][type-github-changelog]
 
@@ -4323,8 +4303,6 @@ isObjectKey(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING]); // false
 
 #### `isObjectKeyIn()`
 
-DONE
-
 [![update]][type-github-changelog]
 
 Use `isObjectKeyIn()` or `is.objectKeyIn()` to check if **any** value is an [`object`][js-object] function with a key of the `PropertyKey` in it(or its prototype chain) by using the [`in`][js-in-operator] operator.
@@ -4418,8 +4396,6 @@ isObjectKeyIn(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING]); // true
 
 #### `isObjectKeys()`
 
-DONE
-
 [![update]][type-github-changelog]
 
 Use `isObjectKeys()` or `is.objectKeys()` to check if **any** value is an [`object`][js-object] with its keys.
@@ -4509,8 +4485,6 @@ Object.keys(person);
 
 #### `isObjectKeysIn()`
 
-DONE
-
 [![update]][type-github-changelog]
 
 Use `isObjectKeysIn()` or `is.objectKeysIn()` to check if **any** value is an [`object`][js-object] with keys in it(or its prototype chain) by using the [`in`][js-in-operator] operator.
@@ -4585,8 +4559,6 @@ isObjectKeysIn(person, ['notEnumerable']); // Returns `true` as `value is object
 <br>
 
 #### `isObjectSomeKeys()`
-
-DONE
 
 [![update]][type-github-changelog]
 
@@ -4678,8 +4650,6 @@ isObjectSomeKeys(person, [['firstName1', 'surname1'], ['city1', 'no property']])
 
 #### `isPrimitive()`
 
-DONE
-
 [![update]][type-github-changelog]
 
 Use `isPrimitive()` or `is.primitive()` to check if **any** value is the [`Primitive`](#primitive) type or specific type from a given `type` of the [`Primitives`](#primitives).
@@ -4768,8 +4738,6 @@ isPrimitive<undefined>(undefined, 'undefined'); // Returns `true` as `value is u
 
 #### `isRegExp()`
 
-DONE
-
 [![update]][type-github-changelog]
 
 Use `isRegExp()` or `is.regexp()` to check if **any** value is a regular expression of the type obtained from its `Object.prototype` equal to `'regexp'`, or an [`object`][js-object] type, and an instance of [`RegExp`][js-regexp].
@@ -4822,8 +4790,6 @@ isRegExp(/[^a-z]/g); // true; The return type `value is RegExp`
 <br>
 
 #### `isString()`
-
-DONE
 
 [![update]][type-github-changelog]
 
@@ -4894,8 +4860,6 @@ typeof fakeString; // "object"
 
 #### `isStringIncludes()`
 
-DONE
-
 [![new]][type-github-changelog]
 
 Use `isStringIncludes()` or `is.stringIncludes()` to check if **any** value is a [`string`][js-string] type or an instance of [`String`][js-string] that **includes all** of the specified **words/sentences**.
@@ -4964,8 +4928,6 @@ isStringIncludes(new String('This is artificial intelligence.'), [
 
 #### `isStringIncludesSome()`
 
-DONE
-
 [![new]][type-github-changelog]
 
 Use `isStringIncludesSome()` or `is.stringIncludesSome()` to check if **any** value is a [`string`][js-string] type or an instance of [`String`][js-string] that includes **some** of the specified **words/sentences**.
@@ -5033,8 +4995,6 @@ isStringIncludesSome(new String('This is artificial intelligence.'), [
 <br>
 
 #### `isStringLength()`
-
-DONE
 
 [![update]][type-github-changelog]
 
@@ -5125,8 +5085,6 @@ isStringLength(firstNameBox, { min: 13, max: 13 }); // true; The return type `va
 
 #### `isStringObject()`
 
-DONE
-
 [![update]][type-github-changelog]
 
 Use `isStringObject()` or `is.stringObject()` to check if **any** value is of the type obtained from its `Object.prototype` equal to `'string'` or an [`object`][js-object] type, and an instance of [`String`][js-string].
@@ -5181,8 +5139,6 @@ isStringObject(new String('age')) // Returns `true` as `value is String`
 
 #### `isStringType()`
 
-DONE
-
 [![update]][type-github-changelog]
 
 Use `isStringType()` or `is.stringType()` to check if **any** value is a [`string`][js-string] type.
@@ -5235,8 +5191,6 @@ isStringType(new String('age')) // Returns `false` as `value is string`
 
 #### `isSymbol()`
 
-DONE
-
 [![update]][type-github-changelog]
 
 Use `isSymbol()` or `is.symbol()` to check if **any** value is a [`symbol`][js-symbol] type.
@@ -5288,8 +5242,6 @@ isSymbol(Symbol('age')); // Returns `true` as `value is symbol`
 
 #### `isTrue()`
 
-DONE
-
 [![update]][type-github-changelog]
 
 Use `isTrue()` or `is.true()` to check if **any** value is a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] equal to `true`.
@@ -5340,8 +5292,6 @@ isTrue(false); // Returns `false` as `value is true`
 <br>
 
 #### `isType()`
-
-DONE
 
 [![update]][type-github-changelog]
 
@@ -5441,8 +5391,6 @@ isType(person, Person, (result, value, payload) => {
 <br>
 
 #### `isUndefined()`
-
-DONE
 
 [![update]][type-github-changelog]
 
@@ -5787,9 +5735,7 @@ const isNotNumber = <Type, Payload extends object = object>(
 
 | Returns                           | Type      | Description |
 | :-------------------------------- | :-------: | :---------- |
-| `value is Never<AnyNumber, Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type [`Never`](#never) that takes a generic type variable `Type` and makes it **never** [`AnyNumber`](#anynumber) but of type captured from the supplied `value`.
-
-TODO: By default `Type` variable is of type captured from a given `value`, but the captured type `number` or [`Number`][js-number] changes to `never` and the **return type** is a `boolean` as the result of its statement indicating the `value` is **never** [`AnyNumber`](#anynumber) but of type captured from the `value`. |
+| `value is Never<AnyNumber, Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type [`Never`](#never) that takes a generic type variable `Type` from the `value` and `Not` equal to [`AnyNumber`](#anynumber), which makes it **never** [`AnyNumber`](#anynumber) but of type captured from the supplied `value`. |
 
 The **return value** is a `boolean` indicating whether the provided `value` is not a [`number`][js-number].
 
@@ -5854,9 +5800,7 @@ The function returns statement `value is Never<AnyString, Type>`.
 
 | Type      | Description |
 | :-------: | :---------- |
-| `boolean` | 
-
-TODO: By default `Type` variable is of type captured from a given `value`, but the captured type `string` or [`String`][js-string] changes to `never` and the **return type** is a `boolean` as the result of its statement indicating the `value` is **never** [`AnyString`](#anystring) but of type captured from the `value`. |
+| `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type [`Never`](#never) that takes a generic type variable `Type` from the `value` and `Not` equal to [`AnyString`](#anystring), which makes it **never** [`AnyString`](#anystring) but of type captured from the supplied `value`. |
 
 The **return value** is a `boolean` indicating whether the provided `value` is not a [`string`][js-string] and not an instance of [`String`][js-string].
 
@@ -5919,9 +5863,7 @@ const isNotUndefined = <Type, Payload extends object = object>(
 
 | Returns                  | Type      | Description |
 | :----------------------- | :-------: | :---------- |
-| `value is Defined<Type>` | `boolean` | 
-
-TODO: By default `Type` variable is of type captured from a given `value`, but the captured type `undefined` changes to `never` and the return type is a `boolean` as the result of its statement indicating the `value` is defined of type captured from the `value`. |
+| `value is Defined<Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type [`Defined`](#defined) that takes a generic type variable `Type` of value by default equal to the type captured from the supplied `value` parameter excepts [`undefined`][js-undefined] which changes to `never`.  |
 
 The **return value** is a `boolean` indicating whether the provided `value` is not [`undefined`][js-undefined].
 
@@ -5957,22 +5899,23 @@ if (is.not.undefined(config.a)) {
 
 [![update]][type-github-changelog]
 
-TODO: Consists of
-
-The object contains prefixed with **are** functions.
-
-TODO:
+The `object` consists of **are** prefixed functions.
 
 ```typescript
-const are: Are = {
-  bigint: areBigInt,
-  boolean: areBoolean,
-  null: areNull,
-  number: areNumber,
+const are: Are = Object.freeze({
+  bigint: areBigInt, // From the `5.0.0` version.
+  boolean: areBoolean, // From the `5.0.0` version.
+  date: areDate, // From the `5.0.0` version.
+  defined: areDefined, // From the `5.0.0` version.
+  false: areFalse, // From the `5.0.0` version.
+  null: areNull, // From the `5.0.0` version.
+  number: areNumber, // From the `5.0.0` version.
+  regexp: areRegExp, // From the `5.0.0` version.
   string: areString,
-  symbol: areSymbol,
-  undefined: areUndefined
-};
+  symbol: areSymbol, // From the `5.0.0` version.
+  true: areTrue, // From the `5.0.0` version.
+  undefined: areUndefined // From the `5.0.0` version.
+});
 ```
 
 <br>
@@ -5981,9 +5924,7 @@ const are: Are = {
 
 [![update]][type-github-changelog]
 
-TODO: Consists of
-
-The object contains prefixed with **is** functions and prefixed with **isNot** functions in property `not`.
+The [`object`][js-object] contains prefixed with **is** functions and prefixed with **isNot** functions in property `not`.
 
 ```typescript
 const is: Is = Object.freeze({
@@ -6030,9 +5971,7 @@ const is: Is = Object.freeze({
 
 #### `isNot.`
 
-Object `isNot` with all **check is not** functions.
-
-TODO:
+The [`object`][js-object] consists of **isNot** functions.
 
 ```typescript
 const isNot: IsNot = Object.freeze({
@@ -6052,36 +5991,34 @@ const isNot: IsNot = Object.freeze({
 
 ### `guard` functions
 
-TODO:
-
-| Function                                            | Guards the value to be |
-| :-------------------------------------------------- | :--------------------- |
-| [`guardArray()`](#guardarray)                   |  |
-| [`guardBigInt()`](#guardbigint)                 |  |
-| [`guardBoolean()`](#guardboolean)               |  |
-| [`guardClass()`](#guardclass)                   |  |
-| [`guardDate()`](#guarddate)                     |  |
-| [`guardDefined()`](#guarddefined)               |  |
-| [`guardFalse()`](#guardfalse)                   |  |
-| [`guardFunction()`](#guardfunction)             |  |
-| [`guardInstance()`](#guardinstance)             |  |
-| [`guardKey()`](#guardkey)                       |  |
-| [`guardNull()`](#guardnull)                     |  |
-| [`guardNumber()`](#guardnumber)                 |  |
-| [`guardNumberBetween()`](#guardnumberbetween)   |  |
-| [`guardObject()`](#guardobject)                 |  |
-| [`guardObjectKey()`](#guardobjectkey)           |  |
-| [`guardObjectKeyIn()`](#guardobjectkeyin)       |  |
-| [`guardObjectKeys()`](#guardobjectkeys)         |  |
-| [`guardObjectSomeKeys()`](#guardobjectsomekeys) |  |
-| [`guardPrimitive()`](#guardprimitive)           |  |
-| [`guardRegExp()`](#guardregexp)                 |  |
-| [`guardString()`](#guardstring)                 |  |
-| [`guardStringLength()`](#guardstringlength)     |  |
-| [`guardSymbol()`](#guardsymbol)                 |  |
-| [`guardTrue()`](#guardtrue)                     |  |
-| [`guardType()`](#guardtype)                     |  |
-| [`guardUndefined()`](#guardundefined)           |  |
+| Function                                        | Guards the value to be |
+| :---------------------------------------------- | :--------------------- |
+| [`guardArray()`](#guardarray)                   | an [`array`][js-array] of a generic type variable `Type`. |
+| [`guardBigInt()`](#guardbigint)                 | a [`bigint`][js-bigint]. |
+| [`guardBoolean()`](#guardboolean)               | [`boolean`][js-boolean] of any type. |
+| [`guardClass()`](#guardclass)                   | a [`class`][ts-classes] of generic type variable `Class`. |
+| [`guardDate()`](#guarddate)                     | a [`Date`][js-date] type. |
+| [`guardDefined()`](#guarddefined)               | **defined**. |
+| [`guardFalse()`](#guardfalse)                   | `false`. |
+| [`guardFunction()`](#guardfunction)             | a [`Function`][js-function]. |
+| [`guardInstance()`](#guardinstance)             | an instance of the given `constructor` of [`Constructor`](#constructor) type. |
+| [`guardKey()`](#guardkey)                       | one of the `string`, `number`, or `symbol`. |
+| [`guardNull()`](#guardnull)                     | `null`. |
+| [`guardNumber()`](#guardnumber)                 | a [`number`][js-number] of any type. |
+| [`guardNumberBetween()`](#guardnumberbetween)   | [`number`][js-number] between the specified range. |
+| [`guardObject()`](#guardobject)                 | [`object`][js-object] of a generic type variable `Obj`. |
+| [`guardObjectKey()`](#guardobjectkey)           | [`object`][js-object] of a generic `Obj` type that contains the given `key`. |
+| [`guardObjectKeyIn()`](#guardobjectkeyin)       | [`object`][js-object] of a generic type variable `Obj` that contains(or its prototype chain) the given `key`. |
+| [`guardObjectKeys()`](#guardobjectkeys)         | [`object`][js-object] of a generic type variable `Obj` with its specified `keys`. |
+| [`guardObjectSomeKeys()`](#guardobjectsomekeys) | [`object`][js-object] of a generic type variable `Obj` with some of its `keys` or some groups of its `keys`. |
+| [`guardPrimitive()`](#guardprimitive)           | the [`Primitive`](#primitive) type or the given `type` of the [`Primitives`](#primitives). |
+| [`guardRegExp()`](#guardregexp)                 | a [`RegExp`][js-regexp]. |
+| [`guardString()`](#guardstring)                 | [`string`][js-string] of any type. |
+| [`guardStringLength()`](#guardstringlength)     | a [`string`][js-string] of a **length** between the specified range. |
+| [`guardSymbol()`](#guardsymbol)                 | a [`symbol`][js-symbol]. |
+| [`guardTrue()`](#guardtrue)                     | `true`. |
+| [`guardType()`](#guardtype)                     | the [`Type`](#type) from a given `type` of the [`Types`](#types). |
+| [`guardUndefined()`](#guardundefined)           | [`undefined`][js-undefined]. |
 
 <br>
 
@@ -6104,7 +6041,7 @@ const guardArray = <Type, Payload extends object = object>(
 
 | Name      | Default value    | Description |
 | :-------- | :--------------- | :---------- |
-| `Type`    | From the `value` | A generic type variable `Type` indicates the `array` element type of the `value`, which by default is captured from the provided `value`. |
+| `Type`    | From the `value` | A generic type variable `Type` indicates the `array` element type of the `value` by default captured from the provided `value`. |
 | `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
@@ -6191,7 +6128,7 @@ guardBigInt(false as any); // false, value is bigint
 
 [![update]][type-github-changelog]
 
-Use `guardBoolean()` or `guard.boolean()` to guard the value to be boolean of any type.
+Use `guardBoolean()` or `guard.boolean()` to guard the value to be [`boolean`][js-boolean] of any type.
 
 ```typescript
 const guardBoolean = <
@@ -6227,7 +6164,7 @@ const guardBoolean = <
 
 | Returns         | Type      | Description |
 | :-------------- | :-------: | :---------- |
-| `value is Type` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is [`AnyBoolean`](#anyboolean), by default of type captured from the supplied `value`. |
+| `value is Type` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type variable `Type` by default of type captured from the supplied `value`. |
 
 The **return value** is a `boolean` indicating whether the `value` is a `boolean` type or an instance of [`Boolean`][js-boolean].
 
@@ -6248,8 +6185,6 @@ guardBoolean(new Boolean(false)) // true, value is Boolean
 [![update]][type-github-changelog]
 
 Use `guardClass()` or `guard.class()` to guard the value to be a [`class`][ts-classes] of generic type variable `Class`.
-
-TODO:
 
 ```typescript
 const guardClass = <
@@ -6282,9 +6217,7 @@ const guardClass = <
 
 | Returns          | Type      | Description |
 | :--------------- | :-------: | :---------- |
-| `value is Class` | `boolean` | 
-TODO:
-The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type variable `Class` [`Function`][js-function], by default of type captured from the supplied `value`. |
+| `value is Class` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type variable `Class` by default of type captured from the supplied `value`. |
 
 The **return value** is `boolean` indicating whether the `value` is a [`class`][ts-classes] of a generic type variable `Class`.
 
@@ -6398,7 +6331,7 @@ guardDate(new Date(628021800000)); // true, value is Date
 
 [![update]][type-github-changelog]
 
-Use `guardDefined()` or `guard.defined()` to guard the value to be defined.
+Use `guardDefined()` or `guard.defined()` to guard the value to be **defined**.
 
 ```typescript
 const guardDefined = <Type, Payload extends object = object>(
@@ -6431,7 +6364,7 @@ const guardDefined = <Type, Payload extends object = object>(
 
 | Returns                  | Type      | Description |
 | :----------------------- | :-------: | :---------- |
-| `value is Defined<Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement `value` is [`Defined<Type>`](#defined) (that depends on a generic type variable `Type`), which means by default is equal to the type captured from the provided `value`, but captured type `undefined` changes to `never`. |
+| `value is Defined<Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type [`Defined`](#defined) that takes a generic type variable `Type` of value by default equal to the type captured from the supplied `value` parameter excepts [`undefined`][js-undefined] which changes to never. |
 
 The **return value** is a `boolean` indicating whether the `value` is **defined**.
 
@@ -6544,7 +6477,7 @@ const guardFunction = <Type extends Function, Payload extends object>(
 
 | Returns         | Type      | Description |
 | :-------------- | :-------: | :---------- |
-| `value is Type` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a [`function`][js-function], by default of the type captured from the provided `value`. |
+| `value is Type` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type variable `Type` by default equal to the type captured from the supplied `value`. |
 
 The **return value** is a `boolean` indicating whether the `value` is a [`Function`][js-function].
 
@@ -6603,7 +6536,7 @@ const guardInstance = <
 
 | Returns        | Type      | Description |
 | :------------- | :-------: | :---------- |
-| `value is Obj` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is an [`object`][js-object], by default of the type captured from the provided `value`. |
+| `value is Obj` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type variable `Obj` by default of the type captured from the provided `value`. |
 
 The **return value** is a `boolean` indicating whether the `value` is an `instance` of a given `constructor`.
 
@@ -6789,7 +6722,7 @@ const guardNumber = <
 
 | Returns         | Type      | Description |
 | :-------------- | :-------: | :---------- |
-| `value is Type` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is [`AnyNumber`](#anynumber), by default of type captured from the supplied `value`. |
+| `value is Type` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type variable `Type` by default of type captured from the supplied `value`. |
 
 The **return value** is a `boolean` indicating whether the `value` is a `number` type or an instance of [`Number`][js-number].
 
@@ -6860,7 +6793,7 @@ const guardNumberBetween = <
 
 | Returns                                  | Type      | Description |
 | :--------------------------------------- | :-------: | :---------- |
-| `value is NumberBetween<Min, Max, Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type [`NumberBetween`](#numberbetween) that takes generic type variables `Min` and `Max` as a **range** of the supplied value and `Type` as the **type** of the supplied value. |
+| `value is NumberBetween<Min, Max, Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type [`NumberBetween`](#numberbetween) that takes generic type variables `Min` and `Max` as a **range** of the supplied `value` and `Type` as the **type** of the supplied `value`. |
 
 The **return value** is a `boolean` indicating whether the `value` is a `number` type or an instance of [`Number`][js-number] between the specified `range`.
 
@@ -6895,7 +6828,7 @@ guardNumberBetween(3, {min: 4, max: 2 }); // false, value is number
 
 [![update]][type-github-changelog]
 
-Use `guardObject()` or `guard.object()` to guard the value to be an `object` of a generic type variable `Obj`. The function guards only generic [`object`][js-object] type, not **specific** object.
+Use `guardObject()` or `guard.object()` to guard the value to be an [`object`][js-object] of a generic type variable `Obj`. The function guards only generic [`object`][js-object] type, not **specific** object.
 
 ```typescript
 const guardObject = <
@@ -7302,7 +7235,6 @@ guardObjectSomeKeys(OBJECT_ONE, [
 
 #### `guardPrimitive()`
 
-TODO: Done.
 [![update]][type-github-changelog]
 
 Use `guardPrimitive()` or `guard.primitive()` to guard the `value` to be the [`Primitive`](#primitive) type or the given `type` of the [`Primitives`](#primitives).
@@ -7432,9 +7364,9 @@ const guardRegExp = <Payload extends object>(
 
 **Returns:**
 
-| Type     | Description |
-| :------- | :---------- |
-| `bigint` | The **return value** is a `boolean` indicating whether the `value` is a [`RegExp`][js-regexp]. |
+| Returns           | Type      | Description |
+| :---------------- | :-------: | :---------- |
+| `value is RegExp` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a [`RegExp`][js-regexp]. |
 
 **Usage:**
 
@@ -7485,7 +7417,7 @@ const guardString = <
 
 | Returns         | Type      | Description |
 | :-------------- | :-------: | :---------- |
-| `value is Type` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is [`AnyString`](#anystring), by default of the type captured from the `value`. |
+| `value is Type` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type variable `Type` by default of the type captured from the `value`. |
 
 The **return value** is a `boolean` indicating whether the `value` is a `string` type or an instance of [`String`][js-string].
 
@@ -7550,9 +7482,9 @@ const guardStringLength = <
 
 | Returns                                   | Type      | Description |
 | :---------------------------------------- | :-------: | :---------- |
-| `value is StringOfLength<Min, Max, Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is a generic type [`StringOfLength`](#stringoflength) that takes generic type variables `Min` and `Max`(from the provided `length` parameter) constrained by **number** type by default of value `number` as the **length** of the supplied value, and `Type` constrained by [`AnyString`](#anystring) by default of value `string` as the supplied value type. |
+| `value is StringOfLength<Min, Max, Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement, indicating the `value` is a generic type [`StringOfLength`](#stringoflength) that takes generic type variables `Min` and `Max`(from the provided `length` parameter) as the **length** of the supplied `value`, and `Type` as the type of the supplied `value`. |
 
-The **return value** is a `boolean` indicating whether the `value` is a `string` type or an instance of [`String`][js-string] between the specified range.
+The **return value** is a `boolean` indicating whether the `value` is a [`string`][js-string] type or an instance of [`String`][js-string] between the specified range.
 
 **Usage:**
 
@@ -7612,7 +7544,7 @@ const guardSymbol = <Payload extends object>(
 
 | Returns           | Type      | Description |
 | :---------------- | :-------: | :---------- |
-| `value is symbol` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a `symbol`. |
+| `value is symbol` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a [`symbol`][js-symbol]. |
 
 The **return value** is a `boolean` indicating whether the `value` is a `symbol`.
 
@@ -7666,7 +7598,7 @@ const guardTrue = <Payload extends object>(
 | :-------------- | :-------: | :---------- |
 | `value is true` | `boolean` | The **return type** is a `boolean` as the result of its statement `value` is `true`. |
 
-The **return value** is a `boolean` indicating whether the `value` is a `boolean` type or an instance of [`Boolean`][js-boolean] equal to `true`.
+The **return value** is a `boolean` indicating whether the `value` is a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] equal to `true`.
 
 **Usage:**
 
@@ -7687,7 +7619,6 @@ guardTrue(new Boolean(valFalse) as any); // true, value is false
 
 #### `guardType()`
 
-TODO: Done.
 [![update]][type-github-changelog]
 
 Use `guardType()` or `guard.type()` to guard the value to be the [`Type`](#type) from a given `type` of the [`Types`](#types).
@@ -7725,7 +7656,7 @@ const guardType = <T extends Type, Payload extends object = object>(
 
 | Returns      | Type      | Description |
 | :----------- | :-------: | :---------- |
-| `value is T` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a [`Type`](#type), by default of the type captured from the `value`. |
+| `value is T` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type variable `T` by default of the type captured from the `value`. |
 
 The **return value** is a `boolean` indicating whether the `value` is a type from a given `type` of the [`Types`](#types).
 
@@ -7888,7 +7819,7 @@ gUndefined(5 as any); // false
 The object contains prefixed with **guard** functions, and in `is` property.
 
 ```typescript
-const guardIs: GuardIs = {
+const guardIs: GuardIs = Object.freeze({
   array: guardArray,
   bigint: guardBigInt,
   boolean: guardBoolean,
@@ -7914,7 +7845,7 @@ const guardIs: GuardIs = {
   true: guardTrue,
   type: guardType,
   undefined: guardUndefined
-};
+});
 const guard: Guard = Object.freeze({ ...guardIs, is: guardIs });
 ```
 
@@ -8617,7 +8548,9 @@ MIT © angular-package ([license][type-license])
 [js-number]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
 [js-numberconstructor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/Number
 [js-numberisfinite]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite
+[js-numberisinteger]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger
 [js-numberisnan]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN
+[js-numberissafeinteger]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger
 
 [js-object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
 [js-object-define-property]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
