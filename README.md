@@ -4625,6 +4625,8 @@ isObjectKeysIn(person, ['getAge']); // Returns `true` as `value is object`.
 isObjectKeysIn(person, ['notEnumerable']); // Returns `true` as `value is object`.
 ```
 
+[&uArr; Up](#isobjectkeysin) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isprimitive)
+
 <br>
 
 #### `isObjectSomeKeys()`
@@ -4931,7 +4933,7 @@ typeOf(fakeString); // "string"
 typeof fakeString; // "object"
 ```
 
-[&uArr; Up](#isstring) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isstringincludesSome)
+[&uArr; Up](#isstring) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isstringincludessome)
 
 <br>
 
@@ -5001,7 +5003,7 @@ isStringIncludes(new String('This is artificial intelligence.'), [
 ]); // true; The return type `value is string`
 ```
 
-[&uArr; Up](#isstringincludes) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isstringincludessome)
+[&uArr; Up](#isstringincludes) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isstringlength)
 
 <br>
 
@@ -5611,7 +5613,7 @@ isNotBoolean(strictBoolean); // false; return type is `value is never`
 isNotBoolean(objectBoolean); // false; return type is `value is never`
 ```
 
-[&uArr; Up](#isnotboolean) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isnotdefined)
+[&uArr; Up](#isnotboolean) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#isnotfunction)
 
 <br>
 
@@ -5926,6 +5928,8 @@ isNotString(age); // return type is `value is number`
 isNotString(objectString); // return type is `value is never`
 ```
 
+[&uArr; Up](#isnotstring) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#check-objects)
+
 <br>
 
 #### `isNotUndefined()`
@@ -5996,7 +6000,7 @@ if (is.not.undefined(config.a)) {
 }
 ```
 
-[&uArr; Up](#isnotundefined)
+[&uArr; Up](#isnotundefined) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guard)
 
 <br>
 
@@ -6091,6 +6095,8 @@ const isNot: IsNot = Object.freeze({
   undefined: isNotUndefined
 });
 ```
+
+[&uArr; Up](#check-objects)
 
 <br>
 
@@ -6952,7 +6958,7 @@ guardNumberBetween(3, {min: 1, max: 3 }); // true, value is number
 guardNumberBetween(3, {min: 4, max: 2 }); // false, value is number
 ```
 
-[&uArr; Up](#guardnumberbetwen) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardobjectkey)
+[&uArr; Up](#guardnumberbetween) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardobjectkey)
 
 <br>
 
