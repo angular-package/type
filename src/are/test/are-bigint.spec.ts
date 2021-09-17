@@ -1,5 +1,5 @@
 
-import { areString } from '../lib/are-string.func';
+import { areBigInt } from '../lib/are-bigint.func';
 // Testing.
 import {
   Testing,
@@ -14,44 +14,44 @@ const toBe = new TestingToBeMatchers();
 /**
  * Tests.
  */
-testing.describe(areString.name, () => {
+testing.describe(areBigInt.name, () => {
   testing
     // Defined.
-    .it('is DEFINED', () => expect(areString).toBeDefined())
+    .it('is DEFINED', () => expect(areBigInt).toBeDefined())
     .it(`every()`, () => {
-      areString(1, '2', '3').every(
+      areBigInt(1n, '2n', 3, 4n).every(
         (result, value, payload) => {
           toBe
             .false(result)
             .array(value)
             .object(payload);
-          expect(payload?.name).toEqual(areString.name);
+          expect(payload?.name).toEqual(areBigInt.name);
           return result;
         }
       );
     })
     .it(`forEach()`, () => {
-      areString(1, '2', '3').forEach(
+      areBigInt(1n, '2n', 3, 4n).forEach(
         (result, value, index, array, payload) => {
           toBe
             .boolean(result)
             .number(index)
             .array(array)
             .object(payload);
-          expect(payload?.name).toEqual(areString.name);
+          expect(payload?.name).toEqual(areBigInt.name);
           expect(payload?.age).toEqual(2);
         },
         { age: 2 }
       );
     })
     .it(`some()`, () => {
-      areString(1, '2', '3').some(
+      areBigInt(1n, '2n', 3, 4n).some(
         (result, value, payload) => {
           toBe
             .true(result)
             .array(value)
             .object(payload);
-          expect(payload?.name).toEqual(areString.name);
+          expect(payload?.name).toEqual(areBigInt.name);
           return result;
         }
       );

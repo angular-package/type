@@ -1,5 +1,4 @@
-
-import { areString } from '../lib/are-string.func';
+import { areBoolean } from '../lib/are-boolean.func';
 // Testing.
 import {
   Testing,
@@ -14,44 +13,44 @@ const toBe = new TestingToBeMatchers();
 /**
  * Tests.
  */
-testing.describe(areString.name, () => {
+testing.describe(areBoolean.name, () => {
   testing
     // Defined.
-    .it('is DEFINED', () => expect(areString).toBeDefined())
+    .it('is DEFINED', () => expect(areBoolean).toBeDefined())
     .it(`every()`, () => {
-      areString(1, '2', '3').every(
+      areBoolean(1, true, null, new Boolean(3)).every(
         (result, value, payload) => {
           toBe
             .false(result)
             .array(value)
             .object(payload);
-          expect(payload?.name).toEqual(areString.name);
+          expect(payload?.name).toEqual(areBoolean.name);
           return result;
         }
       );
     })
     .it(`forEach()`, () => {
-      areString(1, '2', '3').forEach(
+      areBoolean(1, true, null, new Boolean(3)).forEach(
         (result, value, index, array, payload) => {
           toBe
             .boolean(result)
             .number(index)
             .array(array)
             .object(payload);
-          expect(payload?.name).toEqual(areString.name);
+          expect(payload?.name).toEqual(areBoolean.name);
           expect(payload?.age).toEqual(2);
         },
         { age: 2 }
       );
     })
     .it(`some()`, () => {
-      areString(1, '2', '3').some(
+      areBoolean(1, true, null, new Boolean(3)).some(
         (result, value, payload) => {
           toBe
             .true(result)
             .array(value)
             .object(payload);
-          expect(payload?.name).toEqual(areString.name);
+          expect(payload?.name).toEqual(areBoolean.name);
           return result;
         }
       );

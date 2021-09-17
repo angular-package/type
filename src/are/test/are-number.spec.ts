@@ -1,5 +1,4 @@
-
-import { areString } from '../lib/are-string.func';
+import { areNumber } from '../lib/are-number.func';
 // Testing.
 import {
   Testing,
@@ -14,44 +13,44 @@ const toBe = new TestingToBeMatchers();
 /**
  * Tests.
  */
-testing.describe(areString.name, () => {
+testing.describe(areNumber.name, () => {
   testing
     // Defined.
-    .it('is DEFINED', () => expect(areString).toBeDefined())
+    .it('is DEFINED', () => expect(areNumber).toBeDefined())
     .it(`every()`, () => {
-      areString(1, '2', '3').every(
+      areNumber(1, new Number(2), Number(3), '4').every(
         (result, value, payload) => {
           toBe
             .false(result)
             .array(value)
             .object(payload);
-          expect(payload?.name).toEqual(areString.name);
+          expect(payload?.name).toEqual(areNumber.name);
           return result;
         }
       );
     })
     .it(`forEach()`, () => {
-      areString(1, '2', '3').forEach(
+      areNumber(1, new Number(2), Number(3), '4').forEach(
         (result, value, index, array, payload) => {
           toBe
             .boolean(result)
             .number(index)
             .array(array)
             .object(payload);
-          expect(payload?.name).toEqual(areString.name);
+          expect(payload?.name).toEqual(areNumber.name);
           expect(payload?.age).toEqual(2);
         },
         { age: 2 }
       );
     })
     .it(`some()`, () => {
-      areString(1, '2', '3').some(
+      areNumber(1, new Number(2), Number(3), '4').some(
         (result, value, payload) => {
           toBe
             .true(result)
             .array(value)
             .object(payload);
-          expect(payload?.name).toEqual(areString.name);
+          expect(payload?.name).toEqual(areNumber.name);
           return result;
         }
       );
