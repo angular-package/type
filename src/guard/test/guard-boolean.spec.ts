@@ -1,37 +1,64 @@
 // Function.
 import { guardBoolean } from '../lib/guard-boolean.func';
-// Constant.
-import { FALSE_EXPECTATION, TRUE, TRUE_EXPECTATION, FALSE, TRUE_INSTANCE, FALSE_INSTANCE } from '../../testing/src/strict/boolean.const';
+// Testing.
+import {
+  // Main.
+  Testing,
 
-describe(guardBoolean.name, () => {
-  // Defined.
-  it('is DEFINED', () => expect(guardBoolean).toBeDefined());
-
-  // Checks ...
-  describe(`guards`, () => {
-    it('callback', () => {
-      guardBoolean(TRUE, (result: boolean, value: boolean) => {
-        expect(result).toBe(TRUE);
-        expect(value).toEqual(TRUE);
-        return result;
+  // Constant.
+  TESTING_FALSE,
+  TESTING_FALSE_INSTANCE,
+  TESTING_TRUE,
+  TESTING_TRUE_INSTANCE,
+} from '@angular-package/testing';
+// Execute tests.
+import { tests } from '../../execute-tests';
+/**
+ * Initialize testing.
+ */
+const testing = new Testing(
+  tests.guard.boolean.describe,
+  tests.guard.boolean.it
+);
+/**
+ * Tests.
+ */
+testing.describe(guardBoolean.name, () => {
+  testing
+    // Defined.
+    .it('is DEFINED', () => expect(guardBoolean).toBeDefined())
+    // Checks ...
+    .describe(`guards`, () => {
+      testing
+      .it('with callback and payload', () => {
+        guardBoolean(TESTING_TRUE, (result, value, payload) => {
+          expect(result).toBeTrue();
+          expect(value).toEqual(TESTING_TRUE);
+          if (payload) {
+            expect(payload.action).toEqual('action');
+            expect(payload.name).toEqual('name');
+            expect(payload.param).toEqual('param');
+          }
+          return result;
+        }, { action: 'action', name: 'name', param: 'param' });
+      })
+      // ... primitives.
+      .describe(`primitive`, () => {
+        // boolean
+        testing.describe(`boolean`, () => {
+          testing
+            .it(`FALSE`, () => expect(guardBoolean(TESTING_FALSE)).toBeTrue())
+            .it(`TRUE`, () => expect(guardBoolean(TESTING_TRUE)).toBeTrue());
+        });
+      })
+      // ... objective.
+      .describe(`objective`, () => {
+        // boolean
+        testing.describe(`boolean`, () => {
+          testing
+            .it(`${TESTING_TRUE_INSTANCE}`, () => expect(guardBoolean(TESTING_TRUE_INSTANCE)).toBeTrue())
+            .it(`${TESTING_FALSE_INSTANCE}`, () => expect(guardBoolean(TESTING_FALSE_INSTANCE)).toBeTrue());
+        });
       });
     });
-    // ... primitives.
-    describe(`primitive`, () => {
-      // boolean
-      describe(`boolean`, () => {
-        it(`FALSE`, () => expect(guardBoolean(FALSE)).toBe(TRUE));
-        it(`TRUE`, () => expect(guardBoolean(TRUE)).toBe(TRUE));
-      });
-    });
-    // ... objective.
-    describe(`objective`, () => {
-      // boolean
-      describe(`boolean`, () => {
-        it(`${TRUE_EXPECTATION}`, () => expect(guardBoolean(TRUE_INSTANCE)).toBe(TRUE));
-        it(`${FALSE_EXPECTATION}`, () => expect(guardBoolean(FALSE_INSTANCE)).toBe(TRUE));
-      });
-    });
-
-  });
 });

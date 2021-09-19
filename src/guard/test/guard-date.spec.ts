@@ -1,14 +1,17 @@
+// Function.
+import { guardDate } from '../lib/guard-date.func';
 // Object.
 import { guard } from '../lib/guard.object';
-// Function.
-import { guardClass } from '../lib/guard-class.func';
 // Testing.
 import {
   // Main.
   Testing,
 
   // Constant.
+  TESTING_DATE,
   TESTING_FUNCTION,
+
+  // Class.
   TestingPerson
 } from '@angular-package/testing';
 // Execute tests.
@@ -17,19 +20,23 @@ import { tests } from '../../execute-tests';
  * Initialize testing.
  */
 const testing = new Testing(
-  tests.guard.class.describe,
-  tests.guard.class.it
+  tests.guard.date.describe,
+  tests.guard.date.it
 );
 /**
  * Tests.
  */
-testing.describe(guardClass.name, () => {
+testing.describe(guardDate.name, () => {
+  let guardSpy: any;
   testing
-  .it('is DEFINED', () => expect(guardClass).toBeDefined())
+    .it('is DEFINED', () => expect(guardDate).toBeDefined());
+
+  beforeEach(() => guardSpy = { ...{}, ...guard });
+  testing
   .it('with callback and payload', () => {
-    guardClass(TestingPerson, (result, value, payload) => {
+    guardDate(TESTING_DATE, (result, value, payload) => {
       expect(result).toBeTrue();
-      expect(value).toEqual(TestingPerson);
+      expect(value).toEqual(TESTING_DATE);
       if (payload) {
         expect(payload.action).toEqual('action');
         expect(payload.name).toEqual('name');
@@ -38,12 +45,9 @@ testing.describe(guardClass.name, () => {
       return result;
     }, { action: 'action', name: 'name', param: 'param' });
   })
-  .it(`Class`, () => {
-    expect(guardClass(TestingPerson)).toBeTrue();
-    expect(guard.is.class(TestingPerson)).toBeTrue();
-  })
-  .it(`FUNCTION`, () => {
-    expect(guardClass(TESTING_FUNCTION)).toBeFalse();
-    expect(guard.is.class(TESTING_FUNCTION)).toBeFalse();
-  });
+  .it(`called with ${TESTING_DATE}`, () => {
+      spyOn(guardSpy, 'date').withArgs(TESTING_DATE).and.returnValue(true);
+      guardSpy.date(TESTING_DATE);
+      expect(guardSpy.date).toHaveBeenCalled();
+    });
 });

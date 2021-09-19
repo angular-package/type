@@ -1,41 +1,38 @@
+// Function.
+import { guardRegExp } from '../lib/guard-regexp.func';
 // Testing.
 import {
   // Main.
   Testing,
 
   // Constant.
-  TESTING_NUMBER,
-  TESTING_STRING,
-  TESTING_SYMBOL_NUMBER,
-  TESTING_SYMBOL_STRING,
   TESTING_TRUE,
+  TESTING_REGEXP
 } from '@angular-package/testing';
 // Execute tests.
 import { tests } from '../../execute-tests';
-// Function.
-import { guardSymbol } from '../lib/guard-symbol.func';
 /**
  * Initialize testing.
  */
 const testing = new Testing(
-  tests.guard.symbol.describe,
-  tests.guard.symbol.it
+  tests.guard.regexp.describe,
+  tests.guard.regexp.it
 );
 /**
  * Tests.
  */
-testing.describe(guardSymbol.name, () => {
+testing.describe(guardRegExp.name, () => {
   testing
     // Defined.
-    .it('is DEFINED', () => expect(guardSymbol).toBeDefined())
+    .it('is DEFINED', () => expect(guardRegExp).toBeDefined())
 
     // Checks ...
     .describe(`guards`, () => {
       testing
       .it('with callback and payload', () => {
-        guardSymbol(TESTING_SYMBOL_STRING, (result, value, payload) => {
+        guardRegExp(TESTING_REGEXP, (result, value, payload) => {
           expect(result).toBeTrue();
-          expect(value).toEqual(TESTING_SYMBOL_STRING);
+          expect(value).toEqual(TESTING_REGEXP);
           if (payload) {
             expect(payload.action).toEqual('action');
             expect(payload.name).toEqual('name');
@@ -48,12 +45,8 @@ testing.describe(guardSymbol.name, () => {
       // ... primitives.
       .describe(`primitive`, () => {
         testing
-          // symbol
-          .describe(`symbol`, () => {
-            testing
-              .it(`Symbol(${TESTING_NUMBER})`, () => expect(guardSymbol(TESTING_SYMBOL_NUMBER)).toBe(TESTING_TRUE))
-              .it(`Symbol(${TESTING_STRING})`, () => expect(guardSymbol(TESTING_SYMBOL_STRING)).toBe(TESTING_TRUE));
-          });
+          // bigint
+          .describe(`bigint`, () => it(`${TESTING_REGEXP}`, () => expect(guardRegExp(TESTING_REGEXP)).toBe(TESTING_TRUE)));
       });
     });
 });

@@ -1,37 +1,60 @@
 // Function.
 import { guardKey } from '../lib/guard-key.func';
-// Constant.
-import { NUMBER } from '../../testing/src/strict/number.const';
-import { STRING} from '../../testing/src/strict/string.const';
-import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/src/strict/symbol.const';
-import { TRUE } from '../../testing/src/strict/boolean.const';
-// Type.
-import { Key } from '../../type/key.type';
+// Testing.
+import {
+  // Main.
+  Testing,
 
-describe(guardKey.name, () => {
+  // Constant.
+  TESTING_NUMBER,
+  TESTING_STRING,
+  TESTING_SYMBOL_NUMBER,
+  TESTING_SYMBOL_STRING,
+} from '@angular-package/testing';
+// Execute tests.
+import { tests } from '../../execute-tests';
+/**
+ * Initialize testing.
+ */
+const testing = new Testing(
+  tests.guard.key.describe,
+  tests.guard.key.it
+);
+/**
+ * Tests.
+ */
+testing.describe(guardKey.name, () => {
+  testing
   // Defined.
-  it('is DEFINED', () => expect(guardKey).toBeDefined());
+  .it('is DEFINED', () => expect(guardKey).toBeDefined())
 
   // Checks ...
-  describe(`guards`, () => {
-    it('callback', () => {
-      guardKey(STRING, (result: boolean, value: Key) => {
-        expect(result).toBe(TRUE);
-        expect(value).toEqual(STRING);
+  .describe(`guards`, () => {
+    testing
+    .it('with callback and payload', () => {
+      guardKey(TESTING_NUMBER, (result, value, payload) => {
+        expect(result).toBeTrue();
+        expect(value).toEqual(TESTING_NUMBER);
+        if (payload) {
+          expect(payload.action).toEqual('action');
+          expect(payload.name).toEqual('name');
+          expect(payload.param).toEqual('param');
+        }
         return result;
-      });
-    });
+      }, { action: 'action', name: 'name', param: 'param' });
+    })
 
     // ... primitives.
-    describe(`primitive`, () => {
+    .describe(`primitive`, () => {
+      testing
       // number
-      describe(`number`, () => it(`${NUMBER}`, () => expect(guardKey(NUMBER)).toBe(TRUE)));
+      .describe(`number`, () => it(`${TESTING_NUMBER}`, () => expect(guardKey(TESTING_NUMBER)).toBeTrue()))
       // string
-      describe(`string`, () => it(`${STRING}`, () => expect(guardKey(STRING)).toBe(TRUE)));
+      .describe(`string`, () => it(`${TESTING_STRING}`, () => expect(guardKey(TESTING_STRING)).toBeTrue()))
       // symbol
-      describe(`symbol`, () => {
-        it(`Symbol(${NUMBER})`, () => expect(guardKey(SYMBOL_NUMBER)).toBe(TRUE));
-        it(`Symbol(${STRING})`, () => expect(guardKey(SYMBOL_STRING)).toBe(TRUE));
+      .describe(`symbol`, () => {
+        it(`Symbol(${TESTING_NUMBER})`, () => expect(guardKey(TESTING_SYMBOL_NUMBER)).toBeTrue());
+        it(`Symbol(${TESTING_STRING})`, () => expect(guardKey(TESTING_SYMBOL_STRING)).toBeTrue());
       });
     });
   });
