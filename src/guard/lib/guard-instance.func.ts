@@ -5,7 +5,7 @@ import { CallbackPayload } from '../../type/callback-payload.type';
 import { Constructor } from '../../type/constructor.type';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Guards the `value` to be an instance of the given `constructor`.
+ * Guards the value to be an instance of the given `constructor`.
  * @param value An `object` of a generic type variable `Obj`, by default of the type captured from the provided `value` to guard and to
  * check if it's an instance of a given `constructor`.
  * @param constructor A `class` or `function` that specifies the type of the `constructor`.

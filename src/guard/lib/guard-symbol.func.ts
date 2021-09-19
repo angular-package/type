@@ -4,7 +4,7 @@ import { isSymbol } from '../../is/lib/is-symbol.func';
 import { CallbackPayload } from '../../type/callback-payload.type';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Guards the `value` to be a `symbol`.
+ * Guards the value to be a `symbol`.
  * @param value A `symbol` type value to guard.
  * @param callback An optional `ResultCallback` function to handle the result before returns.
  * @param payload An optional `object` of `CallbackPayload<Payload>` that is assigned to the `payload` of the provided `callback` function.
