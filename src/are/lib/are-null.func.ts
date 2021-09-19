@@ -30,7 +30,7 @@ export const areNull = (...values: any[]) => {
       callback(
         values.every((value) => isNull(value)),
         values,
-        { name: areNull.name, ...payload } as Payload
+        payload
       ),
 
     /**
@@ -47,10 +47,7 @@ export const areNull = (...values: any[]) => {
     ) => {
       if (isArray(values) && isFunction(forEachCallback)) {
         values.forEach((value, index) =>
-          forEachCallback(isNull(value), value, index, values, {
-            name: areNull.name,
-            ...payload,
-          } as CallbackPayload<Payload>)
+          forEachCallback(isNull(value), value, index, values, payload)
         );
       }
     },
@@ -70,7 +67,7 @@ export const areNull = (...values: any[]) => {
       callback(
         isArray(values) ? values.some((value) => isNull(value)) : false,
         values,
-        { name: areNull.name, ...payload } as Payload
+        payload
       ),
   };
 };

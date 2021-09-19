@@ -32,7 +32,7 @@ export const areString = (...values: any[]) => {
       callback(
         values.every((value) => isString(value)),
         values,
-        { name: areString.name, ...payload } as Payload
+        payload
       ),
 
     /**
@@ -49,10 +49,7 @@ export const areString = (...values: any[]) => {
     ) => {
       if (isArray(values) && isFunction(forEachCallback)) {
         values.forEach((value, index) =>
-          forEachCallback(isString(value), value, index, values, {
-            name: areString.name,
-            ...payload,
-          } as CallbackPayload<Payload>)
+          forEachCallback(isString(value), value, index, values, payload)
         );
       }
     },
@@ -73,7 +70,7 @@ export const areString = (...values: any[]) => {
       callback(
         isArray(values) ? values.some((value) => isString(value)) : false,
         values,
-        { name: areString.name, ...payload } as Payload
+        payload
       ),
   };
 };

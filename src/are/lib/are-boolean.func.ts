@@ -32,7 +32,7 @@ export const areBoolean = (...values: any[]) => {
       callback(
         values.every((value) => isBoolean(value)),
         values,
-        { name: areBoolean.name, ...payload } as Payload
+        payload
       ),
 
     /**
@@ -49,10 +49,7 @@ export const areBoolean = (...values: any[]) => {
     ) => {
       if (isArray(values) && isFunction(forEachCallback)) {
         values.forEach((value, index) =>
-          forEachCallback(isBoolean(value), value, index, values, {
-            name: areBoolean.name,
-            ...payload,
-          } as CallbackPayload<Payload>)
+          forEachCallback(isBoolean(value), value, index, values, payload)
         );
       }
     },
@@ -73,7 +70,7 @@ export const areBoolean = (...values: any[]) => {
       callback(
         isArray(values) ? values.some((value) => isBoolean(value)) : false,
         values,
-        { name: areBoolean.name, ...payload } as Payload
+        payload
       ),
   };
 };

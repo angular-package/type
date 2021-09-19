@@ -30,7 +30,7 @@ export const areDefined = (...values: any[]) => {
       callback(
         values.every((value) => isDefined(value)),
         values,
-        { name: areDefined.name, ...payload } as Payload
+        payload
       ),
 
     /**
@@ -47,10 +47,7 @@ export const areDefined = (...values: any[]) => {
     ) => {
       if (isArray(values) && isFunction(forEachCallback)) {
         values.forEach((value, index) =>
-          forEachCallback(isDefined(value), value, index, values, {
-            name: areDefined.name,
-            ...payload,
-          } as CallbackPayload<Payload>)
+          forEachCallback(isDefined(value), value, index, values, payload)
         );
       }
     },
@@ -65,12 +62,12 @@ export const areDefined = (...values: any[]) => {
      */
     some: <Payload extends object>(
       callback: ResultCallback<any, CallbackPayload<Payload>> = resultCallback,
-      payload?: CallbackPayload<Payload>,
+      payload?: CallbackPayload<Payload>
     ): boolean =>
       callback(
         isArray(values) ? values.some((value) => isDefined(value)) : false,
         values,
-        { name: areDefined.name, ...payload } as Payload
+        payload
       ),
   };
 };

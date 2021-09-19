@@ -30,7 +30,7 @@ export const areBigInt = (...values: any[]) => {
       callback(
         values.every((value) => isBigInt(value)),
         values,
-        { name: areBigInt.name, ...payload } as Payload
+        payload
       ),
 
     /**
@@ -47,10 +47,7 @@ export const areBigInt = (...values: any[]) => {
     ) => {
       if (isArray(values) && isFunction(forEachCallback)) {
         values.forEach((value, index) =>
-          forEachCallback(isBigInt(value), value, index, values, {
-            name: areBigInt.name,
-            ...payload,
-          } as CallbackPayload<Payload>)
+          forEachCallback(isBigInt(value), value, index, values, payload)
         );
       }
     },
@@ -70,7 +67,7 @@ export const areBigInt = (...values: any[]) => {
       callback(
         isArray(values) ? values.some((value) => isBigInt(value)) : false,
         values,
-        { name: areBigInt.name, ...payload } as Payload
+        payload
       ),
   };
 };

@@ -30,7 +30,7 @@ export const areUndefined = (...values: any[]) => {
       callback(
         values.every((value) => isUndefined(value)),
         values,
-        { name: areUndefined.name, ...payload } as Payload
+        payload
       ),
 
     /**
@@ -47,10 +47,7 @@ export const areUndefined = (...values: any[]) => {
     ) => {
       if (isArray(values) && isFunction(forEachCallback)) {
         values.forEach((value, index) =>
-          forEachCallback(isUndefined(value), value, index, values, {
-            name: areUndefined.name,
-            ...payload,
-          } as CallbackPayload<Payload>)
+          forEachCallback(isUndefined(value), value, index, values, payload)
         );
       }
     },
@@ -70,7 +67,7 @@ export const areUndefined = (...values: any[]) => {
       callback(
         isArray(values) ? values.some((value) => isUndefined(value)) : false,
         values,
-        { name: areUndefined.name, ...payload } as Payload
+        payload
       ),
   };
 };

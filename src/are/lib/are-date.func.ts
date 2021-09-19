@@ -30,7 +30,7 @@ export const areDate = (...values: any[]) => {
       callback(
         values.every((value) => isDate(value)),
         values,
-        { name: areDate.name, ...payload } as Payload
+        payload
       ),
 
     /**
@@ -47,10 +47,7 @@ export const areDate = (...values: any[]) => {
     ) => {
       if (isArray(values) && isFunction(forEachCallback)) {
         values.forEach((value, index) =>
-          forEachCallback(isDate(value), value, index, values, {
-            name: areDate.name,
-            ...payload,
-          } as CallbackPayload<Payload>)
+          forEachCallback(isDate(value), value, index, values, payload)
         );
       }
     },
@@ -70,7 +67,7 @@ export const areDate = (...values: any[]) => {
       callback(
         isArray(values) ? values.some((value) => isDate(value)) : false,
         values,
-        { name: areDate.name, ...payload } as Payload
+        payload
       ),
   };
 };

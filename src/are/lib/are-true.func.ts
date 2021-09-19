@@ -32,7 +32,7 @@ export const areTrue = (...values: any[]) => {
       callback(
         values.every((value) => isTrue(value)),
         values,
-        { name: areTrue.name, ...payload } as Payload
+        payload
       ),
 
     /**
@@ -49,10 +49,7 @@ export const areTrue = (...values: any[]) => {
     ) => {
       if (isArray(values) && isFunction(forEachCallback)) {
         values.forEach((value, index) =>
-          forEachCallback(isTrue(value), value, index, values, {
-            name: areTrue.name,
-            ...payload,
-          } as CallbackPayload<Payload>)
+          forEachCallback(isTrue(value), value, index, values, payload)
         );
       }
     },
@@ -73,7 +70,7 @@ export const areTrue = (...values: any[]) => {
       callback(
         isArray(values) ? values.some((value) => isTrue(value)) : false,
         values,
-        { name: areTrue.name, ...payload } as Payload
+        payload
       ),
   };
 };

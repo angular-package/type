@@ -31,7 +31,7 @@ export const areRegExp = (...values: any[]) => {
       callback(
         values.every((value) => isRegExp(value)),
         values,
-        { name: areRegExp.name, ...payload } as Payload
+        payload
       ),
 
     /**
@@ -48,10 +48,7 @@ export const areRegExp = (...values: any[]) => {
     ) => {
       if (isArray(values) && isFunction(forEachCallback)) {
         values.forEach((value, index) =>
-          forEachCallback(isRegExp(value), value, index, values, {
-            name: areRegExp.name,
-            ...payload,
-          } as CallbackPayload<Payload>)
+          forEachCallback(isRegExp(value), value, index, values, payload)
         );
       }
     },
@@ -72,7 +69,7 @@ export const areRegExp = (...values: any[]) => {
       callback(
         isArray(values) ? values.some((value) => isRegExp(value)) : false,
         values,
-        { name: areRegExp.name, ...payload } as Payload
+        payload
       ),
   };
 };

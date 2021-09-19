@@ -32,7 +32,7 @@ export const areNumber = (...values: any[]) => {
       callback(
         values.every((value) => isNumber(value)),
         values,
-        { name: areNumber.name, ...payload } as Payload
+        payload
       ),
 
     /**
@@ -49,10 +49,7 @@ export const areNumber = (...values: any[]) => {
     ) => {
       if (isArray(values) && isFunction(forEachCallback)) {
         values.forEach((value, index) =>
-          forEachCallback(isNumber(value), value, index, values, {
-            name: areNumber.name,
-            ...payload,
-          } as CallbackPayload<Payload>)
+          forEachCallback(isNumber(value), value, index, values, payload)
         );
       }
     },
@@ -73,7 +70,7 @@ export const areNumber = (...values: any[]) => {
       callback(
         isArray(values) ? values.some((value) => isNumber(value)) : false,
         values,
-        { name: areNumber.name, ...payload } as Payload
+        payload
       ),
   };
 };

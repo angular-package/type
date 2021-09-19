@@ -30,7 +30,7 @@ export const areSymbol = (...values: any[]) => {
       callback(
         values.every((value) => isSymbol(value)),
         values,
-        { name: areSymbol.name, ...payload } as Payload
+        payload
       ),
 
     /**
@@ -47,10 +47,7 @@ export const areSymbol = (...values: any[]) => {
     ) => {
       if (isArray(values) && isFunction(forEachCallback)) {
         values.forEach((value, index) =>
-          forEachCallback(isSymbol(value), value, index, values, {
-            name: areSymbol.name,
-            ...payload,
-          } as CallbackPayload<Payload>)
+          forEachCallback(isSymbol(value), value, index, values, payload)
         );
       }
     },
@@ -70,7 +67,7 @@ export const areSymbol = (...values: any[]) => {
       callback(
         isArray(values) ? values.some((value) => isSymbol(value)) : false,
         values,
-        { name: areSymbol.name, ...payload } as Payload
+        payload
       ),
   };
 };
