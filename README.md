@@ -95,7 +95,7 @@ Sets
 
 ## Skeleton
 
-This package was built by the [library skeleton][skeleton] which was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
+This package was built by the [library skeleton][skeleton] which was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.5.
 
 Copy this package to the `packages/type` folder of the [library skeleton][skeleton] then run the commands below.
 
@@ -104,6 +104,12 @@ Copy this package to the `packages/type` folder of the [library skeleton][skelet
 Run `ng build type` to build the package. The build artifacts will be stored in the `dist/` directory.
 
 ### Running unit tests
+
+Install `@angular-package/testing` with command:
+
+```typescript
+npm i @angular-package/testing --no-save
+```
 
 Run `ng test type` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
@@ -8009,6 +8015,8 @@ A `boolean` type or an instance of a [`Boolean`][js-boolean].
 type AnyBoolean = Exclude<boolean | Boolean, true | false>;
 ```
 
+<br>
+
 #### `AnyNumber`
 
 A `number` type or an instance of a [`Number`][js-number].
@@ -8016,6 +8024,8 @@ A `number` type or an instance of a [`Number`][js-number].
 ```typescript
 type AnyNumber = number | Number;
 ```
+
+<br>
 
 #### `AnyString`
 
@@ -8025,6 +8035,8 @@ A `string` type or an instance of a [`String`][js-string].
 type AnyString = string | String;
 ```
 
+<br>
+
 #### `Constructor`
 
 An instance of a type from the provided generic type variable `Type`.
@@ -8032,6 +8044,8 @@ An instance of a type from the provided generic type variable `Type`.
 ```typescript
 type Constructor<Type> = new (...args: any[]) => Type;
 ```
+
+<br>
 
 #### `Defined`
 
@@ -8041,6 +8055,8 @@ A generic type `Defined` that takes generic type variable `Type` constrained by 
 type Defined<Type> = Type extends undefined ? never : Type;
 ```
 
+<br>
+
 #### `Never`
 
 A generic type `Never` that takes generic type variable `Type` constrained by a generic type variable `Not` which constraint causes its change to `never`.
@@ -8049,6 +8065,8 @@ A generic type `Never` that takes generic type variable `Type` constrained by a 
 type Never<Not, Type> = Type extends Not ? never : Type;
 ```
 
+<br>
+
 #### `NotUndefined`
 
 A generic type `NotUndefined` that takes generic type variable `Type` constrained by [`undefined`][js-undefined] and [`null`][js-null] which constraint causes its change to `never`.
@@ -8056,6 +8074,8 @@ A generic type `NotUndefined` that takes generic type variable `Type` constraine
 ```typescript
 type NotUndefined<Type> = Type extends undefined | null ? never : Type;
 ```
+
+<br>
 
 #### `NumberBetween`
 
@@ -8070,6 +8090,8 @@ type NumberBetween<
   Type extends AnyNumber = number
 > = Type & MinMax<Min, Max>;
 ```
+
+<br>
 
 #### `Primitive`
 
@@ -8086,6 +8108,8 @@ type Primitive =
   | undefined;
 ```
 
+<br>
+
 #### `Primitives`
 
 [`Primitive`](#primitive) types as a `string`.
@@ -8100,6 +8124,8 @@ type Primitives =
   | 'symbol'
   | 'undefined';
 ```
+
+<br>
 
 #### `ResultCallback`
 
@@ -8155,6 +8181,8 @@ type StringOfLength<
 > = Type & MinMax<Min, Max>;
 ```
 
+<br>
+
 #### `Type`
 
 [![update]][type-github-changelog]
@@ -8165,6 +8193,8 @@ The **main** types.
 type Type = Function | object | Primitive;
 ```
 
+<br>
+
 #### `Types`
 
 The **main** types as `string` values, besides the [`Constructor`](#constructor) which is an instance of an `Obj`.
@@ -8172,6 +8202,8 @@ The **main** types as `string` values, besides the [`Constructor`](#constructor)
 ```typescript
 type Types<Obj> = Constructor<Obj> | 'function' | 'object' | Primitives;
 ```
+
+<br>
 
 #### `Undefined`
 
