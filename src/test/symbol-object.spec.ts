@@ -1,21 +1,48 @@
-import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../testing/src/string.const';
+// Class to tests.
 import { SymbolObject } from '../lib/symbol-object.class';
-import { SYMBOL_NUMBER } from '../testing/src/symbol.const';
+// Testing.
+import {
+  // Main.
+  Testing,
 
-describe(`SymbolObject`, () => {
-  // Defined.
-  it('is DEFINED', () => expect(SymbolObject).toBeDefined());
+  // Constants.
+  TESTING_STRING,
+} from '@angular-package/testing';
+// Execute tests.
+import { tests } from '../execute-tests';
+// Constant.
+/**
+ * Initialize testing.
+ */
+const testing = new Testing(
+  tests.experimental.symbol.describe,
+  tests.experimental.symbol.it
+);
+/**
+ * Tests.
+ */
+testing.describe(`SymbolObject`, () => {
+  testing
+    // Defined.
+    .it('is DEFINED', () => expect(SymbolObject).toBeDefined())
 
-  // Checks ...
-  describe(`checks`, () => {
-
-    // ... primitives.
-    describe(`primitive`, () => {
-      // string
-      describe(`symbol`, () => {
-        SymbolObject.set = STRING;
-        it(`Symbol(${STRING})`, () => expect(SymbolObject.get).toBeDefined());
-      });
+    // Checks ...
+    .describe(`checks`, () => {
+      testing
+        // ... primitives.
+        .describe(`primitive`, () => {
+          testing
+            // string
+            .describe(`symbol`, () => {
+              testing
+              .it(
+                `Symbol(${TESTING_STRING})`,
+                () => (
+                  (SymbolObject.set = TESTING_STRING),
+                  expect(SymbolObject.get).toBeDefined()
+                )
+              );
+            });
+        });
     });
-  });
 });

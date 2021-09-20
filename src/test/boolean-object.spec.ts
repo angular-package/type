@@ -1,51 +1,76 @@
-import { TRUE, TRUE_EXPECTATION, TRUE_INSTANCE, FALSE, FALSE_INSTANCE, FALSE_EXPECTATION } from '../testing/src/boolean.const';
+// Class to tests.
 import { BooleanObject } from '../lib/boolean-object.class';
+// Testing.
+import {
+  // Main.
+  Testing,
 
+  // Constant.
+  TESTING_FALSE,
+  TESTING_FALSE_INSTANCE,
+  TESTING_TRUE,
+  TESTING_TRUE_INSTANCE,
+} from '@angular-package/testing';
+// Execute tests.
+import { tests } from '../execute-tests';
+/**
+ * Initialize testing.
+ */
+const testing = new Testing(
+  tests.experimental.boolean.describe,
+  tests.experimental.boolean.it
+);
+/**
+ * Tests.
+ */
+testing.describe(`BooleanObject`, () => {
+  testing
+    // Defined.
+    .it('is DEFINED', () => expect(BooleanObject).toBeDefined())
 
-describe(`BooleanObject`, () => {
-  // Defined.
-  it('is DEFINED', () => expect(BooleanObject).toBeDefined());
+    // Checks ...
+    .describe(`checks`, () => {
+      testing
+        // ... primitives.
+        .describe(`primitive`, () => {
+          testing
+            // bigint
+            .describe(`boolean`, () => {
+              testing
+                .it(`${TESTING_TRUE}`, () => {
+                  BooleanObject.set = TESTING_TRUE;
+                  expect(BooleanObject.get).not.toEqual(TESTING_FALSE_INSTANCE);
+                  expect(BooleanObject.get.valueOf()).toBeInstanceOf(Boolean);
+                  expect(BooleanObject.get.valueOf()).toBeTruthy();
+                  expect(BooleanObject.get.valueOf()).toBeTrue();
+                })
 
-  // Checks ...
-  describe(`checks`, () => {
+                .it(`${TESTING_FALSE_INSTANCE}`, () => {
+                  BooleanObject.set = TESTING_FALSE_INSTANCE;
+                  expect(BooleanObject.get.valueOf()).toBeInstanceOf(Boolean);
+                  expect(BooleanObject.get.valueOf()).toBeTrue();
+                  expect(BooleanObject.get.valueOf()).toBeTruthy();
+                  expect(BooleanObject.get.valueOf()).toBeTrue();
+                })
 
-    // ... primitives.
-    describe(`primitive`, () => {
-      // bigint
-      describe(`boolean`, () => {
+                .it(`${TESTING_FALSE}`, () => {
+                  BooleanObject.set = TESTING_FALSE;
+                  expect(BooleanObject.get).not.toEqual(TESTING_TRUE_INSTANCE);
+                  expect(BooleanObject.get.valueOf()).toBeInstanceOf(Boolean);
+                  expect(BooleanObject.get.valueOf()).toBeFalse();
+                  expect(BooleanObject.get.valueOf()).toBe(TESTING_FALSE);
+                })
 
-        it(`${TRUE}`, () => {
-          BooleanObject.set = TRUE;
-          expect(BooleanObject.get).not.toEqual(FALSE_INSTANCE);
-          expect(BooleanObject.get.valueOf()).toBeInstanceOf(Boolean);
-          expect(BooleanObject.get.valueOf()).toBeTruthy();
-          expect(BooleanObject.get.valueOf()).toBe(TRUE);
+                .it(`${TESTING_FALSE_INSTANCE}`, () => {
+                  BooleanObject.set = TESTING_FALSE_INSTANCE;
+                  expect(BooleanObject.get.valueOf().valueOf()).toBeInstanceOf(
+                    Boolean
+                  );
+                  expect(BooleanObject.get.valueOf().valueOf()).toBeTrue();
+                  expect(BooleanObject.get.valueOf().valueOf()).toBeTruthy();
+                  expect(BooleanObject.get.valueOf().valueOf()).toBe(TESTING_FALSE);
+                });
+            });
         });
-
-        it(`${TRUE_EXPECTATION}`, () => {
-          BooleanObject.set = TRUE_INSTANCE;
-          expect(BooleanObject.get.valueOf()).toBeInstanceOf(Boolean);
-          expect(BooleanObject.get.valueOf()).toBeTrue();
-          expect(BooleanObject.get.valueOf()).toBeTruthy();
-          expect(BooleanObject.get.valueOf()).toBe(TRUE);
-        });
-
-        it(`${FALSE}`, () => {
-          BooleanObject.set = FALSE;
-          expect(BooleanObject.get).not.toEqual(TRUE_INSTANCE);
-          expect(BooleanObject.get.valueOf()).toBeInstanceOf(Boolean);
-          expect(BooleanObject.get.valueOf()).toBeFalse();
-          expect(BooleanObject.get.valueOf()).toBe(FALSE);
-        });
-
-        it(`${FALSE_EXPECTATION}`, () => {
-          BooleanObject.set = FALSE_INSTANCE;
-          expect(BooleanObject.get.valueOf().valueOf()).toBeInstanceOf(Boolean);
-          expect(BooleanObject.get.valueOf().valueOf()).toBeTrue();
-          expect(BooleanObject.get.valueOf().valueOf()).toBeTruthy();
-          expect(BooleanObject.get.valueOf().valueOf()).toBe(TRUE);
-        });
-      });
     });
-  });
 });
