@@ -1,6 +1,5 @@
-import { Func } from './func.type';
 import { Primitive } from './primitive.type';
 /**
  * Main types.
  */
-export type Type = Func | object | Primitive;
+export type Type = Function | object | Primitive;
