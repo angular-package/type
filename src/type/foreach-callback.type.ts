@@ -10,7 +10,7 @@
  export type ForEachCallback<Value = any, Payload = object> = (
   result: boolean,
   value: Value,
-  index?: number,
-  array?: any[],
+  index: number,
+  array: any[],
   payload?: Payload
 ) => void;
