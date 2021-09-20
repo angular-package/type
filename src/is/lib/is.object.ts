@@ -20,6 +20,8 @@ import { isObject } from './is-object.func';
 import { isObjectKey } from './is-object-key.func';
 import { isObjectKeyIn } from './is-object-key-in.func';
 import { isObjectKeys } from './is-object-keys.func';
+import { isObjectKeysIn } from './is-object-keys-in.func';
+import { isObjectSomeKeys } from './is-object-some-keys.func';
 import { isPrimitive } from './is-primitive.func';
 import { isRegExp } from './is-regexp.func';
 import { isString } from './is-string.func';
@@ -36,8 +38,10 @@ import { isUndefined } from './is-undefined.func';
 import { isNot } from '../not/lib/is-not.object';
 // Interface.
 import { Is } from '../interface/is.interface';
-// Export: `is`.
-export const is: Is = {
+/**
+ * The object contains prefixed with is functions and prefixed with isNot functions in property `not`.
+ */
+export const is: Is = Object.freeze({
   array: isArray,
   bigint: isBigInt,
   boolean: isBoolean,
@@ -60,6 +64,8 @@ export const is: Is = {
   objectKey: isObjectKey,
   objectKeyIn: isObjectKeyIn,
   objectKeys: isObjectKeys,
+  objectKeysIn: isObjectKeysIn, // From the `5.0.0` version.
+  objectSomeKeys: isObjectSomeKeys, // From the `5.0.0` version.
   primitive: isPrimitive,
   regexp: isRegExp, // From the `4.2.0` version.
   string: isString,
@@ -72,4 +78,4 @@ export const is: Is = {
   true: isTrue, // From the `4.2.0` version.
   type: isType,
   undefined: isUndefined
-};
+});
