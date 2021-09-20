@@ -1,5 +1,6 @@
 import { Never } from './never.type';
 /**
- * A type from the provided generic `Type` variable, besides an `undefined` which causes its change to `never`.
+ * A generic type `Defined` that takes generic type variable `Type` constrained by `undefined` by using `Never` which constraint causes its
+ * change to `never`.
  */
-export type Defined<Type> = Never<undefined, Type>;
+export type Defined<Type> = Type extends undefined ? never : Type;
