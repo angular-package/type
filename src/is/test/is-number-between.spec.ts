@@ -1,24 +1,33 @@
-import { Testing, TestingToBeMatchers } from '@angular-package/testing';
+// Testing.
+import {
+  TESTING_BIGINT,
+  TESTING_CLASS,
+  TESTING_DATE,
+  TESTING_FALSE,
+  TESTING_FALSE_INSTANCE,
+  TESTING_FUNCTION,
+  TESTING_NULL,
+  TESTING_NUMBER,
+  TESTING_NUMBER_INSTANCE,
+  TESTING_OBJECT,
+  TESTING_STRING,
+  TESTING_STRING_INSTANCE,
+  TESTING_SYMBOL_NUMBER,
+  TESTING_SYMBOL_STRING,
+  TESTING_TRUE,
+  TESTING_TRUE_INSTANCE,
+  TESTING_UNDEFINED,
+
+  Testing,
+  TestingClass,
+} from '@angular-package/testing';
 import { tests } from '../../execute-tests';
 // Function.
 import { isNumberBetween } from '../lib/is-number-between.func';
-// Constant.
-import { BIGINT, BIGINT_EXPECTATION, BIGINT_INSTANCE } from '../../testing/src/big-int.const';
-import { Class, CLASS } from '../../testing/src/class.const';
-import { DATE_STRING_ONE, DATE_TIMESTAMP, DATE_STRING_TWO, DATE_VARS } from '../../testing/src/strict/date.const';
-import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE, FALSE_EXPECTATION, TRUE_EXPECTATION } from '../../testing/src/boolean.const';
-import { FUNCTION } from '../../testing/src/function.const';
-import { NULL } from '../../testing/src/null.const';
-import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../testing/src/number.const';
-import { OBJECT_ONE, OBJECT_TWO, OBJECT_ONE_NEW, OBJECT_TWO_NEW } from '../../testing/src/object.const';
-import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/src/string.const';
-import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/src/symbol.const';
-import { UNDEFINED } from '../../testing/src/undefined.const';
 /**
  * Initialize testing.
  */
 const testing = new Testing(tests.is.numberBetween.describe, tests.is.numberBetween.it);
-const toBe = new TestingToBeMatchers();
 /**
  * Tests.
  */
@@ -36,96 +45,92 @@ testing.describe(isNumberBetween.name, () => {
     .describe(`checks`, () => {
       testing
         .it('callback', () => {
-          isNumberBetween(FALSE, { min, max }, (result: boolean) => {
-            expect(result).toBe(FALSE);
+          isNumberBetween(TESTING_FALSE, { min, max }, (result: boolean) => {
+            expect(result).toBeFalse();
             return result;
           });
         })
         // ... arrays.
         .describe(`array`, () => {
-          // it(`${FUNCTION}`, () => expect(isNumberBetween(FUNCTION, 'function')).toBe(FALSE));
-          // it(`${Class}`, () => expect(isNumberBetween(Class, 'function')).toBe(FALSE));
+          // it(`${TESTING_FUNCTION}`, () => expect(isNumberBetween(TESTING_FUNCTION, 'function')).toBeFalse());
+          // it(`${Class}`, () => expect(isNumberBetween(TestingClass, 'function')).toBeFalse());
         })
         // ... Date.
         .describe(`date`, () => {
           testing
-          .it(`DATE_STRING_ONE ${DATE_STRING_ONE}`, () => expect(isNumberBetween(DATE_STRING_ONE, { min, max })).toBe(FALSE))
-          .it(`DATE_STRING_ONE ${DATE_STRING_TWO}`, () => expect(isNumberBetween(DATE_STRING_TWO, { min, max })).toBe(FALSE))
-          .it(`DATE_STRING_ONE ${DATE_VARS}`, () => expect(isNumberBetween(DATE_VARS, { min, max })).toBe(FALSE))
-          .it(`DATE_STRING_ONE ${DATE_TIMESTAMP}`, () => expect(isNumberBetween(DATE_TIMESTAMP, { min, max })).toBe(FALSE));
+          .it(`TESTING_DATE`, () => expect(isNumberBetween(TESTING_DATE, { min, max })).toBeFalse());
         })
         // ... function.
         .describe(`function`, () => {
           testing
-            .it(`FUNCTION`, () => expect(isNumberBetween(FUNCTION, { min, max })).toBe(FALSE))
-            .it(`Class`, () => expect(isNumberBetween(Class, { min, max })).toBe(FALSE));
+            .it(`FUNCTION`, () => expect(isNumberBetween(TESTING_FUNCTION, { min, max })).toBeFalse())
+            .it(`Class`, () => expect(isNumberBetween(TestingClass, { min, max })).toBeFalse());
         })
         // ... objects.
         .describe('object', () => {
           testing
-            .it(`CLASS`, () => expect(isNumberBetween(CLASS, { min, max })).toBe(FALSE))
-            .it(`OBJECT_ONE`, () => expect(isNumberBetween(OBJECT_ONE, { min, max })).toBe(FALSE))
-            .it(`OBJECT_TWO`, () => expect(isNumberBetween(OBJECT_TWO, { min, max })).toBe(FALSE))
-            .it(`new Object(OBJECT_ONE_NEW})`, () => expect(isNumberBetween(OBJECT_ONE_NEW, { min, max })).toBe(FALSE))
-            .it(`new Object(OBJECT_TWO_NEW})`, () => expect(isNumberBetween(OBJECT_TWO_NEW, { min, max })).toBe(FALSE));
+            .it(`CLASS`, () => expect(isNumberBetween(TESTING_CLASS, { min, max })).toBeFalse())
+            .it(`TESTING_OBJECT`, () => expect(isNumberBetween(TESTING_OBJECT, { min, max })).toBeFalse());
         })
         // ... primitives.
         .describe(`primitive`, () => {
           testing
             // bigint
-            .describe(`bigint`, () => testing.it(`${BIGINT}`, () => expect(isNumberBetween(BIGINT, { min, max })).toBe(FALSE)))
+            .describe(`bigint`, () =>
+              testing.it(`${TESTING_BIGINT}`, () => expect(isNumberBetween(TESTING_BIGINT, { min, max })).toBeFalse()))
             // boolean
             .describe(`boolean`, () => {
               testing
-                .it(`${TRUE}`, () => expect(isNumberBetween(TRUE, { min, max })).toBe(FALSE))
-                .it(`${FALSE}`, () => expect(isNumberBetween(FALSE, { min, max })).toBe(FALSE));
+                .it(`${TESTING_TRUE}`, () => expect(isNumberBetween(TESTING_TRUE, { min, max })).toBeFalse())
+                .it(`${TESTING_FALSE}`, () => expect(isNumberBetween(TESTING_FALSE, { min, max })).toBeFalse());
             })
             // null
-            .it(`${NULL}`, () => expect(isNumberBetween(NULL, { min, max })).toBe(FALSE))
+            .it(`${TESTING_NULL}`, () => expect(isNumberBetween(TESTING_NULL, { min, max })).toBeFalse())
             // number
             .describe(`number`, () => {
               testing
-                .it(`${NUMBER}`, () => expect(isNumberBetween(NUMBER, { min, max })).toBe(FALSE))
-                .it(`Number(${NUMBER})`, () => expect(isNumberBetween(NUMBER_INSTANCE, { min, max })).toBe(FALSE))
-                .it(`${NUMBER}`, () => expect(isNumberBetween(value, { min, max })).toBe(TRUE));
+                .it(`${TESTING_NUMBER}`, () => expect(isNumberBetween(TESTING_NUMBER, { min, max })).toBeFalse())
+                .it(`Number(${TESTING_NUMBER})`, () => expect(isNumberBetween(TESTING_NUMBER_INSTANCE, { min, max })).toBeFalse())
+                .it(`${TESTING_NUMBER}`, () => expect(isNumberBetween(value, { min, max })).toBeTrue());
             })
             // string
             .describe(`string`, () => {
               testing
-                .it(`${STRING}`, () => expect(isNumberBetween(STRING, { min, max })).toBe(FALSE))
-                .it(`String(${STRING})`, () => expect(isNumberBetween(STRING_INSTANCE, { min, max })).toBe(FALSE));
+                .it(`${TESTING_STRING}`, () => expect(isNumberBetween(TESTING_STRING, { min, max })).toBeFalse())
+                .it(`String(${TESTING_STRING})`, () => expect(isNumberBetween(TESTING_STRING_INSTANCE, { min, max })).toBeFalse());
             })
             // symbol
             .describe(`symbol`, () => {
               testing
-                .it(`Symbol(${NUMBER})`, () => expect(isNumberBetween(SYMBOL_NUMBER, { min, max })).toBe(FALSE))
-                .it(`Symbol(${STRING})`, () => expect(isNumberBetween(SYMBOL_STRING, { min, max })).toBe(FALSE));
+                .it(`Symbol(${TESTING_NUMBER})`, () => expect(isNumberBetween(TESTING_SYMBOL_NUMBER, { min, max })).toBeFalse())
+                .it(`Symbol(${TESTING_STRING})`, () => expect(isNumberBetween(TESTING_SYMBOL_STRING, { min, max })).toBeFalse());
             })
             // undefined
-            .it(`${UNDEFINED}`, () => expect(isNumberBetween(UNDEFINED, { min, max })).toBe(FALSE))
+            .it(`${TESTING_UNDEFINED}`, () => expect(isNumberBetween(TESTING_UNDEFINED, { min, max })).toBeFalse())
             // ... object.
             .describe(`object`, () => {
               testing
                 // BigInt
                 .describe(`BigInt`, () =>
-                  testing.it(`${BIGINT_EXPECTATION}`, () => expect(isNumberBetween(BIGINT_INSTANCE, { min, max })).toBe(FALSE)))
+                  testing.it(`${TESTING_BIGINT}`, () => expect(isNumberBetween(TESTING_BIGINT, { min, max })).toBeFalse()))
                 // Boolean
                 .describe(`Boolean`, () => {
                   testing
-                    .it(`${TRUE_EXPECTATION}`, () => expect(isNumberBetween(TRUE_INSTANCE, { min, max })).toBe(FALSE))
-                    .it(`${FALSE_EXPECTATION}`, () => expect(isNumberBetween(FALSE_INSTANCE, { min, max })).toBe(FALSE));
+                    .it(`${TESTING_TRUE_INSTANCE}`, () => expect(isNumberBetween(TESTING_TRUE_INSTANCE, { min, max })).toBeFalse())
+                    .it(`${TESTING_FALSE_INSTANCE}`, () => expect(isNumberBetween(TESTING_FALSE_INSTANCE, { min, max })).toBeFalse());
                 })
                 // Number
                 .describe(`Number`, () => {
                   testing
-                    .it(`new Number(${NUMBER})`, () => expect(isNumberBetween(NUMBER_NEW_INSTANCE, { min, max })).toBe(FALSE))
-                    .it(`new Number(${value})`, () => expect(isNumberBetween(new Number(value), { min, max })).toBe(TRUE))
-                    .it(`new Number(${value})`, () => expect(isNumberBetween(new Number(1.15), { min, max })).toBe(TRUE))
-                    .it(`new Number(${value})`, () => expect(isNumberBetween(new Number(13.15), { min, max })).toBe(FALSE));
+                    .it(`new Number(${TESTING_NUMBER})`, () => expect(isNumberBetween(TESTING_NUMBER_INSTANCE, { min, max })).toBeFalse())
+                    .it(`new Number(${value})`, () => expect(isNumberBetween(new Number(value), { min, max })).toBeTrue())
+                    .it(`new Number(${value})`, () => expect(isNumberBetween(new Number(1.15), { min, max })).toBeTrue())
+                    .it(`new Number(${value})`, () => expect(isNumberBetween(new Number(13.15), { min, max })).toBeFalse());
                 })
                 // String
                 .describe(`String`, () =>
-                  testing.it(`new String(${STRING})`, () => expect(isNumberBetween(STRING_NEW_INSTANCE, { min, max })).toBe(FALSE)));
+                  testing.it(`new String(${TESTING_STRING})`, () =>
+                    expect(isNumberBetween(TESTING_STRING_INSTANCE, { min, max })).toBeFalse()));
             });
         });
     });

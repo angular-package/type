@@ -1,5 +1,5 @@
 // Testing.
-import { Testing, TestingToBeMatchers } from '@angular-package/testing';
+import { Testing } from '@angular-package/testing';
 import { tests } from '../../execute-tests';
 // Object.
 import { is } from '../lib/is.object';
@@ -7,7 +7,6 @@ import { is } from '../lib/is.object';
  * Initialize testing.
  */
 const testing = new Testing(tests.object.is.describe, tests.object.is.it);
-const toBe = new TestingToBeMatchers();
 /**
  * Tests.
  */

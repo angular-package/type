@@ -1,24 +1,40 @@
-import { Testing, TestingToBeMatchers } from '@angular-package/testing';
+// Testing.
+import {
+  // Main.
+  Testing,
+
+  // Constant.
+  TESTING_BIGINT,
+  TESTING_CLASS,
+  TESTING_FALSE,
+  TESTING_FALSE_INSTANCE,
+  TESTING_FUNCTION,
+  TESTING_NULL,
+  TESTING_NUMBER,
+  TESTING_NUMBER_INSTANCE,
+  TESTING_OBJECT,
+  TESTING_STRING,
+  TESTING_STRING_INSTANCE,
+  TESTING_SYMBOL_NUMBER,
+  TESTING_SYMBOL_STRING,
+  TESTING_TRUE,
+  TESTING_TRUE_INSTANCE,
+  TESTING_UNDEFINED,
+
+  // Class.
+  TestingClass,
+} from '@angular-package/testing';
+// Execute tests.
 import { tests } from '../../execute-tests';
 // Function.
 import { isObjectKeys } from '../lib/is-object-keys.func';
-// Constant.
-import { ACCESSOR_DESCRIPTOR, DATA_DESCRIPTOR, OBJECT_ONE } from '../../testing/src/object.const';
-import { BIGINT, BIGINT_EXPECTATION, BIGINT_INSTANCE } from '../../testing/src/big-int.const';
-import { Class, CLASS } from '../../testing/src/class.const';
-import { FALSE, TRUE, TRUE_INSTANCE, FALSE_INSTANCE, FALSE_EXPECTATION, TRUE_EXPECTATION } from '../../testing/src/boolean.const';
-import { FUNCTION } from '../../testing/src/function.const';
-import { NULL } from '../../testing/src/null.const';
-import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../testing/src/number.const';
-import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/src/string.const';
-import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/src/strict/symbol.const';
-import { UNDEFINED } from '../../testing/src/undefined.const';
 /**
  * Initialize testing.
  */
 const testing = new Testing(tests.is.objectKeys.describe, tests.is.objectKeys.it);
-const toBe = new TestingToBeMatchers();
-
+/**
+ * Tests.
+ */
 testing.describe(isObjectKeys.name , () => {
   testing
     // Defined.
@@ -32,129 +48,121 @@ testing.describe(isObjectKeys.name , () => {
           .describe(`CLASS`, () => testing
             // number.
             .it('has number key', () => {
-              expect(isObjectKeys(CLASS, [1030405027])).toBe(TRUE);
-              expect(isObjectKeys(CLASS, [5])).toBe(TRUE);
-              expect(isObjectKeys(CLASS, [5, 1030405027])).toBe(TRUE);
+              expect(isObjectKeys(TESTING_CLASS, [1030405027])).toBeTrue();
+              expect(isObjectKeys(TESTING_CLASS, [5])).toBeTrue();
+              expect(isObjectKeys(TESTING_CLASS, [5, 1030405027])).toBeTrue();
             })
             // It doesn't find getter number
-            .it('has not find getter number', () => expect(isObjectKeys(CLASS, [NUMBER])).toBe(FALSE))
+            .it('has not find getter number', () => expect(isObjectKeys(TESTING_CLASS, [TESTING_NUMBER])).toBeFalse())
             // string.
             .it('has string key', () => {
-              expect(isObjectKeys(CLASS, ['surname'])).toBe(TRUE);
-              expect(isObjectKeys(CLASS, ['firstName', 'surname'])).toBe(TRUE);
+              expect(isObjectKeys(TESTING_CLASS, ['surname'])).toBeTrue();
+              expect(isObjectKeys(TESTING_CLASS, ['firstName', 'surname'])).toBeTrue();
             })
             // symbol.
             .it('has not find getter symbol key', () => {
               // It does not find getter symbol key in class
-              expect(isObjectKeys(CLASS, [SYMBOL_NUMBER])).toBe(FALSE);
-              expect(isObjectKeys(CLASS, [SYMBOL_STRING])).toBe(FALSE);
-              expect(isObjectKeys(CLASS, [SYMBOL_NUMBER, SYMBOL_STRING])).toBe(FALSE);
+              expect(isObjectKeys(TESTING_CLASS, [TESTING_SYMBOL_NUMBER])).toBeFalse();
+              expect(isObjectKeys(TESTING_CLASS, [TESTING_SYMBOL_STRING])).toBeFalse();
+              expect(isObjectKeys(TESTING_CLASS, [TESTING_SYMBOL_NUMBER, TESTING_SYMBOL_STRING])).toBeFalse();
             })
             // mixed.
-            .it('has string and number key', () => expect(isObjectKeys(CLASS, [1030405027, 'firstName', 'surname'])).toBe(TRUE))
+            .it('has string and number key', () => expect(isObjectKeys(TESTING_CLASS, [1030405027, 'firstName', 'surname'])).toBeTrue())
           )
         )
         // ... function.
         .describe(`function`, () => testing
-          .it(`FUNCTION`, () => expect(isObjectKeys(FUNCTION, ['function'])).toBe(FALSE))
-          .it(`CLASS`, () => expect(isObjectKeys(Class, ['function'])).toBe(FALSE))
+          .it(`FUNCTION`, () => expect(isObjectKeys(TESTING_FUNCTION, ['function'])).toBeFalse())
+          .it(`CLASS`, () => expect(isObjectKeys(TestingClass, ['function'])).toBeFalse())
         )
         // ... objects.
         .describe('object', () => {
-          describe(`descriptor`, () => {
-            it(`DATA_DESCRIPTOR`, () => {
-              expect(isObjectKeys(DATA_DESCRIPTOR, ['writable', 'value'])).toBe(TRUE);
-              expect(isObjectKeys(DATA_DESCRIPTOR, ['writable', 'value'])).toBe(TRUE);
-              expect(isObjectKeys(DATA_DESCRIPTOR, ['get', 'set'])).toBe(FALSE);
-              expect(isObjectKeys(DATA_DESCRIPTOR, ['get', 'set'])).toBe(FALSE);
-            });
-          });
-          describe(`OBJECT_ONE`, () => testing
+          describe(`TESTING_OBJECT`, () => testing
             // number.
             .it('has number key', () => {
-              expect(isObjectKeys(OBJECT_ONE, [1030405027])).toBe(TRUE);
-              expect(isObjectKeys(OBJECT_ONE, [5])).toBe(TRUE);
-              expect(isObjectKeys(OBJECT_ONE, [NUMBER])).toBe(TRUE); // It doesn't find getter
-              expect(isObjectKeys(OBJECT_ONE, [5, 1030405027])).toBe(TRUE);
+              expect(isObjectKeys(TESTING_OBJECT, [1030405027])).toBeTrue();
+              expect(isObjectKeys(TESTING_OBJECT, [5])).toBeTrue();
+              expect(isObjectKeys(TESTING_OBJECT, [TESTING_NUMBER])).toBeTrue(); // It doesn't find getter
+              expect(isObjectKeys(TESTING_OBJECT, [5, 1030405027])).toBeTrue();
             })
             // string.
             .it('has string key', () => {
-              expect(isObjectKeys(OBJECT_ONE, ['key as string'])).toBe(TRUE);
-              expect(isObjectKeys(OBJECT_ONE, ['x'])).toBe(TRUE);
-              expect(isObjectKeys(OBJECT_ONE, [STRING])).toBe(TRUE);
-              expect(isObjectKeys(OBJECT_ONE, ['key as string', 'x', STRING])).toBe(TRUE);
+              expect(isObjectKeys(TESTING_OBJECT, ['key as string'])).toBeTrue();
+              expect(isObjectKeys(TESTING_OBJECT, ['x'])).toBeTrue();
+              expect(isObjectKeys(TESTING_OBJECT, [TESTING_STRING])).toBeTrue();
+              expect(isObjectKeys(TESTING_OBJECT, ['key as string', 'x', TESTING_STRING])).toBeTrue();
             })
             // symbol.
             .it('has symbol key', () => {
-              expect(isObjectKeys(OBJECT_ONE, [SYMBOL_NUMBER])).toBe(TRUE);
-              expect(isObjectKeys(OBJECT_ONE, [SYMBOL_STRING])).toBe(TRUE);
-              expect(isObjectKeys(OBJECT_ONE, [SYMBOL_NUMBER, SYMBOL_STRING])).toBe(TRUE);
+              expect(isObjectKeys(TESTING_OBJECT, [TESTING_SYMBOL_NUMBER])).toBeTrue();
+              expect(isObjectKeys(TESTING_OBJECT, [TESTING_SYMBOL_STRING])).toBeTrue();
+              expect(isObjectKeys(TESTING_OBJECT, [TESTING_SYMBOL_NUMBER, TESTING_SYMBOL_STRING])).toBeTrue();
             })
             // mixed.
             .it('has mixed key', () => {
-              expect(isObjectKeys(OBJECT_ONE, [
+              expect(isObjectKeys(TESTING_OBJECT, [
                 'key as string',
                 'x',
                 1030405027,
                 5,
-                NUMBER,
-                STRING,
-                SYMBOL_NUMBER,
-                SYMBOL_STRING,
-              ])).toBe(TRUE);
+                TESTING_NUMBER,
+                TESTING_STRING,
+                TESTING_SYMBOL_NUMBER,
+                TESTING_SYMBOL_STRING,
+              ])).toBeTrue();
               // TRUE, TRUE
-              expect(isObjectKeys(OBJECT_ONE, [SYMBOL_NUMBER, SYMBOL_STRING])).toBe(TRUE);
+              expect(isObjectKeys(TESTING_OBJECT, [TESTING_SYMBOL_NUMBER, TESTING_SYMBOL_STRING])).toBeTrue();
               // TRUE AND FALSE
-              expect(isObjectKeys(OBJECT_ONE, [STRING, 'no property'])).toBe(FALSE);
+              expect(isObjectKeys(TESTING_OBJECT, [TESTING_STRING, 'no property'])).toBeFalse();
               // FALSE AND FALSE
-              expect(isObjectKeys(OBJECT_ONE, ['no property one', 'no property two'])).toBe(FALSE);
+              expect(isObjectKeys(TESTING_OBJECT, ['no property one', 'no property two'])).toBeFalse();
             })
           );
         })
         // ... primitives.
         .describe(`primitive`, () => testing
           // bigint
-          .describe(`bigint`, () => testing.it(`${BIGINT}`, () => expect(isObjectKeys(BIGINT, ['bigint'])).toBe(FALSE)))
+          .describe(`bigint`, () => testing.it(`${TESTING_BIGINT}`, () => expect(isObjectKeys(TESTING_BIGINT, ['bigint'])).toBeFalse()))
           // boolean
           .describe(`boolean`, () => testing
-            .it(`${TRUE}`, () => expect(isObjectKeys(TRUE, ['boolean'])).toBe(FALSE))
-            .it(`${FALSE}`, () => expect(isObjectKeys(FALSE, ['boolean'])).toBe(FALSE))
+            .it(`${TESTING_TRUE}`, () => expect(isObjectKeys(TESTING_TRUE, ['boolean'])).toBeFalse())
+            .it(`${TESTING_FALSE}`, () => expect(isObjectKeys(TESTING_FALSE, ['boolean'])).toBeFalse())
           )
           // null
-          .it(`${NULL}`, () => expect(isObjectKeys(NULL, ['null'])).toBe(FALSE))
+          .it(`${TESTING_NULL}`, () => expect(isObjectKeys(TESTING_NULL, ['null'])).toBeFalse())
           // number
           .describe(`number`, () => testing
-            .it(`${NUMBER}`, () => expect(isObjectKeys(NUMBER, ['number'])).toBe(FALSE))
-            .it(`Number(${NUMBER})`, () => expect(isObjectKeys(NUMBER_INSTANCE, ['number'])).toBe(FALSE))
+            .it(`${TESTING_NUMBER}`, () => expect(isObjectKeys(TESTING_NUMBER, ['number'])).toBeFalse())
+            .it(`Number(${TESTING_NUMBER})`, () => expect(isObjectKeys(TESTING_NUMBER_INSTANCE, ['number'])).toBeFalse())
           )
           // string
           .describe(`string`, () => testing
-            .it(`${STRING}`, () => expect(isObjectKeys(STRING, ['string'])).toBe(FALSE))
-            .it(`String(${STRING})`, () => expect(isObjectKeys(STRING_INSTANCE, ['string'])).toBe(FALSE))
+            .it(`${TESTING_STRING}`, () => expect(isObjectKeys(TESTING_STRING, ['string'])).toBeFalse())
+            .it(`String(${TESTING_STRING})`, () => expect(isObjectKeys(TESTING_STRING_INSTANCE, ['string'])).toBeFalse())
           )
           // symbol
           .describe(`symbol`, () => testing
-            .it(`Symbol(${NUMBER})`, () => expect(isObjectKeys(SYMBOL_NUMBER, ['symbol'])).toBe(FALSE))
-            .it(`Symbol(${STRING})`, () => expect(isObjectKeys(SYMBOL_STRING, ['symbol'])).toBe(FALSE))
+            .it(`Symbol(${TESTING_NUMBER})`, () => expect(isObjectKeys(TESTING_SYMBOL_NUMBER, ['symbol'])).toBeFalse())
+            .it(`Symbol(${TESTING_STRING})`, () => expect(isObjectKeys(TESTING_SYMBOL_STRING, ['symbol'])).toBeFalse())
           )
           // undefined
-          .it(`${UNDEFINED}`, () => expect(isObjectKeys(UNDEFINED, ['undefined'])).toBe(FALSE))
+          .it(`${TESTING_UNDEFINED}`, () => expect(isObjectKeys(TESTING_UNDEFINED, ['undefined'])).toBeFalse())
           // ... object.
           .describe(`object`, () => testing
             // BigInt
             .describe(`BigInt`, () =>
-              testing.it(`${BIGINT_EXPECTATION}`, () => expect(isObjectKeys(BIGINT_INSTANCE, ['bigint'])).toBe(FALSE)))
+              testing.it(`${TESTING_BIGINT}`, () => expect(isObjectKeys(TESTING_BIGINT, ['bigint'])).toBeFalse()))
             // Boolean
             .describe(`Boolean`, () => testing
-              .it(`${TRUE_EXPECTATION}`, () => expect(isObjectKeys(TRUE_INSTANCE, ['boolean'])).toBe(FALSE))
-              .it(`${FALSE_EXPECTATION}`, () => expect(isObjectKeys(FALSE_INSTANCE, ['boolean'])).toBe(FALSE))
+              .it(`${TESTING_TRUE_INSTANCE}`, () => expect(isObjectKeys(TESTING_TRUE_INSTANCE, ['boolean'])).toBeFalse())
+              .it(`${TESTING_FALSE_INSTANCE}`, () => expect(isObjectKeys(TESTING_FALSE_INSTANCE, ['boolean'])).toBeFalse())
             )
             // Number
             .describe(`Number`, () =>
-              testing.it(`new Number(${NUMBER})`, () => expect(isObjectKeys(NUMBER_NEW_INSTANCE, ['number'])).toBe(FALSE)))
+              testing.it(`new Number(${TESTING_NUMBER})`, () => expect(isObjectKeys(TESTING_NUMBER_INSTANCE, ['number'])).toBeFalse()))
             // String
             .describe(`String`, () =>
-              testing.it(`new String(${STRING})`, () => expect(isObjectKeys(STRING_NEW_INSTANCE, ['string'])).toBe(FALSE)))
+              testing.it(`new String(${TESTING_STRING})`, () => expect(isObjectKeys(TESTING_STRING_INSTANCE, ['string'])).toBeFalse()))
           )
         );
     });

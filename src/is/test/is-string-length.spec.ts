@@ -1,24 +1,38 @@
-import { Testing, TestingToBeMatchers } from '@angular-package/testing';
+// Testing.
+import {
+  // Main.
+  Testing,
+
+  // Constant.
+  TESTING_BIGINT,
+  TESTING_CLASS,
+  TESTING_DATE,
+  TESTING_FALSE,
+  TESTING_FALSE_INSTANCE,
+  TESTING_FUNCTION,
+  TESTING_NULL,
+  TESTING_NUMBER,
+  TESTING_NUMBER_INSTANCE,
+  TESTING_OBJECT,
+  TESTING_STRING,
+  TESTING_STRING_INSTANCE,
+  TESTING_SYMBOL_NUMBER,
+  TESTING_SYMBOL_STRING,
+  TESTING_TRUE,
+  TESTING_TRUE_INSTANCE,
+  TESTING_UNDEFINED,
+
+  // Class.
+  TestingClass,
+} from '@angular-package/testing';
+// Execute tests.
 import { tests } from '../../execute-tests';
 // Function.
 import { isStringLength } from '../lib/is-string-length.func';
-// Constant.
-import { BIGINT, BIGINT_EXPECTATION, BIGINT_INSTANCE } from '../../testing/src/big-int.const';
-import { Class, CLASS } from '../../testing/src/class.const';
-import { DATE_STRING_ONE, DATE_TIMESTAMP, DATE_STRING_TWO, DATE_VARS } from '../../testing/src/strict/date.const';
-import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE, FALSE_EXPECTATION, TRUE_EXPECTATION } from '../../testing/src/boolean.const';
-import { FUNCTION } from '../../testing/src/function.const';
-import { NULL } from '../../testing/src/null.const';
-import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../testing/src/number.const';
-import { OBJECT_ONE, OBJECT_TWO, OBJECT_ONE_NEW, OBJECT_TWO_NEW } from '../../testing/src/object.const';
-import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/src/string.const';
-import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/src/symbol.const';
-import { UNDEFINED } from '../../testing/src/undefined.const';
 /**
  * Initialize testing.
  */
 const testing = new Testing(tests.is.stringLength.describe, tests.is.stringLength.it);
-const toBe = new TestingToBeMatchers();
 /**
  * Tests.
  */
@@ -37,104 +51,96 @@ testing.describe(isStringLength.name, () => {
     .describe(`checks`, () => {
       testing
         .it('callback', () => {
-          isStringLength(FALSE, { min, max }, (result: boolean) => {
-            expect(result).toBe(FALSE);
+          isStringLength(TESTING_FALSE, { min, max }, (result: boolean) => {
+            expect(result).toBeFalse();
             return result;
           });
         })
         // ... arrays.
         .describe(`array`, () => {
-          // it(`${FUNCTION}`, () => expect(isStringLength(FUNCTION, 'function')).toBe(FALSE));
-          // it(`${Class}`, () => expect(isStringLength(Class, 'function')).toBe(FALSE));
         })
         // ... Date.
         .describe(`date`, () => {
           testing
-            .it(`DATE_STRING_ONE ${DATE_STRING_ONE}`, () => expect(isStringLength(DATE_STRING_ONE, { min, max })).toBe(FALSE))
-            .it(`DATE_STRING_ONE ${DATE_STRING_TWO}`, () => expect(isStringLength(DATE_STRING_TWO, { min, max })).toBe(FALSE))
-            .it(`DATE_STRING_ONE ${DATE_VARS}`, () => expect(isStringLength(DATE_VARS, { min, max })).toBe(FALSE))
-            .it(`DATE_STRING_ONE ${DATE_TIMESTAMP}`, () => expect(isStringLength(DATE_TIMESTAMP, { min, max })).toBe(FALSE));
+            .it(`TESTING_DATE`, () => expect(isStringLength(TESTING_DATE, { min, max })).toBeFalse())
         })
         // ... function.
         .describe(`function`, () => {
           testing
-            .it(`FUNCTION`, () => expect(isStringLength(FUNCTION, { min, max })).toBe(FALSE))
-            .it(`Class`, () => expect(isStringLength(Class, { min, max })).toBe(FALSE));
+            .it(`FUNCTION`, () => expect(isStringLength(TESTING_FUNCTION, { min, max })).toBeFalse())
+            .it(`Class`, () => expect(isStringLength(TestingClass, { min, max })).toBeFalse());
         })
         // ... objects.
         .describe('object', () => {
           testing
-            .it(`CLASS`, () => expect(isStringLength(CLASS, { min, max })).toBe(FALSE))
-            .it(`OBJECT_ONE`, () => expect(isStringLength(OBJECT_ONE, { min, max })).toBe(FALSE))
-            .it(`OBJECT_TWO`, () => expect(isStringLength(OBJECT_TWO, { min, max })).toBe(FALSE))
-            .it(`new Object(OBJECT_ONE_NEW})`, () => expect(isStringLength(OBJECT_ONE_NEW, { min, max })).toBe(FALSE))
-            .it(`new Object(OBJECT_TWO_NEW})`, () => expect(isStringLength(OBJECT_TWO_NEW, { min, max })).toBe(FALSE));
+            .it(`CLASS`, () => expect(isStringLength(TESTING_CLASS, { min, max })).toBeFalse())
+            .it(`TESTING_OBJECT`, () => expect(isStringLength(TESTING_OBJECT, { min, max })).toBeFalse());
         })
         // ... primitives.
         .describe(`primitive`, () => {
           testing
             // bigint
-            .describe(`bigint`, () => it(`${BIGINT}`, () => expect(isStringLength(BIGINT, { min, max })).toBe(FALSE)))
+            .describe(`bigint`, () => it(`${TESTING_BIGINT}`, () => expect(isStringLength(TESTING_BIGINT, { min, max })).toBeFalse()))
             // boolean
             .describe(`boolean`, () => {
               testing
-                .it(`${TRUE}`, () => expect(isStringLength(TRUE, { min, max })).toBe(FALSE))
-                .it(`${FALSE}`, () => expect(isStringLength(FALSE, { min, max })).toBe(FALSE));
+                .it(`${TESTING_TRUE}`, () => expect(isStringLength(TESTING_TRUE, { min, max })).toBeFalse())
+                .it(`${TESTING_FALSE}`, () => expect(isStringLength(TESTING_FALSE, { min, max })).toBeFalse());
             })
             // null
-            .it(`${NULL}`, () => expect(isStringLength(NULL, { min, max })).toBe(FALSE))
+            .it(`${TESTING_NULL}`, () => expect(isStringLength(TESTING_NULL, { min, max })).toBeFalse())
             // number
             .describe(`number`, () => {
               testing
-                .it(`${NUMBER}`, () => expect(isStringLength(NUMBER, { min, max })).toBe(FALSE))
-                .it(`Number(${NUMBER})`, () => expect(isStringLength(NUMBER_INSTANCE, { min, max })).toBe(FALSE));
+                .it(`${TESTING_NUMBER}`, () => expect(isStringLength(TESTING_NUMBER, { min, max })).toBeFalse())
+                .it(`Number(${TESTING_NUMBER})`, () => expect(isStringLength(TESTING_NUMBER_INSTANCE, { min, max })).toBeFalse());
             })
             // string
             .describe(`string`, () => {
               testing
-                .it(`${STRING}`, () => expect(isStringLength(STRING, { min, max })).toBe(FALSE))
-                .it(`String(${STRING})`, () => expect(isStringLength(STRING_INSTANCE, {min, max})).toBe(FALSE))
-                .it(`${stringFirstName}`, () => expect(isStringLength(stringFirstName, {min, max})).toBe(TRUE))
-                .it(`${stringFirstName}`, () => expect(isStringLength(stringFirstName, {min: 13, max})).toBe(TRUE))
-                .it(`${stringFirstName}`, () => expect(isStringLength(stringFirstName, {min: 14, max})).toBe(FALSE))
-                .it(`${stringFirstName}`, () => expect(isStringLength(stringFirstName, {min, max: 12})).toBe(FALSE));
+                .it(`${TESTING_STRING}`, () => expect(isStringLength(TESTING_STRING, { min, max })).toBeFalse())
+                .it(`String(${TESTING_STRING})`, () => expect(isStringLength(TESTING_STRING_INSTANCE, {min, max})).toBeFalse())
+                .it(`${stringFirstName}`, () => expect(isStringLength(stringFirstName, {min, max})).toBeTrue())
+                .it(`${stringFirstName}`, () => expect(isStringLength(stringFirstName, {min: 13, max})).toBeTrue())
+                .it(`${stringFirstName}`, () => expect(isStringLength(stringFirstName, {min: 14, max})).toBeFalse())
+                .it(`${stringFirstName}`, () => expect(isStringLength(stringFirstName, {min, max: 12})).toBeFalse());
             })
             // symbol
             .describe(`symbol`, () => {
               testing
-                .it(`Symbol(${NUMBER})`, () => expect(isStringLength(SYMBOL_NUMBER, {min, max})).toBe(FALSE))
-                .it(`Symbol(${STRING})`, () => expect(isStringLength(SYMBOL_STRING, {min, max})).toBe(FALSE));
+                .it(`Symbol(${TESTING_NUMBER})`, () => expect(isStringLength(TESTING_SYMBOL_NUMBER, {min, max})).toBeFalse())
+                .it(`Symbol(${TESTING_STRING})`, () => expect(isStringLength(TESTING_SYMBOL_STRING, {min, max})).toBeFalse());
             })
             // undefined
-            .it(`${UNDEFINED}`, () => expect(isStringLength(UNDEFINED, {min, max})).toBe(FALSE))
+            .it(`${TESTING_UNDEFINED}`, () => expect(isStringLength(TESTING_UNDEFINED, {min, max})).toBeFalse())
             // ... object.
             .describe(`object`, () => {
               testing
                 // BigInt
                 .describe(`BigInt`, () =>
-                  testing.it(`${BIGINT_EXPECTATION}`, () => expect(isStringLength(BIGINT_INSTANCE, {min, max})).toBe(FALSE)))
+                  testing.it(`${TESTING_BIGINT}`, () => expect(isStringLength(TESTING_BIGINT, {min, max})).toBeFalse()))
                 // Boolean
                 .describe(`Boolean`, () => {
                   testing
-                    .it(`${TRUE_EXPECTATION}`, () => expect(isStringLength(TRUE_INSTANCE, {min, max})).toBe(FALSE))
-                    .it(`${FALSE_EXPECTATION}`, () => expect(isStringLength(FALSE_INSTANCE, {min, max})).toBe(FALSE));
+                    .it(`${TESTING_TRUE_INSTANCE}`, () => expect(isStringLength(TESTING_TRUE_INSTANCE, {min, max})).toBeFalse())
+                    .it(`${TESTING_FALSE_INSTANCE}`, () => expect(isStringLength(TESTING_FALSE_INSTANCE, {min, max})).toBeFalse());
                 })
                 // Number
                 .describe(`Number`, () => {
                   testing
-                    .it(`new Number(${NUMBER})`, () => expect(isStringLength(NUMBER_NEW_INSTANCE, {min, max})).toBe(FALSE))
-                    .it(`new Number(${stringFirstName})`, () => expect(isStringLength(new Number(stringFirstName), {min, max})).toBe(FALSE))
-                    .it(`new Number(${stringFirstName})`, () => expect(isStringLength(new Number(1.15), {min, max})).toBe(FALSE))
-                    .it(`new Number(${stringFirstName})`, () => expect(isStringLength(new Number(13.15), {min, max})).toBe(FALSE));
+                    .it(`new Number(${TESTING_NUMBER})`, () => expect(isStringLength(TESTING_NUMBER_INSTANCE, {min, max})).toBeFalse())
+                    .it(`new Number(${stringFirstName})`, () => expect(isStringLength(new Number(stringFirstName), {min, max})).toBeFalse())
+                    .it(`new Number(${stringFirstName})`, () => expect(isStringLength(new Number(1.15), {min, max})).toBeFalse())
+                    .it(`new Number(${stringFirstName})`, () => expect(isStringLength(new Number(13.15), {min, max})).toBeFalse());
                 })
                 // String
                 .describe(`String`, () => {
                   testing
-                    .it(`new String(${STRING})`, () => expect(isStringLength(STRING_NEW_INSTANCE, {min, max})).toBe(FALSE))
-                    .it(`new String(${stringFirstName})`, () => expect(isStringLength(stringInstance, {min, max})).toBe(TRUE))
-                    .it(`new String(${stringFirstName})`, () => expect(isStringLength(stringInstance, {min: 13, max})).toBe(TRUE))
-                    .it(`new String(${stringFirstName})`, () => expect(isStringLength(stringInstance, {min: 14, max})).toBe(FALSE))
-                    .it(`new String(${stringFirstName})`, () => expect(isStringLength(stringInstance, {min, max: 12})).toBe(FALSE));
+                    .it(`new String(${TESTING_STRING})`, () => expect(isStringLength(TESTING_STRING_INSTANCE, {min, max})).toBeFalse())
+                    .it(`new String(${stringFirstName})`, () => expect(isStringLength(stringInstance, {min, max})).toBeTrue())
+                    .it(`new String(${stringFirstName})`, () => expect(isStringLength(stringInstance, {min: 13, max})).toBeTrue())
+                    .it(`new String(${stringFirstName})`, () => expect(isStringLength(stringInstance, {min: 14, max})).toBeFalse())
+                    .it(`new String(${stringFirstName})`, () => expect(isStringLength(stringInstance, {min, max: 12})).toBeFalse());
                 });
             });
         });

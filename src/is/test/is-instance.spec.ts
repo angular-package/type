@@ -1,74 +1,89 @@
-import { Testing, TestingToBeMatchers } from '@angular-package/testing';
+// Testing.
+import {
+  // Main.
+  Testing,
+
+  // Constants.
+  TESTING_BIGINT,
+  TESTING_CLASS,
+  TESTING_FALSE,
+  TESTING_FALSE_INSTANCE,
+  TESTING_FUNCTION,
+  TESTING_FUNCTION_CONSTRUCTOR,
+  TESTING_NULL,
+  TESTING_NUMBER,
+  TESTING_NUMBER_CONSTRUCTOR,
+  TESTING_NUMBER_INSTANCE,
+  TESTING_OBJECT,
+  TESTING_PERSON,
+  TESTING_STRING,
+  TESTING_STRING_CONSTRUCTOR,
+  TESTING_STRING_INSTANCE,
+  TESTING_TRUE,
+  TESTING_TRUE_INSTANCE,
+  TESTING_UNDEFINED,
+
+  // Class.
+  TestingClass,
+  TestingPerson,
+} from '@angular-package/testing';
+// Execute tests.
 import { tests } from '../../execute-tests';
 // Function.
 import { isInstance } from '../lib/is-instance.func';
-// Constant.
-import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE } from '../../testing/src/boolean.const';
-import { BIGINT, BIGINT_INSTANCE } from '../../testing/src/big-int.const';
-import { Class, CLASS, PERSON, Persons, PersonCopy, PERSON_COPY } from '../../testing/src/class.const';
-import { FUNCTION, functionConstructor } from '../../testing/src/function.const';
-import { NULL } from '../../testing/src/null.const';
-import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../testing/src/number.const';
-import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/src/string.const';
-import { UNDEFINED } from '../../testing/src/undefined.const';
-import { notDefined } from '../../testing/src/not-defined.const';
 /**
  * Initialize testing.
  */
 const testing = new Testing(tests.is.instance.describe, tests.is.instance.it);
-const toBe = new TestingToBeMatchers();
 /**
  * Tests.
  */
 testing.describe(isInstance.name, () => {
-  const anyInstance: any = new (functionConstructor as any)('First name', 'Sur name', 27);
+  const anyInstance: any = new (TESTING_FUNCTION_CONSTRUCTOR as any)('First name', 'Sur name', 27);
   testing
     // TRUE.
     .it('is DEFINED', () => expect(isInstance).toBeDefined())
-    .it(`CLASS instance of Class`, () => expect(isInstance(CLASS, Class)).toBe(TRUE))
-    .it(`PERSON instance of Person`, () => expect(isInstance(PERSON, Persons)).toBe(TRUE))
-    .it(`PERSON_COPY instance of PersonCopy`, () => expect(isInstance(PERSON_COPY, PersonCopy)).toBe(TRUE))
+    .it(`CLASS instance of Class`, () => expect(isInstance(TESTING_CLASS, TestingClass)).toBeTrue())
+    .it(`PERSON instance of Person`, () => expect(isInstance(TESTING_PERSON, TestingPerson)).toBeTrue())
     .it(`CLASS instance of Class expect result to be true`, () => {
-      isInstance(CLASS, Class, (result: boolean) => {
-        expect(result).toBe(TRUE);
+      isInstance(TESTING_CLASS, TestingClass, (result: boolean) => {
+        expect(result).toBeTrue();
         return result;
       });
     })
-    .it(`function constructor`, () => expect(isInstance(anyInstance, functionConstructor as any)).toBe(TRUE))
+    .it(`function constructor`, () => expect(isInstance(anyInstance, TESTING_FUNCTION_CONSTRUCTOR as any)).toBeTrue())
 
     // FALSE.
-    .it(`PERSON_COPY not instance of Person`, () => expect(isInstance(PERSON_COPY, Persons)).toBe(FALSE))
+    .it(`PERSON_COPY not instance of Person`, () => {
+      class TestingPersonCopy {
+        firstName = '';
+        surname = '';
+        age = 15;
+      }
+      expect(isInstance(new TestingPersonCopy(), TestingPerson)).toBeFalse();
+    })
     .it(`'boolean' | Boolean`, () => {
-      expect(isInstance(FALSE, FALSE)).toBe(FALSE);
-      expect(isInstance(TRUE, TRUE)).toBe(FALSE);
-      expect(isInstance(FALSE_INSTANCE, FALSE_INSTANCE)).toBe(FALSE);
-      expect(isInstance(TRUE_INSTANCE, TRUE_INSTANCE)).toBe(FALSE);
+      expect(isInstance(TESTING_FALSE, TESTING_FALSE as any)).toBeFalse();
+      expect(isInstance(TESTING_TRUE, TESTING_TRUE as any)).toBeFalse();
+      expect(isInstance(TESTING_FALSE_INSTANCE, TESTING_FALSE_INSTANCE as any)).toBeFalse();
+      expect(isInstance(TESTING_TRUE_INSTANCE, TESTING_TRUE_INSTANCE as any)).toBeFalse();
     })
-    .it(`'bigint'`, () => {
-      expect(isInstance(BIGINT, BIGINT)).toBe(FALSE);
-      expect(isInstance(BIGINT_INSTANCE, BIGINT_INSTANCE)).toBe(FALSE);
-    })
-    .it(`Class`, () => expect(isInstance(Class, Class)).toBe(FALSE))
-    .it(`FUNCTION instance of Function`, () => expect(isInstance(FUNCTION, Function)).toBe(FALSE))
-    .it(`NULL`, () => expect(isInstance(NULL, NULL)).toBe(FALSE))
+    .it(`'bigint'`, () => expect(isInstance(TESTING_BIGINT, TESTING_BIGINT as any)).toBeFalse())
+    .it(`Class`, () => expect(isInstance(TestingClass, TestingClass)).toBeFalse())
+    .it(`FUNCTION instance of Function`, () => expect(isInstance(TESTING_FUNCTION, Function)).toBeFalse())
+    .it(`NULL`, () => expect(isInstance(TESTING_NULL, TESTING_NULL as any)).toBeFalse())
     .it(`'number' | Number`, () => {
-      expect(isInstance(NUMBER, NUMBER)).toBe(FALSE);
-      expect(isInstance(NUMBER_INSTANCE, NUMBER_INSTANCE)).toBe(FALSE);
-      expect(isInstance(NUMBER_NEW_INSTANCE, NUMBER_NEW_INSTANCE)).toBe(FALSE);
+      expect(isInstance(TESTING_NUMBER, TESTING_NUMBER as any)).toBeFalse();
+      expect(isInstance(TESTING_NUMBER_INSTANCE, TESTING_NUMBER_CONSTRUCTOR as any)).toBeFalse();
+      expect(isInstance(TESTING_NUMBER_INSTANCE, TESTING_NUMBER_INSTANCE as any)).toBeFalse();
     })
-    // it(`'object' | Object`, () => {
-    //   expect(isInstance(OBJECT_ONE)).toBe(FALSE);
-    //   expect(isInstance(OBJECT_TWO, OBJECT_TWO)).toBe(FALSE);
-    // });
+    .it(`'object' | Object`, () => expect(isInstance(TESTING_OBJECT, TESTING_OBJECT as any)).toBeFalse())
     .it(`'string' | String`, () => {
-      expect(isInstance(STRING, STRING)).toBe(FALSE);
-      expect(isInstance(STRING_INSTANCE, STRING_INSTANCE)).toBe(FALSE);
-      expect(isInstance(STRING_NEW_INSTANCE, STRING_NEW_INSTANCE)).toBe(FALSE);
+      expect(isInstance(TESTING_STRING, TESTING_STRING as any)).toBeFalse();
+      expect(isInstance(TESTING_STRING_INSTANCE, TESTING_STRING_CONSTRUCTOR as any)).toBeFalse();
+      expect(isInstance(TESTING_STRING_INSTANCE, TESTING_STRING_INSTANCE as any)).toBeFalse();
     })
 
     // FALSE
-    .it(`undefined`, () => {
-      expect(isInstance(notDefined, notDefined)).toBe(FALSE);
-      expect(isInstance(UNDEFINED, UNDEFINED)).toBe(FALSE);
-    });
+    .it(`undefined`, () => expect(isInstance(TESTING_UNDEFINED, TESTING_UNDEFINED as any)).toBeFalse());
 });

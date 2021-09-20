@@ -1,24 +1,39 @@
-import { Testing, TestingToBeMatchers } from '@angular-package/testing';
+// Testing.
+import {
+  // Main.
+  Testing,
+
+  // Constants.
+  TESTING_BIGINT,
+  TESTING_CLASS,
+  TESTING_FALSE,
+  TESTING_FALSE_INSTANCE,
+  TESTING_FUNCTION,
+  TESTING_NULL,
+  TESTING_NUMBER,
+  TESTING_NUMBER_CONSTRUCTOR,
+  TESTING_NUMBER_INSTANCE,
+  TESTING_OBJECT,
+  TESTING_STRING,
+  TESTING_STRING_CONSTRUCTOR,
+  TESTING_STRING_INSTANCE,
+  TESTING_SYMBOL_NUMBER,
+  TESTING_SYMBOL_STRING,
+  TESTING_TRUE,
+  TESTING_TRUE_INSTANCE,
+  TESTING_UNDEFINED,
+
+  // Class.
+  TestingClass,
+} from '@angular-package/testing';
+// Execute tests.
 import { tests } from '../../execute-tests';
 // Function.
 import { isNull } from '../lib/is-null.func';
-// Constant.
-import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE } from '../../testing/src/boolean.const';
-import { BIGINT, BIGINT_INSTANCE } from '../../testing/src/big-int.const';
-import { Class, CLASS } from '../../testing/src/class.const';
-import { FUNCTION } from '../../testing/src/function.const';
-import { NULL } from '../../testing/src/null.const';
-import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../testing/src/number.const';
-import { OBJECT_ONE, OBJECT_TWO } from '../../testing/src/object.const';
-import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/src/string.const';
-import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/src/symbol.const';
-import { UNDEFINED } from '../../testing/src/undefined.const';
-import { notDefined } from '../../testing/src/not-defined.const';
 /**
  * Initialize testing.
  */
 const testing = new Testing(tests.is.null.describe, tests.is.null.it);
-const toBe = new TestingToBeMatchers();
 /**
  * Tests.
  */
@@ -27,51 +42,47 @@ testing.describe(isNull.name, () => {
     // TRUE
     .it('is DEFINED', () => expect(isNull).toBeDefined())
     .it(`null | NULL`, () => {
-      expect(isNull(null)).toBe(TRUE);
-      expect(isNull(NULL)).toBe(TRUE);
-      isNull(NULL, (result: boolean) => {
-        expect(result).toBe(TRUE);
+      expect(isNull(null)).toBeTrue();
+      expect(isNull(TESTING_NULL)).toBeTrue();
+      isNull(TESTING_NULL, (result: boolean) => {
+        expect(result).toBeTrue();
         return result;
       });
     })
     // FALSE
     .it(`'bigint'`, () => {
-      expect(isNull(BIGINT)).toBe(FALSE);
-      expect(isNull(BIGINT_INSTANCE)).toBe(FALSE);
+      expect(isNull(TESTING_BIGINT)).toBeFalse();
+      expect(isNull(TESTING_BIGINT)).toBeFalse();
     })
     .it(`'boolean' | Boolean`, () => {
-      expect(isNull(FALSE)).toBe(FALSE);
-      expect(isNull(TRUE)).toBe(FALSE);
-      expect(isNull(FALSE_INSTANCE)).toBe(FALSE);
-      expect(isNull(TRUE_INSTANCE)).toBe(FALSE);
-      expect(isNull(Boolean(false))).toBe(FALSE);
-      expect(isNull(Boolean(true))).toBe(FALSE);
+      expect(isNull(TESTING_FALSE)).toBeFalse();
+      expect(isNull(TESTING_TRUE)).toBeFalse();
+      expect(isNull(TESTING_FALSE_INSTANCE)).toBeFalse();
+      expect(isNull(TESTING_TRUE_INSTANCE)).toBeFalse();
+      expect(isNull(Boolean(false))).toBeFalse();
+      expect(isNull(Boolean(true))).toBeFalse();
     })
     .it(`Class | CLASS`, () => {
-      expect(isNull(Class)).toBe(FALSE);
-      expect(isNull(CLASS)).toBe(FALSE);
+      expect(isNull(TestingClass)).toBeFalse();
+      expect(isNull(TESTING_CLASS)).toBeFalse();
     })
-    .it(`'function' | Function`, () => expect(isNull(FUNCTION)).toBe(FALSE))
+    .it(`'function' | Function`, () => expect(isNull(TESTING_FUNCTION)).toBeFalse())
     .it(`'number' | Number`, () => {
-      expect(isNull(NUMBER)).toBe(FALSE);
-      expect(isNull(NUMBER_INSTANCE)).toBe(FALSE);
-      expect(isNull(NUMBER_NEW_INSTANCE)).toBe(FALSE);
+      expect(isNull(TESTING_NUMBER)).toBeFalse();
+      expect(isNull(TESTING_NUMBER_CONSTRUCTOR)).toBeFalse();
+      expect(isNull(TESTING_NUMBER_INSTANCE)).toBeFalse();
     })
-    .it(`'object' | Object`, () => {
-      expect(isNull(OBJECT_ONE)).toBe(FALSE);
-      expect(isNull(OBJECT_TWO)).toBe(FALSE);
-    })
+    .it(`'object' | Object`, () => expect(isNull(TESTING_OBJECT)).toBeFalse())
     .it(`'string' | String`, () => {
-      expect(isNull(STRING)).toBe(FALSE);
-      expect(isNull(STRING_INSTANCE)).toBe(FALSE);
-      expect(isNull(STRING_NEW_INSTANCE)).toBe(FALSE);
+      expect(isNull(TESTING_STRING)).toBeFalse();
+      expect(isNull(TESTING_STRING_CONSTRUCTOR)).toBeFalse();
+      expect(isNull(TESTING_STRING_INSTANCE)).toBeFalse();
     })
     .it(`'symbol'`, () => {
-      expect(isNull(SYMBOL_NUMBER)).toBe(FALSE);
-      expect(isNull(SYMBOL_STRING)).toBe(FALSE);
+      expect(isNull(TESTING_SYMBOL_NUMBER)).toBeFalse();
+      expect(isNull(TESTING_SYMBOL_STRING)).toBeFalse();
     })
     .it(`'undefined'`, () => {
-      expect(isNull(notDefined)).toBe(FALSE);
-      expect(isNull(UNDEFINED)).toBe(FALSE);
+      expect(isNull(TESTING_UNDEFINED)).toBeFalse();
     });
 });
