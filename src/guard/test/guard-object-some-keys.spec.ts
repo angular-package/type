@@ -59,25 +59,6 @@ testing.describe(guardObjectSomeKeys.name, () => {
     // ... objects.
     .describe('object', () => {
       testing
-      .describe(`descriptor`, () => {
-        testing
-        .it(`DATA_DESCRIPTOR`, () => {
-          // expect(guardObjectSomeKeys(DATA_DESCRIPTOR, ['writable', 'value'], ['get', 'set'])).toBeTrue();
-          // expect(guardObjectSomeKeys(DATA_DESCRIPTOR, ['writable', 'value'])).toBeTrue();
-          // expect(guardObjectSomeKeys(DATA_DESCRIPTOR, [['writable', 'value']])).toBeTrue();
-          // expect(guardObjectSomeKeys(DATA_DESCRIPTOR, ['get', 'set'])).toBeFalse();
-          // expect(guardObjectSomeKeys(DATA_DESCRIPTOR, 'get', 'set')).toBeFalse();
-          // expect(guardObjectSomeKeys(DATA_DESCRIPTOR, [['configurable', 'enumerable'], 'writable', 'value'])).toBeTrue();
-          // expect(guardObjectSomeKeys(DATA_DESCRIPTOR, [['configurable', 'enumerable'], 'value'])).toBeTrue();
-          // expect(guardObjectSomeKeys(DATA_DESCRIPTOR, [['configurable', 'enumerable'], 'writable'])).toBeTrue();
-        })
-        .it(`ACCESSOR_DESCRIPTOR`, () => {
-          // expect(guardObjectSomeKeys(ACCESSOR_DESCRIPTOR, ['writable', 'value'], ['get', 'set'])).toBeTrue();
-          // expect(guardObjectSomeKeys(ACCESSOR_DESCRIPTOR, ['configurable', 'enumerable'], 'writable', 'value')).toBeTrue();
-          // expect(guardObjectSomeKeys(ACCESSOR_DESCRIPTOR, [['configurable', 'enumerable'], 'get'])).toBeTrue();
-          // expect(guardObjectSomeKeys(ACCESSOR_DESCRIPTOR, [['configurable', 'enumerable'], 'set'])).toBeTrue();
-        });
-      })
       .describe(`TESTING_OBJECT`, () => {
         testing
         // number.
@@ -107,20 +88,20 @@ testing.describe(guardObjectSomeKeys.name, () => {
         testing
         // number.
         .it('has number key or any key', () => {
-          expect(guardObjectSomeKeys(TESTING_OBJECT, [1030405027, 'key as string'])).toBeTrue();
-          expect(guardObjectSomeKeys(TESTING_OBJECT, [5])).toBeTrue();
+          expect(guardObjectSomeKeys(TESTING_OBJECT, [1030405027, [5, TESTING_NUMBER]])).toBeTrue();
+          expect(guardObjectSomeKeys(TESTING_OBJECT, [[TESTING_NUMBER], [5]])).toBeTrue();
           expect(guardObjectSomeKeys(TESTING_OBJECT, [TESTING_NUMBER])).toBeTrue();
         })
 
         // string.
         .it('has string key', () => {
-          expect(guardObjectSomeKeys(TESTING_OBJECT, ['key as string'])).toBeTrue();
-          expect(guardObjectSomeKeys(TESTING_OBJECT, ['x'])).toBeTrue();
+          expect(guardObjectSomeKeys(TESTING_OBJECT, ['key as string', ['!@#$%^&*()Company', 'x']])).toBeTrue();
+          expect(guardObjectSomeKeys(TESTING_OBJECT, [['x', '!@#$%^&*()Company'], 'key as string'])).toBeTrue();
         })
 
         // symbol.
         .it('has symbol key', () => {
-          expect(guardObjectSomeKeys(TESTING_OBJECT, [TESTING_SYMBOL_NUMBER])).toBeTrue();
+          expect(guardObjectSomeKeys(TESTING_OBJECT, [TESTING_SYMBOL_NUMBER, [TESTING_SYMBOL_NUMBER, TESTING_SYMBOL_STRING]])).toBeTrue();
           expect(guardObjectSomeKeys(TESTING_OBJECT, [TESTING_SYMBOL_STRING])).toBeTrue();
         });
       });

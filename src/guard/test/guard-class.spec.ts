@@ -40,10 +40,10 @@ testing.describe(guardClass.name, () => {
   })
   .it(`Class`, () => {
     expect(guardClass(TestingPerson)).toBeTrue();
-    expect(guard.is.class(TestingPerson)).toBeTrue();
+    expect(guard.class(TestingPerson)).toBeTrue();
   })
   .it(`FUNCTION`, () => {
     expect(guardClass(TESTING_FUNCTION)).toBeFalse();
-    expect(guard.is.class(TESTING_FUNCTION)).toBeFalse();
+    expect(guard.class(TESTING_FUNCTION)).toBeFalse();
   });
 });

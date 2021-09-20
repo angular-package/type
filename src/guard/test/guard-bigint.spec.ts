@@ -1,16 +1,17 @@
+// Function.
+import { guardBigInt } from '../lib/guard-big-int.func';
+// Object.
+import { guard } from '../lib/guard.object';
 // Testing.
 import {
   // Main.
   Testing,
 
   // Constant.
-  TESTING_TRUE,
-  TESTING_BIGINT
+  TESTING_BIGINT,
 } from '@angular-package/testing';
 // Execute tests.
 import { tests } from '../../execute-tests';
-// Function.
-import { guardBigInt } from '../lib/guard-big-int.func';
 /**
  * Initialize testing.
  */
@@ -30,7 +31,7 @@ testing.describe(guardBigInt.name, () => {
       testing
       .it('with callback and payload', () => {
         guardBigInt(TESTING_BIGINT, (result, value, payload) => {
-          expect(result).toBe(TESTING_TRUE);
+          expect(result).toBeTrue();
           expect(value).toEqual(TESTING_BIGINT);
           if (payload) {
             expect(payload.action).toEqual('action');
@@ -41,10 +42,11 @@ testing.describe(guardBigInt.name, () => {
         }, { action: 'action', name: 'name', param: 'param' });
       })
       // ... primitives.
-      .describe(`primitive`, () => {
-        testing
-          // bigint
-          .describe(`bigint`, () => it(`${TESTING_BIGINT}`, () => expect(guardBigInt(TESTING_BIGINT)).toBe(TESTING_TRUE)));
-      });
+      .describe(`primitive`, () =>
+        testing.describe(`bigint`, () =>
+          testing
+            .it(`${TESTING_BIGINT}`, () => expect(guardBigInt(TESTING_BIGINT)).toBeTrue())
+            .it(`${TESTING_BIGINT}`, () => expect(guard.bigint(TESTING_BIGINT)).toBeTrue())
+          ));
     });
 });

@@ -46,7 +46,7 @@ testing.describe(guardRegExp.name, () => {
       .describe(`primitive`, () => {
         testing
           // bigint
-          .describe(`bigint`, () => it(`${TESTING_REGEXP}`, () => expect(guardRegExp(TESTING_REGEXP)).toBe(TESTING_TRUE)));
+          .describe(`RegExp`, () => it(`${TESTING_REGEXP}`, () => expect(guardRegExp(TESTING_REGEXP)).toBe(TESTING_TRUE)));
       });
     });
 });

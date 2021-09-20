@@ -7,6 +7,7 @@ import {
 
   // Constant.
   TESTING_CLASS,
+  TESTING_DATE,
   TESTING_OBJECT,
 } from '@angular-package/testing';
 // Execute tests.
@@ -42,8 +43,9 @@ testing.describe(guardObject.name, () => {
     // ... objects.
     .describe('object', () => {
       testing
-      .it(`CLASS`, () => expect(guardObject(TESTING_CLASS)).toBeTrue())
-      .it(`OBJECT_ONE`, () => expect(guardObject(TESTING_OBJECT)).toBeTrue());
+        .it(`CLASS`, () => expect(guardObject(TESTING_CLASS)).toBeTrue())
+        .it(`OBJECT_ONE`, () => expect(guardObject(TESTING_OBJECT)).toBeTrue())
+        .it(`TESTING_DATE`, () => expect(guardObject(TESTING_DATE)).toBeTrue());
     });
   });
 });

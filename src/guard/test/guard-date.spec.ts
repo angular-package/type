@@ -49,5 +49,26 @@ testing.describe(guardDate.name, () => {
       spyOn(guardSpy, 'date').withArgs(TESTING_DATE).and.returnValue(true);
       guardSpy.date(TESTING_DATE);
       expect(guardSpy.date).toHaveBeenCalled();
-    });
+  })
+  .it(`guard new Date()`, () => {
+    expect(guardDate(new Date('December 17, 1995 03:24:00'))).toBeTrue();
+    expect(guardDate(new Date('1995-12-17T03:24:00'))).toBeTrue();
+    expect(guardDate(new Date(1995, 11, 17))).toBeTrue();
+    expect(guardDate(new Date(1995, 11, 17, 3, 24, 0))).toBeTrue();
+    expect(guardDate(new Date(628021800000))).toBeTrue();
+    expect(guardDate(new Date(98, 1))).toBeTrue();
+    expect(guardDate(new Date(22, 1))).toBeTrue();
+
+    expect(guard.date(new Date('December 17, 1995 03:24:00'))).toBeTrue();
+    expect(guard.date(new Date('1995-12-17T03:24:00'))).toBeTrue();
+    expect(guard.date(new Date(1995, 11, 17))).toBeTrue();
+    expect(guard.date(new Date(1995, 11, 17, 3, 24, 0))).toBeTrue();
+    expect(guard.date(new Date(628021800000))).toBeTrue();
+    expect(guard.date(new Date(98, 1))).toBeTrue();
+    expect(guard.date(new Date(22, 1))).toBeTrue();
+  })
+  .it(`guard new Date() false`, () => {
+    expect(guardDate(new Date('invalid date'))).toBeFalse();
+    expect(guard.date(new Date('invalid date'))).toBeFalse();
+  });
 });

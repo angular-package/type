@@ -48,7 +48,7 @@ testing.describe(guardStringLength.name, () => {
             .describe(`string`, () =>
               testing
                 .it(`${TESTING_STRING} minimum 3`, () =>
-                  expect(guardStringLength(TESTING_STRING, { min: 3 })).toBeFalse()
+                  expect(guardStringLength(TESTING_STRING, { min: 3 })).toBeTrue()
                 )
                 .it(`${TESTING_STRING} maximum 3`, () =>
                   expect(guardStringLength(TESTING_STRING, { max: 3 })).toBeFalse()
@@ -58,7 +58,7 @@ testing.describe(guardStringLength.name, () => {
               expect(guardStringLength(TESTING_STRING, { min: 18 })).toBeFalse()
             )
             .it(`${TESTING_STRING} maximum 17`, () =>
-              expect(guardStringLength(TESTING_STRING, { max: 17 })).toBeFalse()
+              expect(guardStringLength(TESTING_STRING, { max: 17 })).toBeTrue()
             )
             .it(`${TESTING_STRING} minimum 5 maximum 21`, () =>
               expect(guardStringLength(TESTING_STRING, { min: 5, max: 21 })).toBeTrue()

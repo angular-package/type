@@ -6,7 +6,6 @@ import {
   Testing,
 
   // Constant.
-  TESTING_TRUE,
   TESTING_NULL,
 } from '@angular-package/testing';
 // Execute tests.
@@ -44,6 +43,6 @@ testing.describe(guardNull.name, () => {
       })
 
       // ... primitives.
-      .describe(`primitive`, () => testing.it(`${TESTING_NULL}`, () => expect(guardNull(TESTING_NULL)).toBe(TESTING_TRUE)));
+      .describe(`primitive`, () => testing.it(`${TESTING_NULL}`, () => expect(guardNull(TESTING_NULL)).toBeTrue()));
     });
 });

@@ -11,7 +11,6 @@ import {
   TESTING_OBJECT,
   TESTING_SYMBOL_NUMBER,
   TESTING_SYMBOL_STRING,
-  TESTING_TRUE,
 } from '@angular-package/testing';
 // Execute tests.
 import { tests } from '../../execute-tests';
@@ -52,19 +51,19 @@ testing.describe(guardObjectKeyIn.name, () => {
         testing
         // number.
         .it('has number key', () => {
-          expect(guardObjectKeyIn(TESTING_CLASS, 1030405027)).toBe(TESTING_TRUE);
-          expect(guardObjectKeyIn(TESTING_CLASS, 5)).toBe(TESTING_TRUE);
+          expect(guardObjectKeyIn(TESTING_CLASS, 1030405027)).toBeTrue();
+          expect(guardObjectKeyIn(TESTING_CLASS, 5)).toBeTrue();
         })
 
-        .it('finds getter number', () => expect(guardObjectKeyIn(TESTING_CLASS, TESTING_NUMBER)).toBe(TESTING_TRUE))
+        .it('finds getter number', () => expect(guardObjectKeyIn(TESTING_CLASS, TESTING_NUMBER)).toBeTrue())
 
         // string.
-        .it('has string key', () => expect(guardObjectKeyIn(TESTING_CLASS, 'surname')).toBe(TESTING_TRUE))
+        .it('has string key', () => expect(guardObjectKeyIn(TESTING_CLASS, 'surname')).toBeTrue())
 
         // symbol.
         .it('finds getter symbol key', () => {
-          expect(guardObjectKeyIn(TESTING_CLASS, TESTING_SYMBOL_NUMBER)).toBe(TESTING_TRUE);
-          expect(guardObjectKeyIn(TESTING_CLASS, TESTING_SYMBOL_STRING)).toBe(TESTING_TRUE);
+          expect(guardObjectKeyIn(TESTING_CLASS, TESTING_SYMBOL_NUMBER)).toBeTrue();
+          expect(guardObjectKeyIn(TESTING_CLASS, TESTING_SYMBOL_STRING)).toBeTrue();
         });
       });
     })
@@ -75,21 +74,21 @@ testing.describe(guardObjectKeyIn.name, () => {
         testing
           // number.
           .it('has number key', () => {
-            expect(guardObjectKeyIn(TESTING_OBJECT, 1030405027)).toBe(TESTING_TRUE);
-            expect(guardObjectKeyIn(TESTING_OBJECT, 5)).toBe(TESTING_TRUE);
-            expect(guardObjectKeyIn(TESTING_OBJECT, TESTING_NUMBER)).toBe(TESTING_TRUE);
+            expect(guardObjectKeyIn(TESTING_OBJECT, 1030405027)).toBeTrue();
+            expect(guardObjectKeyIn(TESTING_OBJECT, 5)).toBeTrue();
+            expect(guardObjectKeyIn(TESTING_OBJECT, TESTING_NUMBER)).toBeTrue();
           })
 
           // string.
           .it('has string key', () => {
-            expect(guardObjectKeyIn(TESTING_OBJECT, 'key as string')).toBe(TESTING_TRUE);
-            expect(guardObjectKeyIn(TESTING_OBJECT, 'x')).toBe(TESTING_TRUE);
+            expect(guardObjectKeyIn(TESTING_OBJECT, 'key as string')).toBeTrue();
+            expect(guardObjectKeyIn(TESTING_OBJECT, 'x')).toBeTrue();
           })
 
           // symbol.
           .it('has symbol key', () => {
-            expect(guardObjectKeyIn(TESTING_OBJECT, TESTING_NUMBER)).toBe(TESTING_TRUE);
-            expect(guardObjectKeyIn(TESTING_OBJECT, TESTING_SYMBOL_STRING)).toBe(TESTING_TRUE);
+            expect(guardObjectKeyIn(TESTING_OBJECT, TESTING_NUMBER)).toBeTrue();
+            expect(guardObjectKeyIn(TESTING_OBJECT, TESTING_SYMBOL_STRING)).toBeTrue();
           });
       });
     });

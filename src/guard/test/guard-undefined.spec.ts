@@ -6,7 +6,6 @@ import {
   Testing,
 
   // Constant.
-  TESTING_TRUE,
   TESTING_UNDEFINED,
 } from '@angular-package/testing';
 // Execute tests.
@@ -44,7 +43,7 @@ testing.describe(guardUndefined.name, () => {
         // ... primitives.
         .describe(`primitive`, () =>
           testing.it(`${TESTING_UNDEFINED}`, () =>
-            expect(guardUndefined(TESTING_UNDEFINED)).toBe(TESTING_TRUE)
+            expect(guardUndefined(TESTING_UNDEFINED)).toBeTrue()
           )
         );
     });

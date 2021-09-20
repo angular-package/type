@@ -7,6 +7,8 @@ import {
 
   // Constant.
   TESTING_NUMBER,
+  TESTING_NUMBER_CONSTRUCTOR,
+  TESTING_NUMBER_INSTANCE,
 } from '@angular-package/testing';
 // Execute tests.
 import { tests } from '../../execute-tests';
@@ -45,10 +47,13 @@ testing.describe(guardNumber.name, () => {
     .describe(`primitive`, () => {
       testing
       // number
-      .describe(`number`, () => {
+      .describe(`number`, () =>
         testing
-        .it(`${TESTING_NUMBER}`, () => expect(guardNumber(TESTING_NUMBER)).toBeTrue());
-      });
+          .it(`${TESTING_NUMBER}`, () => expect(guardNumber(TESTING_NUMBER)).toBeTrue())
+          .it(`${TESTING_NUMBER_CONSTRUCTOR}`, () => expect(guardNumber(TESTING_NUMBER_CONSTRUCTOR)).toBeTrue()))
+      // number object
+      .describe(`number object`, () =>
+        testing.it(`${TESTING_NUMBER_INSTANCE}`, () => expect(guardNumber(TESTING_NUMBER_INSTANCE)).toBeTrue()));
     });
   });
 });

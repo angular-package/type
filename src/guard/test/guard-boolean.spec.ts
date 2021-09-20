@@ -1,5 +1,7 @@
 // Function.
 import { guardBoolean } from '../lib/guard-boolean.func';
+// Object.
+import { guard } from '../lib/guard.object';
 // Testing.
 import {
   // Main.
@@ -48,16 +50,20 @@ testing.describe(guardBoolean.name, () => {
         testing.describe(`boolean`, () => {
           testing
             .it(`FALSE`, () => expect(guardBoolean(TESTING_FALSE)).toBeTrue())
-            .it(`TRUE`, () => expect(guardBoolean(TESTING_TRUE)).toBeTrue());
+            .it(`TRUE`, () => expect(guardBoolean(TESTING_TRUE)).toBeTrue())
+            .it(`FALSE`, () => expect(guard.boolean(TESTING_FALSE)).toBeTrue())
+            .it(`TRUE`, () => expect(guard.boolean(TESTING_TRUE)).toBeTrue());
         });
       })
-      // ... objective.
-      .describe(`objective`, () => {
+      // ... instance.
+      .describe(`instance`, () => {
         // boolean
         testing.describe(`boolean`, () => {
           testing
             .it(`${TESTING_TRUE_INSTANCE}`, () => expect(guardBoolean(TESTING_TRUE_INSTANCE)).toBeTrue())
-            .it(`${TESTING_FALSE_INSTANCE}`, () => expect(guardBoolean(TESTING_FALSE_INSTANCE)).toBeTrue());
+            .it(`${TESTING_FALSE_INSTANCE}`, () => expect(guardBoolean(TESTING_FALSE_INSTANCE)).toBeTrue())
+            .it(`${TESTING_FALSE_INSTANCE}`, () => expect(guard.boolean(TESTING_FALSE_INSTANCE)).toBeTrue())
+            .it(`${TESTING_TRUE_INSTANCE}`, () => expect(guard.boolean(TESTING_TRUE_INSTANCE)).toBeTrue());
         });
       });
     });
