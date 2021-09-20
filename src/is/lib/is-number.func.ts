@@ -1,35 +1,37 @@
 // Function.
-import { isNumberObject } from './is-number-object.func';
-import { isNumberType } from './is-number-type.func';
 import { resultCallback } from '../../lib/result-callback.func';
 import { typeOf } from '../../lib/type-of.func';
-// Interface.
-import { CallbackPayload } from '../../type/callback-payload.type';
 // Type.
+import { AnyNumber } from '../../type/any-number.type';
+import { CallbackPayload } from '../../type/callback-payload.type';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Checks if any `value` is a `number` type(by using `isNumberType()`), or an instance of `Number`(by using `isNumberObject()`) and the
- * obtained type from its `Object.prototype` is equal to `'number'`. The value is also checked by the `isFinite()` function that determines
- * whether a supplied number is finite.
- * @param value The `value` of any type to check.
+ * Checks if any value is a `number` type, or the type obtained from its `Object.prototype` equal to `'number'` or an `object` type
+ * and an instance of `Number`. The value is also checked by the `Number.isFinite()` method to determine whether it's finite and is
+ * validated by the `Number.isNaN()` method.
+ * @param value The value of any type to check.
  * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this
  * check, and `payload` of the default `CallbackPayload` shape with optional properties from the provided `payload`, to handle them before
  * the `result` return. By default, it uses `resultCallback()` function.
- * @param payload An optional `object` of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback`
- * function.
+ * @param payload An optional `object` of `CallbackPayload` that is assigned to the `payload` of the supplied `callback` function.
  * @returns The return value is a `boolean` indicating whether the provided `value` is a finite number of a `number` type or an instance of
  * `Number`.
  * @angularpackage
  */
-export const isNumber = <Payload extends object>(
+export const isNumber = <
+  Type extends AnyNumber = number,
+  Payload extends object = object
+>(
   value: any,
-  callback: ResultCallback<any, typeof payload> = resultCallback,
+  callback: ResultCallback<any, CallbackPayload<Payload>> = resultCallback,
   payload?: CallbackPayload<Payload>
-): value is number =>
+): value is Type =>
   callback(
-    typeOf(value) === 'number' &&
-    isFinite(value) === true &&
-    (isNumberType(value) || isNumberObject(value)),
+    (typeof value === 'number' ||
+    ((typeOf(value) === 'number' || typeof value === 'object') &&
+      value instanceof Number)) &&
+    !Number.isNaN(value.valueOf()) &&
+    Number.isFinite(value.valueOf()),
     value,
-    { name: isNumber.name, ...payload } as Payload
+    payload
   );

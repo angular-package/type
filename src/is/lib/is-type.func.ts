@@ -1,51 +1,51 @@
 // Function.
+import { isBigInt } from './is-big-int.func';
+import { isBooleanType } from './is-boolean-type.func';
 import { isFunction } from './is-function.func';
 import { isInstance } from './is-instance.func';
 import { isNotNull } from '../not/lib/is-not-null.func';
+import { isNull } from './is-null.func';
+import { isNumberType } from './is-number-type.func';
 import { isObject } from './is-object.func';
-import { isPrimitive } from './is-primitive.func';
+import { isStringType } from './is-string-type.func';
+import { isSymbol } from './is-symbol.func';
+import { isUndefined } from './is-undefined.func';
 import { resultCallback } from '../../lib/result-callback.func';
-// Interface.
-import { CallbackPayload } from '../../type/callback-payload.type';
 // Type.
+import { CallbackPayload } from '../../type/callback-payload.type';
+import { Primitives } from '../../type/primitives.type';
 import { ResultCallback } from '../../type/result-callback.type';
 import { Type } from '../../type/type.type';
 import { Types } from '../../type/types.type';
 /**
- * Checks if any `value` is a type of `Type` from a given `type` of the `Types`.
- * @param value The `value` of any type to check against a type of given `type` of `Types`.
+ * Checks if any value is the type from a given `type` of the `Types`.
+ * @param value The value of any type to check against the type of given `type`.
  * @param type A value of `string` or `Constructor` type of the `Types` indicates against which type the provided `value` is checked.
  * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this
  * check, and `payload` of the default `CallbackPayload` shape with the provided `type` and optional properties from the provided
  * `payload`, to handle them before the `result` return. By default, it uses `resultCallback()` function.
- * @param payload An optional `object` of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback`
- * function.
+ * @param payload An optional `object` of `CallbackPayload` that is assigned to the `payload` of the supplied `callback` function.
  * @returns The return value is a `boolean` indicating whether the provided `value` is a type from a given `type`.
  * @angularpackage
  */
 export const isType = <T extends Type, Payload extends object = object>(
   value: any,
   type: Types<T>,
-  callback: ResultCallback<T, typeof payload> = resultCallback,
+  callback: ResultCallback<any, CallbackPayload<Payload>> = resultCallback,
   payload?: CallbackPayload<Payload>
-): value is T => {
-  switch (type) {
-    // Primitives.
-    case 'bigint':
-    case 'boolean':
-    case 'number':
-    case 'null':
-    case 'string':
-    case 'symbol':
-    case 'undefined':
-      return isPrimitive(value, type, callback, payload);
-    // Function.
-    case 'function':
-      return isFunction(value, callback, payload);
-    // Object.
-    case 'object':
-      return isObject(value, callback, payload);
-    default:
-      return isNotNull(type) ? isInstance(value, type, callback, payload as any) : false;
-  }
-};
+): value is T =>
+  isStringType(type)
+  ? {
+      bigint: isBigInt,
+      boolean: isBooleanType,
+      function: isFunction,
+      number: isNumberType,
+      object: isObject,
+      null: isNull,
+      string: isStringType,
+      symbol: isSymbol,
+      undefined: isUndefined,
+    }[type as Primitives](value, callback, payload)
+  : isNotNull(type)
+  ? isInstance(value, type, callback, payload)
+  : false;

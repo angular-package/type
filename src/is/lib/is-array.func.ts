@@ -1,32 +1,28 @@
 // Function.
 import { resultCallback } from '../../lib/result-callback.func';
 import { typeOf } from '../../lib/type-of.func';
-// Interface.
-import { CallbackPayload } from '../../type/callback-payload.type';
 // Type.
+import { CallbackPayload } from '../../type/callback-payload.type';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Checks if any value is an object type, an instance of `Array` and the obtained type from its `Object.prototype` is equal to `'array'`.
- * The value is also checked by the `isArray()` method of `Array`.
- * @param value The `value` of any type to check.
+ * Checks if any value is the type obtained from its `Object.prototype` equal to `'array'` or an `object` type. The value is also checked
+ * by the `isArray()` method of `Array`.
+ * @param value The value of any type to check.
  * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this
  * check, and `payload` of the default `CallbackPayload` shape with optional properties from the provided `payload`, to handle them before
  * the `result` return. By default, it uses `resultCallback()` function.
- * @param payload An optional `object` of a generic type variable `Payload` that is assigned to the `payload` of the provided `callback`
- * function.
+ * @param payload An optional `object` of `CallbackPayload` that is assigned to the `payload` of the supplied `callback` function.
  * @returns The return value is a `boolean` indicating whether the provided `value` is an `Array`.
  * @angularpackage
  */
-export const isArray = <Type = any, Payload extends object = object>(
+export const isArray = <Type, Payload extends object = object>(
   value: any,
-  callback: ResultCallback<any, typeof payload> = resultCallback,
+  callback: ResultCallback<any, CallbackPayload<Payload>> = resultCallback,
   payload?: CallbackPayload<Payload>
 ): value is Array<Type> =>
   callback(
-    typeOf(value) === 'array' &&
-    Array.isArray(value) === true &&
-    value instanceof Array === true &&
-    typeof value === 'object',
+    (typeOf(value) === 'array' || typeof value === 'object') &&
+    Array.isArray(value),
     value,
-    { name: isArray.name, ...payload } as any
+    payload
   );
