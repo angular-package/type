@@ -5,11 +5,15 @@ import {
   Testing,
   TestingToBeMatchers,
 } from '@angular-package/testing';
+// Execute tests.
 import { tests } from '../../execute-tests';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.are.true.describe, tests.are.true.it);
+const testing = new Testing(
+  tests.are.bigint.describe,
+  tests.are.bigint.it
+);
 const toBe = new TestingToBeMatchers();
 /**
  * Tests.
@@ -21,11 +25,11 @@ testing.describe(areBigInt.name, () => {
     .it(`every()`, () => {
       areBigInt(1n, '2n', 3, 4n).every(
         (result, value, payload) => {
+          expect(value).toEqual([1n, '2n', 3, 4n]);
           toBe
             .false(result)
             .array(value)
-            .object(payload);
-          expect(payload?.name).toEqual(areBigInt.name);
+            .undefined(payload);
           return result;
         }
       );
@@ -33,12 +37,12 @@ testing.describe(areBigInt.name, () => {
     .it(`forEach()`, () => {
       areBigInt(1n, '2n', 3, 4n).forEach(
         (result, value, index, array, payload) => {
+          expect(value).toEqual(array[index]);
           toBe
             .boolean(result)
             .number(index)
             .array(array)
             .object(payload);
-          expect(payload?.name).toEqual(areBigInt.name);
           expect(payload?.age).toEqual(2);
         },
         { age: 2 }
@@ -47,11 +51,11 @@ testing.describe(areBigInt.name, () => {
     .it(`some()`, () => {
       areBigInt(1n, '2n', 3, 4n).some(
         (result, value, payload) => {
+          expect(value).toEqual([1n, '2n', 3, 4n]);
           toBe
             .true(result)
             .array(value)
-            .object(payload);
-          expect(payload?.name).toEqual(areBigInt.name);
+            .undefined(payload);
           return result;
         }
       );

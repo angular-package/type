@@ -4,53 +4,59 @@ import {
   Testing,
   TestingToBeMatchers,
 } from '@angular-package/testing';
+// Execute tests.
 import { tests } from '../../execute-tests';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.are.true.describe, tests.are.true.it);
+const testing = new Testing(
+  tests.are.regexp.describe,
+  tests.are.regexp.it
+);
 const toBe = new TestingToBeMatchers();
 /**
  * Tests.
  */
 testing.describe(areRegExp.name, () => {
+  const arr = [/^[]/, /^[]/, /^[]/, 3];
   testing
     // Defined.
     .it('is DEFINED', () => expect(areRegExp).toBeDefined())
     .it(`every()`, () => {
-      areRegExp(/^[]/, /^[]/, /^[]/, 3).every(
+      areRegExp(...arr).every(
         (result, value, payload) => {
+          expect(value).toEqual(arr);
           toBe
             .false(result)
             .array(value)
-            .object(payload);
-          expect(payload?.name).toEqual(areRegExp.name);
+            .undefined(payload);
           return result;
         }
       );
     })
     .it(`forEach()`, () => {
-      areRegExp(/^[]/, /^[]/, /^[]/, 3).forEach(
+      areRegExp(...arr).forEach(
         (result, value, index, array, payload) => {
+          expect(value).toEqual(array[index]);
           toBe
             .boolean(result)
             .number(index)
             .array(array)
             .object(payload);
-          expect(payload?.name).toEqual(areRegExp.name);
           expect(payload?.age).toEqual(2);
         },
         { age: 2 }
       );
     })
     .it(`some()`, () => {
-      areRegExp(/^[]/, /^[]/, /^[]/, 3).some(
+      areRegExp(...arr).some(
         (result, value, payload) => {
+          expect(result).toBeTrue();
+          expect(value).toEqual(arr);
           toBe
             .true(result)
             .array(value)
-            .object(payload);
-          expect(payload?.name).toEqual(areRegExp.name);
+            .undefined(payload);
           return result;
         }
       );

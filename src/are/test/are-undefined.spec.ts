@@ -6,53 +6,59 @@ import {
   Testing,
   TestingToBeMatchers,
 } from '@angular-package/testing';
+// Execute tests.
 import { tests } from '../../execute-tests';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.are.true.describe, tests.are.true.it);
+const testing = new Testing(
+  tests.are.undefined.describe,
+  tests.are.undefined.it
+);
 const toBe = new TestingToBeMatchers();
 /**
  * Tests.
  */
 testing.describe(areUndefined.name, () => {
+  const arr = [undefined, 1, 2, '3'];
   testing
     // Defined.
     .it('is DEFINED', () => expect(areUndefined).toBeDefined())
     .it(`every()`, () => {
-      areUndefined(undefined, 1, 2, '3').every(
+      areUndefined(...arr).every(
         (result, value, payload) => {
+          expect(value).toEqual(arr);
           toBe
             .false(result)
             .array(value)
-            .object(payload);
-          expect(payload?.name).toEqual(areUndefined.name);
+            .undefined(payload);
           return result;
         }
       );
     })
     .it(`forEach()`, () => {
-      areUndefined(undefined, 1, 2, '3').forEach(
+      areUndefined(...arr).forEach(
         (result, value, index, array, payload) => {
+          expect(value).toEqual(array[index]);
           toBe
             .boolean(result)
             .number(index)
             .array(array)
             .object(payload);
-          expect(payload?.name).toEqual(areUndefined.name);
           expect(payload?.age).toEqual(2);
         },
         { age: 2 }
       );
     })
     .it(`some()`, () => {
-      areUndefined(undefined, 1, 2, '3').some(
+      areUndefined(...arr).some(
         (result, value, payload) => {
+          expect(result).toBeTrue();
+          expect(value).toEqual(arr);
           toBe
             .true(result)
             .array(value)
-            .object(payload);
-          expect(payload?.name).toEqual(areUndefined.name);
+            .undefined(payload);
           return result;
         }
       );
