@@ -9,7 +9,7 @@ import { ForEachCallback } from '../../type/foreach-callback.type';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
  * Checks if the values are a `symbol` type by using `every()`, `forEach()` and `some()` methods of the returned object.
- * @param value A rest parameter of `any` type to check its elements against a `symbol` type.
+ * @param values A rest parameter of `any` type to check its elements against a `symbol` type.
  * @returns The return value is an `object` with `every()`, `some()` and `forEach()` as a methods of checking supplied values.
  * @angularpackage
  */

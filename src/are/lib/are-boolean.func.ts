@@ -10,7 +10,7 @@ import { ResultCallback } from '../../type/result-callback.type';
 /**
  * Checks if the values are a `boolean` type or an instance of `Boolean` by using `every()`, `forEach()` and `some()` methods of the
  * returned object.
- * @param value A rest parameter of `any` type to check its elements against a `boolean` type or an instance of `Boolean`.
+ * @param values A rest parameter of `any` type to check its elements against a `boolean` type or an instance of `Boolean`.
  * @returns The return value is an `object` with `every()`, `some()` and `forEach()` as a methods of checking supplied `values`.
  * @angularpackage
  */
