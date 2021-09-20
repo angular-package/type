@@ -1,12 +1,12 @@
-import { Testing, TestingToBeMatchers } from '@angular-package/testing';
+// Testing.
+import { Testing } from '@angular-package/testing';
+import { tests } from '../../execute-tests';
 // Function.
 import { recognizeValue } from '../src/recognize-value.func';
-
 /*
   Initialize testing.
  */
-const testing = new Testing(true, true);
-const toBe = new TestingToBeMatchers();
+const testing = new Testing(tests.recognize.recognizeValue.describe, tests.recognize.recognizeValue.it);
 
 class CustomClass {}
 const customClass = new CustomClass();
