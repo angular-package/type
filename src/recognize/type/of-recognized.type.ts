@@ -1,4 +1,5 @@
 export interface OfRecognized {
+  // Proxy?: boolean;
   Array?: boolean;
   ArrayBuffer?: boolean;
   Boolean?: boolean;
@@ -16,7 +17,6 @@ export interface OfRecognized {
   Number?: boolean;
   Object?: boolean;
   Promise?: boolean;
-  // Proxy?: boolean;
   RangeError?: boolean;
   ReferenceError?: boolean;
   RegExp?: boolean;
@@ -34,10 +34,26 @@ export interface OfRecognized {
   Uint8ClampedArray?: boolean;
   WeakMap?: boolean;
   WeakSet?: boolean;
-  typeOf: string;
+  // Array.isArray()
+  'Array.isArray'?: boolean;
+  // isClass()
+  isClass?: boolean;
+  // isFunction()
+  isFunction?: boolean;
+  // isFinite()
+  isFinite?: boolean;
+  // isInteger()
+  'Number.isInteger'?: boolean;
+  // isNaN()
+  isNaN?: boolean;
+  // Number.isNaN()
+  'Number.isNaN'?: boolean;
+  // Number.isFinite()
+  'Number.isFinite'?: boolean;
+  // typeOf()
+  typeOf?: string;
+  // operator typeof
   typeof?: string;
-  class?: boolean;
-  function?: boolean;
 
   [index: string]: boolean | string | undefined;
 }
