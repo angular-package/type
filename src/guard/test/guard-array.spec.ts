@@ -27,8 +27,8 @@ import { tests } from '../../execute-tests';
  * Initialize testing.
  */
 const testing = new Testing(
-  tests.is.array.describe,
-  tests.is.array.it
+  tests.guard.array.describe,
+  tests.guard.array.it
 );
 /**
  * Tests.
