@@ -1,7 +1,6 @@
-import { ResultCallback } from '../type/result-callback.type';
 /**
  * Default function to handle `callback`.
- * @param result A `boolean` type value from the result of the check.
- * @returns result A `boolean` type result from the check.
+ * @param result A value of `boolean` type of the result of the check.
+ * @returns The return value is a `boolean` of the result of the check.
  */
-export const resultCallback: ResultCallback = (result: boolean): boolean => result;
+export const resultCallback = (result: boolean): boolean => result;
