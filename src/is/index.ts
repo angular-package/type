@@ -20,10 +20,14 @@ export { isObject } from './lib/is-object.func';
 export { isObjectKey } from './lib/is-object-key.func';
 export { isObjectKeyIn } from './lib/is-object-key-in.func';
 export { isObjectKeys } from './lib/is-object-keys.func';
+export { isObjectKeysIn } from './lib/is-object-keys-in.func';
+export { isObjectSomeKeys } from './lib/is-object-some-keys.func';
 export { isPrimitive } from './lib/is-primitive.func';
 export { isRegExp } from './lib/is-regexp.func'; // From 4.2.0
 export { isString } from './lib/is-string.func';
 export { isStringLength } from './lib/is-string-length.func'; // From 4.2.0
+export { isStringIncludes } from './lib/is-string-includes.func';
+export { isStringIncludesSome } from './lib/is-string-includes-some.func';
 export { isStringObject } from './lib/is-string-object.func';
 export { isStringType } from './lib/is-string-type.func';
 export { isSymbol } from './lib/is-symbol.func';
