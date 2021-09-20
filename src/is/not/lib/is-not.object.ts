@@ -10,7 +10,7 @@ import { isNotUndefined } from './is-not-undefined.func';
 /**
  * An `object` of `isNot` prefixed functions.
  */
-export const isNot: IsNot = {
+export const isNot: IsNot = Object.freeze({
   // TODO array: isArray,
   // TODO bigInt: isBigInt,
   boolean: isNotBoolean,
@@ -24,4 +24,4 @@ export const isNot: IsNot = {
   // TODO symbol: isSymbol,
   // TODO type: isType,
   undefined: isNotUndefined
-};
+});
