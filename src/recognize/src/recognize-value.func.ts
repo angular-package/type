@@ -7,8 +7,7 @@ import { OfRecognized } from '../type/of-recognized.type';
 // Const.
 import { RECOGNIZE_INSTANCES } from './recognize-instances.const';
 /**
- * Gets recognized types and instances of given `value` by using `instanceof`, `typeof` operator, and `typeOf()`, `isClass()`,
- * `isFunction()` functions.
+ * Gets recognized types and instances of given `value`.
  * @param value The value of any type to recognize.
  * @param onlyTrue Determines whether or not show only recognized as `true`.
  * @param instances An optional array of objects to check by using `instanceof` operator.
@@ -21,11 +20,23 @@ export const recognizeValue = (
 ): OfRecognized => {
   // Recognize types.
   const ofRecognized: OfRecognized = {
-    class: is.class(value),
-    function: is.function(value),
+    'Array.isArray': Array.isArray(value),
+    isClass: is.class(value),
+    isFunction: is.function(value),
+    'Number.isInteger': Number.isInteger(value),
+    'Number.isFinite': Number.isFinite(value),
+    'Number.isNaN': Number.isNaN(value),
+    'Number.isSafeInteger': Number.isSafeInteger(value),
     typeOf: typeOf(value),
     typeof: typeof value,
   };
+
+  try {
+    Object.assign(ofRecognized, { isFinite: isFinite(value) });
+  } catch (e) {}
+  try {
+    Object.assign(ofRecognized, { isNaN: isNaN(value) });
+  } catch (e) {}
 
   // Recognize instances.
   RECOGNIZE_INSTANCES.concat(instances as any).forEach((instance) => (
