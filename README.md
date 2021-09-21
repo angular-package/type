@@ -285,7 +285,7 @@ import {
 
 ### Recognize value
 
-To determine any value that is to know what type and instance the value can be, and for this purpose [`recognizeValue()`](#recognizevalue) function was created, and it's not enough because it must be known what are the threats of using operators, functions, and methods described below.
+To determine any value is to know what type and instance the value can be, when and what function or operators to use, and for this purpose [`recognizeValue()`](#recognizevalue) function was created, and it's not enough because it must be known what are the risks of using them.
 
 #### `recognizeValue()`
 
@@ -472,7 +472,7 @@ recognizeValue(new String(firstName));
 
 ### Precise check
 
-To precisely check the type of any value it needs to check the `Object.prototype` class of the value and [`typeOf()`](#typeof) is an ideal solution for this.  
+To precisely check the type of any value it needs to check the `Object.prototype` class of that value and [`typeOf()`](#typeof) is perfect for this.  
 Read more:
 
 * [Using `toString()` to detect object class.][js-tostring]
@@ -480,7 +480,7 @@ Read more:
 * [The Best Way to Type Check in Vanilla JS.](https://javascript.plainenglish.io/the-best-way-to-type-check-in-vanilla-js-55197b4f45ec)
 * [Using JavaScript Symbol.toStringTag for objects types description.](https://dev.to/cherif_b/using-javascript-tostringtag-for-objects-types-description-15hc)
 
-**Mozilla.org** documentation describes this way of checking as unreliable. The problem and at the same time some kind of solution with this approach of checking is, it's possible to change class name of the object.
+**Mozilla.org** documentation describes this way of checking as unreliable. The problem and at the same time some kind of solution with this approach of checking is, it's possible to change the class name of the object.
 
 > *"Using `toString()` in this way is unreliable; objects can change the behavior of `Object.prototype.toString()` by defining a `Symbol.toStringTag` property, leading to unexpected results."* - mozilla.org
 
@@ -514,7 +514,7 @@ Object.assign(myDate, {
 // Instead of `Date`, there is `Person`.
 Object.prototype.toString.call(myDate); // [object Person]
 
-// This is a solution for just an object.
+// This is a solution for just an object !
 const person = {
   firstName: 'My name',
   get [Symbol.toStringTag](): string {
@@ -522,8 +522,11 @@ const person = {
   }
 };
 
+// Now the object can be found by using.
+typeOf(person) === 'person';
+
 /*
-  RegExp as Date.
+  Example of the `RegExp` that is treated as `Date`.
 */
 const myRegExp = new RegExp(/^/);
 Object.prototype.toString.call(myRegExp); // [object RegExp]
@@ -537,10 +540,18 @@ Object.assign(myRegExp, {
 
 // Instead of `RegExp`, there is `Date`.
 Object.prototype.toString.call(myRegExp); // [object Date]
-myRegExp instanceof RegExp // Confirms, it's a regexp.
+myRegExp instanceof RegExp // Confirms, it's a `RegExp` not a `Date`.
 ```
 
+**Summary:**
+
+Because of the simplicity of manipulating objects, the [`typeOf()`](#typeof) function cannot be used without other ways of confirming the type, like e.g. with the help [`instanceof`][js-instanceof] operator. On the other hand, the [`instanceof`][js-instanceof] operator may result in unexpected results what can be read in **Mozilla.org** documentation [here][instanceof_and_multiple] in the section **instanceof and multiple context (e.g. frames or windows)**:
+
+> *Different scopes have different execution environments. This means that they have different built-ins (different global object, different constructors, etc.). This may result in unexpected results. For instance, `[] instanceof window.frames[0].Array` will return `false`, because `Array.prototype !== ``window.frames[0].Array.prototype` and arrays inherit from the former.*
+
 [&uArr; Up](#precise-check) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#check)
+
+[instanceof_and_multiple]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof#instanceof_and_multiple_context_e.g._frames_or_windows
 
 <br>
 
