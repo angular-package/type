@@ -726,7 +726,7 @@ import { areBigInt } from '@angular-package/type';
 areBigInt(1n, 22n).every((result, value, payload) => {
   result // true
   value /// [1n, 22n]
-  payload // { "name": "areBigInt" }
+  payload // undefined
   return result;
 }); // true, boolean
 ```
@@ -781,7 +781,7 @@ areBigInt(1n, 2, '3').forEach(
     value // 1n, 2, 3
     index // 0, 1, 2
     array // [ 1n, 2, 3 ]
-    payload // { "name": "areBigInt", "age": 2 }
+    payload // undefined
     return result;
   },
   { age: 2 }
@@ -834,7 +834,7 @@ import { areBigInt } from '@angular-package/type';
 areBigInt(1n, 2, '3').some((result, value, payload) => {
   result // true
   value // [1n, 2, '3']
-  payload // { name: 'areBigInt' }
+  payload // undefined
   return result;
 });
 ```
@@ -907,7 +907,7 @@ import { areBoolean } from '@angular-package/type';
 areBoolean(1, true, null, new Boolean(3)).every((result, value, payload) => {
   result // false
   value // [1, true, null, Boolean]
-  payload // { name: 'areBoolean' }
+  payload // undefined
   return result;
 }); // false, boolean
 ```
@@ -962,7 +962,7 @@ areBoolean(1, true, null, new Boolean(3)).forEach(
     value // 1, true, null, Boolean
     index // 0, 1, 2, 3
     array // [ 1, true, null, Boolean ]
-    payload // { name: 'areBoolean', age: 2 }
+    payload // { age: 2 }
   },
   { age: 2 }
 );
@@ -1014,7 +1014,7 @@ import { areBoolean } from '@angular-package/type';
 areBoolean(1, true, null, new Boolean(3)).some((result, value, payload) => {
   result // true
   value // [1, true, null, Boolean]
-  payload // { name: 'areBoolean' }
+  payload // undefined
   return result;
 }); // true, boolean
 ```
@@ -1089,7 +1089,7 @@ import { areDate } from '@angular-package/type';
 areDate(new Date(), new Date('invalid date')).every((result, value, payload) => {
   result // false
   value // [Sat Sep 11 2021 21:36:43 GMT+0200 (Central European Summer Time), Invalid Date]
-  payload // { name: 'areDate' }
+  payload // undefined
   return result;
 }); // false, boolean
 ```
@@ -1144,7 +1144,7 @@ areDate(new Date(), new Date('invalid date')).forEach(
     value // Sat Sep 11 2021 21:38:19 GMT+0200 (Central European Summer Time, Invalid Date
     index // 0, 1
     array // [ Sat Sep 11 2021 21:38:19 GMT+0200 (Central European Summer Time), Invalid Date ]
-    payload // { name: 'areDate', age: 2 }
+    payload // { age: 2 }
   },
   { age: 2 }
 );
@@ -1196,7 +1196,7 @@ import { areDate } from '@angular-package/type';
 areDate(new Date(), new Date('invalid date')).some((result, value, payload) => {
   result // true
   value // [Sat Sep 11 2021 21:37:43 GMT+0200 (Central European Summer Time), Invalid Date]
-  payload // { name: 'areDate' }
+  payload // undefined
   return result;
 }); // true, boolean
 ```
@@ -1273,7 +1273,7 @@ let age;
 areDefined('1', 2, null, undefined, age).every((result, value, payload) => {
   result // false
   value // [ '1', 2, null, undefined, undefined ]
-  payload // { name: 'areDefined' }
+  payload // undefined
   return result;
 }); // false, boolean
 ```
@@ -1330,7 +1330,7 @@ areDefined('1', 2, null, undefined, age).forEach(
     value // '1', 2, null, undefined, undefined
     index // 0, 1, 2, 3, 4
     array // [ '1', 2, null, undefined, undefined ]
-    payload // { name: 'areDefined', age: 2 }
+    payload // { age: 2 }
   },
   { age: 2 }
 );
@@ -1384,7 +1384,7 @@ let age;
 areDefined('1', 2, null, undefined, age).some((result, value, payload) => {
   result // true
   value // [ '1', 2, null, undefined, undefined ]
-  payload // { name: 'areDefined' }
+  payload // undefined
   return result;
 }); // true, boolean
 ```
@@ -1459,7 +1459,7 @@ import { areFalse } from '@angular-package/type';
 areFalse(true, null, false, new Boolean(false)).every((result, value, payload) => {
   result // false
   value // [ true, null, false, Boolean ]
-  payload // { name: 'areFalse' }
+  payload // undefined
   return result;
 }); // false, boolean
 ```
@@ -1514,7 +1514,7 @@ areFalse(true, null, false, new Boolean(false)).forEach(
     value // true, null, false, Boolean
     index // 0, 1, 2, 3
     array // [ true, null, false, Boolean ]
-    payload // { name: 'areFalse', age: 2 }
+    payload // { age: 2 }
   },
   { age: 2 }
 );
@@ -1566,7 +1566,7 @@ import { areFalse } from '@angular-package/type';
 areFalse(true, null, false, new Boolean(false)).some((result, value, payload) => {
   result // true
   value // [ true, null, false, Boolean ]
-  payload // { name: 'areFalse' }
+  payload // undefined
   return result;
 }); // true, boolean
 ```
@@ -1641,7 +1641,7 @@ import { areNull } from '@angular-package/type';
 areNull(null, undefined, false, !!null).every((result, value, payload) => {
   result // false
   value // [ null, undefined, false, false ]
-  payload // { name: 'areNull' }
+  payload // undefined
   return result;
 }); // false, boolean
 ```
@@ -1696,7 +1696,7 @@ areNull(true, null, false, new Boolean(false)).forEach(
     value // null, undefined, false, false
     index // 0, 1, 2, 3
     array // [ null, undefined, false, false ]
-    payload // { name: 'areNull', age: 2 }
+    payload // { age: 2 }
   },
   { age: 2 }
 );
@@ -1748,7 +1748,7 @@ import { areNull } from '@angular-package/type';
 areNull(true, null, false, new Boolean(false)).some((result, value, payload) => {
   result // true
   value // [ null, undefined, false, false ]
-  payload // { name: 'areNull' }
+  payload // undefined
   return result;
 }); // true, boolean
 ```
@@ -1823,7 +1823,7 @@ import { areNumber } from '@angular-package/type';
 areNumber(1, new Number(2), Number(3), '4').every((result, value, payload) => {
   result // false
   value // [ 1, Number, 3, '4' ]
-  payload // { name: 'areNumber' }
+  payload // undefined
   return result;
 }); // false, boolean
 ```
@@ -1878,7 +1878,7 @@ areNumber(1, new Number(2), Number(3), '4').forEach(
     value // 1, Number, 3, '4'
     index // 0, 1, 2, 3
     array // [ 1, Number, 3, '4' ]
-    payload // { name: 'areNumber', age: 2 }
+    payload // { age: 2 }
   },
   { age: 2 }
 );
@@ -1930,7 +1930,7 @@ import { areNumber } from '@angular-package/type';
 areNumber(1, new Number(2), Number(3), '4').some((result, value, payload) => {
   result // true
   value // [ 1, Number, 3, '4' ]
-  payload // { name: 'areNumber' }
+  payload // undefined
   return result;
 }); // true, boolean
 ```
@@ -2005,7 +2005,7 @@ import { areRegExp } from '@angular-package/type';
 areRegExp(/^[]/, /^[]/, /^[]/, 3).every((result, value, payload) => {
   result // false
   value // [/^[]/, /^[]/, /^[]/, 3]
-  payload // { name: 'areRegExp }
+  payload // undefined
   return result;
 }); // false, boolean
 ```
@@ -2060,7 +2060,7 @@ areRegExp(/^[]/, /^[]/, /^[]/, 3).forEach(
     value // /^[]/, /^[]/, /^[]/, 4
     index // 0, 1, 2, 3
     array // [ /^[]/, /^[]/, /^[]/, 3 ]
-    payload // { name: 'areRegExp', age: 2 }
+    payload // { age: 2 }
     if (result === true) {
       // Do something.
     }
@@ -2116,7 +2116,7 @@ import { areRegExp } from '@angular-package/type';
 areRegExp(/^[]/, /^[]/, /^[]/, 3).some((result, value, payload) => {
   result // true
   value // [/^[]/, /^[]/, /^[]/, 3]
-  payload // { name: 'areRegExp }
+  payload // undefined
   return result;
 });
 ```
@@ -2191,7 +2191,7 @@ import { areString } from '@angular-package/type';
 areString(1, '2', '3').every((result, value, payload) => {
   result // true
   value // [1, '2', '3']
-  payload // { name: 'areString' }
+  payload // undefined
   return result;
 }); // false, boolean
 ```
@@ -2246,7 +2246,7 @@ areString(1, '2', '3', false).forEach(
     value // 1, '2', '3', false
     index // 0, 1, 2, 3
     array // [ 1, '2', '3', false ]
-    payload // { name: 'areString', age: 2 }
+    payload // { age: 2 }
   },
   { age: 2 }
 );
@@ -2298,7 +2298,7 @@ import { areString } from '@angular-package/type';
 areString(1, '2', '3').some((result, value, payload) => {
   result // true
   value // [1, '2', '3']
-  payload // { name: 'areString' }
+  payload // undefined
   return result;
 }); // true, boolean
 ```
@@ -2373,7 +2373,7 @@ import { areSymbol } from '@angular-package/type';
 areSymbol(Symbol(1), 2, Symbol(3), 4).every((result, value, payload) => {
   result // true
   value // [ Symbol(1), 2, Symbol(3), 4 ]
-  payload // { name: areSymbol }
+  payload // undefined
   return result;
 }); // false, boolean
 ```
@@ -2428,7 +2428,7 @@ areSymbol(Symbol(1), 2, Symbol(3), 4).forEach(
     value // Symbol(1), 2, Symbol(3), 4
     index // 0, 1, 2, 3
     array // [ Symbol(1), 2, Symbol(3), 4 ]
-    payload //  { name: 'areSymbol', age: 2 }
+    payload //  { age: 2 }
 
     if (result === true) {
       // if undefined do something.
@@ -2484,7 +2484,7 @@ import { areSymbol } from '@angular-package/type';
 areSymbol(Symbol(1), 2, Symbol(3), 4).some((result, value, payload) => {
   result // true
   value // [ Symbol(1), 2, Symbol(3), 4 ]
-  payload // { name: areSymbol }
+  payload // undefined
   return result;
 }); // true, boolean
 ```
@@ -2561,7 +2561,7 @@ const deleteElements = [true, false, false,  new Boolean(false)];
 areTrue(...deleteElements).every((result, value, payload) => {
   result // false
   value // [ true, false, false, Boolean ]
-  payload // { name: areTrue }
+  payload // undefined
   return result;
 }); // false, boolean
 ```
@@ -2618,7 +2618,7 @@ areTrue(...deleteElements).forEach(
     value // true, false, false, Boolean
     index // 0, 1, 2, 3
     array // [ true, false, false, Boolean ]
-    payload //  { "name": "areTrue", "age": 2 }
+    payload //  { "age": 2 }
 
     if (result === true) {
       // if undefined do something.
@@ -2676,7 +2676,7 @@ const deleteElements = [true, false, false,  new Boolean(false)];
 areTrue(...deleteElements).some((result, value, payload) => {
   result // true
   value // [ true, false, false, Boolean ]
-  payload // { name: areTrue }
+  payload // udefined
   return result;
 }); // true, boolean
 ```
@@ -2751,7 +2751,7 @@ import { areUndefined } from '@angular-package/type';
 areUndefined(undefined, 2, 3, new String('4')).every((result, value, payload) => {
   result // false
   value // [ undefined, 2, 3, String]
-  payload // { name: "areUndefined  }
+  payload // undefined
   return result;
 }); // false, boolean
 ```
@@ -2805,7 +2805,7 @@ areUndefined(undefined, 1, 2, '3').forEach(
     result // true, false, false, false
     value // undefined, 1, 2, '3'
     index // 0, 1, 2, 3
-    payload //  { "name": 'areUndefined', age: 2 }
+    payload //  { age: 2 }
     array // [ undefined, 1, 2, '3' ]
 
     if (result === true) {
@@ -2862,7 +2862,7 @@ import { areUndefined } from '@angular-package/type';
 areUndefined(undefined, 2, 3, new String('4')).some((result, value, payload) => {
   result // false
   value // [ undefined, 2, 3, String]
-  payload // { name: "areUndefined  }
+  payload // undefined
   return result;
 }); // true, boolean
 ```
