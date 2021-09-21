@@ -1,9 +1,12 @@
+// Function.
+import { isStringLength } from '../lib/is-string-length.func';
 // Testing.
 import {
   // Main.
   Testing,
 
   // Constant.
+  TESTING_ARRAY_STRING,
   TESTING_BIGINT,
   TESTING_CLASS,
   TESTING_DATE,
@@ -27,12 +30,13 @@ import {
 } from '@angular-package/testing';
 // Execute tests.
 import { tests } from '../../execute-tests';
-// Function.
-import { isStringLength } from '../lib/is-string-length.func';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.is.stringLength.describe, tests.is.stringLength.it);
+const testing = new Testing(
+  tests.is.stringLength.describe,
+  tests.is.stringLength.it
+);
 /**
  * Tests.
  */
@@ -58,6 +62,8 @@ testing.describe(isStringLength.name, () => {
         })
         // ... arrays.
         .describe(`array`, () => {
+          testing
+            .it(`TESTING_ARRAY_STRING`, () => expect(isStringLength(TESTING_ARRAY_STRING, { min, max })).toBeFalse())
         })
         // ... Date.
         .describe(`date`, () => {
@@ -67,13 +73,13 @@ testing.describe(isStringLength.name, () => {
         // ... function.
         .describe(`function`, () => {
           testing
-            .it(`FUNCTION`, () => expect(isStringLength(TESTING_FUNCTION, { min, max })).toBeFalse())
-            .it(`Class`, () => expect(isStringLength(TestingClass, { min, max })).toBeFalse());
+            .it(`FUNCTION ${min} ${max}`, () => expect(isStringLength(TESTING_FUNCTION, { min, max })).toBeFalse())
+            .it(`TestingClass ${min} ${max}`, () => expect(isStringLength(TestingClass, { min, max })).toBeFalse());
         })
         // ... objects.
         .describe('object', () => {
           testing
-            .it(`CLASS`, () => expect(isStringLength(TESTING_CLASS, { min, max })).toBeFalse())
+            .it(`TESTING_CLASS`, () => expect(isStringLength(TESTING_CLASS, { min, max })).toBeFalse())
             .it(`TESTING_OBJECT`, () => expect(isStringLength(TESTING_OBJECT, { min, max })).toBeFalse());
         })
         // ... primitives.
@@ -117,8 +123,8 @@ testing.describe(isStringLength.name, () => {
             .describe(`object`, () => {
               testing
                 // BigInt
-                .describe(`BigInt`, () =>
-                  testing.it(`${TESTING_BIGINT}`, () => expect(isStringLength(TESTING_BIGINT, {min, max})).toBeFalse()))
+                .describe(`BigInt constructor`, () =>
+                  testing.it(`${TESTING_BIGINT}`, () => expect(isStringLength(BigInt(1n), {min, max})).toBeFalse()))
                 // Boolean
                 .describe(`Boolean`, () => {
                   testing

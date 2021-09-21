@@ -1,3 +1,5 @@
+// Function.
+import { isObjectKey } from '../lib/is-object-key.func';
 // Testing.
 import {
   // Main.
@@ -25,12 +27,13 @@ import {
   TestingClass,
 } from '@angular-package/testing';
 import { tests } from '../../execute-tests';
-// Function.
-import { isObjectKey } from '../lib/is-object-key.func';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.is.objectKey.describe, tests.is.objectKey.it);
+const testing = new Testing(
+  tests.is.objectKey.describe,
+  tests.is.objectKey.it
+);
 /**
  * Tests.
  */
@@ -55,38 +58,32 @@ testing.describe(isObjectKey.name , () => {
         // ... instance.
         .describe(`instance`, () => {
           testing
-            .describe(`CLASS`, () => {
+            .describe(`TESTING_CLASS`, () => {
               testing
                 // number.
                 .it('has number key', () => {
                   expect(isObjectKey(TESTING_CLASS, 1030405027)).toBeTrue();
                   expect(isObjectKey(TESTING_CLASS, 5)).toBeTrue();
-                  // expect(isObjectKey(TESTING_CLASS, [5, 1030405027])).toBeTrue();
                 })
                 // It doesn't find getter number
                 .it('has not find getter number', () => expect(isObjectKey(TESTING_CLASS, TESTING_NUMBER)).toBeFalse())
                 // string.
                 .it('has string key', () => {
                   expect(isObjectKey(TESTING_CLASS, 'surname')).toBeTrue();
-                  // expect(isObjectKey(TESTING_CLASS, ['firstName', 'surname'])).toBeTrue();
                 })
                 // symbol.
                 .it('has not find getter symbol key', () => {
                   // It does not find getter symbol key in class
                   expect(isObjectKey(TESTING_CLASS, TESTING_SYMBOL_NUMBER)).toBeFalse();
                   expect(isObjectKey(TESTING_CLASS, TESTING_SYMBOL_STRING)).toBeFalse();
-                  // expect(isObjectKey(TESTING_CLASS, [TESTING_SYMBOL_NUMBER, TESTING_SYMBOL_STRING])).toBeFalse();
-                })
-
-                // mixed.
-                // .it('has string and number key', () => expect(isObjectKey(TESTING_CLASS, [1030405027, 'firstName', 'surname'])).toBeTrue());
+                });
             });
         })
         // ... function.
         .describe(`function`, () => {
           testing
-            .it(`FUNCTION`, () => expect(isObjectKey(TESTING_FUNCTION, 'function')).toBeFalse())
-            .it(`CLASS`, () => expect(isObjectKey(TestingClass, 'function')).toBeFalse());
+            .it(`TESTING_FUNCTION`, () => expect(isObjectKey(TESTING_FUNCTION, 'function')).toBeFalse())
+            .it(`TESTING_CLASS`, () => expect(isObjectKey(TestingClass, 'function')).toBeFalse());
         })
         // ... objects.
         .describe('object', () => {
@@ -98,20 +95,17 @@ testing.describe(isObjectKey.name , () => {
                   expect(isObjectKey(TESTING_OBJECT, 1030405027)).toBeTrue();
                   expect(isObjectKey(TESTING_OBJECT, 5)).toBeTrue();
                   expect(isObjectKey(TESTING_OBJECT, TESTING_NUMBER)).toBeTrue(); // It doesn't find getter
-                  // expect(isObjectKey(TESTING_OBJECT, [5, 1030405027])).toBeTrue();
                 })
                 // string.
                 .it('has string key', () => {
                   expect(isObjectKey(TESTING_OBJECT, 'key as string')).toBeTrue();
                   expect(isObjectKey(TESTING_OBJECT, 'x')).toBeTrue();
                   expect(isObjectKey(TESTING_OBJECT, TESTING_STRING)).toBeTrue();
-                  // expect(isObjectKey(TESTING_OBJECT, ['key as string', 'x', TESTING_STRING])).toBeTrue();
                 })
                 // symbol.
                 .it('has symbol key', () => {
                   expect(isObjectKey(TESTING_OBJECT, TESTING_SYMBOL_NUMBER)).toBeTrue();
                   expect(isObjectKey(TESTING_OBJECT, TESTING_SYMBOL_STRING)).toBeTrue();
-                  // expect(isObjectKey(TESTING_OBJECT, [TESTING_SYMBOL_NUMBER, TESTING_SYMBOL_STRING])).toBeTrue();
                 });
             });
         })

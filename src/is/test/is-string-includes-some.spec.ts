@@ -1,5 +1,5 @@
 // Function.
-import { isStringIncludes } from '../lib/is-string-includes.func';
+import { isStringIncludesSome } from '../lib/is-string-includes-some.func';
 // Testing.
 import {
   // Main.
@@ -33,13 +33,13 @@ import { tests } from '../../execute-tests';
  * Initialize testing.
  */
 const testing = new Testing(
-  tests.is.stringIncludes.describe,
-  tests.is.stringIncludes.it
+  tests.is.stringIncludesSome.describe,
+  tests.is.stringIncludesSome.it
 );
 /**
  * Tests.
  */
-testing.describe(isStringIncludes.name, () => {
+testing.describe(isStringIncludesSome.name, () => {
   const TESTING_STRING_LONG = `Lorem Ipsum is simply dummy text of the printing and typesetting industry.
   Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
   when an unknown printer took a galley of type and scrambled it to make a type specimen book.
@@ -52,13 +52,13 @@ testing.describe(isStringIncludes.name, () => {
 
   testing
     // Defined.
-    .it('is DEFINED', () => expect(isStringIncludes).toBeDefined())
+    .it('is DEFINED', () => expect(isStringIncludesSome).toBeDefined())
 
     // Checks ...
     .describe(`checks`, () => {
       testing
         .it('callback', () => {
-          isStringIncludes(TESTING_STRING, ['Company'], (result, value, payload) => {
+          isStringIncludesSome(TESTING_STRING, ['Company'], (result, value, payload) => {
             expect(result).toBeTrue();
             if (payload) {
               expect(value).toEqual(TESTING_STRING);
@@ -69,48 +69,51 @@ testing.describe(isStringIncludes.name, () => {
         // ... function.
         .describe(`function`, () => {
           testing
-            .it(`TESTING_FUNCTION`, () => expect(isStringIncludes(TESTING_FUNCTION, [])).toBeFalse())
-            .it(`TestingClass`, () => expect(isStringIncludes(TestingClass, [])).toBeFalse());
+            .it(`TESTING_FUNCTION`, () => expect(isStringIncludesSome(TESTING_FUNCTION, ['1', '2', '3'])).toBeFalse())
+            .it(`TestingClass`, () => expect(isStringIncludesSome(TestingClass, [TESTING_STRING, '!@#$%^&*()', '3'])).toBeFalse());
         })
         // ... objects.
         .describe('object', () => {
           testing
-            .it(`TESTING_CLASS`, () => expect(isStringIncludes(TESTING_CLASS, [])).toBeFalse())
-            .it(`TESTING_OBJECT`, () => expect(isStringIncludes(TESTING_OBJECT, [])).toBeFalse());
+            .it(`TESTING_CLASS`, () => expect(isStringIncludesSome(TESTING_CLASS, [TESTING_STRING, '!@#$%^&*()', '3'])).toBeFalse())
+            .it(`TESTING_OBJECT`, () => expect(isStringIncludesSome(TESTING_OBJECT, [TESTING_STRING, '!@#$%^&*()', '3'])).toBeFalse());
         })
         // ... primitives.
         .describe(`primitive`, () => {
           testing
             // bigint
-            .describe(`bigint`, () => testing.it(`${TESTING_BIGINT}`, () => expect(isStringIncludes(TESTING_BIGINT, [])).toBeFalse()))
+            .describe(`bigint`, () =>
+              testing.it(`${TESTING_BIGINT}`, () =>
+                  expect(isStringIncludesSome(TESTING_BIGINT, [TESTING_STRING, '!@#$%^&*()', '3'])).toBeFalse()))
             // boolean
             .describe(`boolean`, () => {
               testing
-                .it(`${TESTING_TRUE}`, () => expect(isStringIncludes(TESTING_TRUE, [])).toBeFalse())
-                .it(`${TESTING_FALSE}`, () => expect(isStringIncludes(TESTING_FALSE, [])).toBeFalse());
+                .it(`${TESTING_TRUE}`, () => expect(isStringIncludesSome(TESTING_TRUE, [TESTING_STRING, '!@#$%^&*()', '3'])).toBeFalse())
+                .it(`${TESTING_FALSE}`, () => expect(isStringIncludesSome(TESTING_FALSE, [TESTING_STRING, '!@#$%^&*()', '3'])).toBeFalse());
             })
             // null
-            .it(`${TESTING_NULL}`, () => expect(isStringIncludes(TESTING_NULL, [])).toBeFalse())
+            .it(`${TESTING_NULL}`, () => expect(isStringIncludesSome(TESTING_NULL, [TESTING_STRING, '!@#$%^&*()', '3'])).toBeFalse())
             // number
             .describe(`number`, () => {
               testing
-                .it(`${TESTING_NUMBER}`, () => expect(isStringIncludes(TESTING_NUMBER, [])).toBeFalse())
-                .it(`Number(${TESTING_NUMBER})`, () => expect(isStringIncludes(TESTING_NUMBER_INSTANCE, [])).toBeFalse());
+                .it(`${TESTING_NUMBER}`, () =>
+                  expect(isStringIncludesSome(TESTING_NUMBER, [TESTING_STRING, '!@#$%^&*()', '3'])).toBeFalse())
+                .it(`Number(${TESTING_NUMBER})`, () =>
+                  expect(isStringIncludesSome(TESTING_NUMBER_INSTANCE, [TESTING_STRING, '!@#$%^&*()', '3'])).toBeFalse());
             })
             // string
             .describe(`string`, () => {
               testing
-                .it(`${TESTING_STRING}`, () => {
-                  expect(isStringIncludes(TESTING_STRING, ['Company'])).toBeTrue();
-                  expect(isStringIncludes(TESTING_STRING, [TESTING_STRING, '!@#$%^&*()'])).toBeTrue();
+                .it(`TESTING_STRING, TESTING_STRING_LONG`, () => {
+                  expect(isStringIncludesSome(TESTING_STRING, [TESTING_STRING, '!@#$%^&*()', '3'])).toBeTrue();
                     // No word exists.
-                  expect(isStringIncludes(TESTING_STRING_LONG, [
+                  expect(isStringIncludesSome(TESTING_STRING_LONG, [
                     'no text',
                     'no text is here'
                   ])).toBeFalse();
 
                   // Every word exists.
-                  expect(isStringIncludes(TESTING_STRING_LONG, [
+                  expect(isStringIncludesSome(TESTING_STRING_LONG, [
                     'Lorem',
                     'unchanged',
                     'versions',
@@ -118,57 +121,54 @@ testing.describe(isStringIncludes.name, () => {
                   ])).toBeTrue();
 
                   // Some word exists.
-                  expect(isStringIncludes(TESTING_STRING_LONG, [
+                  expect(isStringIncludesSome(TESTING_STRING_LONG, [
                     'Lorem',
                     'unchanged',
                     'versions',
                     'only',
                     'no text is here'
-                  ])).toBeFalse();
+                  ])).toBeTrue();
                 })
                 .it(`String(${TESTING_STRING})`, () =>
-                  expect(isStringIncludes(TESTING_STRING_CONSTRUCTOR, [TESTING_STRING, '!@#$%^&*()'])).toBeTrue());
+                  expect(isStringIncludesSome(TESTING_STRING_CONSTRUCTOR, [TESTING_STRING, '!@#$%^&*()', '3'])).toBeTrue());
             })
             // symbol
             .describe(`symbol`, () => {
               testing
-                .it(`Symbol(${TESTING_NUMBER})`, () =>
-                  expect(isStringIncludes(TESTING_SYMBOL_NUMBER, ['1', '2', '123123'])).toBeFalse())
-                .it(`Symbol(${TESTING_STRING})`, () =>
-                  expect(isStringIncludes(TESTING_SYMBOL_STRING, ['1', '2', '123123'])).toBeFalse());
+                .it(`Symbol(${TESTING_NUMBER})`, () => expect(isStringIncludesSome(TESTING_SYMBOL_NUMBER, [])).toBeFalse())
+                .it(`Symbol(${TESTING_STRING})`, () => expect(isStringIncludesSome(TESTING_SYMBOL_STRING, [])).toBeFalse());
             })
             // undefined
-            .it(`${TESTING_UNDEFINED}`, () => expect(isStringIncludes(TESTING_UNDEFINED, [ '1', '2', '123123' ])).toBeFalse())
+            .it(`${TESTING_UNDEFINED}`, () =>
+              expect(isStringIncludesSome(TESTING_UNDEFINED, [TESTING_STRING, '!@#$%^&*()', '3'])).toBeFalse())
             // ... object.
             .describe(`object`, () => {
               testing
-                // BigInt
-                .describe(`BigInt`, () =>
-                  testing.it(`${TESTING_BIGINT}`, () => expect(isStringIncludes(TESTING_BIGINT, [ '1', '2', '123123' ])).toBeFalse()))
                 // Boolean
                 .describe(`Boolean`, () => {
                   testing
                     .it(`${TESTING_TRUE_INSTANCE}`, () =>
-                      expect(isStringIncludes(TESTING_TRUE_INSTANCE, [ '1', '2', '123123' ])).toBeFalse())
+                      expect(isStringIncludesSome(TESTING_TRUE_INSTANCE, [TESTING_STRING, '!@#$%^&*()', '3'])).toBeFalse())
                     .it(`${TESTING_FALSE_INSTANCE}`, () =>
-                      expect(isStringIncludes(TESTING_FALSE_INSTANCE, [])).toBeFalse());
+                      expect(isStringIncludesSome(TESTING_FALSE_INSTANCE, [TESTING_STRING, '!@#$%^&*()', '3'])).toBeFalse());
                 })
                 // Number
                 .describe(`Number`, () =>
-                  testing.it(`new Number(${TESTING_NUMBER})`, () => expect(isStringIncludes(TESTING_NUMBER_INSTANCE, [])).toBeFalse()))
+                  testing.it(`new Number(${TESTING_NUMBER})`, () =>
+                    expect(isStringIncludesSome(TESTING_NUMBER_INSTANCE, [TESTING_STRING, '!@#$%^&*()', '3'])).toBeFalse()))
                 // String
                 .describe(`String`, () =>
                   testing.it(`new String(${TESTING_STRING})`, () => {
-                    expect(isStringIncludes(TESTING_STRING_INSTANCE, [])).toBeTrue();
+                    expect(isStringIncludesSome(TESTING_STRING_INSTANCE, [TESTING_STRING, '!@#$%^&*()', '3'])).toBeTrue();
 
                     // No word exists.
-                    expect(isStringIncludes(TESTING_STRING_LONG, [
+                    expect(isStringIncludesSome(TESTING_STRING_LONG_INSTANCE, [
                       'no text',
                       'no text is here'
                     ])).toBeFalse();
 
                     // Every word exists.
-                    expect(isStringIncludes(TESTING_STRING_LONG_INSTANCE, [
+                    expect(isStringIncludesSome(TESTING_STRING_LONG_INSTANCE, [
                       'Lorem',
                       'unchanged',
                       'versions',
@@ -176,14 +176,14 @@ testing.describe(isStringIncludes.name, () => {
                     ])).toBeTrue();
 
                     // Some word exists.
-                    expect(isStringIncludes(TESTING_STRING_LONG_INSTANCE, [
+                    expect(isStringIncludesSome(TESTING_STRING_LONG_INSTANCE, [
                       'Lorem',
                       'unchanged',
                       'versions',
                       'only',
                       'no text is here'
-                    ])).toBeFalse();
-                }));
+                    ])).toBeTrue();
+                  }));
             });
         });
     });

@@ -1,3 +1,5 @@
+// Function.
+import { isObjectKeys } from '../lib/is-object-keys.func';
 // Testing.
 import {
   // Main.
@@ -26,12 +28,13 @@ import {
 } from '@angular-package/testing';
 // Execute tests.
 import { tests } from '../../execute-tests';
-// Function.
-import { isObjectKeys } from '../lib/is-object-keys.func';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.is.objectKeys.describe, tests.is.objectKeys.it);
+const testing = new Testing(
+  tests.is.objectKeys.describe,
+  tests.is.objectKeys.it
+);
 /**
  * Tests.
  */
@@ -45,7 +48,7 @@ testing.describe(isObjectKeys.name , () => {
       testing
         // ... instance.
         .describe(`instance`, () => testing
-          .describe(`CLASS`, () => testing
+          .describe(`TESTING_CLASS`, () => testing
             // number.
             .it('has number key', () => {
               expect(isObjectKeys(TESTING_CLASS, [1030405027])).toBeTrue();
@@ -72,8 +75,8 @@ testing.describe(isObjectKeys.name , () => {
         )
         // ... function.
         .describe(`function`, () => testing
-          .it(`FUNCTION`, () => expect(isObjectKeys(TESTING_FUNCTION, ['function'])).toBeFalse())
-          .it(`CLASS`, () => expect(isObjectKeys(TestingClass, ['function'])).toBeFalse())
+          .it(`TESTING_FUNCTION`, () => expect(isObjectKeys(TESTING_FUNCTION, ['function'])).toBeFalse())
+          .it(`TESTING_CLASS`, () => expect(isObjectKeys(TestingClass, ['function'])).toBeFalse())
         )
         // ... objects.
         .describe('object', () => {

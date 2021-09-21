@@ -1,3 +1,5 @@
+// Function.
+import { isFalse } from '../lib/is-false.func';
 // Testing.
 import {
   // Main.
@@ -29,12 +31,13 @@ import {
 } from '@angular-package/testing';
 // Execute tests.
 import { tests } from '../../execute-tests';
-// Function.
-import { isFalse } from '../lib/is-false.func';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.is.false.describe, tests.is.false.it);
+const testing = new Testing(
+  tests.is.false.describe,
+  tests.is.false.it
+);
 /**
  * Tests.
  */
@@ -53,10 +56,7 @@ testing.describe(isFalse.name, () => {
           });
         })
         // ... arrays.
-        .describe(`array`, () => {
-          // it(`${TESTING_FUNCTION}`, () => expect(isFalse(TESTING_FUNCTION, 'function')).toBeFalse());
-          // it(`${Class}`, () => expect(isFalse(TestingClass, 'function')).toBeFalse());
-        })
+        .describe(`array`, () => { })
         // ... Date.
         .describe(`date`, () => {
           testing
@@ -65,13 +65,13 @@ testing.describe(isFalse.name, () => {
         // ... function.
         .describe(`function`, () => {
           testing
-            .it(`FUNCTION`, () => expect(isFalse(TESTING_FUNCTION)).toBeFalse())
-            .it(`Class`, () => expect(isFalse(TestingClass)).toBeFalse());
+            .it(`TESTING_FUNCTION`, () => expect(isFalse(TESTING_FUNCTION)).toBeFalse())
+            .it(`TestingClass`, () => expect(isFalse(TestingClass)).toBeFalse());
         })
         // ... objects.
         .describe('object', () => {
           testing
-            .it(`CLASS`, () => expect(isFalse(TESTING_CLASS)).toBeFalse())
+            .it(`TESTING_CLASS`, () => expect(isFalse(TESTING_CLASS)).toBeFalse())
             .it(`TESTING_OBJECT`, () => expect(isFalse(TESTING_OBJECT)).toBeFalse())
             .it(`new Object(OBJECT_ONE_NEW})`, () => expect(isFalse(TESTING_OBJECT)).toBeFalse());
         })

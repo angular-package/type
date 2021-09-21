@@ -1,3 +1,5 @@
+// Function.
+import { isPrimitive } from '../lib/is-primitive.func';
 // Testing.
 import {
   // Main.
@@ -21,12 +23,13 @@ import {
 } from '@angular-package/testing';
 // Execute tests.
 import { tests } from '../../execute-tests';
-// Function.
-import { isPrimitive } from '../lib/is-primitive.func';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.is.primitive.describe, tests.is.primitive.it);
+const testing = new Testing(
+  tests.is.primitive.describe,
+  tests.is.primitive.it
+);
 /**
  * Tests.
  */

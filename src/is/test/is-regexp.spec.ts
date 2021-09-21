@@ -1,3 +1,5 @@
+// Function.
+import { isRegExp } from '../lib/is-regexp.func';
 // Testing.
 import {
   // Main.
@@ -30,12 +32,13 @@ import {
 } from '@angular-package/testing';
 // Execute tests.
 import { tests } from '../../execute-tests';
-// Function.
-import { isRegExp } from '../lib/is-regexp.func';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.is.regexp.describe, tests.is.regexp.it);
+const testing = new Testing(
+  tests.is.regexp.describe,
+  tests.is.regexp.it
+);
 /**
  * Tests.
  */
@@ -63,13 +66,13 @@ testing.describe(isRegExp.name, () => {
         // ... function.
         .describe(`function`, () => {
           testing
-            .it(`FUNCTION`, () => expect(isRegExp(TESTING_FUNCTION)).toBeFalse())
-            .it(`Class`, () => expect(isRegExp(TestingClass)).toBeFalse());
+            .it(`TESTING_FUNCTION`, () => expect(isRegExp(TESTING_FUNCTION)).toBeFalse())
+            .it(`TestingClass`, () => expect(isRegExp(TestingClass)).toBeFalse());
         })
         // ... objects.
         .describe('object', () => {
           testing
-            .it(`CLASS`, () => expect(isRegExp(TESTING_CLASS)).toBeFalse())
+            .it(`TESTING_CLASS`, () => expect(isRegExp(TESTING_CLASS)).toBeFalse())
             .it(`TESTING_OBJECT`, () => expect(isRegExp(TESTING_OBJECT)).toBeFalse())
             .it(`new Object(OBJECT_ONE_NEW})`, () => expect(isRegExp(TESTING_OBJECT)).toBeFalse())
             .it(`TESTING_REGEXP ${TESTING_REGEXP}`, () => expect(isRegExp(TESTING_REGEXP)).toBeTrue());

@@ -1,3 +1,5 @@
+// Function.
+import { isNull } from '../lib/is-null.func';
 // Testing.
 import {
   // Main.
@@ -28,12 +30,13 @@ import {
 } from '@angular-package/testing';
 // Execute tests.
 import { tests } from '../../execute-tests';
-// Function.
-import { isNull } from '../lib/is-null.func';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.is.null.describe, tests.is.null.it);
+const testing = new Testing(
+  tests.is.null.describe,
+  tests.is.null.it
+);
 /**
  * Tests.
  */
@@ -41,7 +44,7 @@ testing.describe(isNull.name, () => {
   testing
     // TRUE
     .it('is DEFINED', () => expect(isNull).toBeDefined())
-    .it(`null | NULL`, () => {
+    .it(`null | TESTING_NULL`, () => {
       expect(isNull(null)).toBeTrue();
       expect(isNull(TESTING_NULL)).toBeTrue();
       isNull(TESTING_NULL, (result: boolean) => {
@@ -62,7 +65,7 @@ testing.describe(isNull.name, () => {
       expect(isNull(Boolean(false))).toBeFalse();
       expect(isNull(Boolean(true))).toBeFalse();
     })
-    .it(`Class | CLASS`, () => {
+    .it(`TestingClass | TESTING_CLASS`, () => {
       expect(isNull(TestingClass)).toBeFalse();
       expect(isNull(TESTING_CLASS)).toBeFalse();
     })

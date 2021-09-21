@@ -1,3 +1,5 @@
+// Function.
+import { isObject } from '../lib/is-object.func';
 // Testing.
 import {
   // Main.
@@ -28,12 +30,13 @@ import {
 } from '@angular-package/testing';
 // Execute tests.
 import { tests } from '../../execute-tests';
-// Function.
-import { isObject } from '../lib/is-object.func';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.is.object.describe, tests.is.object.it);
+const testing = new Testing(
+  tests.is.object.describe,
+  tests.is.object.it
+);
 /**
  * Checks
  * ✓ typeof === 'object'
@@ -62,13 +65,13 @@ testing.describe(isObject.name, () => {
         // ... function.
         .describe(`function`, () => {
           testing
-            .it(`FUNCTION`, () => expect(isObject(TESTING_FUNCTION)).toBeFalse())
-            .it(`Class`, () => expect(isObject(TestingClass)).toBeFalse());
+            .it(`TESTING_FUNCTION`, () => expect(isObject(TESTING_FUNCTION)).toBeFalse())
+            .it(`TestingClass`, () => expect(isObject(TestingClass)).toBeFalse());
         })
         // ... objects.
         .describe('object', () => {
           testing
-            .it(`CLASS`, () => expect(isObject(TESTING_CLASS)).toBeTrue())
+            .it(`TESTING_CLASS`, () => expect(isObject(TESTING_CLASS)).toBeTrue())
             .it(`TESTING_OBJECT`, () => expect(isObject(TESTING_OBJECT)).toBeTrue())
             .it(`new Object(OBJECT_ONE_NEW})`, () => expect(isObject(TESTING_OBJECT)).toBeTrue())
         })

@@ -1,3 +1,5 @@
+// Function.
+import { isType } from '../lib/is-type.func';
 // Testing.
 import {
   // Main.
@@ -26,12 +28,13 @@ import {
 } from '@angular-package/testing';
 // Execute tests.
 import { tests } from '../../execute-tests';
-// Function.
-import { isType } from '../lib/is-type.func';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.is.type.describe, tests.is.type.it);
+const testing = new Testing(
+  tests.is.type.describe,
+  tests.is.type.it
+);
 /**
  * Tests.
  */
@@ -60,7 +63,7 @@ testing.describe(isType.name, () => {
           });
         })
         // ... instance.
-        .describe(`instance`, () => testing.it(`Class`, () => expect(isType<TestingClass>(TESTING_CLASS, TestingClass)).toBeTrue()))
+        .describe(`instance`, () => testing.it(`TestingClass`, () => expect(isType<TestingClass>(TESTING_CLASS, TestingClass)).toBeTrue()))
         // ... function.
         .describe(`function`, () => {
           testing
@@ -70,7 +73,7 @@ testing.describe(isType.name, () => {
         // ... objects.
         .describe('object', () => {
           testing
-            .it(`CLASS`, () => expect(isType(TESTING_CLASS, 'object')).toBeTrue())
+            .it(`TESTING_CLASS`, () => expect(isType(TESTING_CLASS, 'object')).toBeTrue())
             .it(`TESTING_OBJECT`, () => expect(isType(TESTING_OBJECT, 'object')).toBeTrue());
         })
         // ... primitives.

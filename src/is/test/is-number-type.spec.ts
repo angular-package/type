@@ -1,3 +1,5 @@
+// Function.
+import { isNumberType } from '../lib/is-number-type.func';
 // Testing.
 import {
   TESTING_BIGINT,
@@ -22,13 +24,15 @@ import {
   Testing,
   TestingClass,
 } from '@angular-package/testing';
+// Execute tests.
 import { tests } from '../../execute-tests';
-// Function.
-import { isNumberType } from '../lib/is-number-type.func';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.is.numberType.describe, tests.is.numberType.it);
+const testing = new Testing(
+  tests.is.numberType.describe,
+  tests.is.numberType.it
+);
 /**
  * Checks
  * ✓ typeof === 'number' && instanceof Number === false && instanceof Object === false
@@ -50,20 +54,17 @@ testing.describe(isNumberType.name, () => {
           });
         })
         // ... arrays.
-        .describe(`array`, () => {
-          // it(`${TESTING_FUNCTION}`, () => expect(isNumberType(TESTING_FUNCTION, 'function')).toBeFalse());
-          // it(`${Class}`, () => expect(isNumberType(TestingClass, 'function')).toBeFalse());
-        })
+        .describe(`array`, () => { })
         // ... function.
         .describe(`function`, () => {
           testing
-            .it(`FUNCTION`, () => expect(isNumberType(TESTING_FUNCTION)).toBeFalse())
-            .it(`Class`, () => expect(isNumberType(TestingClass)).toBeFalse());
+            .it(`TESTING_FUNCTION`, () => expect(isNumberType(TESTING_FUNCTION)).toBeFalse())
+            .it(`TestingClass`, () => expect(isNumberType(TestingClass)).toBeFalse());
         })
         // ... objects.
         .describe('object', () => {
           testing
-            .it(`CLASS`, () => expect(isNumberType(TESTING_CLASS)).toBeFalse())
+            .it(`TESTING_CLASS`, () => expect(isNumberType(TESTING_CLASS)).toBeFalse())
             .it(`TESTING_OBJECT`, () => expect(isNumberType(TESTING_OBJECT)).toBeFalse())
             .it(`new Object(OBJECT_ONE_NEW})`, () => expect(isNumberType(TESTING_OBJECT)).toBeFalse())
         })

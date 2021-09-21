@@ -1,3 +1,5 @@
+// Function.
+import { isTrue } from '../lib/is-true.func';
 // Testing.
 import {
   // Main.
@@ -29,12 +31,13 @@ import {
 } from '@angular-package/testing';
 // Execute tests.
 import { tests } from '../../execute-tests';
-// Function.
-import { isTrue } from '../lib/is-true.func';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.is.true.describe, tests.is.true.it);
+const testing = new Testing(
+  tests.is.true.describe,
+  tests.is.true.it
+);
 /**
  * Tests.
  */
@@ -58,12 +61,12 @@ testing.describe(isTrue.name, () => {
     });
     // ... function.
     describe(`function`, () => {
-      it(`FUNCTION`, () => expect(isTrue(TESTING_FUNCTION)).toBeFalse());
-      it(`Class`, () => expect(isTrue(TestingClass)).toBeFalse());
+      it(`TESTING_FUNCTION`, () => expect(isTrue(TESTING_FUNCTION)).toBeFalse());
+      it(`TestingClass`, () => expect(isTrue(TestingClass)).toBeFalse());
     });
     // ... objects.
     describe('object', () => {
-      it(`CLASS`, () => expect(isTrue(TESTING_CLASS)).toBeFalse());
+      it(`TESTING_CLASS`, () => expect(isTrue(TESTING_CLASS)).toBeFalse());
       it(`TESTING_OBJECT`, () => expect(isTrue(TESTING_OBJECT)).toBeFalse());
       it(`new Object(OBJECT_ONE_NEW})`, () => expect(isTrue(TESTING_OBJECT)).toBeFalse());
     });

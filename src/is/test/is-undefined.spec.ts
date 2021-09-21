@@ -1,3 +1,5 @@
+// Function.
+import { isUndefined } from '../lib/is-undefined.func';
 // Testing.
 import {
   // Main.
@@ -28,12 +30,13 @@ import {
 } from '@angular-package/testing';
 // Execute tests.
 import { tests } from '../../execute-tests';
-// Function.
-import { isUndefined } from '../lib/is-undefined.func';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.is.undefined.describe, tests.is.undefined.it);
+const testing = new Testing(
+  tests.is.undefined.describe,
+  tests.is.undefined.it
+);
 /**
  * Tests.
  */
@@ -57,14 +60,14 @@ testing.describe(isUndefined.name, () => {
       // ... function.
       .describe(`function`, () => {
         testing
-          .it(`FUNCTION`, () => expect(isUndefined(TESTING_FUNCTION)).toBeFalse())
-          .it(`Class`, () => expect(isUndefined(TestingClass)).toBeFalse());
+          .it(`TESTING_FUNCTION`, () => expect(isUndefined(TESTING_FUNCTION)).toBeFalse())
+          .it(`TestingClass`, () => expect(isUndefined(TestingClass)).toBeFalse());
       })
 
       // ... objects.
       .describe('object', () => {
         testing
-          .it(`CLASS`, () => expect(isUndefined(TESTING_CLASS)).toBeFalse())
+          .it(`TESTING_CLASS`, () => expect(isUndefined(TESTING_CLASS)).toBeFalse())
           .it(`TESTING_OBJECT`, () => expect(isUndefined(TESTING_OBJECT)).toBeFalse());
       })
 

@@ -1,3 +1,5 @@
+// Function.
+import { isSymbol } from '../lib/is-symbol.func';
 // Testing.
 import {
   // Main.
@@ -28,12 +30,13 @@ import {
 } from '@angular-package/testing';
 // Execute tests.
 import { tests } from '../../execute-tests';
-// Function.
-import { isSymbol } from '../lib/is-symbol.func';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.is.symbol.describe, tests.is.symbol.it);
+const testing = new Testing(
+  tests.is.symbol.describe,
+  tests.is.symbol.it
+);
 /**
  * Tests.
  */
@@ -57,13 +60,13 @@ testing.describe(isSymbol.name, () => {
         // ... function.
         .describe(`function`, () => {
           testing
-            .it(`FUNCTION`, () => expect(isSymbol(TESTING_FUNCTION)).toBeFalse())
-            .it(`Class`, () => expect(isSymbol(TestingClass)).toBeFalse());
+            .it(`TESTING_FUNCTION`, () => expect(isSymbol(TESTING_FUNCTION)).toBeFalse())
+            .it(`TestingClass`, () => expect(isSymbol(TestingClass)).toBeFalse());
         })
         // ... objects.
         .describe('object', () => {
           testing
-            .it(`CLASS`, () => expect(isSymbol(TESTING_CLASS)).toBeFalse())
+            .it(`TESTING_CLASS`, () => expect(isSymbol(TESTING_CLASS)).toBeFalse())
             .it(`TESTING_OBJECT`, () => expect(isSymbol(TESTING_OBJECT)).toBeFalse())
             .it(`new Object(OBJECT_ONE_NEW})`, () => expect(isSymbol(TESTING_OBJECT)).toBeFalse());
         })

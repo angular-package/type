@@ -1,3 +1,5 @@
+// Function.
+import { isDefined } from '../lib/is-defined.func';
 // Testing.
 import {
   // Main.
@@ -28,12 +30,13 @@ import {
 } from '@angular-package/testing';
 // Execute tests.
 import { tests } from '../../execute-tests';
-// Function.
-import { isDefined } from '../lib/is-defined.func';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.is.defined.describe, tests.is.defined.it);
+const testing = new Testing(
+  tests.is.defined.describe,
+  tests.is.defined.it
+);
 /**
  * Tests.
  */
@@ -42,31 +45,31 @@ testing.describe(isDefined.name, () => {
   testing
     .it('is DEFINED', () => expect(isDefined).toBeDefined())
     .it(`'boolean' | Boolean`, () => {
-      expect(isDefined(TESTING_FALSE)).toBe(TESTING_TRUE);
-      expect(isDefined(TESTING_TRUE)).toBe(TESTING_TRUE);
-      expect(isDefined(TESTING_FALSE_INSTANCE)).toBe(TESTING_TRUE);
-      expect(isDefined(TESTING_TRUE_INSTANCE)).toBe(TESTING_TRUE);
-      expect(isDefined(Boolean(false))).toBe(TESTING_TRUE);
-      expect(isDefined(Boolean(true))).toBe(TESTING_TRUE);
+      expect(isDefined(TESTING_FALSE)).toBeTrue();
+      expect(isDefined(TESTING_TRUE)).toBeTrue();
+      expect(isDefined(TESTING_FALSE_INSTANCE)).toBeTrue();
+      expect(isDefined(TESTING_TRUE_INSTANCE)).toBeTrue();
+      expect(isDefined(Boolean(false))).toBeTrue();
+      expect(isDefined(Boolean(true))).toBeTrue();
       isDefined(TESTING_FALSE, (result: boolean) => {
-        expect(result).toBe(TESTING_TRUE);
+        expect(result).toBeTrue();
         return result;
       });
     })
     .it(`'bigint'`, () => expect(isDefined(TESTING_BIGINT)).toBeTrue())
-    .it(`Class | CLASS`, () => {
-      expect(isDefined(TestingClass)).toBe(TESTING_TRUE);
-      expect(isDefined(TESTING_CLASS)).toBe(TESTING_TRUE);
+    .it(`TestingClass | TESTING_CLASS`, () => {
+      expect(isDefined(TestingClass)).toBeTrue();
+      expect(isDefined(TESTING_CLASS)).toBeTrue();
     })
     .it(`'function' | Function`, () => expect(isDefined(TESTING_FUNCTION)).toBeTrue())
-    .it(`null | NULL`, () => {
+    .it(`null | TESTING_NULL`, () => {
       expect(isDefined(null)).toBeTrue();
-      expect(isDefined(TESTING_NULL)).toBe(TESTING_TRUE);
+      expect(isDefined(TESTING_NULL)).toBeTrue();
     })
     .it(`'number' | Number`, () => {
       expect(isDefined(TESTING_NUMBER)).toBeTrue();
-      expect(isDefined(TESTING_NUMBER_CONSTRUCTOR)).toBe(TESTING_TRUE);
-      expect(isDefined(TESTING_NUMBER_INSTANCE)).toBe(TESTING_TRUE);
+      expect(isDefined(TESTING_NUMBER_CONSTRUCTOR)).toBeTrue();
+      expect(isDefined(TESTING_NUMBER_INSTANCE)).toBeTrue();
     })
     .it(`'object' | Object`, () => expect(isDefined(TESTING_OBJECT)).toBeTrue())
     .it(`'string' | String`, () => {

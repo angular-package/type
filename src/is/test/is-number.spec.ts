@@ -1,3 +1,5 @@
+// Function.
+import { isNumber } from '../lib/is-number.func';
 // Testing.
 import {
   TESTING_BIGINT,
@@ -23,12 +25,13 @@ import {
   TestingClass,
 } from '@angular-package/testing';
 import { tests } from '../../execute-tests';
-// Function.
-import { isNumber } from '../lib/is-number.func';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.is.number.describe, tests.is.number.it);
+const testing = new Testing(
+  tests.is.number.describe,
+  tests.is.number.it
+);
 /**
  * Checks
  * ✓ typeof === 'number'
@@ -62,12 +65,12 @@ testing.describe(isNumber.name, () => {
       expect(isNumber(TESTING_FALSE_INSTANCE)).toBeFalse();
       expect(isNumber(TESTING_TRUE_INSTANCE)).toBeFalse();
     })
-    .it(`Class | CLASS`, () => {
+    .it(`TestingClass | TESTING_CLASS`, () => {
       expect(isNumber(TestingClass)).toBeFalse();
       expect(isNumber(TESTING_CLASS)).toBeFalse();
     })
     .it(`'function' | Function`, () => expect(isNumber(TESTING_FUNCTION)).toBeFalse())
-    .it(`null | NULL`, () => {
+    .it(`null | TESTING_NULL`, () => {
       expect(isNumber(null)).toBeFalse();
       expect(isNumber(TESTING_NULL)).toBeFalse();
     })

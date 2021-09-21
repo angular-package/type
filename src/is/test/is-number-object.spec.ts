@@ -1,3 +1,5 @@
+// Function.
+import { isNumberObject } from '../lib/is-number-object.func';
 // Testing.
 import {
   TESTING_BIGINT,
@@ -22,13 +24,15 @@ import {
   Testing,
   TestingClass,
 } from '@angular-package/testing';
+// Execute tests.
 import { tests } from '../../execute-tests';
-// Function.
-import { isNumberObject } from '../lib/is-number-object.func';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.is.numberObject.describe, tests.is.numberObject.it);
+const testing = new Testing(
+  tests.is.numberObject.describe,
+  tests.is.numberObject.it
+);
 /**
  * Checks
  * ✓ typeof === 'object' && instanceof Number === true && instanceof Object === true
@@ -48,18 +52,15 @@ testing.describe(isNumberObject.name, () => {
           });
         })
         // ... arrays.
-        .describe(`array`, () => {
-          // it(`${TESTING_FUNCTION}`, () => expect(isNumberObject(TESTING_FUNCTION, 'function')).toBeFalse());
-          // it(`${Class}`, () => expect(isNumberObject(TestingClass, 'function')).toBeFalse());
-        })
+        .describe(`array`, () => { })
         // ... function.
         .describe(`function`, () => testing
-          .it(`FUNCTION`, () => expect(isNumberObject(TESTING_FUNCTION)).toBeFalse())
-          .it(`Class`, () => expect(isNumberObject(TestingClass)).toBeFalse())
+          .it(`TESTING_FUNCTION`, () => expect(isNumberObject(TESTING_FUNCTION)).toBeFalse())
+          .it(`TestingClass`, () => expect(isNumberObject(TestingClass)).toBeFalse())
         )
         // ... objects.
         .describe('object', () => testing
-          .it(`CLASS`, () => expect(isNumberObject(TESTING_CLASS)).toBeFalse())
+          .it(`TESTING_CLASS`, () => expect(isNumberObject(TESTING_CLASS)).toBeFalse())
           .it(`TESTING_OBJECT`, () => expect(isNumberObject(TESTING_OBJECT)).toBeFalse())
           .it(`new Object(OBJECT_ONE_NEW})`, () => expect(isNumberObject(TESTING_OBJECT)).toBeFalse())
         )

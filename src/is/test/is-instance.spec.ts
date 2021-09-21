@@ -1,3 +1,5 @@
+// Function.
+import { isInstance } from '../lib/is-instance.func';
 // Testing.
 import {
   // Main.
@@ -29,12 +31,13 @@ import {
 } from '@angular-package/testing';
 // Execute tests.
 import { tests } from '../../execute-tests';
-// Function.
-import { isInstance } from '../lib/is-instance.func';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.is.instance.describe, tests.is.instance.it);
+const testing = new Testing(
+  tests.is.instance.describe,
+  tests.is.instance.it
+);
 /**
  * Tests.
  */
@@ -69,7 +72,7 @@ testing.describe(isInstance.name, () => {
       expect(isInstance(TESTING_TRUE_INSTANCE, TESTING_TRUE_INSTANCE as any)).toBeFalse();
     })
     .it(`'bigint'`, () => expect(isInstance(TESTING_BIGINT, TESTING_BIGINT as any)).toBeFalse())
-    .it(`Class`, () => expect(isInstance(TestingClass, TestingClass)).toBeFalse())
+    .it(`TestingClass`, () => expect(isInstance(TestingClass, TestingClass)).toBeFalse())
     .it(`FUNCTION instance of Function`, () => expect(isInstance(TESTING_FUNCTION, Function)).toBeFalse())
     .it(`NULL`, () => expect(isInstance(TESTING_NULL, TESTING_NULL as any)).toBeFalse())
     .it(`'number' | Number`, () => {

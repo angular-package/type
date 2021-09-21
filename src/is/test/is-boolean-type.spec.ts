@@ -1,3 +1,5 @@
+// Function.
+import { isBooleanType } from '../lib/is-boolean-type.func';
 // Testing.
 import {
   // Main.
@@ -28,12 +30,13 @@ import {
 } from '@angular-package/testing';
 // Execute tests.
 import { tests } from '../../execute-tests';
-// Function.
-import { isBooleanType } from '../lib/is-boolean-type.func';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.is.booleanType.describe, tests.is.booleanType.it);
+const testing = new Testing(
+  tests.is.booleanType.describe,
+  tests.is.booleanType.it
+);
 /**
  * Tests.
  */
@@ -57,12 +60,12 @@ testing.describe(isBooleanType.name, () => {
       expect(isBooleanType(TESTING_BIGINT)).toBeFalse();
       expect(isBooleanType(TESTING_BIGINT)).toBeFalse();
     })
-    .it(`Class | CLASS`, () => {
+    .it(`TestingClass | TESTING_CLASS`, () => {
       expect(isBooleanType(TestingClass)).toBeFalse();
       expect(isBooleanType(TESTING_CLASS)).toBeFalse();
     })
     .it(`'function' | Function`, () => expect(isBooleanType(TESTING_FUNCTION)).toBeFalse())
-    .it(`null | NULL`, () => {
+    .it(`null | TESTING_NULL`, () => {
       expect(isBooleanType(null)).toBeFalse();
       expect(isBooleanType(TESTING_NULL)).toBeFalse();
     })

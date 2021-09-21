@@ -1,3 +1,5 @@
+// Function.
+import { isKey } from '../lib/is-key.func';
 // Testing.
 import {
   // Main.
@@ -28,12 +30,13 @@ import {
 } from '@angular-package/testing';
 // Execute tests.
 import { tests } from '../../execute-tests';
-// Function.
-import { isKey } from '../lib/is-key.func';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.is.key.describe, tests.is.key.it);
+const testing = new Testing(
+  tests.is.key.describe,
+  tests.is.key.it
+);
 /**
  * Tests.
  */
@@ -52,20 +55,17 @@ testing.describe(isKey.name, () => {
           });
         })
         // ... arrays.
-        .describe(`array`, () => {
-          // it(`${TESTING_FUNCTION}`, () => expect(isKey(TESTING_FUNCTION, 'function')).toBeFalse());
-          // it(`${Class}`, () => expect(isKey(TestingClass, 'function')).toBeFalse());
-        })
+        .describe(`array`, () => { })
         // ... function.
         .describe(`function`, () => {
           testing
-            .it(`FUNCTION`, () => expect(isKey(TESTING_FUNCTION)).toBeFalse())
-            .it(`Class`, () => expect(isKey(TestingClass)).toBeFalse());
+            .it(`TESTING_FUNCTION`, () => expect(isKey(TESTING_FUNCTION)).toBeFalse())
+            .it(`TestingClass`, () => expect(isKey(TestingClass)).toBeFalse());
         })
         // ... objects.
         .describe('object', () => {
           testing
-            .it(`CLASS`, () => expect(isKey(TESTING_CLASS)).toBeFalse())
+            .it(`TESTING_CLASS`, () => expect(isKey(TESTING_CLASS)).toBeFalse())
             .it(`TESTING_OBJECT`, () => expect(isKey(TESTING_OBJECT)).toBeFalse())
             .it(`new Object(OBJECT_ONE_NEW})`, () => expect(isKey(TESTING_OBJECT)).toBeFalse());
         })

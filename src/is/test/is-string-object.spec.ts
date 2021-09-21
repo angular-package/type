@@ -1,3 +1,5 @@
+// Function.
+import { isStringObject } from '../lib/is-string-object.func';
 // Testing.
 import {
   // Main.
@@ -28,12 +30,13 @@ import {
 } from '@angular-package/testing';
 // Execute tests.
 import { tests } from '../../execute-tests';
-// Function.
-import { isStringObject } from '../lib/is-string-object.func';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.is.stringObject.describe, tests.is.stringObject.it);
+const testing = new Testing(
+  tests.is.stringObject.describe,
+  tests.is.stringObject.it
+);
 /**
  * Checks
  * ✓ typeof === 'object' && instanceof String === true && instanceof Object === true
@@ -59,13 +62,13 @@ testing.describe(isStringObject.name, () => {
         // ... function.
         .describe(`function`, () => {
           testing
-            .it(`FUNCTION`, () => expect(isStringObject(TESTING_FUNCTION)).toBeFalse())
-            .it(`Class`, () => expect(isStringObject(TestingClass)).toBeFalse());
+            .it(`TESTING_FUNCTION`, () => expect(isStringObject(TESTING_FUNCTION)).toBeFalse())
+            .it(`TestingClass`, () => expect(isStringObject(TestingClass)).toBeFalse());
         })
         // ... objects.
         .describe('object', () => {
           testing
-            .it(`CLASS`, () => expect(isStringObject(TESTING_CLASS)).toBeFalse())
+            .it(`TESTING_CLASS`, () => expect(isStringObject(TESTING_CLASS)).toBeFalse())
             .it(`TESTING_OBJECT`, () => expect(isStringObject(TESTING_OBJECT)).toBeFalse())
         })
         // ... primitives.

@@ -1,3 +1,5 @@
+// Function.
+import { isStringType } from '../lib/is-string-type.func';
 // Testing.
 import {
   // Main.
@@ -28,12 +30,13 @@ import {
 } from '@angular-package/testing';
 // Execute tests.
 import { tests } from '../../execute-tests';
-// Function.
-import { isStringType } from '../lib/is-string-type.func';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.is.stringType.describe, tests.is.stringType.it);
+const testing = new Testing(
+  tests.is.stringType.describe,
+  tests.is.stringType.it
+);
 /**
  * Tests.
  */
@@ -59,13 +62,13 @@ testing.describe(isStringType.name, () => {
         // ... function.
         .describe(`function`, () => {
           testing
-            .it(`FUNCTION`, () => expect(isStringType(TESTING_FUNCTION)).toBeFalse())
-            .it(`Class`, () => expect(isStringType(TestingClass)).toBeFalse());
+            .it(`TESTING_FUNCTION`, () => expect(isStringType(TESTING_FUNCTION)).toBeFalse())
+            .it(`TestingClass`, () => expect(isStringType(TestingClass)).toBeFalse());
         })
         // ... objects.
         .describe('object', () => {
           testing
-            .it(`CLASS`, () => expect(isStringType(TESTING_CLASS)).toBeFalse())
+            .it(`TESTING_CLASS`, () => expect(isStringType(TESTING_CLASS)).toBeFalse())
             .it(`TESTING_OBJECT`, () => expect(isStringType(TESTING_OBJECT)).toBeFalse())
             .it(`new Object(OBJECT_ONE_NEW})`, () => expect(isStringType(TESTING_OBJECT)).toBeFalse());
         })

@@ -1,3 +1,5 @@
+// Function.
+import { isFunction } from '../lib/is-function.func';
 // Testing.
 import {
   // Main.
@@ -26,13 +28,15 @@ import {
   // Class.
   TestingClass,
 } from '@angular-package/testing';
+// Execute tests.
 import { tests } from '../../execute-tests';
-// Function.
-import { isFunction } from '../lib/is-function.func';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.is.function.describe, tests.is.function.it);
+const testing = new Testing(
+  tests.is.function.describe,
+  tests.is.function.it
+);
 /**
  * Tests.
  */
@@ -59,9 +63,9 @@ testing.describe(isFunction.name, () => {
       expect(isFunction(TESTING_BIGINT)).toBeFalse();
       expect(isFunction(TESTING_BIGINT)).toBeFalse();
     })
-    .it(`CLASS`, () => expect(isFunction(TESTING_CLASS)).toBeFalse())
-    .it(`Class`, () => expect(isFunction(TestingClass)).toBeFalse())
-    .it(`null | NULL`, () => {
+    .it(`TESTING_CLASS`, () => expect(isFunction(TESTING_CLASS)).toBeFalse())
+    .it(`TestingClass`, () => expect(isFunction(TestingClass)).toBeFalse())
+    .it(`null | TESTING_NULL`, () => {
       expect(isFunction(null)).toBeFalse();
       expect(isFunction(TESTING_NULL)).toBeFalse();
     })

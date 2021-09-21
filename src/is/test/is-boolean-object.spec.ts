@@ -1,3 +1,5 @@
+// Function.
+import { isBooleanObject } from '../lib/is-boolean-object.func';
 // Testing.
 import {
   // Main.
@@ -28,12 +30,13 @@ import {
 } from '@angular-package/testing';
 // Execute tests.
 import { tests } from '../../execute-tests';
-// Function.
-import { isBooleanObject } from '../lib/is-boolean-object.func';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.is.booleanObject.describe, tests.is.booleanObject.it);
+const testing = new Testing(
+  tests.is.booleanObject.describe,
+  tests.is.booleanObject.it
+);
 /**
  * Tests.
  */
@@ -57,12 +60,12 @@ testing.describe(isBooleanObject.name, () => {
       expect(isBooleanObject(TESTING_BIGINT)).toBeFalse();
       expect(isBooleanObject(TESTING_BIGINT)).toBeFalse();
     })
-    .it(`Class | CLASS`, () => {
+    .it(`TestingClass | TESTING_CLASS`, () => {
       expect(isBooleanObject(TestingClass)).toBeFalse();
       expect(isBooleanObject(TESTING_CLASS)).toBeFalse();
     })
     .it(`'function' | Function`, () => expect(isBooleanObject(TESTING_FUNCTION)).toBeFalse())
-    .it(`null | NULL`, () => {
+    .it(`null | TESTING_NULL`, () => {
       expect(isBooleanObject(null)).toBeFalse();
       expect(isBooleanObject(TESTING_NULL)).toBeFalse();
     })

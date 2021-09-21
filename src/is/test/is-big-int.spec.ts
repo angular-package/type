@@ -1,3 +1,5 @@
+// Function.
+import { isBigInt } from '../lib/is-big-int.func';
 // Testing.
 import {
   // Main.
@@ -28,12 +30,13 @@ import {
 } from '@angular-package/testing';
 // Execute tests.
 import { tests } from '../../execute-tests';
-// Function.
-import { isBigInt } from '../lib/is-big-int.func';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.is.bigint.describe, tests.is.bigint.it);
+const testing = new Testing(
+  tests.is.bigint.describe,
+  tests.is.bigint.it
+);
 /**
  * Tests.
  */
@@ -46,7 +49,8 @@ testing.describe(isBigInt.name, () =>
       isBigInt(TESTING_BIGINT, (result: boolean) => {
         expect(result).toBeTrue();
         return result;
-      })
+      }),
+      expect(isBigInt(1n)).toBeTrue()
     ))
     .it(`boolean | Boolean`, () => (
       expect(isBigInt(TESTING_FALSE)).toBeFalse(),
@@ -58,12 +62,12 @@ testing.describe(isBigInt.name, () =>
         return result;
       })
     ))
-    .it(`Class | CLASS`, () => (
+    .it(`TestingClass | TESTING_CLASS`, () => (
       expect(isBigInt(TestingClass)).toBeFalse(),
       expect(isBigInt(TESTING_CLASS)).toBeFalse()
     ))
     .it(`function | Function`, () => expect(isBigInt(TESTING_FUNCTION)).toBeFalse())
-    .it(`null | NULL`, () => (
+    .it(`null | TESTING_NULL`, () => (
       expect(isBigInt(null)).toBeFalse(),
       expect(isBigInt(TESTING_NULL)).toBeFalse()
     ))

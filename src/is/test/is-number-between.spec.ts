@@ -1,3 +1,5 @@
+// Function.
+import { isNumberBetween } from '../lib/is-number-between.func';
 // Testing.
 import {
   TESTING_BIGINT,
@@ -21,13 +23,15 @@ import {
   Testing,
   TestingClass,
 } from '@angular-package/testing';
+// Execute tests.
 import { tests } from '../../execute-tests';
-// Function.
-import { isNumberBetween } from '../lib/is-number-between.func';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.is.numberBetween.describe, tests.is.numberBetween.it);
+const testing = new Testing(
+  tests.is.numberBetween.describe,
+  tests.is.numberBetween.it
+);
 /**
  * Tests.
  */
@@ -51,10 +55,7 @@ testing.describe(isNumberBetween.name, () => {
           });
         })
         // ... arrays.
-        .describe(`array`, () => {
-          // it(`${TESTING_FUNCTION}`, () => expect(isNumberBetween(TESTING_FUNCTION, 'function')).toBeFalse());
-          // it(`${Class}`, () => expect(isNumberBetween(TestingClass, 'function')).toBeFalse());
-        })
+        .describe(`array`, () => { })
         // ... Date.
         .describe(`date`, () => {
           testing
@@ -63,13 +64,13 @@ testing.describe(isNumberBetween.name, () => {
         // ... function.
         .describe(`function`, () => {
           testing
-            .it(`FUNCTION`, () => expect(isNumberBetween(TESTING_FUNCTION, { min, max })).toBeFalse())
-            .it(`Class`, () => expect(isNumberBetween(TestingClass, { min, max })).toBeFalse());
+            .it(`TESTING_FUNCTION`, () => expect(isNumberBetween(TESTING_FUNCTION, { min, max })).toBeFalse())
+            .it(`TestingClass`, () => expect(isNumberBetween(TestingClass, { min, max })).toBeFalse());
         })
         // ... objects.
         .describe('object', () => {
           testing
-            .it(`CLASS`, () => expect(isNumberBetween(TESTING_CLASS, { min, max })).toBeFalse())
+            .it(`TESTING_CLASS`, () => expect(isNumberBetween(TESTING_CLASS, { min, max })).toBeFalse())
             .it(`TESTING_OBJECT`, () => expect(isNumberBetween(TESTING_OBJECT, { min, max })).toBeFalse());
         })
         // ... primitives.
