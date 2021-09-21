@@ -1,12 +1,15 @@
+// Object.
+import { is } from '../lib/is.object';
 // Testing.
 import { Testing } from '@angular-package/testing';
 import { tests } from '../../execute-tests';
-// Object.
-import { is } from '../lib/is.object';
 /**
  * Initialize testing.
  */
-const testing = new Testing(tests.object.is.describe, tests.object.is.it);
+const testing = new Testing(
+  tests.object.is.describe,
+  tests.object.is.it
+);
 /**
  * Tests.
  */
