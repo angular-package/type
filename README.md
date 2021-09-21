@@ -335,12 +335,8 @@ const recognizeValue = (
     typeof: typeof value,
   };
 
-  try {
-    Object.assign(ofRecognized, { isFinite: isFinite(value) });
-  } catch (e) {}
-  try {
-    Object.assign(ofRecognized, { isNaN: isNaN(value) });
-  } catch (e) {}
+  try { Object.assign(ofRecognized, { isFinite: isFinite(value) }); } catch (e) {}
+  try { Object.assign(ofRecognized, { isNaN: isNaN(value) }); } catch (e) {}
 
   // Recognize instances.
   RECOGNIZE_INSTANCES.concat(instances as any).forEach((instance) => (
@@ -424,6 +420,7 @@ const customClass = new CustomClass();
 
 // String.
 const firstName = 'Artemis';
+
 
 /*
 Returns {
