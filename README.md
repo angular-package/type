@@ -6063,6 +6063,7 @@ const isNot: IsNot = Object.freeze({
 | [`guardObjectKey()`](#guardobjectkey)           | [`object`][js-object] of a generic `Obj` type that contains the given `key`. |
 | [`guardObjectKeyIn()`](#guardobjectkeyin)       | [`object`][js-object] of a generic type variable `Obj` that contains(or its prototype chain) the given `key`. |
 | [`guardObjectKeys()`](#guardobjectkeys)         | [`object`][js-object] of a generic type variable `Obj` with its specified `keys`. |
+| [`guardObjectKeysIn()`](#guardobjectkeysin)     | [`object`][js-object] of a generic type variable `Obj` with specified keys in it(or its prototype chain). |
 | [`guardObjectSomeKeys()`](#guardobjectsomekeys) | [`object`][js-object] of a generic type variable `Obj` with some of its `keys` or some groups of its `keys`. |
 | [`guardPrimitive()`](#guardprimitive)           | the [`Primitive`](#primitive) type or the given `type` of the [`Primitives`](#primitives). |
 | [`guardRegExp()`](#guardregexp)                 | a [`RegExp`][js-regexp]. |
@@ -7129,7 +7130,7 @@ const CLASS = new Class();
 guardObjectKeyIn(CLASS, NUMBER); // true, value is Class
 ```
 
-[&uArr; Up](#guardobjectkeyin) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardobjectsomekeys)
+[&uArr; Up](#guardobjectkeyin) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardobjectkeysin)
 
 <br>
 
@@ -7220,10 +7221,102 @@ class Class {
 const CLASS = new Class();
 // Getter not found.
 guardObjectKeys(CLASS, [NUMBER]); // false, value is Class
-
 ```
 
-[&uArr; Up](#guardobjectkey) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardprimitive)
+[&uArr; Up](#guardobjectkeysin) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardobjectsomekeys)
+
+<br>
+
+#### `guardObjectKeysIn()`
+
+[![new]][type-github-changelog]
+
+Use `guardObjectKeys()` or `guard.objectKeys()` to guard the value to be an [`object`][js-object] of a generic type variable `Obj` with specified `keys` in it(or its prototype chain).
+
+```typescript
+const guardObjectKeysIn = <
+  Obj extends object,
+  Key extends keyof Obj,
+  Payload extends object = object
+>(
+  value: Obj,
+  keys: Key[],
+  callback?: ResultCallback<
+    Obj,
+    CallbackPayload<{ keys: typeof keys } & Payload>
+  >,
+  payload?: CallbackPayload<Payload>
+): value is Obj => isObjectKeysIn(value, keys, callback, payload as any);
+```
+
+**Generic type variables:**
+
+| Name      | Default value    | Description |
+| :-------- | :--------------- | :---------- |
+| `Obj`     | From the `value` | A generic type variable `Obj` guarded by [`object`][js-object], by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Obj`. |
+| `Keys`    | From the `keys`  | A generic type variable `Keys` constrained by the `keyof Obj`, by default of value captured from the supplied `keys` indicates the specific property name of `Obj`. |
+| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                                                         | Description |
+| :--------------------------------------------------------------------------------- | :---------- |
+| `value: Obj`                                                                       | An [`object`][js-object] of a generic type variable `Obj`, by default of the type captured from the `value` that contains(or its prototype chain) the given `keys` to guard. |
+| `key: Key[]`                                                                       | An [`Array`][js-array] of property names that the given `value` contains(or its prototype chain). |
+| `callback?: ResultCallback<Obj, CallbackPayload<{ keys: typeof keys } & Payload>>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
+| `payload?: CallbackPayload<Payload>`                                               | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+| Returns        | Type      | Description |
+| :------------- | :-------: | :---------- |
+| `value is Obj` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is an [`object`][js-object] of a generic type variable `Obj`, by default of type captured from the supplied `value`. |
+
+The **return value** is a `boolean` indicating whether or not the `value` is an `object` with specified `keys` in it(or its prototype chain).
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { guardObjectKeysIn } from '@angular-package/type';
+
+const NUMBER = 10304050;
+const STRING = '!@#$%^&*()abcdefghijklmnoprstuwyz';
+const SYMBOL_NUMBER: unique symbol = Symbol(NUMBER);
+
+interface ObjectOne {
+  1030405027?: string;
+  [NUMBER]: number;
+  [STRING]: string;
+  [SYMBOL_NUMBER]?: string;
+}
+const OBJECT_ONE: ObjectOne = {
+  1030405027: 'key is number',
+  [STRING]: 'key is string',
+  [SYMBOL_NUMBER]: 'key is symbol number',
+  get [NUMBER](): number {
+    return NUMBER;
+  },
+};
+
+guardObjectKeysIn(OBJECT_ONE, [
+  STRING,
+  SYMBOL_NUMBER,
+  NUMBER,
+  1030405027]); // true, value is Class
+
+// Searching in an instance of `Class`.
+class Class {
+  get [NUMBER](): number {
+    return NUMBER;
+  }
+}
+const CLASS = new Class();
+// Getter found.
+guardObjectKeysIn(CLASS, [NUMBER]); // true, value is Class
+```
+
+[&uArr; Up](#guardobjectkeysin) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardprimitive)
 
 <br>
 
