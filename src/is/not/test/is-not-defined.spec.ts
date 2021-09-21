@@ -50,7 +50,7 @@ testing.describe(isNotDefined.name, () => {
     testing
     .it('callback', () => {
       isNotDefined(TESTING_STRING, (result: boolean) => {
-        expect(result).toBe(TESTING_TRUE);
+        expect(result).toBeFalse();
         return result;
       });
     })
@@ -61,57 +61,57 @@ testing.describe(isNotDefined.name, () => {
     // ... function.
     .describe(`function`, () => {
       testing
-      .it(`FUNCTION`, () => expect(isNotDefined(TESTING_FUNCTION)).toBe(TESTING_TRUE))
-      .it(`Class`, () => expect(isNotDefined(TestingClass)).toBe(TESTING_TRUE));
+      .it(`FUNCTION`, () => expect(isNotDefined(TESTING_FUNCTION)).toBeFalse())
+      .it(`Class`, () => expect(isNotDefined(TestingClass)).toBeFalse());
     })
     // ... objects.
     .describe('object', () => {
       testing
-      .it(`CLASS`, () => expect(isNotDefined(TESTING_CLASS)).toBe(TESTING_TRUE))
-      .it(`OBJECT_ONE`, () => expect(isNotDefined(TESTING_OBJECT)).toBe(TESTING_TRUE));
+      .it(`CLASS`, () => expect(isNotDefined(TESTING_CLASS)).toBeFalse())
+      .it(`OBJECT_ONE`, () => expect(isNotDefined(TESTING_OBJECT)).toBeFalse());
     })
     // ... primitives.
     .describe(`primitive`, () => {
       testing
       // bigint
       .describe(`bigint`, () => {
-        testing.it(`${TESTING_BIGINT}`, () => expect(isNotDefined(TESTING_BIGINT)).toBe(TESTING_TRUE));
+        testing.it(`${TESTING_BIGINT}`, () => expect(isNotDefined(TESTING_BIGINT)).toBeFalse());
       })
 
       // boolean
       .describe(`boolean`, () => {
         testing
-        .it(`${TESTING_TRUE}`, () => expect(isNotDefined(TESTING_TRUE)).toBe(TESTING_TRUE))
-        .it(`${TESTING_FALSE}`, () => expect(isNotDefined(TESTING_FALSE)).toBe(TESTING_TRUE))
-        .it(`${TESTING_TRUE_INSTANCE}`, () => expect(isNotDefined(TESTING_TRUE_INSTANCE)).toBe(TESTING_TRUE))
-        .it(`${TESTING_FALSE_INSTANCE}`, () => expect(isNotDefined(TESTING_FALSE_INSTANCE)).toBe(TESTING_TRUE));
+        .it(`${TESTING_TRUE}`, () => expect(isNotDefined(TESTING_TRUE)).toBeFalse())
+        .it(`${TESTING_FALSE}`, () => expect(isNotDefined(TESTING_FALSE)).toBeFalse())
+        .it(`${TESTING_TRUE_INSTANCE}`, () => expect(isNotDefined(TESTING_TRUE_INSTANCE)).toBeFalse())
+        .it(`${TESTING_FALSE_INSTANCE}`, () => expect(isNotDefined(TESTING_FALSE_INSTANCE)).toBeFalse());
       })
 
       // null
-      .it(`${TESTING_NULL}`, () => expect(isNotDefined(TESTING_NULL)).toBe(TESTING_TRUE))
+      .it(`${TESTING_NULL}`, () => expect(isNotDefined(TESTING_NULL)).toBeFalse())
 
       // number
       .describe(`number`, () => {
         testing
-        .it(`${TESTING_NUMBER}`, () => expect(isNotDefined(TESTING_NUMBER)).toBe(TESTING_TRUE))
-        .it(`Number(${TESTING_NUMBER})`, () => expect(isNotDefined(TESTING_NUMBER_CONSTRUCTOR)).toBe(TESTING_TRUE))
-        .it(`new Number(${TESTING_NUMBER})`, () => expect(isNotDefined(TESTING_NUMBER_INSTANCE)).toBe(TESTING_TRUE));
+        .it(`${TESTING_NUMBER}`, () => expect(isNotDefined(TESTING_NUMBER)).toBeFalse())
+        .it(`Number(${TESTING_NUMBER})`, () => expect(isNotDefined(TESTING_NUMBER_CONSTRUCTOR)).toBeFalse())
+        .it(`new Number(${TESTING_NUMBER})`, () => expect(isNotDefined(TESTING_NUMBER_INSTANCE)).toBeFalse());
       })
       // string
       .describe(`string`, () => {
         testing
-        .it(`${TESTING_STRING}`, () => expect(isNotDefined(TESTING_STRING)).toBe(TESTING_TRUE))
-        .it(`String(${TESTING_STRING})`, () => expect(isNotDefined(TESTING_STRING_CONSTRUCTOR)).toBe(TESTING_TRUE))
-        .it(`new String(${TESTING_STRING})`, () => expect(isNotDefined(TESTING_STRING_INSTANCE)).toBe(TESTING_TRUE));
+        .it(`${TESTING_STRING}`, () => expect(isNotDefined(TESTING_STRING)).toBeFalse())
+        .it(`String(${TESTING_STRING})`, () => expect(isNotDefined(TESTING_STRING_CONSTRUCTOR)).toBeFalse())
+        .it(`new String(${TESTING_STRING})`, () => expect(isNotDefined(TESTING_STRING_INSTANCE)).toBeFalse());
       })
       // symbol
       .describe(`symbol`, () => {
         testing
-        .it(`Symbol(${TESTING_NUMBER})`, () => expect(isNotDefined(TESTING_SYMBOL_NUMBER)).toBe(TESTING_TRUE))
-        .it(`Symbol(${TESTING_STRING})`, () => expect(isNotDefined(TESTING_SYMBOL_STRING)).toBe(TESTING_TRUE));
+        .it(`Symbol(${TESTING_NUMBER})`, () => expect(isNotDefined(TESTING_SYMBOL_NUMBER)).toBeFalse())
+        .it(`Symbol(${TESTING_STRING})`, () => expect(isNotDefined(TESTING_SYMBOL_STRING)).toBeFalse());
       })
       // undefined
-      .it(`${TESTING_UNDEFINED}`, () => expect(isNotDefined(TESTING_UNDEFINED)).toBe(TESTING_FALSE));
+      .it(`${TESTING_UNDEFINED}`, () => expect(isNotDefined(TESTING_UNDEFINED)).toBeTrue());
     });
   });
 });
