@@ -7223,7 +7223,7 @@ const CLASS = new Class();
 guardObjectKeys(CLASS, [NUMBER]); // false, value is Class
 ```
 
-[&uArr; Up](#guardobjectkeysin) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardobjectsomekeys)
+[&uArr; Up](#guardobjectkeys) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardobjectsomekeys)
 
 <br>
 
