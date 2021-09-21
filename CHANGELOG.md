@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### [5.0.0] Added
 
+* [21e523b]
+  Added `guardObjectKeysIn()` function  guard the value to be an `object` with specified keys in it(or its prototype chain).
+
 * [823dac3]  
   Added `are` prefixed functions to check the values of a rest parameter.
 
@@ -34,6 +37,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 * [d2f756e]  
   Added `recognizeValue()` to recognize type of any value.  
 
+[21e523b]: https://github.com/angular-package/type/commit/21e523b3a46e3e8243276e5008de72ea9b3c3756
 [0efe8ae]: https://github.com/angular-package/type/commit/0efe8aed83d03313921176206636bc8b0730d188
 [d440e38]: https://github.com/angular-package/type/commit/d440e388f6f853c01ef9aab620c206f2233bd3cf
 [5c85a03]: https://github.com/angular-package/type/commit/5c85a03a7fd34dd64a650597f48cea9968940f68
