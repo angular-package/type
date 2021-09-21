@@ -13,9 +13,11 @@ import {
   TESTING_FUNCTION,
   TESTING_NULL,
   TESTING_NUMBER,
+  TESTING_NUMBER_CONSTRUCTOR,
   TESTING_NUMBER_INSTANCE,
   TESTING_OBJECT,
   TESTING_STRING,
+  TESTING_STRING_CONSTRUCTOR,
   TESTING_STRING_INSTANCE,
   TESTING_SYMBOL_NUMBER,
   TESTING_SYMBOL_STRING,
@@ -91,13 +93,13 @@ testing.describe(guardType.name, () => {
             .describe(`number`, () => {
               testing
                 .it(`${TESTING_NUMBER}`, () => expect(guardType(TESTING_NUMBER, 'number')).toBeTrue())
-                .it(`Number(${TESTING_NUMBER})`, () => expect(guardType(TESTING_NUMBER_INSTANCE, 'number')).toBeTrue());
+                .it(`Number(${TESTING_NUMBER})`, () => expect(guardType(TESTING_NUMBER_CONSTRUCTOR, 'number')).toBeTrue());
             })
             // string
             .describe(`string`, () => {
               testing
                 .it(`${TESTING_STRING}`, () => expect(guardType(TESTING_STRING, 'string')).toBeTrue())
-                .it(`String(${TESTING_STRING})`, () => expect(guardType(TESTING_STRING_INSTANCE, 'string')).toBeTrue());
+                .it(`String(${TESTING_STRING})`, () => expect(guardType(TESTING_STRING_CONSTRUCTOR, 'string')).toBeTrue());
             })
             // symbol
             .describe(`symbol`, () => {
