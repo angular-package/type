@@ -1,15 +1,15 @@
 // Class to tests.
 import { BigIntObject } from '../lib/bigint-object.class';
 // Testing.
-import { Testing } from '@angular-package/testing';
+import {
+  // Main.
+  Testing,
+
+  // Constant.
+  TESTING_BIGINT,
+} from '@angular-package/testing';
 // Execute tests.
 import { tests } from '../execute-tests';
-// Constant.
-import {
-  BIGINT,
-  BIGINT_EXPECTATION,
-  BIGINT_INSTANCE,
-} from '../testing.ignore/src/big-int.const';
 /**
  * Initialize testing.
  */
@@ -33,13 +33,13 @@ testing.describe(`BigIntObject`, () => {
             // bigint
             .describe(`bigint`, () =>
               testing
-                .it(`${BIGINT}`, () => {
-                  BigIntObject.set = BIGINT;
-                  expect(BigIntObject.get).toEqual(BIGINT);
+                .it(`${TESTING_BIGINT}`, () => {
+                  BigIntObject.set = TESTING_BIGINT;
+                  expect(BigIntObject.get).toEqual(TESTING_BIGINT);
                 })
-                .it(`${BIGINT_EXPECTATION}`, () => {
-                  BigIntObject.set = BIGINT_INSTANCE;
-                  expect(BigIntObject.get).toEqual(BIGINT_INSTANCE);
+                .it(`1n`, () => {
+                  BigIntObject.set = 1n;
+                  expect(BigIntObject.get).toEqual(1n);
                 })
             );
         });

@@ -41,15 +41,12 @@ testing.describe(`BooleanObject`, () => {
                   BooleanObject.set = TESTING_TRUE;
                   expect(BooleanObject.get).not.toEqual(TESTING_FALSE_INSTANCE);
                   expect(BooleanObject.get.valueOf()).toBeInstanceOf(Boolean);
-                  expect(BooleanObject.get.valueOf()).toBeTruthy();
                   expect(BooleanObject.get.valueOf()).toBeTrue();
                 })
 
                 .it(`${TESTING_FALSE_INSTANCE}`, () => {
                   BooleanObject.set = TESTING_FALSE_INSTANCE;
                   expect(BooleanObject.get.valueOf()).toBeInstanceOf(Boolean);
-                  expect(BooleanObject.get.valueOf()).toBeTrue();
-                  expect(BooleanObject.get.valueOf()).toBeTruthy();
                   expect(BooleanObject.get.valueOf()).toBeTrue();
                 })
 
@@ -58,17 +55,13 @@ testing.describe(`BooleanObject`, () => {
                   expect(BooleanObject.get).not.toEqual(TESTING_TRUE_INSTANCE);
                   expect(BooleanObject.get.valueOf()).toBeInstanceOf(Boolean);
                   expect(BooleanObject.get.valueOf()).toBeFalse();
-                  expect(BooleanObject.get.valueOf()).toBe(TESTING_FALSE);
                 })
 
-                .it(`${TESTING_FALSE_INSTANCE}`, () => {
-                  BooleanObject.set = TESTING_FALSE_INSTANCE;
-                  expect(BooleanObject.get.valueOf().valueOf()).toBeInstanceOf(
-                    Boolean
-                  );
+                .it(`${TESTING_TRUE_INSTANCE}`, () => {
+                  BooleanObject.set = TESTING_TRUE_INSTANCE;
+                  expect(BooleanObject.get).not.toEqual(TESTING_FALSE_INSTANCE);
+                  expect(BooleanObject.get.valueOf().valueOf()).toBeInstanceOf(Boolean);
                   expect(BooleanObject.get.valueOf().valueOf()).toBeTrue();
-                  expect(BooleanObject.get.valueOf().valueOf()).toBeTruthy();
-                  expect(BooleanObject.get.valueOf().valueOf()).toBe(TESTING_FALSE);
                 });
             });
         });

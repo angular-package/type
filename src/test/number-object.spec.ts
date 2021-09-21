@@ -38,24 +38,15 @@ testing.describe(`NumberObject`, () => {
               testing
                 .it(
                   `${TESTING_NUMBER}`,
-                  () => (
-                    (NumberObject.set = TESTING_NUMBER),
-                    expect(NumberObject.get).toEqual(TESTING_NUMBER)
-                  )
+                  () => ((NumberObject.set = TESTING_NUMBER), expect(NumberObject.get).toEqual(TESTING_NUMBER))
                 )
                 .it(
                   `Number(${TESTING_NUMBER})`,
-                  () => (
-                    (NumberObject.set = TESTING_NUMBER_CONSTRUCTOR),
-                    expect(NumberObject.get).toEqual(TESTING_NUMBER_CONSTRUCTOR)
-                  )
+                  () => ((NumberObject.set = TESTING_NUMBER_CONSTRUCTOR), expect(NumberObject.get).toEqual(TESTING_NUMBER_CONSTRUCTOR))
                 )
                 .it(
                   `new Number(${TESTING_NUMBER})`,
-                  () => (
-                    (NumberObject.set = TESTING_NUMBER_INSTANCE),
-                    expect(NumberObject.get).toEqual(TESTING_NUMBER_INSTANCE)
-                  )
+                  () => ((NumberObject.set = TESTING_NUMBER_INSTANCE),expect(NumberObject.get).toEqual(TESTING_NUMBER_INSTANCE))
                 );
             });
         });
