@@ -8142,7 +8142,7 @@ type AnyString = string | String;
 
 #### `CallbackPayload`
 
-[![new]][type-github-changelog]
+[![experimental]][type-github-changelog]
 
 Experimental shape for a generic type variable `Payload`.
 
@@ -8161,13 +8161,13 @@ The shape of the optional `payload` parameter, by default equal to the [`object`
 
 **Properties:**
 
-**`action?: string`**
+**`action?: string`**  
 An **optional** action of a [`string`][js-string] type that describes the cause of performed callback.
 
-**`name?: string`**
+**`name?: string`**  
 An **optional** name of the function or method of a [`string`][js-string] type that performed callback.
 
-**`param?: string`**
+**`param?: string`**  
 An **optional** name of the parameter of a [`string`][js-string] type to which performed callback relates.
 
 <br>
@@ -8212,7 +8212,7 @@ type ForEachCallback<Value = any, Payload = object> = (
 
 **Generic type variables:**
 
-**`Value`**
+**`Value`**  
 A generic type variable `Value` by default equal to `any` determines the type of the `value` parameter.
 
 **`Payload`**  
@@ -8220,22 +8220,22 @@ The shape of the optional `payload` parameter, by default equal to the [`object`
 
 **Parameters:**
 
-**`result: boolean`**
+**`result: boolean`**  
 The result of the check of a [`boolean`][js-boolean] type.
 
-**`value: Value`**
+**`value: Value`**  
 The **value** that has been checked of a generic type variable `Value`.
 
-**`index: number`**
+**`index: number`**  
 An optional [`number`][js-number] of checked [`array`][js-array] element.
 
-**`array: any[]`**
+**`array: any[]`**  
 An optional [`array`][js-array] of `any` type that each element is checked.
 
 **`payload?: Payload`**  
 An optional [`object`][js-object] of a generic type variable `Payload` to provide more data.
 
-**Returns:**
+**Returns:**  
 The return value is a [`boolean`][js-boolean].
 
 <br>
@@ -8328,7 +8328,7 @@ type ResultCallback<Value = any, Payload = object> = (
 
 **Generic type variables:**
 
-**`Value`**
+**`Value`**  
 A generic type variable `Value` by default equal to `any` determines the type of the `value` parameter.
 
 **`Payload`**  
@@ -8336,16 +8336,16 @@ The shape of the optional `payload` parameter, by default equal to the [`object`
 
 **Parameters:**
 
-**`result: boolean`**
+**`result: boolean`**  
 The result of the check of a [`boolean`][js-boolean] type.
 
-**`value: Value`**
+**`value: Value`**  
 The **value** that has been checked of a generic type variable `Value`.
 
 **`payload?: Payload`**  
 An optional [`object`][js-object] of a generic type variable `Payload` to provide more data.
 
-**Returns:**
+**Returns:**  
 The return value is a [`boolean`][js-boolean].
 
 <br>
@@ -8433,7 +8433,7 @@ const bigint: BigIntObject = BigIntObject.get;
 
 #### `BooleanObject`
 
-The object handles creating and getting the [`Boolean`][js-boolean] object instance with [`Boolean()`][booleanconstructor].
+The object handles creating and getting the [`Boolean`][js-boolean] object instance with [`Boolean()`][js-booleanconstructor].
 
 ```typescript
 class BooleanObject {
@@ -8466,7 +8466,7 @@ const booleanInstance: Boolean = BooleanObject.get;
 
 #### `NumberObject`
 
-The object handles creating and getting the [`Number`][js-number] object instance with [`Number()`][numberconstructor].
+The object handles creating and getting the [`Number`][js-number] object instance with [`Number()`][js-numberconstructor].
 
 ```typescript
 class NumberObject {
@@ -8511,7 +8511,7 @@ class PrimitiveObject  {
 
 #### `StringObject`
 
-The object handles creating and getting the [`String`][js-string] object instance with [`String()`][stringconstructor].
+The object handles creating and getting the [`String`][js-string] object instance with [`String()`][js-stringconstructor].
 
 ```typescript
 class StringObject {
@@ -8540,7 +8540,7 @@ const stringInstance: String = StringObject.get;
 
 #### `SymbolObject`
 
-The object handles creating and getting the [`Symbol`][js-symbol] object instance with [`Symbol()`][symbolconstructor].
+The object handles creating and getting the [`Symbol`][js-symbol] object instance with [`Symbol()`][js-symbolconstructor].
 
 ```typescript
 class SymbolObject {
@@ -8569,11 +8569,13 @@ const symbol: Symbol = SymbolObject.get;
 
 #### `isParam()`
 
+[![update]][type-github-changelog]
+
 Method decorator to check the type and return [`undefined`][js-undefined] if it's not the same as expected.
 
 ```typescript
 function isParam(...param: Array<string>): MethodDecorator {
-  return (target: Func | object, key: string | symbol, descriptor: any): any => {
+  return (target: Function | object, key: string | symbol, descriptor: any): any => {
     const originalMethod = descriptor.value;
 
     descriptor.value =  function(): void {
@@ -8734,8 +8736,8 @@ MIT © angular-package ([license][type-license])
   <!-- GitHub -->
   [callback-github-readme]: https://github.com/angular-package/callback#readme
 
-  (#callbackpayload): https://github.com/angular-package/callback#callbackpayload
-  (#resultcallback): https://github.com/angular-package/callback#resultcallback
+  [package-callback-callbackpayload]: https://github.com/angular-package/callback#callbackpayload
+  [package-callback-resultcallback]: https://github.com/angular-package/callback#resultcallback
 
 <!-- Package: change-detection -->
   <!-- npm -->
