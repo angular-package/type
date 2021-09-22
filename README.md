@@ -561,9 +561,9 @@ To handle the **result** of the check(before it returns) with an additional payl
 The callback function passes the `result` of the check, the `value` that was checked, and `payload` with by default function name that performed the callback and some additional properties depends on the used function. Payload is changeable by the `payload` parameter of the parent function and also it's possible to add new properties through it.
 The default callback function is used to return the result of the check.
 
-#### `resultCallback()`
+#### Default `resultCallback()`
 
-Default function to handle `callback` of [`ResultCallback`][package-callback-resultcallback] type.
+Default function to handle `callback` of [`ResultCallback`](#resultcallback) type.
 
 ```typescript
 const resultCallback = (result: boolean): boolean => result;
@@ -704,14 +704,14 @@ Checks if **every** of the provided `values` of [`areBigInt()`](#arebigint) is a
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -756,14 +756,14 @@ The `forEach()` method executes a provided callback function once for each eleme
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                 | Description |
 | :--------------------------------------------------------- | :---------- |
-| `callback: ForEachCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ForEachCallback`][package-callback-foreachcallback] type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape with optional properties from the provided `payload`, to handle. |
-| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ForEachCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ForEachCallback`](#foreachcallback) type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`](#callbackpayload) shape with optional properties from the provided `payload`, to handle. |
+| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -812,14 +812,14 @@ Checks if **some** of the provided `values` of [`areBigInt()`](#arebigint) are a
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -885,14 +885,14 @@ Checks if **every** of the provided `values` of [`areBoolean()`](#areboolean) is
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -937,14 +937,14 @@ The `forEach()` method executes a provided callback function once for each eleme
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                 | Description |
 | :--------------------------------------------------------- | :---------- |
-| `callback: ForEachCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ForEachCallback`][package-callback-foreachcallback] type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape with optional properties from the provided `payload`, to handle. |
-| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ForEachCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ForEachCallback`](#foreachcallback) type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`](#callbackpayload) shape with optional properties from the provided `payload`, to handle. |
+| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -992,14 +992,14 @@ Checks if **some** of the provided `values` of [`areBoolean()`](#areboolean) are
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -1067,14 +1067,14 @@ Checks if **every** of the provided `values` of [`areDate()`](#aredate) is a [`D
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -1119,14 +1119,14 @@ The `forEach()` method executes a provided callback function once for each eleme
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                 | Description |
 | :--------------------------------------------------------- | :---------- |
-| `callback: ForEachCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ForEachCallback`][package-callback-foreachcallback] type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape with optional properties from the provided `payload`, to handle. |
-| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ForEachCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ForEachCallback`](#foreachcallback) type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`](#callbackpayload) shape with optional properties from the provided `payload`, to handle. |
+| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -1174,14 +1174,14 @@ Checks if **some** of the provided `values` of [`areDate()`](#aredate) are [`Dat
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -1249,14 +1249,14 @@ Checks if **every** of the provided `values` of [`areDefined()`](#aredefined) is
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -1303,14 +1303,14 @@ The `forEach()` method executes a provided callback function once for each eleme
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                 | Description |
 | :--------------------------------------------------------- | :---------- |
-| `callback: ForEachCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ForEachCallback`][package-callback-foreachcallback] type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape with optional properties from the provided `payload`, to handle. |
-| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ForEachCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ForEachCallback`](#foreachcallback) type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`](#callbackpayload) shape with optional properties from the provided `payload`, to handle. |
+| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -1360,14 +1360,14 @@ Checks if **some** of the provided `values` of [`areDefined()`](#aredefined) are
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -1437,14 +1437,14 @@ Checks if **every** of the provided `values` of [`areFalse()`](#arefalse) is a [
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -1489,14 +1489,14 @@ The `forEach()` method executes a provided callback function once for each eleme
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                 | Description |
 | :--------------------------------------------------------- | :---------- |
-| `callback: ForEachCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ForEachCallback`][package-callback-foreachcallback] type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape with optional properties from the provided `payload`, to handle. |
-| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ForEachCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ForEachCallback`](#foreachcallback) type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`](#callbackpayload) shape with optional properties from the provided `payload`, to handle. |
+| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -1544,14 +1544,14 @@ Checks if **some** of the provided `values` of [`areFalse()`](#arefalse) are a [
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -1619,14 +1619,14 @@ Checks if **every** of the provided `values` of [`areNull()`](#arenull) is [`nul
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -1671,14 +1671,14 @@ The `forEach()` method executes a provided callback function once for each eleme
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                 | Description |
 | :--------------------------------------------------------- | :---------- |
-| `callback: ForEachCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ForEachCallback`][package-callback-foreachcallback] type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape with optional properties from the provided `payload`, to handle. |
-| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ForEachCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ForEachCallback`](#foreachcallback) type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`](#callbackpayload) shape with optional properties from the provided `payload`, to handle. |
+| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -1726,14 +1726,14 @@ Checks if **some** of the provided `values` of [`areNull()`](#arenull) are [`nul
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -1801,14 +1801,14 @@ Checks if **every** of the provided `values` of [`areNumber()`](#arenumber) is a
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -1853,14 +1853,14 @@ The `forEach()` method executes a provided callback function once for each eleme
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                 | Description |
 | :--------------------------------------------------------- | :---------- |
-| `callback: ForEachCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ForEachCallback`][package-callback-foreachcallback] type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape with optional properties from the provided `payload`, to handle. |
-| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ForEachCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ForEachCallback`](#foreachcallback) type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`](#callbackpayload) shape with optional properties from the provided `payload`, to handle. |
+| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -1908,14 +1908,14 @@ Checks if **some** of the provided `values` of [`areNumber()`](#arenumber) are a
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -1983,14 +1983,14 @@ Checks if **every** of the provided `values` of [`areRegExp()`](#areregexp) is a
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -2035,14 +2035,14 @@ The `forEach()` method executes a provided callback function once for each eleme
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                 | Description |
 | :--------------------------------------------------------- | :---------- |
-| `callback: ForEachCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ForEachCallback`][package-callback-foreachcallback] type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape with optional properties from the provided `payload`, to handle. |
-| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ForEachCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ForEachCallback`](#foreachcallback) type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`](#callbackpayload) shape with optional properties from the provided `payload`, to handle. |
+| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -2094,14 +2094,14 @@ Checks if **some** of the provided `values` of [`areRegExp()`](#areregexp) are r
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -2169,14 +2169,14 @@ Checks if **every** of the provided `values` of [`areString()`](#arestring) is a
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -2221,14 +2221,14 @@ The `forEach()` method executes a provided callback function once for each eleme
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                 | Description |
 | :--------------------------------------------------------- | :---------- |
-| `callback: ForEachCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ForEachCallback`][package-callback-foreachcallback] type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape with optional properties from the provided `payload`, to handle. |
-| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ForEachCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ForEachCallback`](#foreachcallback) type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`](#callbackpayload) shape with optional properties from the provided `payload`, to handle. |
+| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -2276,14 +2276,14 @@ Checks if **some** of the provided `values` of [`areString()`](#arestring) are a
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -2351,14 +2351,14 @@ Checks if **every** of the provided `values` of [`areSymbol()`](#aresymbol) is a
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -2403,14 +2403,14 @@ The `forEach()` method executes a provided callback function once for each eleme
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                 | Description |
 | :--------------------------------------------------------- | :---------- |
-| `callback: ForEachCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ForEachCallback`][package-callback-foreachcallback] type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape with optional properties from the provided `payload`, to handle. |
-| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ForEachCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ForEachCallback`](#foreachcallback) type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`](#callbackpayload) shape with optional properties from the provided `payload`, to handle. |
+| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -2462,14 +2462,14 @@ Checks if **some** of the provided `values` of [`areSymbol()`](#aresymbol) are a
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                      | Description |
 | :---------------------------------------------- | :---------- |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -2537,14 +2537,14 @@ Checks if **every** of the provided `values` of [`areTrue()`](#aretrue) is a [`b
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                      | Description |
 | :---------------------------------------------- | :---------- |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -2591,14 +2591,14 @@ The `forEach()` method executes a provided callback function once for each eleme
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                       | Description |
 | :----------------------------------------------- | :---------- |
-| `callback: ForEachCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ForEachCallback`][package-callback-foreachcallback] type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape with optional properties from the provided `payload`, to handle. |
-| `payload?: CallbackPayload<Payload>`             | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ForEachCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ForEachCallback`](#foreachcallback) type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`](#callbackpayload) shape with optional properties from the provided `payload`, to handle. |
+| `payload?: CallbackPayload<Payload>`             | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -2652,14 +2652,14 @@ Checks if **some** of the provided `values` of of [`areTrue()`](#aretrue) are a 
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                      | Description |
 | :---------------------------------------------- | :---------- |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -2729,14 +2729,14 @@ Checks if **every** of the provided `values` of [`areUndefined()`](#areundefined
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                      | Description |
 | :---------------------------------------------- | :---------- |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -2781,14 +2781,14 @@ The `forEach()` method executes a provided callback function once for each eleme
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                       | Description |
 | :----------------------------------------------- | :---------- |
-| `callback: ForEachCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ForEachCallback`][package-callback-foreachcallback] type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`][package-callback-callbackpayload] shape with optional properties from the provided `payload`, to handle. |
-| `payload?: CallbackPayload<Payload>`             | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ForEachCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ForEachCallback`](#foreachcallback) type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`](#callbackpayload) shape with optional properties from the provided `payload`, to handle. |
+| `payload?: CallbackPayload<Payload>`             | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -2840,14 +2840,14 @@ Checks if **some** of the provided `values` of [`areUndefined()`](#areundefined)
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                      | Description |
 | :---------------------------------------------- | :---------- |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -2938,15 +2938,15 @@ const isArray = <Type, Payload extends object = object>(
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
 | `Type`    | `any`         | A generic type variable `Type` indicates the type of [`Array`][js-array] element of the `value` parameter, which by default is `unknown` via the return type `value is Array<Type>`. |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
 | `value: any`                                              | The value of any type to check. |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -3025,15 +3025,15 @@ const isBigInt = <Payload extends object>(
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                      | Description |
 | :---------------------------------------------- | :---------- |
 | `value: any`                                    | The value of any type to check. |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -3087,15 +3087,15 @@ const isBoolean = <
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
 | `Type`    | `boolean`     | A generic type variable `Type` guarded by [`AnyBoolean`](#anyboolean) by default of `boolean` indicates the type of the `value` via the return type `value is Type`. |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
 | `value: any`                                              | The value of any type to check. |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -3182,15 +3182,15 @@ const isBooleanObject = <Payload extends object>(
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
 | `value: any`                                              | The value of any type to check. |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -3237,15 +3237,15 @@ const isBooleanType = <Payload extends object>(
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
 | `value: any`                                              | The value of any type to check. |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -3296,15 +3296,15 @@ const isClass = <Class = Function, Payload extends object = object>(
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
 | `Class`   | `Function`    | A generic type variable `Class` indicates the type of `value` parameter via the return type `value is Class`. |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
 | `value: any`                                              | The value of any type to check. |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -3368,15 +3368,15 @@ const isDate = <Payload extends object>(
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
 | `value: any`                                              | The value of any type to check. |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -3436,15 +3436,15 @@ const isDefined = <Type, Payload extends object = object>(
 | Name      | Default value    | Description |
 | :-------- | :--------------- | :---------- |
 | `Type`    | From the `value` | A generic type variable `Type` indicates the type of the `value` parameter, by default captured from the provided `value` via the return type `value is Defined<Type>`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                 | Description |
 | :--------------------------------------------------------- | :---------- |
 | `value: Type`                                              | The value of a generic type variable `Type`, by default of type captured from the provided `value`, to check. |
-| `callback: ResultCallback<Type, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<Type, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -3507,15 +3507,15 @@ const isFalse = <Payload extends object>(
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
 | `value: any`                                              | The value of any type to check. |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -3580,15 +3580,15 @@ const isFunction = <Payload extends object>(
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
 | `value: any`                                              | The value of any type to check. |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -3658,7 +3658,7 @@ const isInstance = <Obj, Payload extends object>(
 | Name      | Default value          | Description |
 | :-------- | :--------------------- | :---------- |
 | `Obj`     | From the `constructor` | A generic type variable `Obj`, by default captured from the provided `constructor` indicates the type of `value` parameter via the return type `value is Obj`. |
-| `Payload` | `object`               | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from the provided `payload` optional parameter. |
+| `Payload` | `object`               | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -3666,8 +3666,8 @@ const isInstance = <Obj, Payload extends object>(
 | :--------------------------------------------------------------------------------------- | :---------- |
 | `value: any`                                                                             | The value of any type to be an instance of a given `constructor`. |
 | `constructor: Constructor<Obj>`                                                          | A [`class`][ts-classes] or [`function`][ts-function] that specifies the type of [`Constructor`](#constructor). |
-| `callback: ResultCallback<any, CallbackPayload<{ ctor: typeof constructor } & Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type [`Constructor`](#constructor) and generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                                                     | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<{ ctor: typeof constructor } & Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type [`Constructor`](#constructor) and generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                                                     | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -3756,15 +3756,15 @@ const isKey = <Payload extends object>(
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
 | `value: any`                                              | The value of any type to check. |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -3823,15 +3823,15 @@ const isNull = <Payload extends object>(
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
 | `value: any`                                              | The value of any type to check. |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -3886,15 +3886,15 @@ const isNumber = <
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
 | `Type`    | `number`      | A generic type variable `Type` guarded by [`AnyNumber`](#anynumber) by default of `number` indicates the type of the `value` via the return type `value is Type`. |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
 | `value: any`                                              | The value of any type to check. |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -3967,7 +3967,7 @@ const isNumberBetween = <
 | `Type`    | `number`                  | A generic type variable `Type` guarded by [`AnyNumber`](#anynumber) by default of `number` indicates the type of the `value` via the return type `value is NumberBetween<Min, Max, Type>`. |
 | `Min`     | From the `min` of `range` | A generic type variable `Min` constrained by the `number` type, by default of value captured from optional `min` of the provided `range` that indicates the **minimum** range of the provided `value` via the return type `value is NumberBetween<Min, Max, Type>` |
 | `Max`     | From the `max` of `range` | A generic type variable `Max` constrained by the `number` type, by default of value captured from optional `max` of the provided `range` that indicates the **maximum** range of the provided `value` via the return type `value is NumberBetween<Min, Max, Type>` |
-| `Payload` | `object`                  | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`                  | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -3975,8 +3975,8 @@ const isNumberBetween = <
 | :--------------------------------------------------------------------------- | :---------- |
 | `value: any`                                                                 | The value of any type to check. |
 | `range: MinMax<Min, Max>`                                                    | An [`object`][js-object] of optional **minimum** and **maximum** range of a given `value`. |
-| `callback: ResultCallback<any, CallbackPayload<MinMax<Min, Max> & Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and optional `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variables `Min` and `Max` and generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                                         | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<MinMax<Min, Max> & Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and optional `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variables `Min` and `Max` and generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                                         | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -4037,15 +4037,15 @@ const isNumberObject = <Payload extends object>(
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
 | `value: any`                                              | The value of any type to check. |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -4093,15 +4093,15 @@ const isNumberType = <Payload extends object>(
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
 | `value: any`                                              | The value of any type to check. |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -4151,15 +4151,15 @@ const isObject = <Obj = object, Payload extends object = object>(
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
 | `Obj`     | `object`      | A generic type variable `Obj` indicates the type of `value` parameter via the return type `value is Obj`. |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
 | `value: any`                                              | The value of any type to check. |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -4239,7 +4239,7 @@ const isObjectKey = <Obj extends object, Payload extends object = object>(
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
 | `Obj`     | `object`      | A generic type variable `Obj` indicates the type of `value` parameter by default `object` via the return type `value is Obj`. |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -4247,8 +4247,8 @@ const isObjectKey = <Obj extends object, Payload extends object = object>(
 | :------------------------------------------------------------------------------ | :---------- |
 | `value: any`                                                                    | The value of any type to check against an `object` that contains a key from a given `key`. |
 | `key: PropertyKey`                                                              | A property key to check if a given `value` contains. |
-| `callback: ResultCallback<any, CallbackPayload<{ key: typeof key } & Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes `PropertyKey` and generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                                            | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<{ key: typeof key } & Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes `PropertyKey` and generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                                            | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -4361,7 +4361,7 @@ const isObjectKeyIn = <Obj = object, Payload extends object = object>(
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
 | `Obj`     | `object`      | A generic type variable `Obj` indicates the type of `value` parameter by default `object` via the return type `value is Obj`. |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -4369,8 +4369,8 @@ const isObjectKeyIn = <Obj = object, Payload extends object = object>(
 | :----------------------------------------------------------------------------- | :---------- |
 | `value: any`                                                                   | The value of any type to check against an `object` that contains(or its prototype chain) a key from a given `key`. |
 | `key: PropertyKey`                                                             | A property key to check if a given `value` contains(or its prototype chain). |
-| `callback: ResultCallback<any, CallbackPayload<{ key: typeof key } & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes `PropertyKey` and generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                                           | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<{ key: typeof key } & Payload>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes `PropertyKey` and generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                                           | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -4461,7 +4461,7 @@ const isObjectKeys = <Obj = object, Payload extends object = object>(
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
 | `Obj`     | `object`      | A generic type variable `Obj` indicates the type of `value` parameter by default `object` via the return type `value is Obj`. |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -4469,8 +4469,8 @@ const isObjectKeys = <Obj = object, Payload extends object = object>(
 | :----------------------------------------------------------- | :---------- |
 | `value: any`                                                 | The value of any type to check against an [`object`][js-object] that contains its keys from given `keys`. |
 | `keys: PropertyKey[]`                                        | An [`Array`][js-array] of property keys to check if a given `value` contains all of them. |
-| `callback: CallbackPayload<{ keys: typeof keys } & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes an `array` of `PropertyKey` and generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                         | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: CallbackPayload<{ keys: typeof keys } & Payload>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes an `array` of `PropertyKey` and generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                         | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -4552,7 +4552,7 @@ const isObjectKeysIn = <Obj = object, Payload extends object = object>(
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
 | `Obj`     | `object`      | A generic type variable `Obj` indicates the type of `value` parameter by default `object` via the return type `value is Obj`. |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -4560,8 +4560,8 @@ const isObjectKeysIn = <Obj = object, Payload extends object = object>(
 | :----------------------------------------------------------- | :---------- |
 | `value: any`                                                 | The value of any type to check against an [`object`][js-object] that contains(or its prototype chain) keys from given `keys`. |
 | `keys: PropertyKey[]`                                        | An [`Array`][js-array] of property keys to check if a given `value` contains(or its prototype chain) all of them. |
-| `callback: CallbackPayload<{ keys: typeof keys } & Payload>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes an `array` of `PropertyKey` and generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                         | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: CallbackPayload<{ keys: typeof keys } & Payload>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes an `array` of `PropertyKey` and generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                         | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -4644,7 +4644,7 @@ const isObjectSomeKeys = <
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
 | `Obj`     | `object`      | A generic type variable `Obj` constrained by the `object` indicates the type of `value` parameter by default `object` via the return type `value is Obj`. |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -4652,8 +4652,8 @@ const isObjectSomeKeys = <
 | :-------------------------------------------------------------------------------- | :---------- |
 | `value: any`                                                                      | The value of any type to check against an [`object`][js-object] that contains some of its keys or some groups of its keys from a given `keys`. |
 | `keys: (PropertyKey | PropertyKey[])[]`                                           | An [`Array`][js-array] of property names or a two-dimensional array of property names to check if the given `value` contains some of them or some groups of them. |
-| `callback: ResultCallback<any, CallbackPayload<{ keys: typeof keys } & Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes an `array` of `PropertyKey` and generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                                              | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<{ keys: typeof keys } & Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes an `array` of `PropertyKey` and generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                                              | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -4738,7 +4738,7 @@ const isPrimitive = <
 | Name      | Default value             | Description |
 | :-------- | :------------------------ | :---------- |
 | `Type`    | [`Primitive`](#primitive) | A generic type variable `Type` constrained by the [`Primitive`](#primitive) type indicates the type of `value` parameter via the return type `value is Type`. |
-| `Payload` | `object`                  | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`                  | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -4746,8 +4746,8 @@ const isPrimitive = <
 | :-------------------------------------------------------- | :---------- |
 | `value: any`                                              | The value of any type to check. |
 | `type?: Primitives`                                       | An optional value of [`Primitives`](#primitives) type indicates against which type the provided `value` is checked. |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -4801,15 +4801,15 @@ const isRegExp = <Payload extends object>(
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
 | `value: any`                                              | The value of any type to check. |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -4855,15 +4855,15 @@ const isString = <
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
 | `Type`    | `string`      | A generic type variable `Type` guarded by [`AnyString`](#anystring) by default `string` indicates the type of the `value` via the return type `value is Type`. |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
 | `value: any`                                              | The value of any type to check. |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -4935,7 +4935,7 @@ const isStringIncludes = <
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
 | `Type`    | `string`      | A generic type variable `Type` guarded by [`AnyString`](#anystring) by default `string` indicates the type of the `value` via the return type `value is Type`. |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -4943,8 +4943,8 @@ const isStringIncludes = <
 | :---------------------------------------------------------------------------------------- | :---------- |
 | `value: any`                                                                              | The value of any type to check against the string that contains **words/sentences** from a given `includes`.  |
 | `includes: string[]`                                                                      | An [`Array`][js-array] of [`string`][js-string] as **words/sentences** to be **case-sensitive** searched for within a given `value`. |
-| `callback: ResultCallback<any, CallbackPayload<{ includes: typeof includes } & Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes an `array` of `string` and generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                                                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<{ includes: typeof includes } & Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes an `array` of `string` and generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                                                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -5008,7 +5008,7 @@ const isStringIncludesSome = <
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
 | `Type`    | `string`      | A generic type variable `Type` guarded by [`AnyString`](#anystring) by default `string` indicates the type of the `value` via the return type `value is Type`. |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -5016,8 +5016,8 @@ const isStringIncludesSome = <
 | :---------------------------------------------------------------------------------------- | :---------- |
 | `value: any`                                                                              | The value of any type to check against the string that `includes` **some** of the **words/sentences**. |
 | `includes: string[]`                                                                      | An [`Array`][js-array] of [`string`][js-string] as **words/sentences** to be **case-sensitive** searched for within a given `value`. |
-| `callback: ResultCallback<any, CallbackPayload<{ includes: typeof includes } & Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes an `array` of `string` and generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                                                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<{ includes: typeof includes } & Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes an `array` of `string` and generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                                                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -5092,7 +5092,7 @@ const isStringLength = <
 | `Type`    | `string`      | A generic type variable `Type` guarded by [`AnyString`](#anystring) by of default `string` indicates the type of the `value` via the return type `value is StringOfLength<Min, Max, Type>`. |
 | `Min`     | `number`      | A generic type variable `Min` constrained with the `number` type, by default of value captured from optional `min` of provided `length` that indicates the **minimum** length of the provided `value` via the return type `value is StringOfLength<Min, Max, Type>` |
 | `Max`     | `number`      | A generic type variable `Max` constrained with the `number` type, by default of value captured from optional `max` of provided `length` that indicates the **maximum** length of the provided `value` via the return type `value is StringOfLength<Min, Max, Type>` |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -5100,8 +5100,8 @@ const isStringLength = <
 | :--------------------------------------------------------------------------- | :---------- |
 | `value: any`                                                                 | The value of any type to check. |
 | `length: MinMax<Min, Max>`                                                   | An [`object`][js-object] of optional minimum and a maximum `length` of the given `value`. |
-| `callback: ResultCallback<any, CallbackPayload<MinMax<Min, Max> & Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variables `Min` and `Max` and generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                                         | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<MinMax<Min, Max> & Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variables `Min` and `Max` and generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                                         | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -5163,15 +5163,15 @@ const isStringObject = <Payload extends object>(
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
 | `value: any`                                              | The value of any type to check. |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -5214,15 +5214,15 @@ const isStringType = <Payload extends object>(
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
 | `value: any`                                              | The value of any type to check. |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -5265,15 +5265,15 @@ const isSymbol = <Payload extends object>(
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
 | `value: any`                                              | The value of any type to check. |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -5315,15 +5315,15 @@ const isTrue = <Payload extends object>(
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
 | `value: any`                                              | The value of any type to check. |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -5381,7 +5381,7 @@ const isType = <T extends Type, Payload extends object = object>(
 | Name      | Default value   | Description |
 | :-------- | :-------------- | :---------- |
 | `T`       | [`Type`](#type) | A generic type variable `T` constrained by the [`Type`](#type) indicates the type of `value` parameter via the return type `value is T`. |
-| `Payload` | `object`        | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `T` and can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`        | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `T` and can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -5389,8 +5389,8 @@ const isType = <T extends Type, Payload extends object = object>(
 | :-------------------------------------------------------- | :---------- |
 | `value: any`                                              | The value of any type to check against the type of given `type` of [`Types`](#types). |
 | `type: Types<T>`                                          | A value of [`string`][js-string] or [`Constructor`](#constructor) type of the `Types` indicates against which type the provided `value` is checked. |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -5461,15 +5461,15 @@ const isUndefined = <Payload extends object>(
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                | Description |
 | :-------------------------------------------------------- | :---------- |
 | `value: any`                                              | The value of any type to check. |
-| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -5534,15 +5534,15 @@ const isNotBoolean = <Type, Payload extends object = object>(
 | Name      | Default value    | Description |
 | :-------- | :--------------- | :---------- |
 | `Type`    | From the `value` | A generic type variable `Type` indicates the type of `value` parameter via the return type `value is Never<AnyBoolean, Type>`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                 | Description |
 | :--------------------------------------------------------- | :---------- |
 | `value: Type`                                              | The value of a generic type variable `Type`, by default of type captured from the provided `value` to check. |
-| `callback: ResultCallback<Type, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<Type, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -5597,15 +5597,15 @@ const isNotDefined = <Type, Payload extends object = object>(
 | Name      | Default value    | Description |
 | :-------- | :--------------- | :---------- |
 | `Type`    | From the `value` | A generic type variable `Type` indicates the type of `value` parameter via the return type `value is Undefined<Type>`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                 | Description |
 | :--------------------------------------------------------- | :---------- |
 | `value: Type`                                              | The value of a generic type variable `Type`, by default of type captured from the provided `value` to check. |
-| `callback: ResultCallback<Type, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<Type, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -5660,15 +5660,15 @@ const isNotFunction = <Type, Payload extends object = object>(
 | Name      | Default value    | Description |
 | :-------- | :--------------- | :---------- |
 | `Type`    | From the `value` | A generic type variable `Type` indicates the type of `value` parameter via the return type `value is Never<Function, Type>`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                 | Description |
 | :--------------------------------------------------------- | :---------- |
 | `value: Type`                                              | The value of a generic type variable `Type`, by default of type captured from the provided `value` to check. |
-| `callback: ResultCallback<Type, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<Type, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -5716,15 +5716,15 @@ const isNotNull = <Type, Payload extends object = object>(
 | Name      | Default value    | Description |
 | :-------- | :--------------- | :---------- |
 | `Type`    | From the `value` | A generic type variable `Type` indicates the type of `value` parameter via the return type `value is Never<null, Type>`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                 | Description |
 | :--------------------------------------------------------- | :---------- |
 | `value: Type`                                              | The value of any type, by default of type captured from the provided `value` to check. |
-| `callback: ResultCallback<Type, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<Type, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -5777,15 +5777,15 @@ const isNotNumber = <Type, Payload extends object = object>(
 | Name      | Default value    | Description |
 | :-------- | :--------------- | :---------- |
 | `Type`    | From the `value` | A generic type variable `Type` indicates the type of `value` parameter via the return type `value is Never<AnyNumber, Type>`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                 | Description |
 | :--------------------------------------------------------- | :---------- |
 | `value: Type`                                              | The value of any type, by default of type captured from the provided `value` to check. |
-| `callback: ResultCallback<Type, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<Type, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -5842,15 +5842,15 @@ const isNotString = <Type, Payload extends object = object>(
 | Name      | Default value    | Description |
 | :-------- | :--------------- | :---------- |
 | `Type`    | From the `value` | A generic type variable `Type` indicates the type of `value` parameter via the return type `value is Never<AnyString, Type>`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                 | Description |
 | :--------------------------------------------------------- | :---------- |
 | `value: Type`                                              | The value of any type, by default of type captured from the provided `value` to check. |
-| `callback: ResultCallback<Type, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<Type, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -5909,15 +5909,15 @@ const isNotUndefined = <Type, Payload extends object = object>(
 | Name      | Default value    | Description |
 | :-------- | :--------------- | :---------- |
 | `Type`    | From the `value` | A generic type variable `Type` indicates the type of the `value` parameter via the return type `value is Defined<Type>`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                 | Description |
 | :--------------------------------------------------------- | :---------- |
 | `value: Type`                                              | The value of any type, by default of type captured from the provided `value` to check. |
-| `callback: ResultCallback<Type, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`][package-callback-resultcallback] type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback: ResultCallback<Type, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -6107,15 +6107,15 @@ const guardArray = <Type, Payload extends object = object>(
 | Name      | Default value    | Description |
 | :-------- | :--------------- | :---------- |
 | `Type`    | From the `value` | A generic type variable `Type` indicates the `array` element type of the `value` by default captured from the provided `value`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                         | Description |
 | :----------------------------------------------------------------- | :---------- |
 | `value: Array<Type>`                                               | An [`Array`][js-array] of a generic type variable `Type`, implicitly of the type captured from the supplied `value`, to guard. |
-| `callback?: ResultCallback<Array<Type>, CallbackPayload<Payload>>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
-| `payload?: CallbackPayload<Payload>`                               | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback?: ResultCallback<Array<Type>, CallbackPayload<Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
+| `payload?: CallbackPayload<Payload>`                               | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -6163,15 +6163,15 @@ const guardBigInt = <Payload extends object>(
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                    | Description |
 | :------------------------------------------------------------ | :---------- |
 | `value: bigint`                                               | A [`bigint`][js-bigint] type value to guard. |
-| `callback?: ResultCallback<bigint, CallbackPayload<Payload>>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
-| `payload?: CallbackPayload<Payload>`                          | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback?: ResultCallback<bigint, CallbackPayload<Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
+| `payload?: CallbackPayload<Payload>`                          | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -6216,15 +6216,15 @@ const guardBoolean = <
 | Name      | Default value    | Description |
 | :-------- | :--------------- | :---------- |
 | `Type`    | From the `value` | A generic type variable `Type` guarded by [`AnyBoolean`](#anyboolean), by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Type`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                  | Description |
 | :---------------------------------------------------------- | :---------- |
 | `value: Type`                                               | The value of a generic type variable `Type`, by default of the type captured from the supplied `value`, to guard. |
-| `callback?: ResultCallback<Type, CallbackPayload<Payload>>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
-| `payload?: CallbackPayload<Payload>`                        | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback?: ResultCallback<Type, CallbackPayload<Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
+| `payload?: CallbackPayload<Payload>`                        | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -6271,15 +6271,15 @@ const guardClass = <
 | Name      | Default value    | Description |
 | :-------- | :--------------- | :---------- |
 | `Class`   | From the `value` | A generic type variable `Class` guarded by [`Function`][ts-function], by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Class`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                   | Description |
 | :----------------------------------------------------------- | :---------- |
 | `value: Class`                                               | The [`class`][ts-classes] of a generic type variable `Class`, by default of the type captured from the provided `value` parameter, to guard. |
-| `callback?: ResultCallback<Class, CallbackPayload<Payload>>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
-| `payload?: CallbackPayload<Payload>`                         | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback?: ResultCallback<Class, CallbackPayload<Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
+| `payload?: CallbackPayload<Payload>`                         | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -6364,15 +6364,15 @@ const guardDate = <Payload extends object>(
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                  | Description |
 | :---------------------------------------------------------- | :---------- |
 | `value: Date`                                               | The value of [`Date`][js-date] type to guard. |
-| `callback?: ResultCallback<Date, CallbackPayload<Payload>>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
-| `payload?: CallbackPayload<Payload>`                        | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback?: ResultCallback<Date, CallbackPayload<Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
+| `payload?: CallbackPayload<Payload>`                        | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -6419,15 +6419,15 @@ const guardDefined = <Type, Payload extends object = object>(
 | Name      | Default value    | Description |
 | :-------- | :--------------- | :---------- |
 | `Type`    | From the `value` | A generic type variable `Type`, by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Defined<Type>`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                           | Description |
 | :------------------------------------------------------------------- | :---------- |
 | `value: Defined<Type>`                                               | The value of `Defined<Type>`, **never** `undefined` type captured from the `value` to guard against `undefined`. |
-| `callback?: ResultCallback<Defined<Type>, CallbackPayload<Payload>>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
-| `payload?: CallbackPayload<Payload>`                                 | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback?: ResultCallback<Defined<Type>, CallbackPayload<Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
+| `payload?: CallbackPayload<Payload>`                                 | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -6473,15 +6473,15 @@ const guardFalse = <Payload extends object>(
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                   | Description |
 | :----------------------------------------------------------- | :---------- |
 | `value: false`                                               | The value of `false` type to guard. |
-| `callback?: ResultCallback<false, CallbackPayload<Payload>>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
-| `payload?: CallbackPayload<Payload>`                         | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback?: ResultCallback<false, CallbackPayload<Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
+| `payload?: CallbackPayload<Payload>`                         | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -6530,15 +6530,15 @@ const guardFunction = <Type extends Function, Payload extends object>(
 | Name      | Default value    | Description |
 | :-------- | :--------------- | :---------- |
 | `Type`    | From the `value` | A generic type variable `Type`, by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Type`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                  | Description |
 | :---------------------------------------------------------- | :---------- |
 | `value: Type`                                               | The `function` of a generic type variable `Type`, by default of the type captured from the provided `value`, to guard. |
-| `callback?: ResultCallback<Type, CallbackPayload<Payload>>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
-| `payload?: CallbackPayload<Payload>`                        | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback?: ResultCallback<Type, CallbackPayload<Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
+| `payload?: CallbackPayload<Payload>`                        | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -6590,7 +6590,7 @@ const guardInstance = <
 | Name      | Default value    | Description |
 | :-------- | :--------------- | :---------- |
 | `Obj`     | From the `value` | A generic type variable `Obj` guarded by [`object`][js-object], by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Obj` and specifies the type of the `constructor`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -6598,8 +6598,8 @@ const guardInstance = <
 | :---------------------------------------------------------------------------------------- | :---------- |
 | `value: Obj`                                                                              | An [`object`][js-object] of a generic type variable `Obj`, by default of the type captured from the provided `value` to guard and to check if it's an instance of a given `constructor`.  |
 | `constructor: Constructor<Obj>`                                                           | A [`class`][ts-classes] or [`function`][ts-function] that specifies the type of the [`constructor`](#constructor). |
-| `callback?: ResultCallback<Obj, CallbackPayload<{ ctor: typeof constructor } & Payload>>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
-| `payload?: CallbackPayload<Payload>`                                                      | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback?: ResultCallback<Obj, CallbackPayload<{ ctor: typeof constructor } & Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
+| `payload?: CallbackPayload<Payload>`                                                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -6671,15 +6671,15 @@ const guardKey = <Payload extends object>(
 
 | Name      | Default value    | Description |
 | :-------- | :--------------- | :---------- |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                         | Description |
 | :----------------------------------------------------------------- | :---------- |
 | `value: PropertyKey`                                               | The value of `PropertyKey` type to guard. |
-| `callback?: ResultCallback<PropertyKey, CallbackPayload<Payload>>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
-| `payload?: CallbackPayload<Payload>`                               | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback?: ResultCallback<PropertyKey, CallbackPayload<Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
+| `payload?: CallbackPayload<Payload>`                               | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -6727,15 +6727,15 @@ const guardNull = <Payload extends object>(
 
 | Name      | Default value    | Description |
 | :-------- | :--------------- | :---------- |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                  | Description |
 | :---------------------------------------------------------- | :---------- |
 | `value: null`                                               | A `null` type `value` to guard. |
-| `callback?: ResultCallback<null, CallbackPayload<Payload>>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
-| `payload?: CallbackPayload<Payload>`                        | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback?: ResultCallback<null, CallbackPayload<Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
+| `payload?: CallbackPayload<Payload>`                        | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -6782,15 +6782,15 @@ const guardNumber = <
 | Name      | Default value    | Description |
 | :-------- | :--------------- | :---------- |
 | `Type`    | From the `value` | A generic type variable `Type` guarded by [`AnyNumber`](#anynumber), by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Type`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                  | Description |
 | :---------------------------------------------------------- | :---------- |
 | `value: Type`                                               | The value of a generic type variable `Type` constrained by [`AnyNumber`](#anynumber), by default of the type captured from the provided `value` to guard. |
-| `callback?: ResultCallback<Type, CallbackPayload<Payload>>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
-| `payload?: CallbackPayload<Payload>`                        | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback?: ResultCallback<Type, CallbackPayload<Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
+| `payload?: CallbackPayload<Payload>`                        | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -6851,7 +6851,7 @@ const guardNumberBetween = <
 | `Type`    | Captured from the `value`          | A generic type variable `Type` guarded by [`AnyNumber`](#anynumber), by default of value captured from the supplied `value` indicates the **type** of the `value` via the return type `value is NumberBetween<Min, Max, Type>`. |
 | `Min`     | Captured from the `min` of `range` | A generic type variable `Min` constrained by the `number` type, by default of value captured from optional `min` of the provided `range` that indicates the **minimum** range of the provided `value` via the return type `value is NumberBetween<Min, Max, Type>`. |
 | `Max`     | Captured from the `max` of `range` | A generic type variable `Max` constrained by the `number` type, by default of value captured from optional `max` of the provided `range` that indicates the **maximum** range of the provided `value` via the return type `value is NumberBetween<Min, Max, Type>`. |
-| `Payload` | `object`                           | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`                           | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -6859,8 +6859,8 @@ const guardNumberBetween = <
 | :----------------------------------------------------------------------------- | :---------- |
 | `value: Type`                                                                  | The value of a generic type variable `Type` constrained by [`AnyNumber`](#anynumber), by default of the type captured from the provided `value`, to guard. |
 | `range: MinMax<Min, Max>`                                                      | An [`object`][js-object] of optional minimum and maximum `range` of a given `value`. |
-| `callback?: ResultCallback<Type, CallbackPayload<MinMax<Min, Max> & Payload>>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
-| `payload?: CallbackPayload<Payload>`                                           | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback?: ResultCallback<Type, CallbackPayload<MinMax<Min, Max> & Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
+| `payload?: CallbackPayload<Payload>`                                           | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -6922,15 +6922,15 @@ const guardObject = <
 | Name      | Default value    | Description |
 | :-------- | :--------------- | :---------- |
 | `Obj`     | From the `value` | A generic type variable `Obj` guarded by [`object`][js-object], by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Obj`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                 | Description |
 | :--------------------------------------------------------- | :---------- |
 | `value: Obj`                                               | An [`object`][js-object] of a generic type variable `Obj`, by default of the type captured from the provided `value` to guard. |
-| `callback?: ResultCallback<Obj, CallbackPayload<Payload>>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
-| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback?: ResultCallback<Obj, CallbackPayload<Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
+| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -6987,7 +6987,7 @@ const guardObjectKey = <
 | :-------- | :--------------- | :---------- |
 | `Obj`     | From the `value` | A generic type variable `Obj` guarded by [`object`][js-object], by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Obj`. |
 | `Key`     | From the `key`   | A generic type variable `Key` constrained by the `keyof Obj`, by default of value captured from the supplied `key` indicates the specific property name of `Obj`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -6995,8 +6995,8 @@ const guardObjectKey = <
 | :------------------------------------------------------------------------------- | :---------- |
 | `value: Obj`                                                                     | An [`object`][js-object] of a generic type variable `Obj`, by default of the type captured from the provided `value` that contains the given `key`, to guard. |
 | `key: Key`                                                                       | A key of `Obj` type as the name of the property that the given `value` contains. |
-| `callback?: ResultCallback<Obj, CallbackPayload<{ key: typeof key } & Payload>>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
-| `payload?: CallbackPayload<Payload>`                                             | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback?: ResultCallback<Obj, CallbackPayload<{ key: typeof key } & Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
+| `payload?: CallbackPayload<Payload>`                                             | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -7082,7 +7082,7 @@ const guardObjectKeyIn = <
 | :-------- | :--------------- | :---------- |
 | `Obj`     | From the `value` | A generic type variable `Obj` guarded by [`object`][js-object], by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Obj`. |
 | `Key`     | From the `key`   | A generic type variable `Key` constrained by the `keyof Obj`, by default of value captured from the supplied `key` indicates the specific property name of `Obj`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -7090,8 +7090,8 @@ const guardObjectKeyIn = <
 | :------------------------------------------------------------------------------- | :---------- |
 | `value: Obj`                                                                     | An [`object`][js-object] of a generic type variable `Obj`, by default of the type captured from the provided `value` that contains(or its prototype chain) the given `key`, to guard. |
 | `key: Key`                                                                       | A key of `Obj` type, as the name of the property that the given `value` contains(or its prototype chain). |
-| `callback?: ResultCallback<Obj, CallbackPayload<{ key: typeof key } & Payload>>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
-| `payload?: CallbackPayload<Payload>`                                             | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback?: ResultCallback<Obj, CallbackPayload<{ key: typeof key } & Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
+| `payload?: CallbackPayload<Payload>`                                             | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -7173,7 +7173,7 @@ const guardObjectKeys = <
 | :-------- | :--------------- | :---------- |
 | `Obj`     | From the `value` | A generic type variable `Obj` guarded by [`object`][js-object], by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Obj`. |
 | `Keys`    | From the `keys`  | A generic type variable `Keys` constrained by the `keyof Obj`, by default of value captured from the supplied `keys` indicates the specific property name of `Obj`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -7181,8 +7181,8 @@ const guardObjectKeys = <
 | :--------------------------------------------------------------------------------- | :---------- |
 | `value: Obj`                                                                       | An [`object`][js-object] of a generic type variable `Obj`, by default of the type captured from the `value` that contains the given `keys` to guard. |
 | `key: Key[]`                                                                       | An [`Array`][js-array] of property names that the given `value` contains. |
-| `callback?: ResultCallback<Obj, CallbackPayload<{ keys: typeof keys } & Payload>>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
-| `payload?: CallbackPayload<Payload>`                                               | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback?: ResultCallback<Obj, CallbackPayload<{ keys: typeof keys } & Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
+| `payload?: CallbackPayload<Payload>`                                               | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -7266,7 +7266,7 @@ const guardObjectKeysIn = <
 | :-------- | :--------------- | :---------- |
 | `Obj`     | From the `value` | A generic type variable `Obj` guarded by [`object`][js-object], by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Obj`. |
 | `Keys`    | From the `keys`  | A generic type variable `Keys` constrained by the `keyof Obj`, by default of value captured from the supplied `keys` indicates the specific property name of `Obj`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -7274,8 +7274,8 @@ const guardObjectKeysIn = <
 | :--------------------------------------------------------------------------------- | :---------- |
 | `value: Obj`                                                                       | An [`object`][js-object] of a generic type variable `Obj`, by default of the type captured from the `value` that contains(or its prototype chain) the given `keys` to guard. |
 | `key: Key[]`                                                                       | An [`Array`][js-array] of property names that the given `value` contains(or its prototype chain). |
-| `callback?: ResultCallback<Obj, CallbackPayload<{ keys: typeof keys } & Payload>>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
-| `payload?: CallbackPayload<Payload>`                                               | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback?: ResultCallback<Obj, CallbackPayload<{ keys: typeof keys } & Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
+| `payload?: CallbackPayload<Payload>`                                               | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -7357,7 +7357,7 @@ const guardObjectSomeKeys = <
 | Name      | Default value    | Description |
 | :-------- | :--------------- | :---------- |
 | `Obj`     | From the `value` | A generic type variable `Obj` guarded by [`object`][js-object], by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Obj`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -7365,8 +7365,8 @@ const guardObjectSomeKeys = <
 | :--------------------------------------------------------------------------------- | :---------- |
 | `value: Obj`                                                                       | An [`object`][js-object] of a generic type variable `Obj`, by default of the type captured from the `value` that contains some or some of the groups of the given `keys`, to guard. |
 | `keys: (keyof Obj | Array<keyof Obj>)[]`                                           | An [`Array`][js-array] of property names or a two-dimensional array of property names to check if the given `value` contains some of them or some groups of them. |
-| `callback?: ResultCallback<Obj, CallbackPayload<{ keys: typeof keys } & Payload>>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
-| `payload?: CallbackPayload<Payload>`                                               | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback?: ResultCallback<Obj, CallbackPayload<{ keys: typeof keys } & Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
+| `payload?: CallbackPayload<Payload>`                                               | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -7440,7 +7440,7 @@ const guardPrimitive = <
 | Name      | Default value    | Description |
 | :-------- | :--------------- | :---------- |
 | `Type`    | From the `value` | A generic type variable `Type` guarded by [`Primitive`](#primitive), by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Type`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -7448,8 +7448,8 @@ const guardPrimitive = <
 | :---------------------------------------------------------- | :---------- |
 | `value: Type`                                               | The value of a generic type variable `Type` constrained by the [`Primitive`](#primitive), by default of the type captured from the provided `value` to guard. |
 | `type: Primitives`                                          | An optional specific type of [`Primitives`](#primitives) to check the given value. |
-| `callback?: ResultCallback<Type, CallbackPayload<Payload>>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
-| `payload?: CallbackPayload<Payload>`                        | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback?: ResultCallback<Type, CallbackPayload<Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
+| `payload?: CallbackPayload<Payload>`                        | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -7533,15 +7533,15 @@ const guardRegExp = <Payload extends object>(
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                    | Description |
 | :------------------------------------------------------------ | :---------- |
 | `value: RegExp`                                               | A [`RegExp`][js-regexp] type value to guard. |
-| `callback?: ResultCallback<RegExp, CallbackPayload<Payload>>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
-| `payload?: CallbackPayload<Payload>`                          | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback?: ResultCallback<RegExp, CallbackPayload<Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
+| `payload?: CallbackPayload<Payload>`                          | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -7586,15 +7586,15 @@ const guardString = <
 | Name      | Default value    | Description |
 | :-------- | :--------------- | :---------- |
 | `Type`    | From the `value` | A generic type variable `Type` guarded by [`AnyString`](#anystring), by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Type`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                  | Description |
 |------------------------------------------------------------ | :---------- |
 | `value: Type`                                               | The value of a generic type variable `Type` constrained by the [`AnyString`](#anystring), by default of the type captured from the provided `value` to guard. |
-| `callback?: ResultCallback<Type, CallbackPayload<Payload>>` | An optional [`ResultCallback`][package-callback-resultcallback] type to handle the result before returns eg. to throw an [`Error`][js-error]. |
-| `payload?: CallbackPayload<Payload>`                        | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback?: ResultCallback<Type, CallbackPayload<Payload>>` | An optional [`ResultCallback`](#resultcallback) type to handle the result before returns eg. to throw an [`Error`][js-error]. |
+| `payload?: CallbackPayload<Payload>`                        | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -7649,7 +7649,7 @@ const guardStringLength = <
 | `Type`    | From the `value`                    | A generic type variable `Type` guarded by [`AnyString`](#anystring), by default of value captured from the supplied `value` indicates the **type** of the `value` via the return type `value is StringOfLength<Min, Max, Type>`. |
 | `Min`     | Captured from the `min` of `length` | A generic type variable `Min` constrained by the `number` type, by default of value captured from optional `min` of the provided `length` that indicates the **minimum** length of the provided `value` via the return type `value is StringOfLength<Min, Max, Type>`. |
 | `Max`     | Captured from the `max` of `length` | A generic type variable `Max` constrained by the `number` type, by default of value captured from optional `max` of the provided `length` that indicates the **maximum** length of the provided `value` via the return type `value is StringOfLength<Min, Max, Type>`. |
-| `Payload` | `object`                            | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`                            | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -7657,8 +7657,8 @@ const guardStringLength = <
 |------------------------------------------------------------------------------- | :---------- |
 | `value: Type`                                                                  | The value of a generic type variable `Type` constrained by [`AnyString`](#anystring), by default of the type captured from the provided `value` to guard. |
 | `length: MinMax<Min, Max>`                                                     | An [`object`][js-object] of optional minimum and maximum `length` of the given `value`. |
-| `callback?: ResultCallback<Type, CallbackPayload<MinMax<Min, Max> & Payload>>` | An optional [`ResultCallback`][package-callback-resultcallback] type to handle the result before returns eg. to throw an [`Error`][js-error]. |
-| `payload?: CallbackPayload<Payload>`                                           | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback?: ResultCallback<Type, CallbackPayload<MinMax<Min, Max> & Payload>>` | An optional [`ResultCallback`](#resultcallback) type to handle the result before returns eg. to throw an [`Error`][js-error]. |
+| `payload?: CallbackPayload<Payload>`                                           | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -7714,15 +7714,15 @@ const guardSymbol = <Payload extends object>(
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                    | Description |
 | :------------------------------------------------------------ | :---------- |
 | `value: symbol`                                               | A `symbol` type value to guard. |
-| `callback?: ResultCallback<symbol, CallbackPayload<Payload>>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
-| `payload?: CallbackPayload<Payload>`                          | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback?: ResultCallback<symbol, CallbackPayload<Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
+| `payload?: CallbackPayload<Payload>`                          | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -7768,15 +7768,15 @@ const guardTrue = <Payload extends object>(
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                  | Description |
 | :---------------------------------------------------------- | :---------- |
 | `value: true`                                               | The value of `true` type to guard. |
-| `callback?: ResultCallback<true, CallbackPayload<Payload>>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
-| `payload?: CallbackPayload<Payload>`                        | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback?: ResultCallback<true, CallbackPayload<Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
+| `payload?: CallbackPayload<Payload>`                        | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -7826,7 +7826,7 @@ const guardType = <T extends Type, Payload extends object = object>(
 | Name      | Default value    | Description |
 | :-------- | :--------------- | :---------- |
 | `T`       | From the `value` | A generic type variable `T` guarded by [`Type`](#type), by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is T`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -7834,8 +7834,8 @@ const guardType = <T extends Type, Payload extends object = object>(
 | :------------------------------------------------------- | :---------- |
 | `value: T`                                               | The value of a generic type variable `T` constrained by the [`Type`](#type), by default of the type captured from the provided `value` to guard. |
 | `type: Types<T>`                                         | The value of [`string`][js-string] or [`Constructor<T>`](#constructor) type of the [`Types`](#types) indicates against which type a given `value` is checked. |
-| `callback?: ResultCallback<T, CallbackPayload<Payload>>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error] |
-| `payload?: CallbackPayload<Payload>`                     | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback?: ResultCallback<T, CallbackPayload<Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error] |
+| `payload?: CallbackPayload<Payload>`                     | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -7933,15 +7933,15 @@ const guardUndefined = <Payload extends object>(
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`][package-callback-resultcallback], which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                       | Description |
 | :--------------------------------------------------------------- | :---------- |
 | `value: undefined`                                               | The value of an [`undefined`][js-undefined] type to guard. |
-| `callback?: ResultCallback<undefined, CallbackPayload<Payload>>` | An optional [`ResultCallback`][package-callback-resultcallback] type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
-| `payload?: CallbackPayload<Payload>`                             | An optional [`object`][js-object] of generic type [`CallbackPayload`][package-callback-callbackpayload] that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `callback?: ResultCallback<undefined, CallbackPayload<Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
+| `payload?: CallbackPayload<Payload>`                             | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -8087,6 +8087,8 @@ type.guard.number(3); // true, value is number
 
 #### `MinMax`
 
+[![new]][type-github-changelog]
+
 A generic type `MinMax` that takes generic type variables `Min` and `Max` represents the range between minimum and maximum.
 
 ```typescript
@@ -8138,6 +8140,38 @@ type AnyString = string | String;
 
 <br>
 
+#### `CallbackPayload`
+
+[![new]][type-github-changelog]
+
+Experimental shape for a generic type variable `Payload`.
+
+```typescript
+type CallbackPayload<Payload = object> = {
+  action?: string;
+  name?: string;
+  param?: string;
+} & Payload;
+```
+
+**Generic type variables:**
+
+**`Payload`**  
+The shape of the optional `payload` parameter, by default equal to the [`object`][js-object].
+
+**Properties:**
+
+**`action?: string`**
+An **optional** action of a [`string`][js-string] type that describes the cause of performed callback.
+
+**`name?: string`**
+An **optional** name of the function or method of a [`string`][js-string] type that performed callback.
+
+**`param?: string`**
+An **optional** name of the parameter of a [`string`][js-string] type to which performed callback relates.
+
+<br>
+
 #### `Constructor`
 
 An instance of a type from the provided generic type variable `Type`.
@@ -8150,11 +8184,59 @@ type Constructor<Type> = new (...args: any[]) => Type;
 
 #### `Defined`
 
+[![update]][type-github-changelog]
+
 A generic type `Defined` that takes generic type variable `Type` constrained by `undefined` which constraint causes its change to `never`.
 
 ```typescript
 type Defined<Type> = Type extends undefined ? never : Type;
 ```
+
+<br>
+
+#### `ForEachCallback`
+
+[![new]][type-github-changelog]
+
+Represents a callback function of `forEach()` method which is executed once for each element.
+
+```typescript
+type ForEachCallback<Value = any, Payload = object> = (
+  result: boolean,
+  value: Value,
+  index: number,
+  array: any[],
+  payload?: Payload
+) => void;
+```
+
+**Generic type variables:**
+
+**`Value`**
+A generic type variable `Value` by default equal to `any` determines the type of the `value` parameter.
+
+**`Payload`**  
+The shape of the optional `payload` parameter, by default equal to the [`object`][js-object].
+
+**Parameters:**
+
+**`result: boolean`**
+The result of the check of a [`boolean`][js-boolean] type.
+
+**`value: Value`**
+The **value** that has been checked of a generic type variable `Value`.
+
+**`index: number`**
+An optional [`number`][js-number] of checked [`array`][js-array] element.
+
+**`array: any[]`**
+An optional [`array`][js-array] of `any` type that each element is checked.
+
+**`payload?: Payload`**  
+An optional [`object`][js-object] of a generic type variable `Payload` to provide more data.
+
+**Returns:**
+The return value is a [`boolean`][js-boolean].
 
 <br>
 
@@ -8230,7 +8312,7 @@ type Primitives =
 
 #### `ResultCallback`
 
-![update]
+[![update]][type-github-changelog]
 
 Represents a **callback function** with parameters, the `value` that has been checked, the `result` of this check, and an optional `payload`.
 
@@ -8652,8 +8734,8 @@ MIT © angular-package ([license][type-license])
   <!-- GitHub -->
   [callback-github-readme]: https://github.com/angular-package/callback#readme
 
-  [package-callback-callbackpayload]: https://github.com/angular-package/callback#callbackpayload
-  [package-callback-resultcallback]: https://github.com/angular-package/callback#resultcallback
+  (#callbackpayload): https://github.com/angular-package/callback#callbackpayload
+  (#resultcallback): https://github.com/angular-package/callback#resultcallback
 
 <!-- Package: change-detection -->
   <!-- npm -->
