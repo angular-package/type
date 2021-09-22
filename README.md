@@ -2988,11 +2988,6 @@ isArray([1, 2, 3], (result, value, payload) => {
     value
 
     if (payload) {
-      console.log(payload);
-
-      // Returns `'isArray'`
-      payload.name;
-
       // Returns `{ "1": "First", "2": "Second", "3": "Third" }`
       payload.transform;
     }
@@ -3331,7 +3326,6 @@ isClass(() => 5, (result, value, payload) => {
   value // Returns `() => 5`
   if (payload) {
     result // Returns `false`
-    payload.name // Returns `'isClass'`
     payload.c // Returns `class Class`
   }
   return result;
@@ -3403,7 +3397,6 @@ isDate(DATE); // Returns `true` as `value is Date`
 isDate(DATE, (result, payload) => {
   if (payload) {
     result // Returns `true`
-    payload.name // Returns `'isDate'`
     payload.value // Returns new date
     payload.birthDay // Returns `14`
   }
@@ -3472,7 +3465,6 @@ isDefined('age', (result, value, payload) => {
   value // 'age'
   if (payload) {
     result // Returns `true`
-    payload.name // Returns `'isDefined'`
     payload.notDefined // Returns `false`
   }
   return result;
@@ -3541,7 +3533,6 @@ isFalse(new Boolean(false), (result, value, payload) => {
   value // Returns `Boolean {false}`
   if (payload) {
     result // Returns `false`
-    payload.name // Returns `'isFalse'`
     payload.age // Returns `27`
   }
   return result;
@@ -3614,7 +3605,6 @@ isFunction(() => 5); // Returns `true` as `value is () => 5`
 isFunction(() => 5, (result, value, payload) => {
   value // Returns `() => 5`
   if (payload) {
-    payload.name // Returns `'isFunction'`
     payload.number // Returns `true`
   }
   return result;
@@ -3698,7 +3688,6 @@ isInstance(TWO, Some, (result, value, payload) => {
   value // Returns the provided `Two`
   if (payload) {
     payload.className // Returns `'Some'`
-    payload.name // Returns `'isInstance'`
     payload.ctor // Returns the provided `Some`
   }
   return result;
@@ -4607,7 +4596,7 @@ isObjectKeysIn(person, ['notEnumerable']); // Returns `true` as `value is object
 [![new]][type-github-changelog]
 
 Use `isObjectSomeKeys()` or `is.objectSomeKeys()` to check if **any** value is an [`object`][js-object] with **some** of its keys or **some groups** of its keys of the `PropertyKey` type.
-Because of using [`some()`][js-array-some] on the provided `keys` parameter of [`Array`][js-array] its elements are treated as logic `or`, and if an element is an [`Array`][js-array] type its elements are treated as logic `and` because of using [`every()`][js-array-every].
+Because of using [`some()`][js-array-some] method on the given `keys` parameter of [`Array`][js-array] type relation between its elements are treated as logic `or`, and if an element is an [`Array`][js-array] type because of using [`every()`][js-array-every] method, the relation between its elements are treated as logic `and`.
 
 ```typescript
 const isObjectSomeKeys = <
@@ -5087,7 +5076,7 @@ const isStringLength = <
 
 | Name      | Default value         | Description |
 | :-------- | :-------------------- | :---------- |
-| `Type`    | [`string`][ts-string] | A generic type variable `Type` guarded by [`AnyString`](#anystring) by of default `string` indicates the type of the `value` via the return type `value is StringOfLength<Min, Max, Type>`. |
+| `Type`    | [`string`][ts-string] | A generic type variable `Type` guarded by [`AnyString`](#anystring) by default `string` indicates the type of the `value` via the return type `value is StringOfLength<Min, Max, Type>`. |
 | `Min`     | [`number`][ts-number] | A generic type variable `Min` constrained with the `number` type, by default of value captured from optional `min` of provided `length` that indicates the **minimum** length of the provided `value` via the return type `value is StringOfLength<Min, Max, Type>` |
 | `Max`     | [`number`][ts-number] | A generic type variable `Max` constrained with the `number` type, by default of value captured from optional `max` of provided `length` that indicates the **maximum** length of the provided `value` via the return type `value is StringOfLength<Min, Max, Type>` |
 | `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
@@ -7169,7 +7158,7 @@ const guardObjectKeys = <
 | Name      | Default value         | Description |
 | :-------- | :-------------------- | :---------- |
 | `Obj`     | From the `value`      | A generic type variable `Obj` guarded by [`object`][js-object], by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Obj`. |
-| `Keys`    | From the `keys`       | A generic type variable `Keys` constrained by the `keyof Obj`, by default of value captured from the supplied `keys` indicates the specific property name of `Obj`. |
+| `Key`     | From the `keys`       | A generic type variable `Key` constrained by the `keyof Obj`, by default of value captured from the supplied `keys` indicates the specific property name of `Obj`. |
 | `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
@@ -7262,7 +7251,7 @@ const guardObjectKeysIn = <
 | Name      | Default value         | Description |
 | :-------- | :-------------------- | :---------- |
 | `Obj`     | From the `value`      | A generic type variable `Obj` guarded by [`object`][js-object], by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Obj`. |
-| `Keys`    | From the `keys`       | A generic type variable `Keys` constrained by the `keyof Obj`, by default of value captured from the supplied `keys` indicates the specific property name of `Obj`. |
+| `Key`     | From the `keys`       | A generic type variable `Key` constrained by the `keyof Obj`, by default of value captured from the supplied `keys` indicates the specific property name of `Obj`. |
 | `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
@@ -7361,7 +7350,7 @@ const guardObjectSomeKeys = <
 | Name: type                                                                         | Description |
 | :--------------------------------------------------------------------------------- | :---------- |
 | `value: Obj`                                                                       | An [`object`][js-object] of a generic type variable `Obj`, by default of the type captured from the `value` that contains some or some of the groups of the given `keys`, to guard. |
-| `keys: (keyof Obj | Array<keyof Obj>)[]`                                           | An [`Array`][js-array] of property names or a two-dimensional array of property names to check if the given `value` contains some of them or some groups of them. |
+| `keys: (keyof Obj \| Array<keyof Obj>)[]`                                          | An [`Array`][js-array] of property names or a two-dimensional array of property names to check if the given `value` contains some of them or some groups of them. |
 | `callback?: ResultCallback<Obj, CallbackPayload<{ keys: typeof keys } & Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
 | `payload?: CallbackPayload<Payload>`                                               | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
@@ -7444,7 +7433,7 @@ const guardPrimitive = <
 | Name: type                                                  | Description |
 | :---------------------------------------------------------- | :---------- |
 | `value: Type`                                               | The value of a generic type variable `Type` constrained by the [`Primitive`](#primitive), by default of the type captured from the provided `value` to guard. |
-| `type: Primitives`                                          | An optional specific type of [`Primitives`](#primitives) to check the given value. |
+| `type?: Primitives`                                         | An optional specific type of [`Primitives`](#primitives) to check the given value. |
 | `callback?: ResultCallback<Type, CallbackPayload<Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
 | `payload?: CallbackPayload<Payload>`                        | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
@@ -7545,6 +7534,8 @@ const guardRegExp = <Payload extends object>(
 | Returns           | Type      | Description |
 | :---------------- | :-------: | :---------- |
 | `value is RegExp` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a [`RegExp`][js-regexp]. |
+
+The **return value** is a `boolean` indicating whether the `value` is a [`RegExp`][js-regexp].
 
 **Usage:**
 
