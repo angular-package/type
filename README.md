@@ -674,7 +674,7 @@ const areBigInt = (...values: any[]) => { ... };
 
 | Name: type         | Description |
 | :----------------- | :---------- |
-| `...values: any[]` | A rest parameter of `any` type to check its elements against a [`bigint`][js-bigint] type. |
+| `...values: any[]` | A rest parameter of [`any`][ts-any] type to check its elements against a [`bigint`][js-bigint] type. |
 
 **Returns:**
 
@@ -702,9 +702,9 @@ Checks if **every** of the provided `values` of [`areBigInt()`](#arebigint) is a
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -754,9 +754,9 @@ The `forEach()` method executes a provided callback function once for each eleme
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -810,9 +810,9 @@ Checks if **some** of the provided `values` of [`areBigInt()`](#arebigint) are a
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -855,7 +855,7 @@ const areBoolean = (...values: any[]) => { ... };
 
 | Name: type         | Description |
 | :----------------- | :---------- |
-| `...values: any[]` | A rest parameter of `any` type to check its elements against a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean]. |
+| `...values: any[]` | A rest parameter of [`any`][ts-any] type to check its elements against a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean]. |
 
 **Returns:**
 
@@ -883,9 +883,9 @@ Checks if **every** of the provided `values` of [`areBoolean()`](#areboolean) is
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -935,9 +935,9 @@ The `forEach()` method executes a provided callback function once for each eleme
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -990,9 +990,9 @@ Checks if **some** of the provided `values` of [`areBoolean()`](#areboolean) are
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -1037,7 +1037,7 @@ const areDate = (...values: any[]) => { ... };
 
 | Name: type         | Description |
 | :----------------- | :---------- |
-| `...values: any[]` | A rest parameter of `any` type to check its elements against [`Date`][js-date]. |
+| `...values: any[]` | A rest parameter of [`any`][ts-any] type to check its elements against [`Date`][js-date]. |
 
 **Returns:**
 
@@ -1065,9 +1065,9 @@ Checks if **every** of the provided `values` of [`areDate()`](#aredate) is a [`D
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -1117,9 +1117,9 @@ The `forEach()` method executes a provided callback function once for each eleme
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -1172,9 +1172,9 @@ Checks if **some** of the provided `values` of [`areDate()`](#aredate) are [`Dat
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -1219,7 +1219,7 @@ const areDefined = (...values: any[]) => { ... };
 
 | Name: type         | Description |
 | :----------------- | :---------- |
-| `...values: any[]` | A rest parameter of `any` type to check its elements against **defined**. |
+| `...values: any[]` | A rest parameter of [`any`][ts-any] type to check its elements against **defined**. |
 
 **Returns:**
 
@@ -1247,9 +1247,9 @@ Checks if **every** of the provided `values` of [`areDefined()`](#aredefined) is
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -1301,9 +1301,9 @@ The `forEach()` method executes a provided callback function once for each eleme
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -1358,9 +1358,9 @@ Checks if **some** of the provided `values` of [`areDefined()`](#aredefined) are
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -1407,7 +1407,7 @@ const areFalse = (...values: any[]) => { ... };
 
 | Name: type         | Description |
 | :----------------- | :---------- |
-| `...values: any[]` | A rest parameter of `any` type to check its elements against a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] equal to `false`. |
+| `...values: any[]` | A rest parameter of [`any`][ts-any] type to check its elements against a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] equal to `false`. |
 
 **Returns:**
 
@@ -1435,9 +1435,9 @@ Checks if **every** of the provided `values` of [`areFalse()`](#arefalse) is a [
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -1487,9 +1487,9 @@ The `forEach()` method executes a provided callback function once for each eleme
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -1542,9 +1542,9 @@ Checks if **some** of the provided `values` of [`areFalse()`](#arefalse) are a [
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -1589,7 +1589,7 @@ const areNull = (...values: any[]) => { ... };
 
 | Name: type         | Description |
 | :----------------- | :---------- |
-| `...values: any[]` | A rest parameter of `any` type to check its elements against [`null`][js-null]. |
+| `...values: any[]` | A rest parameter of [`any`][ts-any] type to check its elements against [`null`][js-null]. |
 
 **Returns:**
 
@@ -1617,9 +1617,9 @@ Checks if **every** of the provided `values` of [`areNull()`](#arenull) is [`nul
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -1669,9 +1669,9 @@ The `forEach()` method executes a provided callback function once for each eleme
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -1724,9 +1724,9 @@ Checks if **some** of the provided `values` of [`areNull()`](#arenull) are [`nul
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -1771,7 +1771,7 @@ const areNumber = (...values: any[]) => { ... };
 
 | Name: type         | Description |
 | :----------------- | :---------- |
-| `...values: any[]` | A rest parameter of `any` type to check its elements against a [`number`][js-number] type or an instance of [`Number`][js-number]. |
+| `...values: any[]` | A rest parameter of [`any`][ts-any] type to check its elements against a [`number`][js-number] type or an instance of [`Number`][js-number]. |
 
 **Returns:**
 
@@ -1799,9 +1799,9 @@ Checks if **every** of the provided `values` of [`areNumber()`](#arenumber) is a
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -1851,9 +1851,9 @@ The `forEach()` method executes a provided callback function once for each eleme
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -1906,9 +1906,9 @@ Checks if **some** of the provided `values` of [`areNumber()`](#arenumber) are a
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -1953,7 +1953,7 @@ const areRegExp = (...values: any[]) => { ... };
 
 | Name: type         | Description |
 | :----------------- | :---------- |
-| `...values: any[]` | A rest parameter of `any` type to check its elements against the regular expression of [`RegExp`][js-regexp]. |
+| `...values: any[]` | A rest parameter of [`any`][ts-any] type to check its elements against the regular expression of [`RegExp`][js-regexp]. |
 
 **Returns:**
 
@@ -1981,9 +1981,9 @@ Checks if **every** of the provided `values` of [`areRegExp()`](#areregexp) is a
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -2033,9 +2033,9 @@ The `forEach()` method executes a provided callback function once for each eleme
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -2092,9 +2092,9 @@ Checks if **some** of the provided `values` of [`areRegExp()`](#areregexp) are r
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -2139,7 +2139,7 @@ const areString = (...values: any[]) => { ... };
 
 | Name: type         | Description |
 | :----------------- | :---------- |
-| `...values: any[]` | A rest parameter of `any` type to check its elements against a [`string`][js-string] type or an instance of [`String`][js-string]. |
+| `...values: any[]` | A rest parameter of [`any`][ts-any] type to check its elements against a [`string`][js-string] type or an instance of [`String`][js-string]. |
 
 **Returns:**
 
@@ -2167,9 +2167,9 @@ Checks if **every** of the provided `values` of [`areString()`](#arestring) is a
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -2219,9 +2219,9 @@ The `forEach()` method executes a provided callback function once for each eleme
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -2274,9 +2274,9 @@ Checks if **some** of the provided `values` of [`areString()`](#arestring) are a
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -2321,7 +2321,7 @@ const areSymbol = (...values: any[]) => { ... };
 
 | Name: type         | Description |
 | :----------------- | :---------- |
-| `...values: any[]` | A rest parameter of `any` type to check its elements against a [`symbol`][js-symbol] type. |
+| `...values: any[]` | A rest parameter of [`any`][ts-any] type to check its elements against a [`symbol`][js-symbol] type. |
 
 **Returns:**
 
@@ -2349,9 +2349,9 @@ Checks if **every** of the provided `values` of [`areSymbol()`](#aresymbol) is a
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -2401,9 +2401,9 @@ The `forEach()` method executes a provided callback function once for each eleme
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -2460,16 +2460,16 @@ Checks if **some** of the provided `values` of [`areSymbol()`](#aresymbol) are a
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
-| Name: type                                      | Description |
-| :---------------------------------------------- | :---------- |
+| Name: type                                                | Description |
+| :-------------------------------------------------------- | :---------- |
 | `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -2507,7 +2507,7 @@ const areTrue = (...values: any[]) => { ... };
 
 | Name: type         | Description |
 | :----------------- | :---------- |
-| `...values: any[]` | A rest parameter of `any` type to check its elements against a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] equal to `true`. |
+| `...values: any[]` | A rest parameter of [`any`][ts-any] type to check its elements against a [`boolean`][js-boolean] type or an instance of [`Boolean`][js-boolean] equal to `true`. |
 
 **Returns:**
 
@@ -2535,16 +2535,16 @@ Checks if **every** of the provided `values` of [`areTrue()`](#aretrue) is a [`b
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
-| Name: type                                      | Description |
-| :---------------------------------------------- | :---------- |
+| Name: type                                                | Description |
+| :-------------------------------------------------------- | :---------- |
 | `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -2589,16 +2589,16 @@ The `forEach()` method executes a provided callback function once for each eleme
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
-| Name: type                                       | Description |
-| :----------------------------------------------- | :---------- |
+| Name: type                                                 | Description |
+| :--------------------------------------------------------- | :---------- |
 | `callback: ForEachCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ForEachCallback`](#foreachcallback) type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`](#callbackpayload) shape with optional properties from the provided `payload`, to handle. |
-| `payload?: CallbackPayload<Payload>`             | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -2650,16 +2650,16 @@ Checks if **some** of the provided `values` of of [`areTrue()`](#aretrue) are a 
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
-| Name: type                                      | Description |
-| :---------------------------------------------- | :---------- |
+| Name: type                                                | Description |
+| :-------------------------------------------------------- | :---------- |
 | `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -2699,7 +2699,7 @@ const areUndefined = (...values: any[]) => { ... };
 
 | Name: type         | Description |
 | :----------------- | :---------- |
-| `...values: any[]` | A rest parameter of `any` type to check its elements against [`undefined`][js-undefined]. |
+| `...values: any[]` | A rest parameter of [`any`][ts-any] type to check its elements against [`undefined`][js-undefined]. |
 
 **Returns:**
 
@@ -2727,16 +2727,16 @@ Checks if **every** of the provided `values` of [`areUndefined()`](#areundefined
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
-| Name: type                                      | Description |
-| :---------------------------------------------- | :---------- |
+| Name: type                                                | Description |
+| :-------------------------------------------------------- | :---------- |
 | `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -2779,16 +2779,16 @@ The `forEach()` method executes a provided callback function once for each eleme
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
-| Name: type                                       | Description |
-| :----------------------------------------------- | :---------- |
+| Name: type                                                 | Description |
+| :--------------------------------------------------------- | :---------- |
 | `callback: ForEachCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ForEachCallback`](#foreachcallback) type with parameters, the `value` that has been checked, the `result` of this check, `index` of each element, the provided `values` and `payload` of the default [`CallbackPayload`](#callbackpayload) shape with optional properties from the provided `payload`, to handle. |
-| `payload?: CallbackPayload<Payload>`             | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `payload?: CallbackPayload<Payload>`                       | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -2840,14 +2840,14 @@ Checks if **some** of the provided `values` of [`areUndefined()`](#areundefined)
 
 | Name      | Default value | Description |
 | :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
-| Name: type                                      | Description |
-| :---------------------------------------------- | :---------- |
+| Name: type                                                | Description |
+| :-------------------------------------------------------- | :---------- |
 | `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -2920,7 +2920,7 @@ areUndefined(undefined, 2, 3, new String('4')).some((result, value, payload) => 
 Use `isArray()` or `is.array()` to check if **any** value is of the type obtained from its `Object.prototype` equal to `'array'` or an [`object`][js-object] type. The value is also checked by the [`isArray()`][js-isarray] method of [`Array`][js-array].
 
 ```typescript
-const isArray = <Type, Payload extends object = object>(
+const isArray = <Type = any, Payload extends object = object>(
   value: any,
   callback: ResultCallback<any, CallbackPayload<Payload>> = resultCallback,
   payload?: CallbackPayload<Payload>
@@ -2935,10 +2935,10 @@ const isArray = <Type, Payload extends object = object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Type`    | `any`         | A generic type variable `Type` indicates the type of [`Array`][js-array] element of the `value` parameter, which by default is `unknown` via the return type `value is Array<Type>`. |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Type`    | [`any`][ts-any]       | A generic type variable `Type` indicates the type of [`Array`][js-array] element of the `value` parameter, which by default is `any` via the return type `value is Array<Type>`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -2952,7 +2952,7 @@ const isArray = <Type, Payload extends object = object>(
 
 | Returns                | Type      | Description |
 | :--------------------- | :-------: | :---------- |
-| `value is Array<Type>` | `boolean` | The **return type** is a `boolean` because of used the `is` operator indicating the value is an `array` that takes generic type variable `Type` by default of value `unknown` as the type of its elements. |
+| `value is Array<Type>` | `boolean` | The **return type** is a `boolean` because of used the `is` operator indicating the value is an `array` that takes generic type variable `Type` by default of value [`any`][ts-any] as the type of its elements. |
 
 The **return value** is a `boolean` indicating whether the provided `value` is an [`Array`][js-array].
 
@@ -3023,17 +3023,17 @@ const isBigInt = <Payload extends object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
-| Name: type                                      | Description |
-| :---------------------------------------------- | :---------- |
-| `value: any`                                    | The value of any type to check. |
+| Name: type                                                | Description |
+| :-------------------------------------------------------- | :---------- |
+| `value: any`                                              | The value of any type to check. |
 | `callback: ResultCallback<any, CallbackPayload<Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
-| `payload?: CallbackPayload<Payload>`            | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+| `payload?: CallbackPayload<Payload>`                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
 **Returns:**
 
@@ -3084,10 +3084,10 @@ const isBoolean = <
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Type`    | `boolean`     | A generic type variable `Type` guarded by [`AnyBoolean`](#anyboolean) by default of `boolean` indicates the type of the `value` via the return type `value is Type`. |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Type`    | `boolean`             | A generic type variable `Type` guarded by [`AnyBoolean`](#anyboolean) by default of `boolean` indicates the type of the `value` via the return type `value is Type`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -3180,9 +3180,9 @@ const isBooleanObject = <Payload extends object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -3235,9 +3235,9 @@ const isBooleanType = <Payload extends object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -3293,10 +3293,10 @@ const isClass = <Class = Function, Payload extends object = object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Class`   | `Function`    | A generic type variable `Class` indicates the type of `value` parameter via the return type `value is Class`. |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value             | Description |
+| :-------- | :------------------------ | :---------- |
+| `Class`   | [`Function`][ts-function] | A generic type variable `Class` indicates the type of `value` parameter via the return type `value is Class`. |
+| `Payload` | [`object`][ts-object]     | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -3366,9 +3366,9 @@ const isDate = <Payload extends object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -3433,10 +3433,10 @@ const isDefined = <Type, Payload extends object = object>(
 
 **Generic type variables:**
 
-| Name      | Default value    | Description |
-| :-------- | :--------------- | :---------- |
-| `Type`    | From the `value` | A generic type variable `Type` indicates the type of the `value` parameter, by default captured from the provided `value` via the return type `value is Defined<Type>`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value            | Description |
+| :-------- | :----------------------- | :---------- |
+| `Type`    | From the `value`         | A generic type variable `Type` indicates the type of the `value` parameter, by default captured from the provided `value` via the return type `value is Defined<Type>`. |
+| `Payload` | [`object`][ts-object]    | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -3450,7 +3450,7 @@ const isDefined = <Type, Payload extends object = object>(
 
 | Returns                  | Type      | Description |
 | :----------------------- | :-------: | :---------- |
-| `value is Defined<Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type [`Defined`](#defined) that takes a generic type variable `Type` of value by default equal to the type captured from the supplied `value` parameter excepts [`undefined`][js-undefined] which changes to never. |
+| `value is Defined<Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type [`Defined`](#defined) that takes a generic type variable `Type` of value by default equal to the type captured from the supplied `value` parameter excepts [`undefined`][js-undefined] which changes to [`never`][ts-never]. |
 
 The **return value** is a `boolean` indicating whether the provided `value` is defined, not `undefined`
 
@@ -3505,9 +3505,9 @@ const isFalse = <Payload extends object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -3578,9 +3578,9 @@ const isFunction = <Payload extends object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -3658,7 +3658,7 @@ const isInstance = <Obj, Payload extends object>(
 | Name      | Default value          | Description |
 | :-------- | :--------------------- | :---------- |
 | `Obj`     | From the `constructor` | A generic type variable `Obj`, by default captured from the provided `constructor` indicates the type of `value` parameter via the return type `value is Obj`. |
-| `Payload` | `object`               | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from the provided `payload` optional parameter. |
+| `Payload` | [`object`][ts-object]  | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -3754,9 +3754,9 @@ const isKey = <Payload extends object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -3821,9 +3821,9 @@ const isNull = <Payload extends object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -3883,10 +3883,10 @@ const isNumber = <
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Type`    | `number`      | A generic type variable `Type` guarded by [`AnyNumber`](#anynumber) by default of `number` indicates the type of the `value` via the return type `value is Type`. |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Type`    | `number`              | A generic type variable `Type` guarded by [`AnyNumber`](#anynumber) by default of `number` indicates the type of the `value` via the return type `value is Type`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -3967,7 +3967,7 @@ const isNumberBetween = <
 | `Type`    | `number`                  | A generic type variable `Type` guarded by [`AnyNumber`](#anynumber) by default of `number` indicates the type of the `value` via the return type `value is NumberBetween<Min, Max, Type>`. |
 | `Min`     | From the `min` of `range` | A generic type variable `Min` constrained by the `number` type, by default of value captured from optional `min` of the provided `range` that indicates the **minimum** range of the provided `value` via the return type `value is NumberBetween<Min, Max, Type>` |
 | `Max`     | From the `max` of `range` | A generic type variable `Max` constrained by the `number` type, by default of value captured from optional `max` of the provided `range` that indicates the **maximum** range of the provided `value` via the return type `value is NumberBetween<Min, Max, Type>` |
-| `Payload` | `object`                  | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | [`object`][ts-object]                  | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -4035,9 +4035,9 @@ const isNumberObject = <Payload extends object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -4091,9 +4091,9 @@ const isNumberType = <Payload extends object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -4148,10 +4148,10 @@ const isObject = <Obj = object, Payload extends object = object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Obj`     | `object`      | A generic type variable `Obj` indicates the type of `value` parameter via the return type `value is Obj`. |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Obj`     | [`object`][ts-object] | A generic type variable `Obj` indicates the type of `value` parameter via the return type `value is Obj`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -4236,10 +4236,10 @@ const isObjectKey = <Obj extends object, Payload extends object = object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Obj`     | `object`      | A generic type variable `Obj` indicates the type of `value` parameter by default `object` via the return type `value is Obj`. |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Obj`     | [`object`][ts-object] | A generic type variable `Obj` indicates the type of `value` parameter by default `object` via the return type `value is Obj`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -4358,10 +4358,10 @@ const isObjectKeyIn = <Obj = object, Payload extends object = object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Obj`     | `object`      | A generic type variable `Obj` indicates the type of `value` parameter by default `object` via the return type `value is Obj`. |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Obj`     | [`object`][ts-object] | A generic type variable `Obj` indicates the type of `value` parameter by default `object` via the return type `value is Obj`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -4458,10 +4458,10 @@ const isObjectKeys = <Obj = object, Payload extends object = object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Obj`     | `object`      | A generic type variable `Obj` indicates the type of `value` parameter by default `object` via the return type `value is Obj`. |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Obj`     | [`object`][ts-object] | A generic type variable `Obj` indicates the type of `value` parameter by default `object` via the return type `value is Obj`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -4549,10 +4549,10 @@ const isObjectKeysIn = <Obj = object, Payload extends object = object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Obj`     | `object`      | A generic type variable `Obj` indicates the type of `value` parameter by default `object` via the return type `value is Obj`. |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Obj`     | [`object`][ts-object] | A generic type variable `Obj` indicates the type of `value` parameter by default `object` via the return type `value is Obj`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -4641,10 +4641,10 @@ const isObjectSomeKeys = <
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Obj`     | `object`      | A generic type variable `Obj` constrained by the `object` indicates the type of `value` parameter by default `object` via the return type `value is Obj`. |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Obj`     | [`object`][ts-object] | A generic type variable `Obj` constrained by the `object` indicates the type of `value` parameter by default `object` via the return type `value is Obj`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -4738,7 +4738,7 @@ const isPrimitive = <
 | Name      | Default value             | Description |
 | :-------- | :------------------------ | :---------- |
 | `Type`    | [`Primitive`](#primitive) | A generic type variable `Type` constrained by the [`Primitive`](#primitive) type indicates the type of `value` parameter via the return type `value is Type`. |
-| `Payload` | `object`                  | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and can be captured from a type of the provided `payload` optional parameter. |
+| `Payload` | [`object`][ts-object]     | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -4799,9 +4799,9 @@ const isRegExp = <Payload extends object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -4852,10 +4852,10 @@ const isString = <
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Type`    | `string`      | A generic type variable `Type` guarded by [`AnyString`](#anystring) by default `string` indicates the type of the `value` via the return type `value is Type`. |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Type`    | [`string`][ts-string] | A generic type variable `Type` guarded by [`AnyString`](#anystring) by default `string` indicates the type of the `value` via the return type `value is Type`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -4932,10 +4932,10 @@ const isStringIncludes = <
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Type`    | `string`      | A generic type variable `Type` guarded by [`AnyString`](#anystring) by default `string` indicates the type of the `value` via the return type `value is Type`. |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Type`    | [`string`][ts-string] | A generic type variable `Type` guarded by [`AnyString`](#anystring) by default `string` indicates the type of the `value` via the return type `value is Type`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -5005,10 +5005,10 @@ const isStringIncludesSome = <
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Type`    | `string`      | A generic type variable `Type` guarded by [`AnyString`](#anystring) by default `string` indicates the type of the `value` via the return type `value is Type`. |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Type`    | [`string`][ts-string] | A generic type variable `Type` guarded by [`AnyString`](#anystring) by default `string` indicates the type of the `value` via the return type `value is Type`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -5087,12 +5087,12 @@ const isStringLength = <
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Type`    | `string`      | A generic type variable `Type` guarded by [`AnyString`](#anystring) by of default `string` indicates the type of the `value` via the return type `value is StringOfLength<Min, Max, Type>`. |
-| `Min`     | `number`      | A generic type variable `Min` constrained with the `number` type, by default of value captured from optional `min` of provided `length` that indicates the **minimum** length of the provided `value` via the return type `value is StringOfLength<Min, Max, Type>` |
-| `Max`     | `number`      | A generic type variable `Max` constrained with the `number` type, by default of value captured from optional `max` of provided `length` that indicates the **maximum** length of the provided `value` via the return type `value is StringOfLength<Min, Max, Type>` |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Type`    | [`string`][ts-string] | A generic type variable `Type` guarded by [`AnyString`](#anystring) by of default `string` indicates the type of the `value` via the return type `value is StringOfLength<Min, Max, Type>`. |
+| `Min`     | [`number`][ts-number] | A generic type variable `Min` constrained with the `number` type, by default of value captured from optional `min` of provided `length` that indicates the **minimum** length of the provided `value` via the return type `value is StringOfLength<Min, Max, Type>` |
+| `Max`     | [`number`][ts-number] | A generic type variable `Max` constrained with the `number` type, by default of value captured from optional `max` of provided `length` that indicates the **maximum** length of the provided `value` via the return type `value is StringOfLength<Min, Max, Type>` |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -5161,9 +5161,9 @@ const isStringObject = <Payload extends object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -5212,9 +5212,9 @@ const isStringType = <Payload extends object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -5263,9 +5263,9 @@ const isSymbol = <Payload extends object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -5313,9 +5313,9 @@ const isTrue = <Payload extends object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -5378,10 +5378,10 @@ const isType = <T extends Type, Payload extends object = object>(
 
 **Generic type variables:**
 
-| Name      | Default value   | Description |
-| :-------- | :-------------- | :---------- |
-| `T`       | [`Type`](#type) | A generic type variable `T` constrained by the [`Type`](#type) indicates the type of `value` parameter via the return type `value is T`. |
-| `Payload` | `object`        | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `T` and can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value        | Description |
+| :-------- | :------------------- | :---------- |
+| `T`       | [`Type`](#type)      | A generic type variable `T` constrained by the [`Type`](#type) indicates the type of `value` parameter via the return type `value is T`. |
+| `Payload` | [`object`][ts-object]| The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `T` and can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -5459,9 +5459,9 @@ const isUndefined = <Payload extends object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -5531,10 +5531,10 @@ const isNotBoolean = <Type, Payload extends object = object>(
 
 **Generic type variables:**
 
-| Name      | Default value    | Description |
-| :-------- | :--------------- | :---------- |
-| `Type`    | From the `value` | A generic type variable `Type` indicates the type of `value` parameter via the return type `value is Never<AnyBoolean, Type>`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Type`    | From the `value`      | A generic type variable `Type` indicates the type of `value` parameter via the return type `value is Never<AnyBoolean, Type>`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -5548,7 +5548,7 @@ const isNotBoolean = <Type, Payload extends object = object>(
 
 | Returns                            | Type      | Description |
 | :--------------------------------- | :-------: | :---------- |
-| `value is Never<AnyBoolean, Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type [`Never`](#never) that takes a generic type variable `Type` by default of value captured from the supplied `value` which changes to **never** on the captured type [`AnyBoolean`](#anyboolean). |
+| `value is Never<AnyBoolean, Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type [`Never`](#never) that takes a generic type variable `Type` by default of value captured from the supplied `value` which changes to [`never`][ts-never] on the captured type [`AnyBoolean`](#anyboolean). |
 
 The **return value** is a `boolean` indicating whether the `value` is **not** a `boolean` type and **not** an instance of [`Boolean`][js-boolean].
 
@@ -5594,10 +5594,10 @@ const isNotDefined = <Type, Payload extends object = object>(
 
 **Generic type variables:**
 
-| Name      | Default value    | Description |
-| :-------- | :--------------- | :---------- |
-| `Type`    | From the `value` | A generic type variable `Type` indicates the type of `value` parameter via the return type `value is Undefined<Type>`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Type`    | From the `value`      | A generic type variable `Type` indicates the type of `value` parameter via the return type `value is Undefined<Type>`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -5611,7 +5611,7 @@ const isNotDefined = <Type, Payload extends object = object>(
 
 | Returns                    | Type      | Description |
 | :------------------------- | :-------: | :---------- |
-| `value is Undefined<Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type [`Undefined`](#undefined) that takes a generic type variable `Type` by default of value captured from the supplied `value` which changes to **never** on the captured type [`undefined`][js-undefined]. |
+| `value is Undefined<Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type [`Undefined`](#undefined) that takes a generic type variable `Type` by default of value captured from the supplied `value` which changes to [`never`][ts-never] on the captured type [`undefined`][js-undefined]. |
 
 The **return value** is a `boolean` indicating whether the `value` is not defined, is `undefined`.
 
@@ -5657,10 +5657,10 @@ const isNotFunction = <Type, Payload extends object = object>(
 
 **Generic type variables:**
 
-| Name      | Default value    | Description |
-| :-------- | :--------------- | :---------- |
-| `Type`    | From the `value` | A generic type variable `Type` indicates the type of `value` parameter via the return type `value is Never<Function, Type>`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Type`    | From the `value`      | A generic type variable `Type` indicates the type of `value` parameter via the return type `value is Never<Function, Type>`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -5674,7 +5674,7 @@ const isNotFunction = <Type, Payload extends object = object>(
 
 | Returns                          | Type      | Description |
 | :------------------------------- | :-------: | :---------- |
-| `value is Never<Function, Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type [`Never`](#never) that takes a generic type variable `Type` by default of value captured from the supplied `value`, but on the captured type [`Function`][js-function] changes to **never** . |
+| `value is Never<Function, Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type [`Never`](#never) that takes a generic type variable `Type` by default of value captured from the supplied `value`, but on the captured type [`Function`][js-function] changes to [`never`][ts-never] . |
 
 The **return value** is a `boolean` indicating whether the provided `value` is not a [`function`][js-function].
 
@@ -5713,10 +5713,10 @@ const isNotNull = <Type, Payload extends object = object>(
 
 **Generic type variables:**
 
-| Name      | Default value    | Description |
-| :-------- | :--------------- | :---------- |
-| `Type`    | From the `value` | A generic type variable `Type` indicates the type of `value` parameter via the return type `value is Never<null, Type>`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Type`    | From the `value`      | A generic type variable `Type` indicates the type of `value` parameter via the return type `value is Never<null, Type>`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -5730,7 +5730,7 @@ const isNotNull = <Type, Payload extends object = object>(
 
 | Returns                      | Type      | Description |
 | :--------------------------- | :-------: | :---------- |
-| `value is Never<null, Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type [`Never`](#never) that takes a generic type variable `Type` by default of value captured from the supplied `value`, but on the captured [`null`][js-null] changes to **never**. |
+| `value is Never<null, Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type [`Never`](#never) that takes a generic type variable `Type` by default of value captured from the supplied `value`, but on the captured [`null`][js-null] changes to [`never`][ts-never]. |
 
 The **return value** is a `boolean` indicating whether the provided `value` is not [`null`][js-null].
 
@@ -5774,10 +5774,10 @@ const isNotNumber = <Type, Payload extends object = object>(
 
 **Generic type variables:**
 
-| Name      | Default value    | Description |
-| :-------- | :--------------- | :---------- |
-| `Type`    | From the `value` | A generic type variable `Type` indicates the type of `value` parameter via the return type `value is Never<AnyNumber, Type>`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Type`    | From the `value`      | A generic type variable `Type` indicates the type of `value` parameter via the return type `value is Never<AnyNumber, Type>`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -5791,7 +5791,7 @@ const isNotNumber = <Type, Payload extends object = object>(
 
 | Returns                           | Type      | Description |
 | :-------------------------------- | :-------: | :---------- |
-| `value is Never<AnyNumber, Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type [`Never`](#never) that takes a generic type variable `Type` from the `value` and `Not` equal to [`AnyNumber`](#anynumber), which makes it **never** [`AnyNumber`](#anynumber) but of type captured from the supplied `value`. |
+| `value is Never<AnyNumber, Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type [`Never`](#never) that takes a generic type variable `Type` from the `value` and `Not` equal to [`AnyNumber`](#anynumber), which makes it [`never`][ts-never] [`AnyNumber`](#anynumber) but of type captured from the supplied `value`. |
 
 The **return value** is a `boolean` indicating whether the provided `value` is not a [`number`][js-number].
 
@@ -5839,10 +5839,10 @@ const isNotString = <Type, Payload extends object = object>(
 
 **Generic type variables:**
 
-| Name      | Default value    | Description |
-| :-------- | :--------------- | :---------- |
-| `Type`    | From the `value` | A generic type variable `Type` indicates the type of `value` parameter via the return type `value is Never<AnyString, Type>`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Type`    | From the `value`      | A generic type variable `Type` indicates the type of `value` parameter via the return type `value is Never<AnyString, Type>`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -5858,7 +5858,7 @@ The function returns statement `value is Never<AnyString, Type>`.
 
 | Type      | Description |
 | :-------: | :---------- |
-| `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type [`Never`](#never) that takes a generic type variable `Type` from the `value` and `Not` equal to [`AnyString`](#anystring), which makes it **never** [`AnyString`](#anystring) but of type captured from the supplied `value`. |
+| `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type [`Never`](#never) that takes a generic type variable `Type` from the `value` and `Not` equal to [`AnyString`](#anystring), which makes it [`never`][ts-never] [`AnyString`](#anystring) but of type captured from the supplied `value`. |
 
 The **return value** is a `boolean` indicating whether the provided `value` is not a [`string`][js-string] and not an instance of [`String`][js-string].
 
@@ -5906,10 +5906,10 @@ const isNotUndefined = <Type, Payload extends object = object>(
 
 **Generic type variables:**
 
-| Name      | Default value    | Description |
-| :-------- | :--------------- | :---------- |
-| `Type`    | From the `value` | A generic type variable `Type` indicates the type of the `value` parameter via the return type `value is Defined<Type>`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Type`    | From the `value`      | A generic type variable `Type` indicates the type of the `value` parameter via the return type `value is Defined<Type>`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -6104,10 +6104,10 @@ const guardArray = <Type, Payload extends object = object>(
 
 **Generic type variables:**
 
-| Name      | Default value    | Description |
-| :-------- | :--------------- | :---------- |
-| `Type`    | From the `value` | A generic type variable `Type` indicates the `array` element type of the `value` by default captured from the provided `value`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Type`    | From the `value`      | A generic type variable `Type` indicates the `array` element type of the `value` by default captured from the provided `value`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -6161,9 +6161,9 @@ const guardBigInt = <Payload extends object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -6213,10 +6213,10 @@ const guardBoolean = <
 
 **Generic type variables:**
 
-| Name      | Default value    | Description |
-| :-------- | :--------------- | :---------- |
-| `Type`    | From the `value` | A generic type variable `Type` guarded by [`AnyBoolean`](#anyboolean), by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Type`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Type`    | From the `value`      | A generic type variable `Type` guarded by [`AnyBoolean`](#anyboolean), by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Type`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -6268,10 +6268,10 @@ const guardClass = <
 
 **Generic type variables:**
 
-| Name      | Default value    | Description |
-| :-------- | :--------------- | :---------- |
-| `Class`   | From the `value` | A generic type variable `Class` guarded by [`Function`][ts-function], by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Class`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Class`   | From the `value`      | A generic type variable `Class` guarded by [`Function`][ts-function], by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Class`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -6362,9 +6362,9 @@ const guardDate = <Payload extends object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -6416,16 +6416,16 @@ const guardDefined = <Type, Payload extends object = object>(
 
 **Generic type variables:**
 
-| Name      | Default value    | Description |
-| :-------- | :--------------- | :---------- |
-| `Type`    | From the `value` | A generic type variable `Type`, by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Defined<Type>`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Type`    | From the `value`      | A generic type variable `Type`, by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Defined<Type>`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
 | Name: type                                                           | Description |
 | :------------------------------------------------------------------- | :---------- |
-| `value: Defined<Type>`                                               | The value of `Defined<Type>`, **never** `undefined` type captured from the `value` to guard against `undefined`. |
+| `value: Defined<Type>`                                               | The value of `Defined<Type>`, [`never`][ts-never] `undefined` type captured from the `value` to guard against `undefined`. |
 | `callback?: ResultCallback<Defined<Type>, CallbackPayload<Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
 | `payload?: CallbackPayload<Payload>`                                 | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
@@ -6433,7 +6433,7 @@ const guardDefined = <Type, Payload extends object = object>(
 
 | Returns                  | Type      | Description |
 | :----------------------- | :-------: | :---------- |
-| `value is Defined<Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type [`Defined`](#defined) that takes a generic type variable `Type` of value by default equal to the type captured from the supplied `value` parameter excepts [`undefined`][js-undefined] which changes to never. |
+| `value is Defined<Type>` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type [`Defined`](#defined) that takes a generic type variable `Type` of value by default equal to the type captured from the supplied `value` parameter excepts [`undefined`][js-undefined] which changes to [`never`][ts-never]. |
 
 The **return value** is a `boolean` indicating whether the `value` is **defined**.
 
@@ -6471,9 +6471,9 @@ const guardFalse = <Payload extends object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -6527,10 +6527,10 @@ const guardFunction = <Type extends Function, Payload extends object>(
 
 **Generic type variables:**
 
-| Name      | Default value    | Description |
-| :-------- | :--------------- | :---------- |
-| `Type`    | From the `value` | A generic type variable `Type`, by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Type`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Type`    | From the `value`      | A generic type variable `Type`, by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Type`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -6587,10 +6587,10 @@ const guardInstance = <
 
 **Generic type variables:**
 
-| Name      | Default value    | Description |
-| :-------- | :--------------- | :---------- |
-| `Obj`     | From the `value` | A generic type variable `Obj` guarded by [`object`][js-object], by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Obj` and specifies the type of the `constructor`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Obj`     | From the `value`      | A generic type variable `Obj` guarded by [`object`][js-object], by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Obj` and specifies the type of the `constructor`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -6669,9 +6669,9 @@ const guardKey = <Payload extends object>(
 
 **Generic type variables:**
 
-| Name      | Default value    | Description |
-| :-------- | :--------------- | :---------- |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -6725,9 +6725,9 @@ const guardNull = <Payload extends object>(
 
 **Generic type variables:**
 
-| Name      | Default value    | Description |
-| :-------- | :--------------- | :---------- |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -6779,10 +6779,10 @@ const guardNumber = <
 
 **Generic type variables:**
 
-| Name      | Default value    | Description |
-| :-------- | :--------------- | :---------- |
-| `Type`    | From the `value` | A generic type variable `Type` guarded by [`AnyNumber`](#anynumber), by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Type`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Type`    | From the `value`      | A generic type variable `Type` guarded by [`AnyNumber`](#anynumber), by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Type`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -6851,7 +6851,7 @@ const guardNumberBetween = <
 | `Type`    | Captured from the `value`          | A generic type variable `Type` guarded by [`AnyNumber`](#anynumber), by default of value captured from the supplied `value` indicates the **type** of the `value` via the return type `value is NumberBetween<Min, Max, Type>`. |
 | `Min`     | Captured from the `min` of `range` | A generic type variable `Min` constrained by the `number` type, by default of value captured from optional `min` of the provided `range` that indicates the **minimum** range of the provided `value` via the return type `value is NumberBetween<Min, Max, Type>`. |
 | `Max`     | Captured from the `max` of `range` | A generic type variable `Max` constrained by the `number` type, by default of value captured from optional `max` of the provided `range` that indicates the **maximum** range of the provided `value` via the return type `value is NumberBetween<Min, Max, Type>`. |
-| `Payload` | `object`                           | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | [`object`][ts-object]              | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -6919,10 +6919,10 @@ const guardObject = <
 
 **Generic type variables:**
 
-| Name      | Default value    | Description |
-| :-------- | :--------------- | :---------- |
-| `Obj`     | From the `value` | A generic type variable `Obj` guarded by [`object`][js-object], by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Obj`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Obj`     | From the `value`      | A generic type variable `Obj` guarded by [`object`][js-object], by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Obj`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -6983,11 +6983,11 @@ const guardObjectKey = <
 
 **Generic type variables:**
 
-| Name      | Default value    | Description |
-| :-------- | :--------------- | :---------- |
-| `Obj`     | From the `value` | A generic type variable `Obj` guarded by [`object`][js-object], by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Obj`. |
-| `Key`     | From the `key`   | A generic type variable `Key` constrained by the `keyof Obj`, by default of value captured from the supplied `key` indicates the specific property name of `Obj`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Obj`     | From the `value`      | A generic type variable `Obj` guarded by [`object`][js-object], by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Obj`. |
+| `Key`     | From the `key`        | A generic type variable `Key` constrained by the `keyof Obj`, by default of value captured from the supplied `key` indicates the specific property name of `Obj`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -7078,11 +7078,11 @@ const guardObjectKeyIn = <
 
 **Generic type variables:**
 
-| Name      | Default value    | Description |
-| :-------- | :--------------- | :---------- |
-| `Obj`     | From the `value` | A generic type variable `Obj` guarded by [`object`][js-object], by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Obj`. |
-| `Key`     | From the `key`   | A generic type variable `Key` constrained by the `keyof Obj`, by default of value captured from the supplied `key` indicates the specific property name of `Obj`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Obj`     | From the `value`      | A generic type variable `Obj` guarded by [`object`][js-object], by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Obj`. |
+| `Key`     | From the `key`        | A generic type variable `Key` constrained by the `keyof Obj`, by default of value captured from the supplied `key` indicates the specific property name of `Obj`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -7169,11 +7169,11 @@ const guardObjectKeys = <
 
 **Generic type variables:**
 
-| Name      | Default value    | Description |
-| :-------- | :--------------- | :---------- |
-| `Obj`     | From the `value` | A generic type variable `Obj` guarded by [`object`][js-object], by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Obj`. |
-| `Keys`    | From the `keys`  | A generic type variable `Keys` constrained by the `keyof Obj`, by default of value captured from the supplied `keys` indicates the specific property name of `Obj`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Obj`     | From the `value`      | A generic type variable `Obj` guarded by [`object`][js-object], by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Obj`. |
+| `Keys`    | From the `keys`       | A generic type variable `Keys` constrained by the `keyof Obj`, by default of value captured from the supplied `keys` indicates the specific property name of `Obj`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -7262,11 +7262,11 @@ const guardObjectKeysIn = <
 
 **Generic type variables:**
 
-| Name      | Default value    | Description |
-| :-------- | :--------------- | :---------- |
-| `Obj`     | From the `value` | A generic type variable `Obj` guarded by [`object`][js-object], by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Obj`. |
-| `Keys`    | From the `keys`  | A generic type variable `Keys` constrained by the `keyof Obj`, by default of value captured from the supplied `keys` indicates the specific property name of `Obj`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Obj`     | From the `value`      | A generic type variable `Obj` guarded by [`object`][js-object], by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Obj`. |
+| `Keys`    | From the `keys`       | A generic type variable `Keys` constrained by the `keyof Obj`, by default of value captured from the supplied `keys` indicates the specific property name of `Obj`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -7354,10 +7354,10 @@ const guardObjectSomeKeys = <
 
 **Generic type variables:**
 
-| Name      | Default value    | Description |
-| :-------- | :--------------- | :---------- |
-| `Obj`     | From the `value` | A generic type variable `Obj` guarded by [`object`][js-object], by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Obj`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Obj`     | From the `value`      | A generic type variable `Obj` guarded by [`object`][js-object], by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Obj`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -7437,10 +7437,10 @@ const guardPrimitive = <
 
 **Generic type variables:**
 
-| Name      | Default value    | Description |
-| :-------- | :--------------- | :---------- |
-| `Type`    | From the `value` | A generic type variable `Type` guarded by [`Primitive`](#primitive), by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Type`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Type`    | From the `value`      | A generic type variable `Type` guarded by [`Primitive`](#primitive), by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Type`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it while providing `Type` and can be captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -7531,9 +7531,9 @@ const guardRegExp = <Payload extends object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -7583,10 +7583,10 @@ const guardString = <
 
 **Generic type variables:**
 
-| Name      | Default value    | Description |
-| :-------- | :--------------- | :---------- |
-| `Type`    | From the `value` | A generic type variable `Type` guarded by [`AnyString`](#anystring), by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Type`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Type`    | From the `value`      | A generic type variable `Type` guarded by [`AnyString`](#anystring), by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Type`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -7649,7 +7649,7 @@ const guardStringLength = <
 | `Type`    | From the `value`                    | A generic type variable `Type` guarded by [`AnyString`](#anystring), by default of value captured from the supplied `value` indicates the **type** of the `value` via the return type `value is StringOfLength<Min, Max, Type>`. |
 | `Min`     | Captured from the `min` of `length` | A generic type variable `Min` constrained by the `number` type, by default of value captured from optional `min` of the provided `length` that indicates the **minimum** length of the provided `value` via the return type `value is StringOfLength<Min, Max, Type>`. |
 | `Max`     | Captured from the `max` of `length` | A generic type variable `Max` constrained by the `number` type, by default of value captured from optional `max` of the provided `length` that indicates the **maximum** length of the provided `value` via the return type `value is StringOfLength<Min, Max, Type>`. |
-| `Payload` | `object`                            | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | [`object`][ts-object]               | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -7712,9 +7712,9 @@ const guardSymbol = <Payload extends object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -7766,9 +7766,9 @@ const guardTrue = <Payload extends object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -7823,10 +7823,10 @@ const guardType = <T extends Type, Payload extends object = object>(
 
 **Generic type variables:**
 
-| Name      | Default value    | Description |
-| :-------- | :--------------- | :---------- |
-| `T`       | From the `value` | A generic type variable `T` guarded by [`Type`](#type), by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is T`. |
-| `Payload` | `object`         | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `T`       | From the `value`      | A generic type variable `T` guarded by [`Type`](#type), by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is T`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value by default is set to `object` cause to not to be forced to fill it and **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -7931,9 +7931,9 @@ const guardUndefined = <Payload extends object>(
 
 **Generic type variables:**
 
-| Name      | Default value | Description |
-| :-------- | :------------ | :---------- |
-| `Payload` | `object`      | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -8071,7 +8071,7 @@ import { type } from '@angular-package/type';
 
 // `is` functions
 type.is.boolean(true); // true, value is boolean
-type.is.array(true); // false, value is unknown[]
+type.is.array(true); // false, value is any[]
 
 // `guard` functions
 type.guard.number(3); // true, value is number
@@ -8186,7 +8186,7 @@ type Constructor<Type> = new (...args: any[]) => Type;
 
 [![update]][type-github-changelog]
 
-A generic type `Defined` that takes generic type variable `Type` constrained by `undefined` which constraint causes its change to `never`.
+A generic type `Defined` that takes generic type variable `Type` constrained by `undefined` which constraint causes its change to [`never`][ts-never].
 
 ```typescript
 type Defined<Type> = Type extends undefined ? never : Type;
@@ -8213,7 +8213,7 @@ type ForEachCallback<Value = any, Payload = object> = (
 **Generic type variables:**
 
 **`Value`**  
-A generic type variable `Value` by default equal to `any` determines the type of the `value` parameter.
+A generic type variable `Value` by default equal to [`any`][ts-any] determines the type of the `value` parameter.
 
 **`Payload`**  
 The shape of the optional `payload` parameter, by default equal to the [`object`][js-object].
@@ -8242,7 +8242,7 @@ The return value is a [`boolean`][js-boolean].
 
 #### `Never`
 
-A generic type `Never` that takes generic type variable `Type` constrained by a generic type variable `Not` which constraint causes its change to `never`.
+A generic type `Never` that takes generic type variable `Type` constrained by a generic type variable `Not` which constraint causes its change to [`never`][ts-never].
 
 ```typescript
 type Never<Not, Type> = Type extends Not ? never : Type;
@@ -8252,7 +8252,7 @@ type Never<Not, Type> = Type extends Not ? never : Type;
 
 #### `NotUndefined`
 
-A generic type `NotUndefined` that takes generic type variable `Type` constrained by [`undefined`][js-undefined] and [`null`][js-null] which constraint causes its change to `never`.
+A generic type `NotUndefined` that takes generic type variable `Type` constrained by [`undefined`][js-undefined] and [`null`][js-null] which constraint causes its change to [`never`][ts-never].
 
 ```typescript
 type NotUndefined<Type> = Type extends undefined | null ? never : Type;
@@ -8329,7 +8329,7 @@ type ResultCallback<Value = any, Payload = object> = (
 **Generic type variables:**
 
 **`Value`**  
-A generic type variable `Value` by default equal to `any` determines the type of the `value` parameter.
+A generic type variable `Value` by default equal to [`any`][ts-any] determines the type of the `value` parameter.
 
 **`Payload`**  
 The shape of the optional `payload` parameter, by default equal to the [`object`][js-object].
@@ -8390,7 +8390,7 @@ type Types<Obj> = Constructor<Obj> | 'function' | 'object' | Primitives;
 
 #### `Undefined`
 
-A generic type `Undefined` that takes generic type variable `Type` constrained by `undefined` causes other types than `undefined` its change to `never`.
+A generic type `Undefined` that takes generic type variable `Type` constrained by `undefined` causes other types than `undefined` its change to [`never`][ts-never].
 
 ```typescript
 type Undefined<Type> = Type extends undefined ? Type : never;
@@ -8404,7 +8404,7 @@ type Undefined<Type> = Type extends undefined ? Type : never;
 
 #### `BigIntObject`
 
-The object handles creating and getting the [`BigInt`][js-bigint] with [`BigInt()`][bigintconstructor].
+The object handles creating and getting the [`BigInt`][js-bigint] with [`BigInt()`][js-bigintconstructor].
 
 ```typescript
 class BigIntObject {
@@ -8934,6 +8934,12 @@ MIT © angular-package ([license][type-license])
 [prism-js]: https://prismjs.com/
 
 <!-- Typescript -->
+[ts-any]: https://www.typescriptlang.org/docs/handbook/basic-types.html#any
 [ts-classes]: https://www.typescriptlang.org/docs/handbook/2/classes.html
 [ts-function]: https://www.typescriptlang.org/docs/handbook/2/functions.html
 [ts-interface]: https://www.typescriptlang.org/docs/handbook/interfaces.html#our-first-interface
+[ts-never]: https://www.typescriptlang.org/docs/handbook/basic-types.html#never
+[ts-number]: https://www.typescriptlang.org/docs/handbook/basic-types.html#number
+[ts-object]: https://www.typescriptlang.org/docs/handbook/basic-types.html#object
+[ts-string]: https://www.typescriptlang.org/docs/handbook/basic-types.html#string
+[ts-unknown]: https://www.typescriptlang.org/docs/handbook/basic-types.html#unknown
