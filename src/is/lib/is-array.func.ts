@@ -15,7 +15,7 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @returns The return value is a `boolean` indicating whether the provided `value` is an `Array`.
  * @angularpackage
  */
-export const isArray = <Type, Payload extends object = object>(
+export const isArray = <Type = any, Payload extends object = object>(
   value: any,
   callback: ResultCallback<any, CallbackPayload<Payload>> = resultCallback,
   payload?: CallbackPayload<Payload>
