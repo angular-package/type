@@ -606,7 +606,6 @@ const customCallback = (
   /*
     payload {
       value: 'Artemis',
-      name: 'isString',
       id: 1,
       field: 'firstName',
       database: 'gods'
@@ -3952,10 +3951,9 @@ const isNumberBetween = <
     : false,
     value,
     {
-      name: isNumberBetween.name,
-      min: range?.min,
-      max: range?.max,
       ...payload,
+      min: range?.min,
+      max: range?.max
     } as any
   );
 ```
@@ -3964,10 +3962,10 @@ const isNumberBetween = <
 
 | Name      | Default value             | Description |
 | :-------- | :------------------------ | :---------- |
-| `Type`    | `number`                  | A generic type variable `Type` guarded by [`AnyNumber`](#anynumber) by default of `number` indicates the type of the `value` via the return type `value is NumberBetween<Min, Max, Type>`. |
+| `Type`    | [`number`][ts-number]     | A generic type variable `Type` guarded by [`AnyNumber`](#anynumber) by default of `number` indicates the type of the `value` via the return type `value is NumberBetween<Min, Max, Type>`. |
 | `Min`     | From the `min` of `range` | A generic type variable `Min` constrained by the `number` type, by default of value captured from optional `min` of the provided `range` that indicates the **minimum** range of the provided `value` via the return type `value is NumberBetween<Min, Max, Type>` |
 | `Max`     | From the `max` of `range` | A generic type variable `Max` constrained by the `number` type, by default of value captured from optional `max` of the provided `range` that indicates the **maximum** range of the provided `value` via the return type `value is NumberBetween<Min, Max, Type>` |
-| `Payload` | [`object`][ts-object]                  | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+| `Payload` | [`object`][ts-object]     | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
 
@@ -4651,7 +4649,7 @@ const isObjectSomeKeys = <
 | Name: type                                                                        | Description |
 | :-------------------------------------------------------------------------------- | :---------- |
 | `value: any`                                                                      | The value of any type to check against an [`object`][js-object] that contains some of its keys or some groups of its keys from a given `keys`. |
-| `keys: (PropertyKey | PropertyKey[])[]`                                           | An [`Array`][js-array] of property names or a two-dimensional array of property names to check if the given `value` contains some of them or some groups of them. |
+| `keys: (PropertyKey \| PropertyKey[])[]`                                          | An [`Array`][js-array] of property names or a two-dimensional array of property names to check if the given `value` contains some of them or some groups of them. |
 | `callback: ResultCallback<any, CallbackPayload<{ keys: typeof keys } & Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes an `array` of `PropertyKey` and generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
 | `payload?: CallbackPayload<Payload>`                                              | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
@@ -5428,7 +5426,6 @@ isType(person, Person, (result, value, payload) => {
   value // Person {}
   /*
   payload {
-    name: 'isInstance',
     value: {},
     id: 15,
     database: 'Persons'
@@ -6357,7 +6354,7 @@ const guardDate = <Payload extends object>(
   callback?: ResultCallback<Date, CallbackPayload<Payload>>,
   payload?: CallbackPayload<Payload>
 ): value is Date =>
-  isDate(value, callback, { name: guardDate.name, ...payload } as Payload);
+  isDate(value, callback, payload);
 ```
 
 **Generic type variables:**
