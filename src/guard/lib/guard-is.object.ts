@@ -16,10 +16,13 @@ import { guardObject } from './guard-object.func';
 import { guardObjectKey } from './guard-object-key.func';
 import { guardObjectKeyIn } from './guard-object-key-in.func';
 import { guardObjectKeys } from './guard-object-keys.func';
+import { guardObjectKeysIn } from './guard-object-keys-in.func';
 import { guardObjectSomeKeys } from './guard-object-some-keys.func';
 import { guardPrimitive } from './guard-primitive.func';
 import { guardRegExp } from './guard-regexp.func';
 import { guardString } from './guard-string.func';
+import { guardStringIncludes } from './guard-string-includes.func';
+import { guardStringIncludesSome } from './guard-string-includes-some.func';
 import { guardStringLength } from './guard-string-length.func';
 import { guardSymbol } from './guard-symbol.func';
 import { guardTrue } from './guard-true.func';
@@ -46,10 +49,13 @@ export const guardIs: GuardIs = Object.freeze({
   objectKey: guardObjectKey,
   objectKeyIn: guardObjectKeyIn,
   objectKeys: guardObjectKeys,
+  objectKeysIn: guardObjectKeysIn,
   objectSomeKeys: guardObjectSomeKeys,
   primitive: guardPrimitive,
   regexp: guardRegExp,
   string: guardString,
+  stringIncludes: guardStringIncludes,
+  stringIncludesSome: guardStringIncludesSome,
   stringLength: guardStringLength,
   symbol: guardSymbol,
   true: guardTrue,

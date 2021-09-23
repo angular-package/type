@@ -16,10 +16,13 @@ import { guardObject } from '../lib/guard-object.func';
 import { guardObjectKey } from '../lib/guard-object-key.func';
 import { guardObjectKeyIn } from '../lib/guard-object-key-in.func';
 import { guardObjectKeys } from '../lib/guard-object-keys.func';
+import { guardObjectKeysIn } from '../lib/guard-object-keys-in.func';
 import { guardObjectSomeKeys } from '../lib/guard-object-some-keys.func';
 import { guardPrimitive } from '../lib/guard-primitive.func';
 import { guardRegExp } from '../lib/guard-regexp.func';
 import { guardString } from '../lib/guard-string.func';
+import { guardStringIncludes } from '../lib/guard-string-includes.func';
+import { guardStringIncludesSome } from '../lib/guard-string-includes-some.func';
 import { guardStringLength } from '../lib/guard-string-length.func';
 import { guardSymbol } from '../lib/guard-symbol.func';
 import { guardTrue } from '../lib/guard-true.func';
@@ -96,6 +99,10 @@ export interface GuardIs {
    */
   objectKeys: typeof guardObjectKeys;
   /**
+   * Guards the value to be an `object` of a generic type variable `Obj` with specified keys in it(or its prototype chain).
+   */
+  objectKeysIn: typeof guardObjectKeysIn;
+  /**
    * Guards the value to be an `object` of a generic type variable `Obj` with its specified `keys`.
    */
   objectSomeKeys: typeof guardObjectSomeKeys;
@@ -111,6 +118,14 @@ export interface GuardIs {
    * Guards the value to be `string` of any type.
    */
   string: typeof guardString;
+  /**
+   * Guards the value to be a `string` type or an instance of `String` that includes all of the specified words/sentences.
+   */
+  stringIncludes: typeof guardStringIncludes;
+  /**
+   * Guards the value to be a `string` type or an instance of `String` that includes some of the specified words/sentences.
+   */
+  stringIncludesSome: typeof guardStringIncludesSome;
   /**
    * Guards the value to be a `string` of a length between the specified range.
    */
