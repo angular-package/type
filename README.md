@@ -7166,7 +7166,7 @@ const guardObjectKeys = <
 | Name: type                                                                         | Description |
 | :--------------------------------------------------------------------------------- | :---------- |
 | `value: Obj`                                                                       | An [`object`][js-object] of a generic type variable `Obj`, by default of the type captured from the `value` that contains the given `keys` to guard. |
-| `key: Key[]`                                                                       | An [`Array`][js-array] of property names that the given `value` contains. |
+| `keys: Key[]`                                                                      | An [`Array`][js-array] of property names that the given `value` contains. |
 | `callback?: ResultCallback<Obj, CallbackPayload<{ keys: typeof keys } & Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
 | `payload?: CallbackPayload<Payload>`                                               | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
@@ -7259,7 +7259,7 @@ const guardObjectKeysIn = <
 | Name: type                                                                         | Description |
 | :--------------------------------------------------------------------------------- | :---------- |
 | `value: Obj`                                                                       | An [`object`][js-object] of a generic type variable `Obj`, by default of the type captured from the `value` that contains(or its prototype chain) the given `keys` to guard. |
-| `key: Key[]`                                                                       | An [`Array`][js-array] of property names that the given `value` contains(or its prototype chain). |
+| `keys: Key[]`                                                                      | An [`Array`][js-array] of property names that the given `value` contains(or its prototype chain). |
 | `callback?: ResultCallback<Obj, CallbackPayload<{ keys: typeof keys } & Payload>>` | An optional [`ResultCallback`](#resultcallback) type function to handle the result before returns eg. to throw an [`Error`][js-error]. |
 | `payload?: CallbackPayload<Payload>`                                               | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
 
@@ -7606,6 +7606,143 @@ guardString(firstName); // true; return type `value is "my name"`
 ```
 
 [&uArr; Up](#guardstring) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardsymbol)
+
+<br>
+
+#### `guardStringIncludes()`
+
+[![new]][type-github-changelog]
+
+Use `guardStringIncludes()` or `guard.stringIncludes()` to guard the value to be a [`string`][js-string] type or an instance of [`String`][js-string] that **includes** the specified **words/sentences**.
+
+```typescript
+const guardStringIncludes = <
+  Type extends AnyString,
+  Payload extends object = object
+>(
+  value: Type,
+  includes: string[],
+  callback: ResultCallback<
+    Type,
+    CallbackPayload<{ includes: typeof includes } & Payload>
+  > = resultCallback,
+  payload?: CallbackPayload<Payload>
+): value is Type =>
+  isStringIncludes(value, includes, callback, payload);
+```
+
+**Generic type variables:**
+
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Type`    | From the `value`      | A generic type variable `Type` guarded by [`AnyString`](#anystring), by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Type`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                                                                 | Description |
+| :----------------------------------------------------------------------------------------- | :---------- |
+| `value: Type`                                                                              | The value of a generic type variable `Type` constrained by the [`AnyString`](#anystring), by default of the type captured from the provided `value` to check against the [`string`][js-string] that contains **words/sentences** from a given `includes`.  |
+| `includes: string[]`                                                                       | An [`Array`][js-array] of [`string`][js-string] as **words/sentences** to be **case-sensitive** searched for within a given `value`. |
+| `callback: ResultCallback<Type, CallbackPayload<{ includes: typeof includes } & Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes an `array` of `string` and generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                                                       | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+| Returns         | Type      | Description |
+| :-------------- | :-------: | :---------- |
+| `value is Type` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type variable `Type` by default of the type captured from the `value`. |
+
+The **return value** is a `boolean` indicating whether the provided `value` is a [`string`][js-string] type or an instance of [`String`][js-string] that includes the specified **words/sentences**.
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { guardStringIncludes } from '@angular-package/type';
+
+// true; The return type `value is "This is a person without age."`
+guardStringIncludes('This is a person without age.', ['age']);
+// false; The return type `value is "This is a person without age."`
+guardStringIncludes('This is a person without age.', ['Person']);
+// false; The return type `value is "This is a person without age."`
+guardStringIncludes('This is a person without age.', ['age', 'Person']);
+guardStringIncludes(new String('This is artificial intelligence.'), [
+  'artificial',
+  'intelligence',
+]); // true; The return type `value is String`
+```
+
+[&uArr; Up](#guardstringincludes) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardstringlength)
+
+<br>
+
+#### `guardStringIncludesSome()`
+
+[![new]][type-github-changelog]
+
+Use `guardStringIncludesSome()` or `guard.stringIncludesSome()` to guard the value to be a [`string`][js-string] type or an instance of [`String`][js-string] that includes **some** of the specified **words/sentences**.
+
+```typescript
+const guardStringIncludesSome = <
+  Type extends AnyString,
+  Payload extends object = object
+>(
+  value: Type,
+  includes: string[],
+  callback: ResultCallback<
+    Type,
+    CallbackPayload<{ includes: typeof includes } & Payload>
+  > = resultCallback,
+  payload?: CallbackPayload<Payload>
+): value is Type =>
+  isStringIncludesSome(value, includes, callback, payload);
+```
+
+**Generic type variables:**
+
+| Name      | Default value         | Description |
+| :-------- | :-------------------- | :---------- |
+| `Type`    | From the `value`      | A generic type variable `Type` guarded by [`AnyString`](#anystring), by default of value captured from the supplied `value` indicates the type of the `value` via the return type `value is Type`. |
+| `Payload` | [`object`][ts-object] | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
+
+**Parameters:**
+
+| Name: type                                                                                | Description |
+| :---------------------------------------------------------------------------------------- | :---------- |
+| `value: Type`                                                                             | The value of a generic type variable `Type` constrained by the [`AnyString`](#anystring), by default of the type captured from the provided `value` to check against the [`string`][js-string] that contains **some** of the **words/sentences** from a given `includes`. |
+| `includes: string[]`                                                                      | An [`Array`][js-array] of [`string`][js-string] as **words/sentences** to be **case-sensitive** searched for within a given `value`. |
+| `callback: ResultCallback<any, CallbackPayload<{ includes: typeof includes } & Payload>>` | A callback [`function`][js-function] of [`ResultCallback`](#resultcallback) type with parameters, the `value` that has been checked, the `result` of this check, and `payload` of the default generic type [`CallbackPayload`](#callbackpayload) that takes an `array` of `string` and generic type variable `Payload` as optional properties from the provided `payload`, to handle them before the `result` return. By default, it uses [`resultCallback()`](#default-resultcallback) function. |
+| `payload?: CallbackPayload<Payload>`                                                      | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
+
+**Returns:**
+
+| Returns         | Type      | Description |
+| :-------------- | :-------: | :---------- |
+| `value is Type` | `boolean` | The **return type** is a `boolean` as the result of its statement indicating the `value` is a generic type variable `Type` by default of the type captured from the `value`. |
+
+The **return value** is a `boolean` indicating whether the provided `value` is a [`string`][js-string] type or an instance of [`String`][js-string] that includes **some** of the specified **words/sentences**.
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { guardStringIncludesSome } from '@angular-package/type';
+
+// true; The return type `value is "This is a person without age."`
+guardStringIncludesSome('This is a person without age.', ['age']);
+// false; The return type `value is "This is a person without age."`
+guardStringIncludesSome('This is a person without age.', ['Person']);
+// true; The return type `value is "This is a person without age."`
+guardStringIncludesSome('This is a person without age.', ['age', 'Person']);
+// true; The return type `value is String`
+guardStringIncludesSome(new String('This is artificial intelligence.'), [
+'artificial',
+'intelligence',
+]);
+```
+
+[&uArr; Up](#guardstringincludessome) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#guardsymbol)
 
 <br>
 
@@ -8215,10 +8352,10 @@ The result of the check of a [`boolean`][js-boolean] type.
 The **value** that has been checked of a generic type variable `Value`.
 
 **`index: number`**  
-An optional [`number`][js-number] of checked [`array`][js-array] element.
+A [`number`][js-number] of checked [`array`][js-array] element.
 
 **`array: any[]`**  
-An optional [`array`][js-array] of `any` type that each element is checked.
+An [`array`][js-array] of `any` type that each element is checked.
 
 **`payload?: Payload`**  
 An optional [`object`][js-object] of a generic type variable `Payload` to provide more data.
