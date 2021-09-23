@@ -7579,7 +7579,7 @@ const guardString = <
 **Parameters:**
 
 | Name: type                                                  | Description |
-|------------------------------------------------------------ | :---------- |
+| :---------------------------------------------------------- | :---------- |
 | `value: Type`                                               | The value of a generic type variable `Type` constrained by the [`AnyString`](#anystring), by default of the type captured from the provided `value` to guard. |
 | `callback?: ResultCallback<Type, CallbackPayload<Payload>>` | An optional [`ResultCallback`](#resultcallback) type to handle the result before returns eg. to throw an [`Error`][js-error]. |
 | `payload?: CallbackPayload<Payload>`                        | An optional [`object`][js-object] of generic type [`CallbackPayload`](#callbackpayload) that takes generic type variable `Payload` captured from itself is assigned to the `payload` of the supplied `callback` function. |
@@ -7779,7 +7779,7 @@ const guardStringLength = <
 **Parameters:**
 
 | Name: type                                                                     | Description |
-|------------------------------------------------------------------------------- | :---------- |
+| :----------------------------------------------------------------------------- | :---------- |
 | `value: Type`                                                                  | The value of a generic type variable `Type` constrained by [`AnyString`](#anystring), by default of the type captured from the provided `value` to guard. |
 | `length: MinMax<Min, Max>`                                                     | An [`object`][js-object] of optional minimum and maximum `length` of the given `value`. |
 | `callback?: ResultCallback<Type, CallbackPayload<MinMax<Min, Max> & Payload>>` | An optional [`ResultCallback`](#resultcallback) type to handle the result before returns eg. to throw an [`Error`][js-error]. |
