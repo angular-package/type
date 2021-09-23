@@ -6,11 +6,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [5.0.0] - 2021-09-08
+## [5.0.0] - 2021-09-23
 
 ### [5.0.0] Added
 
-* [21e523b]
+* [691f07e]  
+  Added `guardStringIncludes()` and `guardStringIncludesSome()` functions with tests.
+
+* [21e523b]  
   Added `guardObjectKeysIn()` function  guard the value to be an `object` with specified keys in it(or its prototype chain).
 
 * [823dac3]  
@@ -26,7 +29,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   Added `isObjectKeysIn()`, `isObjectSomeKeys()`, `isStringIncludes()` and `isStringIncludesSome()` and to the `is` object and to the `Is` interface.  
 
 * [98a2722]  
-  Added `CallbackPayload` nad `ForEachCallback` types.
+  Added `CallbackPayload` and `ForEachCallback` types.
 
 * [dfb3df9]  
   Added the `type` object consists of `are`, `is` and `guard` objects.
@@ -37,6 +40,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 * [d2f756e]  
   Added `recognizeValue()` to recognize type of any value.  
 
+[691f07e]: https://github.com/angular-package/type/commit/691f07e2cf31eb3a52923715ef091f86a181a15f
 [21e523b]: https://github.com/angular-package/type/commit/21e523b3a46e3e8243276e5008de72ea9b3c3756
 [0efe8ae]: https://github.com/angular-package/type/commit/0efe8aed83d03313921176206636bc8b0730d188
 [d440e38]: https://github.com/angular-package/type/commit/d440e388f6f853c01ef9aab620c206f2233bd3cf
@@ -54,6 +58,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [dfb3df9]: https://github.com/angular-package/type/commit/dfb3df9f82116cd2737031b255f0aad62e4c1fa8
 
 ### [5.0.0] Updated
+
+* [7387e23]  
+  Updated `guardIs` object by adding `objectKeysIn`, `stringIncludes` and `stringIncludesSome` methods.
 
 * [68c9365]  
   Updated `areString()` function that works by using the returned methods.
@@ -82,6 +89,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   Updated functions by adding a `payload` parameter of generic type `CallbackPayload` that takes generic type variable `Payload` to assign to callback function `payload` parameter.  
   Updated functions by removing `typeOf()` function if it's not necessary to use it.
 
+[7387e23]: https://github.com/angular-package/type/commit/7387e2342b7c02ccf64f8cb980cd8b801e333ca9
 [68c9365]: https://github.com/angular-package/type/commit/68c93656d4b3cd1c5158bc6021059929e54860ab
 [5c9486f]: https://github.com/angular-package/type/commit/5c9486f859a4e61476c220f228bf1cb34511e319
 [09fb70f]: https://github.com/angular-package/type/commit/09fb70f87634923dce1fd979da30a8041a7f9922
@@ -106,9 +114,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   Removed `is` property from the `guard` object.
 
 * [8ddb720]  
-  Removed `Func` type to use build-in `Function` type. [5148f05]  
-  Removed `Key` type to use build-in `PropertyKey` type. [562ec13]  
-  Removed `CycleHook` type. [4d53a55]  
+  [5148f05] Removed `Func` type to use build-in `Function` type.  
+  [562ec13] Removed `Key` type to use build-in `PropertyKey` type.  
+  [4d53a55] Removed `CycleHook` type.  
 
 [a8e8566]: https://github.com/angular-package/type/commit/a8e856663f8c57c3c89271c1c1948ecdc96b01d1
 [e09a84f]: https://github.com/angular-package/type/commit/e09a84fc1ea2109c4c480743e3b749325a1d9c5f
