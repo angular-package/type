@@ -18,8 +18,8 @@ import { tests } from '../../execute-tests';
  * Initialize testing.
  */
 const testing = new Testing(
-  tests.guard.objectKeys.describe,
-  tests.guard.objectKeys.it
+  tests.guard.objectKeysIn.describe,
+  tests.guard.objectKeysIn.it
 );
 /**
  * Tests.
