@@ -1,27 +1,47 @@
-# Packages
+# angular-package
 
-Useful and simple to use packages based on the [angular.io][angulario].
+<img align="left" width="100" height="100" src="https://avatars.githubusercontent.com/u/31412194?s=400&u=c9929aa36826318ccac8f7b84516e1ce3af7e21c&v=4" />
 
-| Package                              | Description                                            | Status |
-| :----------------------------------- | :----------------------------------------------------- | -----: |
-| [callback][callback-github-readme]   | Manages the callback [function][js-function].          | [![npm version][callback-npm-badge-png]][callback-npm-badge] |
-| [change-detection][cd-github-readme] | Improves application performance.                      | [![npm version][cd-npm-badge-png]][cd-npm-badge] |
-| [component-loader][cl-github-readme] | Handles dynamic loading components.                    | [![npm version][cl-npm-badge-png]][cl-npm-badge] |
-| [core][core-github-readme]           | Core features.                                         | [![npm version][core-npm-badge-png]][core-npm-badge] |
-| [error][error-github-readme]         | Manages an [Error][js-error].                          | [![npm version][error-npm-badge-png]][error-npm-badge] |
-| [prism][prism-github-readme]         | [Prism][prism-js] highlighter module.                  | [![npm version][prism-npm-badge-png]][prism-npm-badge] |
-| [property][property-github-readme]   | Handles object properties.                             | [![npm version][property-npm-badge-png]][property-npm-badge] |
-| [reactive][reactive-github-readme]   | Automatize the process of creating some rxjs features. | [![npm version][reactive-npm-badge-png]][reactive-npm-badge] |
-| [testing][testing-github-readme]     | Support for testing other packages.                    | [![npm version][testing-npm-badge-png]][testing-npm-badge] |
-| [type][type-github-readme]           | Common types, type guards, and type checkers.          | [![npm version][type-npm-badge-png]][type-npm-badge] |
-| [ui][ui-github-readme]               | User interface.                                        | *In Progress* |
+The angular-package supports the development process of [angular][angulario]-based applications in varied ways through the thoughtful, reusable, easy-to-use small pieces of code called packages.
 
-> Click on the package name to visit its [GitHub](https://github.com/) page.
+[**docs.angular-package.dev**](https://docs.angular-package.dev)
+
+<br>
+
+## Packages
+
+| Package                                      | Description                                                       | Status |
+| :------------------------------------------- | :---------------------------------------------------------------- | -----: |
+| [callback][callback-github-readme]           | Manages the callback [`function`][js-function].                   | [![npm version][callback-npm-badge-png]][callback-npm-badge] |
+| [change-detection][cd-github-readme]         | Improves application performance.                                 | [![npm version][cd-npm-badge-png]][cd-npm-badge] |
+| [component-loader][cl-github-readme]         | Handles dynamic loading components.                               | [![npm version][cl-npm-badge-png]][cl-npm-badge] |
+| [core][core-github-readme]                   | Core features.                                                    | [![npm version][core-npm-badge-png]][core-npm-badge] |
+| [error][error-github-readme]                 | Manages an [`Error`][js-error].                                   | [![npm version][error-npm-badge-png]][error-npm-badge] |
+| [name][name-github-readme]                   | The name with prefix and suffix.                                  | [![npm version][name-npm-badge-png]][name-npm-badge] |
+| [preferences][preferences-github-readme]     | Preferences, settings, options, configuration and setup in steps. | [![npm version][preferences-npm-badge-png]][preferences-npm-badge] |
+| [prism][prism-github-readme]                 | [`Prism`][prism-js] highlighter module.                           | [![npm version][prism-npm-badge-png]][prism-npm-badge] |
+| [property][property-github-readme]           | Handles object properties.                                        | [![npm version][property-npm-badge-png]][property-npm-badge] |
+| [range][range-github-readme]                 | The range between a minimum and maximum.                          | [![npm version][range-npm-badge-png]][range-npm-badge] |
+| [reactive][reactive-github-readme]           | Automatize the process of creating some rxjs features.            | [![npm version][reactive-npm-badge-png]][reactive-npm-badge] |
+| [storage][storage-github-readme]             | The storage of data under allowed names.                          | [![npm version][storage-npm-badge-png]][storage-npm-badge] |
+| [tag][tag-github-readme]                     | Any tag with optional attributes.                                 | [![npm version][tag-npm-badge-png]][tag-npm-badge] |
+| [testing][testing-github-readme]             | Support for testing other packages.                               | [![npm version][testing-npm-badge-png]][testing-npm-badge] |
+| [text][text-github-readme]                   | Text on the template with replaceable tags.                       | [![npm version][text-npm-badge-png]][text-npm-badge] |
+| **[type][type-github-readme]**               | **Common types, type guards, and type checkers.**                 | [![npm version][type-npm-badge-png]][type-npm-badge] |
+| [ui][ui-github-readme]                       | User interface.                                                   | *In Progress* |
+| [wrapper][wrapper-github-readme]             | Wrap the text with the opening and closing chars.                 | [![npm version][wrapper-npm-badge-png]][wrapper-npm-badge] |
+
+Click on the package name to visit its [GitHub](https://github.com/) page.
+
+<br>
 
 ## angular-package/type
 
 Common types, type guards and type checkers.
 
+[![Gitter][gitter-badge]][gitter-chat]
+[![Discord][discord-badge]][discord-channel]
+[![Twitter][twitter-badge]][twitter-follow]
 <!-- npm badge -->
 [![npm version][type-npm-badge-svg]][type-npm-badge]
 <!-- GitHub badges -->
@@ -29,7 +49,8 @@ Common types, type guards and type checkers.
 [![GitHub forks][type-badge-forks]][type-forks]
 [![GitHub stars][type-badge-stars]][type-stars]
 [![GitHub license][type-badge-license]][type-license]
-<!-- Patreon badge -->
+<!-- Sponsors badges -->
+[![GitHub sponsors][github-badge-sponsor]][github-sponsor-link]
 [![Support me on Patreon][patreon-badge]][patreon-link]
 
 <br>
@@ -59,6 +80,7 @@ Common types, type guards and type checkers.
     * [`guard`](#guard-object)
 * [The `type`](#the-type)
 * [Common](#common)
+  * [Enums](#common-enums)
   * [Interfaces](#common-interfaces)
   * [Types](#common-types)
 * [Experimental](#experimental)
@@ -3952,8 +3974,8 @@ const isNumberBetween = <
 | Name      | Default value             | Description |
 | :-------- | :------------------------ | :---------- |
 | `Type`    | [`number`][ts-number]     | A generic type variable `Type` guarded by [`AnyNumber`](#anynumber) by default of `number` indicates the type of the `value` via the return type `value is NumberBetween<Min, Max, Type>`. |
-| `Min`     | From the `min` of `range` | A generic type variable `Min` constrained by the `number` type, by default of value captured from optional `min` of the provided `range` that indicates the **minimum** range of the provided `value` via the return type `value is NumberBetween<Min, Max, Type>` |
-| `Max`     | From the `max` of `range` | A generic type variable `Max` constrained by the `number` type, by default of value captured from optional `max` of the provided `range` that indicates the **maximum** range of the provided `value` via the return type `value is NumberBetween<Min, Max, Type>` |
+| `Min`     | From the `min` of `range` | A generic type variable `Min` constrained by the `number` type, by default of value captured from optional `min` of the provided `range` that indicates the **minimum** range of the provided `value` via the return type `value is NumberBetween<Min, Max, Type>`. |
+| `Max`     | From the `max` of `range` | A generic type variable `Max` constrained by the `number` type, by default of value captured from optional `max` of the provided `range` that indicates the **maximum** range of the provided `value` via the return type `value is NumberBetween<Min, Max, Type>`. |
 | `Payload` | [`object`][ts-object]     | The shape of the optional `payload` parameter of [`ResultCallback`](#resultcallback), which is constrained by [`object`][js-object] type. Its value **can be** captured from a type of the provided `payload` optional parameter. |
 
 **Parameters:**
@@ -8265,6 +8287,52 @@ type AnyString = string | String;
 
 <br>
 
+#### `ForEachCallback`
+
+Represents a callback function of `.forEach()` method which is executed **once** for each element.
+
+```typescript
+type ForEachCallback<Value = any, Payload = object> = (
+  result: boolean,
+  value: Value,
+  index?: number,
+  array?: any[],
+  payload?: Payload
+) => void;
+```
+
+**Generic type variables:**
+
+**`Value`**
+A generic type variable `Value` by default equal to `any` determines the type of the `value` parameter.
+
+**`Payload`**  
+The shape of the optional `payload` parameter, by default equal to the [`object`][js-object].
+
+<br>
+
+**Parameters:**
+
+**`result: boolean`**
+The result of the check of a [`boolean`][js-boolean] type.
+
+**`value: Value`**
+The **value** that has been checked of a generic type variable `Value`.
+
+**`index?: number`**
+An optional [`number`][js-number] of checked [`array`][js-array] element.
+
+**`array?: any[]`**
+An optional [`array`][js-array] of `any` type that **each** element is checked.
+
+**`payload?: Payload`**  
+An optional [`object`][js-object] of a generic type variable `Payload` to provide more data.
+
+**Returns:**
+The return value is void.
+
+<br>
+
 #### `CallbackPayload`
 
 [![experimental]][type-github-changelog]
@@ -8294,6 +8362,51 @@ An **optional** name of the function or method of a [`string`][js-string] type t
 
 **`param?: string`**  
 An **optional** name of the parameter of a [`string`][js-string] type to which performed callback relates.
+
+**Usage:**
+
+```typescript
+// Example usage.
+import { CallbackPayload, ResultCallback } from '@angular-package/callback';
+
+// Create a new function.
+const isString = (
+  value: any,
+
+  // Parameter callback of `ResultCallback` type with the `CallbackPayload`.
+  callback: ResultCallback<any, CallbackPayload>
+): any => {
+  callback(typeof value === 'string', {
+    // Property from the `CallbackPayload`.
+    action: 'Checks the string of a firstName',
+
+    // Property from the `CallbackPayload`.
+    name: 'isString',
+
+    // Property from the `CallbackPayload`.
+    param: 'value',
+
+    // Custom property.
+    firstName: 'my Name',
+  });
+};
+
+// The use of the `isString()` function.
+isString('it is a string', (result: boolean, value, payload) => {
+  if (payload !== undefined) {
+    /*
+    Returns {
+      action: "Checks the string of a firstName",
+      firstName: "my Name",
+      name: "isString",
+      param: "value",
+    }
+    */
+    console.log(payload);
+  }
+  return result;
+});
+```
 
 <br>
 
@@ -8441,8 +8554,6 @@ type Primitives =
 
 Represents a **callback function** with parameters, the `value` that has been checked, the `result` of this check, and an optional `payload`.
 
-> *The type is equivalent to the type from the `@angular-package/callback` and is here to have the package `@angular-package/type` independent.*
-
 ```typescript
 type ResultCallback<Value = any, Payload = object> = (
   result: boolean,
@@ -8519,6 +8630,16 @@ A generic type `Undefined` that takes generic type variable `Type` constrained b
 
 ```typescript
 type Undefined<Type> = Type extends undefined ? Type : never;
+```
+
+<br>
+
+#### `ValueParser`
+
+The type of [`function`][ts-function] to convert the value of [`any`][ts-any] type to generic type variable `Type`, by default equal to [`string`][ts-string].
+
+```typescript
+type ValueParser<Type = string> = (value: any) => Type;
 ```
 
 [&uArr; Up](#common) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [&dArr; Down](#changelog)
@@ -8777,7 +8898,7 @@ resultTRUE === {
 
 ## Changelog
 
-The **changelog** of this package is based on [*keep a changelog*](https://keepachangelog.com/en/1.0.0/). To read it, click on the [CHANGELOG.md](https://github.com/angular-package/type/blob/main/CHANGELOG.md) link.
+The **changelog** of this package is based on [*keep a changelog*](https://keepachangelog.com/en/1.0.0/). To read it, click on the [CHANGELOG.md][type-github-changelog] link.
 
 > A changelog is a file which contains a curated, chronologically ordered list of notable changes for each version of a project. - [*keep a changelog*](https://keepachangelog.com/en/1.0.0/)
 
@@ -8830,6 +8951,18 @@ MIT © angular-package ([license][type-license])
 [new]: https://img.shields.io/badge/-new-green
 [update]: https://img.shields.io/badge/-update-red
 
+<!-- Discord -->
+[discord-badge]: https://img.shields.io/discord/925168966098386944
+[discord-channel]: https://discord.com/channels/925168966098386944/925168966098386948
+
+<!-- Gitter -->
+[gitter-badge]: https://badges.gitter.im/angularpackage/Lobby.svg
+[gitter-chat]: https://gitter.im/angularpackage/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge
+
+<!-- Twitter -->
+[twitter-badge]: https://img.shields.io/twitter/url?style=social&label=Follow%20%40angularpackage&url=https%3A%2F%2Ftwitter.com%2Fangularpackage
+[twitter-follow]: https://twitter.com/angularpackage
+
 <!-- GIT -->
 [git-semver]: http://semver.org/
 
@@ -8838,7 +8971,7 @@ MIT © angular-package ([license][type-license])
 [git-commit-karma]: http://karma-runner.github.io/0.10/dev/git-commit-msg.html
 [git-commit-conventional]: https://www.conventionalcommits.org/en/v1.0.0/
 
-<!-- This package: type  -->
+<!-- This package: type -->
   <!-- GitHub: badges -->
   [type-badge-issues]: https://img.shields.io/github/issues/angular-package/type
   [type-badge-forks]: https://img.shields.io/github/forks/angular-package/type
@@ -8849,7 +8982,8 @@ MIT © angular-package ([license][type-license])
   [type-forks]: https://github.com/angular-package/type/network
   [type-license]: https://github.com/angular-package/type/blob/master/LICENSE
   [type-stars]: https://github.com/angular-package/type/stargazers
-<!-- This package -->
+  <!-- This package -->
+  [type-github-changelog]: https://github.com/angular-package/type/blob/main/CHANGELOG.md
 
 <!-- Package: callback -->
   <!-- npm -->
@@ -8904,6 +9038,26 @@ MIT © angular-package ([license][type-license])
   <!-- GitHub -->
   [error-github-readme]: https://github.com/angular-package/error#readme
 
+<!-- Package: name -->
+  <!-- npm -->
+  [name-npm-badge-svg]: https://badge.fury.io/js/%40angular-package%2Fname.svg
+  [name-npm-badge-png]: https://badge.fury.io/js/%40angular-package%2Fname.png
+  [name-npm-badge]: https://badge.fury.io/js/%40angular-package%2Fname
+  [name-npm-readme]: https://www.npmjs.com/package/@angular-package/name#readme
+
+  <!-- GitHub -->
+  [name-github-readme]: https://github.com/angular-package/name#readme
+
+<!-- Package: preferences -->
+  <!-- npm -->
+  [preferences-npm-badge-svg]: https://badge.fury.io/js/%40angular-package%2Fpreferences.svg
+  [preferences-npm-badge-png]: https://badge.fury.io/js/%40angular-package%2Fpreferences.png
+  [preferences-npm-badge]: https://badge.fury.io/js/%40angular-package%2Fpreferences
+  [preferences-npm-readme]: https://www.npmjs.com/package/@angular-package/preferences#readme
+
+  <!-- GitHub -->
+  [preferences-github-readme]: https://github.com/angular-package/preferences#readme
+
 <!-- Package: prism -->
   <!-- npm -->
   [prism-npm-badge-svg]: https://badge.fury.io/js/%40angular-package%2Fprism.svg
@@ -8924,6 +9078,16 @@ MIT © angular-package ([license][type-license])
   <!-- GitHub -->
   [property-github-readme]: https://github.com/angular-package/property#readme
 
+<!-- Package: range -->
+  <!-- npm -->
+  [range-npm-badge-svg]: https://badge.fury.io/js/%40angular-package%2Frange.svg
+  [range-npm-badge-png]: https://badge.fury.io/js/%40angular-package%2Frange.png
+  [range-npm-badge]: https://badge.fury.io/js/%40angular-package%2Frange
+  [range-npm-readme]: https://www.npmjs.com/package/@angular-package/range#readme
+
+  <!-- GitHub -->
+  [range-github-readme]: https://github.com/angular-package/range#readme
+
 <!-- Package: reactive -->
   <!-- npm -->
   [reactive-npm-badge-svg]: https://badge.fury.io/js/%40angular-package%2Freactive.svg
@@ -8933,6 +9097,26 @@ MIT © angular-package ([license][type-license])
 
   <!-- GitHub -->
   [reactive-github-readme]: https://github.com/angular-package/reactive#readme
+
+<!-- Package: storage -->
+  <!-- npm -->
+  [storage-npm-badge-svg]: https://badge.fury.io/js/%40angular-package%2Fstorage.svg
+  [storage-npm-badge-png]: https://badge.fury.io/js/%40angular-package%2Fstorage.png
+  [storage-npm-badge]: https://badge.fury.io/js/%40angular-package%2Fstorage
+  [storage-npm-readme]: https://www.npmjs.com/package/@angular-package/storage#readme
+
+  <!-- GitHub -->
+  [storage-github-readme]: https://github.com/angular-package/storage#readme
+
+<!-- Package: tag -->
+  <!-- npm -->
+  [tag-npm-badge-svg]: https://badge.fury.io/js/%40angular-package%2Ftag.svg
+  [tag-npm-badge-png]: https://badge.fury.io/js/%40angular-package%2Ftag.png
+  [tag-npm-badge]: https://badge.fury.io/js/%40angular-package%2Ftag
+  [tag-npm-readme]: https://www.npmjs.com/package/@angular-package/tag#readme
+
+  <!-- GitHub -->
+  [tag-github-readme]: https://github.com/angular-package/tag#readme
 
 <!-- Package: testing -->
   <!-- npm -->
@@ -8944,6 +9128,16 @@ MIT © angular-package ([license][type-license])
   <!-- GitHub -->
   [testing-github-readme]: https://github.com/angular-package/testing#readme
 
+<!-- Package: text -->
+  <!-- npm -->
+  [text-npm-badge-svg]: https://badge.fury.io/js/%40angular-package%2Ftext.svg
+  [text-npm-badge-png]: https://badge.fury.io/js/%40angular-package%2Ftext.png
+  [text-npm-badge]: https://badge.fury.io/js/%40angular-package%2Ftext
+  [text-npm-readme]: https://www.npmjs.com/package/@angular-package/text#readme
+
+  <!-- GitHub -->
+  [text-github-readme]: https://github.com/angular-package/text#readme
+
 <!-- Package: type -->
   <!-- npm -->
   [type-npm-badge-svg]: https://badge.fury.io/js/%40angular-package%2Ftype.svg
@@ -8953,10 +9147,6 @@ MIT © angular-package ([license][type-license])
 
   <!-- GitHub -->
   [type-github-readme]: https://github.com/angular-package/type#readme
-  [type-github-changelog]: https://github.com/angular-package/type/blob/main/CHANGELOG.md
-
-  [package-type-resultcallback]: https://github.com/angular-package/type#resultcallback
-  [package-type-key]: https://github.com/angular-package/type#key
 
 <!-- Package: ui -->
   <!-- npm -->
@@ -8968,15 +9158,30 @@ MIT © angular-package ([license][type-license])
   <!-- GitHub -->
   [ui-github-readme]: https://github.com/angular-package/ui#readme
 
+<!-- Package: wrapper -->
+  <!-- npm -->
+  [wrapper-npm-badge-svg]: https://badge.fury.io/js/%40angular-package%2Fwrapper.svg
+  [wrapper-npm-badge-png]: https://badge.fury.io/js/%40angular-package%2Fwrapper.png
+  [wrapper-npm-badge]: https://badge.fury.io/js/%40angular-package%2Fwrapper
+  [wrapper-npm-readme]: https://www.npmjs.com/package/@angular-package/wrapper#readme
+
+  <!-- GitHub -->
+  [wrapper-github-readme]: https://github.com/angular-package/wrapper#readme
+
 <!-- Angular -->
 [angular-component-factory-resolver]: https://angular.io/api/core/ComponentFactoryResolver
 [angular-view-container-ref]: https://angular.io/api/core/ViewContainerRef
 [angular-component-ref]: https://angular.io/api/core/ComponentRef
 
+<!-- Angular -->
+[angular-component-factory-resolver]: https://angular.io/api/core/ComponentFactoryResolver
+[angular-view-container-ref]: https://angular.io/api/core/ViewContainerRef
+
 <!-- Jasmine -->
 [jasmine-describe]: https://jasmine.github.io/api/3.8/global.html#describe
 [jasmine-expect]: https://jasmine.github.io/api/3.8/global.html#expect
 [jasmine-it]: https://jasmine.github.io/api/3.8/global.html#it
+[jasmine-matchers]: https://jasmine.github.io/api/3.9/matchers.html
 
 <!-- Javascript  -->
 [js-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
@@ -8985,7 +9190,6 @@ MIT © angular-package ([license][type-license])
 
 [js-bigint]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt
 [js-bigintconstructor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt
-
 [js-boolean]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 [js-booleanconstructor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean/Boolean
 
@@ -8996,19 +9200,13 @@ MIT © angular-package ([license][type-license])
 [js-error]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error
 
 [js-function]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions
-[js-rest-parameter]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
 
 [js-getter]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get
-[js-object-getownpropertydescriptor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor
-[js-object-getOwnpropertydescriptors]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors
-
-[js-setter]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
 
 [js-hasownproperty]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty
 
 [js-instanceof]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof
 [js-in-operator]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in
-
 [js-isarray]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray
 [js-isfinite]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isFinite
 [js-isfrozen]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isFrozen
@@ -9026,6 +9224,8 @@ MIT © angular-package ([license][type-license])
 
 [js-object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
 [js-object-define-property]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
+[js-object-getownpropertydescriptor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor
+[js-object-getOwnpropertydescriptors]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors
 
 [js-primitive]: https://developer.mozilla.org/en-US/docs/Glossary/Primitive
 [js-promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -9033,12 +9233,14 @@ MIT © angular-package ([license][type-license])
 [js-rangeerror]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError
 [js-referenceerror]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError
 [js-regexp]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp
+[js-rest-parameter]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
 
 [js-set]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
+[js-setter]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
+[js-static]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static
 [js-storage]: https://developer.mozilla.org/en-US/docs/Web/API/Storage
 [js-string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
 [js-stringconstructor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/String
-
 [js-symbol]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol
 [js-symbolconstructor]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/Symbol
 [js-syntaxerror]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError
@@ -9060,11 +9262,15 @@ MIT © angular-package ([license][type-license])
 
 <!-- Typescript -->
 [ts-any]: https://www.typescriptlang.org/docs/handbook/basic-types.html#any
+[ts-boolean]: https://www.typescriptlang.org/docs/handbook/basic-types.html#boolean
 [ts-classes]: https://www.typescriptlang.org/docs/handbook/2/classes.html
+[ts-enums]: https://www.typescriptlang.org/docs/handbook/enums.html
 [ts-function]: https://www.typescriptlang.org/docs/handbook/2/functions.html
 [ts-interface]: https://www.typescriptlang.org/docs/handbook/interfaces.html#our-first-interface
 [ts-never]: https://www.typescriptlang.org/docs/handbook/basic-types.html#never
+[ts-null]: https://www.typescriptlang.org/docs/handbook/basic-types.html#null-and-undefined
 [ts-number]: https://www.typescriptlang.org/docs/handbook/basic-types.html#number
 [ts-object]: https://www.typescriptlang.org/docs/handbook/basic-types.html#object
 [ts-string]: https://www.typescriptlang.org/docs/handbook/basic-types.html#string
+[ts-undefined]: https://www.typescriptlang.org/docs/handbook/basic-types.html#null-and-undefined
 [ts-unknown]: https://www.typescriptlang.org/docs/handbook/basic-types.html#unknown
