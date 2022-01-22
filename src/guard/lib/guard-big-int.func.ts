@@ -14,6 +14,6 @@ export const guardBigInt = <
   Payload extends object = object
 >(
   value: BigInt,
-  callback?: ResultCallback<bigint, Payload>,
+  callback?: ResultCallback<BigInt, Payload>,
   payload?: Payload
 ): value is BigInt => isBigInt(value, callback, payload);
