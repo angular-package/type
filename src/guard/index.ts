@@ -23,6 +23,8 @@ export { guardPrimitive } from './lib/guard-primitive.func';
 export { guardRegExp } from './lib/guard-regexp.func';
 export { guardString } from './lib/guard-string.func';
 export { guardStringLength } from './lib/guard-string-length.func';
+export { guardStringIncludes } from './lib/guard-string-includes.func';
+export { guardStringIncludesSome } from './lib/guard-string-includes-some.func';
 export { guardSymbol } from './lib/guard-symbol.func';
 export { guardTrue } from './lib/guard-true.func';
 export { guardType } from './lib/guard-type.func';
