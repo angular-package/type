@@ -7,7 +7,7 @@
  * @param payload An optional `object` of a generic type variable `Payload` to provide more data.
  * @returns The return value is void.
  */
- export type ForEachCallback<Value = any, Payload = object> = (
+export type ForEachCallback<Value = any, Payload = object> = (
   result: boolean,
   value: Value,
   index: number,
