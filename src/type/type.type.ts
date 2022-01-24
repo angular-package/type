@@ -1,5 +1,5 @@
 import { Primitive } from './primitive.type';
 /**
- * Main types.
+ * The main types consist of `Function`, `object`, and `Primitive`.
  */
 export type Type = Function | object | Primitive;
