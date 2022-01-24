@@ -117,24 +117,26 @@ export {
   guardClass,
   guardDate, // From the 5.0.0 version
   guardDefined,
-  guardFalse,  // From the 5.0.0 version
+  guardFalse, // From the 5.0.0 version
   guardFunction,
   guardInstance,
   guardKey,
   guardNull,
   guardNumber,
-  guardNumberBetween,  // From the 5.0.0 version
+  guardNumberBetween, // From the 5.0.0 version
   guardObject,
   guardObjectKey,
-  guardObjectKeyIn,  // From the 5.0.0 version
+  guardObjectKeyIn, // From the 5.0.0 version
   guardObjectKeys,
   guardObjectSomeKeys, // From the 5.0.0 version
   guardPrimitive,
-  guardRegExp,  // From the 5.0.0 version
+  guardRegExp, // From the 5.0.0 version
   guardString,
-  guardStringLength,  // From the 5.0.0 version
+  guardStringLength, // From the 5.0.0 version
+  guardStringIncludes, // From the 5.0.0 version
+  guardStringIncludesSome, // From the 5.0.0 version
   guardSymbol,
-  guardTrue,  // From the 5.0.0 version
+  guardTrue, // From the 5.0.0 version
   guardType,
   guardUndefined,
 } from './guard';
@@ -156,6 +158,7 @@ export { CallbackPayload } from './type/callback-payload.type';
 export { Constructor } from './type/constructor.type';
 export { Defined } from './type/defined.type';
 export { ForEachCallback } from './type/foreach-callback.type';
+export { GenericObject } from './type/generic-object.type';
 export { Never } from './type/never.type';
 export { NotUndefined } from './type/not-undefined.type';
 export { NumberBetween } from './type/number-between.type';
