@@ -1,7 +1,9 @@
+import { GenericObject } from './generic-object.type';
 /**
  * Experimental shape for a generic type variable `Payload`.
  */
-export type CallbackPayload<Payload = object> = {
+export type CallbackPayload<Payload = object> = GenericObject & {
+
   /**
    * An optional action of a `string` type that describes the cause of performed callback.
    */
