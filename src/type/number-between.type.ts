@@ -11,5 +11,3 @@ export type NumberBetween<
   Max extends number,
   Type extends AnyNumber = number
 > = Type & MinMax<Min, Max>;
-
-
