@@ -12,27 +12,28 @@ import { isSymbol } from './is-symbol.func';
 import { isUndefined } from './is-undefined.func';
 import { resultCallback } from '../../lib/result-callback.func';
 // Type.
-import { CallbackPayload } from '../../type/callback-payload.type';
 import { Primitives } from '../../type/primitives.type';
 import { ResultCallback } from '../../type/result-callback.type';
 import { Type } from '../../type/type.type';
 import { Types } from '../../type/types.type';
 /**
  * Checks if any value is the type from a given `type` of the `Types`.
+ * @var Payload The `Payload` generic type variable constrained by `object` indicates the type of optional parameter `payload` of the
+ * supplied `callback` function and `payload` optional parameter of the `isType()` function from which it captures its value.
  * @param value The value of any type to check against the type of given `type`.
  * @param type A value of `string` or `Constructor` type of the `Types` indicates against which type the provided `value` is checked.
  * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this
- * check, and `payload` of the default `CallbackPayload` shape with the provided `type` and optional properties from the provided
+ * check, and `payload` of generic type variable `Payload` with the provided `type` and optional properties from the provided
  * `payload`, to handle them before the `result` return. By default, it uses `resultCallback()` function.
- * @param payload An optional `object` of `CallbackPayload` that is assigned to the `payload` of the supplied `callback` function.
+ * @param payload An optional `object` of the generic type variable `Payload` is assigned to the `payload` of the given `callback` function.
  * @returns The return value is a `boolean` indicating whether the provided `value` is a type from a given `type`.
  * @angularpackage
  */
 export const isType = <T extends Type, Payload extends object = object>(
   value: any,
   type: Types<T>,
-  callback: ResultCallback<any, CallbackPayload<Payload>> = resultCallback,
-  payload?: CallbackPayload<Payload>
+  callback: ResultCallback<any, Payload> = resultCallback,
+  payload?: Payload
 ): value is T =>
   isStringType(type)
   ? {
