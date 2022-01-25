@@ -18,6 +18,8 @@ import { Type } from '../../type/type.type';
 import { Types } from '../../type/types.type';
 /**
  * Checks if any value is the type from a given `type` of the `Types`.
+ * @var T A generic type variable `T` constrained by the generic type `Type` indicates the type of `value` parameter via the return type
+ * `value is T` and the type of the generic type `Constructor` of the supplied `type`.
  * @var Payload The `Payload` generic type variable constrained by `object` indicates the type of optional parameter `payload` of the
  * supplied `callback` function and `payload` optional parameter of the `isType()` function from which it captures its value.
  * @param value The value of any type to check against the type of given `type`.
