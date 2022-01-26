@@ -4,7 +4,7 @@ import { typeOf } from '../../lib/type-of.func';
 // Type.
 import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Checks if any value is the type obtained from its object class equal to `'array'` or an `object` type and passes the test of
+ * Checks if any value is of the type obtained from its object class equal to `'array'` or an `object` type and passes the test of
  * `Array.isArray()` method.
  * @var Type The `Type` generic type variable indicates the `array` element type, which by default is `any` of the given `value` via the
  * return type.
