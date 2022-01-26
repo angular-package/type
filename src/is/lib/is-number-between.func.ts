@@ -1,7 +1,6 @@
 // Function.
 import { isNumber } from './is-number.func';
 import { isNumberType } from './is-number-type.func';
-import { isObject } from './is-object.func';
 import { resultCallback } from '../../lib/result-callback.func';
 // Interface.
 import { MinMax } from '../../interface/min-max.interface';
