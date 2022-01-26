@@ -10,6 +10,14 @@ import { NumberBetween } from '../../type/number-between.type';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
  * Checks if any value is a `number` type or an instance of `Number` by using `isNumber()` between a specified range.
+ * @var Type A generic type variable `Type` constrained by `AnyNumber` by default of `number` indicates the type of the `value` via the
+ * return type `value is NumberBetween<Min, Max, Type>`.
+ * @var Min A generic type variable `Min` constrained by the `number` type, by default of value captured from optional `min` indicates the
+ * minimum range of the provided `value` via the return type `value is NumberBetween<Min, Max, Type>`.
+ * @var Max A generic type variable `Max` constrained by the `number` type, by default of value captured from optional `max` indicates the
+ * maximum range of the provided `value` via the return type `value is NumberBetween<Min, Max, Type>`.
+ * @var Payload The `Payload` generic type variable constrained by `object` indicates the type of optional parameter `payload` of the
+ * supplied `callback` function and `payload` optional parameter of the `isDate()` function from which it captures its value.
  * @param value The value of any type to check.
  * @param min The optional **minimum** range of generic type variable `Min` for a given `value`.
  * @param max The optional **maximum** range of generic type variable `Max` for a given `value`.
