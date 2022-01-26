@@ -17,7 +17,7 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @var Max A generic type variable `Max` constrained by the `number` type, by default of value captured from optional `max` indicates the
  * maximum range of the provided `value` via the return type `value is NumberBetween<Min, Max, Type>`.
  * @var Payload The `Payload` generic type variable constrained by `object` indicates the type of optional parameter `payload` of the
- * supplied `callback` function and `payload` optional parameter of the `isDate()` function from which it captures its value.
+ * supplied `callback` function and `payload` optional parameter of the `isNumberBetween()` function from which it captures its value.
  * @param value The value of any type to check.
  * @param min The optional **minimum** range of generic type variable `Min` for a given `value`.
  * @param max The optional **maximum** range of generic type variable `Max` for a given `value`.

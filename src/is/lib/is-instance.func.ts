@@ -9,7 +9,7 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @var Obj A generic type variable `Obj`, by default captured from the provided `constructor` indicates the type of generic type
  * `Constructor` and the type of `value` parameter via the return type `value is Obj`.
  * @var Payload The `Payload` generic type variable constrained by `object` indicates the type of optional parameter `payload` of the
- * supplied `callback` function and `payload` optional parameter of the `isDate()` function from which it captures its value.
+ * supplied `callback` function and `payload` optional parameter of the `isInstance()` function from which it captures its value.
  * @param value The value of any type to be an instance of a given `constructor`.
  * @param constructor A `class` or `function` that specifies the type of constructor.
  * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this
