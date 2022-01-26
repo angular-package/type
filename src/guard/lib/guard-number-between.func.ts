@@ -9,7 +9,8 @@ import { ResultCallback } from '../../type/result-callback.type';
 /**
  * Guards the value to be `number` between the specified range.
  * @param value The value of a generic type variable `Type` to guard.
- * @param range Optional minimum or maximum range of generic type `MinMax` of the given `value`.
+ * @param min The optional **minimum** range of generic type variable `Min` for a given `value`.
+ * @param max The optional **maximum** range of generic type variable `Max` for a given `value`.
  * @param callback An optional `ResultCallback` function to handle the result before returns.
  * @param payload Optional `object` of generic type variable `Payload` is assigned to the `payload` of the provided `callback` function.
  * @returns The return value is a `boolean` indicating whether the `value` is a `number` type or an instance of `Number` between the
@@ -22,8 +23,9 @@ export const guardNumberBetween = <
   Payload extends object = object
 >(
   value: Type,
-  range: MinMax<Min, Max>,
+  min?: Min,
+  max?: Max,
   callback?: ResultCallback<Type, MinMax<Min, Max> & Payload>,
   payload?: Payload
 ): value is NumberBetween<Min, Max, Type> =>
-  isNumberBetween(value, range, callback, payload);
+  isNumberBetween(value, min, max, callback, payload);
