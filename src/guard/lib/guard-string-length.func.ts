@@ -10,11 +10,13 @@ import { StringOfLength } from '../../type/string-of-length.type';
  * Guards the value to be a `string` of a length between the specified range.
  * @param value The value of a generic type variable `Type` constrained by `AnyString`, by default of the type captured from itself to
  * guard.
- * @param length An `object` of optional minimum and a maximum `length` of the given `value`.
+ * @param min The optional **minimum** length of generic type variable `Min` for a given `value`.
+ * @param max The optional **maximum** length of generic type variable `Max` for a given `value`.
  * @param callback An optional `ResultCallback` function to handle the result before returns.
  * @param payload Optional `object` of generic type variable `Payload` is assigned to the `payload` of the provided `callback` function.
  * @returns The return value is a `boolean` indicating whether the `value` is a `string` type or an instance of `String` of a length between
  * the specified range.
+ * @angularpackage
  */
 export const guardStringLength = <
   Type extends AnyString,
@@ -23,8 +25,9 @@ export const guardStringLength = <
   Payload extends object = object
 >(
   value: Type,
-  length: MinMax<Min, Max> | Min | Max,
+  min?: Min,
+  max?: Max,
   callback?: ResultCallback<Type, MinMax<Min, Max> & Payload>,
   payload?: Payload
 ): value is StringOfLength<Min, Max, Type> =>
-  isStringLength(value, length, callback, payload);
+  isStringLength(value, min, max, callback, payload);
