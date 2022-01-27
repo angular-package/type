@@ -8,6 +8,8 @@ import { ResultCallback } from '../../type/result-callback.type';
 /**
  * Checks if any value is a `string` type or an instance of `String` by using `isString()` that includes some of the specified
  * words/sentences.
+ * @var Type A generic type variable `Type` constrained by generic type `AnyString` indicates captured `string` type of the given `value`
+ * via the return type and the `value` parameter of the provided `callback` function `ResultCallback` type.
  * @var Payload The `Payload` generic type variable constrained by `object` indicates the type of optional parameter `payload` of the
  * supplied `callback` function and `payload` optional parameter of the `isStringIncludesSome()` function from which it captures its value.
  * @param value The value of any type to check against the `string` that `includes` some of the words/sentences.
