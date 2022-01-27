@@ -8,18 +8,19 @@ import { isSymbol } from './is-symbol.func';
 import { isUndefined } from './is-undefined.func';
 import { resultCallback } from '../../lib/result-callback.func';
 // Type.
-import { CallbackPayload } from '../../type/callback-payload.type';
 import { Primitive } from '../../type/primitive.type';
 import { Primitives } from '../../type/primitives.type';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Checks if any value is a `Primitive` type or specific type from a given `type` of the `Primitives`.
+ * Checks if any value is of the generic type `Primitive` or specific type from a given `type` of the generic type `Primitives`.
+ * @var Payload The `Payload` generic type variable constrained by `object` indicates the type of optional parameter `payload` of the
+ * supplied `callback` function and `payload` optional parameter of the `isPrimitive()` function from which it captures its value.
  * @param value The value` of any type to check.
  * @param type An optional value of `Primitives` type indicates against which type the provided `value` is checked.
  * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this
- * check, and `payload` of the default `CallbackPayload` shape, with the provided `type` of `Primitives` and additional properties from the
+ * check, and `payload` of generic type variable `Payload`, with the provided `type` of `Primitives` and additional properties from the
  * provided `payload`, to handle them before the `result` return. By default, it uses `resultCallback()` function.
- * @param payload An optional `object` of `CallbackPayload` that is assigned to the `payload` of the supplied `callback` function.
+ * @param payload An optional `object` of the generic type variable `Payload` is assigned to the `payload` of the given `callback` function.
  * @returns The return value is a `boolean` indicating whether the provided `value` is a type of the `Primitives`.
  * @angularpackage
  */
@@ -29,8 +30,8 @@ export const isPrimitive = <
 >(
   value: any,
   type?: Primitives,
-  callback: ResultCallback<any, CallbackPayload<Payload>> = resultCallback,
-  payload?: CallbackPayload<Payload>
+  callback: ResultCallback<any, Payload> = resultCallback,
+  payload?: Payload
 ): value is Type =>
   isStringType(type)
   ? {
