@@ -30,7 +30,7 @@ export const isNumberBetween = <
   max: Max,
   callback: ResultCallback<
     any,
-    { min: Min; max: Max } & Payload
+    { min: Min, max: Max } & Payload
   > = resultCallback,
   payload?: Payload
 ): value is NumberBetween<Min, Max, Type> =>
