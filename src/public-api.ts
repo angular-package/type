@@ -78,6 +78,7 @@ export {
   isStringIncludes, // From the 5.0.0 version
   isStringIncludesSome, // From the 5.0.0 version
   isStringLength, // From the 4.2.0 version.
+  isStringLengthBetween, // From the 5.0.0 version
   isStringObject,
   isStringType,
   isSymbol,
@@ -133,6 +134,7 @@ export {
   guardRegExp, // From the 5.0.0 version
   guardString,
   guardStringLength, // From the 5.0.0 version
+  guardStringLengthBetween,
   guardStringIncludes, // From the 5.0.0 version
   guardStringIncludesSome, // From the 5.0.0 version
   guardSymbol,
