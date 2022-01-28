@@ -8,10 +8,6 @@ import { ResultCallback } from '../../../type/result-callback.type';
 /**
  * Checks if the `value` is not the type obtained from its object class equal to `'number'`, not a `number` type and not an instance of
  * `Number`.
- * @var Type A generic type variable `Type` indicates the captured type of the given `value` via the return type
- * `value is Never<AnyNumber, Type>` and the `value` parameter of the provided `callback` function `ResultCallback` type.
- * @var Payload The `Payload` generic type variable constrained by `object` indicates the type of optional parameter `payload` of the
- * supplied `callback` function and `payload` optional parameter of the `isNotNumber()` function from which it captures its value.
  * @param value The `value` of a generic type variable `Type`, by default of the type captured from itself to check.
  * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this
  * check, and `payload` of the generic type variable `Payload` with optional properties from the provided `payload`, to handle them before
