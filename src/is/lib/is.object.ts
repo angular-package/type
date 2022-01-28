@@ -28,6 +28,7 @@ import { isString } from './is-string.func';
 import { isStringIncludes } from './is-string-includes.func';
 import { isStringIncludesSome } from './is-string-includes-some.func';
 import { isStringLength } from './is-string-length.func';
+import { isStringLengthBetween } from './is-string-length-between.func';
 import { isStringObject } from './is-string-object.func';
 import { isStringType } from './is-string-type.func';
 import { isSymbol } from './is-symbol.func';
@@ -72,6 +73,7 @@ export const is: Is = Object.freeze({
   stringIncludes: isStringIncludes, // From the `5.0.0` version.
   stringIncludesSome: isStringIncludesSome, // From the `5.0.0` version.
   stringLength: isStringLength, // From the `4.2.0` version.
+  stringLengthBetween: isStringLengthBetween, // From the 5.0.0 version.
   stringObject: isStringObject,
   stringType: isStringType,
   symbol: isSymbol,
