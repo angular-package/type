@@ -25,9 +25,10 @@ export { isObjectSomeKeys } from './lib/is-object-some-keys.func';
 export { isPrimitive } from './lib/is-primitive.func';
 export { isRegExp } from './lib/is-regexp.func'; // From 4.2.0
 export { isString } from './lib/is-string.func';
-export { isStringLength } from './lib/is-string-length.func'; // From 4.2.0
 export { isStringIncludes } from './lib/is-string-includes.func';
 export { isStringIncludesSome } from './lib/is-string-includes-some.func';
+export { isStringLength } from './lib/is-string-length.func'; // From 4.2.0
+export { isStringLengthBetween } from './lib/is-string-length-between.func'; // From 5.0.0
 export { isStringObject } from './lib/is-string-object.func';
 export { isStringType } from './lib/is-string-type.func';
 export { isSymbol } from './lib/is-symbol.func';
