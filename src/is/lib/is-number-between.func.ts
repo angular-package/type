@@ -2,8 +2,6 @@
 import { isNumber } from './is-number.func';
 import { isNumberType } from './is-number-type.func';
 import { resultCallback } from '../../lib/result-callback.func';
-// Interface.
-import { MinMax } from '../../interface/min-max.interface';
 // Type.
 import { AnyNumber } from '../../type/any-number.type';
 import { NumberBetween } from '../../type/number-between.type';
@@ -19,8 +17,8 @@ import { ResultCallback } from '../../type/result-callback.type';
  * @var Payload The `Payload` generic type variable constrained by `object` indicates the type of optional parameter `payload` of the
  * supplied `callback` function and `payload` optional parameter of the `isNumberBetween()` function from which it captures its value.
  * @param value The value of any type to check.
- * @param min The optional **minimum** range of generic type variable `Min` for a given `value`.
- * @param max The optional **maximum** range of generic type variable `Max` for a given `value`.
+ * @param min The **minimum** range of generic type variable `Min` for a given `value`.
+ * @param max The **maximum** range of generic type variable `Max` for a given `value`.
  * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this
  * check, and `payload` of generic type variable `Payload`, with the minimum and maximum `range` and optional properties from the
  * provided `payload`, to handle them before the `result` return. By default, it uses `resultCallback()` function.
@@ -36,20 +34,19 @@ export const isNumberBetween = <
   Payload extends object = object
 >(
   value: any,
-  min?: Min,
-  max?: Max,
-  callback: ResultCallback<any, MinMax<Min, Max> & Payload> = resultCallback,
+  min: Min,
+  max: Max,
+  callback: ResultCallback<
+    any,
+    { min: Min; max: Max } & Payload
+  > = resultCallback,
   payload?: Payload
 ): value is NumberBetween<Min, Max, Type> =>
   callback(
     isNumber(value)
-      ? (isNumberType(min) && min >= 0 ? value.valueOf() >= min : true) &&
-        (isNumberType(max) && max >= 0 ? value.valueOf() <= max : true)
+      ? (isNumberType(min) ? value.valueOf() >= min : false) &&
+        (isNumberType(max) ? value.valueOf() <= max : false)
       : false,
     value,
-    {
-      ...payload,
-      min,
-      max,
-    } as any
+    { ...payload, min, max } as any
   );
