@@ -28,6 +28,7 @@ import { isString } from '../lib/is-string.func';
 import { isStringIncludes } from '../lib/is-string-includes.func';
 import { isStringIncludesSome } from '../lib/is-string-includes-some.func';
 import { isStringLength } from '../lib/is-string-length.func';
+import { isStringLengthBetween } from '../lib/is-string-length-between.func';
 import { isStringObject } from '../lib/is-string-object.func';
 import { isStringType } from '../lib/is-string-type.func';
 import { isSymbol } from '../lib/is-symbol.func';
@@ -203,9 +204,14 @@ export interface Is {
   stringIncludesSome: typeof isStringIncludesSome;
 
   /**
-   * Checks if any value is a `string` type or an instance of `String` by using `isString()` of length within the specified range.
+   * Checks if any value is a `string` type or an instance of `String`(by using `isString()`) of a specified length.
    */
   stringLength: typeof isStringLength;
+
+  /**
+   * Checks if any value is a `string` type or an instance of `String` by using `isString()` of length within the specified range.
+   */
+  stringLengthBetween: typeof isStringLengthBetween;
 
   /**
    * Checks if any value is of the type obtained from its `Object.prototype` equal to `'string'` or an `object` type, and an instance of
