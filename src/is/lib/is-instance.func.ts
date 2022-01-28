@@ -19,7 +19,7 @@ export const isInstance = <Obj, Payload extends object>(
   value: any,
   constructor: Constructor<Obj>,
   callback: ResultCallback<
-    Obj,
+    any,
     { ctor: typeof constructor } & Payload
   > = resultCallback,
   payload?: Payload
