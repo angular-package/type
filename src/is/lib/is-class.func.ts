@@ -7,9 +7,6 @@ import { ResultCallback } from '../../type/result-callback.type';
  * Checks if any value is a `function` type or the type obtained from its object class equal to `'function'` and an instance of
  * `Function`. It also confirms it's a `class` by checking whether the function converted with `Function.prototype.toString()` to string
  * contains the word `class` at the beginning.
- * @var Class The `Class` generic type variable indicates the class type of the given `value` via the return type, by default `Function`.
- * @var Payload The `Payload` generic type variable constrained by `object` indicates the type of optional parameter `payload` of the
- * supplied `callback` function and `payload` optional parameter of the `isClass()` function from which it captures its value.
  * @param value The value of any type to check.
  * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this
  * check, and `payload` of generic type variable `Payload` with optional properties from the provided `payload`, to handle them before

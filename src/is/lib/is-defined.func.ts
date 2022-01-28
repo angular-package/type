@@ -5,10 +5,6 @@ import { Defined } from '../../type/defined.type';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
  * Checks if any value is not an `undefined` type and is not equal to `undefined`.
- * @var Type A generic type variable indicates the captured type of the given `value` via the return type except `undefined`, which changes
- * to `never`.
- * @var Payload The `Payload` generic type variable constrained by `object` indicates the type of optional parameter `payload` of the
- * supplied `callback` function and `payload` optional parameter of the `isDefined()` function from which it captures its value.
  * @param value The value of generic type variable `Type` by default of type captured from itself, to check.
  * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this
  * check, and `payload` of generic type variable `Payload` with optional properties from the provided `payload`, to handle them before

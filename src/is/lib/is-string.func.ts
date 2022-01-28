@@ -8,10 +8,6 @@ import { ResultCallback } from '../../type/result-callback.type';
 /**
  * Checks if any value is a `string` type by using the `isStringType()` function or an instance of `String` by using the
  * `isStringObject()` function.
- * @var Type A generic type variable `Type` constrained by `AnyString` indicates the captured `string` type of the given `value` via the
- * return type and the `value` parameter of the provided `callback` function of `ResultCallback` type.
- * @var Payload The `Payload` generic type variable constrained by `object` indicates the type of optional parameter `payload` of the
- * supplied `callback` function and `payload` optional parameter of the `isString()` function from which it captures its value.
  * @param value The value of any type to check.
  * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this
  * check, and `payload` of generic type variable `Payload` with optional properties from the provided `payload`, to handle them before

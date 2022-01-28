@@ -6,9 +6,6 @@ import { resultCallback } from '../../lib/result-callback.func';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
  * Checks if any value is an `object`(by using the `isObject()`) with its keys by using `hasOwnProperty()` method of `Object`.
- * @var Obj A generic type variable `Obj` indicates the type of `value` parameter by default `object` via the return type `value is Obj`.
- * @var Payload The `Payload` generic type variable constrained by `object` indicates the type of optional parameter `payload` of the
- * supplied `callback` function and `payload` optional parameter of the `isObjectKeys()` function from which it captures its value.
  * @param value The value of any type to check against an `object` that contains its keys from given `keys`.
  * @param keys An `Array` of property keys to check if a given `value` contains all of them.
  * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this

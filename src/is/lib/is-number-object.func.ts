@@ -6,8 +6,6 @@ import { ResultCallback } from '../../type/result-callback.type';
 /**
  * Checks if any value is of the type obtained from its object class equal to `'number'`, or an `object` type and an instance of `Number`
  * and **finite** by using the `Number.isFinite()` method and is **valid** by using the `Number.isNaN()` method.
- * @var Payload The `Payload` generic type variable constrained by `object` indicates the type of optional parameter `payload` of the
- * supplied `callback` function and `payload` optional parameter of the `isNumberObject()` function from which it captures its value.
  * @param value The value of any type to check.
  * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this
  * check, and `payload` of generic type variable `Payload` with optional properties from the provided `payload`, to handle them before

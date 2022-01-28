@@ -5,8 +5,6 @@ import { resultCallback } from '../../lib/result-callback.func';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
  * Checks if any value is a `boolean` type or an instance of `Boolean` by using `isBoolean()` function, that is equal to `false`.
- * @var Payload The `Payload` generic type variable constrained by `object` indicates the type of optional parameter `payload` of the
- * supplied `callback` function and `payload` optional parameter of the `isFalse()` function from which it captures its value.
  * @param value The value of any type to check.
  * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this
  * check, and `payload` of generic type variable `Payload` with optional properties from the provided `payload`, to handle them before

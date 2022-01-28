@@ -13,8 +13,6 @@ import { Primitives } from '../../type/primitives.type';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
  * Checks if any value is of the generic type `Primitive` or specific type from a given `type` of the generic type `Primitives`.
- * @var Payload The `Payload` generic type variable constrained by `object` indicates the type of optional parameter `payload` of the
- * supplied `callback` function and `payload` optional parameter of the `isPrimitive()` function from which it captures its value.
  * @param value The value` of any type to check.
  * @param type An optional value of `Primitives` type indicates against which type the provided `value` is checked.
  * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this
