@@ -15,8 +15,8 @@ import { guardStringLengthBetween } from '../lib/guard-string-length-between.fun
  * Initialize testing.
  */
 const testing = new Testing(
-  tests.guard.isStringLengthBetween.describe,
-  tests.guard.isStringLengthBetween.it
+  tests.guard.stringLengthBetween.describe,
+  tests.guard.stringLengthBetween.it
 );
 /**
  * Tests.
