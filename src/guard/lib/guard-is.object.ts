@@ -24,6 +24,7 @@ import { guardString } from './guard-string.func';
 import { guardStringIncludes } from './guard-string-includes.func';
 import { guardStringIncludesSome } from './guard-string-includes-some.func';
 import { guardStringLength } from './guard-string-length.func';
+import { guardStringLengthBetween } from './guard-string-length-between.func';
 import { guardSymbol } from './guard-symbol.func';
 import { guardTrue } from './guard-true.func';
 import { guardType } from './guard-type.func';
@@ -57,6 +58,7 @@ export const guardIs: GuardIs = Object.freeze({
   stringIncludes: guardStringIncludes,
   stringIncludesSome: guardStringIncludesSome,
   stringLength: guardStringLength,
+  stringLengthBetween: guardStringLengthBetween,
   symbol: guardSymbol,
   true: guardTrue,
   type: guardType,
