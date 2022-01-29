@@ -175,26 +175,29 @@ import {
   guardBigInt,
   guardBoolean,
   guardClass,
-  guardDate, // From the `5.0.0` version
+  guardDate, // From the 5.0.0 version
   guardDefined,
-  guardFalse,  // From the `5.0.0` version
+  guardFalse, // From the 5.0.0 version
   guardFunction,
   guardInstance,
   guardKey,
   guardNull,
   guardNumber,
-  guardNumberBetween,  // From the `5.0.0` version
+  guardNumberBetween, // From the 5.0.0 version
   guardObject,
   guardObjectKey,
-  guardObjectKeyIn,  // From the `5.0.0` version
+  guardObjectKeyIn, // From the 5.0.0 version
   guardObjectKeys,
-  guardObjectSomeKeys, // From the `5.0.0` version
+  guardObjectSomeKeys, // From the 5.0.0 version
   guardPrimitive,
-  guardRegExp,  // From the `5.0.0` version
+  guardRegExp, // From the 5.0.0 version
   guardString,
-  guardStringLength,  // From the `5.0.0` version
+  guardStringLength, // From the 5.0.0 version
+  guardStringLengthBetween, // From the 5.0.0 version
+  guardStringIncludes, // From the 5.0.0 version
+  guardStringIncludesSome, // From the 5.0.0 version
   guardSymbol,
-  guardTrue,  // From the `5.0.0` version
+  guardTrue, // From the 5.0.0 version
   guardType,
   guardUndefined,
 } from '@angular-package/type'; 
@@ -224,14 +227,15 @@ import {
   isObjectKey,
   isObjectKeyIn,
   isObjectKeys,
-  isObjectKeysIn, // From the `5.0.0` version
-  isObjectSomeKeys, // From the `5.0.0` version
+  isObjectKeysIn, // From the 5.0.0 version
+  isObjectSomeKeys, // From the 5.0.0 version
   isPrimitive,
   isRegExp, // From the 4.2.0 version.
   isString,
-  isStringIncludes, // From the `5.0.0` version
-  isStringIncludesSome, // From the `5.0.0` version
+  isStringIncludes, // From the 5.0.0 version
+  isStringIncludesSome, // From the 5.0.0 version
   isStringLength, // From the 4.2.0 version.
+  isStringLengthBetween, // From the 5.0.0 version
   isStringObject,
   isStringType,
   isSymbol,
