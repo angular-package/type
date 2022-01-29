@@ -72,6 +72,7 @@ export {
   isObjectKeys,
   isObjectKeysIn, // From the 5.0.0 version
   isObjectSomeKeys, // From the 5.0.0 version
+  isParam,
   isPrimitive,
   isRegExp, // From the 4.2.0 version.
   isString,
@@ -128,6 +129,7 @@ export {
   guardObject,
   guardObjectKey,
   guardObjectKeyIn, // From the 5.0.0 version
+  guardObjectKeysIn, // From the 5.0.0 version
   guardObjectKeys,
   guardObjectSomeKeys, // From the 5.0.0 version
   guardPrimitive,
