@@ -29,7 +29,7 @@ testing.describe(guardNumberBetween.name, () => {
   .describe(`guards`, () => {
     testing
     .it('with callback and payload', () => {
-      guardNumberBetween(TESTING_NUMBER, 1, undefined, (result, value, payload) => {
+      guardNumberBetween(TESTING_NUMBER, 1, TESTING_NUMBER, (result, value, payload) => {
         expect(result).toBeTrue();
         expect(value).toEqual(TESTING_NUMBER);
         if (payload) {
@@ -47,7 +47,7 @@ testing.describe(guardNumberBetween.name, () => {
       // number
       .describe(`number`, () => {
         testing
-        .it(`${TESTING_NUMBER}`, () => expect(guardNumberBetween(TESTING_NUMBER, 1)).toBeTrue());
+        .it(`${TESTING_NUMBER}`, () => expect(guardNumberBetween(TESTING_NUMBER, 1, TESTING_NUMBER)).toBeTrue());
       });
     });
   });
