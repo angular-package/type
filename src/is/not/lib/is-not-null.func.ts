@@ -5,7 +5,7 @@ import { typeOf } from '../../../lib/type-of.func';
 import { ResultCallback } from '../../../type/result-callback.type';
 import { Never } from '../../../type/never.type';
 /**
- * Checks if the `value` is not the type obtained from its object class equal to `'null'` and not equal to `null`.
+ * Checks if the `value` is **not** the type obtained from its object class equal to `'null'` and **not** equal to `null`.
  * @param value The `value` of a generic `Type`, by default of type captured from itself to check.
  * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this
  * check, and `payload` of the generic type variable `Payload` with optional properties from the provided `payload`, to handle them before

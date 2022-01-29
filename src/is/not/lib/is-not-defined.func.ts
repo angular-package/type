@@ -5,8 +5,8 @@ import { typeOf } from '../../../lib/type-of.func';
 import { ResultCallback } from '../../../type/result-callback.type';
 import { Undefined } from '../../../type/undefined.type';
 /**
- * Checks if the `value` is not the type obtained from its object class equal to `'undefined'`, not an `undefined` type and is not equal
- * to `undefined`.
+ * Checks if the `value` is **not** the type obtained from its object class equal to `'undefined'`, **not** an `undefined` type and is
+ * **not** equal to `undefined`.
  * @param value The `value` of a generic type variable `Type`, by default of the type captured from itself to check.
  * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this
  * check, and `payload` of the generic type variable `Payload` with optional properties from the provided `payload`, to handle them before
@@ -22,8 +22,8 @@ export const isNotDefined = <Type, Payload extends object = object>(
 ): value is Undefined<Type> =>
   callback(
     typeOf(value) === 'undefined' &&
-    typeof value === 'undefined' &&
-    value === undefined,
+      typeof value === 'undefined' &&
+      value === undefined,
     value,
     payload
   );

@@ -6,8 +6,8 @@ import { AnyString } from '../../../type/any-string.type';
 import { Never } from '../../../type/never.type';
 import { ResultCallback } from '../../../type/result-callback.type';
 /**
- * Checks if the `value` is not the type obtained from its object class equal to `'string'`, not a `string` type and not an instance of
- * `String`.
+ * Checks if the `value` is **not** the type obtained from its object class equal to `'string'`, **not** a `string` type and **not** an
+ * instance of `String`.
  * @param value The `value` of a generic type variable `Type`, by default of the type captured from itself to check.
  * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this
  * check, and `payload` of the generic type variable `Payload` with optional properties from the provided `payload`, to handle them before
@@ -23,8 +23,8 @@ export const isNotString = <Type, Payload extends object = object>(
 ): value is Never<AnyString, Type> =>
   callback(
     typeOf(value) !== 'string' &&
-    typeof value !== 'string' &&
-    value instanceof String === false,
+      typeof value !== 'string' &&
+      value instanceof String === false,
     value,
     payload
   );

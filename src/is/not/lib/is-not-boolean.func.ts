@@ -23,8 +23,8 @@ export const isNotBoolean = <Type, Payload extends object = object>(
 ): value is Never<AnyBoolean, Type> =>
   callback(
     typeOf(value) !== 'boolean' &&
-    typeof value !== 'boolean' &&
-    value instanceof Boolean === false,
+      typeof value !== 'boolean' &&
+      value instanceof Boolean === false,
     value,
     payload
   );
