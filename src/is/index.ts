@@ -22,6 +22,7 @@ export { isObjectKeyIn } from './lib/is-object-key-in.func';
 export { isObjectKeys } from './lib/is-object-keys.func';
 export { isObjectKeysIn } from './lib/is-object-keys-in.func';
 export { isObjectSomeKeys } from './lib/is-object-some-keys.func';
+export { isParam } from './lib/is-param.decorator';
 export { isPrimitive } from './lib/is-primitive.func';
 export { isRegExp } from './lib/is-regexp.func'; // From 4.2.0
 export { isString } from './lib/is-string.func';
