@@ -129,16 +129,16 @@ export {
   guardObject,
   guardObjectKey,
   guardObjectKeyIn, // From the 5.0.0 version
-  guardObjectKeysIn, // From the 5.0.0 version
   guardObjectKeys,
+  guardObjectKeysIn, // From the 5.0.0 version
   guardObjectSomeKeys, // From the 5.0.0 version
   guardPrimitive,
   guardRegExp, // From the 5.0.0 version
   guardString,
-  guardStringLength, // From the 5.0.0 version
-  guardStringLengthBetween, // From the 5.0.0 version
   guardStringIncludes, // From the 5.0.0 version
   guardStringIncludesSome, // From the 5.0.0 version
+  guardStringLength, // From the 5.0.0 version
+  guardStringLengthBetween, // From the 5.0.0 version
   guardSymbol,
   guardTrue, // From the 5.0.0 version
   guardType,
