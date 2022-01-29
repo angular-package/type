@@ -13,5 +13,4 @@ export const guardArray = <Type, Payload extends object = object>(
   value: Array<Type>,
   callback?: ResultCallback<Array<Type>, Payload>,
   payload?: Payload
-): value is Array<Type> =>
-  isArray(value, callback, payload);
+): value is Array<Type> => isArray(value, callback, payload);

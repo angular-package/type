@@ -23,7 +23,7 @@ export const guardNumberBetween = <
   value: Type,
   min: Min,
   max: Max,
-  callback?: ResultCallback<Type, { min: Min, max: Max } & Payload>,
+  callback?: ResultCallback<Type, { min: Min; max: Max } & Payload>,
   payload?: Payload
 ): value is NumberBetween<Min, Max, Type> =>
   isNumberBetween(value, min, max, callback, payload);

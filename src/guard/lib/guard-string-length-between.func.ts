@@ -25,7 +25,7 @@ export const guardStringLengthBetween = <
   value: Type,
   min: Min,
   max: Max,
-  callback?: ResultCallback<Type, { min: Min, max: Max } & Payload>,
+  callback?: ResultCallback<Type, { min: Min; max: Max } & Payload>,
   payload?: Payload
 ): value is StringOfLength<Min, Max, Type> =>
   isStringLengthBetween(value, min, max, callback, payload);

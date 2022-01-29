@@ -5,8 +5,7 @@ import { Defined } from '../../type/defined.type';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
  * Guards the value to be defined, not `undefined`.
- * @param value The value of generic type `Defined<Type>`, never undefined type captured from the provided `value` to guard against
- * `undefined`.
+ * @param value The value of generic type `Defined<Type>`, never undefined type captured from itself to guard against `undefined`.
  * @param callback An optional `ResultCallback` function to handle the result before returns.
  * @param payload Optional `object` of generic type variable `Payload` is assigned to the `payload` of the provided `callback` function.
  * @returns The return value is a `boolean` indicating whether the `value` is defined.
