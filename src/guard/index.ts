@@ -17,6 +17,7 @@ export { guardNumberBetween } from './lib/guard-number-between.func';
 export { guardObject } from './lib/guard-object.func';
 export { guardObjectKey } from './lib/guard-object-key.func';
 export { guardObjectKeyIn } from './lib/guard-object-key-in.func';
+export { guardObjectKeysIn } from './lib/guard-object-keys-in.func';
 export { guardObjectKeys } from './lib/guard-object-keys.func';
 export { guardObjectSomeKeys } from './lib/guard-object-some-keys.func';
 export { guardPrimitive } from './lib/guard-primitive.func';
