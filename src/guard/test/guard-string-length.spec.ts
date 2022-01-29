@@ -15,9 +15,8 @@ import { guardStringLength } from '../lib/guard-string-length.func';
  * Initialize testing.
  */
 const testing = new Testing(
-  // tests.guard.stringLength.describe,
-  // tests.guard.stringLength.it
-  true, true
+  tests.guard.stringLength.describe,
+  tests.guard.stringLength.it
 );
 /**
  * Tests.
