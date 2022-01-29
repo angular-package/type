@@ -134,7 +134,7 @@ export {
   guardRegExp, // From the 5.0.0 version
   guardString,
   guardStringLength, // From the 5.0.0 version
-  guardStringLengthBetween,
+  guardStringLengthBetween, // From the 5.0.0 version
   guardStringIncludes, // From the 5.0.0 version
   guardStringIncludesSome, // From the 5.0.0 version
   guardSymbol,
