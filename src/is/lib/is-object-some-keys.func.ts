@@ -5,8 +5,7 @@ import { resultCallback } from '../../lib/result-callback.func';
 // Type.
 import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Checks if any value is an `object` by using the `isObject()` function with some of its keys or some groups of its keys of the
- * `PropertyKey` type.
+ * Checks if any value is an `object`(by using the `isObject()`) with some of its keys or some groups of its keys of the `PropertyKey` type.
  * @param value The value of any type to check against an `object` that contains some of its keys or some groups of its keys from
  * a given `keys`.
  * @param keys An `Array` of property names or a two-dimensional `array` of property names to check if the given `value` contains some of
@@ -33,14 +32,14 @@ export const isObjectSomeKeys = <
 ): value is Obj =>
   callback(
     isObject(value) && isArray(keys)
-    ? keys.some((someKey) =>
-        isArray(someKey)
-          ? someKey.every((everyKey) =>
-              ({}.hasOwnProperty.call(value, everyKey))
-            )
-          : {}.hasOwnProperty.call(value, someKey) === true
-      )
-    : false,
+      ? keys.some((someKey) =>
+          isArray(someKey)
+            ? someKey.every((everyKey) =>
+                ({}.hasOwnProperty.call(value, everyKey))
+              )
+            : {}.hasOwnProperty.call(value, someKey) === true
+        )
+      : false,
     value,
     { ...payload, keys } as any
   );

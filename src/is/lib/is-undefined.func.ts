@@ -16,5 +16,4 @@ export const isUndefined = <Payload extends object>(
   value: any,
   callback: ResultCallback<any, Payload> = resultCallback,
   payload?: Payload
-): value is undefined =>
-  callback(typeof value === 'undefined', value, payload);
+): value is undefined => callback(typeof value === 'undefined', value, payload);

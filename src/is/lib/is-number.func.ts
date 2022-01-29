@@ -5,7 +5,7 @@ import { typeOf } from '../../lib/type-of.func';
 import { AnyNumber } from '../../type/any-number.type';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Checks if any value is a `number` type, or the type obtained from its `Object.prototype` equal to `'number'` or an `object` type
+ * Checks if any value is a `number` type, or the type obtained from its object class equal to `'number'` or an `object` type
  * and an instance of `Number`. The value is also checked by the `Number.isFinite()` method to determine whether it's finite and is
  * validated by the `Number.isNaN()` method.
  * @param value The value of any type to check.
@@ -27,10 +27,10 @@ export const isNumber = <
 ): value is Type =>
   callback(
     (typeof value === 'number' ||
-    ((typeOf(value) === 'number' || typeof value === 'object') &&
-      value instanceof Number)) &&
-    !Number.isNaN(value.valueOf()) &&
-    Number.isFinite(value.valueOf()),
+      ((typeOf(value) === 'number' || typeof value === 'object') &&
+        value instanceof Number)) &&
+      !Number.isNaN(value.valueOf()) &&
+      Number.isFinite(value.valueOf()),
     value,
     payload
   );

@@ -5,10 +5,10 @@ import { resultCallback } from '../../lib/result-callback.func';
 // Type.
 import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Checks if any value is an `object` by using the `isObject()` function with keys of the `PropertyKey` in it(or its prototype chain) by
- * using the `in` operator.
+ * Checks if any value is an `object`(by using the `isObject()`) with keys of the `PropertyKey` in it(or its prototype chain) by using the
+ * `in` operator.
  * @param value The value of any type to check against the `object` that contains(or its prototype chain) keys from the given `keys`.
- * @param key An array of property keys to check if the given `value` contains(or its prototype chain) all of them.
+ * @param key An array of property keys to check if the given `value` contains(or its prototype chain).
  * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this
  * check, and `payload` of generic type variable `Payload`, with the provided `keys` and optional properties from the provided
  * `payload`, to handle them before the `result` return. By default, it uses `resultCallback()` function.

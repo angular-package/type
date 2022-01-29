@@ -7,7 +7,7 @@ import { ResultCallback } from '../../type/result-callback.type';
 /**
  * Checks if any value is an `object`(by using the `isObject()`) with its keys by using `hasOwnProperty()` method of `Object`.
  * @param value The value of any type to check against an `object` that contains its keys from given `keys`.
- * @param keys An `Array` of property keys to check if a given `value` contains all of them.
+ * @param keys An `Array` of property keys to check if a given `value` contains.
  * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this
  * check, and `payload` of generic type variable `Payload`, with the provided `keys` and optional properties from the provided
  * `payload`, to handle them before the `result` return. By default, it uses `resultCallback()` function.
@@ -26,8 +26,8 @@ export const isObjectKeys = <Obj = object, Payload extends object = object>(
 ): value is Obj =>
   callback(
     isObject(value) && isArray(keys)
-    ? keys.every((key) => ({}.hasOwnProperty.call(value, key)))
-    : false,
+      ? keys.every((key) => ({}.hasOwnProperty.call(value, key)))
+      : false,
     value,
     { ...payload, keys } as any
   );

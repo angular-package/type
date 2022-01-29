@@ -4,7 +4,7 @@ import { resultCallback } from '../../lib/result-callback.func';
 // Type.
 import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Checks if any value is an `object` by using the `isObject()` function with a key of the `PropertyKey` in it(or its prototype chain) by
+ * Checks if any value is an `object`(by using the `isObject()`) with a key of the `PropertyKey` in it(or its prototype chain) by
  * using the `in` operator.
  * @param value The value of any type to check against an `object` that contains(or its prototype chain) key from a given `key`.
  * @param key A property key to check if a given `value` contains(or its prototype chain).

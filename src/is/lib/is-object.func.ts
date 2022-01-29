@@ -4,7 +4,7 @@ import { typeOf } from '../../lib/type-of.func';
 // Type.
 import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Checks if any value is an `object` type or the type obtained from its `Object.prototype` equal to `'object'`, and an instance of
+ * Checks if any value is an `object` type or the type obtained from its object class equal to `'object'`, and an instance of
  * `Object`.
  * @param value The value of any type to check.
  * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this
@@ -21,7 +21,7 @@ export const isObject = <Obj = object, Payload extends object = object>(
 ): value is Obj =>
   callback(
     (typeof value === 'object' || typeOf(value) === 'object') &&
-    value instanceof Object,
+      value instanceof Object,
     value,
     payload
   );

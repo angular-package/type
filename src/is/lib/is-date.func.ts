@@ -4,8 +4,8 @@ import { resultCallback } from '../../lib/result-callback.func';
 // Type.
 import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Checks if any value is of the type obtained from its object class equal to `'date'` or an `object` type, and an instance of
- * `Date`. It confirms it's a valid date with `isNaN()` function.
+ * Checks if any value is of the type obtained from its object class equal to `'date'` or an `object` type and an instance of `Date`. It
+ * confirms it's a valid date with the `isNaN()` function.
  * @param value The value of any type to check.
  * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this
  * check, and `payload` of generic type variable `Payload` with optional properties from the provided `payload`, to handle them before

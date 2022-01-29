@@ -4,8 +4,7 @@ import { typeOf } from '../../lib/type-of.func';
 // Type.
 import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Checks if any value is of the type obtained from its `Object.prototype` equal to `'string'` or an `object` type, and an instance of
- * `String`.
+ * Checks if any value is of the type obtained from its object class equal to `'string'` or an `object` type, and an instance of `String`.
  * @param value The value of any type to check.
  * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this
  * check, and `payload` of generic type variable `Payload` with optional properties from the provided `payload`, to handle them before

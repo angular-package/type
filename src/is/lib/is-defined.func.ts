@@ -4,7 +4,7 @@ import { resultCallback } from '../../lib/result-callback.func';
 import { Defined } from '../../type/defined.type';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Checks if any value is not an `undefined` type and is not equal to `undefined`.
+ * Checks if any value is not an `undefined` type and is **not** equal to `undefined`.
  * @param value The value of generic type variable `Type` by default of type captured from itself, to check.
  * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this
  * check, and `payload` of generic type variable `Payload` with optional properties from the provided `payload`, to handle them before

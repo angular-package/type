@@ -34,17 +34,17 @@ export const isType = <T extends Type, Payload extends object = object>(
   payload?: Payload
 ): value is T =>
   isStringType(type)
-  ? {
-      bigint: isBigInt,
-      boolean: isBooleanType,
-      function: isFunction,
-      number: isNumberType,
-      object: isObject,
-      null: isNull,
-      string: isStringType,
-      symbol: isSymbol,
-      undefined: isUndefined,
-    }[type as Primitives](value, callback, payload)
-  : isNotNull(type)
-  ? isInstance(value, type, callback, payload)
-  : false;
+    ? {
+        bigint: isBigInt,
+        boolean: isBooleanType,
+        function: isFunction,
+        number: isNumberType,
+        object: isObject,
+        null: isNull,
+        string: isStringType,
+        symbol: isSymbol,
+        undefined: isUndefined,
+      }[type as Primitives](value, callback, payload)
+    : isNotNull(type)
+    ? isInstance(value, type, callback, payload)
+    : false;

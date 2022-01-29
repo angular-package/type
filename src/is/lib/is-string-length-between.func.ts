@@ -28,13 +28,20 @@ export const isStringLengthBetween = <
   value: any,
   min: Min,
   max: Max,
-  callback: ResultCallback<any, { min: Min, max: Max } & Payload> = resultCallback,
+  callback: ResultCallback<
+    any,
+    { min: Min; max: Max } & Payload
+  > = resultCallback,
   payload?: Payload
 ): value is StringOfLength<Min, Max, Type> =>
   callback(
     isString(value)
-      ? (isNumberType(min) && min >= 0 ? value.valueOf().length >= min : false) &&
-        (isNumberType(max) && max >= 0 ? value.valueOf().length <= max : false)
+      ? (isNumberType(min) && min >= 0
+          ? value.valueOf().length >= min
+          : false) &&
+          (isNumberType(max) && max >= 0
+            ? value.valueOf().length <= max
+            : false)
       : false,
     value,
     { ...payload, min, max } as any

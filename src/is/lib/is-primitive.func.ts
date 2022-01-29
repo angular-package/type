@@ -32,18 +32,18 @@ export const isPrimitive = <
   payload?: Payload
 ): value is Type =>
   isStringType(type)
-  ? {
-      bigint: isBigInt,
-      boolean: isBooleanType,
-      number: isNumberType,
-      null: isNull,
-      string: isStringType,
-      symbol: isSymbol,
-      undefined: isUndefined,
-    }[type](value, callback, payload)
-  : callback(
-      isNull(value) ||
-        (typeof value !== 'object' && typeof value !== 'function'),
-      value,
-      payload
-    );
+    ? {
+        bigint: isBigInt,
+        boolean: isBooleanType,
+        number: isNumberType,
+        null: isNull,
+        string: isStringType,
+        symbol: isSymbol,
+        undefined: isUndefined,
+      }[type](value, callback, payload)
+    : callback(
+        isNull(value) ||
+          (typeof value !== 'object' && typeof value !== 'function'),
+        value,
+        payload
+      );

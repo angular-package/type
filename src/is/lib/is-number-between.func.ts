@@ -30,14 +30,14 @@ export const isNumberBetween = <
   max: Max,
   callback: ResultCallback<
     any,
-    { min: Min, max: Max } & Payload
+    { min: Min; max: Max } & Payload
   > = resultCallback,
   payload?: Payload
 ): value is NumberBetween<Min, Max, Type> =>
   callback(
     isNumber(value)
       ? (isNumberType(min) ? value.valueOf() >= min : false) &&
-        (isNumberType(max) ? value.valueOf() <= max : false)
+          (isNumberType(max) ? value.valueOf() <= max : false)
       : false,
     value,
     { ...payload, min, max } as any
