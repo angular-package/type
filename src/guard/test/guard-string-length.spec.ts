@@ -15,13 +15,14 @@ import { guardStringLength } from '../lib/guard-string-length.func';
  * Initialize testing.
  */
 const testing = new Testing(
-  tests.guard.stringLength.describe,
-  tests.guard.stringLength.it
+  // tests.guard.stringLength.describe,
+  // tests.guard.stringLength.it
+  true, true
 );
 /**
  * Tests.
  */
-testing.describe(guardStringLength.name, () => {
+testing.describe(`guardStringLength()`, () => {
   // Defined.
   testing
     .it('is DEFINED', () => expect(guardStringLength).toBeDefined())
@@ -30,7 +31,7 @@ testing.describe(guardStringLength.name, () => {
     .describe(`guards`, () =>
       testing
         .it('with callback and payload', () => {
-          guardStringLength(TESTING_STRING, 3, undefined, (result, value, payload) => {
+          guardStringLength(TESTING_STRING, 17, (result, value, payload) => {
             expect(result).toBeTrue();
             expect(value).toEqual(TESTING_STRING);
             if (payload) {
@@ -47,40 +48,24 @@ testing.describe(guardStringLength.name, () => {
           testing
             .describe(`string`, () =>
               testing
-                .it(`${TESTING_STRING} minimum 3`, () =>
-                  expect(guardStringLength(TESTING_STRING, 3)).toBeTrue()
+                .it(`${TESTING_STRING}`, () =>
+                  expect(guardStringLength(TESTING_STRING, 17)).toBeTrue()
                 )
-                .it(`${TESTING_STRING} maximum 3`, () =>
-                  expect(guardStringLength(TESTING_STRING, 0, 3)).toBeFalse()
+                .it(`${TESTING_STRING}`, () =>
+                  expect(guardStringLength(TESTING_STRING, 16)).toBeFalse()
                 )
-            )
-            .it(`${TESTING_STRING} minimum 18`, () =>
-              expect(guardStringLength(TESTING_STRING, 18)).toBeFalse()
-            )
-            .it(`${TESTING_STRING} maximum 17`, () =>
-              expect(guardStringLength(TESTING_STRING, 0, 17)).toBeTrue()
-            )
-            .it(`${TESTING_STRING} minimum 5 maximum 21`, () =>
-              expect(guardStringLength(TESTING_STRING, 5, 21)).toBeTrue()
+                .it(`${TESTING_STRING}`, () =>
+                  expect(guardStringLength(TESTING_STRING, 18)).toBeFalse()
+                )
             )
         )
     )
     .describe(`String`, () =>
       testing
-        .it(`new String(${TESTING_STRING}) minimum 3`, () =>
-          expect(guardStringLength(TESTING_STRING_INSTANCE, 3)).toBeTrue()
-        )
-        .it(`new String(${TESTING_STRING}) maximum 3`, () =>
-          expect(guardStringLength(TESTING_STRING_INSTANCE, 0, 3)).toBeFalse()
-        )
-        .it(`new String(${TESTING_STRING}) minimum 18`, () =>
-          expect(guardStringLength(TESTING_STRING_INSTANCE, 18)).toBeFalse()
-        )
-        .it(`new String(${TESTING_STRING}) maximum 17`, () =>
-          expect(guardStringLength(TESTING_STRING_INSTANCE, undefined, 17)).toBeTrue()
-        )
-        .it(`new String(${TESTING_STRING}) minimum 5 maximum 21`, () =>
-          expect(guardStringLength(TESTING_STRING_INSTANCE, 5, 21)).toBeTrue()
+        .it(`new String(${TESTING_STRING})`, () =>
+          (expect(guardStringLength(TESTING_STRING_INSTANCE, 17)).toBeTrue(),
+          expect(guardStringLength(TESTING_STRING_INSTANCE, 16)).toBeFalse(),
+          expect(guardStringLength(TESTING_STRING_INSTANCE, 18)).toBeFalse())
         )
     );
 });
