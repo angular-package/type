@@ -34,9 +34,8 @@ import { tests } from '../../execute-tests';
  * Initialize testing.
  */
 const testing = new Testing(
-  // tests.is.stringLengthBetween.describe,
-  // tests.is.stringLengthBetween.it
-  true, true
+  tests.is.stringLengthBetween.describe,
+  tests.is.stringLengthBetween.it
 );
 /**
  * Tests.
