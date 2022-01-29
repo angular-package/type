@@ -55,6 +55,10 @@ Common types, type guards and type checkers.
 
 <br>
 
+## Documentation
+
+For the detailed documentation go to [**https://type.angular-package.dev/**](https://type.angular-package.dev/)
+
 ## Table of contents
 
 * [Basic concepts](#basic-concepts)
