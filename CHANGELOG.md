@@ -47,8 +47,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### [5.0.0] Changed
 
-- Updated the way of checking values in some of the `is` prefixed functions.
-- Updated `isPrimitive()` and `isType()` function does use switch on the `type` argument.
+- Updated the way of checking values in some of the `is` and `isNot` prefixed functions.
+- Updated `isPrimitive()` and `isType()` function does not use switch on the `type` argument.
 - Updated `guard`, `is`, `isNot` prefixed functions to use updated generic type `ResultCallback` with `payload` parameter of generic type variable `Payload`.
 - Updated `isStringLength()` function to check the specific `length`. [061ab52]
 - Updated `guardStringLength()` function to check the specific `length`. [0e48591]
@@ -60,12 +60,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Updated `isObject()` function by adding the ability to check any kind of object, not only the `Object`. [de6aa12]
 - Updated `NumberBetween` interface by adding `MinMax` interface and a generic type variable `Type`. [1263a2e]
 - Updated `StringOfLength` interface by adding `MinMax` interface and a generic type variable `Type`. [24621f7]
-- Updated `isInstance()` function can now check any kind of instance. [7d288c2] 
+- Updated `isInstance()` function can now check any kind of instance. [7d288c2]
 - Updated `Is` interface by adding `stringLengthBetween`. [26d7a9d] [8ddb720]
 - Updated `Is` interface and `isNot` by changing the function types to the `typeof` operator. [8ddb720] [8ddb720]
 - Updated the type of callback function `ResultCallback` to provide the type of value and the shape of `payload`. [8ddb720] [34a1b1f]
 - Updated functions by adding a generic type variable `Payload` constrained by the `object` type that is by default equal to the `object`. [5c9486f]
-- Updated functions by adding a `payload` parameter of generic type `CallbackPayload` that takes generic type variable `Payload` to assign to callback function `payload` parameter. [6d190f5]
+- Updated functions by adding a `payload` parameter of generic type ~~`CallbackPayload`~~ that takes generic type variable `Payload` to assign to callback function `payload` parameter. [6d190f5]
 - Updated functions by removing `typeOf()` function if it's not necessary to use it. [8ddb720]
 - Updated the `Defined` to not use of `Never` type cause of some compile issues. [e09a84f]
 - Updated the `guard` object by removing `is` property. [aa80250]
