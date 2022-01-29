@@ -1,28 +1,61 @@
 // Function.
 import { guardString } from '../lib/guard-string.func';
-// Constant.
-import { STRING, STRING_NEW_INSTANCE } from '../../testing/src/strict/string.const';
-import { TRUE } from '../../testing/src/strict/boolean.const';
+// Testing.
+import {
+  // Main.
+  Testing,
 
-describe(guardString.name, () => {
-  // Defined.
-  it('is DEFINED', () => expect(guardString).toBeDefined());
+  // Constant.
+  TESTING_STRING,
+  TESTING_STRING_INSTANCE,
+} from '@angular-package/testing';
+// Execute tests.
+import { tests } from '../../execute-tests';
+/**
+ * Initialize testing.
+ */
+const testing = new Testing(
+  tests.guard.string.describe,
+  tests.guard.string.it
+);
+/**
+ * Tests.
+ */
+testing.describe(guardString.name, () => {
+  testing
+    // Defined.
+    .it('is DEFINED', () => expect(guardString).toBeDefined())
 
-  // Checks ...
-  describe(`guards`, () => {
-    it('callback', () => {
-      guardString(STRING, (result: boolean, value: string) => {
-        expect(result).toBe(TRUE);
-        expect(value).toEqual(STRING);
-        return result;
-      });
+    // Checks ...
+    .describe(`guards`, () => {
+      testing
+        .it('with callback and payload', () => {
+          guardString(TESTING_STRING, (result, value, payload) => {
+            expect(result).toBeTrue();
+            expect(value).toEqual(TESTING_STRING);
+            if (payload) {
+              expect(payload.action).toEqual('action');
+              expect(payload.name).toEqual('name');
+              expect(payload.param).toEqual('param');
+            }
+            return result;
+          }, { action: 'action', name: 'name', param: 'param' });
+        })
+        // ... primitives.
+        .describe(`primitive`, () => {
+          testing
+            .describe(`string`, () =>
+              testing.it(`${TESTING_STRING}`, () =>
+                expect(guardString(TESTING_STRING)).toBeTrue()
+              )
+            )
+            .describe(`object`, () =>
+              testing.describe(`String`, () =>
+                testing.it(`new String(${TESTING_STRING})`, () =>
+                  expect(guardString(TESTING_STRING_INSTANCE)).toBeTrue()
+                )
+              )
+            );
+        });
     });
-    // ... primitives.
-    describe(`primitive`, () => {
-      describe(`string`, () => it(`${STRING}`, () => expect(guardString(STRING)).toBe(TRUE)));
-      describe(`object`, () => {
-        describe(`String`, () => it(`new String(${STRING})`, () => expect(guardString(STRING_NEW_INSTANCE)).toBe(TRUE)));
-      })
-    });
-  });
 });

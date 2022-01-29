@@ -1,69 +1,84 @@
 // Function.
 import { isNotBoolean } from '../lib/is-not-boolean.func';
-// Constant.
-import { BIGINT, BIGINT_INSTANCE } from '../../../testing/src/big-int.const';
-import { Class, CLASS } from '../../../testing/src/class.const';
-import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE } from '../../../testing/src/boolean.const';
-import { FUNCTION } from '../../../testing/src/function.const';
-import { NULL } from '../../../testing/src/null.const';
-import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../../testing/src/number.const';
-import { OBJECT_ONE, OBJECT_TWO } from '../../../testing/src/object.const';
-import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../../testing/src/string.const';
-import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../../testing/src/symbol.const';
-import { UNDEFINED } from '../../../testing/src/undefined.const';
-import { notDefined } from '../../../testing/src/not-defined.const';
+// Testing.
+import {
+  // Main.
+  Testing,
 
-describe('isNotBoolean', () => {
-  // TRUE
-  it('is DEFINED', () => {
-    expect(isNotBoolean).toBeDefined();
-  });
-  // FALSE
-  it(`'bigint'`, () => {
-    expect(isNotBoolean(BIGINT)).toBeTrue();
-    expect(isNotBoolean(BIGINT_INSTANCE)).toBeTrue();
-  });
-  it(`Class | CLASS`, () => {
-    expect(isNotBoolean(Class)).toBeTrue();
-    expect(isNotBoolean(CLASS)).toBeTrue();
-  });
-  it(`'function' | Function`, () => {
-    expect(isNotBoolean(FUNCTION)).toBeTrue();
-  });
-  it(`null | NULL`, () => {
-    expect(isNotBoolean(null)).toBeTrue();
-    expect(isNotBoolean(NULL)).toBeTrue();
-  });
-  it(`'number' | Number`, () => {
-    expect(isNotBoolean(NUMBER)).toBeTrue();
-    expect(isNotBoolean(NUMBER_INSTANCE)).toBeTrue();
-    expect(isNotBoolean(NUMBER_NEW_INSTANCE)).toBeTrue();
-  });
-  it(`'object' | Object`, () => {
-    expect(isNotBoolean(OBJECT_ONE)).toBeTrue();
-    expect(isNotBoolean(OBJECT_TWO)).toBeTrue();
-  });
-  it(`'string' | String`, () => {
-    expect(isNotBoolean(STRING)).toBeTrue();
-    expect(isNotBoolean(STRING_INSTANCE)).toBeTrue();
-    expect(isNotBoolean(STRING_NEW_INSTANCE)).toBeTrue();
-  });
-  it(`'symbol'`, () => {
-    expect(isNotBoolean(SYMBOL_NUMBER)).toBeTrue();
-    expect(isNotBoolean(SYMBOL_STRING)).toBeTrue();
-  });
-  it(`'undefined'`, () => {
-    expect(isNotBoolean(notDefined)).toBeTrue();
-    expect(isNotBoolean(UNDEFINED)).toBeTrue();
-  });
+  // Constants.
+  TESTING_BIGINT,
+  TESTING_CLASS,
+  TESTING_FALSE,
+  TESTING_FALSE_INSTANCE,
+  TESTING_FUNCTION,
+  TESTING_NULL,
+  TESTING_NUMBER,
+  TESTING_NUMBER_CONSTRUCTOR,
+  TESTING_NUMBER_INSTANCE,
+  TESTING_OBJECT,
+  TESTING_STRING,
+  TESTING_STRING_CONSTRUCTOR,
+  TESTING_STRING_INSTANCE,
+  TESTING_SYMBOL_NUMBER,
+  TESTING_SYMBOL_STRING,
+  TESTING_TRUE,
+  TESTING_TRUE_INSTANCE,
+  TESTING_UNDEFINED,
 
-  // FALSE
-  it(`'boolean' | Boolean`, () => {
-    expect(isNotBoolean(FALSE)).toBeFalse();
-    expect(isNotBoolean(TRUE)).toBeFalse();
-    expect(isNotBoolean(FALSE_INSTANCE)).toBeFalse();
-    expect(isNotBoolean(TRUE_INSTANCE)).toBeFalse();
-    expect(isNotBoolean(Boolean(false))).toBeFalse();
-    expect(isNotBoolean(Boolean(true))).toBeFalse();
-  });
+  // Class.
+  TestingClass,
+} from '@angular-package/testing';
+// Execute tests.
+import { tests } from '../../../execute-tests';
+/**
+ * Initialize testing.
+ */
+const testing = new Testing(
+  tests.is.not.boolean.describe,
+  tests.is.not.boolean.it
+);
+/**
+ * Tests.
+ */
+testing.describe(isNotBoolean.name, () => {
+  testing
+    // TRUE
+    .it('is DEFINED', () => expect(isNotBoolean).toBeDefined())
+    // FALSE
+    .it(`'bigint'`, () => expect(isNotBoolean(TESTING_BIGINT)).toBeTrue())
+    .it(`Class | CLASS`, () => {
+      expect(isNotBoolean(TestingClass)).toBeTrue();
+      expect(isNotBoolean(TESTING_CLASS)).toBeTrue();
+    })
+    .it(`'function' | Function`, () => expect(isNotBoolean(TESTING_FUNCTION)).toBeTrue())
+    .it(`null | NULL`, () => {
+      expect(isNotBoolean(null)).toBeTrue();
+      expect(isNotBoolean(TESTING_NULL)).toBeTrue();
+    })
+    .it(`'number' | Number`, () => {
+      expect(isNotBoolean(TESTING_NUMBER)).toBeTrue();
+      expect(isNotBoolean(TESTING_NUMBER_CONSTRUCTOR)).toBeTrue();
+      expect(isNotBoolean(TESTING_NUMBER_INSTANCE)).toBeTrue();
+    })
+    .it(`'object' | Object`, () => expect(isNotBoolean(TESTING_OBJECT)).toBeTrue())
+    .it(`'string' | String`, () => {
+      expect(isNotBoolean(TESTING_STRING)).toBeTrue();
+      expect(isNotBoolean(TESTING_STRING_CONSTRUCTOR)).toBeTrue();
+      expect(isNotBoolean(TESTING_STRING_INSTANCE)).toBeTrue();
+    })
+    .it(`'symbol'`, () => {
+      expect(isNotBoolean(TESTING_SYMBOL_NUMBER)).toBeTrue();
+      expect(isNotBoolean(TESTING_SYMBOL_STRING)).toBeTrue();
+    })
+    .it(`'undefined'`, () => expect(isNotBoolean(TESTING_UNDEFINED)).toBeTrue())
+
+    // FALSE
+    .it(`'boolean' | Boolean`, () => {
+      expect(isNotBoolean(TESTING_FALSE)).toBeFalse();
+      expect(isNotBoolean(TESTING_TRUE)).toBeFalse();
+      expect(isNotBoolean(TESTING_FALSE_INSTANCE)).toBeFalse();
+      expect(isNotBoolean(TESTING_TRUE_INSTANCE)).toBeFalse();
+      expect(isNotBoolean(Boolean(false))).toBeFalse();
+      expect(isNotBoolean(Boolean(true))).toBeFalse();
+    });
 });

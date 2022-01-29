@@ -1,46 +1,53 @@
 // Function.
 import { guardArray } from '../lib/guard-array.func';
-// Constant.
+// Testing.
 import {
-  ARRAY_BIGINT,
-  ARRAY_BOOLEAN,
-  ARRAY_CLASS,
-  ARRAY_FUNCTION,
-  ARRAY_NULL,
-  ARRAY_NUMBER,
-  ARRAY_OBJECT_ONE,
-  ARRAY_OBJECT_TWO,
-  ARRAY_STRING,
-  ARRAY_SYMBOL_NUMBER,
-  ARRAY_SYMBOL_STRING,
-  ARRAY_UNDEFINED
-} from '../../testing/src/strict/array.const';
-import { Class } from '../../testing/src/strict/class.const';
-// Type.
-import { Func } from '../../type/func.type';
-// Interface.
-import { ObjectOne, ObjectTwo } from '../../testing/interface';
+  // Main.
+  Testing,
 
-describe(guardArray.name, () => {
-  // TRUE
-  it('is DEFINED', () => {
-    expect(guardArray).toBeDefined();
-  });
+  // Constants.
+  TESTING_ARRAY_BIGINT,
+  TESTING_ARRAY_BOOLEAN,
+  TESTING_ARRAY_CLASS,
+  TESTING_ARRAY_FUNCTION,
+  TESTING_ARRAY_NULL,
+  TESTING_ARRAY_NUMBER,
+  TESTING_ARRAY_OBJECT_ONE,
+  TESTING_ARRAY_STRING,
+  TESTING_ARRAY_SYMBOL_NUMBER,
+  TESTING_ARRAY_SYMBOL_STRING,
+  TESTING_ARRAY_UNDEFINED,
 
-  it('Array<bigint>', () => expect(guardArray<bigint>(ARRAY_BIGINT)).toBeTruthy());
-  it('Array<boolean>', () => expect(guardArray<boolean | Boolean>(ARRAY_BOOLEAN)).toBeTruthy());
-  it('Array<Class>', () => expect(guardArray<Class>(ARRAY_CLASS)).toBeTruthy());
-  it('Array<Func>', () => expect(guardArray<Func>(ARRAY_FUNCTION)).toBeTruthy());
-  it('Array<null>', () => expect(guardArray<null>(ARRAY_NULL)).toBeTruthy());
-  it('Array<number>', () => expect(guardArray<number | Number>(ARRAY_NUMBER)).toBeTruthy());
-  it('Array<ObjectOne> Array<ObjectTwo>', () => {
-    expect(guardArray<ObjectOne>(ARRAY_OBJECT_ONE)).toBeTruthy();
-    expect(guardArray<ObjectTwo>(ARRAY_OBJECT_TWO)).toBeTruthy();
-  });
-  it('Array<string>', () => expect(guardArray<string | String>(ARRAY_STRING)).toBeTruthy());
-  it('Array<symbol>', () => {
-    expect(guardArray<symbol>(ARRAY_SYMBOL_STRING)).toBeTruthy();
-    expect(guardArray<symbol>(ARRAY_SYMBOL_NUMBER)).toBeTruthy();
-  });
-  it('Array<undefined>', () => expect(guardArray<undefined | unknown>(ARRAY_UNDEFINED)).toBeTruthy());
+  // Class.
+  TestingClass,
+} from '@angular-package/testing';
+// Execute tests.
+import { tests } from '../../execute-tests';
+/**
+ * Initialize testing.
+ */
+const testing = new Testing(
+  tests.guard.array.describe,
+  tests.guard.array.it
+);
+/**
+ * Tests.
+ */
+testing.describe(guardArray.name, () => {
+  testing
+    // TRUE
+    .it('is DEFINED', () => expect(guardArray).toBeDefined())
+    .it('Array<bigint>', () => expect(guardArray<bigint>(TESTING_ARRAY_BIGINT)).toBeTruthy())
+    .it('Array<boolean>', () => expect(guardArray<boolean | Boolean>(TESTING_ARRAY_BOOLEAN)).toBeTruthy())
+    .it('Array<TestingClass>', () => expect(guardArray<TestingClass>(TESTING_ARRAY_CLASS)).toBeTruthy())
+    .it('Array<Func>', () => expect(guardArray<Function>(TESTING_ARRAY_FUNCTION)).toBeTruthy())
+    .it('Array<null>', () => expect(guardArray<null>(TESTING_ARRAY_NULL)).toBeTruthy())
+    .it('Array<number>', () => expect(guardArray<number | Number>(TESTING_ARRAY_NUMBER)).toBeTruthy())
+    .it('Array<ObjectOne> Array<ObjectTwo>', () => expect(guardArray(TESTING_ARRAY_OBJECT_ONE)).toBeTruthy())
+    .it('Array<string>', () => expect(guardArray<string | String>(TESTING_ARRAY_STRING)).toBeTruthy())
+    .it('Array<symbol>', () => {
+      expect(guardArray(TESTING_ARRAY_SYMBOL_STRING)).toBeTruthy();
+      expect(guardArray(TESTING_ARRAY_SYMBOL_NUMBER)).toBeTruthy();
+    })
+    .it('Array<undefined>', () => expect(guardArray<undefined | unknown>(TESTING_ARRAY_UNDEFINED)).toBeTruthy());
 });

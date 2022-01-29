@@ -1,24 +1,22 @@
 // Function.
-import { isBooleanObject } from './is-boolean-object.func';
-import { isBooleanType } from './is-boolean-type.func';
+import { isBoolean } from './is-boolean.func';
 import { resultCallback } from '../../lib/result-callback.func';
 // Type.
-import { IsTrue } from '../type/is-true.type';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Checks if any `value` is a `boolean` type not an instance of `Boolean` and `Object`, or
- * is an `object` type and instance of `Boolean` and `Object` and equal to `true`.
- * @param value Any `value` to check.
- * @param callback A `ResultCallback` function to handle the result before returns.
- * @returns A `boolean` indicating whether or not the `value` is a `boolean` equal to `true`.
+ * Checks if any value is a `boolean` type or an instance of `Boolean`(by using the `isBoolean()`) equal to `true`.
+ * @param value The value of any type to check.
+ * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this
+ * check, and `payload` of generic type variable `Payload` with optional properties from the provided `payload`, to handle them before
+ * the `result` return. By default, it uses `resultCallback()` function.
+ * @param payload An optional `object` of the generic type variable `Payload` is assigned to the `payload` of the given `callback` function.
+ * @returns The return value is a `boolean` indicating whether the provided `value` is a `boolean` type or an instance of `Boolean` that is
+ * equal to `true`.
+ * @angularpackage
  */
-export const isTrue: IsTrue = (
+export const isTrue = <Payload extends object>(
   value: any,
-  callback: ResultCallback = resultCallback
+  callback: ResultCallback<any, Payload> = resultCallback,
+  payload?: Payload
 ): value is true =>
-  callback(
-    (isBooleanType(value) && value === true)
-    ||
-    (isBooleanObject(value) && value.valueOf() === true),
-    value
-  );
+  callback(isBoolean(value) ? value.valueOf() === true : false, value, payload);

@@ -1,69 +1,88 @@
 // Function.
 import { guardPrimitive } from '../lib/guard-primitive.func';
-// Constant.
-import { BIGINT, BIGINT_EXPECTATION, BIGINT_INSTANCE } from '../../testing/src/strict/big-int.const';
-import { FALSE, TRUE } from '../../testing/src/strict/boolean.const';
-import { NULL } from '../../testing/src/strict/null.const';
-import { NUMBER } from '../../testing/src/strict/number.const';
-import { STRING } from '../../testing/src/strict/string.const';
-import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/src/strict/symbol.const';
-import { UNDEFINED } from '../../testing/src/strict/undefined.const';
+// Testing.
+import {
+  // Main.
+  Testing,
 
-describe(guardPrimitive.name, () => {
+  // Constant.
+  TESTING_BIGINT,
+  TESTING_FALSE,
+  TESTING_NULL,
+  TESTING_NUMBER,
+  TESTING_STRING,
+  TESTING_SYMBOL_NUMBER,
+  TESTING_SYMBOL_STRING,
+  TESTING_TRUE,
+  TESTING_UNDEFINED,
+} from '@angular-package/testing';
+// Execute tests.
+import { tests } from '../../execute-tests';
+/**
+ * Initialize testing.
+ */
+const testing = new Testing(
+  tests.guard.primitive.describe,
+  tests.guard.primitive.it
+);
+/**
+ * Tests.
+ */
+testing.describe(guardPrimitive.name, () => {
+  testing
   // Defined.
-  it('is DEFINED', () => expect(guardPrimitive).toBeDefined());
+  .it('is DEFINED', () => expect(guardPrimitive).toBeDefined())
 
   // Checks ...
-  describe(`guards`, () => {
-    it('callback', () => {
-      guardPrimitive<string>(STRING, 'string' , (result: boolean, value: string) => {
-        expect(result).toBe(TRUE);
-        expect(value).toEqual(STRING);
+  .describe(`guards`, () => {
+    testing
+    .it('callback', () => {
+      guardPrimitive<string>(TESTING_STRING, 'string' , (result, value, payload) => {
+        expect(result).toBeTrue();
+        if (payload) {
+          expect(value).toEqual(TESTING_STRING);
+        }
         return result;
       });
-    });
+    })
 
     // ... primitives.
-    describe(`primitive`, () => {
+    .describe(`primitive`, () => {
+      testing
       // bigint
-      describe(`bigint`, () => {
-        it(`${BIGINT}`, () => expect(guardPrimitive(BIGINT, 'bigint')).toBe(TRUE));
-        it(`${BIGINT_EXPECTATION}`, () => expect(guardPrimitive(BIGINT_INSTANCE, 'bigint')).toBe(TRUE));
-      });
+      .describe(`bigint`, () => it(`${TESTING_BIGINT}`, () => expect(guardPrimitive(TESTING_BIGINT, 'bigint')).toBeTrue()))
 
       // boolean
-      describe(`boolean`, () => {
-        it(`${TRUE}`, () => expect(guardPrimitive(TRUE, 'boolean')).toBe(TRUE));
-        it(`${FALSE}`, () => expect(guardPrimitive(FALSE, 'boolean')).toBe(TRUE));
-        // it(`${TRUE_EXPECTATION}`, () => expect(guardPrimitive(TRUE_INSTANCE, 'boolean')).toBe(TRUE));
-        // it(`${FALSE_EXPECTATION}`, () => expect(guardPrimitive(FALSE_INSTANCE, 'boolean')).toBe(TRUE));
-      });
+      .describe(`boolean`, () => {
+        testing
+        .it(`${TESTING_TRUE}`, () => expect(guardPrimitive(TESTING_TRUE, 'boolean')).toBeTrue())
+        .it(`${TESTING_FALSE}`, () => expect(guardPrimitive(TESTING_FALSE, 'boolean')).toBeTrue());
+      })
 
       // null
-      it(`${NULL}`, () => expect(guardPrimitive(NULL, 'null')).toBe(TRUE));
+      .it(`${TESTING_NULL}`, () => expect(guardPrimitive(TESTING_NULL, 'null')).toBeTrue())
 
       // number
-      describe(`number`, () => {
-        it(`${NUMBER}`, () => expect(guardPrimitive(NUMBER, 'number')).toBe(TRUE));
-        // it(`Number(${NUMBER})`, () => expect(guardPrimitive(NUMBER_INSTANCE, 'number')).toBe(TRUE));
-        // it(`new Number(${NUMBER})`, () => expect(guardPrimitive(NUMBER_NEW_INSTANCE, 'number')).toBe(TRUE));
-      });
+      .describe(`number`, () => {
+        testing
+        .it(`${TESTING_NUMBER}`, () => expect(guardPrimitive(TESTING_NUMBER, 'number')).toBeTrue());
+      })
 
       // string
-      describe(`string`, () => {
-        it(`${STRING}`, () => expect(guardPrimitive(STRING, 'string')).toBe(TRUE));
-        // it(`String(${STRING})`, () => expect(guardPrimitive(STRING_INSTANCE, 'string')).toBe(TRUE));
-        // it(`new String(${STRING})`, () => expect(guardPrimitive(STRING_NEW_INSTANCE, 'string')).toBe(TRUE));
-      });
+      .describe(`string`, () => {
+        testing
+        .it(`${TESTING_STRING}`, () => expect(guardPrimitive(TESTING_STRING, 'string')).toBeTrue());
+      })
 
       // symbol
-      describe(`symbol`, () => {
-        it(`Symbol(${NUMBER})`, () => expect(guardPrimitive(SYMBOL_NUMBER, 'symbol')).toBe(TRUE));
-        it(`Symbol(${STRING})`, () => expect(guardPrimitive(SYMBOL_STRING, 'symbol')).toBe(TRUE));
-      });
+      .describe(`symbol`, () => {
+        testing
+        .it(`Symbol(${TESTING_NUMBER})`, () => expect(guardPrimitive(TESTING_SYMBOL_NUMBER, 'symbol')).toBeTrue())
+        .it(`Symbol(${TESTING_STRING})`, () => expect(guardPrimitive(TESTING_SYMBOL_STRING, 'symbol')).toBeTrue());
+      })
 
       // undefined
-      it(`${UNDEFINED}`, () => expect(guardPrimitive(UNDEFINED, 'undefined')).toBe(TRUE));
+      .it(`${TESTING_UNDEFINED}`, () => expect(guardPrimitive(TESTING_UNDEFINED, 'undefined')).toBeTrue());
     });
   });
 });

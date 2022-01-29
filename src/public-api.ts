@@ -1,78 +1,101 @@
 /*
- * Public API Surface of type
+ * Public API Surface of type.
  */
-export { typeOf } from './lib/type-of.func';
-
-// `guard` object.
-export { guard } from './guard';
-// `guard` functions.
+/*
+ * Main.
+ */
 export {
-  guardArray,
-  guardBigInt,
-  guardBoolean,
-  guardClass,
-  guardDefined,
-  guardFunction,
-  guardInstance,
-  guardKey,
-  guardNull,
-  guardNumber,
-  guardObject,
-  guardObjectKey,
-  guardObjectKeys,
-  guardPrimitive,
-  guardString,
-  guardSymbol,
-  guardType,
-  guardUndefined,
-} from './guard';
+  // Object.
+  type, // From the 5.0.0 version
 
-// `are` object and functions.
-export { are, areString } from './are';
+  // Function.
+  typeOf
+} from './lib';
 
-// `is` object.
-export { is } from './is';
-
-// `isNot` object.
-export { isNot } from './is/not';
-
-// `is` functions.
+/*
+ * Recognize.
+ */
 export {
+  recognizeValue // From the 5.0.0 version
+} from './recognize';
+
+/*
+ * Are.
+ */
+export {
+  // Object.
+  are,
+
+  // Function.
+  areBigInt,
+  areBoolean,
+  areDate,
+  areDefined,
+  areFalse,
+  areNull,
+  areNumber,
+  areRegExp,
+  areString,
+  areSymbol,
+  areTrue,
+  areUndefined,
+} from './are';
+
+/*
+ * Is.
+ */
+export {
+  // Object.
+  is,
+
+  // Function.
   isArray,
   isBigInt,
   isBoolean,
   isBooleanObject,
   isBooleanType,
   isClass,
-  isDate, // From 4.2.0
+  isDate, // From the 4.2.0 version.
   isDefined,
-  isFalse, // From 4.2.0
+  isFalse, // From the 4.2.0 version.
   isFunction,
   isInstance,
   isKey,
   isNull,
   isNumber,
-  isNumberBetween, // From 4.2.0
+  isNumberBetween, // From the 4.2.0 version.
   isNumberObject,
   isNumberType,
   isObject,
   isObjectKey,
   isObjectKeyIn,
   isObjectKeys,
+  isObjectKeysIn, // From the 5.0.0 version
+  isObjectSomeKeys, // From the 5.0.0 version
+  isParam,
   isPrimitive,
-  isRegExp, // From 4.2.0
+  isRegExp, // From the 4.2.0 version.
   isString,
-  isStringLength, // From 4.2.0
+  isStringIncludes, // From the 5.0.0 version
+  isStringIncludesSome, // From the 5.0.0 version
+  isStringLength, // From the 4.2.0 version.
+  isStringLengthBetween, // From the 5.0.0 version
   isStringObject,
   isStringType,
   isSymbol,
-  isTrue, // From 4.2.0
+  isTrue, // From the 4.2.0 version.
   isType,
   isUndefined,
 } from './is';
 
-// `isNot` functions.
+/*
+ * isNot.
+ */
 export {
+  // Object.
+  isNot,
+
+  // Function.
   isNotBoolean,
   isNotDefined,
   isNotFunction,
@@ -82,23 +105,71 @@ export {
   isNotUndefined,
 } from './is/not';
 
-// Types.
+/*
+ * Guard.
+ */
 export {
-  AnyBoolean,
-  AnyNumber,
-  AnyString,
-  Constructor,
-  CycleHook,
-  Defined,
-  Func,
-  Key,
-  Never,
-  NotUndefined,
-  NumberBetween, // From 4.2.0
-  Primitive,
-  Primitives,
-  ResultCallback,
-  StringOfLength, // From 4.2.0
-  Type,
-  Types,
-} from './type';
+  // Object.
+  guard,
+
+  // Function.
+  guardArray,
+  guardBigInt,
+  guardBoolean,
+  guardClass,
+  guardDate, // From the 5.0.0 version
+  guardDefined,
+  guardFalse, // From the 5.0.0 version
+  guardFunction,
+  guardInstance,
+  guardKey,
+  guardNull,
+  guardNumber,
+  guardNumberBetween, // From the 5.0.0 version
+  guardObject,
+  guardObjectKey,
+  guardObjectKeyIn, // From the 5.0.0 version
+  guardObjectKeysIn, // From the 5.0.0 version
+  guardObjectKeys,
+  guardObjectSomeKeys, // From the 5.0.0 version
+  guardPrimitive,
+  guardRegExp, // From the 5.0.0 version
+  guardString,
+  guardStringLength, // From the 5.0.0 version
+  guardStringLengthBetween, // From the 5.0.0 version
+  guardStringIncludes, // From the 5.0.0 version
+  guardStringIncludesSome, // From the 5.0.0 version
+  guardSymbol,
+  guardTrue, // From the 5.0.0 version
+  guardType,
+  guardUndefined,
+} from './guard';
+
+/*
+ * Interface.
+ */
+export {
+  MinMax  // From the 5.0.0 version
+} from './interface';
+
+/*
+ * Type.
+ */
+export { AnyBoolean } from './type/any-boolean.type';
+export { AnyNumber } from './type/any-number.type';
+export { AnyString } from './type/any-string.type';
+export { CallbackPayload } from './type/callback-payload.type';
+export { Constructor } from './type/constructor.type';
+export { Defined } from './type/defined.type';
+export { ForEachCallback } from './type/foreach-callback.type';
+export { GenericObject } from './type/generic-object.type';
+export { Never } from './type/never.type';
+export { NotUndefined } from './type/not-undefined.type';
+export { NumberBetween } from './type/number-between.type';
+export { Primitive } from './type/primitive.type';
+export { Primitives } from './type/primitives.type';
+export { ResultCallback } from './type/result-callback.type';
+export { StringOfLength } from './type/string-of-length.type';
+export { Type } from './type/type.type';
+export { Types } from './type/types.type';
+export { Undefined } from './type/undefined.type';

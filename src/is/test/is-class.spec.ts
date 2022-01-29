@@ -1,93 +1,123 @@
 // Function.
 import { isClass } from '../lib/is-class.func';
-// Constant.
-import { BIGINT, BIGINT_EXPECTATION, BIGINT_INSTANCE } from '../../testing/src/big-int.const';
-import { Class, CLASS } from '../../testing/src/class.const';
-import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE, FALSE_EXPECTATION, TRUE_EXPECTATION } from '../../testing/src/boolean.const';
-import { FUNCTION } from '../../testing/src/function.const';
-import { NULL } from '../../testing/src/null.const';
-import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../testing/src/number.const';
-import { OBJECT_ONE, OBJECT_TWO, OBJECT_ONE_NEW, OBJECT_TWO_NEW } from '../../testing/src/object.const';
-import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/src/string.const';
-import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/src/symbol.const';
-import { UNDEFINED } from '../../testing/src/undefined.const';
+// Testing.
+import {
+  // Main.
+  Testing,
+
+  // Constants.
+  TESTING_BIGINT,
+  TESTING_CLASS,
+  TESTING_FALSE,
+  TESTING_FALSE_INSTANCE,
+  TESTING_FUNCTION,
+  TESTING_NULL,
+  TESTING_NUMBER,
+  TESTING_NUMBER_CONSTRUCTOR,
+  TESTING_NUMBER_INSTANCE,
+  TESTING_OBJECT,
+  TESTING_STRING,
+  TESTING_STRING_CONSTRUCTOR,
+  TESTING_STRING_INSTANCE,
+  TESTING_SYMBOL_NUMBER,
+  TESTING_SYMBOL_STRING,
+  TESTING_TRUE,
+  TESTING_TRUE_INSTANCE,
+  TESTING_UNDEFINED,
+
+  // Class.
+  TestingClass,
+} from '@angular-package/testing';
+// Execute tests.
+import { tests } from '../../execute-tests';
 /**
- * Checks
- * ✓ typeOf() === 'function' & typeof === 'function' && instanceof Object === true && instanceof Function === true
+ * Initialize testing.
  */
-describe(isClass.name, () => {
+const testing = new Testing(
+  tests.is.class.describe,
+  tests.is.class.it
+);
+/**
+ * Tests.
+ */
+testing.describe(isClass.name, () => {
   // Defined.
-  it('is DEFINED', () => expect(isClass).toBeDefined());
+  testing.it('is DEFINED', () => expect(isClass).toBeDefined())
 
   // Checks ...
-  describe(`checks`, () => {
-    it('callback', () => {
-      isClass(Class, (result: boolean, value: any) => {
-        expect(result).toBe(TRUE);
-        expect(value).toEqual(Class);
+  .describe(`checks`, () => {
+    testing.it('callback', () => {
+      isClass(TestingClass, (result, value, payload) => {
+        expect(result).toBeTrue();
+        if (payload) {
+          expect(value).toEqual(TestingClass);
+        }
         return result;
       });
-    });
+    })
     // ... arrays.
-    describe(`array`, () => {
-      // it(`${FUNCTION}`, () => expect(isClass(FUNCTION, 'function')).toBe(FALSE));
-      // it(`${Class}`, () => expect(isClass(Class, 'function')).toBe(FALSE));
-    });
+    .describe(`array`, () => { })
     // ... function.
-    describe(`function`, () => {
-      it(`FUNCTION`, () => expect(isClass(FUNCTION)).toBe(FALSE));
-      it(`Class`, () => expect(isClass(Class)).toBe(TRUE));
-    });
+    .describe(`function`, () => {
+      testing
+        .it(`TESTING_FUNCTION`, () => expect(isClass(TESTING_FUNCTION)).toBeFalse())
+        .it(`TestingClass`, () => expect(isClass(TestingClass)).toBeTrue());
+    })
     // ... objects.
-    describe('object', () => {
-      it(`CLASS`, () => expect(isClass(CLASS)).toBe(FALSE));
-      it(`OBJECT_ONE`, () => expect(isClass(OBJECT_ONE)).toBe(FALSE));
-      it(`OBJECT_TWO`, () => expect(isClass(OBJECT_TWO)).toBe(FALSE));
-      it(`new Object(OBJECT_ONE_NEW})`, () => expect(isClass(OBJECT_ONE_NEW)).toBe(FALSE));
-      it(`new Object(OBJECT_TWO_NEW})`, () => expect(isClass(OBJECT_TWO_NEW)).toBe(FALSE));
-    });
+    .describe('object', () => {
+      testing
+        .it(`TESTING_CLASS`, () => expect(isClass(TESTING_CLASS)).toBeFalse())
+        .it(`TESTING_OBJECT`, () => expect(isClass(TESTING_OBJECT)).toBeFalse())
+        .it(`new Object(OBJECT_ONE_NEW})`, () => expect(isClass(TESTING_OBJECT)).toBeFalse());
+    })
     // ... primitives.
-    describe(`primitive`, () => {
-      // bigint
-      describe(`bigint`, () => it(`${BIGINT}`, () => expect(isClass(BIGINT)).toBe(FALSE)));
-      // boolean
-      describe(`boolean`, () => {
-        it(`${TRUE}`, () => expect(isClass(TRUE)).toBe(FALSE));
-        it(`${FALSE}`, () => expect(isClass(FALSE)).toBe(FALSE));
-      });
-      // null
-      it(`${NULL}`, () => expect(isClass(NULL)).toBe(FALSE));
-      // number
-      describe(`number`, () => {
-        it(`${NUMBER}`, () => expect(isClass(NUMBER)).toBe(FALSE));
-        it(`Number(${NUMBER})`, () => expect(isClass(NUMBER_INSTANCE)).toBe(FALSE));
-      });
-      // string
-      describe(`string`, () => {
-        it(`${STRING}`, () => expect(isClass(STRING)).toBe(FALSE));
-        it(`String(${STRING})`, () => expect(isClass(STRING_INSTANCE)).toBe(FALSE));
-      });
-      // symbol
-      describe(`symbol`, () => {
-        it(`Symbol(${NUMBER})`, () => expect(isClass(SYMBOL_NUMBER)).toBe(FALSE));
-        it(`Symbol(${STRING})`, () => expect(isClass(SYMBOL_STRING)).toBe(FALSE));
-      });
-      // undefined
-      it(`${UNDEFINED}`, () => expect(isClass(UNDEFINED)).toBe(FALSE));
-      // ... object.
-      describe(`object`, () => {
-        // BigInt
-        describe(`BigInt`, () => it(`${BIGINT_EXPECTATION}`, () => expect(isClass(BIGINT_INSTANCE)).toBe(FALSE)));
-        // Boolean
-        describe(`Boolean`, () => {
-          it(`${TRUE_EXPECTATION}`, () => expect(isClass(TRUE_INSTANCE)).toBe(FALSE));
-          it(`${FALSE_EXPECTATION}`, () => expect(isClass(FALSE_INSTANCE)).toBe(FALSE));
+    .describe(`primitive`, () => {
+      testing
+        // bigint
+        .describe(`bigint`, () => testing.it(`${TESTING_BIGINT}`, () => expect(isClass(TESTING_BIGINT)).toBeFalse()))
+        // boolean
+        .describe(`boolean`, () => {
+          testing
+            .it(`${TESTING_TRUE}`, () => expect(isClass(TESTING_TRUE)).toBeFalse())
+            .it(`${TESTING_FALSE}`, () => expect(isClass(TESTING_FALSE)).toBeFalse());
+        })
+        // null
+        .it(`${TESTING_NULL}`, () => expect(isClass(TESTING_NULL)).toBeFalse())
+        // number
+        .describe(`number`, () => {
+          testing
+            .it(`${TESTING_NUMBER}`, () => expect(isClass(TESTING_NUMBER)).toBeFalse())
+            .it(`Number(${TESTING_NUMBER})`, () => expect(isClass(TESTING_NUMBER_CONSTRUCTOR)).toBeFalse());
+        })
+        // string
+        .describe(`string`, () => {
+          testing
+            .it(`${TESTING_STRING}`, () => expect(isClass(TESTING_STRING)).toBeFalse())
+            .it(`String(${TESTING_STRING})`, () => expect(isClass(TESTING_STRING_CONSTRUCTOR)).toBeFalse());
+        })
+        // symbol
+        .describe(`symbol`, () => {
+          testing
+            .it(`Symbol(${TESTING_NUMBER})`, () => expect(isClass(TESTING_SYMBOL_NUMBER)).toBeFalse())
+            .it(`Symbol(${TESTING_STRING})`, () => expect(isClass(TESTING_SYMBOL_STRING)).toBeFalse());
+        })
+        // undefined
+        .it(`${TESTING_UNDEFINED}`, () => expect(isClass(TESTING_UNDEFINED)).toBeFalse())
+        // ... object.
+        .describe(`object`, () => {
+          testing
+            // BigInt
+            .describe(`BigInt`, () => it(`${TESTING_BIGINT}`, () => expect(isClass(TESTING_BIGINT)).toBeFalse()))
+            // Boolean
+            .describe(`Boolean`, () => {
+              it(`${TESTING_TRUE_INSTANCE}`, () => expect(isClass(TESTING_TRUE_INSTANCE)).toBeFalse());
+              it(`${TESTING_FALSE_INSTANCE}`, () => expect(isClass(TESTING_FALSE_INSTANCE)).toBeFalse());
+            })
+            // Number
+            .describe(`Number`, () => it(`new Number(${TESTING_NUMBER})`, () => expect(isClass(TESTING_NUMBER_INSTANCE)).toBeFalse()))
+            // String
+            .describe(`String`, () => it(`new String(${TESTING_STRING})`, () => expect(isClass(TESTING_STRING_INSTANCE)).toBeFalse()));
         });
-        // Number
-        describe(`Number`, () => it(`new Number(${NUMBER})`, () => expect(isClass(NUMBER_NEW_INSTANCE)).toBe(FALSE)));
-        // String
-        describe(`String`, () => it(`new String(${STRING})`, () => expect(isClass(STRING_NEW_INSTANCE)).toBe(FALSE)));
-      });
     });
   });
 });

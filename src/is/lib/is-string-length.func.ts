@@ -1,37 +1,37 @@
 // Function.
-import { isStringObject } from './is-string-object.func';
-import { isStringType } from './is-string-type.func';
+import { isNumberType } from './is-number-type.func';
+import { isString } from './is-string.func';
 import { resultCallback } from '../../lib/result-callback.func';
-import { typeOf } from '../../lib/type-of.func';
 // Type.
-import { IsStringLength } from '../type/is-string-length.type';
+import { AnyString } from '../../type/any-string.type';
 import { ResultCallback } from '../../type/result-callback.type';
 import { StringOfLength } from '../../type/string-of-length.type';
 /**
- * Checks if any `value` is a `string` type, not instance of `Object` and `String` or `object` type and instance of `String` and `Object`,
- * of a length in the specified range.
- * @param value Any `value` to check.
- * @param min A `number` of the minimum length of the provided `value`.
- * @param max A `number` of the maximum length of the provided `value`.
- * @param callback A `ResultCallback` function to handle the result before returns.
- * @returns A `boolean` indicating whether or not the `value` is a `string` type or `String` instance of length in the specified range.
+ * Checks if any value is a `string` type or an instance of `String`(by using `isString()`) of a specified length.
+ * @param value The value of any type to check.
+ * @param length The length of generic type variable `Length` of a given `value`.
+ * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this
+ * check, and `payload` of generic type variable `Payload`, with the minimum and maximum `length` and optional properties from the
+ * provided `payload`, to handle them before the `result` return. By default, it uses `resultCallback()` function.
+ * @param payload An optional `object` of the generic type variable `Payload` is assigned to the `payload` of the given `callback` function.
+ * @returns The return value is a `boolean` indicating whether the provided `value` is a `string` type or an instance of `String` of the
+ * specified length.
+ * @angularpackage
  */
-export const isStringLength: IsStringLength = <
-  Min extends number,
-  Max extends number
+export const isStringLength = <
+  Type extends AnyString = string,
+  Length extends number = number,
+  Payload extends object = object
 >(
   value: any,
-  min: Min,
-  max: Max,
-  callback: ResultCallback = resultCallback
-): value is StringOfLength<Min, Max> =>
+  length: Length,
+  callback: ResultCallback<any, { length: Length } & Payload> = resultCallback,
+  payload?: Payload
+): value is StringOfLength<Length, Length, Type> =>
   callback(
-    typeOf(value) === 'string' &&
-      ((isStringType(value)
-        ? value.length >= min && value.length <= max
-        : false) ||
-        (isStringObject(value)
-          ? value.valueOf().length >= min && value.valueOf().length <= max
-          : false)),
-    value
+    isString(value) && isNumberType(length) && length > 0
+      ? value.valueOf().length === length
+      : false,
+    value,
+    { ...payload, length } as any
   );

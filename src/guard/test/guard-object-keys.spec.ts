@@ -1,102 +1,106 @@
+// Testing.
+import {
+  // Main.
+  Testing,
+
+  // Constant.
+  TESTING_CLASS,
+  TESTING_NUMBER,
+  TESTING_OBJECT,
+  TESTING_SYMBOL_NUMBER,
+  TESTING_SYMBOL_STRING,
+} from '@angular-package/testing';
+// Execute tests.
+import { tests } from '../../execute-tests';
 // Function.
 import { guardObjectKeys } from '../lib/guard-object-keys.func';
-// Constant.
-import { DATA_DESCRIPTOR, OBJECT_ONE, ACCESSOR_DESCRIPTOR } from '../../testing/src/object.const';
-// ... strict
-import { CLASS } from '../../testing/src/strict/class.const';
-import { NUMBER } from '../../testing/src/strict/number.const';
-import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/src/strict/symbol.const';
-import { TRUE, FALSE } from '../../testing/src/strict/boolean.const';
-
-describe(guardObjectKeys.name , () => {
+/**
+ * Initialize testing.
+ */
+const testing = new Testing(
+  tests.guard.objectKeys.describe,
+  tests.guard.objectKeys.it
+);
+/**
+ * Tests.
+ */
+testing.describe(guardObjectKeys.name, () => {
+  testing
   // Defined.
-  it('is DEFINED', () => expect(guardObjectKeys).toBeDefined());
+  .it('is DEFINED', () => expect(guardObjectKeys).toBeDefined())
 
   // Checks ...
-  describe(`guards`, () => {
+  .describe(`guards`, () => {
+    testing
     // ... instance.
-    describe(`instance`, () => {
-      describe(`CLASS`, () => {
+    .describe(`instance`, () => {
+      testing.describe(`TESTING_CLASS`, () => {
+        testing
         // number.
-        it('has number key', () => {
-          expect(guardObjectKeys(CLASS, 1030405027)).toBe(TRUE);
-          expect(guardObjectKeys(CLASS, 5)).toBe(TRUE);
-        });
+        .it('has number key', () => {
+          expect(guardObjectKeys(TESTING_CLASS, [1030405027])).toBeTrue();
+          expect(guardObjectKeys(TESTING_CLASS, [5])).toBeTrue();
+        })
 
-        it('finds getter number', () => expect(guardObjectKeys(CLASS, NUMBER)).toBe(FALSE));
+        .it('finds getter number', () => expect(guardObjectKeys(TESTING_CLASS, [TESTING_NUMBER])).toBeFalse())
 
         // string.
-        it('has string key', () => expect(guardObjectKeys(CLASS, 'surname')).toBe(TRUE));
+        .it('has string key', () => expect(guardObjectKeys(TESTING_CLASS, ['surname'])).toBeTrue())
 
         // symbol.
-        it('finds getter symbol key', () => {
-          expect(guardObjectKeys(CLASS, SYMBOL_NUMBER)).toBe(FALSE);
-          expect(guardObjectKeys(CLASS, SYMBOL_STRING)).toBe(FALSE);
+        .it('finds getter symbol key', () => {
+          expect(guardObjectKeys(TESTING_CLASS, [TESTING_SYMBOL_NUMBER])).toBeFalse();
+          expect(guardObjectKeys(TESTING_CLASS, [TESTING_SYMBOL_STRING])).toBeFalse();
         });
       });
-    });
+    })
 
     // ... objects.
-    describe('object', () => {
-      describe(`descriptor`, () => {
-        it(`DATA_DESCRIPTOR`, () => {
-          // expect(guardObjectKeys(DATA_DESCRIPTOR, ['writable', 'value'], ['get', 'set'])).toBe(TRUE);
-          expect(guardObjectKeys(DATA_DESCRIPTOR, ['writable', 'value'])).toBe(TRUE);
-          expect(guardObjectKeys(DATA_DESCRIPTOR, 'writable', 'value')).toBe(TRUE);
-          // expect(guardObjectKeys(DATA_DESCRIPTOR, ['get', 'set'])).toBe(FALSE);
-          // expect(guardObjectKeys(DATA_DESCRIPTOR, 'get', 'set')).toBe(FALSE);
-          expect(guardObjectKeys(DATA_DESCRIPTOR, ['configurable', 'enumerable'], 'writable', 'value')).toBe(TRUE);
-          expect(guardObjectKeys(DATA_DESCRIPTOR, ['configurable', 'enumerable'], 'value')).toBe(TRUE);
-          expect(guardObjectKeys(DATA_DESCRIPTOR, ['configurable', 'enumerable'], 'writable')).toBe(TRUE);
-        });
-        it(`ACCESSOR_DESCRIPTOR`, () => {
-          // expect(guardObjectKeys(ACCESSOR_DESCRIPTOR, ['writable', 'value'], ['get', 'set'])).toBe(TRUE);
-          // expect(guardObjectKeys(ACCESSOR_DESCRIPTOR, ['configurable', 'enumerable'], 'writable', 'value')).toBe(TRUE);
-          expect(guardObjectKeys(ACCESSOR_DESCRIPTOR, ['configurable', 'enumerable'], 'get')).toBe(TRUE);
-          expect(guardObjectKeys(ACCESSOR_DESCRIPTOR, ['configurable', 'enumerable'], 'set')).toBe(TRUE);
-        });
-      });
-      describe(`OBJECT_ONE`, () => {
+    .describe('object', () => {
+      testing
+      .describe(`TESTING_OBJECT`, () => {
+        testing
         // number.
-        it('has number key', () => {
-          expect(guardObjectKeys(OBJECT_ONE, 1030405027)).toBe(TRUE);
-          expect(guardObjectKeys(OBJECT_ONE, 5)).toBe(TRUE);
-          expect(guardObjectKeys(OBJECT_ONE, NUMBER)).toBe(TRUE);
-        });
+        .it('has number key', () => {
+          expect(guardObjectKeys(TESTING_OBJECT, [1030405027])).toBeTrue();
+          expect(guardObjectKeys(TESTING_OBJECT, [5])).toBeTrue();
+          expect(guardObjectKeys(TESTING_OBJECT, [TESTING_NUMBER])).toBeTrue();
+        })
 
         // string.
-        it('has string key', () => {
-          expect(guardObjectKeys(OBJECT_ONE, 'key as string')).toBe(TRUE);
-          expect(guardObjectKeys(OBJECT_ONE, 'x')).toBe(TRUE);
-        });
+        .it('has string key', () => {
+          expect(guardObjectKeys(TESTING_OBJECT, ['key as string'])).toBeTrue();
+          expect(guardObjectKeys(TESTING_OBJECT, ['x'])).toBeTrue();
+        })
 
         // symbol.
-        it('has symbol key', () => {
-          expect(guardObjectKeys(OBJECT_ONE, SYMBOL_NUMBER, SYMBOL_STRING)).toBe(TRUE);
-          expect(guardObjectKeys(OBJECT_ONE, SYMBOL_STRING)).toBe(TRUE);
+        .it('has symbol key', () => {
+          expect(guardObjectKeys(TESTING_OBJECT, [TESTING_SYMBOL_NUMBER, TESTING_SYMBOL_STRING])).toBeTrue();
+          expect(guardObjectKeys(TESTING_OBJECT, [TESTING_SYMBOL_STRING])).toBeTrue();
         });
       });
-    });
+    })
 
-    describe('object with some and every key', () => {
-      describe(`OBJECT_ONE`, () => {
+    .describe('object with some and every key', () => {
+      testing.describe(`TESTING_OBJECT`, () => {
+        testing
         // number.
-        it('has number key or any key', () => {
-          expect(guardObjectKeys(OBJECT_ONE, 1030405027, 'key as string')).toBe(TRUE);
-          expect(guardObjectKeys(OBJECT_ONE, 5)).toBe(TRUE);
-          expect(guardObjectKeys(OBJECT_ONE, NUMBER)).toBe(TRUE);
-        });
+        .it('has number key or any key', () => {
+          expect(guardObjectKeys(TESTING_OBJECT, [1030405027, 'key as string'])).toBeTrue();
+          expect(guardObjectKeys(TESTING_OBJECT, [5])).toBeTrue();
+          expect(guardObjectKeys(TESTING_OBJECT, [TESTING_NUMBER])).toBeTrue();
+        })
 
         // string.
-        it('has string key', () => {
-          expect(guardObjectKeys(OBJECT_ONE, 'key as string')).toBe(TRUE);
-          expect(guardObjectKeys(OBJECT_ONE, 'x')).toBe(TRUE);
-        });
+        .it('has string key', () => {
+          expect(guardObjectKeys(TESTING_OBJECT, ['key as string'])).toBeTrue();
+          expect(guardObjectKeys(TESTING_OBJECT, ['x'])).toBeTrue();
+        })
 
         // symbol.
-        it('has symbol key', () => {
-          expect(guardObjectKeys(OBJECT_ONE, SYMBOL_NUMBER)).toBe(TRUE);
-          expect(guardObjectKeys(OBJECT_ONE, SYMBOL_STRING)).toBe(TRUE);
+        .it('has symbol key', () => {
+          expect(guardObjectKeys(TESTING_OBJECT, [TESTING_SYMBOL_NUMBER])).toBeTrue();
+          expect(guardObjectKeys(TESTING_OBJECT, [TESTING_SYMBOL_STRING])).toBeTrue();
         });
       });
     });

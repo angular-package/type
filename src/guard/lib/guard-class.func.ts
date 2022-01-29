@@ -1,16 +1,19 @@
 // Function.
 import { isClass } from '../../is/lib/is-class.func';
 // Type.
-import { GuardClass } from '../type/guard-class.type';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Guard the `value` to be a generic `Class` type of `class`.
- * @param value A `Function` type `value`, by default of a generic `Class` type detected from the `value` to guard.
+ * Guards the value to be a `class` of generic type variable `Class`.
+ * @param value The `class` of a generic type variable `Class` to guard.
  * @param callback An optional `ResultCallback` function to handle the result before returns.
- * @returns A `boolean` indicating whether or not the `value` is a generic `class`.
+ * @param payload Optional `object` of generic type variable `Payload` is assigned to the `payload` of the provided `callback` function.
+ * @returns The return value is a `boolean` indicating whether the provided `value` is a `class` of a generic type variable `Class`.
  */
-// tslint:disable-next-line: ban-types
-export const guardClass: GuardClass = <Class extends Function>(
+export const guardClass = <
+  Class extends Function,
+  Payload extends object = object
+>(
   value: Class,
-  callback?: ResultCallback
-): value is Class => isClass<Class>(value, callback);
+  callback?: ResultCallback<Class, Payload>,
+  payload?: Payload
+): value is Class => isClass(value, callback, payload);

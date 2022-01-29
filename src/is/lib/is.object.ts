@@ -1,4 +1,4 @@
-// Import: Function.
+// Function.
 import { isArray } from './is-array.func';
 import { isBigInt } from './is-big-int.func';
 import { isBoolean } from './is-boolean.func';
@@ -20,53 +20,64 @@ import { isObject } from './is-object.func';
 import { isObjectKey } from './is-object-key.func';
 import { isObjectKeyIn } from './is-object-key-in.func';
 import { isObjectKeys } from './is-object-keys.func';
+import { isObjectKeysIn } from './is-object-keys-in.func';
+import { isObjectSomeKeys } from './is-object-some-keys.func';
 import { isPrimitive } from './is-primitive.func';
 import { isRegExp } from './is-regexp.func';
 import { isString } from './is-string.func';
+import { isStringIncludes } from './is-string-includes.func';
+import { isStringIncludesSome } from './is-string-includes-some.func';
 import { isStringLength } from './is-string-length.func';
+import { isStringLengthBetween } from './is-string-length-between.func';
 import { isStringObject } from './is-string-object.func';
 import { isStringType } from './is-string-type.func';
 import { isSymbol } from './is-symbol.func';
+import { isTrue } from './is-true.func';
 import { isType } from './is-type.func';
 import { isUndefined } from './is-undefined.func';
-// Import: Object.
+// Object.
 import { isNot } from '../not/lib/is-not.object';
-// Import: Interface.
+// Interface.
 import { Is } from '../interface/is.interface';
-import { isTrue } from './is-true.func';
-// Export: `is`.
-export const is: Is = {
+/**
+ * The object contains prefixed with is functions and prefixed with isNot functions in property `not`.
+ */
+export const is: Is = Object.freeze({
   array: isArray,
-  bigInt: isBigInt, // deprecated
   bigint: isBigInt,
   boolean: isBoolean,
   booleanObject: isBooleanObject,
   booleanType: isBooleanType,
   class: isClass,
-  date: isDate, // From `4.2.0`
+  date: isDate, // From the `4.2.0` version.
   defined: isDefined,
-  false: isFalse, // From `4.2.0`
+  false: isFalse, // From the `4.2.0` version.
   function: isFunction,
   instance: isInstance,
   key: isKey,
   not: isNot,
   null: isNull,
   number: isNumber,
-  numberBetween: isNumberBetween, // From `4.2.0`
+  numberBetween: isNumberBetween, // From the `4.2.0` version.
   numberObject: isNumberObject,
   numberType: isNumberType,
   object: isObject,
   objectKey: isObjectKey,
   objectKeyIn: isObjectKeyIn,
   objectKeys: isObjectKeys,
+  objectKeysIn: isObjectKeysIn, // From the `5.0.0` version.
+  objectSomeKeys: isObjectSomeKeys, // From the `5.0.0` version.
   primitive: isPrimitive,
-  regexp: isRegExp, // From `4.2.0`
+  regexp: isRegExp, // From the `4.2.0` version.
   string: isString,
-  stringLength: isStringLength, // From `4.2.0`
+  stringIncludes: isStringIncludes, // From the `5.0.0` version.
+  stringIncludesSome: isStringIncludesSome, // From the `5.0.0` version.
+  stringLength: isStringLength, // From the `4.2.0` version.
+  stringLengthBetween: isStringLengthBetween, // From the 5.0.0 version.
   stringObject: isStringObject,
   stringType: isStringType,
   symbol: isSymbol,
-  true: isTrue, // From `4.2.0`
+  true: isTrue, // From the `4.2.0` version.
   type: isType,
   undefined: isUndefined
-};
+});

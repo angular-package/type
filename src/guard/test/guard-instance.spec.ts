@@ -1,59 +1,88 @@
 // Function.
 import { guardInstance } from '../lib/guard-instance.func';
-// Constant.
-import { CLASS, Class, Persons } from '../../testing/src/strict/class.const';
-import { FALSE_EXPECTATION, TRUE_EXPECTATION } from '../../testing/src/strict/boolean.const';
-import { NUMBER } from '../../testing/src/strict/number.const';
-import { NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../testing/src/strict/number.const';
-import { STRING } from '../../testing/src/strict/string.const';
-import { STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/src/strict/string.const';
-import { TRUE, TRUE_INSTANCE, FALSE_INSTANCE, FALSE } from '../../testing/src/strict/boolean.const';
-import { personFunctionConstructor } from '../../testing/src/strict/function.const';
-// Interface.
-import { Person } from '../../testing/interface/person.interface';
+// Testing.
+import {
+  // Main.
+  Testing,
+
+  // Constant.
+  TESTING_CLASS,
+  TESTING_FALSE_INSTANCE,
+  TESTING_NUMBER,
+  TESTING_NUMBER_CONSTRUCTOR,
+  TESTING_NUMBER_INSTANCE,
+  TESTING_STRING,
+  TESTING_STRING_CONSTRUCTOR,
+  TESTING_STRING_INSTANCE,
+  TESTING_TRUE_INSTANCE,
+  TESTING_FUNCTION_CONSTRUCTOR_PERSON,
+  TESTING_PERSON,
+
+  // Class.
+  TestingClass,
+  TestingPerson,
+  TestingPersonShape
+} from '@angular-package/testing';
+// Execute tests.
+import { tests } from '../../execute-tests';
+/**
+ * Initialize testing.
+ */
+const testing = new Testing(
+  tests.guard.instance.describe,
+  tests.guard.instance.it
+);
 /**
  * Tests.
  */
-describe(guardInstance.name , () => {
-  const personInstance: Person = new (personFunctionConstructor as any)('First name', 'Sur name', 27);
-  const personsInstance: Persons = new Persons();
+testing.describe(guardInstance.name, () => {
+  const personInstance: TestingPersonShape = new (TESTING_FUNCTION_CONSTRUCTOR_PERSON as any)('First name', 'Sur name', 27);
+
+  testing
   // Defined.
-  it('is DEFINED', () => expect(guardInstance).toBeDefined());
+  .it('is DEFINED', () => expect(guardInstance).toBeDefined())
 
   // Checks ...
-  describe(`guards`, () => {
-    it('callback', () => {
-      guardInstance(CLASS, Class, (result: boolean, value: Class) => {
-        expect(result).toBe(TRUE);
-        expect(value).toEqual(CLASS);
+  .describe(`guards`, () => {
+    testing
+    .it('callback', () => {
+      guardInstance(TESTING_CLASS, TestingClass, (result, value, payload) => {
+        expect(result).toBeTrue();
+        if (payload) {
+          expect(value).toEqual(TESTING_CLASS);
+        }
         return result;
       });
-    });
+    })
     // ... instance.
-    describe(`instance`, () => {
-      it(`CLASS`, () => expect(guardInstance(CLASS, Class)).toBe(TRUE));
-      it(`class Persons`, () => expect(guardInstance(personsInstance, Persons)).toBe(TRUE));
-      it(`function`, () => expect(guardInstance(personInstance, personFunctionConstructor as any)).toBe(TRUE));
-    });
+    .describe(`instance`, () => {
+      testing
+      .it(`CLASS`, () => expect(guardInstance(TESTING_CLASS, TestingClass)).toBeTrue())
+      .it(`class TestingPerson`, () => expect(guardInstance(TESTING_PERSON, TestingPerson)).toBeTrue())
+      .it(`function`, () => expect(guardInstance(personInstance, TESTING_FUNCTION_CONSTRUCTOR_PERSON as any)).toBeTrue());
+    })
 
     // ... primitives.
-    describe(`primitive`, () => {
+    .describe(`primitive`, () => {
+      testing
       // boolean
-      describe(`boolean`, () => {
-        it(`${TRUE_EXPECTATION}`, () => expect(guardInstance(TRUE_INSTANCE, Boolean)).toBe(FALSE));
-        it(`${FALSE_EXPECTATION}`, () => expect(guardInstance(FALSE_INSTANCE, Boolean)).toBe(FALSE));
-      });
+      .describe(`boolean`, () => {
+        testing
+        .it(`${TESTING_TRUE_INSTANCE}`, () => expect(guardInstance(TESTING_TRUE_INSTANCE, Boolean)).toBeTrue())
+        .it(`${TESTING_FALSE_INSTANCE}`, () => expect(guardInstance(TESTING_FALSE_INSTANCE, Boolean)).toBeTrue());
+      })
 
       // number
-      describe(`number`, () => {
-        it(`Number(${NUMBER})`, () => expect(guardInstance(NUMBER_INSTANCE, Number)).toBe(FALSE));
-        it(`new Number(${NUMBER})`, () => expect(guardInstance(NUMBER_NEW_INSTANCE, Number)).toBe(FALSE));
-      });
+      .describe(`number`, () => {
+        testing
+        .it(`Number(${TESTING_NUMBER})`, () => expect(guardInstance(TESTING_NUMBER_CONSTRUCTOR, Number)).toBeFalse())
+        .it(`new Number(${TESTING_NUMBER})`, () => expect(guardInstance(TESTING_NUMBER_INSTANCE, Number)).toBeTrue());
+      })
 
       // string
-      describe(`string`, () => {
-        it(`String(${STRING})`, () => expect(guardInstance(STRING_INSTANCE, String)).toBe(FALSE));
-        it(`new String(${STRING})`, () => expect(guardInstance(STRING_NEW_INSTANCE, String)).toBe(FALSE));
+      .describe(`string`, () => {
+        it(`String(${TESTING_STRING})`, () => expect(guardInstance(TESTING_STRING_CONSTRUCTOR, String)).toBeFalse());
+        it(`new String(${TESTING_STRING})`, () => expect(guardInstance(TESTING_STRING_INSTANCE, String)).toBeTrue());
       });
     });
   });

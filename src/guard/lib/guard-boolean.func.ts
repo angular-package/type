@@ -2,15 +2,19 @@
 import { isBoolean } from '../../is/lib/is-boolean.func';
 // Type.
 import { AnyBoolean } from '../../type/any-boolean.type';
-import { GuardBoolean } from '../type/guard-boolean.type';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Guard the `value` to be any type of a boolean.
- * @param value An `AnyBoolean` type `value`, by default of type detected from the `value` - to guard.
+ * Guards the value to be `boolean` of any type.
+ * @param value The value of generic type variable `Type` to guard.
  * @param callback An optional `ResultCallback` function to handle the result before returns.
- * @returns A `boolean` indicating whether or not the `value` is a `boolean` type or `Boolean` object.
+ * @param payload Optional `object` of generic type variable `Payload` is assigned to the `payload` of the provided `callback` function.
+ * @returns The return value is a `boolean` indicating whether the `value` is a `boolean` type or an instance of `Boolean`.
  */
-export const guardBoolean: GuardBoolean = <B extends AnyBoolean>(
-  value: B,
-  callback?: ResultCallback
-): value is B => isBoolean(value, callback);
+export const guardBoolean = <
+  Type extends AnyBoolean,
+  Payload extends object = object
+>(
+  value: Type,
+  callback?: ResultCallback<Type, Payload>,
+  payload?: Payload
+): value is Type => isBoolean(value, callback, payload);

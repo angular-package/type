@@ -1,15 +1,16 @@
 // Function.
 import { isNull } from '../../is/lib/is-null.func';
 // Type.
-import { GuardNull } from '../type/guard-null.type';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Guard the `value` to be a `null`.
- * @param value A `null` type `value` to guard.
+ * Guards the value to be `null`.
+ * @param value The value of `null` type to guard.
  * @param callback An optional `ResultCallback` function to handle the result before returns.
- * @returns A `boolean` indicating whether or not the `value` is a `null`.
+ * @param payload Optional `object` of generic type variable `Payload` is assigned to the `payload` of the provided `callback` function.
+ * @returns The return value is a `boolean` indicating whether the `value` is `null`.
  */
-export const guardNull: GuardNull = (
+export const guardNull = <Payload extends object>(
   value: null,
-  callback?: ResultCallback
-): value is null => isNull(value, callback);
+  callback?: ResultCallback<null, Payload>,
+  payload?: Payload
+): value is null => isNull(value, callback, payload);

@@ -1,24 +1,51 @@
 import { guard } from '../lib/guard.object';
-
-describe('`guard`', () => {
-   describe('DEFINED', () => {
-      it('guard', () => expect(guard).toBeDefined());
-      it('guard.is.array()', () => expect(guard.is.array).toBeDefined());
-      it('guard,is.boolean()', () => expect(guard.is.boolean).toBeDefined());
-      it('guard,is.class()', () => expect(guard.is.class).toBeDefined());
-      it('guard,is.defined()', () => expect(guard.is.defined).toBeDefined());
-      it('guard,is.function()', () => expect(guard.is.function).toBeDefined());
-      it('guard,is.instance()', () => expect(guard.is.instance).toBeDefined());
-      it('guard,is.key()', () => expect(guard.is.key).toBeDefined());
-      it('guard,is.null()', () => expect(guard.is.null).toBeDefined());
-      it('guard,is.number()', () => expect(guard.is.number).toBeDefined());
-      it('guard,is.object()', () => expect(guard.is.object).toBeDefined());
-      it('guard,is.objectKey()', () => expect(guard.is.objectKey).toBeDefined());
-      it('guard,is.objectKeys()', () => expect(guard.is.objectKeys).toBeDefined());
-      it('guard,is.primitive()', () => expect(guard.is.primitive).toBeDefined());
-      it('guard,is.string()', () => expect(guard.is.string).toBeDefined());
-      it('guard,is.symbol()', () => expect(guard.is.symbol).toBeDefined());
-      it('guard,is.type()', () => expect(guard.is.type).toBeDefined());
-      it('guard,is.undefined()', () => expect(guard.is.undefined).toBeDefined());
-   });
+// Testing.
+import {
+   // Main.
+   Testing,
+ } from '@angular-package/testing';
+ // Execute tests.
+import { tests } from '../../execute-tests';
+ /**
+  * Initialize testing.
+  */
+const testing = new Testing(
+   tests.object.guard.describe,
+   tests.object.guard.it
+ );
+ /**
+  * Tests.
+  */
+testing.describe(`guard`, () => {
+  testing
+  .describe('DEFINED', () => {
+    testing
+    .it('guard', () => expect(guard).toBeDefined())
+    .it('guard.array()', () => expect(guard.array).toBeDefined())
+    .it('guard.bigint()', () => expect(guard.bigint).toBeDefined())
+    .it('guard.boolean()', () => expect(guard.boolean).toBeDefined())
+    .it('guard.class()', () => expect(guard.class).toBeDefined())
+    .it('guard.defined()', () => expect(guard.defined).toBeDefined())
+    .it('guard.false()', () => expect(guard.false).toBeDefined())
+    .it('guard.function()', () => expect(guard.function).toBeDefined())
+    .it('guard.instance()', () => expect(guard.instance).toBeDefined())
+    .it('guard.key()', () => expect(guard.key).toBeDefined())
+    .it('guard.null()', () => expect(guard.null).toBeDefined())
+    .it('guard.number()', () => expect(guard.number).toBeDefined())
+    .it('guard.numberBetween()', () => expect(guard.numberBetween).toBeDefined())
+    .it('guard.object()', () => expect(guard.object).toBeDefined())
+    .it('guard.objectKey()', () => expect(guard.objectKey).toBeDefined())
+    .it('guard.objectKeyIn()', () => expect(guard.objectKeyIn).toBeDefined())
+    .it('guard.objectKeys()', () => expect(guard.objectKeys).toBeDefined())
+    .it('guard.objectKeysIn()', () => expect(guard.objectKeysIn).toBeDefined())
+    .it('guard.objectSomeKeys()', () => expect(guard.objectSomeKeys).toBeDefined())
+    .it('guard.primitive()', () => expect(guard.primitive).toBeDefined())
+    .it('guard.string()', () => expect(guard.string).toBeDefined())
+    .it('guard.stringIncludes()', () => expect(guard.stringIncludes).toBeDefined())
+    .it('guard.stringIncludesSome()', () => expect(guard.stringIncludesSome).toBeDefined())
+    .it('guard.symbol()', () => expect(guard.symbol).toBeDefined())
+    .it('guard.true()', () => expect(guard.true).toBeDefined())
+    .it('guard.type()', () => expect(guard.type).toBeDefined())
+    .it('guard.undefined()', () => expect(guard.undefined).toBeDefined());
+  });
 });

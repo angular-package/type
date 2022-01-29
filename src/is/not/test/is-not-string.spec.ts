@@ -1,91 +1,114 @@
 // Function.
 import { isNotString } from '../lib/is-not-string.func';
-// Constant.
-import { BIGINT, BIGINT_EXPECTATION, BIGINT_INSTANCE } from '../../../testing/src/big-int.const';
-import { Class, CLASS } from '../../../testing/src/class.const';
-import { FUNCTION } from '../../../testing/src/function.const';
-import { NULL } from '../../../testing/src/null.const';
-import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../../testing/src/number.const';
-import { OBJECT_ONE, OBJECT_TWO, OBJECT_ONE_NEW, OBJECT_TWO_NEW } from '../../../testing/src/object.const';
-import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../../testing/src/string.const';
-import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../../testing/src/symbol.const';
-import { TRUE, TRUE_EXPECTATION, FALSE, TRUE_INSTANCE, FALSE_EXPECTATION, FALSE_INSTANCE } from '../../../testing/src/boolean.const';
-import { UNDEFINED } from '../../../testing/src/undefined.const';
+// Testing.
+import {
+  // Main.
+  Testing,
+
+  // Constants.
+  TESTING_BIGINT,
+  TESTING_CLASS,
+  TESTING_FALSE,
+  TESTING_FALSE_INSTANCE,
+  TESTING_FUNCTION,
+  TESTING_NULL,
+  TESTING_NUMBER,
+  TESTING_NUMBER_CONSTRUCTOR,
+  TESTING_NUMBER_INSTANCE,
+  TESTING_OBJECT,
+  TESTING_STRING,
+  TESTING_STRING_CONSTRUCTOR,
+  TESTING_STRING_INSTANCE,
+  TESTING_SYMBOL_NUMBER,
+  TESTING_SYMBOL_STRING,
+  TESTING_TRUE,
+  TESTING_TRUE_INSTANCE,
+  TESTING_UNDEFINED,
+
+  // Class.
+  TestingClass,
+} from '@angular-package/testing';
+// Execute tests.
+import { tests } from '../../../execute-tests';
 /**
- * Checks
- * ✓ typeOf() = 'string
- * ✓ typeof !== 'string'
- * ✓ instanceof String === false
+ * Initialize testing.
  */
-describe(`isNotString`, () => {
+const testing = new Testing(
+  tests.is.not.string.describe,
+  tests.is.not.string.it
+);
+/**
+ * Tests.
+ */
+testing.describe(isNotString.name, () => {
+  testing
   // Defined.
-  it('is DEFINED', () => expect(isNotString).toBeDefined());
+  .it('is DEFINED', () => expect(isNotString).toBeDefined())
 
   // Checks ...
-  describe(`checks`, () => {
-    it('callback', () => {
-      isNotString(STRING, (result: boolean) => {
-        expect(result).toBe(FALSE);
+  .describe(`checks`, () => {
+    testing
+    .it('callback', () => {
+      isNotString(TESTING_STRING, (result: boolean) => {
+        expect(result).toBe(TESTING_FALSE);
         return result;
       });
-    });
+    })
 
     // ... arrays.
-    describe(`array`, () => {
-      // it(`${FUNCTION}`, () => expect(isNotString(FUNCTION, 'function')).toBe(TRUE));
-      // it(`${Class}`, () => expect(isNotString(Class, 'function')).toBe(TRUE));
-    });
+    .describe(`array`, () => {})
     // ... function.
-    describe(`function`, () => {
-      it(`FUNCTION`, () => expect(isNotString(FUNCTION)).toBe(TRUE));
-      it(`Class`, () => expect(isNotString(Class)).toBe(TRUE));
-    });
+    .describe(`function`, () => {
+      testing
+      .it(`FUNCTION`, () => expect(isNotString(TESTING_FUNCTION)).toBe(TESTING_TRUE))
+      .it(`Class`, () => expect(isNotString(TestingClass)).toBe(TESTING_TRUE));
+    })
     // ... objects.
-    describe('object', () => {
-      it(`CLASS`, () => expect(isNotString(CLASS)).toBe(TRUE));
-      it(`OBJECT_ONE`, () => expect(isNotString(OBJECT_ONE)).toBe(TRUE));
-      it(`OBJECT_TWO`, () => expect(isNotString(OBJECT_TWO)).toBe(TRUE));
-      it(`new Object(OBJECT_ONE_NEW})`, () => expect(isNotString(OBJECT_ONE_NEW)).toBe(TRUE));
-      it(`new Object(OBJECT_TWO_NEW})`, () => expect(isNotString(OBJECT_TWO_NEW)).toBe(TRUE));
-    });
+    .describe('object', () => {
+      testing
+      .it(`CLASS`, () => expect(isNotString(TESTING_CLASS)).toBe(TESTING_TRUE))
+      .it(`OBJECT_ONE`, () => expect(isNotString(TESTING_OBJECT)).toBe(TESTING_TRUE));
+    })
     // ... primitives.
-    describe(`primitive`, () => {
+    .describe(`primitive`, () => {
+      testing
       // bigint
-      describe(`bigint`, () => {
-        it(`${BIGINT}`, () => expect(isNotString(BIGINT)).toBe(TRUE));
-        it(`${BIGINT_EXPECTATION}`, () => expect(isNotString(BIGINT_INSTANCE)).toBe(TRUE));
-      });
+      .describe(`bigint`, () => it(`${TESTING_BIGINT}`, () => expect(isNotString(TESTING_BIGINT)).toBe(TESTING_TRUE)))
 
       // boolean
-      describe(`boolean`, () => {
-        it(`${TRUE}`, () => expect(isNotString(TRUE)).toBe(TRUE));
-        it(`${FALSE}`, () => expect(isNotString(FALSE)).toBe(TRUE));
-        it(`${TRUE_EXPECTATION}`, () => expect(isNotString(TRUE_INSTANCE)).toBe(TRUE));
-        it(`${FALSE_EXPECTATION}`, () => expect(isNotString(FALSE_INSTANCE)).toBe(TRUE));
-      });
+      .describe(`boolean`, () => {
+        testing
+        .it(`${TESTING_TRUE}`, () => expect(isNotString(TESTING_TRUE)).toBe(TESTING_TRUE))
+        .it(`${TESTING_FALSE}`, () => expect(isNotString(TESTING_FALSE)).toBe(TESTING_TRUE))
+        .it(`${TESTING_TRUE_INSTANCE}`, () => expect(isNotString(TESTING_TRUE_INSTANCE)).toBe(TESTING_TRUE))
+        .it(`${TESTING_FALSE_INSTANCE}`, () => expect(isNotString(TESTING_FALSE_INSTANCE)).toBe(TESTING_TRUE));
+      })
 
       // null
-      it(`${NULL}`, () => expect(isNotString(NULL)).toBe(TRUE));
+      .it(`${TESTING_NULL}`, () => expect(isNotString(TESTING_NULL)).toBe(TESTING_TRUE))
 
       // number
-      describe(`number`, () => {
-        it(`${NUMBER}`, () => expect(isNotString(NUMBER)).toBe(TRUE));
-        it(`Number(${NUMBER})`, () => expect(isNotString(NUMBER_INSTANCE)).toBe(TRUE));
-        it(`new Number(${NUMBER})`, () => expect(isNotString(NUMBER_NEW_INSTANCE)).toBe(TRUE));
-      });
+      .describe(`number`, () => {
+        testing
+        .it(`${TESTING_NUMBER}`, () => expect(isNotString(TESTING_NUMBER)).toBe(TESTING_TRUE))
+        .it(`Number(${TESTING_NUMBER})`, () => expect(isNotString(TESTING_NUMBER_CONSTRUCTOR)).toBe(TESTING_TRUE))
+        .it(`new Number(${TESTING_NUMBER})`, () => expect(isNotString(TESTING_NUMBER_INSTANCE)).toBe(TESTING_TRUE));
+      })
       // string
-      describe(`string`, () => {
-        it(`${STRING}`, () => expect(isNotString(STRING)).toBe(FALSE));
-        it(`String(${STRING})`, () => expect(isNotString(STRING_INSTANCE)).toBe(FALSE));
-        it(`new String(${STRING})`, () => expect(isNotString(STRING_NEW_INSTANCE)).toBe(FALSE));
-      });
+      .describe(`string`, () => {
+        testing
+        .it(`${TESTING_STRING}`, () => expect(isNotString(TESTING_STRING)).toBe(TESTING_FALSE))
+        .it(`String(${TESTING_STRING})`, () => expect(isNotString(TESTING_STRING_CONSTRUCTOR)).toBe(TESTING_FALSE))
+        .it(`new String(${TESTING_STRING})`, () => expect(isNotString(TESTING_STRING_INSTANCE)).toBe(TESTING_FALSE));
+      })
       // symbol
-      describe(`symbol`, () => {
-        it(`Symbol(${NUMBER})`, () => expect(isNotString(SYMBOL_NUMBER)).toBe(TRUE));
-        it(`Symbol(${STRING})`, () => expect(isNotString(SYMBOL_STRING)).toBe(TRUE));
-      });
+      .describe(`symbol`, () => {
+        testing
+        .it(`Symbol(${TESTING_NUMBER})`, () => expect(isNotString(TESTING_SYMBOL_NUMBER)).toBe(TESTING_TRUE))
+        .it(`Symbol(${TESTING_STRING})`, () => expect(isNotString(TESTING_SYMBOL_STRING)).toBe(TESTING_TRUE));
+      })
       // undefined
-      it(`${UNDEFINED}`, () => expect(isNotString(UNDEFINED)).toBe(TRUE));
+      .it(`${TESTING_UNDEFINED}`, () => expect(isNotString(TESTING_UNDEFINED)).toBe(TESTING_TRUE));
     });
   });
 });

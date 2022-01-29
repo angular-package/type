@@ -1,21 +1,20 @@
 // Function.
 import { resultCallback } from '../../lib/result-callback.func';
 // Type.
-import { IsStringType } from '../type/is-string-type.type';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Checks if any `value` is a `string` type not instance of `String` and `Object`.
- * @param value Any `value` to check.
- * @param callback A `ResultCallback` function to handle the result before returns.
- * @returns A `boolean` indicating whether or not the value is a `string` type.
+ * Checks if any value is a `string` type.
+ * @param value The value of any type to check.
+ * @param callback A callback `function` of `ResultCallback` type with parameters, the `value` that has been checked, the `result` of this
+ * check, and `payload` of generic type variable `Payload` with optional properties from the provided `payload`, to handle them before
+ * the `result` return. By default, it uses `resultCallback()` function.
+ * @param payload An optional `object` of the generic type variable `Payload` is assigned to the `payload` of the given `callback` function.
+ * @returns The return value is a `boolean` indicating whether the provided `value` is a `string` type.
+ * @angularpackage
  */
-export const isStringType: IsStringType = (
+export const isStringType = <Payload extends object>(
   value: any,
-  callback: ResultCallback = resultCallback
+  callback: ResultCallback<any, Payload> = resultCallback,
+  payload?: Payload
 ): value is string =>
-  callback(
-    value instanceof Object === false &&
-    value instanceof String === false &&
-    typeof value === 'string',
-    value
-  );
+  callback(typeof value === 'string', value, payload);

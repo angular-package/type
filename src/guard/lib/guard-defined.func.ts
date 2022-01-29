@@ -2,15 +2,16 @@
 import { isDefined } from '../../is/lib/is-defined.func';
 // Type.
 import { Defined } from '../../type/defined.type';
-import { GuardDefined } from '../type/guard-defined.type';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Guard the `value` to be defined, not `undefined`.
- * @param value A generic type `value`, by default of `Defined<Type>` type detected from the `value` to guard against `undefined`.
+ * Guards the value to be defined, not `undefined`.
+ * @param value The value of generic type `Defined<Type>`, never undefined type captured from itself to guard against `undefined`.
  * @param callback An optional `ResultCallback` function to handle the result before returns.
- * @returns A `boolean` indicating whether or not the `value` is defined, if `undefined` then returns `never`.
+ * @param payload Optional `object` of generic type variable `Payload` is assigned to the `payload` of the provided `callback` function.
+ * @returns The return value is a `boolean` indicating whether the `value` is defined.
  */
-export const guardDefined: GuardDefined = <Type>(
+export const guardDefined = <Type, Payload extends object = object>(
   value: Defined<Type>,
-  callback?: ResultCallback
-): value is Defined<Type> => isDefined(value, callback);
+  callback?: ResultCallback<Defined<Type>, Payload>,
+  payload?: Payload
+): value is Defined<Type> => isDefined(value, callback, payload);

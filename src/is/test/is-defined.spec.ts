@@ -1,78 +1,96 @@
 // Function.
 import { isDefined } from '../lib/is-defined.func';
-// Constant.
-import { BIGINT, BIGINT_INSTANCE } from '../../testing/src/big-int.const';
-import { Class, CLASS } from '../../testing/src/class.const';
-import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE } from '../../testing/src/boolean.const';
-import { FUNCTION } from '../../testing/src/function.const';
-import { NULL } from '../../testing/src/null.const';
-import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../testing/src/number.const';
-import { OBJECT_ONE, OBJECT_TWO } from '../../testing/src/object.const';
-import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/src/string.const';
-import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/src/symbol.const';
-import { UNDEFINED } from '../../testing/src/undefined.const';
-import { notDefined } from '../../testing/src/not-defined.const';
+// Testing.
+import {
+  // Main.
+  Testing,
 
+  // Constants.
+  TESTING_BIGINT,
+  TESTING_CLASS,
+  TESTING_FALSE,
+  TESTING_FALSE_INSTANCE,
+  TESTING_FUNCTION,
+  TESTING_NULL,
+  TESTING_NUMBER,
+  TESTING_NUMBER_CONSTRUCTOR,
+  TESTING_NUMBER_INSTANCE,
+  TESTING_OBJECT,
+  TESTING_STRING,
+  TESTING_STRING_CONSTRUCTOR,
+  TESTING_STRING_INSTANCE,
+  TESTING_SYMBOL_NUMBER,
+  TESTING_SYMBOL_STRING,
+  TESTING_TRUE,
+  TESTING_TRUE_INSTANCE,
+  TESTING_UNDEFINED,
+
+  // Class.
+  TestingClass,
+} from '@angular-package/testing';
+// Execute tests.
+import { tests } from '../../execute-tests';
 /**
- * Checks
- * ✓ typeof !== 'undefined'
- * ✓ vale !== undefined
+ * Initialize testing.
  */
-describe(isDefined.name, () => {
+const testing = new Testing(
+  tests.is.defined.describe,
+  tests.is.defined.it
+);
+/**
+ * Tests.
+ */
+testing.describe(isDefined.name, () => {
   // TRUE
-  it('is DEFINED', () => expect(isDefined).toBeDefined());
-  it(`'boolean' | Boolean`, () => {
-    expect(isDefined(FALSE)).toBe(TRUE);
-    expect(isDefined(TRUE)).toBe(TRUE);
-    expect(isDefined(FALSE_INSTANCE)).toBe(TRUE);
-    expect(isDefined(TRUE_INSTANCE)).toBe(TRUE);
-    expect(isDefined(Boolean(false))).toBe(TRUE);
-    expect(isDefined(Boolean(true))).toBe(TRUE);
-    isDefined(FALSE, (result: boolean) => {
-      expect(result).toBe(TRUE);
-      return result;
-    });
-  });
-  it(`'bigint'`, () => {
-    expect(isDefined(BIGINT)).toBe(TRUE);
-    expect(isDefined(BIGINT_INSTANCE)).toBe(TRUE);
-  });
-  it(`Class | CLASS`, () => {
-    expect(isDefined(Class)).toBe(TRUE);
-    expect(isDefined(CLASS)).toBe(TRUE);
-  });
-  it(`'function' | Function`, () => expect(isDefined(FUNCTION)).toBe(TRUE));
-  it(`null | NULL`, () => {
-    expect(isDefined(null)).toBe(TRUE);
-    expect(isDefined(NULL)).toBe(TRUE);
-  });
-  it(`'number' | Number`, () => {
-    expect(isDefined(NUMBER)).toBe(TRUE);
-    expect(isDefined(NUMBER_INSTANCE)).toBe(TRUE);
-    expect(isDefined(NUMBER_NEW_INSTANCE)).toBe(TRUE);
-  });
-  it(`'object' | Object`, () => {
-    expect(isDefined(OBJECT_ONE)).toBe(TRUE);
-    expect(isDefined(OBJECT_TWO)).toBe(TRUE);
-  });
-  it(`'string' | String`, () => {
-    expect(isDefined(STRING)).toBe(TRUE);
-    expect(isDefined(STRING_INSTANCE)).toBe(TRUE);
-    expect(isDefined(STRING_NEW_INSTANCE)).toBe(TRUE);
-  });
-  it(`'symbol'`, () => {
-    expect(isDefined(SYMBOL_NUMBER)).toBe(TRUE);
-    expect(isDefined(SYMBOL_STRING)).toBe(TRUE);
-  });
+  testing
+    .it('is DEFINED', () => expect(isDefined).toBeDefined())
+    .it(`'boolean' | Boolean`, () => {
+      expect(isDefined(TESTING_FALSE)).toBeTrue();
+      expect(isDefined(TESTING_TRUE)).toBeTrue();
+      expect(isDefined(TESTING_FALSE_INSTANCE)).toBeTrue();
+      expect(isDefined(TESTING_TRUE_INSTANCE)).toBeTrue();
+      expect(isDefined(Boolean(false))).toBeTrue();
+      expect(isDefined(Boolean(true))).toBeTrue();
+      isDefined(TESTING_FALSE, (result: boolean) => {
+        expect(result).toBeTrue();
+        return result;
+      });
+    })
+    .it(`'bigint'`, () => expect(isDefined(TESTING_BIGINT)).toBeTrue())
+    .it(`TestingClass | TESTING_CLASS`, () => {
+      expect(isDefined(TestingClass)).toBeTrue();
+      expect(isDefined(TESTING_CLASS)).toBeTrue();
+    })
+    .it(`'function' | Function`, () => expect(isDefined(TESTING_FUNCTION)).toBeTrue())
+    .it(`null | TESTING_NULL`, () => {
+      expect(isDefined(null)).toBeTrue();
+      expect(isDefined(TESTING_NULL)).toBeTrue();
+    })
+    .it(`'number' | Number`, () => {
+      expect(isDefined(TESTING_NUMBER)).toBeTrue();
+      expect(isDefined(TESTING_NUMBER_CONSTRUCTOR)).toBeTrue();
+      expect(isDefined(TESTING_NUMBER_INSTANCE)).toBeTrue();
+    })
+    .it(`'object' | Object`, () => expect(isDefined(TESTING_OBJECT)).toBeTrue())
+    .it(`'string' | String`, () => {
+      expect(isDefined(TESTING_STRING)).toBeTrue();
+      expect(isDefined(TESTING_STRING_CONSTRUCTOR)).toBeTrue();
+      expect(isDefined(TESTING_STRING_INSTANCE)).toBeTrue();
+    })
+    .it(`'symbol'`, () => {
+      expect(isDefined(TESTING_SYMBOL_NUMBER)).toBeTrue();
+      expect(isDefined(TESTING_SYMBOL_STRING)).toBeTrue();
+    })
 
-  // FALSE
-  it(`'undefined'`, () => {
-    expect(isDefined(notDefined)).toBe(FALSE);
-    expect(isDefined(UNDEFINED)).toBe(FALSE);
-    isDefined(UNDEFINED, (result: boolean, value: any) => {
-      expect(result).toEqual(FALSE);
-      expect(value).toBeUndefined();
-      return result;
+    // FALSE
+    .it(`'undefined'`, () => {
+      expect(isDefined(TESTING_UNDEFINED)).toBeFalse();
+      isDefined(TESTING_UNDEFINED, (result, value, payload) => {
+        expect(result).toBeFalse();
+        if (payload) {
+          expect(value).toBeUndefined();
+        }
+        return result;
+      });
     });
-  });
 });

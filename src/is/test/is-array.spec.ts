@@ -1,84 +1,110 @@
-import { BIGINT, BIGINT_INSTANCE } from '../../testing/src/big-int.const';
-import { Class } from '../../testing/src/class.const';
-import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE } from '../../testing/src/boolean.const';
-import { FUNCTION } from '../../testing/src/function.const';
-import { Func } from '../../type/func.type';
-import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../testing/src/number.const';
-import { OBJECT_ONE, OBJECT_TWO } from '../../testing/src/object.const';
-import { STRING, STRING_INSTANCE } from '../../testing/src/string.const';
-import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/src/symbol.const';
-import { UNDEFINED } from '../../testing/src/undefined.const';
+// Function.
 import { isArray } from '../lib/is-array.func';
-import { notDefined } from '../../testing/src/not-defined.const';
+// Testing.
 import {
-  ARRAY_BIGINT,
-  ARRAY_BOOLEAN,
-  ARRAY_CLASS,
-  ARRAY_FUNCTION,
-  ARRAY_NULL,
-  ARRAY_NUMBER,
-  ARRAY_OBJECT_ONE,
-  ARRAY_OBJECT_TWO,
-  ARRAY_STRING,
-  ARRAY_SYMBOL_NUMBER,
-  ARRAY_SYMBOL_STRING,
-  ARRAY_UNDEFINED
-} from '../../testing/src/array.const';
-// Interface.
-import { ObjectOne, ObjectTwo } from '../../testing/interface';
+  // Main.
+  Testing,
 
-describe(isArray.name, () => {
+  // Constant.
+  TESTING_ARRAY_BIGINT,
+  TESTING_ARRAY_BOOLEAN,
+  TESTING_ARRAY_CLASS,
+  TESTING_ARRAY_FUNCTION,
+  TESTING_ARRAY_NULL,
+  TESTING_ARRAY_NUMBER,
+  TESTING_ARRAY_OBJECT_ONE,
+  TESTING_ARRAY_STRING,
+  TESTING_ARRAY_SYMBOL_NUMBER,
+  TESTING_ARRAY_SYMBOL_STRING,
+  TESTING_ARRAY_UNDEFINED,
+  TESTING_BIGINT,
+  TESTING_FALSE,
+  TESTING_FALSE_INSTANCE,
+  TESTING_FUNCTION,
+  TESTING_NUMBER,
+  TESTING_NUMBER_CONSTRUCTOR,
+  TESTING_NUMBER_INSTANCE,
+  TESTING_OBJECT,
+  TESTING_STRING,
+  TESTING_STRING_INSTANCE,
+  TESTING_SYMBOL_NUMBER,
+  TESTING_SYMBOL_STRING,
+  TESTING_TRUE,
+  TESTING_TRUE_INSTANCE,
+  TESTING_UNDEFINED,
 
-  // TRUE
-  it('is DEFINED', () => expect(isArray).toBeDefined());
-  it('Array<bigint>', () => expect(isArray<bigint>(ARRAY_BIGINT)).toBe(TRUE));
-  it('Array<boolean>', () => expect(isArray<boolean>(ARRAY_BOOLEAN)).toBe(TRUE));
-  it('Array<Class>', () => expect(isArray<Class>(ARRAY_CLASS)).toBe(TRUE));
-  it('Array<Func>', () => expect(isArray<Func>(ARRAY_FUNCTION)).toBe(TRUE));
-  it('Array<null>', () => expect(isArray<null>(ARRAY_NULL)).toBe(TRUE));
-  it('Array<number>', () => expect(isArray<number>(ARRAY_NUMBER)).toBe(TRUE));
-  it('Array<ObjectOne> Array<ObjectTwo>', () => {
-    expect(isArray<ObjectOne>(ARRAY_OBJECT_ONE)).toBe(TRUE);
-    expect(isArray<ObjectTwo>(ARRAY_OBJECT_TWO)).toBe(TRUE);
-  });
-  it('Array<string>', () => expect(isArray<string>(ARRAY_STRING)).toBe(TRUE));
-  it('Array<symbol>', () => {
-    expect(isArray<symbol>(ARRAY_SYMBOL_STRING)).toBe(TRUE);
-    expect(isArray<symbol>(ARRAY_SYMBOL_NUMBER)).toBe(TRUE);
-  });
-  it('Array<undefined>', () => expect(isArray<undefined>(ARRAY_UNDEFINED)).toBe(TRUE));
+  // Class.
+  TestingClass,
 
-  // FALSE
-  it(`'bigint'`, () => {
-    expect(isArray(BIGINT)).toBe(FALSE);
-    expect(isArray(BIGINT_INSTANCE)).toBe(FALSE);
-  });
-  it(`'boolean' | Boolean`, () => {
-    expect(isArray(FALSE)).toBe(FALSE);
-    expect(isArray(TRUE)).toBe(FALSE);
-    expect(isArray(FALSE_INSTANCE)).toBe(FALSE);
-    expect(isArray(TRUE_INSTANCE)).toBe(FALSE);
-  });
-  it(`'function' | Function`, () => expect(isArray(FUNCTION)).toBe(FALSE));
-  it(`'number' | Number`, () => {
-    expect(isArray(NUMBER)).toBe(FALSE);
-    expect(isArray(NUMBER_INSTANCE)).toBe(FALSE);
-    expect(isArray(NUMBER_NEW_INSTANCE)).toBe(FALSE);
-  });
-  it(`'object' | Object`, () => {
-    expect(isArray(OBJECT_ONE)).toBe(FALSE);
-    expect(isArray(OBJECT_TWO)).toBe(FALSE);
-  });
-  it(`'string' | String`, () => {
-    expect(isArray(STRING)).toBe(FALSE);
-    expect(isArray(STRING_INSTANCE)).toBe(FALSE);
-  });
-  it(`'symbol'`, () => {
-    expect(isArray(SYMBOL_NUMBER)).toBe(FALSE);
-    expect(isArray(SYMBOL_STRING)).toBe(FALSE);
-  });
-  it(`'undefined'`, () => {
-    expect(isArray(notDefined)).toBe(FALSE);
-    expect(isArray(UNDEFINED)).toBe(FALSE);
-  });
+  // Interface.
+  TestingObject,
+} from '@angular-package/testing';
+// Execute tests.
+import { tests } from '../../execute-tests';
+/**
+ * Initialize testing.
+ */
+const testing = new Testing(
+  tests.is.array.describe,
+  tests.is.array.it
+);
+/**
+ * Tests.
+ */
+testing.describe(isArray.name, () => {
+  let TESTING_NOT_DEFINED: unknown;
+  // TESTING_TRUE
+  testing
+    .it('is DEFINED', () => expect(isArray).toBeDefined())
+    .it(`callback and custom payload`, () => {
+      isArray<bigint, { database: string }>(TESTING_ARRAY_BIGINT, (result, value, payload) => (
+        expect(result).toBeTrue(),
+        expect(value).toEqual(TESTING_ARRAY_BIGINT),
+        expect(payload?.database).toEqual('Person'),
+        result
+      ), { database: 'Person' });
+    })
+    .it('Array<bigint>', () => expect(isArray<bigint>(TESTING_ARRAY_BIGINT)).toBeTrue())
+    .it('Array<boolean>', () => expect(isArray<boolean>(TESTING_ARRAY_BOOLEAN)).toBeTrue())
+    .it('Array<TestingClass>', () => expect(isArray<TestingClass>(TESTING_ARRAY_CLASS)).toBeTrue())
+    .it('Array<Func>', () => expect(isArray<Function>(TESTING_ARRAY_FUNCTION)).toBeTrue())
+    .it('Array<null>', () => expect(isArray<null>(TESTING_ARRAY_NULL)).toBeTrue())
+    .it('Array<number>', () => expect(isArray<number>(TESTING_ARRAY_NUMBER)).toBeTrue())
+    .it('Array<ObjectOne> Array<ObjectTwo>', () => (expect(isArray<TestingObject>(TESTING_ARRAY_OBJECT_ONE)).toBeTrue()))
+    .it('Array<string>', () => expect(isArray<string>(TESTING_ARRAY_STRING)).toBeTrue())
+    .it('Array<symbol>', () => (
+      expect(isArray<symbol>(TESTING_ARRAY_SYMBOL_STRING)).toBeTrue(),
+      expect(isArray<symbol>(TESTING_ARRAY_SYMBOL_NUMBER)).toBeTrue()
+    ))
+    .it('Array<undefined>', () => expect(isArray<undefined>(TESTING_ARRAY_UNDEFINED)).toBeTrue())
+
+    // TESTING_FALSE
+    .it(`'bigint'`, () => expect(isArray(TESTING_BIGINT)).toBeFalse())
+    .it(`'boolean' | Boolean`, () => {
+      expect(isArray(TESTING_FALSE)).toBeFalse();
+      expect(isArray(TESTING_TRUE)).toBeFalse();
+      expect(isArray(TESTING_FALSE_INSTANCE)).toBeFalse();
+      expect(isArray(TESTING_TRUE_INSTANCE)).toBeFalse();
+    })
+    .it(`'function' | Function`, () => expect(isArray(TESTING_FUNCTION)).toBeFalse())
+    .it(`'number' | Number`, () => {
+      expect(isArray(TESTING_NUMBER)).toBeFalse();
+      expect(isArray(TESTING_NUMBER_CONSTRUCTOR)).toBeFalse();
+      expect(isArray(TESTING_NUMBER_INSTANCE)).toBeFalse();
+    })
+    .it(`'object' | Object`, () => {
+      expect(isArray(TESTING_OBJECT)).toBeFalse();
+    })
+    .it(`'string' | String`, () => {
+      expect(isArray(TESTING_STRING)).toBeFalse();
+      expect(isArray(TESTING_STRING_INSTANCE)).toBeFalse();
+    })
+    .it(`'symbol'`, () => {
+      expect(isArray(TESTING_SYMBOL_NUMBER)).toBeFalse();
+      expect(isArray(TESTING_SYMBOL_STRING)).toBeFalse();
+    })
+    .it(`'undefined'`, () => (
+      expect(isArray(TESTING_NOT_DEFINED)).toBeFalse(),
+      expect(isArray(TESTING_UNDEFINED)).toBeFalse()
+    ));
 });

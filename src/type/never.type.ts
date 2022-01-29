@@ -1,5 +1,5 @@
 /**
- * A type from the provided generic `Type` variable, besides a type provided in the generic `Not` variable
- * which causes its change to `never`.
+ * A generic type `Never` indicates the generic type variable `Type` is never of the generic type variable `Not`.
+ * It takes generic type variable `Type` constrained by a generic type variable `Not` which constraint causes its change to `never`.
  */
 export type Never<Not, Type> = Type extends Not ? never : Type;

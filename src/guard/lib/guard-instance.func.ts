@@ -2,18 +2,21 @@
 import { isInstance } from '../../is/lib/is-instance.func';
 // Type.
 import { Constructor } from '../../type/constructor.type';
-import { GuardInstance } from '../type/guard-instance.type';
 import { ResultCallback } from '../../type/result-callback.type';
 /**
- * Guard the `value` to be an `object` of a generic `Obj` type and an instance of `Constructor` type.
- * @param value An `object`, by default of a generic `Obj` type detected from the `value`
- * to guard and check if it's a `constructor` instance.
- * @param constructor A class or function that specifies the type of the `constructor`.
+ * Guards the value to be an instance of the given `constructor`.
+ * @param value An `object` of a generic type variable `Obj` to guard and be compared with an instance of a given `constructor`.
+ * @param constructor A `class` or `function` that specifies the type of the `constructor`.
  * @param callback An optional `ResultCallback` function to handle the result before returns.
- * @returns A `boolean` indicating whether or not the `value` is an `instance` of a generic `Obj`.
+ * @param payload Optional `object` of generic type variable `Payload` is assigned to the `payload` of the provided `callback` function.
+ * @returns The return value is a `boolean` indicating whether the `value` is an instance of a given `constructor`.
  */
-export const guardInstance: GuardInstance = <Obj extends object>(
+export const guardInstance = <
+  Obj extends object,
+  Payload extends object = object
+>(
   value: Obj,
   constructor: Constructor<Obj>,
-  callback?: ResultCallback
-): value is Obj => isInstance<Obj>(value, constructor, callback);
+  callback?: ResultCallback<Obj, { ctor: typeof constructor } & Payload>,
+  payload?: Payload
+): value is Obj => isInstance(value, constructor, callback, payload);

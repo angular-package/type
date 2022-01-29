@@ -1,4 +1,6 @@
+// Interface.
 import { GuardIs } from './guard-is.interface';
-export interface Guard extends GuardIs {
-  is: GuardIs;
-}
+/**
+ * The shape of an object with guard functions.
+ */
+export interface Guard extends GuardIs { }

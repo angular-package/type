@@ -1,73 +1,90 @@
-import { BIGINT, BIGINT_INSTANCE } from '../../testing/src/big-int.const';
-import { CLASS, Class } from '../../testing/src/class.const';
-import { FALSE, TRUE, FALSE_INSTANCE, TRUE_INSTANCE } from '../../testing/src/boolean.const';
-import { FUNCTION } from '../../testing/src/function.const';
-import { NULL } from '../../testing/src/null.const';
-import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../testing/src/number.const';
-import { OBJECT_ONE, OBJECT_TWO } from '../../testing/src/object.const';
-import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/src/string.const';
-import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/src/symbol.const';
-import { UNDEFINED } from '../../testing/src/undefined.const';
+// Function.
 import { isBigInt } from '../lib/is-big-int.func';
-import { notDefined } from '../../testing/src/not-defined.const';
-/**
- * Checks
- * ✓ typeof === 'bigint'
- */
-describe(isBigInt.name, () => {
-  // TRUE
-  it('is DEFINED', () => {
-    expect(isBigInt).toBeDefined();
-  });
-  it(`bigint`, () => {
-    expect(isBigInt(BIGINT)).toBe(TRUE);
-    expect(isBigInt(BIGINT_INSTANCE)).toBe(TRUE);
-    isBigInt(BIGINT_INSTANCE, (result: boolean) => {
-      expect(result).toBe(TRUE);
-      return result;
-    });
-  });
+// Testing.
+import {
+  // Main.
+  Testing,
 
-  // FALSE
-  it(`boolean | Boolean`, () => {
-    expect(isBigInt(FALSE)).toBe(FALSE);
-    expect(isBigInt(TRUE)).toBe(FALSE);
-    expect(isBigInt(FALSE_INSTANCE)).toBe(FALSE);
-    expect(isBigInt(TRUE_INSTANCE)).toBe(FALSE);
-    isBigInt(FALSE, (result: boolean) => {
-      expect(result).toBe(FALSE);
-      return result;
-    });
-  });
-  it(`Class | CLASS`, () => {
-    expect(isBigInt(Class)).toBe(FALSE);
-    expect(isBigInt(CLASS)).toBe(FALSE);
-  });
-  it(`function | Function`, () => expect(isBigInt(FUNCTION)).toBe(FALSE));
-  it(`null | NULL`, () => {
-    expect(isBigInt(null)).toBe(FALSE);
-    expect(isBigInt(NULL)).toBe(FALSE);
-  });
-  it(`'number' | Number`, () => {
-    expect(isBigInt(NUMBER)).toBe(FALSE);
-    expect(isBigInt(NUMBER_INSTANCE)).toBe(FALSE);
-    expect(isBigInt(NUMBER_NEW_INSTANCE)).toBe(FALSE);
-  });
-  it(`'object' | Object`, () => {
-    expect(isBigInt(OBJECT_ONE)).toBe(FALSE);
-    expect(isBigInt(OBJECT_TWO)).toBe(FALSE);
-  });
-  it(`'string' | String`, () => {
-    expect(isBigInt(STRING)).toBe(FALSE);
-    expect(isBigInt(STRING_INSTANCE)).toBe(FALSE);
-    expect(isBigInt(STRING_NEW_INSTANCE)).toBe(FALSE);
-  });
-  it(`'symbol'`, () => {
-    expect(isBigInt(SYMBOL_NUMBER)).toBe(FALSE);
-    expect(isBigInt(SYMBOL_STRING)).toBe(FALSE);
-  });
-  it(`'undefined'`, () => {
-    expect(isBigInt(notDefined)).toBe(FALSE);
-    expect(isBigInt(UNDEFINED)).toBe(FALSE);
-  });
-});
+  // Constants.
+  TESTING_BIGINT,
+  TESTING_CLASS,
+  TESTING_FALSE,
+  TESTING_FALSE_INSTANCE,
+  TESTING_FUNCTION,
+  TESTING_NULL,
+  TESTING_NUMBER,
+  TESTING_NUMBER_CONSTRUCTOR,
+  TESTING_NUMBER_INSTANCE,
+  TESTING_OBJECT,
+  TESTING_STRING,
+  TESTING_STRING_CONSTRUCTOR,
+  TESTING_STRING_INSTANCE,
+  TESTING_SYMBOL_NUMBER,
+  TESTING_SYMBOL_STRING,
+  TESTING_TRUE,
+  TESTING_TRUE_INSTANCE,
+  TESTING_UNDEFINED,
+
+  // Class.
+  TestingClass,
+} from '@angular-package/testing';
+// Execute tests.
+import { tests } from '../../execute-tests';
+/**
+ * Initialize testing.
+ */
+const testing = new Testing(
+  tests.is.bigint.describe,
+  tests.is.bigint.it
+);
+/**
+ * Tests.
+ */
+testing.describe(isBigInt.name, () =>
+  testing
+    .toBeInstanceOfFunction(isBigInt)
+    .it(`defined`, () => expect(isBigInt).toBeDefined())
+    .it(`bigint`, () => (
+      expect(isBigInt(TESTING_BIGINT)).toBeTrue(),
+      isBigInt(TESTING_BIGINT, (result: boolean) => {
+        expect(result).toBeTrue();
+        return result;
+      }),
+      expect(isBigInt(1n)).toBeTrue()
+    ))
+    .it(`boolean | Boolean`, () => (
+      expect(isBigInt(TESTING_FALSE)).toBeFalse(),
+      expect(isBigInt(TESTING_TRUE)).toBeFalse(),
+      expect(isBigInt(TESTING_FALSE_INSTANCE)).toBeFalse(),
+      expect(isBigInt(TESTING_TRUE_INSTANCE)).toBeFalse(),
+      isBigInt(TESTING_FALSE, (result: boolean) => {
+        expect(result).toBeFalse();
+        return result;
+      })
+    ))
+    .it(`TestingClass | TESTING_CLASS`, () => (
+      expect(isBigInt(TestingClass)).toBeFalse(),
+      expect(isBigInt(TESTING_CLASS)).toBeFalse()
+    ))
+    .it(`function | Function`, () => expect(isBigInt(TESTING_FUNCTION)).toBeFalse())
+    .it(`null | TESTING_NULL`, () => (
+      expect(isBigInt(null)).toBeFalse(),
+      expect(isBigInt(TESTING_NULL)).toBeFalse()
+    ))
+    .it(`'number' | Number`, () => (
+      expect(isBigInt(TESTING_NUMBER)).toBeFalse(),
+      expect(isBigInt(TESTING_NUMBER_CONSTRUCTOR)).toBeFalse(),
+      expect(isBigInt(TESTING_NUMBER_INSTANCE)).toBeFalse()
+    ))
+    .it(`'object' | Object`, () => expect(isBigInt(TESTING_OBJECT)).toBeFalse())
+    .it(`'string' | String`, () => (
+      expect(isBigInt(TESTING_STRING)).toBeFalse(),
+      expect(isBigInt(TESTING_STRING_CONSTRUCTOR)).toBeFalse(),
+      expect(isBigInt(TESTING_STRING_INSTANCE)).toBeFalse()
+    ))
+    .it(`'symbol'`, () => (
+      expect(isBigInt(TESTING_SYMBOL_NUMBER)).toBeFalse(),
+      expect(isBigInt(TESTING_SYMBOL_STRING)).toBeFalse()
+    ))
+    .it(`'undefined'`, () => expect(isBigInt(TESTING_UNDEFINED)).toBeFalse())
+);

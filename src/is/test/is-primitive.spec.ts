@@ -1,73 +1,111 @@
 // Function.
 import { isPrimitive } from '../lib/is-primitive.func';
-// Constant.
-import { BIGINT, BIGINT_EXPECTATION, BIGINT_INSTANCE } from '../../testing/src/big-int.const';
-import { FALSE, TRUE, TRUE_INSTANCE, FALSE_INSTANCE, FALSE_EXPECTATION, TRUE_EXPECTATION } from '../../testing/src/boolean.const';
-import { NULL } from '../../testing/src/null.const';
-import { NUMBER, NUMBER_INSTANCE, NUMBER_NEW_INSTANCE } from '../../testing/src/number.const';
-import { STRING, STRING_INSTANCE, STRING_NEW_INSTANCE } from '../../testing/src/string.const';
-import { SYMBOL_NUMBER, SYMBOL_STRING } from '../../testing/src/symbol.const';
-import { UNDEFINED } from '../../testing/src/undefined.const';
+// Testing.
+import {
+  // Main.
+  Testing,
 
-describe(isPrimitive.name, () => {
-  // Defined.
-  it('is DEFINED', () => expect(isPrimitive).toBeDefined());
+  // Constant.
+  TESTING_BIGINT,
+  TESTING_FALSE,
+  TESTING_FALSE_INSTANCE,
+  TESTING_NULL,
+  TESTING_NUMBER,
+  TESTING_NUMBER_CONSTRUCTOR,
+  TESTING_NUMBER_INSTANCE,
+  TESTING_STRING,
+  TESTING_STRING_CONSTRUCTOR,
+  TESTING_STRING_INSTANCE,
+  TESTING_SYMBOL_NUMBER,
+  TESTING_SYMBOL_STRING,
+  TESTING_TRUE,
+  TESTING_TRUE_INSTANCE,
+  TESTING_UNDEFINED,
 
-  // Checks ...
-  describe(`checks`, () => {
-    it('callback', () => {
-      isPrimitive<string>(STRING, 'string' , (result: boolean, value: string) => {
-        expect(result).toBe(TRUE);
-        expect(value).toEqual(STRING);
-        return result;
-      });
-    });
+} from '@angular-package/testing';
+// Execute tests.
+import { tests } from '../../execute-tests';
+/**
+ * Initialize testing.
+ */
+const testing = new Testing(
+  tests.is.primitive.describe,
+  tests.is.primitive.it
+);
+/**
+ * Tests.
+ */
+testing.describe(isPrimitive.name, () => {
+  testing
+    // Defined.
+    .it('is DEFINED', () => expect(isPrimitive).toBeDefined())
 
-    // ... primitives.
-    describe(`primitive`, () => {
-      // bigint
-      describe(`bigint`, () => it(`${BIGINT}`, () => expect(isPrimitive(BIGINT, 'bigint')).toBe(TRUE)));
-      // boolean
-      describe(`boolean`, () => {
-        it(`${TRUE}`, () => expect(isPrimitive(TRUE, 'boolean')).toBe(TRUE));
-        it(`${FALSE}`, () => expect(isPrimitive(FALSE, 'boolean')).toBe(TRUE));
-      });
-      // null
-      it(`${NULL}`, () => expect(isPrimitive(NULL, 'null')).toBe(TRUE));
-      // number
-      describe(`number`, () => {
-        it(`${NUMBER}`, () => expect(isPrimitive(NUMBER, 'number')).toBe(TRUE));
-        it(`Number(${NUMBER})`, () => expect(isPrimitive(NUMBER_INSTANCE, 'number')).toBe(TRUE));
-        ;
-      });
-      // string
-      describe(`string`, () => {
-        it(`${STRING}`, () => expect(isPrimitive(STRING, 'string')).toBe(TRUE));
-        it(`String(${STRING})`, () => expect(isPrimitive(STRING_INSTANCE, 'string')).toBe(TRUE));
-        ;
-      });
-      // symbol
-      describe(`symbol`, () => {
-        it(`Symbol(${NUMBER})`, () => expect(isPrimitive(SYMBOL_NUMBER, 'symbol')).toBe(TRUE));
-        it(`Symbol(${STRING})`, () => expect(isPrimitive(SYMBOL_STRING, 'symbol')).toBe(TRUE));
-      });
-      // undefined
-      it(`${UNDEFINED}`, () => expect(isPrimitive(UNDEFINED, 'undefined')).toBe(TRUE));
-      // ... object.
-      describe(`object`, () => {
-        // BigInt
-        describe(`BigInt`, () => it(`${BIGINT_EXPECTATION}`, () => expect(isPrimitive(BIGINT_INSTANCE, 'bigint')).toBe(TRUE)));
-        // Boolean
-        describe(`Boolean`, () => {
-          it(`${TRUE_EXPECTATION}`, () => expect(isPrimitive(TRUE_INSTANCE, 'boolean')).toBe(FALSE));
-          it(`${FALSE_EXPECTATION}`, () => expect(isPrimitive(FALSE_INSTANCE, 'boolean')).toBe(FALSE));
+    // Checks ...
+    .describe(`checks`, () => {
+      testing
+        .it('callback', () => {
+          isPrimitive<string>(TESTING_STRING, 'string' , (result, value, payload) => {
+            expect(result).toBeTrue();
+            if (payload) {
+              expect(value).toEqual(TESTING_STRING);
+            }
+            return result;
           });
-        // Number
-        describe(`Number`, () => it(`new Number(${NUMBER})`, () => expect(isPrimitive(NUMBER_NEW_INSTANCE, 'number')).toBe(FALSE)));
-        // String
-        describe(`String`, () => it(`new String(${STRING})`, () => expect(isPrimitive(STRING_NEW_INSTANCE, 'string')).toBe(FALSE)));
-      });
+        })
 
+        // ... primitives.
+        .describe(`primitive`, () => {
+          testing
+            // bigint
+            .describe(`bigint`, () => testing.it(`${TESTING_BIGINT}`, () => expect(isPrimitive(TESTING_BIGINT, 'bigint')).toBeTrue()))
+            // boolean
+            .describe(`boolean`, () => {
+              testing
+                .it(`${TESTING_TRUE}`, () => expect(isPrimitive(TESTING_TRUE, 'boolean')).toBeTrue())
+                .it(`${TESTING_FALSE}`, () => expect(isPrimitive(TESTING_FALSE, 'boolean')).toBeTrue());
+            })
+            // null
+            .it(`${TESTING_NULL}`, () => expect(isPrimitive(TESTING_NULL, 'null')).toBeTrue())
+            // number
+            .describe(`number`, () => {
+              testing
+                .it(`${TESTING_NUMBER}`, () => expect(isPrimitive(TESTING_NUMBER, 'number')).toBeTrue())
+                .it(`Number(${TESTING_NUMBER})`, () => expect(isPrimitive(TESTING_NUMBER_CONSTRUCTOR, 'number')).toBeTrue());
+            })
+            // string
+            .describe(`string`, () => {
+              testing
+                .it(`${TESTING_STRING}`, () => expect(isPrimitive(TESTING_STRING, 'string')).toBeTrue())
+                .it(`String(${TESTING_STRING})`, () => expect(isPrimitive(TESTING_STRING_CONSTRUCTOR, 'string')).toBeTrue());
+            })
+            // symbol
+            .describe(`symbol`, () => {
+              testing
+                .it(`Symbol(${TESTING_NUMBER})`, () => expect(isPrimitive(TESTING_SYMBOL_NUMBER, 'symbol')).toBeTrue())
+                .it(`Symbol(${TESTING_STRING})`, () => expect(isPrimitive(TESTING_SYMBOL_STRING, 'symbol')).toBeTrue());
+            })
+            // undefined
+            .it(`${TESTING_UNDEFINED}`, () => expect(isPrimitive(TESTING_UNDEFINED, 'undefined')).toBeTrue())
+            // ... object.
+            .describe(`object`, () => {
+              testing
+                // BigInt
+                .describe(`BigInt`, () =>
+                  testing.it(`${TESTING_BIGINT}`, () => expect(isPrimitive(TESTING_BIGINT, 'bigint')).toBeTrue()))
+                // Boolean
+                .describe(`Boolean`, () => {
+                  testing
+                    .it(`${TESTING_TRUE_INSTANCE}`, () => expect(isPrimitive(TESTING_TRUE_INSTANCE, 'boolean')).toBeFalse())
+                    .it(`${TESTING_FALSE_INSTANCE}`, () => expect(isPrimitive(TESTING_FALSE_INSTANCE, 'boolean')).toBeFalse());
+                })
+                // Number
+                .describe(`Number`, () =>
+                  testing.it(`new Number(${TESTING_NUMBER})`, () => expect(isPrimitive(TESTING_NUMBER_INSTANCE, 'number')).toBeFalse()))
+                // String
+                .describe(`String`, () =>
+                  testing.it(`new String(${TESTING_STRING})`, () => expect(isPrimitive(TESTING_STRING_INSTANCE, 'string')).toBeFalse()));
+            });
+
+        });
     });
-  });
 });

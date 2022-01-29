@@ -1,24 +1,48 @@
 // Function.
 import { guardNull } from '../lib/guard-null.func';
-// Constant.
-import { NULL } from '../../testing/src/strict/null.const';
-import { TRUE } from '../../testing/src/strict/boolean.const';
+// Testing.
+import {
+  // Main.
+  Testing,
 
-describe(guardNull.name, () => {
-  // Defined.
-  it('is DEFINED', () => expect(guardNull).toBeDefined());
+  // Constant.
+  TESTING_NULL,
+} from '@angular-package/testing';
+// Execute tests.
+import { tests } from '../../execute-tests';
+/**
+ * Initialize testing.
+ */
+const testing = new Testing(
+  tests.guard.null.describe,
+  tests.guard.null.it
+);
+/**
+ * Tests.
+ */
+testing.describe(guardNull.name, () => {
+  testing
+    // Defined.
+    .it('is DEFINED', () => expect(guardNull).toBeDefined())
 
-  // Checks ...
-  describe(`guards`, () => {
-    it('callback', () => {
-      guardNull(NULL, (result: boolean, value: null) => {
-        expect(result).toBe(TRUE);
-        expect(value).toBeNull();
-        return result;
-      });
+    // Checks ...
+    .describe(`guards`, () => {
+
+      testing
+      .it('with callback and payload', () => {
+        guardNull(TESTING_NULL, (result, value, payload) => {
+          expect(result).toBeTrue();
+          expect(value).toEqual(TESTING_NULL);
+          if (payload) {
+            expect(payload.action).toEqual('action');
+            expect(payload.name).toEqual('name');
+            expect(payload.param).toEqual('param');
+          }
+          return result;
+        }, { action: 'action', name: 'name', param: 'param' });
+      })
+
+      // ... primitives.
+      .describe(`primitive`, () => testing.it(`${TESTING_NULL}`, () => expect(guardNull(TESTING_NULL)).toBeTrue()));
     });
-
-    // ... primitives.
-    describe(`primitive`, () => it(`${NULL}`, () => expect(guardNull(NULL)).toBe(TRUE)));
-  });
 });
