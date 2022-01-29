@@ -24,6 +24,7 @@ import { guardString } from '../lib/guard-string.func';
 import { guardStringIncludes } from '../lib/guard-string-includes.func';
 import { guardStringIncludesSome } from '../lib/guard-string-includes-some.func';
 import { guardStringLength } from '../lib/guard-string-length.func';
+import { guardStringLengthBetween } from '../lib/guard-string-length-between.func';
 import { guardSymbol } from '../lib/guard-symbol.func';
 import { guardTrue } from '../lib/guard-true.func';
 import { guardType } from '../lib/guard-type.func';
@@ -127,9 +128,13 @@ export interface GuardIs {
    */
   stringIncludesSome: typeof guardStringIncludesSome;
   /**
-   * Guards the value to be a `string` of a length between the specified range.
+   * Guards the value to be `string` type or `String` instance of a specified length.
    */
   stringLength: typeof guardStringLength;
+  /**
+   * Guards the value to be `string` or `String` instance of a length between the specified range.
+   */
+  stringLengthBetween: typeof guardStringLengthBetween;
   /**
    * Guards the value to be a `symbol`.
    */
