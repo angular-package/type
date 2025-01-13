@@ -2,8 +2,8 @@
   "name": "@angular-package/type",
   "version": "5.0.0-rc.0",
   "description": "Common types, type guards and type checkers.",
-  "author": "Angular Package <angular-package@wvvw.dev> (https://wvvw.dev)",
-  "homepage": "https://github.com/angular-package/type#readme",
+  "author": "Angular Package <angular-package@wvvw.dev> (https://angular-package.dev)",
+  "homepage": "https://type.angular-package.dev",
   "dependencies": {
     "tslib": "^2.3.0"
   },
@@ -12,7 +12,13 @@
     "registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
-    "@angular-package/testing": "^2.0.0"
+    "@angular-package/testing": "^2.0.0-rc"
+  },
+  "peerDependencies": {
+    "@typescript-package/are": "^1.0.0",
+    "@typescript-package/core": "^1.0.0",
+    "@typescript-package/guard": "^1.0.0",
+    "@typescript-package/is": "^1.0.0"
   },
   "keywords": [
     "array",
